@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-08-22T10:30:54.866Z</updated>
+  <updated>2020-08-22T12:10:00.437Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,215 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>批处理笔记</title>
+    <link href="https://z1r0s.github.io/2020/08/22/pi-chu-li-bi-ji/"/>
+    <id>https://z1r0s.github.io/2020/08/22/pi-chu-li-bi-ji/</id>
+    <published>2020-08-22T11:48:53.000Z</published>
+    <updated>2020-08-22T12:10:00.437Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;批处理文件&quot;&gt;&lt;a href=&quot;#批处理文件&quot; class=&quot;headerlink&quot; title=&quot;批处理文件&quot;&gt;&lt;/a&gt;批处理文件&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="批处理" scheme="https://z1r0s.github.io/categories/%E6%89%B9%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="学习笔记" scheme="https://z1r0s.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="批处理" scheme="https://z1r0s.github.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原型模式</title>
+    <link href="https://z1r0s.github.io/2020/08/22/yuan-xing-mo-shi/"/>
+    <id>https://z1r0s.github.io/2020/08/22/yuan-xing-mo-shi/</id>
+    <published>2020-08-22T11:43:55.000Z</published>
+    <updated>2020-08-22T11:46:12.640Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="原型模式" scheme="https://z1r0s.github.io/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>代理模式</title>
+    <link href="https://z1r0s.github.io/2020/08/22/dai-li-mo-shi/"/>
+    <id>https://z1r0s.github.io/2020/08/22/dai-li-mo-shi/</id>
+    <published>2020-08-22T11:42:26.000Z</published>
+    <updated>2020-08-22T11:43:31.618Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​        代理模式为其他对象提供一种代理以控制对这个对象的访问。&lt;/p&gt;
+&lt;h1 id=&quot;角色与职责&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="代理模式" scheme="https://z1r0s.github.io/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>装饰模式</title>
+    <link href="https://z1r0s.github.io/2020/08/22/zhuang-shi-mo-shi/"/>
+    <id>https://z1r0s.github.io/2020/08/22/zhuang-shi-mo-shi/</id>
+    <published>2020-08-22T11:39:47.000Z</published>
+    <updated>2020-08-22T11:41:43.454Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="装饰模式" scheme="https://z1r0s.github.io/tags/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>策略模式</title>
+    <link href="https://z1r0s.github.io/2020/08/22/ce-lue-mo-shi/"/>
+    <id>https://z1r0s.github.io/2020/08/22/ce-lue-mo-shi/</id>
+    <published>2020-08-22T11:36:10.000Z</published>
+    <updated>2020-08-22T11:39:19.832Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="策略模式" scheme="https://z1r0s.github.io/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>抽象工厂模式</title>
+    <link href="https://z1r0s.github.io/2020/08/22/chou-xiang-gong-han-mo-shi/"/>
+    <id>https://z1r0s.github.io/2020/08/22/chou-xiang-gong-han-mo-shi/</id>
+    <published>2020-08-22T11:30:31.000Z</published>
+    <updated>2020-08-22T11:35:33.648Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​        抽象工厂模式（Abstract Factory
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="抽象工厂模式" scheme="https://z1r0s.github.io/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工厂方法模式</title>
+    <link href="https://z1r0s.github.io/2020/08/22/gong-han-fang-fa-mo-shi/"/>
+    <id>https://z1r0s.github.io/2020/08/22/gong-han-fang-fa-mo-shi/</id>
+    <published>2020-08-22T11:24:47.000Z</published>
+    <updated>2020-08-22T11:29:30.469Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​        工厂方法模式（Factory Method
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="工厂方法模式" scheme="https://z1r0s.github.io/tags/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>CSharp巧用移位运算符获取汉字编码值</title>
@@ -178,7 +387,7 @@
     <link href="https://z1r0s.github.io/2020/08/22/ceasarcipher/"/>
     <id>https://z1r0s.github.io/2020/08/22/ceasarcipher/</id>
     <published>2020-08-22T08:51:42.000Z</published>
-    <updated>2020-08-22T09:17:43.132Z</updated>
+    <updated>2020-08-22T12:13:28.631Z</updated>
     
     <summary type="html">
     
