@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/08/22/demo/</loc>
+    
+    <lastmod>2020-08-22T01:53:11.325Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/02/16/sort-algorithms/</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
@@ -10,6 +17,13 @@
   
   <url>
     <loc>https://z1r0s.github.io/404.html</loc>
+    
+    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/about/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
@@ -30,6 +44,13 @@
   </url>
   
   <url>
+    <loc>https://z1r0s.github.io/contact/index.html</loc>
+    
+    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/friends/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
@@ -37,21 +58,7 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/about/index.html</loc>
-    
-    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://z1r0s.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/contact/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
