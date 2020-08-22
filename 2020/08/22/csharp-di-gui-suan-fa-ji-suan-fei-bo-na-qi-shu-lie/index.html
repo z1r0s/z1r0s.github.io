@@ -4,11 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="CeasarCipher, z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="C#递归算法计算斐波那契数列, z1r0s 安全 Web安全 学习总结">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="凯撒密码​        根据罗马早期纪传体作者盖乌斯·苏维托尼乌斯的记载，凯撒大帝曾用一种移位的方式对军事信息进行加密，后人称这种加密方式为凯撒加密。凯撒密码是一种替换加密的方案，明文中所有字母都在字母表上向后(或向前)按照一个固定数目进">
+    <meta name="description" content="背景兔子数列斐波那契(Fibonacci)在《计算之术》中提出一个问题：
+&amp;emsp;&amp;emsp;在第一个月有一对刚出生的小兔子，在第二个月小兔子变成大兔子并开始怀孕，第三个月大兔子会生下一对小兔子，并且以后每个月都会生下一对小兔子。 如果">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CeasarCipher | z1r0s&#39;blogs</title>
+    <title>C#递归算法计算斐波那契数列 | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -314,13 +315,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        CeasarCipher
+                        C#递归算法计算斐波那契数列
                     </div>
                 </div>
             </div>
@@ -431,16 +432,16 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Ceasar/" target="_blank">
-                            <span class="chip bg-color">Ceasar</span>
+                        <a href="/tags/C/" target="_blank">
+                            <span class="chip bg-color">C#</span>
                         </a>
                         
-                        <a href="/tags/密码学/" target="_blank">
-                            <span class="chip bg-color">密码学</span>
+                        <a href="/tags/算法/" target="_blank">
+                            <span class="chip bg-color">算法</span>
                         </a>
                         
-                        <a href="/tags/古典密码/" target="_blank">
-                            <span class="chip bg-color">古典密码</span>
+                        <a href="/tags/斐波那契数列/" target="_blank">
+                            <span class="chip bg-color">斐波那契数列</span>
                         </a>
                         
                     </div>
@@ -451,12 +452,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/密码学/" class="post-category" target="_blank">
-                            密码学
-                        </a>
-                        
-                        <a href="/categories/密码学/古典密码/" class="post-category" target="_blank">
-                            古典密码
+                        <a href="/categories/算法实例/" class="post-category" target="_blank">
+                            算法实例
                         </a>
                         
                     </div>
@@ -481,7 +478,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    551
+                    549
                 </div>
                 
 
@@ -499,318 +496,98 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h1><p>​        根据罗马早期纪传体作者<strong>盖乌斯·苏维托尼乌斯</strong>的记载，<strong>凯撒大帝</strong>曾用一种移位的方式对军事信息进行加密，后人称这种加密方式为凯撒加密。<strong>凯撒密码</strong>是一种<strong>替换加密</strong>的方案，<strong>明文</strong>中所有字母都在<strong>字母表</strong>上向后(或向前)按照一个固定数目进行偏移后被替换成<strong>密文</strong>。</p>
-<h1 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h1><p>​        <strong>凯撒加密</strong>：</p>
-<p>​        将<strong>26个字母</strong>按顺序进行排列并形成环，将每一位英文字母用其前面(或后面)的第k位字母来表示，替换之后形成新的字符串即为密文。</p>
-<p>​        <strong>举个栗子</strong>：</p>
-<p>​        当明文为：T，偏移量为：3时，使用CeasarCipher如下图所示。</p>
-<p><img src="CeasarCipher.png" alt="CeasarCipher"></p>
-<p>​        以单表替换的角度来解释即为：</p>
-<p>​        明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-<p>​        密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC</p>
-<p>​        明文字母表与密文字母表存在上下的一一对应。当明文为T时，对应密文字母表中的W；解密时也按照一一对应的关系找到每个密文对应的明文即可。</p>
-<p>​        <strong>数学语言描述</strong>：</p>
-<ol>
-<li>首先将字母用数字代替，即：A=0，B=1，C=2，…，Z=25。</li>
-<li>明文空间记为：M</li>
-<li>密文空间记为：C</li>
-<li>密钥空间记为：K<del>m</del></li>
-<li>将偏移量记为：k</li>
-<li>加密操作记为：E<del>(m)</del></li>
-<li>解密操作记为：D<del>(c)</del></li>
-</ol>
-<p>则有：</p>
-<p><strong>加密变换</strong>：<br>$$<br>E_(m_) = (m + k) \ mod \ 26 \ \   ,(m∈M，k∈K)<br>$$<br><strong>解密变换</strong>：<br>$$<br>D_(c_) = (c - k) \ mod \ 26  ,\ \ \  (c∈C，k∈K)<br>$$<br><font color="red">其中：明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合</font></p>
-<h1 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h1><p><strong>程序流程图</strong>：</p>
-<p><img src="CeasarCipherFlowchart.png" alt="CeasarCipherFlowchart"></p>
-<p>注：</p>
+                <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="兔子数列"><a href="#兔子数列" class="headerlink" title="兔子数列"></a>兔子数列</h2><p>斐波那契(Fibonacci)在《计算之术》中提出一个问题：</p>
+<p>&emsp;&emsp;在第一个月有一对刚出生的小兔子，在第二个月小兔子变成大兔子并开始怀孕，第三个月大兔子会生下一对小兔子，并且以后每个月都会生下一对小兔子。 如果每对兔子都经历这样的出生、成熟、生育的过程，并且兔子永远不死，那么兔子的总数是如何变化的？</p>
+<p><strong>关键点</strong>：</p>
 <ul>
-<li><p>第一次输入一个int型数据op，若<code>op==1</code>则执行加密操作，若<code>op==0</code>则执行解密操作，否则结束程序。</p>
-</li>
-<li><p>第二次输入一个字符串，进行加密或解密操作。</p>
-</li>
-<li><p>操作结果后显示加密或解密的结果。</p>
-</li>
+<li>兔子成对出生</li>
+<li>兔子的成长周期和生育周期都为1个月</li>
+<li>所有的兔子都不会死亡，并且可以一直保持生育</li>
 </ul>
-<h1 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h1><p><strong>Ceasar类</strong>：</p>
-<pre class="line-numbers language-C#"><code class="language-C#">namespace DemoCeasar
-{
-    public class Ceasar
-    {
-        #region 加密操作
-        /// <summary>
-        /// Ceasar加密操作
-        /// </summary>
-        /// <param name="plaintext">明文)</param>
-        /// <param name="key">密钥(1-25)</param>
-        /// <returns>密文</returns>
-        internal string EnCrypt(string plaintext, int key)
-        {
-            string ciphertext = null;
-            string str;
-            str = plaintext.ToUpper();
-            foreach(char ch in str)
-            {
-                if(ch >= 'A' && ch <= 'Z')
-                {
-                    ciphertext += (char)('A' + (ch - 'A' + key + 26) % 26);
-                }
-                else
-                {
-                    ciphertext += ch;
-                }
+<p><strong>问题解析</strong>：</p>
+<p>第一个月只有一对兔宝宝，1对兔子</p>
+<p>第二个月兔宝宝变成大兔子，1对兔子</p>
+<p>第三个月大兔子生了一对兔宝宝，2对兔子</p>
+<p>第四个月大兔子继续生一对兔宝宝，小兔子变成大兔子，3对兔子</p>
+<p>……</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp递归算法计算斐波那契数列/数列列表.jpg" alt="数列列表"></center>
 
-            }
+<p><strong>发现规律</strong>：</p>
+<ul>
+<li>前一个月的大兔子对数就是下一个月的小兔子对数</li>
+<li>前一个月的大兔子和小兔子对数的和就是下个月大兔子的对数</li>
+</ul>
+<p>$$<br>f(n)=<br>\begin{cases}<br>1 &amp; n=1\<br>1 &amp; n=2\<br>f(n-1) + f(n-2) &amp;n&gt;2<br>\end{cases}<br>$$</p>
+<p>此为兔子数列（斐波那契数列）</p>
+<p><font color="red"><strong>使用程序怎样来实现斐波那契数列呐？</strong></font></p>
+<h1 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h1><p><strong>编程环境</strong>：</p>
+<ul>
+<li>VS2017</li>
+<li>.Net Framework 4.5</li>
+</ul>
+<p><strong>运行环境</strong>：</p>
+<ul>
+<li>Win10</li>
+</ul>
+<h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><p><strong>界面设计</strong>：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp递归算法计算斐波那契数列/界面设计.png" alt="界面设计"></center>
 
-            return ciphertext;
-        }
-
-        /// <summary>
-        /// Avocat加密（密钥为10）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string AvocatEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, 10);
-        }
-
-        /// <summary>
-        /// ROT13加密（密钥为13）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string ROT13EnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, 13);
-        }
-
-        /// <summary>
-        /// Cassis加密（密钥为-5）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string CassisEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, -5);
-        }
-
-        /// <summary>
-        /// Cassette加密（密钥为-6）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string CassetteEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, -6);
-        }
-
-        #endregion
-
-        #region 解密操作
-        /// <summary>
-        /// Ceasar解密操作
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <param name="key">密钥(1-25)</param>
-        /// <returns>明文</returns>
-        internal string DeCrypt(string ciphertext, int key)
-        {
-            string plaintext = null;
-            string str;
-            str = ciphertext.ToUpper();
-            foreach (char ch in str)
-            {
-                if(ch >= 'A' && ch <= 'Z')
-                {
-                    plaintext += (char)('A' + (ch - 'A' - key + 26) % 26);
-                }
-                else
-                {
-                    plaintext += ch;
-                }
-
-            }
-
-            return plaintext;
-        }
-
-        /// <summary>
-        /// Avocat解密（密钥为10）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string AvocatDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, 10);
-        }
-
-        /// <summary>
-        /// ROT13解密（密钥为13）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string ROT13DeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, 13);
-        }
-
-        /// <summary>
-        /// Cassis解密（密钥为-5）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string CassisDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, -5);
-        }
-
-        /// <summary>
-        /// Cassette解密（密钥为-6）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string CassetteDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, -6);
-        }
-        #endregion
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Ceasar类核心解读：</p>
-<p>​        在ceasar中理解的字母表是一个转轮的形式，但在实际的存储中而是以线性方式存储，所有在本代码中通过使用《初等数论》中的<strong>模运算</strong>来得到移位后的字母。（全部以<strong>“A”</strong>为基准）</p>
-<ol>
-<li>得到<strong>给定字母</strong>与“A”的偏移量</li>
-<li>计算<strong>移位后</strong>对“A”的偏移量</li>
-<li><font color="red">在取模之前先加上一个基数，使之前的计算结果全部以转化为正数</font></li>
-<li><strong>取模运算</strong>得到目标字母相对于“A”的偏移量</li>
-<li>得到相对于“A”偏移字母的ASCII码并将其<strong>强制转化为字母</strong></li>
-</ol>
-<p><strong>Program测试类：</strong></p>
+<p><strong>代码设计</strong>：</p>
 <pre class="line-numbers language-C#"><code class="language-C#">using System;
+using System.Windows.Forms;
 
-namespace DemoCeasar
+namespace Arithmetic
 {
-    class Program
+    public partial class Frm_Main : Form
     {
-        static void Main(string[] args)
+        public Frm_Main()
         {
-            Console.Title = "欢迎使用Ceasar";
-            Console.WriteLine("请输入您期望的操作：(1:加密,0:解密)");
-
-            string str = Console.ReadLine();
-            int op;
-            if(int.TryParse(str,out op))
-            {
-                Ceasar ceasar = new Ceasar();
-
-                if (op == 1)
-                {
-                    Console.WriteLine("请输入明文：(字母串)");
-                    string plaintext = Console.ReadLine();
-                    Console.WriteLine("请输入密钥:(整数)");
-                    int key = Console.Read() - '0';
-
-                    string ciphertext = ceasar.EnCrypt(plaintext, key);
-
-                    Console.WriteLine("{0}加密之后的密文为:{1}",plaintext,ciphertext);
-                }
-                else if(op == 0)
-                {
-                    Console.WriteLine("请输入密文：(字母串)");
-                    string ciphertext = Console.ReadLine();
-                    Console.WriteLine("请输入密钥:(整数)");
-                    int key = Console.Read() - '0';
-
-                    string plaintext = ceasar.DeCrypt(ciphertext, key);
-
-                    Console.WriteLine(plaintext);
-                }
-                else
-                {
-                    Console.WriteLine("输入错误程序终止!!!");
-                }
-            }
-
-            Console.ReadKey();
+            InitializeComponent();
         }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p><strong>加密操作</strong>：</p>
-<p><img src="EnCrypt.png" alt="EnCrypt"></p>
-<p><strong>解密操作</strong>：</p>
-<p><img src="DeCrypt.png" alt="DeCrypt"></p>
-<h1 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h1><p>​        Ceasar密码作为经典的加密算法，在罗马时期有很好的应用。其明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合，也即其加密的密钥有25种情况(<font color="blue">0不计算在内</font>)，通过枚举密钥的方式揣测明文。</p>
-<h2 id="穷举搜索"><a href="#穷举搜索" class="headerlink" title="穷举搜索"></a>穷举搜索</h2><p><strong>CrackSeasar类</strong>：</p>
-<pre class="line-numbers language-C#"><code class="language-C#">namespace Crack_Seasar
-{
-    public class CrackSeasar
-    {
-        #region 枚举检索
-        /// <summary>
-        /// 枚举搜索
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>返回可能的明文字符串组</returns>
-        internal string[] EnumerativeSearch(string ciphertext)
+
+        #region 计算按钮的Click事件
+        //计算按钮的Click事件
+        private void btn_Get_Click(object sender, EventArgs e)
         {
-            string[] plaintext = new string[26];
-            string str = ciphertext.ToUpper();
-
-            // 枚举解密
-            for (int key = 1; key < 26; key++)
+            int P_int_temp;                                         //定义一个用于存储的整型变量
+            if (int.TryParse(txt_value.Text, out P_int_temp))       //为变量赋值
             {
-                foreach (char ch in str)
-                {
-                    if (ch >= 'A' && ch <= 'Z')
-                    {
-                        plaintext[key - 1] += (char)('A' + (ch - 'A' - key + 26) % 26);
-                    }
-                    else
-                    {
-                        plaintext[key - 1] += ch;
-                    }
-                }
+                lb_result.Text = "计算结果为：" + Get(P_int_temp).ToString();     //输出计算结果
             }
-
-            return plaintext;
+            else                                    //当数据转化失败时
+            {
+                MessageBox.Show("请输入正确的数值！", "提示！");                      //提示输入正确数值
+            }
         }
         #endregion
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>Program测试类</strong>：</p>
-<pre class="line-numbers language-csahrp"><code class="language-csahrp">using System;
 
-namespace Crack_Seasar
-{
-    class Program
-    {
-        static void Main(string[] args)
+        #region 斐波那契数列的计算
+        /// <summary>
+        /// 递归算法                //斐波那契数列的计算问题
+        /// </summary>
+        /// <param name="i">参与计算的数值</param>
+        /// <returns>计算结果</returns>
+        int Get(int i)
         {
-            Console.Title = "CrackSear";
-
-            Console.WriteLine("请输入待破解密文：");
-            string ciphertext = Console.ReadLine();
-
-            // 枚举搜索
-            CrackSeasar crackSeasar = new CrackSeasar();
-            string[] plaintext = crackSeasar.EnumerativeSearch(ciphertext);
-
-            // Display
-            for(int i = 0;i < 25;i++)
-            {
-                Console.WriteLine("key:{0} \t -> \t {1}", i + 1, plaintext[i]);
-            }
-
-            Console.ReadKey();
+            if (i <= 0)                            //判断数值是否小于0
+                return 0;                        //返回数值0
+            else if (i >= 0 && i <= 2)            //判断数值是否大于等于0并且小于等于2
+                return 1;                        //返回数值1
+            else                                //如果不满足上述条件执行下面语句
+                return Get(i - 1) + Get(i - 2);    //返回指定位数前两位数的和
         }
+        #endregion
+
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>测试结果</strong>：</p>
-<p><img src="EnumerativeSearch1.png" alt="EnumerativeSearch"></p>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>注</strong>：</p>
+<ul>
+<li>程序以int类型存储结果，当计算的数值超出int时，程序将会报错。</li>
+</ul>
+<h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp递归算法计算斐波那契数列/实现结果.png" alt="实现结果"></center>
+
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>参考链接</strong>：</p>
-<p><a href="https://baike.baidu.com/item/恺撒密码/4905284?fromtitle=%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81&fromid=1336345&fr=aladdin" target="_blank" rel="noopener">凯撒密码-百度百科</a></p>
-<p><a href="https://www.cnblogs.com/ECJTUACM-873284962/p/8639300.html" target="_blank" rel="noopener">凯撒密码加解密即破解实现原理</a></p>
+<p><a href="https://baijiahao.baidu.com/s?id=1606651492697783298&wfr=spi" target="_blank" rel="noopener">什么叫斐波那契数列</a></p>
 
             </div>
             <hr />
@@ -969,9 +746,9 @@ namespace Crack_Seasar
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《CeasarCipher》
+                    《C#递归算法计算斐波那契数列》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/08/22/ceasarcipher/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/08/22/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 z1r0s
             </a> 采用
@@ -1015,21 +792,30 @@ namespace Crack_Seasar
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/22/vigenerecipher/">
+                <a href="/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="VigenereCipher">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="CSharp多线程猜数字游戏">
                         
-                        <span class="card-title">VigenereCipher</span>
+                        <span class="card-title">CSharp多线程猜数字游戏</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            维吉尼亚密码介绍：
-​        维吉尼亚密码（又译 维热纳尔密码）是使用一系列凯撒密码组成密码字母表的加密算法，属于多表密码的一种简单形式。
-​        维吉尼亚密码曾多次被发明。该方法最早记录在吉奥万·巴蒂斯塔·贝拉索（ Gi
+                            背景程序、进程、线程程序：
+
+程序是指令和数据的有序集合。
+程序是静态的。
+
+进程：
+
+进程是一段程序的执行过程。
+进程是动态的，具有生命周期。
+进程是一个活动实体。
+进程有三种基本状态（就绪态、运行态、阻塞态）。
+进程是资源分配的基本单位
                         
                     </div>
                     <div class="publish-info">
@@ -1040,12 +826,8 @@ namespace Crack_Seasar
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/密码学/" class="post-category" target="_blank">
-                                    密码学
-                                </a>
-                            
-                            <a href="/categories/密码学/古典密码/" class="post-category" target="_blank">
-                                    古典密码
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                    C#
                                 </a>
                             
                             
@@ -1055,20 +837,20 @@ namespace Crack_Seasar
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/密码学/" target="_blank">
-                        <span class="chip bg-color">密码学</span>
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C#</span>
                     </a>
                     
-                    <a href="/tags/古典密码/" target="_blank">
-                        <span class="chip bg-color">古典密码</span>
+                    <a href="/tags/程序实现/" target="_blank">
+                        <span class="chip bg-color">程序实现</span>
                     </a>
                     
-                    <a href="/tags/Vigenere/" target="_blank">
-                        <span class="chip bg-color">Vigenere</span>
+                    <a href="/tags/小游戏/" target="_blank">
+                        <span class="chip bg-color">小游戏</span>
                     </a>
                     
-                    <a href="/tags/维吉尼亚密码/" target="_blank">
-                        <span class="chip bg-color">维吉尼亚密码</span>
+                    <a href="/tags/多线程/" target="_blank">
+                        <span class="chip bg-color">多线程</span>
                     </a>
                     
                 </div>
@@ -1079,22 +861,29 @@ namespace Crack_Seasar
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/22/ceasarcipher/">
+                <a href="/2020/08/22/this-host-is-not-allowed-to-connect-to-mysql-server/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="CeasarCipher">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt=" This host is not allowed to connect to MySQL server">
                         
-                        <span class="card-title">CeasarCipher</span>
+                        <span class="card-title"> This host is not allowed to connect to MySQL server</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            根据罗马早期纪传体作者盖乌斯·苏维托尼乌斯的记载，凯撒大帝曾用一种移位的方式对军事信息进行加密，后人称这种加密方式为凯撒加密。凯撒密码是一种替换加密的方案，明文中所有字母都在字母表上向后(或向前)按照一个固定数目进行偏移后被替换成密文。
+                            问题描述​        在使用Bruter对靶机中的MySQL数据库的账号和密码进行爆破时，Message框中出现如下图所示的提示信息。
+
+
+
+
+运行环境​    PhpStudy 2016集成 环境安装：
+
+MySQL版本：5.5.53
                         
                     </div>
                     <div class="publish-info">
@@ -1105,32 +894,27 @@ namespace Crack_Seasar
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/密码学/" class="post-category" target="_blank">
-                                    密码学
-                                </a>
-                            
-                            <a href="/categories/密码学/古典密码/" class="post-category" target="_blank">
-                                    古典密码
+                            <a href="/categories/debug/" class="post-category" target="_blank">
+                                    debug
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Ceasar/" target="_blank">
-                        <span class="chip bg-color">Ceasar</span>
+                    <a href="/tags/mysql/" target="_blank">
+                        <span class="chip bg-color">mysql</span>
                     </a>
                     
-                    <a href="/tags/密码学/" target="_blank">
-                        <span class="chip bg-color">密码学</span>
+                    <a href="/tags/爆破/" target="_blank">
+                        <span class="chip bg-color">爆破</span>
                     </a>
                     
-                    <a href="/tags/古典密码/" target="_blank">
-                        <span class="chip bg-color">古典密码</span>
+                    <a href="/tags/Bruter/" target="_blank">
+                        <span class="chip bg-color">Bruter</span>
                     </a>
                     
                 </div>
@@ -1276,6 +1060,25 @@ namespace Crack_Seasar
     
 
 </main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
 
     <footer class="page-footer bg-color">

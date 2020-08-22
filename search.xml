@@ -4,6 +4,124 @@
   
     
     <entry>
+      <title>CSharp巧用移位运算符获取汉字编码值</title>
+      <link href="/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/"/>
+      <url>/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="移位运算符"><a href="#移位运算符" class="headerlink" title="移位运算符"></a>移位运算符</h2><ul><li><p>移位运算符在程序设计中，是<strong>位操作运算符</strong>的一种</p></li><li><p>移位运算符分为<strong>左移位运算符</strong>“&lt;&lt;”和<strong>右移位运算符</strong>“&gt;&gt;”，形如：<strong>X &lt;&lt; N</strong> 或 <strong>X &gt;&gt; N</strong></p></li><li><p>在C#中<strong>X</strong>可以是：int、uint、long、ulong、byte、sbyte、short、ushort，其中<strong>byte、sbyte、short、ushort</strong>类型的值在进行移位操作后的类型将<strong>自动转换成int类型</strong></p></li><li><p>其他类型数据的移位运算其本质还是对<strong>二进制的移位运算</strong></p></li><li><p><span style="color:red">二进制每次向左移1位就相当于乘以2，每次向右移1位就相当于除以2</span></p></li><li><p>举例如下：</p><blockquote><p>问题：</p><ul><li>3(O) &lt;&lt; 2</li></ul><p>计算过程：</p><ol><li>3(O)转换为二进制为:<strong>0011</strong></li><li>二进制数值各个位整体左移两位（<span style="color:red">左端溢出丢弃，右端补”0”</span>）后得到：<strong>1100</strong></li><li>再将移位后的二进制数值转换为十进制数值为：12(O)</li><li>也即：<span style="color:red">3 &lt;&lt; 2 = 12</span></li></ol></blockquote></li></ul><h2 id="汉字编码"><a href="#汉字编码" class="headerlink" title="汉字编码"></a>汉字编码</h2><p>​        汉字编码(Chinese character encoding)是为汉字设计的一种便于输入计算机的代码。</p><h3 id="编码分类"><a href="#编码分类" class="headerlink" title="编码分类"></a>编码分类</h3><p>​        计算机中汉字的表示也是用二进制，根据<strong>应用目的</strong>的不同，汉字编码分为<strong>外码</strong>、<strong>交换码</strong>、<strong>机内码</strong>和<strong>字形码</strong>。</p><h4 id="外码-输入码"><a href="#外码-输入码" class="headerlink" title="外码(输入码)"></a>外码(输入码)</h4><p>​        外码也叫输入码，是用来将汉字输入到计算机中的一组键盘符号。常用的输入码有拼音码、五笔字型码、区位码、电报码等</p><p><strong>特点</strong>：</p><ul><li>编码规则简单</li><li>易学好记</li><li>操作方便</li><li>重码率低</li><li>输入速度快</li></ul><h4 id="交换码-国际码"><a href="#交换码-国际码" class="headerlink" title="交换码(国际码)"></a>交换码(国际码)</h4><p>​        计算机内部处理的信息都是<strong>二进制代码</strong>表示的，汉字也不例外。而二进制代码使用起来很不方便，于是需要采用<strong>信息交换码</strong>。GB2312即为国际码。</p><ul><li><strong>GB2312编码</strong>：1981年5月1日发布的简体中文汉字编码国家标准。GB2312对汉字采用双字节编码，收录7445个图形字符，其中包括6763个汉字。</li><li><strong>BIG5编码</strong>：台湾地区繁体中文标准字符集，采用双字节编码，共收录13053个中文字，1984年实施。</li><li><strong>GBK编码</strong>：1995年12月发布的汉字编码国家标准，是对GB2312编码的扩充，对汉字采用双字节编码。GBK字符集共收录21003个汉字，包含国家标准GB13000-1中的全部中日韩汉字，和BIG5编码中的所有汉字。</li><li><strong>GB18030编码</strong>：2000年3月17日发布的汉字编码国家标准，是对GBK编码的扩充，覆盖中文、日文、朝鲜语和中国少数民族文字，其中收录27484个汉字。GB18030字符集采用单字节、双字节和四字节三种方式对字符编码。兼容GBK和GB2312字符集。</li><li><strong>Unicode编码</strong>：国际标准字符集，它将世界各种语言的每个字符定义一个唯一的编码，以满足跨语言、跨平台的文本信息转换。</li></ul><h4 id="机内码"><a href="#机内码" class="headerlink" title="机内码"></a>机内码</h4><p>​        根据国际码的规定，每个汉字都有确定的<strong>二进制代码</strong>，在微机内部汉字代码都用机内码，在键盘上记录汉字代码也使用机内码。</p><h4 id="字形码"><a href="#字形码" class="headerlink" title="字形码"></a>字形码</h4><p>​        字形码是汉字的<strong>输出码</strong>，输出汉字时都采用<strong>图形方式</strong>，无论汉字的笔画多少，每个汉字都可以卸载同样大小的<strong>方块</strong>中。通常用16×16点阵来显示汉字。</p><h4 id="地址码"><a href="#地址码" class="headerlink" title="地址码"></a>地址码</h4><p>​        汉字地址码是指汉字库中存<strong>储汉字字形信息的逻辑地址码</strong>。它与汉字机内码有着简单的对应关系，以简单内码到地址码的转换。</p><h3 id="汉字编码之间的关系"><a href="#汉字编码之间的关系" class="headerlink" title="汉字编码之间的关系"></a>汉字编码之间的关系</h3><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/汉字编码之间的关系.png" alt="汉字编码之间的关系"></center><h1 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h1><p><strong>编程环境</strong>：</p><ul><li>VS2017</li><li>.Net Framework 4.5</li></ul><p><strong>运行环境</strong>：</p><ul><li>Win10</li></ul><h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><p><strong>界面设计</strong>:</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/界面.png" alt="界面"></center><p><strong>代码设计</strong>:</p><pre class="line-numbers language-c#"><code class="language-c#">using System;using System.Text;using System.Windows.Forms;namespace GetCode{    public partial class Form1 : Form    {        public Form1()        {            InitializeComponent();        }        private void btn_Get_Click(object sender, EventArgs e)        {            try            {                //获得一个汉字字符                char ch = txt_ch.Text[0];                //使用gb2312编码方式获得字节序列                byte[] gb2312_bt = Encoding.GetEncoding("gb2312").GetBytes(new Char[] { ch });                //将字节序列的第一个字节向左移8位                int n = (int)gb2312_bt[0] << 8;                //第一个字节移8位后与第二个字节相加得到汉字编码                n += (int)gb2312_bt[1];                //显示汉字编码(十六进制)                txt_Num.Text = Convert.ToString(n, 16);            }            catch (Exception)            {                //异常提示信息                MessageBox.Show("请输入汉字字符！", "出现错误！");            }        }    }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/结果.png" alt="结果"></center><h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><ul><li>char ch = txt_ch.Text[0];<font color="blue">//ch变量存储“位”的Unicode编码</font>&gt;</li><li>byte[] gb2312_bt = Encoding.GetEncoding(“gb2312”).GetBytes(new Char[] { ch });<font color="blue">//gb2312_bt变量数组中存储由ch编码得到的GB2312字节</font></li><li>int n = (int)gb2312_bt[0] &lt;&lt; 8;<font color="blue"> //将字节左移八位(一个字节)</font></li><li>n += (int)gb2312_bt[1];<font color="blue">//两个数值相加得到“位”的GB2312编码(十进制)</font></li><li>txt_Num.Text = Convert.ToString(n, 16);<font color="blue">//编码转十六进制并显示</font></li></ul><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>参考链接</strong>：</p><ul><li><a href="https://baike.baidu.com/item/汉字编码/7123465?fr=aladdin" target="_blank" rel="noopener">汉字编码(百度百科)</a></li><li><a href="https://www.qqxiuzi.cn/bianma/zifuji.php" target="_blank" rel="noopener">千千秀字(汉字字符集编码查询)</a></li></ul><p><strong>有关字体编码/查询/加解密网站推荐</strong>：</p><p><a href="https://www.qqxiuzi.cn/daohang.htm" target="_blank" rel="noopener">千千秀字</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C# </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C# </tag>
+            
+            <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CSharp多线程猜数字游戏</title>
+      <link href="/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/"/>
+      <url>/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="程序、进程、线程"><a href="#程序、进程、线程" class="headerlink" title="程序、进程、线程"></a>程序、进程、线程</h2><p><strong>程序</strong>：</p><ul><li>程序是<strong>指令</strong>和<strong>数据</strong>的<strong>有序集合</strong>。</li><li>程序是静态的。</li></ul><p><strong>进程</strong>：</p><ul><li>进程是一段程序的执行过程。</li><li>进程是动态的，具有生命周期。</li><li>进程是一个活动实体。</li><li>进程有三种基本状态（就绪态、运行态、阻塞态）。</li><li>进程是资源分配的基本单位。</li></ul><p><strong>线程</strong>：</p><ul><li>线程作为独立运行和独立调度的基本单位。</li><li>一个进程中可以包含若干个线程。</li></ul><p><strong>多线程</strong>：</p><p>&emsp;&emsp;在一个程序中，这些独立运行的程序片段叫作“线程”（Thread），利用它编程的概念就叫作“多线程处理”。多线程是为了同步完成多项任务，不是为了提高运行效率，而是为了提高资源使用效率来提高系统的效率。线程是在同一时间需要完成多项任务的时候实现的。</p><blockquote><p>最简单的比喻多线程就像火车的每一节车厢，而进程则是火车。车厢离开火车是无法跑动的，同理火车也不可能只有一节车厢。多线程的出现就是为了提高效率。<a href="https://www.cnblogs.com/fuchongjundream/p/3829508.html" target="_blank" rel="noopener">“外引”</a></p></blockquote><h1 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h1><p><strong>编程环境</strong>：</p><ul><li>VS2017</li><li>.Net Framework 4.5</li></ul><p><strong>运行环境</strong>：</p><ul><li>Win10</li></ul><h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><p><strong>界面设计</strong>:</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp多线程猜数字游戏/设计界面.png" alt="设计界面"></center><p><strong>代码设计</strong>:</p><pre class="line-numbers language-C#"><code class="language-C#">using System;using System.Drawing;using System.Windows.Forms;namespace NumGame{    public partial class Frm_Main : Form    {        public Frm_Main()        {            InitializeComponent();        }        #region 声明全局变量        /// <summary>        /// 定义一个计时器线程        /// </summary>        System.Threading.Thread G_th;        /// <summary>        /// 定义一个随机数对象        /// </summary>        Random G_random = new Random();        /// <summary>        /// 定义一个int型全局变量，用于存放产生的随机变量        /// </summary>        int G_int_num;        #endregion        #region 开始按钮的Click事件        /// <summary>        /// 开始按钮的Click事件        /// </summary>        /// <param name="sender"></param>        /// <param name="e"></param>        private void btn_begin_Click(object sender, EventArgs e)        {            RemoveControl();                                        //调用自定义的RemoveControl()方法清空自定义的按钮            int p_int_x = 10;                                       //X坐标初始值为10            int p_int_y = 60;                                       //Y坐标初始值为60            //向窗体添加按钮            for (int i = 0; i < 100; i++)                           //添加100个按钮            {                Button bt = new Button();                           //创建button按钮                bt.Text = (i + 1).ToString();                       //设置button按钮的文本值                bt.Name = (i + 1).ToString();                       //设置button按钮的Name属性                bt.Width = 35;                                      //设置button按钮的宽                bt.Height = 35;                                     //设置button按钮的高                bt.Location = new Point(p_int_x, p_int_y);          //设置button按钮的位置                bt.Click += new EventHandler(bt_Click);             //定义button按钮的Click事件                p_int_x += 36;                                      //设置下一个按钮的位置                if ((i + 1) % 10 == 0)                            //设定每行有10个按钮                {                    p_int_x = 10;                                   //换行后重新设置X坐标  --X坐标不变                    p_int_y += 36;                                  //换行后重新设置Y坐标  --Y坐标将变化为原来的+距离                }                Controls.Add(bt);                                   //使用Controls.Add()方法将button按钮放入窗体控件集合中            }            //创建线程            //跨线程调用控件            G_th = new System.Threading.Thread(                 //新建一条线程                delegate ()                              //使用匿名方法创建一个委托                {                    int P_int_count = 0;                            //初始化计数器                    while (true)                                //开始无限循环                    {                        P_int_count = ++P_int_count > 100000000 ? 0 : P_int_count;      //计数器累加                        this.Invoke(                            //将代码交给主线程执行                            (MethodInvoker)delegate         //使用匿名方法                            {                                lb_time.Text = P_int_count.ToString();          //窗体中显示计数                            });                        System.Threading.Thread.Sleep(1000);                    //线程睡眠1秒                    }                });            G_th.IsBackground = true;                                   //设置线程为后台线程            G_th.Start();                                           //开始执行线程            //生成一个随机数            G_int_num = G_random.Next(1, 100);                          //生成一个1-100之间的随机数            btn_begin.Enabled = false;                              //停用开始按钮        }        #endregion        #region 注册生成按钮的Click事件的方法        //注册按钮的Click事件的方法        void bt_Click(object sender, EventArgs e)        {            Control P_control = sender as Control;                          //将sender转换为control类型对象            if (int.Parse(P_control.Name) > G_int_num)                  //强制转化并判断猜测数值与随机产生的数值之间的差距            {                P_control.BackColor = Color.Red;                        //设置按钮背景为红色                P_control.Enabled = false;                              //设置按钮停用                P_control.Text = "大";                                   //更改按钮文本--猜测数值偏大                return;            }            if (int.Parse(P_control.Name) < G_int_num)            {                P_control.BackColor = Color.Red;                        //设置按钮背景为红色                P_control.Enabled = false;                              //设置按钮停用                P_control.Text = "小";                                       //更改按钮文本--猜测数偏小                return;            }            if (int.Parse(P_control.Name) == G_int_num)                 //当猜测数值与随机产生的数值相等时            {                G_th.Abort();                                                   //终止计数线程                //显示游戏信息                MessageBox.Show(string.Format("恭喜你猜对了！共猜了{0}次 用时{1}秒", GetCount(), lb_time.Text), "恭喜！");                btn_begin.Enabled = true;                           //启用开始按钮                return;            }        }        #endregion        #region 计数方法        /// <summary>        /// 用于查找窗体中Enable属性为False控件的数量    --遍历窗体中的控件        /// 用于计算玩家有多少次没有猜中        /// </summary>        /// <returns>返回没有猜中数量</returns>        string GetCount()        {            int P_int_temp = 0;                                             //初始化计数器            foreach (Control c in Controls)                                     //遍历控件集合            {                if (!c.Enabled) P_int_temp++;                               //计数器累加            }            return P_int_temp.ToString();                               //返回计数器信息        }        #endregion        #region 清除控件方法        /// <summary>        /// 用于清空窗体中动态生成的按钮        /// </summary>        void RemoveControl()                                            //自定义的清除方法        {            for (int i = 0; i < 100; i++)                               //开始遍历100个按钮            {                if (Controls.ContainsKey((i + 1).ToString()))             //窗体中是否有此按钮                {                    for (int j = 0; j < Controls.Count; j++)                //遍历窗体控件集合                    {                        if (Controls[j].Name == (i + 1).ToString())         //是否查找到按钮                        {                            Controls.RemoveAt(j);                           //删除指定按钮                            break;                        }                    }                }            }        }        #endregion        #region 窗体的FormClosing事件        //窗体的FormClosing事件        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)        {            if (G_th != null)            {                G_th.Abort();            }            Environment.Exit(0);                                //强行关闭窗体        }        #endregion    }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp多线程猜数字游戏/测试结果.png" alt="测试结果"></center><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>程序流程分析</strong>:</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp多线程猜数字游戏/NumGame.png" alt="NumGame"></center><p><strong>参考资料</strong>：</p><p><a href="https://www.cnblogs.com/fuchongjundream/p/3829508.html" target="_blank" rel="noopener">进程、线程、多线程相关总结</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C# </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C# </tag>
+            
+            <tag> 程序实现 </tag>
+            
+            <tag> 小游戏 </tag>
+            
+            <tag> 多线程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C#递归算法计算斐波那契数列</title>
+      <link href="/2020/08/22/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/"/>
+      <url>/2020/08/22/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="兔子数列"><a href="#兔子数列" class="headerlink" title="兔子数列"></a>兔子数列</h2><p>斐波那契(Fibonacci)在《计算之术》中提出一个问题：</p><p>&emsp;&emsp;在第一个月有一对刚出生的小兔子，在第二个月小兔子变成大兔子并开始怀孕，第三个月大兔子会生下一对小兔子，并且以后每个月都会生下一对小兔子。 如果每对兔子都经历这样的出生、成熟、生育的过程，并且兔子永远不死，那么兔子的总数是如何变化的？</p><p><strong>关键点</strong>：</p><ul><li>兔子成对出生</li><li>兔子的成长周期和生育周期都为1个月</li><li>所有的兔子都不会死亡，并且可以一直保持生育</li></ul><p><strong>问题解析</strong>：</p><p>第一个月只有一对兔宝宝，1对兔子</p><p>第二个月兔宝宝变成大兔子，1对兔子</p><p>第三个月大兔子生了一对兔宝宝，2对兔子</p><p>第四个月大兔子继续生一对兔宝宝，小兔子变成大兔子，3对兔子</p><p>……</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp递归算法计算斐波那契数列/数列列表.jpg" alt="数列列表"></center><p><strong>发现规律</strong>：</p><ul><li>前一个月的大兔子对数就是下一个月的小兔子对数</li><li>前一个月的大兔子和小兔子对数的和就是下个月大兔子的对数</li></ul><p>$$<br>f(n)=<br>\begin{cases}<br>1 &amp; n=1\<br>1 &amp; n=2\<br>f(n-1) + f(n-2) &amp;n&gt;2<br>\end{cases}<br>$$</p><p>此为兔子数列（斐波那契数列）</p><p><font color="red"><strong>使用程序怎样来实现斐波那契数列呐？</strong></font></p><h1 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h1><p><strong>编程环境</strong>：</p><ul><li>VS2017</li><li>.Net Framework 4.5</li></ul><p><strong>运行环境</strong>：</p><ul><li>Win10</li></ul><h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><p><strong>界面设计</strong>：</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp递归算法计算斐波那契数列/界面设计.png" alt="界面设计"></center><p><strong>代码设计</strong>：</p><pre class="line-numbers language-C#"><code class="language-C#">using System;using System.Windows.Forms;namespace Arithmetic{    public partial class Frm_Main : Form    {        public Frm_Main()        {            InitializeComponent();        }        #region 计算按钮的Click事件        //计算按钮的Click事件        private void btn_Get_Click(object sender, EventArgs e)        {            int P_int_temp;                                         //定义一个用于存储的整型变量            if (int.TryParse(txt_value.Text, out P_int_temp))       //为变量赋值            {                lb_result.Text = "计算结果为：" + Get(P_int_temp).ToString();     //输出计算结果            }            else                                    //当数据转化失败时            {                MessageBox.Show("请输入正确的数值！", "提示！");                      //提示输入正确数值            }        }        #endregion        #region 斐波那契数列的计算        /// <summary>        /// 递归算法                //斐波那契数列的计算问题        /// </summary>        /// <param name="i">参与计算的数值</param>        /// <returns>计算结果</returns>        int Get(int i)        {            if (i <= 0)                            //判断数值是否小于0                return 0;                        //返回数值0            else if (i >= 0 && i <= 2)            //判断数值是否大于等于0并且小于等于2                return 1;                        //返回数值1            else                                //如果不满足上述条件执行下面语句                return Get(i - 1) + Get(i - 2);    //返回指定位数前两位数的和        }        #endregion    }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>注</strong>：</p><ul><li>程序以int类型存储结果，当计算的数值超出int时，程序将会报错。</li></ul><h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp递归算法计算斐波那契数列/实现结果.png" alt="实现结果"></center><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>参考链接</strong>：</p><p><a href="https://baijiahao.baidu.com/s?id=1606651492697783298&wfr=spi" target="_blank" rel="noopener">什么叫斐波那契数列</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法实例 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C# </tag>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 斐波那契数列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title> This host is not allowed to connect to MySQL server</title>
+      <link href="/2020/08/22/this-host-is-not-allowed-to-connect-to-mysql-server/"/>
+      <url>/2020/08/22/this-host-is-not-allowed-to-connect-to-mysql-server/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>​        在使用<strong>Bruter</strong>对靶机中的MySQL数据库的账号和密码进行爆破时，Message框中出现如下图所示的提示信息。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/错误提示信息.png" alt="错误提示信息"></center><h1 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h1><p>​    PhpStudy 2016集成 环境安装：</p><ul><li>MySQL版本：5.5.53</li><li>服务端口：3306</li></ul><h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><ol><li><p>首先排除 IP地址、端口错误或MySQL服务未开启等问题，因为对于尝试登录登录数次不成功将显示如下的错误提示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/登录尝试超时提示信息.png" alt="登录尝试超时提示信息"></center></li><li><p><font color="red">This host is not allowed to connect to MySQL server</font>可能是MySQL数据库<strong>拒绝远程连接</strong>。</p><p>在另一台机器上远程连接改MySQL数据库，也显示类似的错误提示信息：</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/远程连接mysql数据库错误提示.png" alt="远程连接mysql数据库错误提示"></center><ul><li><font color="blue">默认情况下，MySQL只允许本地连接，若要进行远程连接就需要先对其进行设置。</font></li></ul></li></ol><h1 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h1><ol><li><p>百度一下：“远程访问 MySQL数据库”</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/百度一下.png" alt="百度一下"></center></li><li><p><a href="https://www.cnblogs.com/wq-9/articles/11062770.html" target="_blank" rel="noopener">MySQL远程连接数据库</a></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/mysql远程连接数据库的方法.png" alt="mysql远程连接数据库的方法"></center></li><li><p>修改mysql数据库中user表中root对应得host字段的值为%，来允许远程用户连接MySQL。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/修改表信息.png" alt="修改表信息"></center><pre class="line-numbers language-mysql"><code class="language-mysql">use mysql;select host,user from user where user='root';update user set host='%' where user='root';select host,user from user where user='root';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li><p><font color="blue">重启MySQL服务</font>后，再进行远程连接测试。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/重启MySQL后的连接测试.png" alt="重启MySQL后的连接测试"></center></li><li><p>Bruter爆破。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/Bruter爆破成功.png" alt="Bruter爆破成功"></center></li></ol><h1 id="思考总结"><a href="#思考总结" class="headerlink" title="思考总结"></a>思考总结</h1><p>​        Bruter是使用类似于<code>mysql -h 192.168.19.136 -P 3306 -u root -p 123456</code>这样的命令不断地尝试来爆破MySQL数据库的密码的。</p><ul><li><font color="red">This host is not allowed to connect to MySQL server</font>：表示MySQL拒绝主机连接，因为MySQL默认是不允许远程连接的。</li><li><font color="red">Login errors MAXRETRY times consecutively</font>：表示MySQL的连接得不到回应，自动停止连接。</li></ul><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li>[MySQL远程连接数据库](</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> debug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mysql </tag>
+            
+            <tag> 爆破 </tag>
+            
+            <tag> Bruter </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>VigenereCipher</title>
       <link href="/2020/08/22/vigenerecipher/"/>
       <url>/2020/08/22/vigenerecipher/</url>
@@ -22,13 +140,13 @@
       
         <tags>
             
-            <tag> Vigenere </tag>
-            
-            <tag> 维吉尼亚密码 </tag>
-            
             <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
+            
+            <tag> Vigenere </tag>
+            
+            <tag> 维吉尼亚密码 </tag>
             
         </tags>
       
@@ -55,11 +173,11 @@
       
         <tags>
             
+            <tag> Ceasar </tag>
+            
             <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
-            
-            <tag> Ceasar </tag>
             
         </tags>
       

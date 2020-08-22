@@ -4,11 +4,16 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="CeasarCipher, z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="CSharp巧用移位运算符获取汉字编码值, z1r0s 安全 Web安全 学习总结">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="凯撒密码​        根据罗马早期纪传体作者盖乌斯·苏维托尼乌斯的记载，凯撒大帝曾用一种移位的方式对军事信息进行加密，后人称这种加密方式为凯撒加密。凯撒密码是一种替换加密的方案，明文中所有字母都在字母表上向后(或向前)按照一个固定数目进">
+    <meta name="description" content="背景移位运算符
+移位运算符在程序设计中，是位操作运算符的一种
+
+移位运算符分为左移位运算符“&amp;lt;&amp;lt;”和右移位运算符“&amp;gt;&amp;gt;”，形如：X &amp;lt;&amp;lt; N 或 X &amp;gt;&amp;gt; N
+
+在C#中X可以是：int、ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CeasarCipher | z1r0s&#39;blogs</title>
+    <title>CSharp巧用移位运算符获取汉字编码值 | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -314,13 +319,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        CeasarCipher
+                        CSharp巧用移位运算符获取汉字编码值
                     </div>
                 </div>
             </div>
@@ -431,16 +436,16 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Ceasar/" target="_blank">
-                            <span class="chip bg-color">Ceasar</span>
+                        <a href="/tags/C/" target="_blank">
+                            <span class="chip bg-color">C#</span>
                         </a>
                         
-                        <a href="/tags/密码学/" target="_blank">
-                            <span class="chip bg-color">密码学</span>
+                        <a href="/tags/程序实现/" target="_blank">
+                            <span class="chip bg-color">程序实现</span>
                         </a>
                         
-                        <a href="/tags/古典密码/" target="_blank">
-                            <span class="chip bg-color">古典密码</span>
+                        <a href="/tags/编码/" target="_blank">
+                            <span class="chip bg-color">编码</span>
                         </a>
                         
                     </div>
@@ -451,12 +456,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/密码学/" class="post-category" target="_blank">
-                            密码学
-                        </a>
-                        
-                        <a href="/categories/密码学/古典密码/" class="post-category" target="_blank">
-                            古典密码
+                        <a href="/categories/C/" class="post-category" target="_blank">
+                            C#
                         </a>
                         
                     </div>
@@ -481,14 +482,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    551
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
                 
@@ -499,318 +500,124 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h1><p>​        根据罗马早期纪传体作者<strong>盖乌斯·苏维托尼乌斯</strong>的记载，<strong>凯撒大帝</strong>曾用一种移位的方式对军事信息进行加密，后人称这种加密方式为凯撒加密。<strong>凯撒密码</strong>是一种<strong>替换加密</strong>的方案，<strong>明文</strong>中所有字母都在<strong>字母表</strong>上向后(或向前)按照一个固定数目进行偏移后被替换成<strong>密文</strong>。</p>
-<h1 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h1><p>​        <strong>凯撒加密</strong>：</p>
-<p>​        将<strong>26个字母</strong>按顺序进行排列并形成环，将每一位英文字母用其前面(或后面)的第k位字母来表示，替换之后形成新的字符串即为密文。</p>
-<p>​        <strong>举个栗子</strong>：</p>
-<p>​        当明文为：T，偏移量为：3时，使用CeasarCipher如下图所示。</p>
-<p><img src="CeasarCipher.png" alt="CeasarCipher"></p>
-<p>​        以单表替换的角度来解释即为：</p>
-<p>​        明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-<p>​        密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC</p>
-<p>​        明文字母表与密文字母表存在上下的一一对应。当明文为T时，对应密文字母表中的W；解密时也按照一一对应的关系找到每个密文对应的明文即可。</p>
-<p>​        <strong>数学语言描述</strong>：</p>
-<ol>
-<li>首先将字母用数字代替，即：A=0，B=1，C=2，…，Z=25。</li>
-<li>明文空间记为：M</li>
-<li>密文空间记为：C</li>
-<li>密钥空间记为：K<del>m</del></li>
-<li>将偏移量记为：k</li>
-<li>加密操作记为：E<del>(m)</del></li>
-<li>解密操作记为：D<del>(c)</del></li>
-</ol>
-<p>则有：</p>
-<p><strong>加密变换</strong>：<br>$$<br>E_(m_) = (m + k) \ mod \ 26 \ \   ,(m∈M，k∈K)<br>$$<br><strong>解密变换</strong>：<br>$$<br>D_(c_) = (c - k) \ mod \ 26  ,\ \ \  (c∈C，k∈K)<br>$$<br><font color="red">其中：明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合</font></p>
-<h1 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h1><p><strong>程序流程图</strong>：</p>
-<p><img src="CeasarCipherFlowchart.png" alt="CeasarCipherFlowchart"></p>
-<p>注：</p>
+                <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="移位运算符"><a href="#移位运算符" class="headerlink" title="移位运算符"></a>移位运算符</h2><ul>
+<li><p>移位运算符在程序设计中，是<strong>位操作运算符</strong>的一种</p>
+</li>
+<li><p>移位运算符分为<strong>左移位运算符</strong>“&lt;&lt;”和<strong>右移位运算符</strong>“&gt;&gt;”，形如：<strong>X &lt;&lt; N</strong> 或 <strong>X &gt;&gt; N</strong></p>
+</li>
+<li><p>在C#中<strong>X</strong>可以是：int、uint、long、ulong、byte、sbyte、short、ushort，其中<strong>byte、sbyte、short、ushort</strong>类型的值在进行移位操作后的类型将<strong>自动转换成int类型</strong></p>
+</li>
+<li><p>其他类型数据的移位运算其本质还是对<strong>二进制的移位运算</strong></p>
+</li>
+<li><p><span style="color:red">二进制每次向左移1位就相当于乘以2，每次向右移1位就相当于除以2</span></p>
+</li>
+<li><p>举例如下：</p>
+<blockquote>
+<p>问题：</p>
 <ul>
-<li><p>第一次输入一个int型数据op，若<code>op==1</code>则执行加密操作，若<code>op==0</code>则执行解密操作，否则结束程序。</p>
-</li>
-<li><p>第二次输入一个字符串，进行加密或解密操作。</p>
-</li>
-<li><p>操作结果后显示加密或解密的结果。</p>
+<li>3(O) &lt;&lt; 2</li>
+</ul>
+<p>计算过程：</p>
+<ol>
+<li>3(O)转换为二进制为:<strong>0011</strong></li>
+<li>二进制数值各个位整体左移两位（<span style="color:red">左端溢出丢弃，右端补”0”</span>）后得到：<strong>1100</strong></li>
+<li>再将移位后的二进制数值转换为十进制数值为：12(O)</li>
+<li>也即：<span style="color:red">3 &lt;&lt; 2 = 12</span></li>
+</ol>
+</blockquote>
 </li>
 </ul>
-<h1 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h1><p><strong>Ceasar类</strong>：</p>
-<pre class="line-numbers language-C#"><code class="language-C#">namespace DemoCeasar
+<h2 id="汉字编码"><a href="#汉字编码" class="headerlink" title="汉字编码"></a>汉字编码</h2><p>​        汉字编码(Chinese character encoding)是为汉字设计的一种便于输入计算机的代码。</p>
+<h3 id="编码分类"><a href="#编码分类" class="headerlink" title="编码分类"></a>编码分类</h3><p>​        计算机中汉字的表示也是用二进制，根据<strong>应用目的</strong>的不同，汉字编码分为<strong>外码</strong>、<strong>交换码</strong>、<strong>机内码</strong>和<strong>字形码</strong>。</p>
+<h4 id="外码-输入码"><a href="#外码-输入码" class="headerlink" title="外码(输入码)"></a>外码(输入码)</h4><p>​        外码也叫输入码，是用来将汉字输入到计算机中的一组键盘符号。常用的输入码有拼音码、五笔字型码、区位码、电报码等</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>编码规则简单</li>
+<li>易学好记</li>
+<li>操作方便</li>
+<li>重码率低</li>
+<li>输入速度快</li>
+</ul>
+<h4 id="交换码-国际码"><a href="#交换码-国际码" class="headerlink" title="交换码(国际码)"></a>交换码(国际码)</h4><p>​        计算机内部处理的信息都是<strong>二进制代码</strong>表示的，汉字也不例外。而二进制代码使用起来很不方便，于是需要采用<strong>信息交换码</strong>。GB2312即为国际码。</p>
+<ul>
+<li><strong>GB2312编码</strong>：1981年5月1日发布的简体中文汉字编码国家标准。GB2312对汉字采用双字节编码，收录7445个图形字符，其中包括6763个汉字。</li>
+<li><strong>BIG5编码</strong>：台湾地区繁体中文标准字符集，采用双字节编码，共收录13053个中文字，1984年实施。</li>
+<li><strong>GBK编码</strong>：1995年12月发布的汉字编码国家标准，是对GB2312编码的扩充，对汉字采用双字节编码。GBK字符集共收录21003个汉字，包含国家标准GB13000-1中的全部中日韩汉字，和BIG5编码中的所有汉字。</li>
+<li><strong>GB18030编码</strong>：2000年3月17日发布的汉字编码国家标准，是对GBK编码的扩充，覆盖中文、日文、朝鲜语和中国少数民族文字，其中收录27484个汉字。GB18030字符集采用单字节、双字节和四字节三种方式对字符编码。兼容GBK和GB2312字符集。</li>
+<li><strong>Unicode编码</strong>：国际标准字符集，它将世界各种语言的每个字符定义一个唯一的编码，以满足跨语言、跨平台的文本信息转换。</li>
+</ul>
+<h4 id="机内码"><a href="#机内码" class="headerlink" title="机内码"></a>机内码</h4><p>​        根据国际码的规定，每个汉字都有确定的<strong>二进制代码</strong>，在微机内部汉字代码都用机内码，在键盘上记录汉字代码也使用机内码。</p>
+<h4 id="字形码"><a href="#字形码" class="headerlink" title="字形码"></a>字形码</h4><p>​        字形码是汉字的<strong>输出码</strong>，输出汉字时都采用<strong>图形方式</strong>，无论汉字的笔画多少，每个汉字都可以卸载同样大小的<strong>方块</strong>中。通常用16×16点阵来显示汉字。</p>
+<h4 id="地址码"><a href="#地址码" class="headerlink" title="地址码"></a>地址码</h4><p>​        汉字地址码是指汉字库中存<strong>储汉字字形信息的逻辑地址码</strong>。它与汉字机内码有着简单的对应关系，以简单内码到地址码的转换。</p>
+<h3 id="汉字编码之间的关系"><a href="#汉字编码之间的关系" class="headerlink" title="汉字编码之间的关系"></a>汉字编码之间的关系</h3><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/汉字编码之间的关系.png" alt="汉字编码之间的关系"></center>
+
+<h1 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h1><p><strong>编程环境</strong>：</p>
+<ul>
+<li>VS2017</li>
+<li>.Net Framework 4.5</li>
+</ul>
+<p><strong>运行环境</strong>：</p>
+<ul>
+<li>Win10</li>
+</ul>
+<h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><p><strong>界面设计</strong>:</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/界面.png" alt="界面"></center>
+
+<p><strong>代码设计</strong>:</p>
+<pre class="line-numbers language-c#"><code class="language-c#">using System;
+using System.Text;
+using System.Windows.Forms;
+
+namespace GetCode
 {
-    public class Ceasar
+    public partial class Form1 : Form
     {
-        #region 加密操作
-        /// <summary>
-        /// Ceasar加密操作
-        /// </summary>
-        /// <param name="plaintext">明文)</param>
-        /// <param name="key">密钥(1-25)</param>
-        /// <returns>密文</returns>
-        internal string EnCrypt(string plaintext, int key)
+        public Form1()
         {
-            string ciphertext = null;
-            string str;
-            str = plaintext.ToUpper();
-            foreach(char ch in str)
+            InitializeComponent();
+        }
+
+        private void btn_Get_Click(object sender, EventArgs e)
+        {
+            try
             {
-                if(ch >= 'A' && ch <= 'Z')
-                {
-                    ciphertext += (char)('A' + (ch - 'A' + key + 26) % 26);
-                }
-                else
-                {
-                    ciphertext += ch;
-                }
+                //获得一个汉字字符
+                char ch = txt_ch.Text[0];
+                //使用gb2312编码方式获得字节序列
+                byte[] gb2312_bt = Encoding.GetEncoding("gb2312").GetBytes(new Char[] { ch });
+                //将字节序列的第一个字节向左移8位
+                int n = (int)gb2312_bt[0] << 8;
 
+                //第一个字节移8位后与第二个字节相加得到汉字编码
+                n += (int)gb2312_bt[1];
+                //显示汉字编码(十六进制)
+                txt_Num.Text = Convert.ToString(n, 16);
             }
-
-            return ciphertext;
-        }
-
-        /// <summary>
-        /// Avocat加密（密钥为10）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string AvocatEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, 10);
-        }
-
-        /// <summary>
-        /// ROT13加密（密钥为13）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string ROT13EnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, 13);
-        }
-
-        /// <summary>
-        /// Cassis加密（密钥为-5）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string CassisEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, -5);
-        }
-
-        /// <summary>
-        /// Cassette加密（密钥为-6）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string CassetteEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, -6);
-        }
-
-        #endregion
-
-        #region 解密操作
-        /// <summary>
-        /// Ceasar解密操作
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <param name="key">密钥(1-25)</param>
-        /// <returns>明文</returns>
-        internal string DeCrypt(string ciphertext, int key)
-        {
-            string plaintext = null;
-            string str;
-            str = ciphertext.ToUpper();
-            foreach (char ch in str)
+            catch (Exception)
             {
-                if(ch >= 'A' && ch <= 'Z')
-                {
-                    plaintext += (char)('A' + (ch - 'A' - key + 26) % 26);
-                }
-                else
-                {
-                    plaintext += ch;
-                }
-
+                //异常提示信息
+                MessageBox.Show("请输入汉字字符！", "出现错误！");
             }
-
-            return plaintext;
-        }
-
-        /// <summary>
-        /// Avocat解密（密钥为10）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string AvocatDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, 10);
-        }
-
-        /// <summary>
-        /// ROT13解密（密钥为13）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string ROT13DeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, 13);
-        }
-
-        /// <summary>
-        /// Cassis解密（密钥为-5）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string CassisDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, -5);
-        }
-
-        /// <summary>
-        /// Cassette解密（密钥为-6）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string CassetteDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, -6);
-        }
-        #endregion
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Ceasar类核心解读：</p>
-<p>​        在ceasar中理解的字母表是一个转轮的形式，但在实际的存储中而是以线性方式存储，所有在本代码中通过使用《初等数论》中的<strong>模运算</strong>来得到移位后的字母。（全部以<strong>“A”</strong>为基准）</p>
-<ol>
-<li>得到<strong>给定字母</strong>与“A”的偏移量</li>
-<li>计算<strong>移位后</strong>对“A”的偏移量</li>
-<li><font color="red">在取模之前先加上一个基数，使之前的计算结果全部以转化为正数</font></li>
-<li><strong>取模运算</strong>得到目标字母相对于“A”的偏移量</li>
-<li>得到相对于“A”偏移字母的ASCII码并将其<strong>强制转化为字母</strong></li>
-</ol>
-<p><strong>Program测试类：</strong></p>
-<pre class="line-numbers language-C#"><code class="language-C#">using System;
-
-namespace DemoCeasar
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.Title = "欢迎使用Ceasar";
-            Console.WriteLine("请输入您期望的操作：(1:加密,0:解密)");
-
-            string str = Console.ReadLine();
-            int op;
-            if(int.TryParse(str,out op))
-            {
-                Ceasar ceasar = new Ceasar();
-
-                if (op == 1)
-                {
-                    Console.WriteLine("请输入明文：(字母串)");
-                    string plaintext = Console.ReadLine();
-                    Console.WriteLine("请输入密钥:(整数)");
-                    int key = Console.Read() - '0';
-
-                    string ciphertext = ceasar.EnCrypt(plaintext, key);
-
-                    Console.WriteLine("{0}加密之后的密文为:{1}",plaintext,ciphertext);
-                }
-                else if(op == 0)
-                {
-                    Console.WriteLine("请输入密文：(字母串)");
-                    string ciphertext = Console.ReadLine();
-                    Console.WriteLine("请输入密钥:(整数)");
-                    int key = Console.Read() - '0';
-
-                    string plaintext = ceasar.DeCrypt(ciphertext, key);
-
-                    Console.WriteLine(plaintext);
-                }
-                else
-                {
-                    Console.WriteLine("输入错误程序终止!!!");
-                }
-            }
-
-            Console.ReadKey();
         }
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p><strong>加密操作</strong>：</p>
-<p><img src="EnCrypt.png" alt="EnCrypt"></p>
-<p><strong>解密操作</strong>：</p>
-<p><img src="DeCrypt.png" alt="DeCrypt"></p>
-<h1 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h1><p>​        Ceasar密码作为经典的加密算法，在罗马时期有很好的应用。其明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合，也即其加密的密钥有25种情况(<font color="blue">0不计算在内</font>)，通过枚举密钥的方式揣测明文。</p>
-<h2 id="穷举搜索"><a href="#穷举搜索" class="headerlink" title="穷举搜索"></a>穷举搜索</h2><p><strong>CrackSeasar类</strong>：</p>
-<pre class="line-numbers language-C#"><code class="language-C#">namespace Crack_Seasar
-{
-    public class CrackSeasar
-    {
-        #region 枚举检索
-        /// <summary>
-        /// 枚举搜索
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>返回可能的明文字符串组</returns>
-        internal string[] EnumerativeSearch(string ciphertext)
-        {
-            string[] plaintext = new string[26];
-            string str = ciphertext.ToUpper();
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/结果.png" alt="结果"></center>
 
-            // 枚举解密
-            for (int key = 1; key < 26; key++)
-            {
-                foreach (char ch in str)
-                {
-                    if (ch >= 'A' && ch <= 'Z')
-                    {
-                        plaintext[key - 1] += (char)('A' + (ch - 'A' - key + 26) % 26);
-                    }
-                    else
-                    {
-                        plaintext[key - 1] += ch;
-                    }
-                }
-            }
-
-            return plaintext;
-        }
-        #endregion
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>Program测试类</strong>：</p>
-<pre class="line-numbers language-csahrp"><code class="language-csahrp">using System;
-
-namespace Crack_Seasar
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.Title = "CrackSear";
-
-            Console.WriteLine("请输入待破解密文：");
-            string ciphertext = Console.ReadLine();
-
-            // 枚举搜索
-            CrackSeasar crackSeasar = new CrackSeasar();
-            string[] plaintext = crackSeasar.EnumerativeSearch(ciphertext);
-
-            // Display
-            for(int i = 0;i < 25;i++)
-            {
-                Console.WriteLine("key:{0} \t -> \t {1}", i + 1, plaintext[i]);
-            }
-
-            Console.ReadKey();
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>测试结果</strong>：</p>
-<p><img src="EnumerativeSearch1.png" alt="EnumerativeSearch"></p>
+<h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><ul>
+<li>char ch = txt_ch.Text[0];<font color="blue">//ch变量存储“位”的Unicode编码</font>&gt;</li>
+<li>byte[] gb2312_bt = Encoding.GetEncoding(“gb2312”).GetBytes(new Char[] { ch });<font color="blue">//gb2312_bt变量数组中存储由ch编码得到的GB2312字节</font></li>
+<li>int n = (int)gb2312_bt[0] &lt;&lt; 8;<font color="blue"> //将字节左移八位(一个字节)</font></li>
+<li>n += (int)gb2312_bt[1];<font color="blue">//两个数值相加得到“位”的GB2312编码(十进制)</font></li>
+<li>txt_Num.Text = Convert.ToString(n, 16);<font color="blue">//编码转十六进制并显示</font></li>
+</ul>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>参考链接</strong>：</p>
-<p><a href="https://baike.baidu.com/item/恺撒密码/4905284?fromtitle=%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81&fromid=1336345&fr=aladdin" target="_blank" rel="noopener">凯撒密码-百度百科</a></p>
-<p><a href="https://www.cnblogs.com/ECJTUACM-873284962/p/8639300.html" target="_blank" rel="noopener">凯撒密码加解密即破解实现原理</a></p>
+<ul>
+<li><a href="https://baike.baidu.com/item/汉字编码/7123465?fr=aladdin" target="_blank" rel="noopener">汉字编码(百度百科)</a></li>
+<li><a href="https://www.qqxiuzi.cn/bianma/zifuji.php" target="_blank" rel="noopener">千千秀字(汉字字符集编码查询)</a></li>
+</ul>
+<p><strong>有关字体编码/查询/加解密网站推荐</strong>：</p>
+<p><a href="https://www.qqxiuzi.cn/daohang.htm" target="_blank" rel="noopener">千千秀字</a></p>
 
             </div>
             <hr />
@@ -969,9 +776,9 @@ namespace Crack_Seasar
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《CeasarCipher》
+                    《CSharp巧用移位运算符获取汉字编码值》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/08/22/ceasarcipher/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/" property="cc:attributionName"
                rel="cc:attributionURL">
                 z1r0s
             </a> 采用
@@ -1011,90 +818,29 @@ namespace Crack_Seasar
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/08/22/vigenerecipher/">
+                <a href="/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="VigenereCipher">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="CSharp巧用移位运算符获取汉字编码值">
                         
-                        <span class="card-title">VigenereCipher</span>
+                        <span class="card-title">CSharp巧用移位运算符获取汉字编码值</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            维吉尼亚密码介绍：
-​        维吉尼亚密码（又译 维热纳尔密码）是使用一系列凯撒密码组成密码字母表的加密算法，属于多表密码的一种简单形式。
-​        维吉尼亚密码曾多次被发明。该方法最早记录在吉奥万·巴蒂斯塔·贝拉索（ Gi
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-22
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/密码学/" class="post-category" target="_blank">
-                                    密码学
-                                </a>
-                            
-                            <a href="/categories/密码学/古典密码/" class="post-category" target="_blank">
-                                    古典密码
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/密码学/" target="_blank">
-                        <span class="chip bg-color">密码学</span>
-                    </a>
-                    
-                    <a href="/tags/古典密码/" target="_blank">
-                        <span class="chip bg-color">古典密码</span>
-                    </a>
-                    
-                    <a href="/tags/Vigenere/" target="_blank">
-                        <span class="chip bg-color">Vigenere</span>
-                    </a>
-                    
-                    <a href="/tags/维吉尼亚密码/" target="_blank">
-                        <span class="chip bg-color">维吉尼亚密码</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/08/22/ceasarcipher/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="CeasarCipher">
-                        
-                        <span class="card-title">CeasarCipher</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            根据罗马早期纪传体作者盖乌斯·苏维托尼乌斯的记载，凯撒大帝曾用一种移位的方式对军事信息进行加密，后人称这种加密方式为凯撒加密。凯撒密码是一种替换加密的方案，明文中所有字母都在字母表上向后(或向前)按照一个固定数目进行偏移后被替换成密文。
+                            背景移位运算符
+移位运算符在程序设计中，是位操作运算符的一种
+
+移位运算符分为左移位运算符“&lt;&lt;”和右移位运算符“&gt;&gt;”，形如：X &lt;&lt; N 或 X &gt;&gt; N
+
+在C#中X可以是：int、ui
                         
                     </div>
                     <div class="publish-info">
@@ -1105,12 +851,8 @@ namespace Crack_Seasar
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/密码学/" class="post-category" target="_blank">
-                                    密码学
-                                </a>
-                            
-                            <a href="/categories/密码学/古典密码/" class="post-category" target="_blank">
-                                    古典密码
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                    C#
                                 </a>
                             
                             
@@ -1121,16 +863,88 @@ namespace Crack_Seasar
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Ceasar/" target="_blank">
-                        <span class="chip bg-color">Ceasar</span>
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C#</span>
                     </a>
                     
-                    <a href="/tags/密码学/" target="_blank">
-                        <span class="chip bg-color">密码学</span>
+                    <a href="/tags/程序实现/" target="_blank">
+                        <span class="chip bg-color">程序实现</span>
                     </a>
                     
-                    <a href="/tags/古典密码/" target="_blank">
-                        <span class="chip bg-color">古典密码</span>
+                    <a href="/tags/编码/" target="_blank">
+                        <span class="chip bg-color">编码</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="CSharp多线程猜数字游戏">
+                        
+                        <span class="card-title">CSharp多线程猜数字游戏</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            背景程序、进程、线程程序：
+
+程序是指令和数据的有序集合。
+程序是静态的。
+
+进程：
+
+进程是一段程序的执行过程。
+进程是动态的，具有生命周期。
+进程是一个活动实体。
+进程有三种基本状态（就绪态、运行态、阻塞态）。
+进程是资源分配的基本单位
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                    C#
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C#</span>
+                    </a>
+                    
+                    <a href="/tags/程序实现/" target="_blank">
+                        <span class="chip bg-color">程序实现</span>
+                    </a>
+                    
+                    <a href="/tags/小游戏/" target="_blank">
+                        <span class="chip bg-color">小游戏</span>
+                    </a>
+                    
+                    <a href="/tags/多线程/" target="_blank">
+                        <span class="chip bg-color">多线程</span>
                     </a>
                     
                 </div>
@@ -1276,6 +1090,25 @@ namespace Crack_Seasar
     
 
 </main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
 
     <footer class="page-footer bg-color">

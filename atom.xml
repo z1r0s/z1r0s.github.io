@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-08-22T09:45:53.159Z</updated>
+  <updated>2020-08-22T10:30:54.866Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,128 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSharp巧用移位运算符获取汉字编码值</title>
+    <link href="https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/"/>
+    <id>https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</id>
+    <published>2020-08-22T10:28:10.000Z</published>
+    <updated>2020-08-22T10:30:54.866Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;h2 id=&quot;移位运算符&quot;&gt;&lt;a href=&quot;#移位运算符&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C#" scheme="https://z1r0s.github.io/categories/C/"/>
+    
+    
+      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
+    
+      <category term="程序实现" scheme="https://z1r0s.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"/>
+    
+      <category term="编码" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSharp多线程猜数字游戏</title>
+    <link href="https://z1r0s.github.io/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/"/>
+    <id>https://z1r0s.github.io/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/</id>
+    <published>2020-08-22T10:23:24.000Z</published>
+    <updated>2020-08-22T10:26:42.464Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;h2 id=&quot;程序、进程、线程&quot;&gt;&lt;a href=&quot;#程序、进程、线程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C#" scheme="https://z1r0s.github.io/categories/C/"/>
+    
+    
+      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
+    
+      <category term="程序实现" scheme="https://z1r0s.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"/>
+    
+      <category term="小游戏" scheme="https://z1r0s.github.io/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="多线程" scheme="https://z1r0s.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#递归算法计算斐波那契数列</title>
+    <link href="https://z1r0s.github.io/2020/08/22/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/"/>
+    <id>https://z1r0s.github.io/2020/08/22/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/</id>
+    <published>2020-08-22T10:13:32.000Z</published>
+    <updated>2020-08-22T10:21:47.780Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;h2 id=&quot;兔子数列&quot;&gt;&lt;a href=&quot;#兔子数列&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="算法实例" scheme="https://z1r0s.github.io/categories/%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B/"/>
+    
+    
+      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
+    
+      <category term="算法" scheme="https://z1r0s.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="斐波那契数列" scheme="https://z1r0s.github.io/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> This host is not allowed to connect to MySQL server</title>
+    <link href="https://z1r0s.github.io/2020/08/22/this-host-is-not-allowed-to-connect-to-mysql-server/"/>
+    <id>https://z1r0s.github.io/2020/08/22/this-host-is-not-allowed-to-connect-to-mysql-server/</id>
+    <published>2020-08-22T10:01:41.000Z</published>
+    <updated>2020-08-22T10:08:02.944Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
+    
+    
+      <category term="mysql" scheme="https://z1r0s.github.io/tags/mysql/"/>
+    
+      <category term="爆破" scheme="https://z1r0s.github.io/tags/%E7%88%86%E7%A0%B4/"/>
+    
+      <category term="Bruter" scheme="https://z1r0s.github.io/tags/Bruter/"/>
+    
+  </entry>
   
   <entry>
     <title>VigenereCipher</title>
@@ -41,13 +163,13 @@
       <category term="古典密码" scheme="https://z1r0s.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
     
     
-      <category term="Vigenere" scheme="https://z1r0s.github.io/tags/Vigenere/"/>
-    
-      <category term="维吉尼亚密码" scheme="https://z1r0s.github.io/tags/%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81/"/>
-    
       <category term="密码学" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
       <category term="古典密码" scheme="https://z1r0s.github.io/tags/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
+    
+      <category term="Vigenere" scheme="https://z1r0s.github.io/tags/Vigenere/"/>
+    
+      <category term="维吉尼亚密码" scheme="https://z1r0s.github.io/tags/%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81/"/>
     
   </entry>
   
@@ -75,11 +197,11 @@
       <category term="古典密码" scheme="https://z1r0s.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
     
     
+      <category term="Ceasar" scheme="https://z1r0s.github.io/tags/Ceasar/"/>
+    
       <category term="密码学" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
       <category term="古典密码" scheme="https://z1r0s.github.io/tags/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
-    
-      <category term="Ceasar" scheme="https://z1r0s.github.io/tags/Ceasar/"/>
     
   </entry>
   

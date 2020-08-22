@@ -1,2 +1,6 @@
+https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/
+https://z1r0s.github.io/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/
+https://z1r0s.github.io/2020/08/22/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/
+https://z1r0s.github.io/2020/08/22/this-host-is-not-allowed-to-connect-to-mysql-server/
 https://z1r0s.github.io/2020/08/22/vigenerecipher/
 https://z1r0s.github.io/2020/08/22/ceasarcipher/
