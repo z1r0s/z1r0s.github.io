@@ -504,7 +504,7 @@
 <p>​        将<strong>26个字母</strong>按顺序进行排列并形成环，将每一位英文字母用其前面(或后面)的第k位字母来表示，替换之后形成新的字符串即为密文。</p>
 <p>​        <strong>举个栗子</strong>：</p>
 <p>​        当明文为：T，偏移量为：3时，使用CeasarCipher如下图所示。</p>
-<p><img src="./CeasarCipher/CeasarCipher.png" alt="CeasarCipher"></p>
+<p><img src="CeasarCipher.png" alt="CeasarCipher"></p>
 <p>​        以单表替换的角度来解释即为：</p>
 <p>​        明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
 <p>​        密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC</p>
@@ -522,7 +522,7 @@
 <p>则有：</p>
 <p><strong>加密变换</strong>：<br>$$<br>E_(m_) = (m + k) \ mod \ 26 \ \   ,(m∈M，k∈K)<br>$$<br><strong>解密变换</strong>：<br>$$<br>D_(c_) = (c - k) \ mod \ 26  ,\ \ \  (c∈C，k∈K)<br>$$<br><font color="red">其中：明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合</font></p>
 <h1 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h1><p><strong>程序流程图</strong>：</p>
-<p><img src="./CeasarCipher/CeasarCipherFlowchart.png" alt="CeasarCipherFlowchart"></p>
+<p><img src="CeasarCipherFlowchart.png" alt="CeasarCipherFlowchart"></p>
 <p>注：</p>
 <ul>
 <li><p>第一次输入一个int型数据op，若<code>op==1</code>则执行加密操作，若<code>op==0</code>则执行解密操作，否则结束程序。</p>
@@ -737,9 +737,9 @@ namespace DemoCeasar
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p><strong>加密操作</strong>：</p>
-<p><img src="./CeasarCipher/EnCrypt.png" alt="EnCrypt"></p>
+<p><img src="EnCrypt.png" alt="EnCrypt"></p>
 <p><strong>解密操作</strong>：</p>
-<p><img src="./CeasarCipher/DeCrypt.png" alt="DeCrypt"></p>
+<p><img src="DeCrypt.png" alt="DeCrypt"></p>
 <h1 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h1><p>​        Ceasar密码作为经典的加密算法，在罗马时期有很好的应用。其明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合，也即其加密的密钥有25种情况(<font color="blue">0不计算在内</font>)，通过枚举密钥的方式揣测明文。</p>
 <h2 id="穷举搜索"><a href="#穷举搜索" class="headerlink" title="穷举搜索"></a>穷举搜索</h2><p><strong>CrackSeasar类</strong>：</p>
 <pre class="line-numbers language-C#"><code class="language-C#">namespace Crack_Seasar
@@ -807,7 +807,7 @@ namespace Crack_Seasar
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>测试结果</strong>：</p>
-<p><img src="./CeasarCipher/EnumerativeSearch1.png" alt="EnumerativeSearch"></p>
+<p><img src="EnumerativeSearch1.png" alt="EnumerativeSearch"></p>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>参考链接</strong>：</p>
 <p><a href="https://baike.baidu.com/item/恺撒密码/4905284?fromtitle=%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81&fromid=1336345&fr=aladdin" target="_blank" rel="noopener">凯撒密码-百度百科</a></p>
 <p><a href="https://www.cnblogs.com/ECJTUACM-873284962/p/8639300.html" target="_blank" rel="noopener">凯撒密码加解密即破解实现原理</a></p>
