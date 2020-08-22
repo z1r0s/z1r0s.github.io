@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Demo</title>
+      <link href="/2020/08/22/demo/"/>
+      <url>/2020/08/22/demo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>This is a Demo!</p><p><a href="https://z1r0s.githun.io" target="_blank" rel="noopener">Welcome to z1r0s’blog!</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Demo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Demo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>article title</title>
       <link href="/2020/08/21/article-title/"/>
       <url>/2020/08/21/article-title/</url>
