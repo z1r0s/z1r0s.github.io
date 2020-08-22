@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-08-22T09:17:43.132Z</updated>
+  <updated>2020-08-22T09:45:53.159Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VigenereCipher</title>
+    <link href="https://z1r0s.github.io/2020/08/22/vigenerecipher/"/>
+    <id>https://z1r0s.github.io/2020/08/22/vigenerecipher/</id>
+    <published>2020-08-22T09:29:29.000Z</published>
+    <updated>2020-08-22T09:45:53.159Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;维吉尼亚密码&quot;&gt;&lt;a href=&quot;#维吉尼亚密码&quot; class=&quot;headerlink&quot; title=&quot;维吉尼亚密码&quot;&gt;&lt;/a&gt;维吉尼亚密码&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;介绍&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="密码学" scheme="https://z1r0s.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+      <category term="古典密码" scheme="https://z1r0s.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
+    
+    
+      <category term="Vigenere" scheme="https://z1r0s.github.io/tags/Vigenere/"/>
+    
+      <category term="维吉尼亚密码" scheme="https://z1r0s.github.io/tags/%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81/"/>
+    
+      <category term="密码学" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+      <category term="古典密码" scheme="https://z1r0s.github.io/tags/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>CeasarCipher</title>
@@ -40,11 +75,11 @@
       <category term="古典密码" scheme="https://z1r0s.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
     
     
-      <category term="Ceasar" scheme="https://z1r0s.github.io/tags/Ceasar/"/>
-    
       <category term="密码学" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
       <category term="古典密码" scheme="https://z1r0s.github.io/tags/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
+    
+      <category term="Ceasar" scheme="https://z1r0s.github.io/tags/Ceasar/"/>
     
   </entry>
   
