@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Win10远程桌面及防火墙配置</title>
+      <link href="/2020/08/26/win10-yuan-cheng-zhuo-mian-ji-fang-huo-qiang-pei-zhi/"/>
+      <url>/2020/08/26/win10-yuan-cheng-zhuo-mian-ji-fang-huo-qiang-pei-zhi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="远程桌面"><a href="#远程桌面" class="headerlink" title="远程桌面"></a>远程桌面</h1><p>&emsp;&emsp;当计算机开启了<strong>远程桌面</strong>连接后，可以通过另一台计算机中的<strong>远程桌面客户端程序</strong>连接到该计算机，在计算机上进行实时操作，如：安装程序、执行程序等。远程桌面抛开了地域的限制，使用户操作远端计算机犹如操作当前计算机一般。</p><h1 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h1><ul><li>Windows 10专业版</li><li>系统自带的<strong>远程桌面</strong></li></ul><p>ps:</p><ul><li>Windows 10操作系统中家庭版仅能作<strong>客户端</strong>，而专业版和企业版<strong>既可以作客户端又可以作服务端</strong>。</li><li>不使用<strong>TeamViewer</strong>的原因是：TeamViewer需要两台计算机都连接到Internet上，而我现在要实现的是，内网中的两台计算机可以实现远程桌面访问。</li></ul><h1 id="操作目的"><a href="#操作目的" class="headerlink" title="操作目的"></a>操作目的</h1><p>&emsp;&emsp;实现内网中的两台计算机可以通过远程桌面访问。</p><h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><p>&emsp;&emsp;Windows 10专业版默认是禁掉远程桌面服务端的功能，使用远程桌面时，需要先开启。远程桌面默认使用的是<strong>3389</strong>端口，但开启远程桌面时，不建议采用此端口，应修改成另一个不常用的端口，此时也要在Windows Defender 防火墙中对新设置的端口进行<strong>规则设置</strong>（<em>有的教程中，在开启远程桌面时，为了连接顺畅直接把防火墙给关了……建议还是不要采取这样的操作</em>）。下面将从<strong>开启远程桌面</strong>、<strong>修改远程桌面端口</strong>、<strong>修改防火墙配置</strong>、<strong>远程桌面连接</strong>这四个方面来叙述。</p><h2 id="开启远程桌面"><a href="#开启远程桌面" class="headerlink" title="开启远程桌面"></a>开启远程桌面</h2><p>&emsp;&emsp;Win10中有两种常用方式可以开启远程桌面。</p><h3 id="方式一：通用型"><a href="#方式一：通用型" class="headerlink" title="方式一：通用型"></a>方式一：通用型</h3><p>&emsp;&emsp;此方式适用于绝大多数Windows版本系统。</p><ol><li><p>右键【<strong>此电脑</strong>】选择【<strong>属性</strong>】，在<strong>系统</strong>界面中<strong>点击</strong>【<strong>远程设置</strong>】，如图1所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图1.png" alt="图1"></center><center>图 1</center></li><li><p>在<strong>远程属性界面</strong>中的<strong>远程桌面</strong>中，<strong>选中</strong>【允许远程连接到计算机】选项，然后<strong>点击</strong>【<strong>应用</strong>】按钮，如图2所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图2.png" alt="图2"></center><center>图 2</center></li><li><p><strong>点击</strong>【<strong>选择用户</strong>】按钮，进入<strong>远程桌面用户</strong>界面（系统默认仅当前管理员有远程访问权限，如需添加其他用户需继续执行下一步操作），如图3所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图3.png" alt="图3"></center><center>图 3</center></li><li><p><strong>点击</strong>【<strong>添加</strong>】按钮，进入<strong>选择用户界面</strong>，在输入框中键入用户名后，<strong>点击</strong>【<strong>确认</strong>】按钮即可，如图4所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图4.png" alt="图4"></center><center>图 4</center></li></ol><h3 id="方式二：Modern界面"><a href="#方式二：Modern界面" class="headerlink" title="方式二：Modern界面"></a>方式二：Modern界面</h3><p>&emsp;&emsp;Win10采用Modern设置风格，并且将一些常用的设置选项都集成到了【<strong>设置界面</strong>】。</p><ol><li><p>【Win+I】打开【<strong>设置界面</strong>】，点击【<strong>系统</strong>】 -&gt; 【<strong>远程桌面</strong>】，如图5所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图5.png" alt="图5"></center><center>图 5</center></li><li><p>将<strong>启用远程桌面</strong>设置为<strong>开</strong>，如图6所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图6.png" alt="图6"></center><center>图 6</center></li></ol><p>ps：</p><ul><li>上述操作与<strong><em>方式一</em></strong>中的前两步操作达到相同的效果。</li><li>该方式仅允许当前管理员进行远程访问操作。</li><li>设置接通电源时计算机从不睡眠，否则只会在某段时间内才能正常连接。</li></ul><h2 id="修改远程桌面默认端口"><a href="#修改远程桌面默认端口" class="headerlink" title="修改远程桌面默认端口"></a>修改远程桌面默认端口</h2><ol><li><p>【Win+R】打开【运行】，键入<strong>regedit</strong>，打开<strong>注册表编辑器界面</strong>，如图7所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图7.png" alt="图7"></center><center>图 7</center></li><li><p>修改<strong>PortNumber</strong>参数</p><ul><li><p>找到如下位置：<span style="color:red;">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp</span></p><p>在右侧找到<strong>PortNumber</strong>并将其修改为<strong>6700</strong>，如图8所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图8.png" alt="图8"></center><center>图 8</center></li><li><p>找到如下位置：</p><p><span style="color:red">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp</span></p><p>在右侧找到<strong>PortNumber</strong>并将其修改为<strong>6700</strong>，如图9所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图9.png" alt="图9"></center><center>图 9</center></li></ul></li><li><p>关闭注册表。</p></li></ol><h2 id="修改防火墙配置"><a href="#修改防火墙配置" class="headerlink" title="修改防火墙配置"></a>修改防火墙配置</h2><ol><li><p>【Win+R】打开【运行】，键入<strong>control</strong>,打开<strong>控制面板</strong>。找到<strong>Windows Defender 防火墙</strong>并打开，如图10所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图10.png" alt="图10"></center><center>图 10</center></li><li><p><strong>点击</strong>【<strong>高级设置</strong>】，打开<strong>高级安全Windows Defender 防火墙界面</strong>，如图11所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图11.png" alt="图11"></center><center>图 11</center></li><li><p><strong>点击</strong>左侧【<strong>入站规则</strong>】后，点击【<strong>新建规则</strong>】，如图12所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图12.png" alt="图12"></center><center>图 12</center></li><li><p>在<strong>新建入站规则向导界面</strong>的规则类型中选择<strong>端口</strong>选项，并单击【<strong>下一步</strong>】按钮，如图13所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图13.png" alt="图13"></center><center>图 13</center></li><li><p>在<strong>协议和端口界面</strong>选择<strong>TCP</strong>选项（入栈需要创建两条规则一个是TCP一个是UDP，所以还需要按此例创建一个UDP的），选中<strong>特定本地端口</strong>，并键入端口值：<strong>6700</strong>，并<strong>单击</strong>【<strong>下一步</strong>】按钮，如图14所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图14.png" alt="图14"></center><center>图 14</center></li><li><p>在<strong>操作界面</strong>中选择<strong>允许连接</strong>选项，如图15所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图15.png" alt="图15"></center><center>图 15</center></li><li><p><strong>配置文件界面</strong>规则采用默认即可，<strong>单击</strong>【<strong>下一步</strong>】，如图16所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图16.png" alt="图16"></center><center>图 16</center></li><li><p>在<strong>名称界面</strong>键入名称值，可随意设置只要自己懂什么意思就OK，如图17所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图17.png" alt="图17"></center><center>图 17</center></li><li><p>按上述相同步骤再新增一条<strong>UDP规则</strong>。</p></li><li><p>设置完毕后，关闭<strong>高级安全Windows Defender 防火墙界面</strong>。</p></li><li><p><span style="color:red">所有设置完成之后需要重启电脑</span></p></li></ol><h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><ol><li><p>【Win+R】打开【运行】，键入<strong>mstsc</strong>，打开<strong>远程桌面界面客户端</strong>，如图18所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图18.png" alt="图18"></center><center>图 18</center></li><li><p>键入计算机IP地址，记得要加上端口号(如：<span style="color:red">192.168.11.111:6700</span>，不加的话，默认是使用<strong>3389</strong>进行连接)，如图19所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/mstsc/图19.png" alt="图19"></center><center>图 19</center></li><li><p>成功后会要求用户键入<strong>密码</strong>，确认<strong>连接凭证</strong>即可登录。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> metsc </tag>
+            
+            <tag> 远程桌面 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>批处理笔记</title>
       <link href="/2020/08/22/pi-chu-li-bi-ji/"/>
       <url>/2020/08/22/pi-chu-li-bi-ji/</url>
@@ -223,9 +252,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
@@ -341,13 +370,13 @@
       
         <tags>
             
-            <tag> Vigenere </tag>
-            
-            <tag> 维吉尼亚密码 </tag>
-            
             <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
+            
+            <tag> Vigenere </tag>
+            
+            <tag> 维吉尼亚密码 </tag>
             
         </tags>
       
@@ -374,11 +403,11 @@
       
         <tags>
             
+            <tag> Ceasar </tag>
+            
             <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
-            
-            <tag> Ceasar </tag>
             
         </tags>
       
