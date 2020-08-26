@@ -341,13 +341,13 @@
       
         <tags>
             
-            <tag> 密码学 </tag>
-            
-            <tag> 古典密码 </tag>
-            
             <tag> Vigenere </tag>
             
             <tag> 维吉尼亚密码 </tag>
+            
+            <tag> 密码学 </tag>
+            
+            <tag> 古典密码 </tag>
             
         </tags>
       
@@ -374,11 +374,11 @@
       
         <tags>
             
-            <tag> Ceasar </tag>
-            
             <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
+            
+            <tag> Ceasar </tag>
             
         </tags>
       
