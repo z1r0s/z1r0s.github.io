@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-08-26T08:48:26.716Z</updated>
+  <updated>2020-08-27T08:17:28.535Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记PicGO图床的安装与使用</title>
+    <link href="https://z1r0s.github.io/2020/08/27/ji-picgo-tu-chuang-de-an-zhuang-yu-shi-yong/"/>
+    <id>https://z1r0s.github.io/2020/08/27/ji-picgo-tu-chuang-de-an-zhuang-yu-shi-yong/</id>
+    <published>2020-08-27T08:07:02.000Z</published>
+    <updated>2020-08-27T08:17:28.535Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-起因&quot;&gt;&lt;a href=&quot;#0x01-起因&quot; class=&quot;headerlink&quot; title=&quot;0x01 起因&quot;&gt;&lt;/a&gt;0x01 起因&lt;/h1&gt;&lt;p&gt;​        我有使用&lt;a href=&quot;https://www.typora.io/&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="PicGo" scheme="https://z1r0s.github.io/tags/PicGo/"/>
+    
+      <category term="软件使用" scheme="https://z1r0s.github.io/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+      <category term="图床" scheme="https://z1r0s.github.io/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>Win10远程桌面及防火墙配置</title>
@@ -279,9 +309,9 @@
     
       <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
     
-      <category term="程序实现" scheme="https://z1r0s.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"/>
-    
       <category term="编码" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81/"/>
+    
+      <category term="程序实现" scheme="https://z1r0s.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"/>
     
   </entry>
   
