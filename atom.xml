@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-08-27T12:20:34.503Z</updated>
+  <updated>2020-08-27T12:38:57.371Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,74 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WePE Win10 安装</title>
+    <link href="https://z1r0s.github.io/2020/08/27/wepe-win10-an-zhuang/"/>
+    <id>https://z1r0s.github.io/2020/08/27/wepe-win10-an-zhuang/</id>
+    <published>2020-08-27T12:32:55.000Z</published>
+    <updated>2020-08-27T12:38:57.371Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;WePE-Win10-安装&quot;&gt;&lt;a href=&quot;#WePE-Win10-安装&quot; class=&quot;headerlink&quot; title=&quot;WePE Win10 安装&quot;&gt;&lt;/a&gt;WePE Win10 安装&lt;/h1&gt;&lt;h2 id=&quot;安装须知&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="WePE" scheme="https://z1r0s.github.io/tags/WePE/"/>
+    
+      <category term="Win10" scheme="https://z1r0s.github.io/tags/Win10/"/>
+    
+      <category term="系统安装" scheme="https://z1r0s.github.io/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>运行框常用命令及功能</title>
+    <link href="https://z1r0s.github.io/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/"/>
+    <id>https://z1r0s.github.io/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/</id>
+    <published>2020-08-27T12:26:33.000Z</published>
+    <updated>2020-08-27T12:30:11.835Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;命令名称&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;功    能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="运行" scheme="https://z1r0s.github.io/tags/%E8%BF%90%E8%A1%8C/"/>
+    
+      <category term="常用命令" scheme="https://z1r0s.github.io/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>RSTP应用实例</title>
@@ -494,13 +562,13 @@
       <category term="古典密码" scheme="https://z1r0s.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
     
     
-      <category term="Vigenere" scheme="https://z1r0s.github.io/tags/Vigenere/"/>
-    
-      <category term="维吉尼亚密码" scheme="https://z1r0s.github.io/tags/%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81/"/>
-    
       <category term="密码学" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
       <category term="古典密码" scheme="https://z1r0s.github.io/tags/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
+    
+      <category term="Vigenere" scheme="https://z1r0s.github.io/tags/Vigenere/"/>
+    
+      <category term="维吉尼亚密码" scheme="https://z1r0s.github.io/tags/%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81/"/>
     
   </entry>
   
@@ -528,11 +596,11 @@
       <category term="古典密码" scheme="https://z1r0s.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
     
     
+      <category term="Ceasar" scheme="https://z1r0s.github.io/tags/Ceasar/"/>
+    
       <category term="密码学" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
       <category term="古典密码" scheme="https://z1r0s.github.io/tags/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/"/>
-    
-      <category term="Ceasar" scheme="https://z1r0s.github.io/tags/Ceasar/"/>
     
   </entry>
   

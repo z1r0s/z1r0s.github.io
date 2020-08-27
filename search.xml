@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>WePE Win10 安装</title>
+      <link href="/2020/08/27/wepe-win10-an-zhuang/"/>
+      <url>/2020/08/27/wepe-win10-an-zhuang/</url>
+      
+        <content type="html"><![CDATA[<h1 id="WePE-Win10-安装"><a href="#WePE-Win10-安装" class="headerlink" title="WePE Win10 安装"></a>WePE Win10 安装</h1><h2 id="安装须知"><a href="#安装须知" class="headerlink" title="安装须知"></a>安装须知</h2><ol><li>由于大部分新电脑支持UEFI启动，本文介绍UEFI+GPT安装Windows10 x64位系统方法</li><li>UEFI启动模式下，硬盘分区表必须是GPT；如果你要在Legacy模式下安装，硬盘分区表必须是MBR</li></ol><h2 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h2><ul><li>准备一个大容量的存储设备，用来转移重要的数据</li><li>使用一个8G或16G的U盘，制作一个<strong>WePE启动盘</strong></li><li>提前下载好系统的镜像并保存到启动盘中(启动盘以NTFS格式化)</li><li>准备Windows激活工具</li></ul><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="U盘启动设置"><a href="#U盘启动设置" class="headerlink" title="U盘启动设置"></a>U盘启动设置</h3><p>​        新式的主板中都会设置一个<strong>快捷启动</strong>的热键，不同的主板设置的启动热键不同，即使存在热键，有时也需要在BIOS中开启才能使用。但最基础的还是在BIOS中设置启动的顺序。不同类型的电脑进入BIOS的热键也不同，组装机的BIOS热键根据主板的不同而定，整机的热键依据品牌的不同而不同。下面列出一些组装机或品牌机的BIOS热键以供参考：  </p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WePE/各品牌电脑进入BIOS热键大全.png" alt="各品牌电脑进入BIOS热键大全"></center>  <p>​        进入BIOS之后一般是在<strong>【BOOT】</strong>选项卡下将<strong>U盘</strong>设置为首选启动项，<strong>F10</strong>保存并退出BIOS设置后，重启时会自动进入<strong>PE界面</strong>。  </p><p>(HASEE战神Z7M-KP7GT启动Boot Security后需要重启才能以F2热键进入BIOS，F7为选择启动项热键)</p><h3 id="分区操作"><a href="#分区操作" class="headerlink" title="分区操作"></a>分区操作</h3><h4 id="分区助手-无损"><a href="#分区助手-无损" class="headerlink" title="分区助手(无损)"></a>分区助手(无损)</h4><ul><li>格式化</li></ul><p>​        分区助手可以帮助对磁盘分区进行管理，如果不需要全盘重新分区，直接<strong>右键系统盘</strong>(一般是C盘)，选择<strong>【格式化】</strong>，然后就可以进入<strong>系统安装</strong>步骤即可。</p><ul><li>快速分区</li></ul><p>​        如果需要重新分区，<strong>右键磁盘</strong>(如果计算机中有多块硬盘注意你选择的硬盘)选择<strong>【快速分区】</strong>，然后再快速分区界面中设置<strong>分区数目、分区大小</strong>(第1个分区一般是系统盘，建议50GB以上)，选择磁盘的类型为<strong>GPT</strong>，分区对齐到2048扇区是4K对齐，4096扇区也是4K对齐，设置完成之后，点击<strong>【开始执行】</strong>，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WePE/分区助手-快速分区界面.png.jpg" alt="分区助手-快速分区界面.png"></center><ul><li>PS<ol><li>分区操作执行得很快；</li><li>在分区过程中如果C盘被占用，可通过<strong>【更改盘符】</strong>操作来修改占用盘符C得盘符。</li></ol></li></ul><h4 id="DiskGenius分区工具"><a href="#DiskGenius分区工具" class="headerlink" title="DiskGenius分区工具"></a>DiskGenius分区工具</h4><p>​        DiskGenius是另一款磁盘管理工具，可以对磁盘进行详细的管理与设置。</p><ul><li>快速分区</li></ul><p>​        选择<strong>【快速分区】</strong>，调整<strong>分区参数</strong>，选择<strong>GPT</strong>分区表类型，选择<strong>分区数目</strong>，在<strong>【高级设置】</strong>中更改<strong>分区大小</strong>并设置各个<strong>分区卷标</strong>，操作界面如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WePE/DiskGenius-快速分区.png" alt="DiskGenius-快速分区"></center><h3 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h3><h4 id="镜像文件安装"><a href="#镜像文件安装" class="headerlink" title="镜像文件安装"></a>镜像文件安装</h4><ol><li>找到Win10镜像文件，并将其<strong>挂载</strong>。</li><li>进入Win10镜像的<strong>sources目录</strong>中，并找到<strong>setup.exe</strong>可执行程序，然后双击打开，操作界面如图所示。</li></ol><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WePE/iso-source-setup.png" alt="iso-source-setup"></center><ol><li>之后会进入WIn10的安装界面。</li></ol><h4 id="winNTSetup"><a href="#winNTSetup" class="headerlink" title="winNTSetup"></a>winNTSetup</h4><ol><li><p>先将镜像文件<strong>挂载</strong>，或者<strong>解压</strong>。</p></li><li><p>打开<strong>winNTSetup</strong>，选择<strong>【windows Vista/7/8/10/2008/2012】</strong>选项卡：</p><ul><li>将<strong>选择包含Windows暗转文件夹的文件</strong>的路径信息指定到上一步<strong>挂载</strong>或<strong>解压</strong>的Windows镜像中<strong>install.wim</strong>文件所在的路径下(一般路径为/sources/install.wim)；</li><li><strong>选择引导驱动器选择</strong>默认为C盘即可；</li><li>磁盘的<strong>安装位置</strong>选择<strong>C盘</strong>；</li><li>选择安装的Win10版本(win10pro/home等)；</li><li>设置完毕之后点击<strong>【开始安装】</strong>。</li></ul><p>设置界面结果如下图所示：</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WePE/WinNTSetup.png" alt="WinNTSetup"></center></li><li><p>在<strong>准备确认界面</strong>勾选<strong>【安装成功后自动重启计算机】</strong>选项，并点击<strong>【确认】</strong>按钮，操作如下图所示：</p></li></ol><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WePE/WinNTSetup-准备界面.png" alt="WinNTSetup"></center><ol start="4"><li>之后镜像文件需要一段时间的部署，等部署完成之后计算机自动重启，并进入Win10的安装界面。</li></ol><p>部署过程如下图所示：</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WePE/WinNTSetup-安装过程.png" alt="WinNTSetup-安装过程"></center><h4 id="CGI备份还原"><a href="#CGI备份还原" class="headerlink" title="CGI备份还原"></a>CGI备份还原</h4><ol><li><p>打开<strong>CGI备份还原</strong>，选择<strong>【操作分区】</strong>选项卡中：</p><ul><li><p>选择<strong>还原分区</strong>；</p></li><li><p>指定还原的分区(<strong>C盘</strong>)；</p></li><li><p>指定<strong>镜像文件</strong>或<strong>Ghost文件</strong>所在的路径，操作如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WePE/CGI-操作分区.png" alt="CGI-操作分区"></center></li><li><p>单击<strong>【执行】</strong>按钮，并在弹出的<strong>还原分区界面</strong>勾选<strong>【重启】</strong>选项，点击<strong>【确定】</strong>按钮，操作如下图所示；</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WePE/CGI-还原分区.png" alt="CGI-还原分区"></center></li><li><p>接下来需要等待程序操作完成，即可使用新的系统。</p></li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WePE </tag>
+            
+            <tag> Win10 </tag>
+            
+            <tag> 系统安装 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>运行框常用命令及功能</title>
+      <link href="/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/"/>
+      <url>/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/</url>
+      
+        <content type="html"><![CDATA[<table><thead><tr><th align="center">命令名称</th><th align="center">功    能</th></tr></thead><tbody><tr><td align="center">msconfig</td><td align="center">系统配置程序</td></tr><tr><td align="center">regedit</td><td align="center">注册表编辑器</td></tr><tr><td align="center">cmd</td><td align="center">命令提示符</td></tr><tr><td align="center">calc</td><td align="center">计算器</td></tr><tr><td align="center">devmgmt.msc</td><td align="center">设备管理器</td></tr><tr><td align="center">dfrgui</td><td align="center">磁盘碎片整理程序</td></tr><tr><td align="center">compmgmt.msc</td><td align="center">计算机管理</td></tr><tr><td align="center">gpedit.msc</td><td align="center">本地组策略编辑器</td></tr><tr><td align="center">notepad</td><td align="center">记事本</td></tr><tr><td align="center">secpol.msc</td><td align="center">本地安全策略</td></tr><tr><td align="center">services.msc</td><td align="center">服务设置</td></tr><tr><td align="center">logoff</td><td align="center">注销命令</td></tr><tr><td align="center">appwiz.cpl</td><td align="center">程序和功能</td></tr><tr><td align="center">certmgr.msc</td><td align="center">证书管理程序</td></tr><tr><td align="center">charmap</td><td align="center">启动字符映射表</td></tr><tr><td align="center">cleanmgr</td><td align="center">打开磁盘清理工具</td></tr><tr><td align="center">cliconfg</td><td align="center">SQL SERVER 客户端网络实用工具</td></tr><tr><td align="center">cmstp</td><td align="center">连接管理器配置文件安装程序</td></tr><tr><td align="center">colorcpl</td><td align="center">颜色管理，配置显示器和打印机等中的色彩</td></tr><tr><td align="center">comexp.msc</td><td align="center">打开系统组件服务</td></tr><tr><td align="center">control</td><td align="center">控制面版</td></tr><tr><td align="center">desk.cpl</td><td align="center">屏幕分辨率</td></tr><tr><td align="center">diskmgmt.msc</td><td align="center">磁盘管理</td></tr><tr><td align="center">dxdiag</td><td align="center">检查DirectX信息</td></tr><tr><td align="center">eudcedit</td><td align="center">造字程序</td></tr><tr><td align="center">eventvwr</td><td align="center">事件查看器</td></tr><tr><td align="center">explorer</td><td align="center">打开资源管理器</td></tr><tr><td align="center">firewall.cpl</td><td align="center">防火墙程序</td></tr><tr><td align="center">wf.msc</td><td align="center">高级安全Windows防火墙</td></tr><tr><td align="center">fsmgmt.msc</td><td align="center">共享文件夹管理器</td></tr><tr><td align="center">intl.cpl</td><td align="center">区域</td></tr><tr><td align="center">iexpress</td><td align="center">木马捆绑工具，系统自带</td></tr><tr><td align="center">lpksetup</td><td align="center">语言包安装/删除向导，安装向导会提示下载语言包</td></tr><tr><td align="center">main.cpl</td><td align="center">鼠标属性</td></tr><tr><td align="center">mmsys.cpl</td><td align="center">声音</td></tr><tr><td align="center">magnify</td><td align="center">放大镜实用程序</td></tr><tr><td align="center">MdSched</td><td align="center">Windows内存诊断程序</td></tr><tr><td align="center">mmc</td><td align="center">MMC管理控制台</td></tr><tr><td align="center">msinfo32</td><td align="center">系统信息</td></tr><tr><td align="center">mspaint</td><td align="center">画图</td></tr><tr><td align="center">mstsc</td><td align="center">远程桌面连接</td></tr><tr><td align="center">OptionalFeatures</td><td align="center">打开“打开或关闭Windows功能”对话框</td></tr><tr><td align="center">perfmon.msc</td><td align="center">计算机性能监测器</td></tr><tr><td align="center">PowerShell</td><td align="center">提供强大远程处理能力</td></tr><tr><td align="center">printmanagement.msc</td><td align="center">打印管理</td></tr><tr><td align="center">powercfg.cpl</td><td align="center">电源选项</td></tr><tr><td align="center">psr</td><td align="center">问题步骤记录器</td></tr><tr><td align="center">Rasphone</td><td align="center">网络连接</td></tr><tr><td align="center">Recdisc</td><td align="center">创建系统修复光盘</td></tr><tr><td align="center">Resmon</td><td align="center">资源监视器</td></tr><tr><td align="center">Rstrui</td><td align="center">系统还原</td></tr><tr><td align="center">rsop.msc</td><td align="center">组策略结果集</td></tr><tr><td align="center">sdclt</td><td align="center">备份状态与配置，就是查看系统是否已备份</td></tr><tr><td align="center">sigverif</td><td align="center">文件签名验证程序</td></tr><tr><td align="center">slui</td><td align="center">Windows激活，查看系统激活信息</td></tr><tr><td align="center">snippingtool</td><td align="center">截图工具</td></tr><tr><td align="center">sysdm.cpl</td><td align="center">系统属性</td></tr><tr><td align="center">taskmgr</td><td align="center">任务管理器</td></tr><tr><td align="center">taskschd.msc</td><td align="center">任务计划程序</td></tr><tr><td align="center">timedate.cpl</td><td align="center">日期和时间</td></tr><tr><td align="center">UserAccountControlSettings</td><td align="center">用户账户控制设置</td></tr><tr><td align="center">winver</td><td align="center">关于Windows</td></tr><tr><td align="center">mrt</td><td align="center">恶意软件删除工具</td></tr><tr><td align="center">mip</td><td align="center">数学输入面板</td></tr><tr><td align="center">tpm.msc</td><td align="center">受信任的平台(TPM)管理</td></tr><tr><td align="center">sndvol</td><td align="center">音量合成器</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> 运行 </tag>
+            
+            <tag> 常用命令 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>RSTP应用实例</title>
       <link href="/2020/08/27/rstp-ying-yong-shi-li/"/>
       <url>/2020/08/27/rstp-ying-yong-shi-li/</url>
@@ -459,13 +517,13 @@
       
         <tags>
             
-            <tag> Vigenere </tag>
-            
-            <tag> 维吉尼亚密码 </tag>
-            
             <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
+            
+            <tag> Vigenere </tag>
+            
+            <tag> 维吉尼亚密码 </tag>
             
         </tags>
       
@@ -492,11 +550,11 @@
       
         <tags>
             
+            <tag> Ceasar </tag>
+            
             <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
-            
-            <tag> Ceasar </tag>
             
         </tags>
       
