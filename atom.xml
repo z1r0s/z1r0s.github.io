@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-08-27T08:17:28.535Z</updated>
+  <updated>2020-08-27T08:31:55.435Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LSB算法分析与实现</title>
+    <link href="https://z1r0s.github.io/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/"/>
+    <id>https://z1r0s.github.io/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/</id>
+    <published>2020-08-27T08:22:52.000Z</published>
+    <updated>2020-08-27T08:31:55.435Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;数字水印&quot;&gt;&lt;a href=&quot;#数字水印&quot; class=&quot;headerlink&quot; title=&quot;数字水印&quot;&gt;&lt;/a&gt;数字水印&lt;/h1&gt;&lt;p&gt;​        数字水印（Digital
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://z1r0s.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法分析" scheme="https://z1r0s.github.io/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/"/>
+    
+      <category term="程序设计" scheme="https://z1r0s.github.io/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="LSB" scheme="https://z1r0s.github.io/tags/LSB/"/>
+    
+      <category term="隐写" scheme="https://z1r0s.github.io/tags/%E9%9A%90%E5%86%99/"/>
+    
+  </entry>
+  
+  <entry>
     <title>记PicGO图床的安装与使用</title>
     <link href="https://z1r0s.github.io/2020/08/27/ji-picgo-tu-chuang-de-an-zhuang-yu-shi-yong/"/>
     <id>https://z1r0s.github.io/2020/08/27/ji-picgo-tu-chuang-de-an-zhuang-yu-shi-yong/</id>
     <published>2020-08-27T08:07:02.000Z</published>
-    <updated>2020-08-27T08:17:28.535Z</updated>
+    <updated>2020-08-27T08:32:09.499Z</updated>
     
     <summary type="html">
     
