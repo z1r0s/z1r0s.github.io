@@ -521,116 +521,144 @@
 <center>图3</center>
 
 <h1 id="拓扑结构改变时端口状态迁移过程"><a href="#拓扑结构改变时端口状态迁移过程" class="headerlink" title="拓扑结构改变时端口状态迁移过程"></a>拓扑结构改变时端口状态迁移过程</h1><h2 id="BID-1与BID-2连接断开"><a href="#BID-1与BID-2连接断开" class="headerlink" title="BID=1与BID=2连接断开"></a>BID=1与BID=2连接断开</h2><p>​        如果图3的生成树中互连BID=1网桥和BID=2网桥之间的链路发生故障（如图4所示），BID=2网桥由于持续3×（Hello Time）时间没有接收到网桥最优BPDU，导致<font color="blue">BID=2网桥回到初始状态，将自己作为根网桥</font>，此时BID=2网桥各个端口BPDU如图4中所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID1%E5%92%8CBID2%E6%96%AD%E5%BC%80.png" alt="BID1和BID2断开"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID1和BID2断开.png" alt="BID1和BID2断开"></center>
+
 <center>图4</center>
 
 <p>​        每当间隔时间定时器溢出时，BID=2网桥的每一个端口就发送各自的端口BPDU。</p>
 <p><strong>BID=2网桥与BID=3网桥</strong>：</p>
 <p>​        当BID=3网桥端口1接收到<strong>BPDU=&lt;2,0,2,4&gt;</strong>时，由于端口1的端口<strong>BPDU=&lt;1,19,3,1&gt;</strong>优于收到的BPDU，该端口角色转换为<strong>指定端口</strong>，端口状态仍为<strong>丢弃状态</strong>，如图5所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID24BPDU-BID31.png" alt="BID24BPDU-BID31"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID24BPDU-BID31.png" alt="BID24BPDU-BID31"></center>
+
 <center>图5</center>
 
 <p>​        由于BID=3端口1的端口角色转变为指定端口，但端口状态仍为丢弃状态，此时端口1会向BID=2的端口4发送<strong>Proposal BPDU=&lt;1,19,3,1&gt;</strong>。当BID=2网桥端口4收到该Proposal BPDU后，确定该BPDU为网桥最优BPDU，则指定端口4为<strong>根端口</strong>，如图6所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID3-PropocalBPDU-BID2.png" alt="BID3-PropocalBPDU-BID2"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID3-PropocalBPDU-BID2.png" alt="BID3-PropocalBPDU-BID2"></center>
+
 <center>图6</center>
 
 <p>​        BID=2网桥确定端口4为根端口后，确定端口4的开销为38，且其<strong>BPDU=&lt;1,38,2,4&gt;</strong>,此时BID=2网桥其他端口的BPDU如图7所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID2-BPDU.png" alt="BID2-BPDU"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID2-BPDU.png" alt="BID2-BPDU"></center>
+
 <center>图7</center>
 
 <p>​        由于BID=2网桥端口4是根端口，且各个端口状态为丢弃状态，BID=2网桥通过端口4发送<strong>Agreement BPDU</strong>。BID=3网桥端口1接收到Agreement BPDU后，将端口状态转变为<strong>转发状态</strong>。（如图8所示）</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID2-AgreementBPDU-BID3.png" alt="BID2-AgreementBPDU-BID3"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID2-AgreementBPDU-BID3.png" alt="BID2-AgreementBPDU-BID3"></center>
+
 <center>图8</center>
 
 <p>​        每当间隔时间定时器溢出时，BID=3网桥端口1发送标志位<strong>Forwarding置位的BPDU</strong>。BID=2网桥端口4接收到该BPDU后，将端口状态转变为<strong>转发状态</strong>。（如图9所示）</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID3-ForwordingBPDU-BID2.png" alt="BID3-ForwordingBPDU-BID2"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID3-ForwordingBPDU-BID2.png" alt="BID3-ForwordingBPDU-BID2"></center>
+
 <center>图9</center>
 
 <p><strong>BID=2网桥与BID=4网桥</strong>：</p>
 <p>​        当BID=4网桥通过端口1接收到<strong>BPDU=&lt;2,0,2,2&gt;</strong>,通过端口2接收到<strong>BPDU=&lt;2,0,2,3&gt;</strong>，通过端口3接收到<strong>BPDU=&lt;1,19,3,3&gt;</strong>时，确根端口3为<strong>根端口</strong>，端口3状态<strong>直接转变为转发状态</strong>（如图10所示），由此得到BID=4网桥的根路径开销为38，以此推到出BID=4网桥其他端口的端口BPDU如图11所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID4%E6%A0%B9%E7%AB%AF%E5%8F%A3%E7%A1%AE%E5%AE%9A.png" alt="BID4根端口确定"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID4根端口确定.png" alt="BID4根端口确定"></center>
+
 <center>图10</center>
 
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID4-BPDU.png" alt="BID4-BPDU"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID4-BPDU.png" alt="BID4-BPDU"></center>
+
 <center>图11</center>
 
 <p>​        每当间隔时间定时器溢出时，BID=4网桥的端口1发送<strong>Proposal BPDU=&lt;1,38,4,1&gt;</strong>，端口2发送<strong>Proposal BPDU=&lt;1,38,4,2&gt;</strong>，如图12所示。</p>
-<p>![BID4-Proposal BPDU-BID2](../../../../Administrator/Fodder/Blogs/MarkdownImgs/网络基础/RSTP应用实例/BID4-Proposal BPDU-BID2.png)</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID4-Proposal BPDU-BID2.png" alt="BID4-Proposal BPDU-BID2"></center>
+
 <center>图12</center>
 
 <p>​        当BID=2网桥通过端口2接收到<strong>Proposal BPDU=&lt;1,38,4,1&gt;</strong>时，由于端口2的端口<strong>BPDU=&lt;1,38,2,2&gt;</strong>优于接收到的BPDU，端口2维持指定端口角色不变，发送<strong>Proposal BPDU=&lt;1,38,2,2&gt;</strong>。端口3同样维持指定角色不变，发送<strong>Proposal BPDU=&lt;1,38,2,3&gt;</strong>，如图13所示。</p>
-<p>![BID2-Proposal BPDU-BID4](../../../../Administrator/Fodder/Blogs/MarkdownImgs/网络基础/RSTP应用实例/BID2-Proposal BPDU-BID4.png)</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID2-Proposal BPDU-BID4.png" alt="BID2-Proposal BPDU-BID4"></center>
+
 <center>图13</center>
 
 <p>​        当BID=4网桥通过端口1接收到<strong>Proposal BPDU=&lt;1,38,2,2&gt;</strong>时，由于该BPDU优先于端口<strong>BPDU=&lt;1,38,4,1&gt;</strong>，端口1的端口角色转变为<strong>替换端口</strong>（如图14所示），由于该端口为替换端口，且其他指定端口状态为丢弃状态，BID=4网桥通过端口1发送<strong>Agreement BPDU</strong>。当BID=4网桥通过端口2接收到<strong>Proposal BPDU=&lt;1,38,2,3&gt;</strong>时，端口2的端口角色同样转变为<strong>替换端口</strong>，并通过端口2发送<strong>Agreement BPDU</strong>。（如图15所示）</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID4%E6%94%B9%E5%8F%98%E7%AB%AF%E5%8F%A3%E8%A7%92%E8%89%B2.png" alt="BID4改变端口角色"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID4改变端口角色.png" alt="BID4改变端口角色"></center>
+
 <center>图14</center>
 
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/BID2%E6%94%B9%E5%8F%98%E7%AB%AF%E5%8F%A3%E7%8A%B6%E6%80%81.png" alt="BID2改变端口状态"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/BID2改变端口状态.png" alt="BID2改变端口状态"></center>
+
 <center>图15</center>
 
 <p>​        当BID=2网桥分别通过端口2和端口3接收到Agreement BPDU时，两个端口的状态转换为<strong>转发状态</strong>，如图16所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE16.png" alt="图16"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图16.png" alt="图16"></center>
+
 <center>图16</center>
 
 <p>​        完成上述过程后，重新构建的生成树即完成（如图17所示）</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E9%87%8D%E6%9E%84%E7%94%9F%E6%88%90%E6%A0%91.png" alt="重构生成树"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/重构生成树.png" alt="重构生成树"></center>
+
 <center>图17</center>
 
 <h2 id="扩展：BID-1与BID-3连接断开"><a href="#扩展：BID-1与BID-3连接断开" class="headerlink" title="扩展：BID=1与BID=3连接断开"></a>扩展：BID=1与BID=3连接断开</h2><p>​        如果生成树中互连BID=1网桥和BID=3网桥之间的链路发生故障（如图18所示），BID=3网桥由于持续3×（Hello Time）时间没有接收到网桥最优BPDU，导致<font color="blue">BID=3网桥回到初始状态，将自己作为根网桥</font>，此时BID=3网桥各个端口BPDU如图18中所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE18.png" alt="图18"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图18.png" alt="图18"></center>
+
 <center>图18</center>
 
 <p>​        每当间隔时间定时器溢出时，BID=3网桥的每一个端口就发送各自的端口BPDU。</p>
 <p><strong>BID=3网桥与BID=2网桥</strong>：</p>
 <p>​        当BID=2网桥端口4接收到<strong>BPDU=&lt;3,0,3,1&gt;</strong>时，由于端口4的端口<strong>BPDU=&lt;1,19,2,4&gt;</strong>优于收到的BPDU，该端口角色仍为<strong>指定端口</strong>，端口状态仍为<strong>转发状态</strong>，如图19所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE19.png" alt="图19"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图19.png" alt="图19"></center>
+
 <center>图19</center>
 
 <p>​        BID=2的端口4会向BID=3的端口1发送<strong>proposal BPDU=&lt;1,19,2,4&gt;</strong>。当BID=3网桥端口1收到该Proposal BPDU后，确定该BPDU为网桥<strong>最优BPDU</strong>，则执行端口1为<strong>根端口</strong>，而端口状态仍为<strong>丢弃状态</strong>，如图20所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE20.png" alt="图20"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图20.png" alt="图20"></center>
+
 <center>图20</center>
 
 <p>​        BID=3网桥确定端口1为根端口后，确定端口1的开销为38，且其<strong>BPDU=&lt;1,38,3,1&gt;</strong>,此时BID=3网桥其他端口的BPDU如图21所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE21.png" alt="图21"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图21.png" alt="图21"></center>
+
 <center>图21</center>
 
 <p>​        由于BID=3网桥端口1是根端口，且各个端口状态为丢弃状态，BID=3网桥通过端口1发送<strong>Agreement BPDU</strong>。BID=2网桥端口4接收到Agreement BPDU后，端口状态仍为<strong>转发状态</strong>（如图22所示）并向BID=3端口1发送一个<strong>Agreement BPDU</strong>。当BID=3端口1接收到该Agreement BPDU后，将端口状态转变为<strong>转发状态</strong>。（如图23所示）</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE22.png" alt="图22"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图22.png" alt="图22"></center>
+
 <center>图22</center>
 
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE23.png" alt="图23"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图23.png" alt="图23"></center>
+
 <center>图23</center>
 
 <p><strong>BID=4网桥</strong>：</p>
 <p>​        当BID=4网桥通过端口1接收到<strong>BPDU=&lt;1,19,2,2&gt;</strong>,通过端口2接收到<strong>BPDU=&lt;1,19,2,3&gt;</strong>，通过端口3接收到<strong>BPDU=&lt;3,0,3,3&gt;</strong>时，确根端口1为<strong>根端口</strong>，端口3角色<strong>转变为根端口</strong>，端口状态仍为<strong>丢弃状态</strong>（如图24所示），由此得到BID=4网桥的根路径开销为38，以此推到出BID=4网桥其他端口的端口BPDU如图25所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE24.png" alt="图24"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图24.png" alt="图24"></center>
+
 <center>图24</center>
 
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE25.png" alt="图25"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图25.png" alt="图25"></center>
+
 <center>图25</center>
 
 <p>​        由于BID=4网桥端口1是根端口，且各个端口状态均为丢弃状态，BID=4网桥通过端口1发送Agreement BPDU。BID=2网桥端口2接收到Agreement BPDU后，端口状态仍为<strong>转发状态</strong>，如图26所示。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE26.png" alt="图26"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图26.png" alt="图26"></center>
+
 <center>图26</center>
 
 <p>​        每当间隔时间定时器溢出时，BID=2网桥端口2发送置位标志位Forwarding置位的BPDU。BID=4网桥端口1接收到该BPDU后，将端口状态转变为<strong>转发状态</strong>。（如图27所示）</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE27.png" alt="图27"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图27.png" alt="图27"></center>
+
 <center>图27</center>
 
 <p>​        BID=4网桥通过端口2向BID=2发送Proposal BPDU，通过端口3向BID=3发送Proposal（如图28所示）。当BID=2端口3接收到Proposal BPDU后，判断本端口BPDU更优，端口角色保持不变，端口状态仍为转发状态（如图29所示）。当BID=3端口3接收到Proposal BPDU后，判断本端口BPDU更优，端口角色保持不变，端口状态转变为转发状态（如图29所示）。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE28.png" alt="图28"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图28.png" alt="图28"></center>
+
 <center>图28</center>
 
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE29.png" alt="图29"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图29.png" alt="图29"></center>
+
 <center>图29</center>
 
 <p>​        当BID=4端口2接收到Proposal BPDU后，由于该BPDU优于端口BPDU=&lt;1,38,4,2&gt;，端口角色转变为替换角色，端口状态仍为丢弃状态（如图30所示）。当BID=4端口3接收到Proposal BPDU后，由于该BPDU优于端口BPDU=&lt;1,38,4,3&gt;，端口角色转变为替换角色，端口状态转变仍为丢弃状态（如图30所示）。</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE30.png" alt="图30"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图30.png" alt="图30"></center>
+
 <center>图30</center>
 
 <p>​        完成上述过程后，重新构建的生成树即完成（如图31所示）</p>
-<p><img src="../../../../Administrator/Fodder/Blogs/MarkdownImgs/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/RSTP%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/%E5%9B%BE31.png" alt="图31"></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/RSTP应用实例/图31.png" alt="图31"></center>
+
 <center>图31</center>
 
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>参考资料</strong>：</p>
