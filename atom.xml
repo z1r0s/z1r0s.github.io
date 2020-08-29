@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-08-27T12:38:57.371Z</updated>
+  <updated>2020-08-29T12:51:34.458Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Packet Tracer网络模拟实验实记</title>
+    <link href="https://z1r0s.github.io/2020/08/29/packet-tracer-wang-luo-mo-ni-shi-yan-shi-ji/"/>
+    <id>https://z1r0s.github.io/2020/08/29/packet-tracer-wang-luo-mo-ni-shi-yan-shi-ji/</id>
+    <published>2020-08-29T12:32:23.000Z</published>
+    <updated>2020-08-29T12:51:34.458Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;实验拓扑&quot;&gt;&lt;a href=&quot;#实验拓扑&quot; class=&quot;headerlink&quot; title=&quot;实验拓扑&quot;&gt;&lt;/a&gt;实验拓扑&lt;/h1&gt;&lt;center&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="网络基础" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="网络配置" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="Cisco" scheme="https://z1r0s.github.io/tags/Cisco/"/>
+    
+  </entry>
   
   <entry>
     <title>WePE Win10 安装</title>
@@ -106,11 +136,11 @@
       <category term="网络基础" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
     
     
+      <category term="网络基础" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
+    
       <category term="RSTP" scheme="https://z1r0s.github.io/tags/RSTP/"/>
     
       <category term="网络协议" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
-    
-      <category term="网络基础" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -439,9 +469,9 @@
     
       <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
     
-      <category term="编码" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81/"/>
-    
       <category term="程序实现" scheme="https://z1r0s.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"/>
+    
+      <category term="编码" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81/"/>
     
   </entry>
   
