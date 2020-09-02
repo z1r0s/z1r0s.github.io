@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-02T08:33:06.447Z</updated>
+  <updated>2020-09-02T08:53:54.919Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>英语词汇分类汇总</title>
+    <link href="https://z1r0s.github.io/2020/09/02/ying-yu-ci-hui-fen-lei-hui-zong/"/>
+    <id>https://z1r0s.github.io/2020/09/02/ying-yu-ci-hui-fen-lei-hui-zong/</id>
+    <published>2020-09-02T08:51:42.000Z</published>
+    <updated>2020-09-02T08:53:54.919Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;center&gt;&lt;font size=&quot;100&quot;&gt;英语词汇分类汇总&lt;/font&gt;&lt;/center&gt;
+
+&lt;h1 id=&quot;专业课程&quot;&gt;&lt;a href=&quot;#专业课程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="英语" scheme="https://z1r0s.github.io/categories/%E8%8B%B1%E8%AF%AD/"/>
+    
+    
+      <category term="英语单词" scheme="https://z1r0s.github.io/tags/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>26个字母音标表</title>
@@ -586,36 +614,6 @@
       <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="工厂方法模式" scheme="https://z1r0s.github.io/tags/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSharp巧用移位运算符获取汉字编码值</title>
-    <link href="https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/"/>
-    <id>https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</id>
-    <published>2020-08-22T10:28:10.000Z</published>
-    <updated>2020-08-22T10:30:54.866Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;h2 id=&quot;移位运算符&quot;&gt;&lt;a href=&quot;#移位运算符&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C#" scheme="https://z1r0s.github.io/categories/C/"/>
-    
-    
-      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
-    
-      <category term="程序实现" scheme="https://z1r0s.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"/>
-    
-      <category term="编码" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81/"/>
     
   </entry>
   
