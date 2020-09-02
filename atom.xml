@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-02T08:53:54.919Z</updated>
+  <updated>2020-09-02T09:30:00.272Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>字母编码系统-动物版</title>
+    <link href="https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong-dong-wu-ban/"/>
+    <id>https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong-dong-wu-ban/</id>
+    <published>2020-09-02T09:29:13.000Z</published>
+    <updated>2020-09-02T09:30:00.272Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;字母&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;编码(汉字)&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;编码(英文)&lt;/th&gt;
+&lt;th
+        
+      
+    
+    </summary>
+    
+      <category term="知识宫殿" scheme="https://z1r0s.github.io/categories/%E7%9F%A5%E8%AF%86%E5%AE%AB%E6%AE%BF/"/>
+    
+    
+      <category term="字母编码" scheme="https://z1r0s.github.io/tags/%E5%AD%97%E6%AF%8D%E7%BC%96%E7%A0%81/"/>
+    
+      <category term="编码系统" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字母编码系统</title>
+    <link href="https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong/"/>
+    <id>https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong/</id>
+    <published>2020-09-02T09:27:52.000Z</published>
+    <updated>2020-09-02T09:28:50.055Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;字母&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;编码&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;关联&lt;/th&gt;
+&lt;th
+        
+      
+    
+    </summary>
+    
+      <category term="知识宫殿" scheme="https://z1r0s.github.io/categories/%E7%9F%A5%E8%AF%86%E5%AE%AB%E6%AE%BF/"/>
+    
+    
+      <category term="字母编码" scheme="https://z1r0s.github.io/tags/%E5%AD%97%E6%AF%8D%E7%BC%96%E7%A0%81/"/>
+    
+      <category term="编码系统" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数字编码系统</title>
+    <link href="https://z1r0s.github.io/2020/09/02/shu-zi-bian-ma-xi-tong/"/>
+    <id>https://z1r0s.github.io/2020/09/02/shu-zi-bian-ma-xi-tong/</id>
+    <published>2020-09-02T08:57:48.000Z</published>
+    <updated>2020-09-02T09:26:04.608Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;center&gt;&lt;font size=&quot;20&quot; weight=&quot;100&quot;&gt;数字编码系统v1.0&lt;/font&gt;&lt;/center&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;数字&lt;/th&gt;
+&lt;th
+        
+      
+    
+    </summary>
+    
+      <category term="知识宫殿" scheme="https://z1r0s.github.io/categories/%E7%9F%A5%E8%AF%86%E5%AE%AB%E6%AE%BF/"/>
+    
+    
+      <category term="编码系统" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="数字编码" scheme="https://z1r0s.github.io/tags/%E6%95%B0%E5%AD%97%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>英语词汇分类汇总</title>
@@ -524,96 +626,6 @@
       <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="装饰模式" scheme="https://z1r0s.github.io/tags/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>策略模式</title>
-    <link href="https://z1r0s.github.io/2020/08/22/ce-lue-mo-shi/"/>
-    <id>https://z1r0s.github.io/2020/08/22/ce-lue-mo-shi/</id>
-    <published>2020-08-22T11:36:10.000Z</published>
-    <updated>2020-08-22T11:39:19.832Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="策略模式" scheme="https://z1r0s.github.io/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>抽象工厂模式</title>
-    <link href="https://z1r0s.github.io/2020/08/22/chou-xiang-gong-han-mo-shi/"/>
-    <id>https://z1r0s.github.io/2020/08/22/chou-xiang-gong-han-mo-shi/</id>
-    <published>2020-08-22T11:30:31.000Z</published>
-    <updated>2020-08-22T11:35:33.648Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​        抽象工厂模式（Abstract Factory
-        
-      
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="抽象工厂模式" scheme="https://z1r0s.github.io/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>工厂方法模式</title>
-    <link href="https://z1r0s.github.io/2020/08/22/gong-han-fang-fa-mo-shi/"/>
-    <id>https://z1r0s.github.io/2020/08/22/gong-han-fang-fa-mo-shi/</id>
-    <published>2020-08-22T11:24:47.000Z</published>
-    <updated>2020-08-22T11:29:30.469Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​        工厂方法模式（Factory Method
-        
-      
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="工厂方法模式" scheme="https://z1r0s.github.io/tags/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
