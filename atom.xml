@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-02T08:20:15.416Z</updated>
+  <updated>2020-09-02T08:33:06.447Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>26个字母音标表</title>
+    <link href="https://z1r0s.github.io/2020/09/02/26-ge-zi-mu-yin-biao-biao/"/>
+    <id>https://z1r0s.github.io/2020/09/02/26-ge-zi-mu-yin-biao-biao/</id>
+    <published>2020-09-02T08:31:12.000Z</published>
+    <updated>2020-09-02T08:33:06.447Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;26个字母音标表&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;大写&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;小写&lt;/th&gt;
+&lt;th
+        
+      
+    
+    </summary>
+    
+      <category term="知识宫殿" scheme="https://z1r0s.github.io/categories/%E7%9F%A5%E8%AF%86%E5%AE%AB%E6%AE%BF/"/>
+    
+    
+      <category term="速记基础" scheme="https://z1r0s.github.io/tags/%E9%80%9F%E8%AE%B0%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>算法基础</title>
@@ -47,7 +79,7 @@
     <link href="https://z1r0s.github.io/2020/09/02/zai-typora-bian-ji-shu-xue-biao-da-shi/"/>
     <id>https://z1r0s.github.io/2020/09/02/zai-typora-bian-ji-shu-xue-biao-da-shi/</id>
     <published>2020-09-02T08:16:15.000Z</published>
-    <updated>2020-09-02T08:18:12.000Z</updated>
+    <updated>2020-09-02T08:36:08.429Z</updated>
     
     <summary type="html">
     
@@ -248,11 +280,11 @@
       <category term="网络基础" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="网络基础" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
-    
       <category term="RSTP" scheme="https://z1r0s.github.io/tags/RSTP/"/>
     
       <category term="网络协议" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
+    
+      <category term="网络基础" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -581,41 +613,9 @@
     
       <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
     
-      <category term="程序实现" scheme="https://z1r0s.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"/>
-    
       <category term="编码" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81/"/>
     
-  </entry>
-  
-  <entry>
-    <title>CSharp多线程猜数字游戏</title>
-    <link href="https://z1r0s.github.io/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/"/>
-    <id>https://z1r0s.github.io/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/</id>
-    <published>2020-08-22T10:23:24.000Z</published>
-    <updated>2020-08-22T10:26:42.464Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;h2 id=&quot;程序、进程、线程&quot;&gt;&lt;a href=&quot;#程序、进程、线程&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C#" scheme="https://z1r0s.github.io/categories/C/"/>
-    
-    
-      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
-    
       <category term="程序实现" scheme="https://z1r0s.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/"/>
-    
-      <category term="小游戏" scheme="https://z1r0s.github.io/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
-    
-      <category term="多线程" scheme="https://z1r0s.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
