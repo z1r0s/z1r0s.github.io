@@ -346,11 +346,11 @@
       
         <tags>
             
+            <tag> 网络基础 </tag>
+            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
-            
-            <tag> 网络基础 </tag>
             
         </tags>
       
@@ -437,7 +437,7 @@
             
             <tag> Windows </tag>
             
-            <tag> metsc </tag>
+            <tag> mstsc </tag>
             
             <tag> 远程桌面 </tag>
             
@@ -667,9 +667,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
