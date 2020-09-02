@@ -343,6 +343,13 @@
 
 <div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
+    <div id="prev-cover" class="left waves-effect carousel-control">
+        <i class="icon fa fa-angle-left"></i>
+    </div>
+    <div id="next-cover" class="right waves-effect carousel-control">
+        <i class="icon fa fa-angle-right"></i>
+    </div>
+    
 
     <div class="carousel-item red white-text bg-cover about-cover">
         <div class="container">
@@ -422,6 +429,80 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     </div>
 
     
+    
+
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/12.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">LSB算法分析与实现</div>
+                    <div class="description center-align">
+                    
+                        数字水印​        数字水印（Digital Watermark）是一种应用计算机算法嵌入载体文件的保护信息，数字水印技术是一种基于内容的、非密码机制的计算机信息隐藏技术，它是将一些标识信息（即数字水印）直接嵌入数字载体当中（包括多媒
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/0.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">Win10远程桌面及防火墙配置</div>
+                    <div class="description center-align">
+                    
+                        远程桌面&emsp;&emsp;当计算机开启了远程桌面连接后，可以通过另一台计算机中的远程桌面客户端程序连接到该计算机，在计算机上进行实时操作，如：安装程序、执行程序等。远程桌面抛开了地域的限制，使用户操作远端计算机犹如操作当前计算机一般。
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2020/08/26/win10-yuan-cheng-zhuo-mian-ji-fang-huo-qiang-pei-zhi/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/38.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">批处理笔记</div>
+                    <div class="description center-align">
+                    
+                        批处理文件简介
+批处理文件也称批处理程序或脚本，使用它可以简化日常或重复性任务
+批处理文件中常见是DOS批处理和PS批处理等（文中的批处理指的的DOS批处理）
+DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的精华
+批处理文件
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2020/08/22/pi-chu-li-bi-ji/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
 </div>
 
 <script>
@@ -477,7 +558,77 @@ $(function () {
                     
 
                     
+                    
 
+<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<div class="music-player">
+    
+    <div class="title center-align">
+        <i class="fa fa-music"></i>&nbsp;&nbsp;听听音乐
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="aplayer" class="music"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script>
+$(function () {
+    new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: 'false' === 'true',
+        autoplay: 'false' === 'true',
+        theme: '#542674',
+        loop: 'all',
+        order: 'list',
+        preload: 'auto',
+        volume: Number('0.7'),
+        listFolded: 'false' === 'true',
+        listMaxHeight: '',
+        audio: JSON.parse('[{"name":"战争世界","artist":"姚贝娜","url":"/medias/music/zhanzhengshijie.mp3","cover":"/medias/music/avatars/zhanzhengshijie.jpg"},{"name":"浴火重生","artist":"阿兰","url":"/medias/music/yuhuochongsheng.mp3","cover":"/medias/music/avatars/yuhuochongsheng.jpg"},{"name":"狐言","artist":"洛天依","url":"/medias/music/huyan.mp3","cover":"/medias/music/avatars/huyan.jpg"},{"name":"京剧猫","artist":"胡莎莎","url":"/medias/music/jingjumao.mp3","cover":"/medias/music/avatars/jingjumao.jpg"},{"name":"长生","artist":"松阪牛","url":"/medias/music/changsheng.mp3","cover":"/medias/music/avatars/changsheng.jpg"},{"name":"等待","artist":"黄龄","url":"/medias/music/dengdai.mp3","cover":"/medias/music/avatars/dengdai.jpg"},{"name":"Glimmer","artist":"祈Inory","url":"/medias/music/Glimmer.mp3","cover":"/medias/music/avatars/Glimmer.jpg"}]')
+    });
+});
+</script>
+                    
+
+                    
+                    <link rel="stylesheet" href="/libs/dplayer/DPlayer.min.css">
+<div class="video-player">
+    
+    <div class="title center-align">
+        <i class="fa fa-video-camera"></i>&nbsp;&nbsp;邓紫棋 - 差不多姑娘
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="dplayer" class="dplayer-video"
+                    ></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/dplayer/DPlayer.min.js"></script>
+<script>
+    $(function () {
+        new DPlayer({
+            container: document.getElementById('dplayer'),
+            autoplay: 'true' === 'true',
+            theme: '#42b983',
+            loop: 'true' === 'true',
+            lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
+            preload: 'auto',
+            volume: Number('0.7'),
+            video: {
+                url: '/medias/video/chabuduoguniang.mp4',
+                pic: '',
+                thumbnails: ''
+            }
+        });
+    });
+</script>
                     
 
                     <div id="recommend-sections" class="recommend">
@@ -494,7 +645,7 @@ $(function () {
     
     
     <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/12.jpg')">
+        <div class="post-card" style="background-image: url('/medias/featureimages/33.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
@@ -549,32 +700,7 @@ $(function () {
     
     
     <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/28.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/算法/" class="category" target="_blank">算法</a>
-                    
-                </div>
-                <a href="/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/" target="_blank">
-                    <h3 class="post-title">LSB算法分析与实现</h3>
-                </a>
-                <p class="post-description">
-                    
-                        数字水印​        数字水印（Digital Watermark）是一种应用计算机算法嵌入载体文件的保护信息，数字水印技术是一种基于内
-                    
-                </p>
-                <a href="/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/20.jpg')">
+        <div class="post-card" style="background-image: url('/medias/featureimages/17.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
@@ -591,6 +717,31 @@ $(function () {
                     
                 </p>
                 <a href="/2020/08/22/this-host-is-not-allowed-to-connect-to-mysql-server/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('/medias/featureimages/12.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/算法/" class="category" target="_blank">算法</a>
+                    
+                </div>
+                <a href="/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/" target="_blank">
+                    <h3 class="post-title">LSB算法分析与实现</h3>
+                </a>
+                <p class="post-description">
+                    
+                        数字水印​        数字水印（Digital Watermark）是一种应用计算机算法嵌入载体文件的保护信息，数字水印技术是一种基于内
+                    
+                </p>
+                <a href="/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
@@ -600,7 +751,7 @@ $(function () {
     
     
     <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/15.jpg')">
+        <div class="post-card" style="background-image: url('/medias/featureimages/0.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
@@ -625,32 +776,7 @@ $(function () {
     
     
     <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/26.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/设计模式/" class="category" target="_blank">设计模式</a>
-                    
-                </div>
-                <a href="/2020/08/22/gong-han-fang-fa-mo-shi/" target="_blank">
-                    <h3 class="post-title">工厂方法模式</h3>
-                </a>
-                <p class="post-description">
-                    
-                        定义理解​        工厂方法模式（Factory Method Pattern）属于类的创建型模式，是通过专门定义一个类来负责创建其他
-                    
-                </p>
-                <a href="/2020/08/22/gong-han-fang-fa-mo-shi/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #C644FC 0%, #5856D6 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/18.jpg')">
+        <div class="post-card" style="background-image: url('/medias/featureimages/10.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
@@ -666,6 +792,31 @@ $(function () {
                     
                 </p>
                 <a href="/2020/08/22/chou-xiang-gong-han-mo-shi/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #C644FC 0%, #5856D6 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('/medias/featureimages/14.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/设计模式/" class="category" target="_blank">设计模式</a>
+                    
+                </div>
+                <a href="/2020/08/22/gong-han-fang-fa-mo-shi/" target="_blank">
+                    <h3 class="post-title">工厂方法模式</h3>
+                </a>
+                <p class="post-description">
+                    
+                        定义理解​        工厂方法模式（Factory Method Pattern）属于类的创建型模式，是通过专门定义一个类来负责创建其他
+                    
+                </p>
+                <a href="/2020/08/22/gong-han-fang-fa-mo-shi/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #55EFCB 0%, #5BCAFF 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
@@ -675,7 +826,7 @@ $(function () {
     
     
     <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/16.jpg')">
+        <div class="post-card" style="background-image: url('/medias/featureimages/38.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
@@ -723,7 +874,7 @@ $(function () {
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="字母编码系统-动物版">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="字母编码系统-动物版">
                             
                             <span class="card-title">字母编码系统-动物版</span>
                         </div>
@@ -827,7 +978,7 @@ H
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="字母编码系统">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="字母编码系统">
                             
                             <span class="card-title">字母编码系统</span>
                         </div>
@@ -932,7 +1083,7 @@ H
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数字编码系统">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="数字编码系统">
                             
                             <span class="card-title">数字编码系统</span>
                         </div>
@@ -1024,7 +1175,7 @@ H
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="英语词汇分类汇总">
+                            <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="英语词汇分类汇总">
                             
                             <span class="card-title">英语词汇分类汇总</span>
                         </div>
@@ -1105,7 +1256,7 @@ Bio
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="26个字母音标表">
+                            <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="26个字母音标表">
                             
                             <span class="card-title">26个字母音标表</span>
                         </div>
@@ -1202,7 +1353,7 @@ I
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="算法基础">
+                            <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="算法基础">
                             
                             <span class="card-title">算法基础</span>
                         </div>
@@ -1251,7 +1402,7 @@ I
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="在Typora编辑数学表达式">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="在Typora编辑数学表达式">
                             
                             <span class="card-title">在Typora编辑数学表达式</span>
                         </div>
@@ -1307,7 +1458,7 @@ I
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Git和GitHub">
+                            <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="Git和GitHub">
                             
                             <span class="card-title">Git和GitHub</span>
                         </div>
@@ -1363,7 +1514,7 @@ I
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="常见密码简述">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="常见密码简述">
                             
                             <span class="card-title">常见密码简述</span>
                         </div>
@@ -1410,7 +1561,7 @@ I
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Packet Tracer网络模拟实验实记">
+                            <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="Packet Tracer网络模拟实验实记">
                             
                             <span class="card-title">Packet Tracer网络模拟实验实记</span>
                         </div>
@@ -1471,7 +1622,7 @@ LAN2分配私有地址段:192.168.1.0/
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="WePE Win10 安装">
+                            <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="WePE Win10 安装">
                             
                             <span class="card-title">WePE Win10 安装</span>
                         </div>
@@ -1530,7 +1681,7 @@ UEFI启动模式下，硬盘分区表必须是GPT；如果你要在Legacy模式�
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="运行框常用命令及功能">
+                            <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="运行框常用命令及功能">
                             
                             <span class="card-title">运行框常用命令及功能</span>
                         </div>
@@ -1611,6 +1762,351 @@ compmg
                 </div>
             </div>
             
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/27/rstp-ying-yong-shi-li/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="RSTP应用实例">
+                            
+                            <span class="card-title">RSTP应用实例</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            RSTP应用实例​        存在某网络拓扑如图1所示，各个网桥端口传输速率均为100Mbps，所有连接均无故障.
+
+
+图1
+
+​    则使用RSTP协议构建的生成树如图2所示。
+
+
+图2
+
+定期维护网络拓扑结构​        RS
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/网络基础/" class="post-category" target="_blank">
+                                    网络基础
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/网络基础/" target="_blank">
+                            <span class="chip bg-color">网络基础</span>
+                        </a>
+                        
+                        <a href="/tags/RSTP/" target="_blank">
+                            <span class="chip bg-color">RSTP</span>
+                        </a>
+                        
+                        <a href="/tags/网络协议/" target="_blank">
+                            <span class="chip bg-color">网络协议</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="LSB算法分析与实现">
+                            
+                            <span class="card-title">LSB算法分析与实现</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            数字水印​        数字水印（Digital Watermark）是一种应用计算机算法嵌入载体文件的保护信息，数字水印技术是一种基于内容的、非密码机制的计算机信息隐藏技术，它是将一些标识信息（即数字水印）直接嵌入数字载体当中（包括多媒
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/算法/" class="post-category" target="_blank">
+                                    算法
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/算法分析/" target="_blank">
+                            <span class="chip bg-color">算法分析</span>
+                        </a>
+                        
+                        <a href="/tags/程序设计/" target="_blank">
+                            <span class="chip bg-color">程序设计</span>
+                        </a>
+                        
+                        <a href="/tags/LSB/" target="_blank">
+                            <span class="chip bg-color">LSB</span>
+                        </a>
+                        
+                        <a href="/tags/隐写/" target="_blank">
+                            <span class="chip bg-color">隐写</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/27/ji-picgo-tu-chuang-de-an-zhuang-yu-shi-yong/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="记PicGO图床的安装与使用">
+                            
+                            <span class="card-title">记PicGO图床的安装与使用</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            0x01 起因​        我有使用Typora做Blog的习惯，咱也不具体说Typora是一款完全免费、跨平台并且支持实时预览的Markdown文本编辑器。Typora支持图片插入，但不同的博客平台都有自己图片存储方式，使用Typor
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/软件使用/" class="post-category" target="_blank">
+                                    软件使用
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PicGo/" target="_blank">
+                            <span class="chip bg-color">PicGo</span>
+                        </a>
+                        
+                        <a href="/tags/软件使用/" target="_blank">
+                            <span class="chip bg-color">软件使用</span>
+                        </a>
+                        
+                        <a href="/tags/图床/" target="_blank">
+                            <span class="chip bg-color">图床</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/26/win10-yuan-cheng-zhuo-mian-ji-fang-huo-qiang-pei-zhi/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Win10远程桌面及防火墙配置">
+                            
+                            <span class="card-title">Win10远程桌面及防火墙配置</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            远程桌面&emsp;&emsp;当计算机开启了远程桌面连接后，可以通过另一台计算机中的远程桌面客户端程序连接到该计算机，在计算机上进行实时操作，如：安装程序、执行程序等。远程桌面抛开了地域的限制，使用户操作远端计算机犹如操作当前计算机一般。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-26
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/软件使用/" class="post-category" target="_blank">
+                                    软件使用
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Windows/" target="_blank">
+                            <span class="chip bg-color">Windows</span>
+                        </a>
+                        
+                        <a href="/tags/metsc/" target="_blank">
+                            <span class="chip bg-color">metsc</span>
+                        </a>
+                        
+                        <a href="/tags/远程桌面/" target="_blank">
+                            <span class="chip bg-color">远程桌面</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/22/pi-chu-li-bi-ji/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="批处理笔记">
+                            
+                            <span class="card-title">批处理笔记</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            批处理文件简介
+批处理文件也称批处理程序或脚本，使用它可以简化日常或重复性任务
+批处理文件中常见是DOS批处理和PS批处理等（文中的批处理指的的DOS批处理）
+DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的精华
+批处理文件
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/批处理/" class="post-category" target="_blank">
+                                    批处理
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/学习笔记/" target="_blank">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/批处理/" target="_blank">
+                            <span class="chip bg-color">批处理</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/22/yuan-xing-mo-shi/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="原型模式">
+                            
+                            <span class="card-title">原型模式</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            定义理解​        原型模式(Prototype)是一种创建型设计模式，用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。
+​        原型模式其实就是从一个对象再创建一个可定制的对象，而且不需知道任何创建的细节。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/设计模式/" class="post-category" target="_blank">
+                                    设计模式
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/C/" target="_blank">
+                            <span class="chip bg-color">C#</span>
+                        </a>
+                        
+                        <a href="/tags/设计模式/" target="_blank">
+                            <span class="chip bg-color">设计模式</span>
+                        </a>
+                        
+                        <a href="/tags/原型模式/" target="_blank">
+                            <span class="chip bg-color">原型模式</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
         </div>
     </article>
 
@@ -1627,7 +2123,7 @@ compmg
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 3</div>
+            <div class="center-align b-text-gray">1 / 2</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1644,11 +2140,11 @@ compmg
     <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy; 2017-2020 WeiYang. 版权所有
+            &copy; 2019-2020 z1r0s. 版权所有
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">59.5k</span>
+            <span class="white-color">64k</span>
             
 
             <br>
@@ -1656,8 +2152,21 @@ compmg
 
             
             
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
         </div>
-        <div class="col s12 m4 l4 social-link ">
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/z1r0s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fa fa-github"></i>
     </a>
@@ -1741,7 +2250,7 @@ compmg
         minutes - 0-59之间的整数，做为date对象的分钟数
         seconds - 0-59之间的整数，做为date对象的秒数
         microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t1 = Date.UTC(2019, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
         var diff = t2 - t1;
         var diffYears = Math.floor(diff / years);
@@ -1799,8 +2308,12 @@ $(function () {
     
 
     
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
     <!-- 雪花特效 -->
+    
+    <script type="text/javascript" src="/libs/others/snow.js"></script>
     
 
 </body>

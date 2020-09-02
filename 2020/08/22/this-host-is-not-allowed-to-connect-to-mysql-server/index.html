@@ -321,7 +321,7 @@ MySQL版本：5.5.53">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -484,7 +484,7 @@ MySQL版本：5.5.53">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    399
+                    407
                 </div>
                 
 
@@ -496,6 +496,11 @@ MySQL版本：5.5.53">
                 
                 
 
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
                 
             </div>
         </div>
@@ -535,10 +540,7 @@ MySQL版本：5.5.53">
 <li><p>修改mysql数据库中user表中root对应得host字段的值为%，来允许远程用户连接MySQL。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/修改表信息.png" alt="修改表信息"></center>
 
-<pre class="line-numbers language-mysql"><code class="language-mysql">use mysql;
-select host,user from user where user='root';
-update user set host='%' where user='root';
-select host,user from user where user='root';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">select host,user from user where user=&apos;root&apos;;</span><br><span class="line">update user set host=&apos;%&apos; where user=&apos;root&apos;;</span><br><span class="line">select host,user from user where user=&apos;root&apos;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><font color="blue">重启MySQL服务</font>后，再进行远程连接测试。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/重启MySQL后的连接测试.png" alt="重启MySQL后的连接测试"></center>
@@ -766,7 +768,7 @@ select host,user from user where user='root';<span aria-hidden="true" class="lin
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="C#递归算法计算斐波那契数列">
+                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="C#递归算法计算斐波那契数列">
                         
                         <span class="card-title">C#递归算法计算斐波那契数列</span>
                     </div>
@@ -824,7 +826,7 @@ select host,user from user where user='root';<span aria-hidden="true" class="lin
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="VigenereCipher">
+                        <img src="/medias/featureimages/32.jpg" class="responsive-img" alt="VigenereCipher">
                         
                         <span class="card-title">VigenereCipher</span>
                     </div>
@@ -893,7 +895,7 @@ select host,user from user where user='root';<span aria-hidden="true" class="lin
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
+        if (('' + selection).length < Number.parseInt('10')) {
             return;
         }
 
@@ -1043,11 +1045,11 @@ select host,user from user where user='root';<span aria-hidden="true" class="lin
     <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy; 2017-2020 WeiYang. 版权所有
+            &copy; 2019-2020 z1r0s. 版权所有
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">59.5k</span>
+            <span class="white-color">64k</span>
             
 
             <br>
@@ -1055,8 +1057,21 @@ select host,user from user where user='root';<span aria-hidden="true" class="lin
 
             
             
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
         </div>
-        <div class="col s12 m4 l4 social-link ">
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/z1r0s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fa fa-github"></i>
     </a>
@@ -1140,7 +1155,7 @@ select host,user from user where user='root';<span aria-hidden="true" class="lin
         minutes - 0-59之间的整数，做为date对象的分钟数
         seconds - 0-59之间的整数，做为date对象的秒数
         microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t1 = Date.UTC(2019, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
         var diff = t2 - t1;
         var diffYears = Math.floor(diff / years);
@@ -1198,8 +1213,12 @@ $(function () {
     
 
     
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
     <!-- 雪花特效 -->
+    
+    <script type="text/javascript" src="/libs/others/snow.js"></script>
     
 
 </body>

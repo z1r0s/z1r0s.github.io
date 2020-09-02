@@ -465,6 +465,7 @@ header .go-back i {
     background-position: center center;
     background-size: cover;
     transform: translate3d(0px, 0px, 0px);
+	background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
 }
 
 .index-cover {
@@ -516,6 +517,7 @@ header .go-back i {
     font-size: 1.9rem;
 }
 
+/* 动态切换背景颜色 */
 @-webkit-keyframes rainbow {
     0%,
     100% {
@@ -556,6 +558,7 @@ header .go-back i {
     }
 }
 
+/* 动态切换背景颜色 */
 @keyframes rainbow {
     0%,
     100% {

@@ -325,7 +325,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -492,18 +492,23 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
                 
 
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
                 
             </div>
         </div>
@@ -546,181 +551,8 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp多线程猜数字游戏/设计界面.png" alt="设计界面"></center>
 
 <p><strong>代码设计</strong>:</p>
-<pre class="line-numbers language-C#"><code class="language-C#">using System;
-using System.Drawing;
-using System.Windows.Forms;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Drawing;</span><br><span class="line">using System.Windows.Forms;</span><br><span class="line"></span><br><span class="line">namespace NumGame</span><br><span class="line">&#123;</span><br><span class="line">    public partial class Frm_Main : Form</span><br><span class="line">    &#123;</span><br><span class="line">        public Frm_Main()</span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #region 声明全局变量</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 定义一个计时器线程</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        System.Threading.Thread G_th;</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 定义一个随机数对象</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        Random G_random = new Random();</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 定义一个int型全局变量，用于存放产生的随机变量</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        int G_int_num;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 开始按钮的Click事件</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 开始按钮的Click事件</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;</span><br><span class="line">        /// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;</span><br><span class="line">        private void btn_begin_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            RemoveControl();                                        //调用自定义的RemoveControl()方法清空自定义的按钮</span><br><span class="line">            int p_int_x = 10;                                       //X坐标初始值为10</span><br><span class="line">            int p_int_y = 60;                                       //Y坐标初始值为60</span><br><span class="line"></span><br><span class="line">            //向窗体添加按钮</span><br><span class="line">            for (int i = 0; i &lt; 100; i++)                           //添加100个按钮</span><br><span class="line">            &#123;</span><br><span class="line">                Button bt = new Button();                           //创建button按钮</span><br><span class="line">                bt.Text = (i + 1).ToString();                       //设置button按钮的文本值</span><br><span class="line">                bt.Name = (i + 1).ToString();                       //设置button按钮的Name属性</span><br><span class="line">                bt.Width = 35;                                      //设置button按钮的宽</span><br><span class="line">                bt.Height = 35;                                     //设置button按钮的高</span><br><span class="line">                bt.Location = new Point(p_int_x, p_int_y);          //设置button按钮的位置</span><br><span class="line">                bt.Click += new EventHandler(bt_Click);             //定义button按钮的Click事件</span><br><span class="line"></span><br><span class="line">                p_int_x += 36;                                      //设置下一个按钮的位置</span><br><span class="line">                if ((i + 1) % 10 == 0)                            //设定每行有10个按钮</span><br><span class="line">                &#123;</span><br><span class="line">                    p_int_x = 10;                                   //换行后重新设置X坐标  --X坐标不变</span><br><span class="line">                    p_int_y += 36;                                  //换行后重新设置Y坐标  --Y坐标将变化为原来的+距离</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                Controls.Add(bt);                                   //使用Controls.Add()方法将button按钮放入窗体控件集合中</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //创建线程</span><br><span class="line">            //跨线程调用控件</span><br><span class="line">            G_th = new System.Threading.Thread(                 //新建一条线程</span><br><span class="line">                delegate ()                              //使用匿名方法创建一个委托</span><br><span class="line">                &#123;</span><br><span class="line">                    int P_int_count = 0;                            //初始化计数器</span><br><span class="line">                    while (true)                                //开始无限循环</span><br><span class="line">                    &#123;</span><br><span class="line">                        P_int_count = ++P_int_count &gt; 100000000 ? 0 : P_int_count;      //计数器累加</span><br><span class="line"></span><br><span class="line">                        this.Invoke(                            //将代码交给主线程执行</span><br><span class="line">                            (MethodInvoker)delegate         //使用匿名方法</span><br><span class="line">                            &#123;</span><br><span class="line">                                lb_time.Text = P_int_count.ToString();          //窗体中显示计数</span><br><span class="line">                            &#125;);</span><br><span class="line">                        System.Threading.Thread.Sleep(1000);                    //线程睡眠1秒</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">            G_th.IsBackground = true;                                   //设置线程为后台线程</span><br><span class="line">            G_th.Start();                                           //开始执行线程</span><br><span class="line"></span><br><span class="line">            //生成一个随机数</span><br><span class="line">            G_int_num = G_random.Next(1, 100);                          //生成一个1-100之间的随机数</span><br><span class="line">            btn_begin.Enabled = false;                              //停用开始按钮</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 注册生成按钮的Click事件的方法</span><br><span class="line">        //注册按钮的Click事件的方法</span><br><span class="line">        void bt_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            Control P_control = sender as Control;                          //将sender转换为control类型对象</span><br><span class="line">            if (int.Parse(P_control.Name) &gt; G_int_num)                  //强制转化并判断猜测数值与随机产生的数值之间的差距</span><br><span class="line">            &#123;</span><br><span class="line">                P_control.BackColor = Color.Red;                        //设置按钮背景为红色</span><br><span class="line">                P_control.Enabled = false;                              //设置按钮停用</span><br><span class="line">                P_control.Text = &quot;大&quot;;                                   //更改按钮文本--猜测数值偏大</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            if (int.Parse(P_control.Name) &lt; G_int_num)</span><br><span class="line">            &#123;</span><br><span class="line">                P_control.BackColor = Color.Red;                        //设置按钮背景为红色</span><br><span class="line">                P_control.Enabled = false;                              //设置按钮停用</span><br><span class="line">                P_control.Text = &quot;小&quot;;                                       //更改按钮文本--猜测数偏小</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            if (int.Parse(P_control.Name) == G_int_num)                 //当猜测数值与随机产生的数值相等时</span><br><span class="line">            &#123;</span><br><span class="line">                G_th.Abort();                                                   //终止计数线程</span><br><span class="line">                //显示游戏信息</span><br><span class="line">                MessageBox.Show(string.Format(&quot;恭喜你猜对了！共猜了&#123;0&#125;次 用时&#123;1&#125;秒&quot;, GetCount(), lb_time.Text), &quot;恭喜！&quot;);</span><br><span class="line">                btn_begin.Enabled = true;                           //启用开始按钮</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 计数方法</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 用于查找窗体中Enable属性为False控件的数量    --遍历窗体中的控件</span><br><span class="line">        /// 用于计算玩家有多少次没有猜中</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;returns&gt;返回没有猜中数量&lt;/returns&gt;</span><br><span class="line">        string GetCount()</span><br><span class="line">        &#123;</span><br><span class="line">            int P_int_temp = 0;                                             //初始化计数器</span><br><span class="line">            foreach (Control c in Controls)                                     //遍历控件集合</span><br><span class="line">            &#123;</span><br><span class="line">                if (!c.Enabled) P_int_temp++;                               //计数器累加</span><br><span class="line">            &#125;</span><br><span class="line">            return P_int_temp.ToString();                               //返回计数器信息</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 清除控件方法</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 用于清空窗体中动态生成的按钮</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        void RemoveControl()                                            //自定义的清除方法</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; 100; i++)                               //开始遍历100个按钮</span><br><span class="line">            &#123;</span><br><span class="line">                if (Controls.ContainsKey((i + 1).ToString()))             //窗体中是否有此按钮</span><br><span class="line">                &#123;</span><br><span class="line">                    for (int j = 0; j &lt; Controls.Count; j++)                //遍历窗体控件集合</span><br><span class="line">                    &#123;</span><br><span class="line">                        if (Controls[j].Name == (i + 1).ToString())         //是否查找到按钮</span><br><span class="line">                        &#123;</span><br><span class="line">                            Controls.RemoveAt(j);                           //删除指定按钮</span><br><span class="line">                            break;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 窗体的FormClosing事件</span><br><span class="line">        //窗体的FormClosing事件</span><br><span class="line">        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            if (G_th != null)</span><br><span class="line">            &#123;</span><br><span class="line">                G_th.Abort();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Environment.Exit(0);                                //强行关闭窗体</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-namespace NumGame
-{
-    public partial class Frm_Main : Form
-    {
-        public Frm_Main()
-        {
-            InitializeComponent();
-        }
-
-        #region 声明全局变量
-        /// <summary>
-        /// 定义一个计时器线程
-        /// </summary>
-        System.Threading.Thread G_th;
-
-        /// <summary>
-        /// 定义一个随机数对象
-        /// </summary>
-        Random G_random = new Random();
-
-        /// <summary>
-        /// 定义一个int型全局变量，用于存放产生的随机变量
-        /// </summary>
-        int G_int_num;
-        #endregion
-
-        #region 开始按钮的Click事件
-        /// <summary>
-        /// 开始按钮的Click事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_begin_Click(object sender, EventArgs e)
-        {
-            RemoveControl();                                        //调用自定义的RemoveControl()方法清空自定义的按钮
-            int p_int_x = 10;                                       //X坐标初始值为10
-            int p_int_y = 60;                                       //Y坐标初始值为60
-
-            //向窗体添加按钮
-            for (int i = 0; i < 100; i++)                           //添加100个按钮
-            {
-                Button bt = new Button();                           //创建button按钮
-                bt.Text = (i + 1).ToString();                       //设置button按钮的文本值
-                bt.Name = (i + 1).ToString();                       //设置button按钮的Name属性
-                bt.Width = 35;                                      //设置button按钮的宽
-                bt.Height = 35;                                     //设置button按钮的高
-                bt.Location = new Point(p_int_x, p_int_y);          //设置button按钮的位置
-                bt.Click += new EventHandler(bt_Click);             //定义button按钮的Click事件
-
-                p_int_x += 36;                                      //设置下一个按钮的位置
-                if ((i + 1) % 10 == 0)                            //设定每行有10个按钮
-                {
-                    p_int_x = 10;                                   //换行后重新设置X坐标  --X坐标不变
-                    p_int_y += 36;                                  //换行后重新设置Y坐标  --Y坐标将变化为原来的+距离
-                }
-
-                Controls.Add(bt);                                   //使用Controls.Add()方法将button按钮放入窗体控件集合中
-            }
-
-            //创建线程
-            //跨线程调用控件
-            G_th = new System.Threading.Thread(                 //新建一条线程
-                delegate ()                              //使用匿名方法创建一个委托
-                {
-                    int P_int_count = 0;                            //初始化计数器
-                    while (true)                                //开始无限循环
-                    {
-                        P_int_count = ++P_int_count > 100000000 ? 0 : P_int_count;      //计数器累加
-
-                        this.Invoke(                            //将代码交给主线程执行
-                            (MethodInvoker)delegate         //使用匿名方法
-                            {
-                                lb_time.Text = P_int_count.ToString();          //窗体中显示计数
-                            });
-                        System.Threading.Thread.Sleep(1000);                    //线程睡眠1秒
-                    }
-                });
-
-            G_th.IsBackground = true;                                   //设置线程为后台线程
-            G_th.Start();                                           //开始执行线程
-
-            //生成一个随机数
-            G_int_num = G_random.Next(1, 100);                          //生成一个1-100之间的随机数
-            btn_begin.Enabled = false;                              //停用开始按钮
-        }
-        #endregion
-
-        #region 注册生成按钮的Click事件的方法
-        //注册按钮的Click事件的方法
-        void bt_Click(object sender, EventArgs e)
-        {
-            Control P_control = sender as Control;                          //将sender转换为control类型对象
-            if (int.Parse(P_control.Name) > G_int_num)                  //强制转化并判断猜测数值与随机产生的数值之间的差距
-            {
-                P_control.BackColor = Color.Red;                        //设置按钮背景为红色
-                P_control.Enabled = false;                              //设置按钮停用
-                P_control.Text = "大";                                   //更改按钮文本--猜测数值偏大
-                return;
-            }
-            if (int.Parse(P_control.Name) < G_int_num)
-            {
-                P_control.BackColor = Color.Red;                        //设置按钮背景为红色
-                P_control.Enabled = false;                              //设置按钮停用
-                P_control.Text = "小";                                       //更改按钮文本--猜测数偏小
-                return;
-            }
-            if (int.Parse(P_control.Name) == G_int_num)                 //当猜测数值与随机产生的数值相等时
-            {
-                G_th.Abort();                                                   //终止计数线程
-                //显示游戏信息
-                MessageBox.Show(string.Format("恭喜你猜对了！共猜了{0}次 用时{1}秒", GetCount(), lb_time.Text), "恭喜！");
-                btn_begin.Enabled = true;                           //启用开始按钮
-                return;
-            }
-        }
-        #endregion
-
-        #region 计数方法
-        /// <summary>
-        /// 用于查找窗体中Enable属性为False控件的数量    --遍历窗体中的控件
-        /// 用于计算玩家有多少次没有猜中
-        /// </summary>
-        /// <returns>返回没有猜中数量</returns>
-        string GetCount()
-        {
-            int P_int_temp = 0;                                             //初始化计数器
-            foreach (Control c in Controls)                                     //遍历控件集合
-            {
-                if (!c.Enabled) P_int_temp++;                               //计数器累加
-            }
-            return P_int_temp.ToString();                               //返回计数器信息
-        }
-        #endregion
-
-        #region 清除控件方法
-        /// <summary>
-        /// 用于清空窗体中动态生成的按钮
-        /// </summary>
-        void RemoveControl()                                            //自定义的清除方法
-        {
-            for (int i = 0; i < 100; i++)                               //开始遍历100个按钮
-            {
-                if (Controls.ContainsKey((i + 1).ToString()))             //窗体中是否有此按钮
-                {
-                    for (int j = 0; j < Controls.Count; j++)                //遍历窗体控件集合
-                    {
-                        if (Controls[j].Name == (i + 1).ToString())         //是否查找到按钮
-                        {
-                            Controls.RemoveAt(j);                           //删除指定按钮
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        #endregion
-
-        #region 窗体的FormClosing事件
-        //窗体的FormClosing事件
-        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (G_th != null)
-            {
-                G_th.Abort();
-            }
-
-            Environment.Exit(0);                                //强行关闭窗体
-        }
-        #endregion
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp多线程猜数字游戏/测试结果.png" alt="测试结果"></center>
 
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>程序流程分析</strong>:</p>
@@ -936,7 +768,7 @@ namespace NumGame
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="CSharp巧用移位运算符获取汉字编码值">
+                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="CSharp巧用移位运算符获取汉字编码值">
                         
                         <span class="card-title">CSharp巧用移位运算符获取汉字编码值</span>
                     </div>
@@ -998,7 +830,7 @@ namespace NumGame
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="C#递归算法计算斐波那契数列">
+                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="C#递归算法计算斐波那契数列">
                         
                         <span class="card-title">C#递归算法计算斐波那契数列</span>
                     </div>
@@ -1058,7 +890,7 @@ namespace NumGame
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
+        if (('' + selection).length < Number.parseInt('10')) {
             return;
         }
 
@@ -1208,11 +1040,11 @@ namespace NumGame
     <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy; 2017-2020 WeiYang. 版权所有
+            &copy; 2019-2020 z1r0s. 版权所有
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">59.5k</span>
+            <span class="white-color">64k</span>
             
 
             <br>
@@ -1220,8 +1052,21 @@ namespace NumGame
 
             
             
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
         </div>
-        <div class="col s12 m4 l4 social-link ">
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/z1r0s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fa fa-github"></i>
     </a>
@@ -1305,7 +1150,7 @@ namespace NumGame
         minutes - 0-59之间的整数，做为date对象的分钟数
         seconds - 0-59之间的整数，做为date对象的秒数
         microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t1 = Date.UTC(2019, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
         var diff = t2 - t1;
         var diffYears = Math.floor(diff / years);
@@ -1363,8 +1208,12 @@ $(function () {
     
 
     
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
     <!-- 雪花特效 -->
+    
+    <script type="text/javascript" src="/libs/others/snow.js"></script>
     
 
 </body>
