@@ -34,7 +34,12 @@ MySQL版本：5.5.53">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <style type="text/css">
-        
+        code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+            
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -58,7 +63,7 @@ MySQL版本：5.5.53">
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
 
 <body>
 
@@ -539,7 +544,7 @@ MySQL版本：5.5.53">
 <li><p>修改mysql数据库中user表中root对应得host字段的值为%，来允许远程用户连接MySQL。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/修改表信息.png" alt="修改表信息"></center>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">select host,user from user where user=&apos;root&apos;;</span><br><span class="line">update user set host=&apos;%&apos; where user=&apos;root&apos;;</span><br><span class="line">select host,user from user where user=&apos;root&apos;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">select host,user from user where user=&apos;root&apos;;</span><br><span class="line">update user set host=&apos;%&apos; where user=&apos;root&apos;;</span><br><span class="line">select host,user from user where user=&apos;root&apos;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><font color="blue">重启MySQL服务</font>后，再进行远程连接测试。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/重启MySQL后的连接测试.png" alt="重启MySQL后的连接测试"></center>
@@ -1045,7 +1050,7 @@ MySQL版本：5.5.53">
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">64k</span>
+            <span class="white-color">63.9k</span>
             
 
             <br>

@@ -27,7 +27,12 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <style type="text/css">
-        
+        code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+            
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -51,7 +56,7 @@
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
 
 <body>
 
@@ -624,7 +629,7 @@
 </li>
 <li><p>检查：</p>
 <ul>
-<li><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; <span class="built_in">Get-ExecutionPolicy</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">PS C:\&gt; <span class="built_in">Get-ExecutionPolicy</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果返回的是 <code>Restricted</code>，那么需要更改为<code>Bypass</code>或<code>AllSigned</code></p>
 </li>
@@ -632,11 +637,11 @@
 </li>
 <li><p>更改：</p>
 <ul>
-<li><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; <span class="built_in">Set-ExecutionPolicy</span> AllSigned</span><br></pre></td></tr></table></figure>
+<li><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">PS C:\&gt; <span class="built_in">Set-ExecutionPolicy</span> AllSigned</span><br></pre></td></tr></table></figure>
 
 <p>或</p>
 </li>
-<li><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; <span class="built_in">Set-ExecutionPolicy</span> Bypass -Scope <span class="keyword">Process</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">PS C:\&gt; <span class="built_in">Set-ExecutionPolicy</span> Bypass -Scope <span class="keyword">Process</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -644,11 +649,11 @@
 <ul>
 <li><p>设置<code>执行策略</code>同时下载并执行安装脚本</p>
 </li>
-<li><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; <span class="built_in">Set-ExecutionPolicy</span> Bypass -Scope <span class="keyword">Process</span> -Force; iex ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">'https://chocolatey.org/install.ps1'</span>))</span><br></pre></td></tr></table></figure>
+<li><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">PS C:\&gt; <span class="built_in">Set-ExecutionPolicy</span> Bypass -Scope <span class="keyword">Process</span> -Force; iex ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">'https://chocolatey.org/install.ps1'</span>))</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果执行策略已经更改，直接下载并执行也可以</p>
 </li>
-<li><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; iex ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">'https://chocolatey.org/install.ps1'</span>))</span><br></pre></td></tr></table></figure>
+<li><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">PS C:\&gt; iex ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">'https://chocolatey.org/install.ps1'</span>))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -1216,7 +1221,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">64k</span>
+            <span class="white-color">63.9k</span>
             
 
             <br>

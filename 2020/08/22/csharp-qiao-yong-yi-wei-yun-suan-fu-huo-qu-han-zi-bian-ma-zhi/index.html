@@ -32,7 +32,12 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <style type="text/css">
-        
+        code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+            
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -56,7 +61,7 @@
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
 
 <body>
 
@@ -439,12 +444,12 @@
                             <span class="chip bg-color">C#</span>
                         </a>
                         
-                        <a href="/tags/编码/" target="_blank">
-                            <span class="chip bg-color">编码</span>
-                        </a>
-                        
                         <a href="/tags/程序实现/" target="_blank">
                             <span class="chip bg-color">程序实现</span>
+                        </a>
+                        
+                        <a href="/tags/编码/" target="_blank">
+                            <span class="chip bg-color">编码</span>
                         </a>
                         
                     </div>
@@ -568,7 +573,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/界面.png" alt="界面"></center>
 
 <p><strong>代码设计</strong>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Windows.Forms;</span><br><span class="line"></span><br><span class="line">namespace GetCode</span><br><span class="line">&#123;</span><br><span class="line">    public partial class Form1 : Form</span><br><span class="line">    &#123;</span><br><span class="line">        public Form1()</span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private void btn_Get_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                //获得一个汉字字符</span><br><span class="line">                char ch = txt_ch.Text[0];</span><br><span class="line">                //使用gb2312编码方式获得字节序列</span><br><span class="line">                byte[] gb2312_bt = Encoding.GetEncoding(&quot;gb2312&quot;).GetBytes(new Char[] &#123; ch &#125;);</span><br><span class="line">                //将字节序列的第一个字节向左移8位</span><br><span class="line">                int n = (int)gb2312_bt[0] &lt;&lt; 8;</span><br><span class="line">                </span><br><span class="line">                //第一个字节移8位后与第二个字节相加得到汉字编码</span><br><span class="line">                n += (int)gb2312_bt[1];</span><br><span class="line">                //显示汉字编码(十六进制)</span><br><span class="line">                txt_Num.Text = Convert.ToString(n, 16);</span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception)</span><br><span class="line">            &#123;</span><br><span class="line">                //异常提示信息</span><br><span class="line">                MessageBox.Show(&quot;请输入汉字字符！&quot;, &quot;出现错误！&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Windows.Forms;</span><br><span class="line"></span><br><span class="line">namespace GetCode</span><br><span class="line">&#123;</span><br><span class="line">    public partial class Form1 : Form</span><br><span class="line">    &#123;</span><br><span class="line">        public Form1()</span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private void btn_Get_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                //获得一个汉字字符</span><br><span class="line">                char ch = txt_ch.Text[0];</span><br><span class="line">                //使用gb2312编码方式获得字节序列</span><br><span class="line">                byte[] gb2312_bt = Encoding.GetEncoding(&quot;gb2312&quot;).GetBytes(new Char[] &#123; ch &#125;);</span><br><span class="line">                //将字节序列的第一个字节向左移8位</span><br><span class="line">                int n = (int)gb2312_bt[0] &lt;&lt; 8;</span><br><span class="line">                </span><br><span class="line">                //第一个字节移8位后与第二个字节相加得到汉字编码</span><br><span class="line">                n += (int)gb2312_bt[1];</span><br><span class="line">                //显示汉字编码(十六进制)</span><br><span class="line">                txt_Num.Text = Convert.ToString(n, 16);</span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception)</span><br><span class="line">            &#123;</span><br><span class="line">                //异常提示信息</span><br><span class="line">                MessageBox.Show(&quot;请输入汉字字符！&quot;, &quot;出现错误！&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/结果.png" alt="结果"></center>
 
@@ -1076,7 +1081,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">64k</span>
+            <span class="white-color">63.9k</span>
             
 
             <br>
