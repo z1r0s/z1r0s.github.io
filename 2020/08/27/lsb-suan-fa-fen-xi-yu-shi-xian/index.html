@@ -485,14 +485,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    13 分
                 </div>
                 
                 
@@ -540,702 +540,702 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Algorithm/LSB/主界面.png" alt="主界面"></center>
 
 <p><strong>主界面代码</strong>:</p>
-<pre class=" language-C#"><code class="language-C#">using System;
-using System.Windows.Forms;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 
-namespace LSBAlgorithmDemo
-{
-    public partial class MainFrm : Form
-    {
-        #region 定义全局变量
-        Form frm;
-        #endregion
+<span class="token keyword">namespace</span> LSBAlgorithmDemo
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">MainFrm</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 定义全局变量</span>
+        Form frm<span class="token punctuation">;</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 构造函数
-        public MainFrm()
-        {
-            InitializeComponent();
-        }
-        #endregion
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 构造函数</span>
+        <span class="token keyword">public</span> <span class="token function">MainFrm</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 嵌入按钮得Click事件
-        private void btnEnbed_Click(object sender, EventArgs e)
-        {
-            frm = new InfoEmbedmentFrm();
-            this.Hide();
-            if(frm.ShowDialog() == DialogResult.Cancel)
-            {
-                this.Show();
-            }
-            else
-            {
-                Application.Exit();
-            }
-        }
-        #endregion
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 嵌入按钮得Click事件</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnEnbed_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            frm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">InfoEmbedmentFrm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">Hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>frm<span class="token punctuation">.</span><span class="token function">ShowDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> DialogResult<span class="token punctuation">.</span>Cancel<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                Application<span class="token punctuation">.</span><span class="token function">Exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 提取按钮的Click事件
-        private void btnExtract_Click(object sender, EventArgs e)
-        {
-            frm = new InfoExtractionFrm();
-            this.Hide();
-            if (frm.ShowDialog() == DialogResult.Cancel)
-            {
-                this.Show();
-            }
-            else
-            {
-                Application.Exit();
-            }
-        }
-        #endregion
-    }
-}</code></pre>
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 提取按钮的Click事件</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnExtract_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            frm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">InfoExtractionFrm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">Hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>frm<span class="token punctuation">.</span><span class="token function">ShowDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> DialogResult<span class="token punctuation">.</span>Cancel<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                Application<span class="token punctuation">.</span><span class="token function">Exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>嵌入界面</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Algorithm/LSB/嵌入界面.png" alt="嵌入界面"></center>
 
 <p><strong>嵌入界面代码</strong>：</p>
-<pre class=" language-C#"><code class="language-C#">using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Drawing<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>IO<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 
-namespace LSBAlgorithmDemo
-{
-    public partial class InfoEmbedmentFrm : Form
-    {
-        #region 定义全局变量
-        private string fileName;
-        private LSBHelper lsb;
-        private string msg = null;
-        private MemoryStream memStream = null;
-        #endregion
+<span class="token keyword">namespace</span> LSBAlgorithmDemo
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">InfoEmbedmentFrm</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 定义全局变量</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> fileName<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> LSBHelper lsb<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> msg <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">private</span> MemoryStream memStream <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 构造函数
-        public InfoEmbedmentFrm()
-        {
-            InitializeComponent();
-            // 初始化界面
-            Form_Init(0);
-        }
-        #endregion
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 构造函数</span>
+        <span class="token keyword">public</span> <span class="token function">InfoEmbedmentFrm</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 初始化界面</span>
+            <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 设置显示界面
-        /// <summary>
-        /// 设置显示界面
-        /// </summary>
-        /// <param name="flag">0:初始化、下载之后;1:图片加载之后;2:图片嵌入之后
-        /// </param>
-        private void Form_Init(int flag)
-        {
-            if(flag == 0)//初始化、下载之后
-            {
-                // 设置界面显示的起始位置
-                this.StartPosition = FormStartPosition.CenterScreen;
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 设置显示界面</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 设置显示界面</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="flag">0:初始化、下载之后;1:图片加载之后;2:图片嵌入之后</span>
+        <span class="token comment" spellcheck="true">/// &lt;/param></span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token keyword">int</span> flag<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//初始化、下载之后</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 设置界面显示的起始位置</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>StartPosition <span class="token operator">=</span> FormStartPosition<span class="token punctuation">.</span>CenterScreen<span class="token punctuation">;</span>
 
-                // PictureBox控件
-                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
-                // 两个必须都要设置（因两次的加载途径不一样）
-                pBoxDisplay.ImageLocation = null;
-                pBoxDisplay.Image = null;
+                <span class="token comment" spellcheck="true">// PictureBox控件</span>
+                pBoxDisplay<span class="token punctuation">.</span>SizeMode <span class="token operator">=</span> PictureBoxSizeMode<span class="token punctuation">.</span>StretchImage<span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">// 两个必须都要设置（因两次的加载途径不一样）</span>
+                pBoxDisplay<span class="token punctuation">.</span>ImageLocation <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                pBoxDisplay<span class="token punctuation">.</span>Image <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 
-                // RichTextBox控件
-                rtbInfo.Clear();
-                rtbInfo.ReadOnly = true;
+                <span class="token comment" spellcheck="true">// RichTextBox控件</span>
+                rtbInfo<span class="token punctuation">.</span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                rtbInfo<span class="token punctuation">.</span>ReadOnly <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
 
-                // Button控件
-                btnDownloadImage.Enabled = false;
-                btnEmbedInfo.Enabled = false;
-                btnLoadImage.Enabled = true;
-                btnLoadImage.Focus();
-            }
-            else if(flag == 1)//图片加载之后
-            {
-                // RichTextBox控件
-                rtbInfo.Clear();
-                rtbInfo.ReadOnly = false;
-                rtbInfo.Focus();
+                <span class="token comment" spellcheck="true">// Button控件</span>
+                btnDownloadImage<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+                btnEmbedInfo<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+                btnLoadImage<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+                btnLoadImage<span class="token punctuation">.</span><span class="token function">Focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//图片加载之后</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// RichTextBox控件</span>
+                rtbInfo<span class="token punctuation">.</span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                rtbInfo<span class="token punctuation">.</span>ReadOnly <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+                rtbInfo<span class="token punctuation">.</span><span class="token function">Focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                // Button控件
-                btnDownloadImage.Enabled = false;
-                btnEmbedInfo.Enabled = true;
-                btnLoadImage.Enabled = true;
-            }
-            else if(flag == 2)//图片嵌入之后
-            {
-                // Button控件
-                btnDownloadImage.Enabled = true;
-                btnEmbedInfo.Enabled = true;
-                btnLoadImage.Enabled = true;
-                btnDownloadImage.Focus();
-            }
-        }
-        #endregion
+                <span class="token comment" spellcheck="true">// Button控件</span>
+                btnDownloadImage<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+                btnEmbedInfo<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+                btnLoadImage<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//图片嵌入之后</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// Button控件</span>
+                btnDownloadImage<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+                btnEmbedInfo<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+                btnLoadImage<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+                btnDownloadImage<span class="token punctuation">.</span><span class="token function">Focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 加载图片的事件
-        private void btnLoadImage_Click(object sender, EventArgs e)
-        {
-            // 再次单击加载图片按钮时，回到初始化状态
-            Form_Init(0);
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 加载图片的事件</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnLoadImage_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 再次单击加载图片按钮时，回到初始化状态</span>
+            <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            // 设置打开对话框的标题
-            openImageDialog.Title = "请选择一张位图";
-            // 对文件格式进行筛选
-            openImageDialog.Filter = "bmp | *.bmp;*.BMP";
-            // 默认设置为空
-            openImageDialog.FileName = "";
+            <span class="token comment" spellcheck="true">// 设置打开对话框的标题</span>
+            openImageDialog<span class="token punctuation">.</span>Title <span class="token operator">=</span> <span class="token string">"请选择一张位图"</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 对文件格式进行筛选</span>
+            openImageDialog<span class="token punctuation">.</span>Filter <span class="token operator">=</span> <span class="token string">"bmp | *.bmp;*.BMP"</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 默认设置为空</span>
+            openImageDialog<span class="token punctuation">.</span>FileName <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
 
-            if (openImageDialog.ShowDialog() == DialogResult.OK)
-            {
-                // 存储打开文件的全文件名
-                fileName = openImageDialog.FileName;
-                // 设置显示图片的样式
-                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
-                // 加载要显示的图片
-                pBoxDisplay.ImageLocation = fileName;
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>openImageDialog<span class="token punctuation">.</span><span class="token function">ShowDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> DialogResult<span class="token punctuation">.</span>OK<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 存储打开文件的全文件名</span>
+                fileName <span class="token operator">=</span> openImageDialog<span class="token punctuation">.</span>FileName<span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">// 设置显示图片的样式</span>
+                pBoxDisplay<span class="token punctuation">.</span>SizeMode <span class="token operator">=</span> PictureBoxSizeMode<span class="token punctuation">.</span>StretchImage<span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">// 加载要显示的图片</span>
+                pBoxDisplay<span class="token punctuation">.</span>ImageLocation <span class="token operator">=</span> fileName<span class="token punctuation">;</span>
 
-                // 设置显示界面
-                Form_Init(1);
-            }
-        }
-        #endregion
+                <span class="token comment" spellcheck="true">// 设置显示界面</span>
+                <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 嵌入文本的事件
-        private void btnEmbedInfo_Click(object sender, EventArgs e)
-        {
-            // 已经在界面设置中代替
-            if (string.IsNullOrWhiteSpace(fileName))
-            {
-                MessageBox.Show("请选择一张位图", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (string.IsNullOrWhiteSpace(rtbInfo.Text))
-            {
-                MessageBox.Show("请输入要嵌入的文本信息", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                lsb = new LSBHelper();
-                if (lsb.EmbedInfo(fileName, rtbInfo.Text, out msg, out memStream))
-                {
-                    pBoxDisplay.ImageLocation = null;
-                    //pBoxDisplay.ImageLocation = "C:\\Users\\ss\\Desktop\\664204.bmp";
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 嵌入文本的事件</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnEmbedInfo_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 已经在界面设置中代替</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrWhiteSpace</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token string">"请选择一张位图"</span><span class="token punctuation">,</span> <span class="token string">"提示"</span><span class="token punctuation">,</span> MessageBoxButtons<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxIcon<span class="token punctuation">.</span>Information<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrWhiteSpace</span><span class="token punctuation">(</span>rtbInfo<span class="token punctuation">.</span>Text<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token string">"请输入要嵌入的文本信息"</span><span class="token punctuation">,</span> <span class="token string">"提示"</span><span class="token punctuation">,</span> MessageBoxButtons<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxIcon<span class="token punctuation">.</span>Information<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                lsb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LSBHelper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>lsb<span class="token punctuation">.</span><span class="token function">EmbedInfo</span><span class="token punctuation">(</span>fileName<span class="token punctuation">,</span> rtbInfo<span class="token punctuation">.</span>Text<span class="token punctuation">,</span> <span class="token keyword">out</span> msg<span class="token punctuation">,</span> <span class="token keyword">out</span> memStream<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    pBoxDisplay<span class="token punctuation">.</span>ImageLocation <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                    <span class="token comment" spellcheck="true">//pBoxDisplay.ImageLocation = "C:\\Users\\ss\\Desktop\\664204.bmp";</span>
 
-                    pBoxDisplay.Image = Image.FromStream(memStream);
+                    pBoxDisplay<span class="token punctuation">.</span>Image <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token function">FromStream</span><span class="token punctuation">(</span>memStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                    MessageBox.Show(msg, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> <span class="token string">"提示"</span><span class="token punctuation">,</span> MessageBoxButtons<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxIcon<span class="token punctuation">.</span>Information<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                    // 设置显示界面
-                    Form_Init(2);
-                }
-                else
-                {
-                    MessageBox.Show(msg, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-        #endregion
+                    <span class="token comment" spellcheck="true">// 设置显示界面</span>
+                    <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span>
+                <span class="token punctuation">{</span>
+                    MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> <span class="token string">"提示"</span><span class="token punctuation">,</span> MessageBoxButtons<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxIcon<span class="token punctuation">.</span>Error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 下载图片按钮触发的事件
-        private void btnDownloadImage_Click(object sender, EventArgs e)
-        {
-            if (memStream != null)
-            {
-                saveImageDialog.Filter = "位图（*.bmp）|*.bmp";
-                if (saveImageDialog.ShowDialog() == DialogResult.OK)
-                {
-                    FileStream fs = null;
-                    BinaryWriter bw = null;
-                    try
-                    {
-                        fs = new FileStream(saveImageDialog.FileName, FileMode.Create, FileAccess.Write);
-                        bw = new BinaryWriter(fs);
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 下载图片按钮触发的事件</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnDownloadImage_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>memStream <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                saveImageDialog<span class="token punctuation">.</span>Filter <span class="token operator">=</span> <span class="token string">"位图（*.bmp）|*.bmp"</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>saveImageDialog<span class="token punctuation">.</span><span class="token function">ShowDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> DialogResult<span class="token punctuation">.</span>OK<span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    FileStream fs <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                    BinaryWriter bw <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                    <span class="token keyword">try</span>
+                    <span class="token punctuation">{</span>
+                        fs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileStream</span><span class="token punctuation">(</span>saveImageDialog<span class="token punctuation">.</span>FileName<span class="token punctuation">,</span> FileMode<span class="token punctuation">.</span>Create<span class="token punctuation">,</span> FileAccess<span class="token punctuation">.</span>Write<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        bw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BinaryWriter</span><span class="token punctuation">(</span>fs<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                        // 指针回位（每次操作之前都要先操作一下）
-                        memStream.Position = 0;
-                        while (memStream.Position != memStream.Length)
-                        {
-                            // ReadByte()强制转换成Int32类型
-                            byte write = Convert.ToByte(memStream.ReadByte());
-                            bw.Write(write);
-                        }
-                        MessageBox.Show("图片下载成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        <span class="token comment" spellcheck="true">// 指针回位（每次操作之前都要先操作一下）</span>
+                        memStream<span class="token punctuation">.</span>Position <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                        <span class="token keyword">while</span> <span class="token punctuation">(</span>memStream<span class="token punctuation">.</span>Position <span class="token operator">!=</span> memStream<span class="token punctuation">.</span>Length<span class="token punctuation">)</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token comment" spellcheck="true">// ReadByte()强制转换成Int32类型</span>
+                            <span class="token keyword">byte</span> write <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToByte</span><span class="token punctuation">(</span>memStream<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            bw<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span>write<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                        MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token string">"图片下载成功"</span><span class="token punctuation">,</span> <span class="token string">"提示"</span><span class="token punctuation">,</span> MessageBoxButtons<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxIcon<span class="token punctuation">.</span>Information<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                        //设置显示界面
-                        Form_Init(0);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    finally
-                    {
-                        fs.Close();
-                        bw.Close();
-                    }
-                }
-            }
-        }
-        #endregion
+                        <span class="token comment" spellcheck="true">//设置显示界面</span>
+                        <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span>ex<span class="token punctuation">.</span>Message<span class="token punctuation">,</span> <span class="token string">"提示"</span><span class="token punctuation">,</span> MessageBoxButtons<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxIcon<span class="token punctuation">.</span>Information<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">finally</span>
+                    <span class="token punctuation">{</span>
+                        fs<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        bw<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-    }
-}</code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>提取界面</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Algorithm/LSB/提取界面.png" alt="提取界面"></center>
 
 <p><strong>提取界面代码</strong>：</p>
-<pre class=" language-C#"><code class="language-C#">using System;
-using System.IO;
-using System.Windows.Forms;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>IO<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 
-namespace LSBAlgorithmDemo
-{
-    public partial class InfoExtractionFrm : Form
-    {
-        #region 定义全局变量
-        private string fileName;
-        private MemoryStream memorystream = null;
-        private string info = null;
-        private string msg = null;
-        #endregion
+<span class="token keyword">namespace</span> LSBAlgorithmDemo
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">InfoExtractionFrm</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 定义全局变量</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> fileName<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> MemoryStream memorystream <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> info <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> msg <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 构造函数
-        public InfoExtractionFrm()
-        {
-            InitializeComponent();
-            // 初始化展示界面
-            Form_Init(0);
-        }
-        #endregion
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 构造函数</span>
+        <span class="token keyword">public</span> <span class="token function">InfoExtractionFrm</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 初始化展示界面</span>
+            <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 界面设置操作
-        /// <summary>
-        /// 界面设置操作
-        /// </summary>
-        /// <param name="flag">
-        /// 0:初始化
-        /// 1:提取之后
-        /// </param>
-        private void Form_Init(int flag)
-        {
-            if(flag == 0)
-            {
-                // 设置界面显示位置
-                this.StartPosition = FormStartPosition.CenterScreen;
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 界面设置操作</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 界面设置操作</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="flag"></span>
+        <span class="token comment" spellcheck="true">/// 0:初始化</span>
+        <span class="token comment" spellcheck="true">/// 1:提取之后</span>
+        <span class="token comment" spellcheck="true">/// &lt;/param></span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token keyword">int</span> flag<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 设置界面显示位置</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>StartPosition <span class="token operator">=</span> FormStartPosition<span class="token punctuation">.</span>CenterScreen<span class="token punctuation">;</span>
 
-                // 设置PictureBox控件
-                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
-                pBoxDisplay.ImageLocation = null;
+                <span class="token comment" spellcheck="true">// 设置PictureBox控件</span>
+                pBoxDisplay<span class="token punctuation">.</span>SizeMode <span class="token operator">=</span> PictureBoxSizeMode<span class="token punctuation">.</span>StretchImage<span class="token punctuation">;</span>
+                pBoxDisplay<span class="token punctuation">.</span>ImageLocation <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 
-                // 设置RichTextBox控件
-                rtbInfo.Clear();
-                rtbInfo.ReadOnly = true;
+                <span class="token comment" spellcheck="true">// 设置RichTextBox控件</span>
+                rtbInfo<span class="token punctuation">.</span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                rtbInfo<span class="token punctuation">.</span>ReadOnly <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
 
-                // 设置Button控件
-                btnLoadImage.Enabled = true;
-                btnExtractInfo.Enabled = false;
-            }
-            else if(flag == 1)
-            {
-                // 设置RichTextBox控件
-                rtbInfo.Clear();
+                <span class="token comment" spellcheck="true">// 设置Button控件</span>
+                btnLoadImage<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+                btnExtractInfo<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 设置RichTextBox控件</span>
+                rtbInfo<span class="token punctuation">.</span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                // 设置Button控件
-                btnLoadImage.Enabled = true;
-                btnExtractInfo.Enabled = true;
-            }
+                <span class="token comment" spellcheck="true">// 设置Button控件</span>
+                btnLoadImage<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+                btnExtractInfo<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-        }
-        #endregion
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 加载图片
-        private void btnLoadImage_Click(object sender, EventArgs e)
-        {
-            Form_Init(0);
-            // 设置打开对话框的标题
-            openImageDialog.Title = "请选择一张已嵌入信息的位图";
-            // 对文件格式进行筛选
-            openImageDialog.Filter = "bmp | *.bmp;*.BMP";
-            openImageDialog.FileName = "";
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 加载图片</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnLoadImage_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 设置打开对话框的标题</span>
+            openImageDialog<span class="token punctuation">.</span>Title <span class="token operator">=</span> <span class="token string">"请选择一张已嵌入信息的位图"</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 对文件格式进行筛选</span>
+            openImageDialog<span class="token punctuation">.</span>Filter <span class="token operator">=</span> <span class="token string">"bmp | *.bmp;*.BMP"</span><span class="token punctuation">;</span>
+            openImageDialog<span class="token punctuation">.</span>FileName <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
 
-            if (openImageDialog.ShowDialog() == DialogResult.OK)
-            {
-                // 存储打开文件的全文件名
-                fileName = openImageDialog.FileName;
-                // 设置显示图片的样式
-                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
-                // 加载要显示的图片
-                pBoxDisplay.ImageLocation = fileName;
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>openImageDialog<span class="token punctuation">.</span><span class="token function">ShowDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> DialogResult<span class="token punctuation">.</span>OK<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 存储打开文件的全文件名</span>
+                fileName <span class="token operator">=</span> openImageDialog<span class="token punctuation">.</span>FileName<span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">// 设置显示图片的样式</span>
+                pBoxDisplay<span class="token punctuation">.</span>SizeMode <span class="token operator">=</span> PictureBoxSizeMode<span class="token punctuation">.</span>StretchImage<span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">// 加载要显示的图片</span>
+                pBoxDisplay<span class="token punctuation">.</span>ImageLocation <span class="token operator">=</span> fileName<span class="token punctuation">;</span>
 
-                Form_Init(1);
-            }
-        }
-        #endregion
+                <span class="token function">Form_Init</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 提取信息
-        private void btnExtractInfo_Click(object sender, EventArgs e)
-        {
-            // 图片是否加载
-            if (string.IsNullOrWhiteSpace(fileName))
-            {
-                MessageBox.Show("请选嵌入文字的位图", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            else
-            {
-                try
-                {
-                    LSBHelper lsb = new LSBHelper();
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 提取信息</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnExtractInfo_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 图片是否加载</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrWhiteSpace</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token string">"请选嵌入文字的位图"</span><span class="token punctuation">,</span> <span class="token string">"提示"</span><span class="token punctuation">,</span> MessageBoxButtons<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxIcon<span class="token punctuation">.</span>Information<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">try</span>
+                <span class="token punctuation">{</span>
+                    LSBHelper lsb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LSBHelper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                    // 将图像存入内存流中
-                    using (FileStream fileReadStream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
-                    {
-                        using (BinaryReader br = new BinaryReader(fileReadStream))
-                        {
-                            byte write;
-                            memorystream = new MemoryStream();
-                            for (int i = 1; i <= fileReadStream.Length; i++)
-                            {
-                                write = br.ReadByte();
-                                memorystream.WriteByte(write);
-                            }
-                            // 回位操作
-                            memorystream.Position = 0;
-                        }
-                    }
+                    <span class="token comment" spellcheck="true">// 将图像存入内存流中</span>
+                    <span class="token keyword">using</span> <span class="token punctuation">(</span>FileStream fileReadStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileStream</span><span class="token punctuation">(</span>fileName<span class="token punctuation">,</span> FileMode<span class="token punctuation">.</span>Open<span class="token punctuation">,</span> FileAccess<span class="token punctuation">.</span>Read<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token keyword">using</span> <span class="token punctuation">(</span>BinaryReader br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BinaryReader</span><span class="token punctuation">(</span>fileReadStream<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token keyword">byte</span> write<span class="token punctuation">;</span>
+                            memorystream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MemoryStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> fileReadStream<span class="token punctuation">.</span>Length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+                            <span class="token punctuation">{</span>
+                                write <span class="token operator">=</span> br<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                memorystream<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span>write<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
+                            <span class="token comment" spellcheck="true">// 回位操作</span>
+                            memorystream<span class="token punctuation">.</span>Position <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
 
-                    // 信息提取
-                    if (lsb.ExtractInfo(memorystream, out info, out msg))
-                    {
-                        // 将提取到的信息展示在文本控件中
-                        rtbInfo.Text = info;
-                    }
-                    else
-                    {
-                        MessageBox.Show(msg, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                finally
-                {
-                    // 释放占用的资源
-                    memorystream.Dispose();
-                }
-            }
-        }
-        #endregion
-    }
-}</code></pre>
+                    <span class="token comment" spellcheck="true">// 信息提取</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>lsb<span class="token punctuation">.</span><span class="token function">ExtractInfo</span><span class="token punctuation">(</span>memorystream<span class="token punctuation">,</span> <span class="token keyword">out</span> info<span class="token punctuation">,</span> <span class="token keyword">out</span> msg<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token comment" spellcheck="true">// 将提取到的信息展示在文本控件中</span>
+                        rtbInfo<span class="token punctuation">.</span>Text <span class="token operator">=</span> info<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">else</span>
+                    <span class="token punctuation">{</span>
+                        MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> <span class="token string">"警告"</span><span class="token punctuation">,</span> MessageBoxButtons<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxIcon<span class="token punctuation">.</span>Warning<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span>ex<span class="token punctuation">.</span>Message<span class="token punctuation">,</span> <span class="token string">"警告"</span><span class="token punctuation">,</span> MessageBoxButtons<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxIcon<span class="token punctuation">.</span>Warning<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">finally</span>
+                <span class="token punctuation">{</span>
+                    <span class="token comment" spellcheck="true">// 释放占用的资源</span>
+                    memorystream<span class="token punctuation">.</span><span class="token function">Dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>LSBHelper代码</strong>：</p>
-<pre class=" language-C#"><code class="language-C#">using System;
-using System.IO;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>IO<span class="token punctuation">;</span>
 
-namespace LSBAlgorithmDemo
-{
-    public class LSBHelper
-    {
+<span class="token keyword">namespace</span> LSBAlgorithmDemo
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LSBHelper</span>
+    <span class="token punctuation">{</span>
 
-        #region 定义全局变量
-        FileStream fileReadStream = null;
-        MemoryStream memStream = null;
-        BinaryReader br = null;
-        #endregion
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 定义全局变量</span>
+        FileStream fileReadStream <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        MemoryStream memStream <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        BinaryReader br <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 用于判断图片是否为Bitmap格式
-        /// <summary>
-        /// 用于判断图片是否为Bitmap格式
-        /// </summary>
-        /// <param name="imgFormat">图片前几个字节</param>
-        /// <returns>返回判断结果</returns>
-        private bool IsBitmap(byte[] imgFormat)
-        {
-            // 判断类型表示字节是否为2
-            if (imgFormat.Length == 2)
-            {
-                // 判断标识字节是否为：42 4d
-                if (imgFormat[0] == 0x42 && imgFormat[1] == 0x4d)
-                {
-                    // 是Bitmap
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
-        #endregion
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 用于判断图片是否为Bitmap格式</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 用于判断图片是否为Bitmap格式</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="imgFormat">图片前几个字节&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>返回判断结果&lt;/returns></span>
+        <span class="token keyword">private</span> <span class="token keyword">bool</span> <span class="token function">IsBitmap</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> imgFormat<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 判断类型表示字节是否为2</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>imgFormat<span class="token punctuation">.</span>Length <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 判断标识字节是否为：42 4d</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>imgFormat<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0x42</span> <span class="token operator">&amp;&amp;</span> imgFormat<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0x4d</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    <span class="token comment" spellcheck="true">// 是Bitmap</span>
+                    <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span>
+                <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 判断文本信息能否写入图片中
-        /// <summary>
-        /// 判断文本信息能否写入图片中
-        /// </summary>
-        /// <param name="streamSize">图片流的字节个数</param>
-        /// <param name="infoSize">文本信息的字符个数</param>
-        /// <returns>返回判断结果</returns>
-        private bool CanEmbed(long streamSize, long infoSize)
-        {
-            if (streamSize < (infoSize * 16 + 54))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        #endregion
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 判断文本信息能否写入图片中</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 判断文本信息能否写入图片中</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="streamSize">图片流的字节个数&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="infoSize">文本信息的字符个数&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>返回判断结果&lt;/returns></span>
+        <span class="token keyword">private</span> <span class="token keyword">bool</span> <span class="token function">CanEmbed</span><span class="token punctuation">(</span><span class="token keyword">long</span> streamSize<span class="token punctuation">,</span> <span class="token keyword">long</span> infoSize<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>streamSize <span class="token operator">&lt;</span> <span class="token punctuation">(</span>infoSize <span class="token operator">*</span> <span class="token number">16</span> <span class="token operator">+</span> <span class="token number">54</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 判断指定文件是否存在
-        /// <summary>
-        /// 判断指定文件是否存在
-        /// </summary>
-        /// <param name="fullFileName">文件全名称</param>
-        /// <returns>返回判断结果</returns>
-        private bool IsFileExists(string fullFileName)
-        {
-            return File.Exists(fullFileName);
-        }
-        #endregion
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 判断指定文件是否存在</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 判断指定文件是否存在</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="fullFileName">文件全名称&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>返回判断结果&lt;/returns></span>
+        <span class="token keyword">private</span> <span class="token keyword">bool</span> <span class="token function">IsFileExists</span><span class="token punctuation">(</span><span class="token keyword">string</span> fullFileName<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> File<span class="token punctuation">.</span><span class="token function">Exists</span><span class="token punctuation">(</span>fullFileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 判断图像中是否写入信息
-        private bool IsEmabed(MemoryStream memorystream)
-        {
-            // 复位
-            memorystream.Position = 0;
-            memorystream.Seek(54L, 0);
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 判断图像中是否写入信息</span>
+        <span class="token keyword">private</span> <span class="token keyword">bool</span> <span class="token function">IsEmabed</span><span class="token punctuation">(</span>MemoryStream memorystream<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 复位</span>
+            memorystream<span class="token punctuation">.</span>Position <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            memorystream<span class="token punctuation">.</span><span class="token function">Seek</span><span class="token punctuation">(</span>54L<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            byte reader;
-            char ch;
-            int temp = 0;
-            int state = 0;
-            int index = 0;
+            <span class="token keyword">byte</span> reader<span class="token punctuation">;</span>
+            <span class="token keyword">char</span> ch<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-            while((index = memorystream.ReadByte()) > 0 && index != memorystream.Length)
-            {
-                temp = 0;
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>index <span class="token operator">=</span> memorystream<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> index <span class="token operator">!=</span> memorystream<span class="token punctuation">.</span>Length<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-                for (int k = 0; k < 16; k++)
-                {
-                    reader = Convert.ToByte(memorystream.ReadByte());
-                    temp += (reader & 0x01) << k;
-                }
-                ch = Convert.ToChar(temp);
-                if (ch == '#')
-                    state++;
-            }
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    reader <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToByte</span><span class="token punctuation">(</span>memorystream<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    temp <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span>reader <span class="token operator">&amp;</span> <span class="token number">0x01</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> k<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                ch <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToChar</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token string">'#'</span><span class="token punctuation">)</span>
+                    state<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-            if (state == 2)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        #endregion
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 将待写入图片的信息转成"# + info + #"的格式并储存在tempChs字符数组中
-        /// <summary>
-        /// 将待写入图片的信息转成"# + info + #"的格式并储存在tempChs字符数组中
-        /// </summary>
-        /// <param name="info"></param>
-        /// <returns></returns>
-        private char[] GetTempChsFromInfo(string info)
-        {
-            // 将文本信息转成Unicode字符值并存储在char数组中
-            char[] infoToChs = new char[info.Length];
-            for (int i = 0; i < info.Length; i++)
-            {
-                infoToChs[i] = Convert.ToChar(info[i]);
-            }
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 将待写入图片的信息转成</span><span class="token string">"# + info + #"</span>的格式并储存在tempChs字符数组中
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 将待写入图片的信息转成"# + info + #"的格式并储存在tempChs字符数组中</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="info">&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>&lt;/returns></span>
+        <span class="token keyword">private</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">GetTempChsFromInfo</span><span class="token punctuation">(</span><span class="token keyword">string</span> info<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 将文本信息转成Unicode字符值并存储在char数组中</span>
+            <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> infoToChs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">char</span><span class="token punctuation">[</span>info<span class="token punctuation">.</span>Length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> info<span class="token punctuation">.</span>Length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                infoToChs<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToChar</span><span class="token punctuation">(</span>info<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-            // 将待写入图片的信息转成指定格式并储存在tempChs字符数组中
-            char[] tempChs = new char[(info.Length + 2) * 16];
-            // 前导符“#”：16位
-            for (int n = 0; n < 16; n++)
-            {
-                tempChs[n] = Convert.ToChar(0x0001 & ('#' >> n));
-            }
-            // 原主要信息
-            int k;
-            for (k = 1; k < infoToChs.Length + 1; k++)
-            {
-                for (int n = 0; n < 16; n++)
-                {
-                    tempChs[16 * k + n] = Convert.ToChar(0x0001 & infoToChs[k - 1] >> n);
-                }
-            }
-            // 后导符“#”：16位
-            for (int n = 0; n < 16; n++)
-            {
-                tempChs[16 * k + n] = Convert.ToChar(0x0001 & '#' >> n);
-            }
+            <span class="token comment" spellcheck="true">// 将待写入图片的信息转成指定格式并储存在tempChs字符数组中</span>
+            <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> tempChs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">char</span><span class="token punctuation">[</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>Length <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 前导符“#”：16位</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> n <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempChs<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToChar</span><span class="token punctuation">(</span><span class="token number">0x0001</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token string">'#'</span> <span class="token operator">></span><span class="token operator">></span> n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">// 原主要信息</span>
+            <span class="token keyword">int</span> k<span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span>k <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> infoToChs<span class="token punctuation">.</span>Length <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> n <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    tempChs<span class="token punctuation">[</span><span class="token number">16</span> <span class="token operator">*</span> k <span class="token operator">+</span> n<span class="token punctuation">]</span> <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToChar</span><span class="token punctuation">(</span><span class="token number">0x0001</span> <span class="token operator">&amp;</span> infoToChs<span class="token punctuation">[</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span><span class="token operator">></span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">// 后导符“#”：16位</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> n <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempChs<span class="token punctuation">[</span><span class="token number">16</span> <span class="token operator">*</span> k <span class="token operator">+</span> n<span class="token punctuation">]</span> <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToChar</span><span class="token punctuation">(</span><span class="token number">0x0001</span> <span class="token operator">&amp;</span> <span class="token string">'#'</span> <span class="token operator">></span><span class="token operator">></span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-            return tempChs;
-        }
-        #endregion
+            <span class="token keyword">return</span> tempChs<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 向Bitmap中嵌入信息
-        public bool EmbedInfo(string fullFileName, string info, out string msg, out MemoryStream memory)
-        {
-            // 判断指定图片是否存在
-            if (!IsFileExists(fullFileName))
-            {
-                msg = "请确认指定的图片是否存在";
-                memory = null;
-                return false;
-            }
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 向Bitmap中嵌入信息</span>
+        <span class="token keyword">public</span> <span class="token keyword">bool</span> <span class="token function">EmbedInfo</span><span class="token punctuation">(</span><span class="token keyword">string</span> fullFileName<span class="token punctuation">,</span> <span class="token keyword">string</span> info<span class="token punctuation">,</span> <span class="token keyword">out</span> <span class="token keyword">string</span> msg<span class="token punctuation">,</span> <span class="token keyword">out</span> MemoryStream memory<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 判断指定图片是否存在</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">IsFileExists</span><span class="token punctuation">(</span>fullFileName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                msg <span class="token operator">=</span> <span class="token string">"请确认指定的图片是否存在"</span><span class="token punctuation">;</span>
+                memory <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-            try
-            {
-                // 得到图片的字节流读取器
-                fileReadStream = new FileStream(fullFileName, FileMode.Open, FileAccess.Read);
-                br = new BinaryReader(fileReadStream);
+            <span class="token keyword">try</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 得到图片的字节流读取器</span>
+                fileReadStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileStream</span><span class="token punctuation">(</span>fullFileName<span class="token punctuation">,</span> FileMode<span class="token punctuation">.</span>Open<span class="token punctuation">,</span> FileAccess<span class="token punctuation">.</span>Read<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BinaryReader</span><span class="token punctuation">(</span>fileReadStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                // 读取图片的标识符
-                byte[] imgFormat = new byte[2];
-                imgFormat[0] = br.ReadByte();
-                imgFormat[1] = br.ReadByte();
-                br.BaseStream.Position = 0;
+                <span class="token comment" spellcheck="true">// 读取图片的标识符</span>
+                <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> imgFormat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                imgFormat<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> br<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                imgFormat<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> br<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                br<span class="token punctuation">.</span>BaseStream<span class="token punctuation">.</span>Position <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-                // 判断指定图片是否为Bitmap格式
-                if (!IsBitmap(imgFormat))
-                {
-                    msg = "请选择Bitmap格式的图片";
-                    memory = null;
-                    return false;
-                }
+                <span class="token comment" spellcheck="true">// 判断指定图片是否为Bitmap格式</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">IsBitmap</span><span class="token punctuation">(</span>imgFormat<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    msg <span class="token operator">=</span> <span class="token string">"请选择Bitmap格式的图片"</span><span class="token punctuation">;</span>
+                    memory <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
 
-                // 判断指定图片是否能够写下信息
-                if (!CanEmbed(fileReadStream.Length, info.Length))
-                {
-                    msg = "该图片无法写下指定的全部信息，请选择更大尺寸的Bitmap图片";
-                    memory = null;
-                    return false;
-                }
+                <span class="token comment" spellcheck="true">// 判断指定图片是否能够写下信息</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">CanEmbed</span><span class="token punctuation">(</span>fileReadStream<span class="token punctuation">.</span>Length<span class="token punctuation">,</span> info<span class="token punctuation">.</span>Length<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    msg <span class="token operator">=</span> <span class="token string">"该图片无法写下指定的全部信息，请选择更大尺寸的Bitmap图片"</span><span class="token punctuation">;</span>
+                    memory <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
 
-                // 将待写入图片的信息转成指定格式并储存在tempChs字符数组中
-                char[] tempChs = GetTempChsFromInfo(info);
+                <span class="token comment" spellcheck="true">// 将待写入图片的信息转成指定格式并储存在tempChs字符数组中</span>
+                <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> tempChs <span class="token operator">=</span> <span class="token function">GetTempChsFromInfo</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                // 使用LSB算法将整合后的文件流写入内存流中
-                memStream = new MemoryStream();
-                byte write;
-                for (int i = 1, j = 0; i <= fileReadStream.Length; i++)
-                {
-                    write = br.ReadByte();
+                <span class="token comment" spellcheck="true">// 使用LSB算法将整合后的文件流写入内存流中</span>
+                memStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MemoryStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">byte</span> write<span class="token punctuation">;</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> fileReadStream<span class="token punctuation">.</span>Length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    write <span class="token operator">=</span> br<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                    // 前54字节不能动
-                    if (i <= 54)
-                    {
-                        memStream.WriteByte(write);
-                    }
-                    else   // 在数据区写入信息
-                    {
-                        if (j < tempChs.Length)
-                        {
-                            memStream.WriteByte(Convert.ToByte((write & 0xfe) + tempChs[j]));
-                        }
-                        else
-                        {
-                            memStream.WriteByte(write);
-                        }
-                        j++;
-                    }
-                }
-                memStream.Position = 0;
+                    <span class="token comment" spellcheck="true">// 前54字节不能动</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> <span class="token number">54</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        memStream<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span>write<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">else</span>   <span class="token comment" spellcheck="true">// 在数据区写入信息</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">&lt;</span> tempChs<span class="token punctuation">.</span>Length<span class="token punctuation">)</span>
+                        <span class="token punctuation">{</span>
+                            memStream<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToByte</span><span class="token punctuation">(</span><span class="token punctuation">(</span>write <span class="token operator">&amp;</span> <span class="token number">0xfe</span><span class="token punctuation">)</span> <span class="token operator">+</span> tempChs<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                        <span class="token keyword">else</span>
+                        <span class="token punctuation">{</span>
+                            memStream<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span>write<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                        j<span class="token operator">++</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+                memStream<span class="token punctuation">.</span>Position <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-                msg = "信息已成功嵌入图片中";
-                memory = memStream;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                msg = ex.Message;
-                memory = null;
-                return false;
-            }
-            finally
-            {
-                // 执行完毕之后一定要关闭创建的资源
-                fileReadStream.Close();
-                //memStream.Close();
-                br.Close();
-            }
-        }
-        #endregion
+                msg <span class="token operator">=</span> <span class="token string">"信息已成功嵌入图片中"</span><span class="token punctuation">;</span>
+                memory <span class="token operator">=</span> memStream<span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                msg <span class="token operator">=</span> ex<span class="token punctuation">.</span>Message<span class="token punctuation">;</span>
+                memory <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">finally</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 执行完毕之后一定要关闭创建的资源</span>
+                fileReadStream<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//memStream.Close();</span>
+                br<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 提取Bitmap中的信息
-        public bool ExtractInfo(MemoryStream memorystream, out string info, out string msg)
-        {
-            #region 读取图片的标识符并判断文件是否为指定类型
-            // 读取图片的标识符
-            byte[] imgFormat = new byte[2];
-            imgFormat[0] = Convert.ToByte(memorystream.ReadByte());
-            imgFormat[1] = Convert.ToByte(memorystream.ReadByte());
-            memorystream.Position = 0;
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 提取Bitmap中的信息</span>
+        <span class="token keyword">public</span> <span class="token keyword">bool</span> <span class="token function">ExtractInfo</span><span class="token punctuation">(</span>MemoryStream memorystream<span class="token punctuation">,</span> <span class="token keyword">out</span> <span class="token keyword">string</span> info<span class="token punctuation">,</span> <span class="token keyword">out</span> <span class="token keyword">string</span> msg<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token preprocessor property">#<span class="token directive keyword">region</span> 读取图片的标识符并判断文件是否为指定类型</span>
+            <span class="token comment" spellcheck="true">// 读取图片的标识符</span>
+            <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> imgFormat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            imgFormat<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToByte</span><span class="token punctuation">(</span>memorystream<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            imgFormat<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToByte</span><span class="token punctuation">(</span>memorystream<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            memorystream<span class="token punctuation">.</span>Position <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-            // 判断指定图片是否为Bitmap格式
-            if (!IsBitmap(imgFormat))
-            {
-                info = null;
-                msg = "请选择Bitmap格式的图片";
-                return false;
-            }
-            #endregion
+            <span class="token comment" spellcheck="true">// 判断指定图片是否为Bitmap格式</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">IsBitmap</span><span class="token punctuation">(</span>imgFormat<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                info <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                msg <span class="token operator">=</span> <span class="token string">"请选择Bitmap格式的图片"</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-            #region 提取信息
-            // 回位
-            memorystream.Position = 0;
-            memorystream.Seek(54L, 0);
-            byte reader;
-            char ch;
-            int temp = 0;
-            int state = 0;
-            info = "";
+            <span class="token preprocessor property">#<span class="token directive keyword">region</span> 提取信息</span>
+            <span class="token comment" spellcheck="true">// 回位</span>
+            memorystream<span class="token punctuation">.</span>Position <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            memorystream<span class="token punctuation">.</span><span class="token function">Seek</span><span class="token punctuation">(</span>54L<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">byte</span> reader<span class="token punctuation">;</span>
+            <span class="token keyword">char</span> ch<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            info <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
 
-            while (Convert.ToChar(temp) != '#' || state != 2)
-            {
-                temp = 0;
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToChar</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">'#'</span> <span class="token operator">||</span> state <span class="token operator">!=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-                for (int k = 0; k < 16; k++)
-                {
-                    reader = Convert.ToByte(memorystream.ReadByte());
-                    temp += (reader & 0x01) << k;
-                }
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    reader <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToByte</span><span class="token punctuation">(</span>memorystream<span class="token punctuation">.</span><span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    temp <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span>reader <span class="token operator">&amp;</span> <span class="token number">0x01</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> k<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
 
-                ch = Convert.ToChar(temp);
-                if (ch != '#' && state != 1)
-                {
-                    info = null;
-                    msg = "没有嵌入文字信息或者信息已经被破坏";
-                    return false;
-                }
+                ch <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToChar</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">!=</span> <span class="token string">'#'</span> <span class="token operator">&amp;&amp;</span> state <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    info <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                    msg <span class="token operator">=</span> <span class="token string">"没有嵌入文字信息或者信息已经被破坏"</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
 
-                if (ch != '#' && state == 1)
-                {
-                    info += ch.ToString();
-                }
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">!=</span> <span class="token string">'#'</span> <span class="token operator">&amp;&amp;</span> state <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    info <span class="token operator">+</span><span class="token operator">=</span> ch<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
 
-                if (ch == '#')
-                    state++;
-            }
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token string">'#'</span><span class="token punctuation">)</span>
+                    state<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-            msg = "成功";
-            return true;
-            #endregion
+            msg <span class="token operator">=</span> <span class="token string">"成功"</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+            <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        }
-        #endregion
-    }
-}</code></pre>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>注意点</strong>：</p>
 <ol>
 <li>流每次读取一次，位置就向后推进一定的位数，但可以使用Position属性设置开始读取的位置</li>
@@ -1719,7 +1719,7 @@ namespace LSBAlgorithmDemo
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">59.5k</span>
+            <span class="white-color">61.8k</span>
             
 
             <br>

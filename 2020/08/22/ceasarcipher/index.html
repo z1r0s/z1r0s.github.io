@@ -485,14 +485,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    551
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    7 分
                 </div>
                 
                 
@@ -544,150 +544,150 @@
 </li>
 </ul>
 <h1 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h1><p><strong>Ceasar类</strong>：</p>
-<pre class=" language-C#"><code class="language-C#">namespace DemoCeasar
-{
-    public class Ceasar
-    {
-        #region 加密操作
-        /// <summary>
-        /// Ceasar加密操作
-        /// </summary>
-        /// <param name="plaintext">明文)</param>
-        /// <param name="key">密钥(1-25)</param>
-        /// <returns>密文</returns>
-        internal string EnCrypt(string plaintext, int key)
-        {
-            string ciphertext = null;
-            string str;
-            str = plaintext.ToUpper();
-            foreach(char ch in str)
-            {
-                if(ch >= 'A' && ch <= 'Z')
-                {
-                    ciphertext += (char)('A' + (ch - 'A' + key + 26) % 26);
-                }
-                else
-                {
-                    ciphertext += ch;
-                }
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> DemoCeasar
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Ceasar</span>
+    <span class="token punctuation">{</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 加密操作</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// Ceasar加密操作</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="plaintext">明文)&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="key">密钥(1-25)&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>密文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">EnCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> plaintext<span class="token punctuation">,</span> <span class="token keyword">int</span> key<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">string</span> ciphertext <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token keyword">string</span> str<span class="token punctuation">;</span>
+            str <span class="token operator">=</span> plaintext<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token keyword">in</span> str<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">>=</span> <span class="token string">'A'</span> <span class="token operator">&amp;&amp;</span> ch <span class="token operator">&lt;=</span> <span class="token string">'Z'</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    ciphertext <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">'A'</span> <span class="token operator">+</span> <span class="token punctuation">(</span>ch <span class="token operator">-</span> <span class="token string">'A'</span> <span class="token operator">+</span> key <span class="token operator">+</span> <span class="token number">26</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span>
+                <span class="token punctuation">{</span>
+                    ciphertext <span class="token operator">+</span><span class="token operator">=</span> ch<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
 
-            }
+            <span class="token punctuation">}</span>
 
-            return ciphertext;
-        }
+            <span class="token keyword">return</span> ciphertext<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        /// <summary>
-        /// Avocat加密（密钥为10）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string AvocatEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, 10);
-        }
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// Avocat加密（密钥为10）</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="plaintext">明文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>密文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">AvocatEnCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> plaintext<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">EnCrypt</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        /// <summary>
-        /// ROT13加密（密钥为13）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string ROT13EnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, 13);
-        }
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// ROT13加密（密钥为13）</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="plaintext">明文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>密文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">ROT13EnCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> plaintext<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">EnCrypt</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        /// <summary>
-        /// Cassis加密（密钥为-5）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string CassisEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, -5);
-        }
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// Cassis加密（密钥为-5）</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="plaintext">明文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>密文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">CassisEnCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> plaintext<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">EnCrypt</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        /// <summary>
-        /// Cassette加密（密钥为-6）
-        /// </summary>
-        /// <param name="plaintext">明文</param>
-        /// <returns>密文</returns>
-        internal string CassetteEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, -6);
-        }
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// Cassette加密（密钥为-6）</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="plaintext">明文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>密文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">CassetteEnCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> plaintext<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">EnCrypt</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        #endregion
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
 
-        #region 解密操作
-        /// <summary>
-        /// Ceasar解密操作
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <param name="key">密钥(1-25)</param>
-        /// <returns>明文</returns>
-        internal string DeCrypt(string ciphertext, int key)
-        {
-            string plaintext = null;
-            string str;
-            str = ciphertext.ToUpper();
-            foreach (char ch in str)
-            {
-                if(ch >= 'A' && ch <= 'Z')
-                {
-                    plaintext += (char)('A' + (ch - 'A' - key + 26) % 26);
-                }
-                else
-                {
-                    plaintext += ch;
-                }
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 解密操作</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// Ceasar解密操作</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="ciphertext">密文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="key">密钥(1-25)&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>明文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">DeCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> ciphertext<span class="token punctuation">,</span> <span class="token keyword">int</span> key<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">string</span> plaintext <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token keyword">string</span> str<span class="token punctuation">;</span>
+            str <span class="token operator">=</span> ciphertext<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token keyword">in</span> str<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">>=</span> <span class="token string">'A'</span> <span class="token operator">&amp;&amp;</span> ch <span class="token operator">&lt;=</span> <span class="token string">'Z'</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    plaintext <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">'A'</span> <span class="token operator">+</span> <span class="token punctuation">(</span>ch <span class="token operator">-</span> <span class="token string">'A'</span> <span class="token operator">-</span> key <span class="token operator">+</span> <span class="token number">26</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span>
+                <span class="token punctuation">{</span>
+                    plaintext <span class="token operator">+</span><span class="token operator">=</span> ch<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
 
-            }
+            <span class="token punctuation">}</span>
 
-            return plaintext;
-        }
+            <span class="token keyword">return</span> plaintext<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        /// <summary>
-        /// Avocat解密（密钥为10）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string AvocatDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, 10);
-        }
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// Avocat解密（密钥为10）</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="ciphertext">密文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>明文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">AvocatDeCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> ciphertext<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">DeCrypt</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        /// <summary>
-        /// ROT13解密（密钥为13）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string ROT13DeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, 13);
-        }
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// ROT13解密（密钥为13）</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="ciphertext">密文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>明文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">ROT13DeCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> ciphertext<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">DeCrypt</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        /// <summary>
-        /// Cassis解密（密钥为-5）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string CassisDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, -5);
-        }
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// Cassis解密（密钥为-5）</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="ciphertext">密文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>明文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">CassisDeCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> ciphertext<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">DeCrypt</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        /// <summary>
-        /// Cassette解密（密钥为-6）
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>明文</returns>
-        internal string CassetteDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, -6);
-        }
-        #endregion
-    }
-}</code></pre>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// Cassette解密（密钥为-6）</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="ciphertext">密文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>明文&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">CassetteDeCrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> ciphertext<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">DeCrypt</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Ceasar类核心解读：</p>
 <p>​        在ceasar中理解的字母表是一个转轮的形式，但在实际的存储中而是以线性方式存储，所有在本代码中通过使用《初等数论》中的<strong>模运算</strong>来得到移位后的字母。（全部以<strong>“A”</strong>为基准）</p>
 <ol>
@@ -698,55 +698,55 @@
 <li>得到相对于“A”偏移字母的ASCII码并将其<strong>强制转化为字母</strong></li>
 </ol>
 <p><strong>Program测试类：</strong></p>
-<pre class=" language-C#"><code class="language-C#">using System;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
-namespace DemoCeasar
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.Title = "欢迎使用Ceasar";
-            Console.WriteLine("请输入您期望的操作：(1:加密,0:解密)");
+<span class="token keyword">namespace</span> DemoCeasar
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span>Title <span class="token operator">=</span> <span class="token string">"欢迎使用Ceasar"</span><span class="token punctuation">;</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"请输入您期望的操作：(1:加密,0:解密)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            string str = Console.ReadLine();
-            int op;
-            if(int.TryParse(str,out op))
-            {
-                Ceasar ceasar = new Ceasar();
+            <span class="token keyword">string</span> str <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> op<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">.</span><span class="token function">TryParse</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span><span class="token keyword">out</span> op<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                Ceasar ceasar <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Ceasar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                if (op == 1)
-                {
-                    Console.WriteLine("请输入明文：(字母串)");
-                    string plaintext = Console.ReadLine();
-                    Console.WriteLine("请输入密钥:(整数)");
-                    int key = Console.Read() - '0';
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"请输入明文：(字母串)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">string</span> plaintext <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"请输入密钥:(整数)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">int</span> key <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'0'</span><span class="token punctuation">;</span>
 
-                    string ciphertext = ceasar.EnCrypt(plaintext, key);
+                    <span class="token keyword">string</span> ciphertext <span class="token operator">=</span> ceasar<span class="token punctuation">.</span><span class="token function">EnCrypt</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                    Console.WriteLine("{0}加密之后的密文为:{1}",plaintext,ciphertext);
-                }
-                else if(op == 0)
-                {
-                    Console.WriteLine("请输入密文：(字母串)");
-                    string ciphertext = Console.ReadLine();
-                    Console.WriteLine("请输入密钥:(整数)");
-                    int key = Console.Read() - '0';
+                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"{0}加密之后的密文为:{1}"</span><span class="token punctuation">,</span>plaintext<span class="token punctuation">,</span>ciphertext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"请输入密文：(字母串)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">string</span> ciphertext <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"请输入密钥:(整数)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">int</span> key <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'0'</span><span class="token punctuation">;</span>
 
-                    string plaintext = ceasar.DeCrypt(ciphertext, key);
+                    <span class="token keyword">string</span> plaintext <span class="token operator">=</span> ceasar<span class="token punctuation">.</span><span class="token function">DeCrypt</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                    Console.WriteLine(plaintext);
-                }
-                else
-                {
-                    Console.WriteLine("输入错误程序终止!!!");
-                }
-            }
+                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span>
+                <span class="token punctuation">{</span>
+                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"输入错误程序终止!!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
 
-            Console.ReadKey();
-        }
-    }
-}</code></pre>
+            Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p><strong>加密操作</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CeasarCipher/EnCrypt.png" alt="EnCrypt"></center>
 
@@ -755,42 +755,42 @@ namespace DemoCeasar
 
 <h1 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h1><p>​        Ceasar密码作为经典的加密算法，在罗马时期有很好的应用。其明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合，也即其加密的密钥有25种情况(<font color="blue">0不计算在内</font>)，通过枚举密钥的方式揣测明文。</p>
 <h2 id="穷举搜索"><a href="#穷举搜索" class="headerlink" title="穷举搜索"></a>穷举搜索</h2><p><strong>CrackSeasar类</strong>：</p>
-<pre class=" language-C#"><code class="language-C#">namespace Crack_Seasar
-{
-    public class CrackSeasar
-    {
-        #region 枚举检索
-        /// <summary>
-        /// 枚举搜索
-        /// </summary>
-        /// <param name="ciphertext">密文</param>
-        /// <returns>返回可能的明文字符串组</returns>
-        internal string[] EnumerativeSearch(string ciphertext)
-        {
-            string[] plaintext = new string[26];
-            string str = ciphertext.ToUpper();
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> Crack_Seasar
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CrackSeasar</span>
+    <span class="token punctuation">{</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 枚举检索</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 枚举搜索</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="ciphertext">密文&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>返回可能的明文字符串组&lt;/returns></span>
+        <span class="token keyword">internal</span> <span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">EnumerativeSearch</span><span class="token punctuation">(</span><span class="token keyword">string</span> ciphertext<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> plaintext <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">string</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">string</span> str <span class="token operator">=</span> ciphertext<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            // 枚举解密
-            for (int key = 1; key < 26; key++)
-            {
-                foreach (char ch in str)
-                {
-                    if (ch >= 'A' && ch <= 'Z')
-                    {
-                        plaintext[key - 1] += (char)('A' + (ch - 'A' - key + 26) % 26);
-                    }
-                    else
-                    {
-                        plaintext[key - 1] += ch;
-                    }
-                }
-            }
+            <span class="token comment" spellcheck="true">// 枚举解密</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> key <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> key <span class="token operator">&lt;</span> <span class="token number">26</span><span class="token punctuation">;</span> key<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token keyword">in</span> str<span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">>=</span> <span class="token string">'A'</span> <span class="token operator">&amp;&amp;</span> ch <span class="token operator">&lt;=</span> <span class="token string">'Z'</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        plaintext<span class="token punctuation">[</span>key <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">'A'</span> <span class="token operator">+</span> <span class="token punctuation">(</span>ch <span class="token operator">-</span> <span class="token string">'A'</span> <span class="token operator">-</span> key <span class="token operator">+</span> <span class="token number">26</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">else</span>
+                    <span class="token punctuation">{</span>
+                        plaintext<span class="token punctuation">[</span>key <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> ch<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
 
-            return plaintext;
-        }
-        #endregion
-    }
-}</code></pre>
+            <span class="token keyword">return</span> plaintext<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>Program测试类</strong>：</p>
 <pre class=" language-csahrp"><code class="language-csahrp">using System;
 
@@ -1296,7 +1296,7 @@ namespace Crack_Seasar
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">59.5k</span>
+            <span class="white-color">61.8k</span>
             
 
             <br>

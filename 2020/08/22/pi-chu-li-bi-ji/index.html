@@ -513,7 +513,7 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 </ul>
 <h2 id="编写"><a href="#编写" class="headerlink" title="编写"></a>编写</h2><h3 id="copy命令"><a href="#copy命令" class="headerlink" title="copy命令"></a>copy命令</h3><p>​        copy命令是实现<strong>文件复制</strong>的命令，它可以将文件从某个目录复制到另外的目录。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">copy con 批处理文件名称.bat</code></pre>
+<pre class=" language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">copy</span> con 批处理文件名称.bat</span></code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
 <li>con：是指字符输入设备，通常指键盘</li>
@@ -543,23 +543,23 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 
 <h1 id="批处理命令"><a href="#批处理命令" class="headerlink" title="批处理命令"></a>批处理命令</h1><h2 id="批处理基础命令"><a href="#批处理基础命令" class="headerlink" title="批处理基础命令"></a>批处理基础命令</h2><h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><p>​        打开或关闭<strong>命令回显</strong>功能或<strong>显示消息</strong></p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">echo [{on | off}] [message]</code></pre>
+<pre class=" language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">echo</span> [{on | off}] [message]</span></code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
 <li>{ on | off }：指定是否打开命令回显功能</li>
 <li>message：指定要在屏幕上显示的文本信息</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 关闭回显功能
-@echo off
-:: 在命令提示符窗口显示"Pleione_Plus"
-echo By Pleione_Plus
-:: 显示一个空行
-echo.
-:: 显示一个变量
-echo %windir%
-:: 显示重定向到文件中
-echo "this is a demo!" > tmp.txt</code></pre>
+<pre class=" language-batch"><code class="language-batch"><span class="token comment" spellcheck="true">:: 关闭回显功能</span>
+<span class="token operator">@</span><span class="token command"><span class="token keyword">echo</span> off</span>
+<span class="token comment" spellcheck="true">:: 在命令提示符窗口显示"Pleione_Plus"</span>
+<span class="token command"><span class="token keyword">echo</span> By Pleione_Plus</span>
+<span class="token comment" spellcheck="true">:: 显示一个空行</span>
+<span class="token command"><span class="token keyword">echo</span>.</span>
+<span class="token comment" spellcheck="true">:: 显示一个变量</span>
+<span class="token command"><span class="token keyword">echo</span> <span class="token variable">%windir%</span></span>
+<span class="token comment" spellcheck="true">:: 显示重定向到文件中</span>
+<span class="token command"><span class="token keyword">echo</span> <span class="token string">"this is a demo!"</span> > tmp.txt</span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/echo-display.png" alt="echo-display"></center>
 
@@ -567,7 +567,7 @@ echo "this is a demo!" > tmp.txt</code></pre>
 
 <h3 id="pause"><a href="#pause" class="headerlink" title="pause"></a>pause</h3><p>​        <strong>暂停</strong>批处理程序，直到有一个按键<strong>被触发</strong></p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">pause</code></pre>
+<pre class=" language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">pause</span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/pause-display.png" alt="pause-display"></center>
 
@@ -3616,7 +3616,7 @@ pause</code></pre>
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">59.5k</span>
+            <span class="white-color">61.8k</span>
             
 
             <br>
