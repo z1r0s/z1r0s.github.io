@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>解决BurpSuite Response中文乱码</title>
+      <link href="/2020/09/05/jie-jue-burpsuite-response-zhong-wen-luan-ma/"/>
+      <url>/2020/09/05/jie-jue-burpsuite-response-zhong-wen-luan-ma/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>&emsp;&emsp;在使用BurpSuite的<code>Repeater</code>模块进行注入点判断时，发现<code>Response</code>中的中文简体显示为乱码。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/BurpSuite/ResponseGarbled/Response简体中文显示乱码.png" alt="Response简体中文显示乱码"></center><h1 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h1><ul><li>Windows 10</li><li>Burp Suite Pro_2020.8</li></ul><h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>&emsp;&emsp;出现乱码通常都是由于编码格式产生的。现在计算机的编码格式有许多中，ASCII是一种较早使用的编码格式，随后出现的Big5、UTF系列、GB2312等都属于编码，这么多编码的存在主要是一些历史原因导致的，这与计算机的产生与发展有着密切的联系。这里不做具体介绍，只做简单说明，一个相同的8(16、32)位二进制在不同编码格式中可能显示为不同的符号，若在该编码格式中没有相对应的符号译码时可能以乱码的形式显示。</p><p>&emsp;&emsp;由以上推论可知，此问题产生的原因很有可能是因为Response返回报文的编码和BurpSuite文本显示的编码不兼容导致的。要解决该问题只需要修改BurpSuite显示的编码格式即可。但是主要的问题不在这里。</p><p>&emsp;&emsp;查看<code>Response Header</code>可以看到<code>Content-Type</code>的<code>charset</code>值为<code>UTF-8</code>，而且在<code>BurpSuite</code>的<code>Useroptions</code>的<code>CharacterSets</code>设置为：<code>Recognize automatically based on massage headers</code>，也即显示字符根据消息头中的编码格式决定，UTF-8是可以对中文进行正常译码的，所以这里不是由于字符编码产生的问题。</p><p>&emsp;&emsp;<code>CharacterSets</code>的上一个选项为<code>HTTPMessageDisplay</code>是对HTTP信息的显示进行设置，其中Font用于设置<code>BurpSuite</code>显示的字体样式，默认显示的字体样式支持英文字母，但其不支持中文，所以就在<code>Response</code>中显示了乱码。解决办法很简单，只需要重新设置一个支持中文显示的字体样式即可。</p><h1 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h1><ol><li><p>在打开的<code>BurpSuite</code>中点击【<code>User options</code>】选项，展示【<code>Display</code>】选项卡内容。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/BurpSuite/ResponseGarbled/UserOptions-Display选项卡.png" alt="UserOptions-Display选项卡"></center></li><li><p>设置<code>HTTPMessageDisplay</code>中的<code>Font</code>值为：<code>宋体 11pt</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/BurpSuite/ResponseGarbled/UserOptions-设置font值.png" alt="UserOptions-设置font值"></center></li><li><p>完美解决Response中文乱码问题。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/BurpSuite/ResponseGarbled/Response中文正常显示.png" alt="Response中文正常显示"></center></li></ol><h1 id="思考总结"><a href="#思考总结" class="headerlink" title="思考总结"></a>思考总结</h1><p>&emsp;&emsp;在文本显示时，所依赖的不只是其编码的格式，文本显示字体库也是需要考虑的一方面。例如有的字体库中只包含英文字母、阿拉伯数字、英文符号，当使用这个字体库去显示中文或其他不以英文字母组合的字时，计算机强制执行后得不到我们想要的结果。而在平时我们考虑乱码时通常都是只考虑编码的问题，那时因为你当前使用的字体库可能已经包含中文或其他样式的字符。所以<font color="red">在出现乱码的情况下需要编码和字体两方面结合考虑</font>。</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://www.jianshu.com/p/ef3ce7ad71e8" target="_blank" rel="noopener">实战Burpsuite Response返回中文乱码问题</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> debug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编码 </tag>
+            
+            <tag> BurpSuite </tag>
+            
+            <tag> 字体 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>字母编码系统-动物版</title>
       <link href="/2020/09/02/zi-mu-bian-ma-xi-tong-dong-wu-ban/"/>
       <url>/2020/09/02/zi-mu-bian-ma-xi-tong-dong-wu-ban/</url>

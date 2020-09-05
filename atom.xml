@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-02T09:30:00.272Z</updated>
+  <updated>2020-09-05T13:31:44.862Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决BurpSuite Response中文乱码</title>
+    <link href="https://z1r0s.github.io/2020/09/05/jie-jue-burpsuite-response-zhong-wen-luan-ma/"/>
+    <id>https://z1r0s.github.io/2020/09/05/jie-jue-burpsuite-response-zhong-wen-luan-ma/</id>
+    <published>2020-09-05T12:16:31.000Z</published>
+    <updated>2020-09-05T13:31:44.862Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
+    
+    
+      <category term="编码" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81/"/>
+    
+      <category term="BurpSuite" scheme="https://z1r0s.github.io/tags/BurpSuite/"/>
+    
+      <category term="字体" scheme="https://z1r0s.github.io/tags/%E5%AD%97%E4%BD%93/"/>
+    
+  </entry>
   
   <entry>
     <title>字母编码系统-动物版</title>
@@ -596,36 +626,6 @@
       <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="代理模式" scheme="https://z1r0s.github.io/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>装饰模式</title>
-    <link href="https://z1r0s.github.io/2020/08/22/zhuang-shi-mo-shi/"/>
-    <id>https://z1r0s.github.io/2020/08/22/zhuang-shi-mo-shi/</id>
-    <published>2020-08-22T11:39:47.000Z</published>
-    <updated>2020-08-22T11:41:43.454Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="装饰模式" scheme="https://z1r0s.github.io/tags/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
