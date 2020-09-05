@@ -62,7 +62,7 @@ LAN2分配私有地址段:192.168.1.0/">
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
+<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"></head>
 
 <body>
 
@@ -324,7 +324,7 @@ LAN2分配私有地址段:192.168.1.0/">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/29.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -487,14 +487,14 @@ LAN2分配私有地址段:192.168.1.0/">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
                 
@@ -808,91 +808,165 @@ LAN2分配私有地址段:192.168.1.0/">
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="配置命令脚本"><a href="#配置命令脚本" class="headerlink" title="配置命令脚本"></a>配置命令脚本</h2><p>LAN1部分配置：</p>
 <ul>
 <li><p>LAN1SW上的VLAN配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">hostname LAN1SW</span><br><span class="line">vlan 10</span><br><span class="line">vlan 20</span><br><span class="line">int range f0/1-10</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 10</span><br><span class="line">int range f0/11-20</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 20</span><br><span class="line">int g0/1</span><br><span class="line">switchport mode trunk</span><br><span class="line">switchport trunk allowed vlan all</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+hostname LAN1SW
+vlan <span class="token number">10</span>
+vlan <span class="token number">20</span>
+<span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">10</span>
+switchport mode access
+switchport access vlan <span class="token number">10</span>
+<span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">20</span>
+switchport mode access
+switchport access vlan <span class="token number">20</span>
+<span class="token keyword">int</span> g0<span class="token operator">/</span><span class="token number">1</span>
+switchport mode trunk
+switchport trunk allowed vlan <span class="token keyword">all</span>
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <ul>
 <li><p>R1上的DHCP配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">hostname R1</span><br><span class="line">ip dhcp excluded-address 202.196.1.1 </span><br><span class="line">ip dhcp excluded-address 202.196.1.129</span><br><span class="line">ip dhcp pool vlan10 </span><br><span class="line">network 202.196.1.0 255.255.255.128</span><br><span class="line">default-router 202.196.1.1</span><br><span class="line">dns-server 202.196.2.250</span><br><span class="line">ex</span><br><span class="line">ip dhcp pool vlan20</span><br><span class="line">network 202.196.1.128 255.255.255.128</span><br><span class="line">default-router 202.196.1.129 </span><br><span class="line">dns-server 202.196.2.250</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+hostname R1
+ip dhcp excluded<span class="token operator">-</span>address <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">1.1</span> 
+ip dhcp excluded<span class="token operator">-</span>address <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">1.129</span>
+ip dhcp pool vlan10 
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">1.0</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.128</span>
+<span class="token keyword">default</span><span class="token operator">-</span>router <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">1.1</span>
+dns<span class="token operator">-</span>server <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">2.250</span>
+ex
+ip dhcp pool vlan20
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">1.128</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.128</span>
+<span class="token keyword">default</span><span class="token operator">-</span>router <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">1.129</span> 
+dns<span class="token operator">-</span>server <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">2.250</span>
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <ul>
 <li><p>R1上的单臂路由配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">int g0/0.1 </span><br><span class="line">encapsulation dot1Q 10</span><br><span class="line">ip add 202.196.1.1 255.255.255.128</span><br><span class="line">int g0/0.2</span><br><span class="line">encapsulation dot1Q 20</span><br><span class="line">ip add 202.196.1.129 255.255.255.128</span><br><span class="line">int g0/0</span><br><span class="line">no shut</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+<span class="token keyword">int</span> g0<span class="token operator">/</span><span class="token number">0.1</span> 
+encapsulation dot1Q <span class="token number">10</span>
+ip <span class="token keyword">add</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">1.1</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.128</span>
+<span class="token keyword">int</span> g0<span class="token operator">/</span><span class="token number">0.2</span>
+encapsulation dot1Q <span class="token number">20</span>
+ip <span class="token keyword">add</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">1.129</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.128</span>
+<span class="token keyword">int</span> g0<span class="token operator">/</span><span class="token number">0</span>
+<span class="token keyword">no</span> shut
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <ul>
 <li><p>R1其他端口IP配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">int s0/0/0</span><br><span class="line">ip add 202.196.3.2 255.255.255.0</span><br><span class="line">no shut</span><br><span class="line">int s0/0/1</span><br><span class="line">ip add 202.196.5.1 255.255.255.0</span><br><span class="line">clock rate 64000</span><br><span class="line">no shut</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+<span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">0</span>
+ip <span class="token keyword">add</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">3.2</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+<span class="token keyword">no</span> shut
+<span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">1</span>
+ip <span class="token keyword">add</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">5.1</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+clock rate <span class="token number">64000</span>
+<span class="token keyword">no</span> shut
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <p>LAN2部分配置：</p>
 <ul>
 <li><p>R2上的IP配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">hostname R2</span><br><span class="line">int g0/0</span><br><span class="line">ip add 192.168.1.1 255.255.255.0</span><br><span class="line">no shut</span><br><span class="line">int s0/0/1</span><br><span class="line">ip add 202.196.5.2 255.255.255.0</span><br><span class="line">no shut</span><br><span class="line">int s0/0/0</span><br><span class="line">ip add 202.196.4.2 255.255.255.0</span><br><span class="line">no shut</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+hostname R2
+<span class="token keyword">int</span> g0<span class="token operator">/</span><span class="token number">0</span>
+ip <span class="token keyword">add</span> <span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.1</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+<span class="token keyword">no</span> shut
+<span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">1</span>
+ip <span class="token keyword">add</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">5.2</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+<span class="token keyword">no</span> shut
+<span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">0</span>
+ip <span class="token keyword">add</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">4.2</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+<span class="token keyword">no</span> shut
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <ul>
 <li><p>R2上的NAT配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">access-list 1 permit 192.168.1.0 0.0.0.255 </span><br><span class="line">ip nat inside source list 1 int s0/0/0 overload</span><br><span class="line">ip nat inside source list 1 int s0/0/1 overload</span><br><span class="line">int g0/0</span><br><span class="line">ip nat inside</span><br><span class="line">int s0/0/0</span><br><span class="line">ip nat outside</span><br><span class="line">int s0/0/1</span><br><span class="line">ip nat outside</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+access<span class="token operator">-</span>list <span class="token number">1</span> permit <span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.0</span> <span class="token number">0.0</span><span class="token punctuation">.</span><span class="token number">0.255</span> 
+ip nat inside source list <span class="token number">1</span> <span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">0</span> overload
+ip nat inside source list <span class="token number">1</span> <span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">1</span> overload
+<span class="token keyword">int</span> g0<span class="token operator">/</span><span class="token number">0</span>
+ip nat inside
+<span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">0</span>
+ip nat outside
+<span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">1</span>
+ip nat outside
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <ul>
 <li><p>R2上的浮动路由配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">ip route 0.0.0.0 0.0.0.0 202.196.4.1</span><br><span class="line">ip route 0.0.0.0 0.0.0.0 202.196.5.1 10</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+ip route <span class="token number">0.0</span><span class="token punctuation">.</span><span class="token number">0.0</span> <span class="token number">0.0</span><span class="token punctuation">.</span><span class="token number">0.0</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">4.1</span>
+ip route <span class="token number">0.0</span><span class="token punctuation">.</span><span class="token number">0.0</span> <span class="token number">0.0</span><span class="token punctuation">.</span><span class="token number">0.0</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">5.1</span> <span class="token number">10</span>
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <p>LAN3部分配置：</p>
 <ul>
 <li><p>R3上的IP配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">hostname R3</span><br><span class="line">int g0/0</span><br><span class="line">ip add 202.196.2.1 255.255.255.0</span><br><span class="line">no shut</span><br><span class="line">int s0/0/0</span><br><span class="line">ip add 202.196.3.1 255.255.255.0</span><br><span class="line">clock rate 64000</span><br><span class="line">no shut</span><br><span class="line">int s0/0/1</span><br><span class="line">ip add 202.196.4.1 255.255.255.0</span><br><span class="line">clock rate 64000</span><br><span class="line">no shut</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+hostname R3
+<span class="token keyword">int</span> g0<span class="token operator">/</span><span class="token number">0</span>
+ip <span class="token keyword">add</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">2.1</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+<span class="token keyword">no</span> shut
+<span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">0</span>
+ip <span class="token keyword">add</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">3.1</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+clock rate <span class="token number">64000</span>
+<span class="token keyword">no</span> shut
+<span class="token keyword">int</span> s0<span class="token operator">/</span><span class="token number">0</span><span class="token operator">/</span><span class="token number">1</span>
+ip <span class="token keyword">add</span> <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">4.1</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+clock rate <span class="token number">64000</span>
+<span class="token keyword">no</span> shut
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <p>全局RIP配置：</p>
 <ul>
 <li><p>R1的RIP配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">route rip</span><br><span class="line">network 202.196.1.0</span><br><span class="line">network 202.196.3.0</span><br><span class="line">network 202.196.5.0</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+route rip
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">1.0</span>
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">3.0</span>
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">5.0</span>
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <ul>
 <li><p>R2的RIP配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">route rip</span><br><span class="line">network 202.196.4.0</span><br><span class="line">network 202.196.5.0</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+route rip
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">4.0</span>
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">5.0</span>
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <ul>
 <li><p>R3的RIP配置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">en</span><br><span class="line">conf t</span><br><span class="line">route rip</span><br><span class="line">network 202.196.2.0</span><br><span class="line">network 202.196.3.0</span><br><span class="line">network 202.196.4.0</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
+<pre class=" language-sql"><code class="language-sql">en
+conf t
+route rip
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">2.0</span>
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">3.0</span>
+network <span class="token number">202.196</span><span class="token punctuation">.</span><span class="token number">4.0</span>
+<span class="token keyword">end</span></code></pre>
 </li>
 </ul>
 <h2 id="其他相关命令"><a href="#其他相关命令" class="headerlink" title="其他相关命令"></a>其他相关命令</h2><ul>
@@ -901,10 +975,60 @@ LAN2分配私有地址段:192.168.1.0/">
 <li>[#]<font color="red">copy run start</font>：保存系统当前配置</li>
 <li>[#]<font color="red">reload</font>：重启系统</li>
 </ul>
-<h2 id="操作思路"><a href="#操作思路" class="headerlink" title="操作思路"></a>操作思路</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">1、网络拓扑设计</span><br><span class="line">	-&gt; 网络设备的放置</span><br><span class="line">	-&gt; 网络设备的命名</span><br><span class="line">	-&gt; IP地址的划分</span><br><span class="line">	</span><br><span class="line">2、基础配置</span><br><span class="line">	-&gt; PC的静态IP地址</span><br><span class="line">	-&gt; Server的静态IP配置</span><br><span class="line">	</span><br><span class="line">3、LAN1配置</span><br><span class="line">	-&gt; LAN1SW配置：</span><br><span class="line">		-&gt; 基于端口的VLAN配置：</span><br><span class="line">		</span><br><span class="line">	-&gt; 配置R1的DHCP功能</span><br><span class="line">	</span><br><span class="line">	-&gt; 单臂路由实现VLAN之间的通信</span><br><span class="line">	</span><br><span class="line">	-&gt; R1基本IP配置</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">4、LAN2配置：</span><br><span class="line">	-&gt; R2配置</span><br><span class="line">		-&gt; 基本IP配置</span><br><span class="line">		</span><br><span class="line">		-&gt; 浮动路由配置</span><br><span class="line">		</span><br><span class="line">		-&gt; NAT配置</span><br><span class="line">		</span><br><span class="line">		-&gt; ACL配置（不适用ACL完成要求）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5、LAN3配置：</span><br><span class="line">	-&gt; LAN3Server配置：</span><br><span class="line">		-&gt; 关闭无用服务</span><br><span class="line">			-&gt; 关闭DHCP、DHCPv6、AAA、EMAIL、IoE、VM Management服务</span><br><span class="line">		-&gt; 配置HTTP服务（重写网页信息）</span><br><span class="line">		-&gt; 配置DNS服务</span><br><span class="line">		-&gt; 配置FTP服务</span><br><span class="line">		-&gt; PC端测试</span><br><span class="line">		</span><br><span class="line">	-&gt; R3基本IP配置</span><br><span class="line">	</span><br><span class="line">6、RIP动态路由配置</span><br></pre></td></tr></table></figure>
+<h2 id="操作思路"><a href="#操作思路" class="headerlink" title="操作思路"></a>操作思路</h2><pre class=" language-html"><code class="language-html">1、网络拓扑设计
+    -> 网络设备的放置
+    -> 网络设备的命名
+    -> IP地址的划分
 
-<h2 id="网站文本"><a href="#网站文本" class="headerlink" title="网站文本"></a>网站文本</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>The Bridge Keeper<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>There was once a bridge which spanned a large river. During most of the day the bridge sat with its length running up and down the river paralleled with the banks, allowing ships to pass thru freely on both sides of the bridge. But at certain times each day, a train would come along and the bridge would be turned sideways across the river, allowing a train to cross it.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>A switchman sat in a small shack on one side of the river where he operated the controls to turn the bridge and lock it into place as the train crossed. One evening as the switchman was waiting for the last train of the day to come, he looked off into the distance thru the dimming twilight and caught sight of the trainlights. He stepped to the control and waited until the train was within a prescribed distance when he was to turn the bridge. He turned the bridge into position, but, to his horror, he found the locking control did not work. If the bridge was not securely in position it would wobble back and forth at the ends when the train came onto it, causing the train to jump the track and go crashing into the river. This would be a passenger train with many people aboard. He left the bridge turned across the river, and hurried across the bridge to the other side of the river wher He would have to hold the lever back firmly as the train crossed. He could hear the rumble of the train now, and he took hold of the lever and leaned backward to apply his weight to it, locking the bridge. He kept applying the pressure to keep the mechanism locked. Many lives depended on this man's strength.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Then, coming across the bridge from the direction of his control shack, he heard a sound that made his blood run cold. "Daddy, where are you?" His four-year-old son was crossing the bridge to look for him. His first impulse was to cry out to the child, "Run! Run!" But the train was too close; the tiny legs would never make it across the bridge in time. The man almost left his lever to run and snatch up his son and carry him to safety. But he realized that he could not get back to the lever. Either the people on the train or his little son must die. He took a moment to make his decision.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The train sped safely and swiftly on its way, and no one aboard was even aware of the tiny broken body thrown mercilessly into the river by the onrushing train. Nor were they aware of the pitiful figure of the sobbing man, still clinging tightly to the locking lever long after the train had passed. They did not see him walking home more slowly than he had ever walked: to tell his wife how their son had brutally died.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Now if you comprehend the emotions which went this man's heart, you can begin to understand the feelings of our Father in Heaven when He sacrificed His Son to bridge the gap between us and eternal life. Can there be any wonder that He caused the earth to tremble and the skies to darken when His Son died? How does He feel when we speed along thru life without giving a thought to what was done for us thru Jesus Christ?<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+2、基础配置
+    -> PC的静态IP地址
+    -> Server的静态IP配置
 
+3、LAN1配置
+    -> LAN1SW配置：
+        -> 基于端口的VLAN配置：
+
+    -> 配置R1的DHCP功能
+
+    -> 单臂路由实现VLAN之间的通信
+
+    -> R1基本IP配置
+
+
+4、LAN2配置：
+    -> R2配置
+        -> 基本IP配置
+
+        -> 浮动路由配置
+
+        -> NAT配置
+
+        -> ACL配置（不适用ACL完成要求）
+
+
+5、LAN3配置：
+    -> LAN3Server配置：
+        -> 关闭无用服务
+            -> 关闭DHCP、DHCPv6、AAA、EMAIL、IoE、VM Management服务
+        -> 配置HTTP服务（重写网页信息）
+        -> 配置DNS服务
+        -> 配置FTP服务
+        -> PC端测试
+
+    -> R3基本IP配置
+
+6、RIP动态路由配置</code></pre>
+<h2 id="网站文本"><a href="#网站文本" class="headerlink" title="网站文本"></a>网站文本</h2><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>center</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>The Bridge Keeper<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>center</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>There was once a bridge which spanned a large river. During most of the day the bridge sat with its length running up and down the river paralleled with the banks, allowing ships to pass thru freely on both sides of the bridge. But at certain times each day, a train would come along and the bridge would be turned sideways across the river, allowing a train to cross it.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>A switchman sat in a small shack on one side of the river where he operated the controls to turn the bridge and lock it into place as the train crossed. One evening as the switchman was waiting for the last train of the day to come, he looked off into the distance thru the dimming twilight and caught sight of the trainlights. He stepped to the control and waited until the train was within a prescribed distance when he was to turn the bridge. He turned the bridge into position, but, to his horror, he found the locking control did not work. If the bridge was not securely in position it would wobble back and forth at the ends when the train came onto it, causing the train to jump the track and go crashing into the river. This would be a passenger train with many people aboard. He left the bridge turned across the river, and hurried across the bridge to the other side of the river wher He would have to hold the lever back firmly as the train crossed. He could hear the rumble of the train now, and he took hold of the lever and leaned backward to apply his weight to it, locking the bridge. He kept applying the pressure to keep the mechanism locked. Many lives depended on this man's strength.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Then, coming across the bridge from the direction of his control shack, he heard a sound that made his blood run cold. "Daddy, where are you?" His four-year-old son was crossing the bridge to look for him. His first impulse was to cry out to the child, "Run! Run!" But the train was too close; the tiny legs would never make it across the bridge in time. The man almost left his lever to run and snatch up his son and carry him to safety. But he realized that he could not get back to the lever. Either the people on the train or his little son must die. He took a moment to make his decision.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>The train sped safely and swiftly on its way, and no one aboard was even aware of the tiny broken body thrown mercilessly into the river by the onrushing train. Nor were they aware of the pitiful figure of the sobbing man, still clinging tightly to the locking lever long after the train had passed. They did not see him walking home more slowly than he had ever walked: to tell his wife how their son had brutally died.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Now if you comprehend the emotions which went this man's heart, you can begin to understand the feelings of our Father in Heaven when He sacrificed His Son to bridge the gap between us and eternal life. Can there be any wonder that He caused the earth to tremble and the skies to darken when His Son died? How does He feel when we speed along thru life without giving a thought to what was done for us thru Jesus Christ?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
 
             </div>
             <hr />
@@ -1110,7 +1234,7 @@ LAN2分配私有地址段:192.168.1.0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="常见密码简述">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="常见密码简述">
                         
                         <span class="card-title">常见密码简述</span>
                     </div>
@@ -1159,7 +1283,7 @@ LAN2分配私有地址段:192.168.1.0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="WePE Win10 安装">
+                        <img src="/medias/featureimages/32.jpg" class="responsive-img" alt="WePE Win10 安装">
                         
                         <span class="card-title">WePE Win10 安装</span>
                     </div>
@@ -1357,7 +1481,7 @@ UEFI启动模式下，硬盘分区表必须是GPT；如果你要在Legacy模式�
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">63.9k</span>
+            <span class="white-color">59.5k</span>
             
 
             <br>

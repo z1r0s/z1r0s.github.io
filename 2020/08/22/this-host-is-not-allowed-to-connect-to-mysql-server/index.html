@@ -63,7 +63,7 @@ MySQL版本：5.5.53">
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
+<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"></head>
 
 <body>
 
@@ -325,7 +325,7 @@ MySQL版本：5.5.53">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -488,7 +488,7 @@ MySQL版本：5.5.53">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    407
+                    399
                 </div>
                 
 
@@ -544,7 +544,10 @@ MySQL版本：5.5.53">
 <li><p>修改mysql数据库中user表中root对应得host字段的值为%，来允许远程用户连接MySQL。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/修改表信息.png" alt="修改表信息"></center>
 
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">select host,user from user where user=&apos;root&apos;;</span><br><span class="line">update user set host=&apos;%&apos; where user=&apos;root&apos;;</span><br><span class="line">select host,user from user where user=&apos;root&apos;;</span><br></pre></td></tr></table></figure>
+<pre class=" language-mysql"><code class="language-mysql">use mysql;
+select host,user from user where user='root';
+update user set host='%' where user='root';
+select host,user from user where user='root';</code></pre>
 </li>
 <li><p><font color="blue">重启MySQL服务</font>后，再进行远程连接测试。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/重启MySQL后的连接测试.png" alt="重启MySQL后的连接测试"></center>
@@ -769,7 +772,7 @@ MySQL版本：5.5.53">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/32.jpg" class="responsive-img" alt="C#递归算法计算斐波那契数列">
+                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="C#递归算法计算斐波那契数列">
                         
                         <span class="card-title">C#递归算法计算斐波那契数列</span>
                     </div>
@@ -827,7 +830,7 @@ MySQL版本：5.5.53">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="VigenereCipher">
+                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="VigenereCipher">
                         
                         <span class="card-title">VigenereCipher</span>
                     </div>
@@ -1050,7 +1053,7 @@ MySQL版本：5.5.53">
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">63.9k</span>
+            <span class="white-color">59.5k</span>
             
 
             <br>

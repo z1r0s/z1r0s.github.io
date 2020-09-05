@@ -56,7 +56,7 @@
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
+<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"></head>
 
 <body>
 
@@ -485,14 +485,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    8 分
                 </div>
                 
                 
@@ -540,23 +540,702 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Algorithm/LSB/主界面.png" alt="主界面"></center>
 
 <p><strong>主界面代码</strong>:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Windows.Forms;</span><br><span class="line"></span><br><span class="line">namespace LSBAlgorithmDemo</span><br><span class="line">&#123;</span><br><span class="line">    public partial class MainFrm : Form</span><br><span class="line">    &#123;</span><br><span class="line">        #region 定义全局变量</span><br><span class="line">        Form frm;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 构造函数</span><br><span class="line">        public MainFrm()</span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 嵌入按钮得Click事件</span><br><span class="line">        private void btnEnbed_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            frm = new InfoEmbedmentFrm();</span><br><span class="line">            this.Hide();</span><br><span class="line">            if(frm.ShowDialog() == DialogResult.Cancel)</span><br><span class="line">            &#123;</span><br><span class="line">                this.Show();</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                Application.Exit();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 提取按钮的Click事件</span><br><span class="line">        private void btnExtract_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            frm = new InfoExtractionFrm();</span><br><span class="line">            this.Hide();</span><br><span class="line">            if (frm.ShowDialog() == DialogResult.Cancel)</span><br><span class="line">            &#123;</span><br><span class="line">                this.Show();</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                Application.Exit();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-C#"><code class="language-C#">using System;
+using System.Windows.Forms;
 
+namespace LSBAlgorithmDemo
+{
+    public partial class MainFrm : Form
+    {
+        #region 定义全局变量
+        Form frm;
+        #endregion
+
+        #region 构造函数
+        public MainFrm()
+        {
+            InitializeComponent();
+        }
+        #endregion
+
+        #region 嵌入按钮得Click事件
+        private void btnEnbed_Click(object sender, EventArgs e)
+        {
+            frm = new InfoEmbedmentFrm();
+            this.Hide();
+            if(frm.ShowDialog() == DialogResult.Cancel)
+            {
+                this.Show();
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+        #endregion
+
+        #region 提取按钮的Click事件
+        private void btnExtract_Click(object sender, EventArgs e)
+        {
+            frm = new InfoExtractionFrm();
+            this.Hide();
+            if (frm.ShowDialog() == DialogResult.Cancel)
+            {
+                this.Show();
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+        #endregion
+    }
+}</code></pre>
 <p><strong>嵌入界面</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Algorithm/LSB/嵌入界面.png" alt="嵌入界面"></center>
 
 <p><strong>嵌入界面代码</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Drawing;</span><br><span class="line">using System.IO;</span><br><span class="line">using System.Windows.Forms;</span><br><span class="line"></span><br><span class="line">namespace LSBAlgorithmDemo</span><br><span class="line">&#123;</span><br><span class="line">    public partial class InfoEmbedmentFrm : Form</span><br><span class="line">    &#123;</span><br><span class="line">        #region 定义全局变量</span><br><span class="line">        private string fileName;</span><br><span class="line">        private LSBHelper lsb;</span><br><span class="line">        private string msg = null;</span><br><span class="line">        private MemoryStream memStream = null;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 构造函数</span><br><span class="line">        public InfoEmbedmentFrm()</span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">            // 初始化界面</span><br><span class="line">            Form_Init(0);</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 设置显示界面</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 设置显示界面</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;flag&quot;&gt;0:初始化、下载之后;1:图片加载之后;2:图片嵌入之后</span><br><span class="line">        /// &lt;/param&gt;</span><br><span class="line">        private void Form_Init(int flag)</span><br><span class="line">        &#123;</span><br><span class="line">            if(flag == 0)//初始化、下载之后</span><br><span class="line">            &#123;</span><br><span class="line">                // 设置界面显示的起始位置</span><br><span class="line">                this.StartPosition = FormStartPosition.CenterScreen;</span><br><span class="line"></span><br><span class="line">                // PictureBox控件</span><br><span class="line">                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;</span><br><span class="line">                // 两个必须都要设置（因两次的加载途径不一样）</span><br><span class="line">                pBoxDisplay.ImageLocation = null;</span><br><span class="line">                pBoxDisplay.Image = null;</span><br><span class="line"></span><br><span class="line">                // RichTextBox控件</span><br><span class="line">                rtbInfo.Clear();</span><br><span class="line">                rtbInfo.ReadOnly = true;</span><br><span class="line"></span><br><span class="line">                // Button控件</span><br><span class="line">                btnDownloadImage.Enabled = false;</span><br><span class="line">                btnEmbedInfo.Enabled = false;</span><br><span class="line">                btnLoadImage.Enabled = true;</span><br><span class="line">                btnLoadImage.Focus();</span><br><span class="line">            &#125;</span><br><span class="line">            else if(flag == 1)//图片加载之后</span><br><span class="line">            &#123;</span><br><span class="line">                // RichTextBox控件</span><br><span class="line">                rtbInfo.Clear();</span><br><span class="line">                rtbInfo.ReadOnly = false;</span><br><span class="line">                rtbInfo.Focus();</span><br><span class="line"></span><br><span class="line">                // Button控件</span><br><span class="line">                btnDownloadImage.Enabled = false;</span><br><span class="line">                btnEmbedInfo.Enabled = true;</span><br><span class="line">                btnLoadImage.Enabled = true;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(flag == 2)//图片嵌入之后</span><br><span class="line">            &#123;</span><br><span class="line">                // Button控件</span><br><span class="line">                btnDownloadImage.Enabled = true;</span><br><span class="line">                btnEmbedInfo.Enabled = true;</span><br><span class="line">                btnLoadImage.Enabled = true;</span><br><span class="line">                btnDownloadImage.Focus();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 加载图片的事件</span><br><span class="line">        private void btnLoadImage_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            // 再次单击加载图片按钮时，回到初始化状态</span><br><span class="line">            Form_Init(0);</span><br><span class="line"></span><br><span class="line">            // 设置打开对话框的标题</span><br><span class="line">            openImageDialog.Title = &quot;请选择一张位图&quot;;</span><br><span class="line">            // 对文件格式进行筛选</span><br><span class="line">            openImageDialog.Filter = &quot;bmp | *.bmp;*.BMP&quot;;</span><br><span class="line">            // 默认设置为空</span><br><span class="line">            openImageDialog.FileName = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">            if (openImageDialog.ShowDialog() == DialogResult.OK)</span><br><span class="line">            &#123;</span><br><span class="line">                // 存储打开文件的全文件名</span><br><span class="line">                fileName = openImageDialog.FileName;</span><br><span class="line">                // 设置显示图片的样式</span><br><span class="line">                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;</span><br><span class="line">                // 加载要显示的图片</span><br><span class="line">                pBoxDisplay.ImageLocation = fileName;</span><br><span class="line"></span><br><span class="line">                // 设置显示界面</span><br><span class="line">                Form_Init(1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 嵌入文本的事件</span><br><span class="line">        private void btnEmbedInfo_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            // 已经在界面设置中代替</span><br><span class="line">            if (string.IsNullOrWhiteSpace(fileName))</span><br><span class="line">            &#123;</span><br><span class="line">                MessageBox.Show(&quot;请选择一张位图&quot;, &quot;提示&quot;, MessageBoxButtons.OK, MessageBoxIcon.Information);</span><br><span class="line">            &#125;</span><br><span class="line">            else if (string.IsNullOrWhiteSpace(rtbInfo.Text))</span><br><span class="line">            &#123;</span><br><span class="line">                MessageBox.Show(&quot;请输入要嵌入的文本信息&quot;, &quot;提示&quot;, MessageBoxButtons.OK, MessageBoxIcon.Information);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                lsb = new LSBHelper();</span><br><span class="line">                if (lsb.EmbedInfo(fileName, rtbInfo.Text, out msg, out memStream))</span><br><span class="line">                &#123;</span><br><span class="line">                    pBoxDisplay.ImageLocation = null;</span><br><span class="line">                    //pBoxDisplay.ImageLocation = &quot;C:\\Users\\ss\\Desktop\\664204.bmp&quot;;</span><br><span class="line"></span><br><span class="line">                    pBoxDisplay.Image = Image.FromStream(memStream);</span><br><span class="line"></span><br><span class="line">                    MessageBox.Show(msg, &quot;提示&quot;, MessageBoxButtons.OK, MessageBoxIcon.Information);</span><br><span class="line"></span><br><span class="line">                    // 设置显示界面</span><br><span class="line">                    Form_Init(2);</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    MessageBox.Show(msg, &quot;提示&quot;, MessageBoxButtons.OK, MessageBoxIcon.Error);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 下载图片按钮触发的事件</span><br><span class="line">        private void btnDownloadImage_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            if (memStream != null)</span><br><span class="line">            &#123;</span><br><span class="line">                saveImageDialog.Filter = &quot;位图（*.bmp）|*.bmp&quot;;</span><br><span class="line">                if (saveImageDialog.ShowDialog() == DialogResult.OK)</span><br><span class="line">                &#123;</span><br><span class="line">                    FileStream fs = null;</span><br><span class="line">                    BinaryWriter bw = null;</span><br><span class="line">                    try</span><br><span class="line">                    &#123;</span><br><span class="line">                        fs = new FileStream(saveImageDialog.FileName, FileMode.Create, FileAccess.Write);</span><br><span class="line">                        bw = new BinaryWriter(fs);</span><br><span class="line"></span><br><span class="line">                        // 指针回位（每次操作之前都要先操作一下）</span><br><span class="line">                        memStream.Position = 0;</span><br><span class="line">                        while (memStream.Position != memStream.Length)</span><br><span class="line">                        &#123;</span><br><span class="line">                            // ReadByte()强制转换成Int32类型</span><br><span class="line">                            byte write = Convert.ToByte(memStream.ReadByte());</span><br><span class="line">                            bw.Write(write);</span><br><span class="line">                        &#125;</span><br><span class="line">                        MessageBox.Show(&quot;图片下载成功&quot;, &quot;提示&quot;, MessageBoxButtons.OK, MessageBoxIcon.Information);</span><br><span class="line"></span><br><span class="line">                        //设置显示界面</span><br><span class="line">                        Form_Init(0);</span><br><span class="line">                    &#125;</span><br><span class="line">                    catch (Exception ex)</span><br><span class="line">                    &#123;</span><br><span class="line">                        MessageBox.Show(ex.Message, &quot;提示&quot;, MessageBoxButtons.OK, MessageBoxIcon.Information);</span><br><span class="line">                    &#125;</span><br><span class="line">                    finally</span><br><span class="line">                    &#123;</span><br><span class="line">                        fs.Close();</span><br><span class="line">                        bw.Close();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-C#"><code class="language-C#">using System;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
+namespace LSBAlgorithmDemo
+{
+    public partial class InfoEmbedmentFrm : Form
+    {
+        #region 定义全局变量
+        private string fileName;
+        private LSBHelper lsb;
+        private string msg = null;
+        private MemoryStream memStream = null;
+        #endregion
+
+        #region 构造函数
+        public InfoEmbedmentFrm()
+        {
+            InitializeComponent();
+            // 初始化界面
+            Form_Init(0);
+        }
+        #endregion
+
+        #region 设置显示界面
+        /// <summary>
+        /// 设置显示界面
+        /// </summary>
+        /// <param name="flag">0:初始化、下载之后;1:图片加载之后;2:图片嵌入之后
+        /// </param>
+        private void Form_Init(int flag)
+        {
+            if(flag == 0)//初始化、下载之后
+            {
+                // 设置界面显示的起始位置
+                this.StartPosition = FormStartPosition.CenterScreen;
+
+                // PictureBox控件
+                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
+                // 两个必须都要设置（因两次的加载途径不一样）
+                pBoxDisplay.ImageLocation = null;
+                pBoxDisplay.Image = null;
+
+                // RichTextBox控件
+                rtbInfo.Clear();
+                rtbInfo.ReadOnly = true;
+
+                // Button控件
+                btnDownloadImage.Enabled = false;
+                btnEmbedInfo.Enabled = false;
+                btnLoadImage.Enabled = true;
+                btnLoadImage.Focus();
+            }
+            else if(flag == 1)//图片加载之后
+            {
+                // RichTextBox控件
+                rtbInfo.Clear();
+                rtbInfo.ReadOnly = false;
+                rtbInfo.Focus();
+
+                // Button控件
+                btnDownloadImage.Enabled = false;
+                btnEmbedInfo.Enabled = true;
+                btnLoadImage.Enabled = true;
+            }
+            else if(flag == 2)//图片嵌入之后
+            {
+                // Button控件
+                btnDownloadImage.Enabled = true;
+                btnEmbedInfo.Enabled = true;
+                btnLoadImage.Enabled = true;
+                btnDownloadImage.Focus();
+            }
+        }
+        #endregion
+
+        #region 加载图片的事件
+        private void btnLoadImage_Click(object sender, EventArgs e)
+        {
+            // 再次单击加载图片按钮时，回到初始化状态
+            Form_Init(0);
+
+            // 设置打开对话框的标题
+            openImageDialog.Title = "请选择一张位图";
+            // 对文件格式进行筛选
+            openImageDialog.Filter = "bmp | *.bmp;*.BMP";
+            // 默认设置为空
+            openImageDialog.FileName = "";
+
+            if (openImageDialog.ShowDialog() == DialogResult.OK)
+            {
+                // 存储打开文件的全文件名
+                fileName = openImageDialog.FileName;
+                // 设置显示图片的样式
+                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
+                // 加载要显示的图片
+                pBoxDisplay.ImageLocation = fileName;
+
+                // 设置显示界面
+                Form_Init(1);
+            }
+        }
+        #endregion
+
+        #region 嵌入文本的事件
+        private void btnEmbedInfo_Click(object sender, EventArgs e)
+        {
+            // 已经在界面设置中代替
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                MessageBox.Show("请选择一张位图", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (string.IsNullOrWhiteSpace(rtbInfo.Text))
+            {
+                MessageBox.Show("请输入要嵌入的文本信息", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                lsb = new LSBHelper();
+                if (lsb.EmbedInfo(fileName, rtbInfo.Text, out msg, out memStream))
+                {
+                    pBoxDisplay.ImageLocation = null;
+                    //pBoxDisplay.ImageLocation = "C:\\Users\\ss\\Desktop\\664204.bmp";
+
+                    pBoxDisplay.Image = Image.FromStream(memStream);
+
+                    MessageBox.Show(msg, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 设置显示界面
+                    Form_Init(2);
+                }
+                else
+                {
+                    MessageBox.Show(msg, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        #endregion
+
+        #region 下载图片按钮触发的事件
+        private void btnDownloadImage_Click(object sender, EventArgs e)
+        {
+            if (memStream != null)
+            {
+                saveImageDialog.Filter = "位图（*.bmp）|*.bmp";
+                if (saveImageDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileStream fs = null;
+                    BinaryWriter bw = null;
+                    try
+                    {
+                        fs = new FileStream(saveImageDialog.FileName, FileMode.Create, FileAccess.Write);
+                        bw = new BinaryWriter(fs);
+
+                        // 指针回位（每次操作之前都要先操作一下）
+                        memStream.Position = 0;
+                        while (memStream.Position != memStream.Length)
+                        {
+                            // ReadByte()强制转换成Int32类型
+                            byte write = Convert.ToByte(memStream.ReadByte());
+                            bw.Write(write);
+                        }
+                        MessageBox.Show("图片下载成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //设置显示界面
+                        Form_Init(0);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    finally
+                    {
+                        fs.Close();
+                        bw.Close();
+                    }
+                }
+            }
+        }
+        #endregion
+
+    }
+}</code></pre>
 <p><strong>提取界面</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Algorithm/LSB/提取界面.png" alt="提取界面"></center>
 
 <p><strong>提取界面代码</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.IO;</span><br><span class="line">using System.Windows.Forms;</span><br><span class="line"></span><br><span class="line">namespace LSBAlgorithmDemo</span><br><span class="line">&#123;</span><br><span class="line">    public partial class InfoExtractionFrm : Form</span><br><span class="line">    &#123;</span><br><span class="line">        #region 定义全局变量</span><br><span class="line">        private string fileName;</span><br><span class="line">        private MemoryStream memorystream = null;</span><br><span class="line">        private string info = null;</span><br><span class="line">        private string msg = null;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 构造函数</span><br><span class="line">        public InfoExtractionFrm()</span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">            // 初始化展示界面</span><br><span class="line">            Form_Init(0);</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 界面设置操作</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 界面设置操作</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;flag&quot;&gt;</span><br><span class="line">        /// 0:初始化</span><br><span class="line">        /// 1:提取之后</span><br><span class="line">        /// &lt;/param&gt;</span><br><span class="line">        private void Form_Init(int flag)</span><br><span class="line">        &#123;</span><br><span class="line">            if(flag == 0)</span><br><span class="line">            &#123;</span><br><span class="line">                // 设置界面显示位置</span><br><span class="line">                this.StartPosition = FormStartPosition.CenterScreen;</span><br><span class="line"></span><br><span class="line">                // 设置PictureBox控件</span><br><span class="line">                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;</span><br><span class="line">                pBoxDisplay.ImageLocation = null;</span><br><span class="line"></span><br><span class="line">                // 设置RichTextBox控件</span><br><span class="line">                rtbInfo.Clear();</span><br><span class="line">                rtbInfo.ReadOnly = true;</span><br><span class="line"></span><br><span class="line">                // 设置Button控件</span><br><span class="line">                btnLoadImage.Enabled = true;</span><br><span class="line">                btnExtractInfo.Enabled = false;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(flag == 1)</span><br><span class="line">            &#123;</span><br><span class="line">                // 设置RichTextBox控件</span><br><span class="line">                rtbInfo.Clear();</span><br><span class="line"></span><br><span class="line">                // 设置Button控件</span><br><span class="line">                btnLoadImage.Enabled = true;</span><br><span class="line">                btnExtractInfo.Enabled = true;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 加载图片</span><br><span class="line">        private void btnLoadImage_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            Form_Init(0);</span><br><span class="line">            // 设置打开对话框的标题</span><br><span class="line">            openImageDialog.Title = &quot;请选择一张已嵌入信息的位图&quot;;</span><br><span class="line">            // 对文件格式进行筛选</span><br><span class="line">            openImageDialog.Filter = &quot;bmp | *.bmp;*.BMP&quot;;</span><br><span class="line">            openImageDialog.FileName = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">            if (openImageDialog.ShowDialog() == DialogResult.OK)</span><br><span class="line">            &#123;</span><br><span class="line">                // 存储打开文件的全文件名</span><br><span class="line">                fileName = openImageDialog.FileName;</span><br><span class="line">                // 设置显示图片的样式</span><br><span class="line">                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;</span><br><span class="line">                // 加载要显示的图片</span><br><span class="line">                pBoxDisplay.ImageLocation = fileName;</span><br><span class="line"></span><br><span class="line">                Form_Init(1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 提取信息</span><br><span class="line">        private void btnExtractInfo_Click(object sender, EventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            // 图片是否加载</span><br><span class="line">            if (string.IsNullOrWhiteSpace(fileName))</span><br><span class="line">            &#123;</span><br><span class="line">                MessageBox.Show(&quot;请选嵌入文字的位图&quot;, &quot;提示&quot;, MessageBoxButtons.OK, MessageBoxIcon.Information);</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                try</span><br><span class="line">                &#123;</span><br><span class="line">                    LSBHelper lsb = new LSBHelper();</span><br><span class="line"></span><br><span class="line">                    // 将图像存入内存流中</span><br><span class="line">                    using (FileStream fileReadStream = new FileStream(fileName, FileMode.Open, FileAccess.Read))</span><br><span class="line">                    &#123;</span><br><span class="line">                        using (BinaryReader br = new BinaryReader(fileReadStream))</span><br><span class="line">                        &#123;</span><br><span class="line">                            byte write;</span><br><span class="line">                            memorystream = new MemoryStream();</span><br><span class="line">                            for (int i = 1; i &lt;= fileReadStream.Length; i++)</span><br><span class="line">                            &#123;</span><br><span class="line">                                write = br.ReadByte();</span><br><span class="line">                                memorystream.WriteByte(write);</span><br><span class="line">                            &#125;</span><br><span class="line">                            // 回位操作</span><br><span class="line">                            memorystream.Position = 0;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    // 信息提取</span><br><span class="line">                    if (lsb.ExtractInfo(memorystream, out info, out msg))</span><br><span class="line">                    &#123;</span><br><span class="line">                        // 将提取到的信息展示在文本控件中</span><br><span class="line">                        rtbInfo.Text = info;</span><br><span class="line">                    &#125;</span><br><span class="line">                    else</span><br><span class="line">                    &#123;</span><br><span class="line">                        MessageBox.Show(msg, &quot;警告&quot;, MessageBoxButtons.OK, MessageBoxIcon.Warning);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                catch (Exception ex)</span><br><span class="line">                &#123;</span><br><span class="line">                    MessageBox.Show(ex.Message, &quot;警告&quot;, MessageBoxButtons.OK, MessageBoxIcon.Warning);</span><br><span class="line">                &#125;</span><br><span class="line">                finally</span><br><span class="line">                &#123;</span><br><span class="line">                    // 释放占用的资源</span><br><span class="line">                    memorystream.Dispose();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-C#"><code class="language-C#">using System;
+using System.IO;
+using System.Windows.Forms;
 
+namespace LSBAlgorithmDemo
+{
+    public partial class InfoExtractionFrm : Form
+    {
+        #region 定义全局变量
+        private string fileName;
+        private MemoryStream memorystream = null;
+        private string info = null;
+        private string msg = null;
+        #endregion
+
+        #region 构造函数
+        public InfoExtractionFrm()
+        {
+            InitializeComponent();
+            // 初始化展示界面
+            Form_Init(0);
+        }
+        #endregion
+
+        #region 界面设置操作
+        /// <summary>
+        /// 界面设置操作
+        /// </summary>
+        /// <param name="flag">
+        /// 0:初始化
+        /// 1:提取之后
+        /// </param>
+        private void Form_Init(int flag)
+        {
+            if(flag == 0)
+            {
+                // 设置界面显示位置
+                this.StartPosition = FormStartPosition.CenterScreen;
+
+                // 设置PictureBox控件
+                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
+                pBoxDisplay.ImageLocation = null;
+
+                // 设置RichTextBox控件
+                rtbInfo.Clear();
+                rtbInfo.ReadOnly = true;
+
+                // 设置Button控件
+                btnLoadImage.Enabled = true;
+                btnExtractInfo.Enabled = false;
+            }
+            else if(flag == 1)
+            {
+                // 设置RichTextBox控件
+                rtbInfo.Clear();
+
+                // 设置Button控件
+                btnLoadImage.Enabled = true;
+                btnExtractInfo.Enabled = true;
+            }
+
+        }
+        #endregion
+
+        #region 加载图片
+        private void btnLoadImage_Click(object sender, EventArgs e)
+        {
+            Form_Init(0);
+            // 设置打开对话框的标题
+            openImageDialog.Title = "请选择一张已嵌入信息的位图";
+            // 对文件格式进行筛选
+            openImageDialog.Filter = "bmp | *.bmp;*.BMP";
+            openImageDialog.FileName = "";
+
+            if (openImageDialog.ShowDialog() == DialogResult.OK)
+            {
+                // 存储打开文件的全文件名
+                fileName = openImageDialog.FileName;
+                // 设置显示图片的样式
+                pBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
+                // 加载要显示的图片
+                pBoxDisplay.ImageLocation = fileName;
+
+                Form_Init(1);
+            }
+        }
+        #endregion
+
+        #region 提取信息
+        private void btnExtractInfo_Click(object sender, EventArgs e)
+        {
+            // 图片是否加载
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                MessageBox.Show("请选嵌入文字的位图", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    LSBHelper lsb = new LSBHelper();
+
+                    // 将图像存入内存流中
+                    using (FileStream fileReadStream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
+                    {
+                        using (BinaryReader br = new BinaryReader(fileReadStream))
+                        {
+                            byte write;
+                            memorystream = new MemoryStream();
+                            for (int i = 1; i <= fileReadStream.Length; i++)
+                            {
+                                write = br.ReadByte();
+                                memorystream.WriteByte(write);
+                            }
+                            // 回位操作
+                            memorystream.Position = 0;
+                        }
+                    }
+
+                    // 信息提取
+                    if (lsb.ExtractInfo(memorystream, out info, out msg))
+                    {
+                        // 将提取到的信息展示在文本控件中
+                        rtbInfo.Text = info;
+                    }
+                    else
+                    {
+                        MessageBox.Show(msg, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                finally
+                {
+                    // 释放占用的资源
+                    memorystream.Dispose();
+                }
+            }
+        }
+        #endregion
+    }
+}</code></pre>
 <p><strong>LSBHelper代码</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.IO;</span><br><span class="line"></span><br><span class="line">namespace LSBAlgorithmDemo</span><br><span class="line">&#123;</span><br><span class="line">    public class LSBHelper</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        #region 定义全局变量</span><br><span class="line">        FileStream fileReadStream = null;</span><br><span class="line">        MemoryStream memStream = null;</span><br><span class="line">        BinaryReader br = null;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 用于判断图片是否为Bitmap格式</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 用于判断图片是否为Bitmap格式</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;imgFormat&quot;&gt;图片前几个字节&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;返回判断结果&lt;/returns&gt;</span><br><span class="line">        private bool IsBitmap(byte[] imgFormat)</span><br><span class="line">        &#123;</span><br><span class="line">            // 判断类型表示字节是否为2</span><br><span class="line">            if (imgFormat.Length == 2)</span><br><span class="line">            &#123;</span><br><span class="line">                // 判断标识字节是否为：42 4d</span><br><span class="line">                if (imgFormat[0] == 0x42 &amp;&amp; imgFormat[1] == 0x4d)</span><br><span class="line">                &#123;</span><br><span class="line">                    // 是Bitmap</span><br><span class="line">                    return true;</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 判断文本信息能否写入图片中</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 判断文本信息能否写入图片中</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;streamSize&quot;&gt;图片流的字节个数&lt;/param&gt;</span><br><span class="line">        /// &lt;param name=&quot;infoSize&quot;&gt;文本信息的字符个数&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;返回判断结果&lt;/returns&gt;</span><br><span class="line">        private bool CanEmbed(long streamSize, long infoSize)</span><br><span class="line">        &#123;</span><br><span class="line">            if (streamSize &lt; (infoSize * 16 + 54))</span><br><span class="line">            &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 判断指定文件是否存在</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 判断指定文件是否存在</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;fullFileName&quot;&gt;文件全名称&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;返回判断结果&lt;/returns&gt;</span><br><span class="line">        private bool IsFileExists(string fullFileName)</span><br><span class="line">        &#123;</span><br><span class="line">            return File.Exists(fullFileName);</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 判断图像中是否写入信息</span><br><span class="line">        private bool IsEmabed(MemoryStream memorystream)</span><br><span class="line">        &#123;</span><br><span class="line">            // 复位</span><br><span class="line">            memorystream.Position = 0;</span><br><span class="line">            memorystream.Seek(54L, 0);</span><br><span class="line"></span><br><span class="line">            byte reader;</span><br><span class="line">            char ch;</span><br><span class="line">            int temp = 0;</span><br><span class="line">            int state = 0;</span><br><span class="line">            int index = 0;</span><br><span class="line"></span><br><span class="line">            while((index = memorystream.ReadByte()) &gt; 0 &amp;&amp; index != memorystream.Length)</span><br><span class="line">            &#123;</span><br><span class="line">                temp = 0;</span><br><span class="line"></span><br><span class="line">                for (int k = 0; k &lt; 16; k++)</span><br><span class="line">                &#123;</span><br><span class="line">                    reader = Convert.ToByte(memorystream.ReadByte());</span><br><span class="line">                    temp += (reader &amp; 0x01) &lt;&lt; k;</span><br><span class="line">                &#125;</span><br><span class="line">                ch = Convert.ToChar(temp);</span><br><span class="line">                if (ch == &apos;#&apos;)</span><br><span class="line">                    state++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (state == 2)</span><br><span class="line">            &#123;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 将待写入图片的信息转成&quot;# + info + #&quot;的格式并储存在tempChs字符数组中</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 将待写入图片的信息转成&quot;# + info + #&quot;的格式并储存在tempChs字符数组中</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;info&quot;&gt;&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">        private char[] GetTempChsFromInfo(string info)</span><br><span class="line">        &#123;</span><br><span class="line">            // 将文本信息转成Unicode字符值并存储在char数组中</span><br><span class="line">            char[] infoToChs = new char[info.Length];</span><br><span class="line">            for (int i = 0; i &lt; info.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                infoToChs[i] = Convert.ToChar(info[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // 将待写入图片的信息转成指定格式并储存在tempChs字符数组中</span><br><span class="line">            char[] tempChs = new char[(info.Length + 2) * 16];</span><br><span class="line">            // 前导符“#”：16位</span><br><span class="line">            for (int n = 0; n &lt; 16; n++)</span><br><span class="line">            &#123;</span><br><span class="line">                tempChs[n] = Convert.ToChar(0x0001 &amp; (&apos;#&apos; &gt;&gt; n));</span><br><span class="line">            &#125;</span><br><span class="line">            // 原主要信息</span><br><span class="line">            int k;</span><br><span class="line">            for (k = 1; k &lt; infoToChs.Length + 1; k++)</span><br><span class="line">            &#123;</span><br><span class="line">                for (int n = 0; n &lt; 16; n++)</span><br><span class="line">                &#123;</span><br><span class="line">                    tempChs[16 * k + n] = Convert.ToChar(0x0001 &amp; infoToChs[k - 1] &gt;&gt; n);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // 后导符“#”：16位</span><br><span class="line">            for (int n = 0; n &lt; 16; n++)</span><br><span class="line">            &#123;</span><br><span class="line">                tempChs[16 * k + n] = Convert.ToChar(0x0001 &amp; &apos;#&apos; &gt;&gt; n);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return tempChs;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 向Bitmap中嵌入信息</span><br><span class="line">        public bool EmbedInfo(string fullFileName, string info, out string msg, out MemoryStream memory)</span><br><span class="line">        &#123;</span><br><span class="line">            // 判断指定图片是否存在</span><br><span class="line">            if (!IsFileExists(fullFileName))</span><br><span class="line">            &#123;</span><br><span class="line">                msg = &quot;请确认指定的图片是否存在&quot;;</span><br><span class="line">                memory = null;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                // 得到图片的字节流读取器</span><br><span class="line">                fileReadStream = new FileStream(fullFileName, FileMode.Open, FileAccess.Read);</span><br><span class="line">                br = new BinaryReader(fileReadStream);</span><br><span class="line"></span><br><span class="line">                // 读取图片的标识符</span><br><span class="line">                byte[] imgFormat = new byte[2];</span><br><span class="line">                imgFormat[0] = br.ReadByte();</span><br><span class="line">                imgFormat[1] = br.ReadByte();</span><br><span class="line">                br.BaseStream.Position = 0;</span><br><span class="line"></span><br><span class="line">                // 判断指定图片是否为Bitmap格式</span><br><span class="line">                if (!IsBitmap(imgFormat))</span><br><span class="line">                &#123;</span><br><span class="line">                    msg = &quot;请选择Bitmap格式的图片&quot;;</span><br><span class="line">                    memory = null;</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 判断指定图片是否能够写下信息</span><br><span class="line">                if (!CanEmbed(fileReadStream.Length, info.Length))</span><br><span class="line">                &#123;</span><br><span class="line">                    msg = &quot;该图片无法写下指定的全部信息，请选择更大尺寸的Bitmap图片&quot;;</span><br><span class="line">                    memory = null;</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 将待写入图片的信息转成指定格式并储存在tempChs字符数组中</span><br><span class="line">                char[] tempChs = GetTempChsFromInfo(info);</span><br><span class="line"></span><br><span class="line">                // 使用LSB算法将整合后的文件流写入内存流中</span><br><span class="line">                memStream = new MemoryStream();</span><br><span class="line">                byte write;</span><br><span class="line">                for (int i = 1, j = 0; i &lt;= fileReadStream.Length; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    write = br.ReadByte();</span><br><span class="line"></span><br><span class="line">                    // 前54字节不能动</span><br><span class="line">                    if (i &lt;= 54)</span><br><span class="line">                    &#123;</span><br><span class="line">                        memStream.WriteByte(write);</span><br><span class="line">                    &#125;</span><br><span class="line">                    else   // 在数据区写入信息</span><br><span class="line">                    &#123;</span><br><span class="line">                        if (j &lt; tempChs.Length)</span><br><span class="line">                        &#123;</span><br><span class="line">                            memStream.WriteByte(Convert.ToByte((write &amp; 0xfe) + tempChs[j]));</span><br><span class="line">                        &#125;</span><br><span class="line">                        else</span><br><span class="line">                        &#123;</span><br><span class="line">                            memStream.WriteByte(write);</span><br><span class="line">                        &#125;</span><br><span class="line">                        j++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                memStream.Position = 0;</span><br><span class="line"></span><br><span class="line">                msg = &quot;信息已成功嵌入图片中&quot;;</span><br><span class="line">                memory = memStream;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                msg = ex.Message;</span><br><span class="line">                memory = null;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            finally</span><br><span class="line">            &#123;</span><br><span class="line">                // 执行完毕之后一定要关闭创建的资源</span><br><span class="line">                fileReadStream.Close();</span><br><span class="line">                //memStream.Close();</span><br><span class="line">                br.Close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 提取Bitmap中的信息</span><br><span class="line">        public bool ExtractInfo(MemoryStream memorystream, out string info, out string msg)</span><br><span class="line">        &#123;</span><br><span class="line">            #region 读取图片的标识符并判断文件是否为指定类型</span><br><span class="line">            // 读取图片的标识符</span><br><span class="line">            byte[] imgFormat = new byte[2];</span><br><span class="line">            imgFormat[0] = Convert.ToByte(memorystream.ReadByte());</span><br><span class="line">            imgFormat[1] = Convert.ToByte(memorystream.ReadByte());</span><br><span class="line">            memorystream.Position = 0;</span><br><span class="line"></span><br><span class="line">            // 判断指定图片是否为Bitmap格式</span><br><span class="line">            if (!IsBitmap(imgFormat))</span><br><span class="line">            &#123;</span><br><span class="line">                info = null;</span><br><span class="line">                msg = &quot;请选择Bitmap格式的图片&quot;;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            #endregion</span><br><span class="line"></span><br><span class="line">            #region 提取信息</span><br><span class="line">            // 回位</span><br><span class="line">            memorystream.Position = 0;</span><br><span class="line">            memorystream.Seek(54L, 0);</span><br><span class="line">            byte reader;</span><br><span class="line">            char ch;</span><br><span class="line">            int temp = 0;</span><br><span class="line">            int state = 0;</span><br><span class="line">            info = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">            while (Convert.ToChar(temp) != &apos;#&apos; || state != 2)</span><br><span class="line">            &#123;</span><br><span class="line">                temp = 0;</span><br><span class="line"></span><br><span class="line">                for (int k = 0; k &lt; 16; k++)</span><br><span class="line">                &#123;</span><br><span class="line">                    reader = Convert.ToByte(memorystream.ReadByte());</span><br><span class="line">                    temp += (reader &amp; 0x01) &lt;&lt; k;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                ch = Convert.ToChar(temp);</span><br><span class="line">                if (ch != &apos;#&apos; &amp;&amp; state != 1)</span><br><span class="line">                &#123;</span><br><span class="line">                    info = null;</span><br><span class="line">                    msg = &quot;没有嵌入文字信息或者信息已经被破坏&quot;;</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (ch != &apos;#&apos; &amp;&amp; state == 1)</span><br><span class="line">                &#123;</span><br><span class="line">                    info += ch.ToString();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (ch == &apos;#&apos;)</span><br><span class="line">                    state++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            msg = &quot;成功&quot;;</span><br><span class="line">            return true;</span><br><span class="line">            #endregion</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-C#"><code class="language-C#">using System;
+using System.IO;
 
+namespace LSBAlgorithmDemo
+{
+    public class LSBHelper
+    {
+
+        #region 定义全局变量
+        FileStream fileReadStream = null;
+        MemoryStream memStream = null;
+        BinaryReader br = null;
+        #endregion
+
+        #region 用于判断图片是否为Bitmap格式
+        /// <summary>
+        /// 用于判断图片是否为Bitmap格式
+        /// </summary>
+        /// <param name="imgFormat">图片前几个字节</param>
+        /// <returns>返回判断结果</returns>
+        private bool IsBitmap(byte[] imgFormat)
+        {
+            // 判断类型表示字节是否为2
+            if (imgFormat.Length == 2)
+            {
+                // 判断标识字节是否为：42 4d
+                if (imgFormat[0] == 0x42 && imgFormat[1] == 0x4d)
+                {
+                    // 是Bitmap
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region 判断文本信息能否写入图片中
+        /// <summary>
+        /// 判断文本信息能否写入图片中
+        /// </summary>
+        /// <param name="streamSize">图片流的字节个数</param>
+        /// <param name="infoSize">文本信息的字符个数</param>
+        /// <returns>返回判断结果</returns>
+        private bool CanEmbed(long streamSize, long infoSize)
+        {
+            if (streamSize < (infoSize * 16 + 54))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        #endregion
+
+        #region 判断指定文件是否存在
+        /// <summary>
+        /// 判断指定文件是否存在
+        /// </summary>
+        /// <param name="fullFileName">文件全名称</param>
+        /// <returns>返回判断结果</returns>
+        private bool IsFileExists(string fullFileName)
+        {
+            return File.Exists(fullFileName);
+        }
+        #endregion
+
+        #region 判断图像中是否写入信息
+        private bool IsEmabed(MemoryStream memorystream)
+        {
+            // 复位
+            memorystream.Position = 0;
+            memorystream.Seek(54L, 0);
+
+            byte reader;
+            char ch;
+            int temp = 0;
+            int state = 0;
+            int index = 0;
+
+            while((index = memorystream.ReadByte()) > 0 && index != memorystream.Length)
+            {
+                temp = 0;
+
+                for (int k = 0; k < 16; k++)
+                {
+                    reader = Convert.ToByte(memorystream.ReadByte());
+                    temp += (reader & 0x01) << k;
+                }
+                ch = Convert.ToChar(temp);
+                if (ch == '#')
+                    state++;
+            }
+
+            if (state == 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region 将待写入图片的信息转成"# + info + #"的格式并储存在tempChs字符数组中
+        /// <summary>
+        /// 将待写入图片的信息转成"# + info + #"的格式并储存在tempChs字符数组中
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        private char[] GetTempChsFromInfo(string info)
+        {
+            // 将文本信息转成Unicode字符值并存储在char数组中
+            char[] infoToChs = new char[info.Length];
+            for (int i = 0; i < info.Length; i++)
+            {
+                infoToChs[i] = Convert.ToChar(info[i]);
+            }
+
+            // 将待写入图片的信息转成指定格式并储存在tempChs字符数组中
+            char[] tempChs = new char[(info.Length + 2) * 16];
+            // 前导符“#”：16位
+            for (int n = 0; n < 16; n++)
+            {
+                tempChs[n] = Convert.ToChar(0x0001 & ('#' >> n));
+            }
+            // 原主要信息
+            int k;
+            for (k = 1; k < infoToChs.Length + 1; k++)
+            {
+                for (int n = 0; n < 16; n++)
+                {
+                    tempChs[16 * k + n] = Convert.ToChar(0x0001 & infoToChs[k - 1] >> n);
+                }
+            }
+            // 后导符“#”：16位
+            for (int n = 0; n < 16; n++)
+            {
+                tempChs[16 * k + n] = Convert.ToChar(0x0001 & '#' >> n);
+            }
+
+            return tempChs;
+        }
+        #endregion
+
+        #region 向Bitmap中嵌入信息
+        public bool EmbedInfo(string fullFileName, string info, out string msg, out MemoryStream memory)
+        {
+            // 判断指定图片是否存在
+            if (!IsFileExists(fullFileName))
+            {
+                msg = "请确认指定的图片是否存在";
+                memory = null;
+                return false;
+            }
+
+            try
+            {
+                // 得到图片的字节流读取器
+                fileReadStream = new FileStream(fullFileName, FileMode.Open, FileAccess.Read);
+                br = new BinaryReader(fileReadStream);
+
+                // 读取图片的标识符
+                byte[] imgFormat = new byte[2];
+                imgFormat[0] = br.ReadByte();
+                imgFormat[1] = br.ReadByte();
+                br.BaseStream.Position = 0;
+
+                // 判断指定图片是否为Bitmap格式
+                if (!IsBitmap(imgFormat))
+                {
+                    msg = "请选择Bitmap格式的图片";
+                    memory = null;
+                    return false;
+                }
+
+                // 判断指定图片是否能够写下信息
+                if (!CanEmbed(fileReadStream.Length, info.Length))
+                {
+                    msg = "该图片无法写下指定的全部信息，请选择更大尺寸的Bitmap图片";
+                    memory = null;
+                    return false;
+                }
+
+                // 将待写入图片的信息转成指定格式并储存在tempChs字符数组中
+                char[] tempChs = GetTempChsFromInfo(info);
+
+                // 使用LSB算法将整合后的文件流写入内存流中
+                memStream = new MemoryStream();
+                byte write;
+                for (int i = 1, j = 0; i <= fileReadStream.Length; i++)
+                {
+                    write = br.ReadByte();
+
+                    // 前54字节不能动
+                    if (i <= 54)
+                    {
+                        memStream.WriteByte(write);
+                    }
+                    else   // 在数据区写入信息
+                    {
+                        if (j < tempChs.Length)
+                        {
+                            memStream.WriteByte(Convert.ToByte((write & 0xfe) + tempChs[j]));
+                        }
+                        else
+                        {
+                            memStream.WriteByte(write);
+                        }
+                        j++;
+                    }
+                }
+                memStream.Position = 0;
+
+                msg = "信息已成功嵌入图片中";
+                memory = memStream;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                memory = null;
+                return false;
+            }
+            finally
+            {
+                // 执行完毕之后一定要关闭创建的资源
+                fileReadStream.Close();
+                //memStream.Close();
+                br.Close();
+            }
+        }
+        #endregion
+
+        #region 提取Bitmap中的信息
+        public bool ExtractInfo(MemoryStream memorystream, out string info, out string msg)
+        {
+            #region 读取图片的标识符并判断文件是否为指定类型
+            // 读取图片的标识符
+            byte[] imgFormat = new byte[2];
+            imgFormat[0] = Convert.ToByte(memorystream.ReadByte());
+            imgFormat[1] = Convert.ToByte(memorystream.ReadByte());
+            memorystream.Position = 0;
+
+            // 判断指定图片是否为Bitmap格式
+            if (!IsBitmap(imgFormat))
+            {
+                info = null;
+                msg = "请选择Bitmap格式的图片";
+                return false;
+            }
+            #endregion
+
+            #region 提取信息
+            // 回位
+            memorystream.Position = 0;
+            memorystream.Seek(54L, 0);
+            byte reader;
+            char ch;
+            int temp = 0;
+            int state = 0;
+            info = "";
+
+            while (Convert.ToChar(temp) != '#' || state != 2)
+            {
+                temp = 0;
+
+                for (int k = 0; k < 16; k++)
+                {
+                    reader = Convert.ToByte(memorystream.ReadByte());
+                    temp += (reader & 0x01) << k;
+                }
+
+                ch = Convert.ToChar(temp);
+                if (ch != '#' && state != 1)
+                {
+                    info = null;
+                    msg = "没有嵌入文字信息或者信息已经被破坏";
+                    return false;
+                }
+
+                if (ch != '#' && state == 1)
+                {
+                    info += ch.ToString();
+                }
+
+                if (ch == '#')
+                    state++;
+            }
+
+            msg = "成功";
+            return true;
+            #endregion
+
+        }
+        #endregion
+    }
+}</code></pre>
 <p><strong>注意点</strong>：</p>
 <ol>
 <li>流每次读取一次，位置就向后推进一定的位数，但可以使用Position属性设置开始读取的位置</li>
@@ -779,7 +1458,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="RSTP应用实例">
+                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="RSTP应用实例">
                         
                         <span class="card-title">RSTP应用实例</span>
                     </div>
@@ -846,7 +1525,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="记PicGO图床的安装与使用">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="记PicGO图床的安装与使用">
                         
                         <span class="card-title">记PicGO图床的安装与使用</span>
                     </div>
@@ -1040,7 +1719,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">63.9k</span>
+            <span class="white-color">59.5k</span>
             
 
             <br>

@@ -57,7 +57,7 @@
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
+<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"></head>
 
 <body>
 
@@ -319,7 +319,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -482,14 +482,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    10 分
                 </div>
                 
                 
@@ -520,17 +520,97 @@
 <li>在客户端调用具体原型类的Clone()方法完成对象的克隆操作</li>
 </ol>
 <h1 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h1><p>Prototype抽象原型类：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 抽象原型类</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Prototype</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">string</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Constructor </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Prototype</span>(<span class="params"><span class="keyword">string</span> id</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">         <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Property </span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Id</span><br><span class="line">    &#123;</span><br><span class="line">         <span class="keyword">get</span> &#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> 提供的克隆接口</span></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>返回值类型是原型类类型<span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Prototype <span class="title">Clone</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
+<span class="token comment" spellcheck="true">/// 抽象原型类</span>
+<span class="token comment" spellcheck="true">/// &lt;/summary></span>
+<span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Prototype</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">string</span> id<span class="token punctuation">;</span>
 
+    <span class="token comment" spellcheck="true">// Constructor </span>
+    <span class="token keyword">public</span> <span class="token function">Prototype</span><span class="token punctuation">(</span><span class="token keyword">string</span> id<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// Property </span>
+    <span class="token keyword">public</span> <span class="token keyword">string</span> Id
+    <span class="token punctuation">{</span>
+         <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> id<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+     <span class="token comment" spellcheck="true">/// &lt;summary></span>
+     <span class="token comment" spellcheck="true">/// 提供的克隆接口</span>
+     <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+     <span class="token comment" spellcheck="true">/// &lt;returns>返回值类型是原型类类型&lt;/returns></span>
+     <span class="token keyword">public</span> <span class="token keyword">abstract</span> Prototype <span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
 <p>ConcretePrototype1具体原型类：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 具体原型类</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title">ConcretePrototype1</span> : <span class="title">Prototype</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Constructor </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConcretePrototype1</span>(<span class="params"><span class="keyword">string</span> id</span>)</span></span><br><span class="line"><span class="function">         : <span class="title">base</span>(<span class="params">id</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> 实现原型类中的继承而来的虚方法</span></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> Prototype <span class="title">Clone</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>     &#123;</span><br><span class="line">         <span class="comment">// Shallow copy </span></span><br><span class="line">         <span class="keyword">return</span> (Prototype)<span class="keyword">this</span>.MemberwiseClone();</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
+<span class="token comment" spellcheck="true">/// 具体原型类</span>
+<span class="token comment" spellcheck="true">/// &lt;/summary></span>
+<span class="token keyword">class</span> <span class="token class-name">ConcretePrototype1</span> <span class="token punctuation">:</span> Prototype
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Constructor </span>
+    <span class="token keyword">public</span> <span class="token function">ConcretePrototype1</span><span class="token punctuation">(</span><span class="token keyword">string</span> id<span class="token punctuation">)</span>
+         <span class="token punctuation">:</span> <span class="token keyword">base</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
 
+
+     <span class="token comment" spellcheck="true">/// &lt;summary></span>
+     <span class="token comment" spellcheck="true">/// 实现原型类中的继承而来的虚方法</span>
+     <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+     <span class="token comment" spellcheck="true">/// &lt;returns>&lt;/returns></span>
+     <span class="token keyword">public</span> <span class="token keyword">override</span> Prototype <span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>
+         <span class="token comment" spellcheck="true">// Shallow copy </span>
+         <span class="token keyword">return</span> <span class="token punctuation">(</span>Prototype<span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">MemberwiseClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>ConcretePrototype2具体原型类：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 具体原型类</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title">ConcretePrototype2</span> : <span class="title">Prototype</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Constructor </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConcretePrototype2</span>(<span class="params"><span class="keyword">string</span> id</span>)</span></span><br><span class="line"><span class="function">         : <span class="title">base</span>(<span class="params">id</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> 实现原型类中的继承而来的虚方法</span></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">     <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> Prototype <span class="title">Clone</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>     &#123;</span><br><span class="line">         <span class="comment">// Shallow copy </span></span><br><span class="line">         <span class="keyword">return</span> (Prototype)<span class="keyword">this</span>.MemberwiseClone();</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
+<span class="token comment" spellcheck="true">/// 具体原型类</span>
+<span class="token comment" spellcheck="true">/// &lt;/summary></span>
+<span class="token keyword">class</span> <span class="token class-name">ConcretePrototype2</span> <span class="token punctuation">:</span> Prototype
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Constructor </span>
+    <span class="token keyword">public</span> <span class="token function">ConcretePrototype2</span><span class="token punctuation">(</span><span class="token keyword">string</span> id<span class="token punctuation">)</span>
+         <span class="token punctuation">:</span> <span class="token keyword">base</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
 
+
+     <span class="token comment" spellcheck="true">/// &lt;summary></span>
+     <span class="token comment" spellcheck="true">/// 实现原型类中的继承而来的虚方法</span>
+     <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+     <span class="token comment" spellcheck="true">/// &lt;returns>&lt;/returns></span>
+     <span class="token keyword">public</span> <span class="token keyword">override</span> Prototype <span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>
+         <span class="token comment" spellcheck="true">// Shallow copy </span>
+         <span class="token keyword">return</span> <span class="token punctuation">(</span>Prototype<span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">MemberwiseClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Program客户类：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 客户端</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">       ConcretePrototype1 p1 = <span class="keyword">new</span> ConcretePrototype1(<span class="string">"I"</span>);</span><br><span class="line">       ConcretePrototype1 c1 = (ConcretePrototype1)p1.Clone();</span><br><span class="line">       Console.WriteLine(<span class="string">"Cloned: &#123;0&#125;"</span>, c1.Id);</span><br><span class="line"></span><br><span class="line">       ConcretePrototype2 p2 = <span class="keyword">new</span> ConcretePrototype2(<span class="string">"II"</span>);</span><br><span class="line">       ConcretePrototype2 c2 = (ConcretePrototype2)p2.Clone();</span><br><span class="line">       Console.WriteLine(<span class="string">"Cloned: &#123;0&#125;"</span>, c2.Id);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// Wait for user </span></span><br><span class="line">       Console.Read();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
+<span class="token comment" spellcheck="true">/// 客户端</span>
+<span class="token comment" spellcheck="true">/// &lt;/summary></span>
+<span class="token keyword">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+   <span class="token punctuation">{</span>
+       ConcretePrototype1 p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcretePrototype1</span><span class="token punctuation">(</span><span class="token string">"I"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       ConcretePrototype1 c1 <span class="token operator">=</span> <span class="token punctuation">(</span>ConcretePrototype1<span class="token punctuation">)</span>p1<span class="token punctuation">.</span><span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Cloned: {0}"</span><span class="token punctuation">,</span> c1<span class="token punctuation">.</span>Id<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+       ConcretePrototype2 p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcretePrototype2</span><span class="token punctuation">(</span><span class="token string">"II"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       ConcretePrototype2 c2 <span class="token operator">=</span> <span class="token punctuation">(</span>ConcretePrototype2<span class="token punctuation">)</span>p2<span class="token punctuation">.</span><span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Cloned: {0}"</span><span class="token punctuation">,</span> c2<span class="token punctuation">.</span>Id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+       <span class="token comment" spellcheck="true">// Wait for user </span>
+       Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>结果展示：</p>
 <blockquote>
 <p>Cloned：$\mathbf I$</p>
@@ -564,22 +644,169 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/原型模式/普通实现.png" alt="普通实现"></center>
 
 <p><strong>代码实现：</strong></p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line">namespace 原型模式</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Resume a = <span class="keyword">new</span> Resume(<span class="string">"小王"</span>);</span><br><span class="line">            a.SetPersonalInfo(<span class="string">"男"</span>, <span class="string">"29"</span>);</span><br><span class="line">            a.SetWorkExperience(<span class="string">"2010-2019"</span>, <span class="string">"XX公司"</span>);</span><br><span class="line"></span><br><span class="line">            Resume b = <span class="keyword">new</span> Resume(<span class="string">"小王"</span>);</span><br><span class="line">            b.SetPersonalInfo(<span class="string">"男"</span>, <span class="string">"29"</span>);</span><br><span class="line">            b.SetWorkExperience(<span class="string">"2010-2019"</span>, <span class="string">"XX公司"</span>);</span><br><span class="line"></span><br><span class="line">            Resume c = <span class="keyword">new</span> Resume(<span class="string">"小王"</span>);</span><br><span class="line">            c.SetPersonalInfo(<span class="string">"男"</span>, <span class="string">"29"</span>);</span><br><span class="line">            c.SetWorkExperience(<span class="string">"2010-2019"</span>, <span class="string">"XX公司"</span>);</span><br><span class="line"></span><br><span class="line">            a.Display();</span><br><span class="line">            b.Display();</span><br><span class="line">            c.Display();</span><br><span class="line"></span><br><span class="line">            Console.Read();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//简历</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">Resume</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> sex;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> age;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> timeArea;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> company;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Resume</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置个人信息</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetPersonalInfo</span>(<span class="params"><span class="keyword">string</span> sex, <span class="keyword">string</span> age</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.sex = sex;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置工作经历</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetWorkExperience</span>(<span class="params"><span class="keyword">string</span> timeArea, <span class="keyword">string</span> company</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.timeArea = timeArea;</span><br><span class="line">            <span class="keyword">this</span>.company = company;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//显示</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Display</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"&#123;0&#125; &#123;1&#125; &#123;2&#125;"</span>, name, sex, age);</span><br><span class="line">            Console.WriteLine(<span class="string">"工作经历：&#123;0&#125; &#123;1&#125;"</span>, timeArea, company);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> 原型模式
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Resume a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Resume</span><span class="token punctuation">(</span><span class="token string">"小王"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span> <span class="token string">"29"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"2010-2019"</span><span class="token punctuation">,</span> <span class="token string">"XX公司"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Resume b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Resume</span><span class="token punctuation">(</span><span class="token string">"小王"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span> <span class="token string">"29"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"2010-2019"</span><span class="token punctuation">,</span> <span class="token string">"XX公司"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Resume c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Resume</span><span class="token punctuation">(</span><span class="token string">"小王"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span> <span class="token string">"29"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"2010-2019"</span><span class="token punctuation">,</span> <span class="token string">"XX公司"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            a<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//简历</span>
+    <span class="token keyword">class</span> <span class="token class-name">Resume</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> sex<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> age<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> timeArea<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> company<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token function">Resume</span><span class="token punctuation">(</span><span class="token keyword">string</span> name<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//设置个人信息</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token keyword">string</span> sex<span class="token punctuation">,</span> <span class="token keyword">string</span> age<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> sex<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//设置工作经历</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token keyword">string</span> timeArea<span class="token punctuation">,</span> <span class="token keyword">string</span> company<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>timeArea <span class="token operator">=</span> timeArea<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>company <span class="token operator">=</span> company<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//显示</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"{0} {1} {2}"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> sex<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"工作经历：{0} {1}"</span><span class="token punctuation">,</span> timeArea<span class="token punctuation">,</span> company<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
 <p><strong>结果展示：</strong></p>
 <blockquote>
 <p>小王 男 29<br>工作经历：2010-2019 XX公司<br>小王 男 29<br>工作经历：2010-2019 XX公司<br>小王 男 29<br>工作经历：2010-2019 XX公司</p>
 </blockquote>
 <p>​        使用这个方式进行简历复制时会产生三个Resume对象，而且这三个对象存储的字面值完全相同，下面代码也能产生一致的效果但是占用的存储空间仅为上述代码实现的三分之一。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           Resume a = <span class="keyword">new</span> Resume(<span class="string">"小王"</span>);</span><br><span class="line">           a.SetPersonalInfo(<span class="string">"男"</span>, <span class="string">"29"</span>);</span><br><span class="line">           a.SetWorkExperience(<span class="string">"2010-2019"</span>, <span class="string">"XX公司"</span>);</span><br><span class="line"></span><br><span class="line">           Resume b = a</span><br><span class="line"></span><br><span class="line">           Resume c = a</span><br><span class="line"></span><br><span class="line">           a.Display();</span><br><span class="line">           b.Display();</span><br><span class="line">           c.Display();</span><br><span class="line"></span><br><span class="line">           Console.Read();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Resume a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Resume</span><span class="token punctuation">(</span><span class="token string">"小王"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span> <span class="token string">"29"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"2010-2019"</span><span class="token punctuation">,</span> <span class="token string">"XX公司"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+            Resume b <span class="token operator">=</span> a
+
+            Resume c <span class="token operator">=</span> a
+
+            a<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p>​        上述两种代码都实现了简历复制的需求，但就占用存储空间来说的话，第二种实现更加节省空间。而就其扩展性来说，两种实现都没有满足很好的扩展，如：<font color="red">要投递不同职位的简历时，毕业生的基本信息是不会发生变化的，但是各个简历所侧重的工作经历是不同的。</font>要实现这样的需求，对于上面的实现就需要修改代码才能实现。而原型模式则可以在原有对象的基础上进行拷贝得到一个新的对象（<font color="blue">在这个可修改新对象的信息</font>）。</p>
 <h3 id="原型实现"><a href="#原型实现" class="headerlink" title="原型实现"></a>原型实现</h3><p><strong>程序类图：</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/原型模式/原型实现.png" alt="原型实现"></center>
 
 <p><strong>代码实现：</strong></p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line">namespace 原型模式</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Resume a = <span class="keyword">new</span> Resume(<span class="string">"小王"</span>);</span><br><span class="line">            a.SetPersonalInfo(<span class="string">"男"</span>, <span class="string">"29"</span>);</span><br><span class="line">            a.SetWorkExperience(<span class="string">"2010-2014"</span>, <span class="string">"XX公司"</span>);</span><br><span class="line"></span><br><span class="line">            Resume b = (Resume)a.Clone();</span><br><span class="line">            b.SetWorkExperience(<span class="string">"2015-2018"</span>, <span class="string">"YY企业"</span>);</span><br><span class="line"></span><br><span class="line">            Resume c = (Resume)a.Clone();</span><br><span class="line">            c.SetPersonalInfo(<span class="string">"男"</span>, <span class="string">"24"</span>);</span><br><span class="line"></span><br><span class="line">            a.Display();</span><br><span class="line">            b.Display();</span><br><span class="line">            c.Display();</span><br><span class="line"></span><br><span class="line">            Console.Read();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//简历</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">Resume</span> : <span class="title">ICloneable</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> sex;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> age;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> timeArea;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> company;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Resume</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置个人信息</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetPersonalInfo</span>(<span class="params"><span class="keyword">string</span> sex, <span class="keyword">string</span> age</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.sex = sex;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置工作经历</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetWorkExperience</span>(<span class="params"><span class="keyword">string</span> timeArea, <span class="keyword">string</span> company</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.timeArea = timeArea;</span><br><span class="line">            <span class="keyword">this</span>.company = company;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//显示</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Display</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"&#123;0&#125; &#123;1&#125; &#123;2&#125;"</span>, name, sex, age);</span><br><span class="line">            Console.WriteLine(<span class="string">"工作经历：&#123;0&#125; &#123;1&#125;"</span>, timeArea, company);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 实现接口中的方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Object <span class="title">Clone</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> (Object)<span class="keyword">this</span>.MemberwiseClone();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> 原型模式
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Resume a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Resume</span><span class="token punctuation">(</span><span class="token string">"小王"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span> <span class="token string">"29"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"2010-2014"</span><span class="token punctuation">,</span> <span class="token string">"XX公司"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Resume b <span class="token operator">=</span> <span class="token punctuation">(</span>Resume<span class="token punctuation">)</span>a<span class="token punctuation">.</span><span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"2015-2018"</span><span class="token punctuation">,</span> <span class="token string">"YY企业"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Resume c <span class="token operator">=</span> <span class="token punctuation">(</span>Resume<span class="token punctuation">)</span>a<span class="token punctuation">.</span><span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span> <span class="token string">"24"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            a<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//简历</span>
+    <span class="token keyword">class</span> <span class="token class-name">Resume</span> <span class="token punctuation">:</span> ICloneable
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> sex<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> age<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> timeArea<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> company<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token function">Resume</span><span class="token punctuation">(</span><span class="token keyword">string</span> name<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//设置个人信息</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token keyword">string</span> sex<span class="token punctuation">,</span> <span class="token keyword">string</span> age<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> sex<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//设置工作经历</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token keyword">string</span> timeArea<span class="token punctuation">,</span> <span class="token keyword">string</span> company<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>timeArea <span class="token operator">=</span> timeArea<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>company <span class="token operator">=</span> company<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//显示</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"{0} {1} {2}"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> sex<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"工作经历：{0} {1}"</span><span class="token punctuation">,</span> timeArea<span class="token punctuation">,</span> company<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 实现接口中的方法</span>
+        <span class="token keyword">public</span> Object <span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>Object<span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">MemberwiseClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p><strong>结果展示：</strong></p>
 <blockquote>
 <p>小王 男 29<br>工作经历：2010-2014 XX公司<br>小王 男 29<br>工作经历：2015-2018 YY企业<br>小王 男 24<br>工作经历：2010-2014 XX公司</p>
@@ -589,8 +816,92 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/原型模式/浅复制.png" alt="浅复制"></center>
 
 <p><strong>代码实现：</strong></p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line">namespace 原型模式</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Resume a = <span class="keyword">new</span> Resume(<span class="string">"小王"</span>);</span><br><span class="line">            a.SetPersonalInfo(<span class="string">"男"</span>, <span class="string">"29"</span>);</span><br><span class="line">            a.SetWorkExperience(<span class="string">"2010-2014"</span>, <span class="string">"XX公司"</span>);</span><br><span class="line"></span><br><span class="line">            Resume b = (Resume)a.Clone();</span><br><span class="line">            b.SetWorkExperience(<span class="string">"2015-2018"</span>, <span class="string">"YY企业"</span>);</span><br><span class="line"></span><br><span class="line">            Resume c = (Resume)a.Clone();</span><br><span class="line">            c.SetPersonalInfo(<span class="string">"男"</span>, <span class="string">"24"</span>);</span><br><span class="line">            c.SetWorkExperience(<span class="string">"1998-2003"</span>, <span class="string">"ZZ企业"</span>);</span><br><span class="line"></span><br><span class="line">            a.Display();</span><br><span class="line">            b.Display();</span><br><span class="line">            c.Display();</span><br><span class="line"></span><br><span class="line">            Console.Read();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//简历            --真实原型类</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">Resume</span> : <span class="title">ICloneable</span>               <span class="comment">//直接实现系统提供的ICloneable接口</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> sex;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> WorkExperience work;<span class="comment">//引用类型</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Resume</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            work = <span class="keyword">new</span> WorkExperience();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置个人信息</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetPersonalInfo</span>(<span class="params"><span class="keyword">string</span> sex, <span class="keyword">string</span> age</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.sex = sex;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置工作经历</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetWorkExperience</span>(<span class="params"><span class="keyword">string</span> workDate, <span class="keyword">string</span> company</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            work.WorkDate = workDate;</span><br><span class="line">            work.Company = company;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//显示</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Display</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"&#123;0&#125; &#123;1&#125; &#123;2&#125;"</span>, name, sex, age);</span><br><span class="line">            Console.WriteLine(<span class="string">"工作经历：&#123;0&#125; &#123;1&#125;"</span>, work.WorkDate, work.Company);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Object <span class="title">Clone</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> (Object)<span class="keyword">this</span>.MemberwiseClone();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//工作经历</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">WorkExperience</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> workDate;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> WorkDate</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> workDate; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; workDate = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> company;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Company</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> company; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; company = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> 原型模式
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Resume a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Resume</span><span class="token punctuation">(</span><span class="token string">"小王"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span> <span class="token string">"29"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"2010-2014"</span><span class="token punctuation">,</span> <span class="token string">"XX公司"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Resume b <span class="token operator">=</span> <span class="token punctuation">(</span>Resume<span class="token punctuation">)</span>a<span class="token punctuation">.</span><span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"2015-2018"</span><span class="token punctuation">,</span> <span class="token string">"YY企业"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Resume c <span class="token operator">=</span> <span class="token punctuation">(</span>Resume<span class="token punctuation">)</span>a<span class="token punctuation">.</span><span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span> <span class="token string">"24"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"1998-2003"</span><span class="token punctuation">,</span> <span class="token string">"ZZ企业"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            a<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//简历            --真实原型类</span>
+    <span class="token keyword">class</span> <span class="token class-name">Resume</span> <span class="token punctuation">:</span> ICloneable               <span class="token comment" spellcheck="true">//直接实现系统提供的ICloneable接口</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> sex<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> age<span class="token punctuation">;</span>
+
+        <span class="token keyword">private</span> WorkExperience work<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//引用类型</span>
+
+        <span class="token keyword">public</span> <span class="token function">Resume</span><span class="token punctuation">(</span><span class="token keyword">string</span> name<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+            work <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WorkExperience</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//设置个人信息</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token keyword">string</span> sex<span class="token punctuation">,</span> <span class="token keyword">string</span> age<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> sex<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//设置工作经历</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token keyword">string</span> workDate<span class="token punctuation">,</span> <span class="token keyword">string</span> company<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            work<span class="token punctuation">.</span>WorkDate <span class="token operator">=</span> workDate<span class="token punctuation">;</span>
+            work<span class="token punctuation">.</span>Company <span class="token operator">=</span> company<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//显示</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"{0} {1} {2}"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> sex<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"工作经历：{0} {1}"</span><span class="token punctuation">,</span> work<span class="token punctuation">.</span>WorkDate<span class="token punctuation">,</span> work<span class="token punctuation">.</span>Company<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Object <span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>Object<span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">MemberwiseClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//工作经历</span>
+    <span class="token keyword">class</span> <span class="token class-name">WorkExperience</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> workDate<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> WorkDate
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> workDate<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> workDate <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> company<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> Company
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> company<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> company <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>结果展示：</strong></p>
 <blockquote>
 <p>小王 男 29<br>工作经历：1998-2003 ZZ企业<br>小王 男 29<br>工作经历：1998-2003 ZZ企业<br>小王 男 24<br>工作经历：1998-2003 ZZ企业</p>
@@ -600,8 +911,112 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/原型模式/深复制.png" alt="深复制"></center>
 
 <p><strong>代码实现：</strong></p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line">namespace 原型模式</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Resume a = <span class="keyword">new</span> Resume(<span class="string">"大鸟"</span>);</span><br><span class="line">            a.SetPersonalInfo(<span class="string">"男"</span>, <span class="string">"29"</span>);</span><br><span class="line">            a.SetWorkExperience(<span class="string">"1998-2000"</span>, <span class="string">"XX公司"</span>);</span><br><span class="line"></span><br><span class="line">            Resume b = (Resume)a.Clone();</span><br><span class="line">            b.SetWorkExperience(<span class="string">"1998-2006"</span>, <span class="string">"YY企业"</span>);</span><br><span class="line"></span><br><span class="line">            Resume c = (Resume)a.Clone();</span><br><span class="line">            c.SetWorkExperience(<span class="string">"1998-2003"</span>, <span class="string">"ZZ企业"</span>);</span><br><span class="line"></span><br><span class="line">            a.Display();</span><br><span class="line">            b.Display();</span><br><span class="line">            c.Display();</span><br><span class="line"></span><br><span class="line">            Console.Read();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//简历</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">Resume</span> : <span class="title">ICloneable</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> sex;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> WorkExperience work;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Resume</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            work = <span class="keyword">new</span> WorkExperience();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 对应用的克隆</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="work"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="title">Resume</span>(<span class="params">WorkExperience work</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.work = (WorkExperience)work.Clone();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置个人信息</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetPersonalInfo</span>(<span class="params"><span class="keyword">string</span> sex, <span class="keyword">string</span> age</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>.sex = sex;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置工作经历</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetWorkExperience</span>(<span class="params"><span class="keyword">string</span> workDate, <span class="keyword">string</span> company</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            work.WorkDate = workDate;</span><br><span class="line">            work.Company = company;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//显示</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Display</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"&#123;0&#125; &#123;1&#125; &#123;2&#125;"</span>, name, sex, age);</span><br><span class="line">            Console.WriteLine(<span class="string">"工作经历：&#123;0&#125; &#123;1&#125;"</span>, work.WorkDate, work.Company);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Object <span class="title">Clone</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">//使用Resume的构造函数完成对引用对象的克隆</span></span><br><span class="line">            Resume obj = <span class="keyword">new</span> Resume(<span class="keyword">this</span>.work);</span><br><span class="line"></span><br><span class="line">            obj.name = <span class="keyword">this</span>.name;</span><br><span class="line">            obj.sex = <span class="keyword">this</span>.sex;</span><br><span class="line">            obj.age = <span class="keyword">this</span>.age;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> obj;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//工作经历</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">WorkExperience</span> : <span class="title">ICloneable</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> workDate;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> WorkDate</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> workDate; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; workDate = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span> company;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Company</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> company; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; company = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Object <span class="title">Clone</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> (Object)<span class="keyword">this</span>.MemberwiseClone();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> 原型模式
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Resume a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Resume</span><span class="token punctuation">(</span><span class="token string">"大鸟"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span> <span class="token string">"29"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"1998-2000"</span><span class="token punctuation">,</span> <span class="token string">"XX公司"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Resume b <span class="token operator">=</span> <span class="token punctuation">(</span>Resume<span class="token punctuation">)</span>a<span class="token punctuation">.</span><span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"1998-2006"</span><span class="token punctuation">,</span> <span class="token string">"YY企业"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Resume c <span class="token operator">=</span> <span class="token punctuation">(</span>Resume<span class="token punctuation">)</span>a<span class="token punctuation">.</span><span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token string">"1998-2003"</span><span class="token punctuation">,</span> <span class="token string">"ZZ企业"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            a<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            c<span class="token punctuation">.</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//简历</span>
+    <span class="token keyword">class</span> <span class="token class-name">Resume</span> <span class="token punctuation">:</span> ICloneable
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> sex<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> age<span class="token punctuation">;</span>
+
+        <span class="token keyword">private</span> WorkExperience work<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token function">Resume</span><span class="token punctuation">(</span><span class="token keyword">string</span> name<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+            work <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WorkExperience</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 对应用的克隆</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="work">&lt;/param></span>
+        <span class="token keyword">private</span> <span class="token function">Resume</span><span class="token punctuation">(</span>WorkExperience work<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>work <span class="token operator">=</span> <span class="token punctuation">(</span>WorkExperience<span class="token punctuation">)</span>work<span class="token punctuation">.</span><span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//设置个人信息</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetPersonalInfo</span><span class="token punctuation">(</span><span class="token keyword">string</span> sex<span class="token punctuation">,</span> <span class="token keyword">string</span> age<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> sex<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//设置工作经历</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetWorkExperience</span><span class="token punctuation">(</span><span class="token keyword">string</span> workDate<span class="token punctuation">,</span> <span class="token keyword">string</span> company<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            work<span class="token punctuation">.</span>WorkDate <span class="token operator">=</span> workDate<span class="token punctuation">;</span>
+            work<span class="token punctuation">.</span>Company <span class="token operator">=</span> company<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//显示</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"{0} {1} {2}"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> sex<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"工作经历：{0} {1}"</span><span class="token punctuation">,</span> work<span class="token punctuation">.</span>WorkDate<span class="token punctuation">,</span> work<span class="token punctuation">.</span>Company<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Object <span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//使用Resume的构造函数完成对引用对象的克隆</span>
+            Resume obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Resume</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>work<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            obj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+            obj<span class="token punctuation">.</span>sex <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>sex<span class="token punctuation">;</span>
+            obj<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">;</span>
+
+
+            <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//工作经历</span>
+    <span class="token keyword">class</span> <span class="token class-name">WorkExperience</span> <span class="token punctuation">:</span> ICloneable
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> workDate<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> WorkDate
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> workDate<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> workDate <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> company<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> Company
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> company<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> company <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Object <span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>Object<span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">MemberwiseClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>结果展示：</strong></p>
 <blockquote>
 <p>小王 男 29<br>工作经历：2010-2014 XX公司<br>小王 男 29<br>工作经历：2015-2018 YY企业<br>小王 男 24<br>工作经历：1998-2003 ZZ企业</p>
@@ -815,7 +1230,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="批处理笔记">
+                        <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="批处理笔记">
                         
                         <span class="card-title">批处理笔记</span>
                     </div>
@@ -872,7 +1287,7 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="代理模式">
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="代理模式">
                         
                         <span class="card-title">代理模式</span>
                     </div>
@@ -1091,7 +1506,7 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">63.9k</span>
+            <span class="white-color">59.5k</span>
             
 
             <br>

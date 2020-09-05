@@ -56,7 +56,7 @@
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
+<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"></head>
 
 <body>
 
@@ -318,7 +318,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -485,14 +485,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    551
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    2 分
                 </div>
                 
                 
@@ -544,8 +544,150 @@
 </li>
 </ul>
 <h1 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h1><p><strong>Ceasar类</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">namespace DemoCeasar</span><br><span class="line">&#123;</span><br><span class="line">    public class Ceasar</span><br><span class="line">    &#123;</span><br><span class="line">        #region 加密操作</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// Ceasar加密操作</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;plaintext&quot;&gt;明文)&lt;/param&gt;</span><br><span class="line">        /// &lt;param name=&quot;key&quot;&gt;密钥(1-25)&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;密文&lt;/returns&gt;</span><br><span class="line">        internal string EnCrypt(string plaintext, int key)</span><br><span class="line">        &#123;</span><br><span class="line">            string ciphertext = null;</span><br><span class="line">            string str;</span><br><span class="line">            str = plaintext.ToUpper();</span><br><span class="line">            foreach(char ch in str)</span><br><span class="line">            &#123;</span><br><span class="line">                if(ch &gt;= &apos;A&apos; &amp;&amp; ch &lt;= &apos;Z&apos;)</span><br><span class="line">                &#123;</span><br><span class="line">                    ciphertext += (char)(&apos;A&apos; + (ch - &apos;A&apos; + key + 26) % 26);</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    ciphertext += ch;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return ciphertext;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// Avocat加密（密钥为10）</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;密文&lt;/returns&gt;</span><br><span class="line">        internal string AvocatEnCrypt(string plaintext)</span><br><span class="line">        &#123;</span><br><span class="line">            return EnCrypt(plaintext, 10);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// ROT13加密（密钥为13）</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;密文&lt;/returns&gt;</span><br><span class="line">        internal string ROT13EnCrypt(string plaintext)</span><br><span class="line">        &#123;</span><br><span class="line">            return EnCrypt(plaintext, 13);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// Cassis加密（密钥为-5）</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;密文&lt;/returns&gt;</span><br><span class="line">        internal string CassisEnCrypt(string plaintext)</span><br><span class="line">        &#123;</span><br><span class="line">            return EnCrypt(plaintext, -5);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// Cassette加密（密钥为-6）</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;密文&lt;/returns&gt;</span><br><span class="line">        internal string CassetteEnCrypt(string plaintext)</span><br><span class="line">        &#123;</span><br><span class="line">            return EnCrypt(plaintext, -6);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #endregion</span><br><span class="line"></span><br><span class="line">        #region 解密操作</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// Ceasar解密操作</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;</span><br><span class="line">        /// &lt;param name=&quot;key&quot;&gt;密钥(1-25)&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;明文&lt;/returns&gt;</span><br><span class="line">        internal string DeCrypt(string ciphertext, int key)</span><br><span class="line">        &#123;</span><br><span class="line">            string plaintext = null;</span><br><span class="line">            string str;</span><br><span class="line">            str = ciphertext.ToUpper();</span><br><span class="line">            foreach (char ch in str)</span><br><span class="line">            &#123;</span><br><span class="line">                if(ch &gt;= &apos;A&apos; &amp;&amp; ch &lt;= &apos;Z&apos;)</span><br><span class="line">                &#123;</span><br><span class="line">                    plaintext += (char)(&apos;A&apos; + (ch - &apos;A&apos; - key + 26) % 26);</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    plaintext += ch;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return plaintext;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// Avocat解密（密钥为10）</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;明文&lt;/returns&gt;</span><br><span class="line">        internal string AvocatDeCrypt(string ciphertext)</span><br><span class="line">        &#123;</span><br><span class="line">            return DeCrypt(ciphertext, 10);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// ROT13解密（密钥为13）</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;明文&lt;/returns&gt;</span><br><span class="line">        internal string ROT13DeCrypt(string ciphertext)</span><br><span class="line">        &#123;</span><br><span class="line">            return DeCrypt(ciphertext, 13);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// Cassis解密（密钥为-5）</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;明文&lt;/returns&gt;</span><br><span class="line">        internal string CassisDeCrypt(string ciphertext)</span><br><span class="line">        &#123;</span><br><span class="line">            return DeCrypt(ciphertext, -5);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// Cassette解密（密钥为-6）</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;明文&lt;/returns&gt;</span><br><span class="line">        internal string CassetteDeCrypt(string ciphertext)</span><br><span class="line">        &#123;</span><br><span class="line">            return DeCrypt(ciphertext, -6);</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-C#"><code class="language-C#">namespace DemoCeasar
+{
+    public class Ceasar
+    {
+        #region 加密操作
+        /// <summary>
+        /// Ceasar加密操作
+        /// </summary>
+        /// <param name="plaintext">明文)</param>
+        /// <param name="key">密钥(1-25)</param>
+        /// <returns>密文</returns>
+        internal string EnCrypt(string plaintext, int key)
+        {
+            string ciphertext = null;
+            string str;
+            str = plaintext.ToUpper();
+            foreach(char ch in str)
+            {
+                if(ch >= 'A' && ch <= 'Z')
+                {
+                    ciphertext += (char)('A' + (ch - 'A' + key + 26) % 26);
+                }
+                else
+                {
+                    ciphertext += ch;
+                }
 
+            }
+
+            return ciphertext;
+        }
+
+        /// <summary>
+        /// Avocat加密（密钥为10）
+        /// </summary>
+        /// <param name="plaintext">明文</param>
+        /// <returns>密文</returns>
+        internal string AvocatEnCrypt(string plaintext)
+        {
+            return EnCrypt(plaintext, 10);
+        }
+
+        /// <summary>
+        /// ROT13加密（密钥为13）
+        /// </summary>
+        /// <param name="plaintext">明文</param>
+        /// <returns>密文</returns>
+        internal string ROT13EnCrypt(string plaintext)
+        {
+            return EnCrypt(plaintext, 13);
+        }
+
+        /// <summary>
+        /// Cassis加密（密钥为-5）
+        /// </summary>
+        /// <param name="plaintext">明文</param>
+        /// <returns>密文</returns>
+        internal string CassisEnCrypt(string plaintext)
+        {
+            return EnCrypt(plaintext, -5);
+        }
+
+        /// <summary>
+        /// Cassette加密（密钥为-6）
+        /// </summary>
+        /// <param name="plaintext">明文</param>
+        /// <returns>密文</returns>
+        internal string CassetteEnCrypt(string plaintext)
+        {
+            return EnCrypt(plaintext, -6);
+        }
+
+        #endregion
+
+        #region 解密操作
+        /// <summary>
+        /// Ceasar解密操作
+        /// </summary>
+        /// <param name="ciphertext">密文</param>
+        /// <param name="key">密钥(1-25)</param>
+        /// <returns>明文</returns>
+        internal string DeCrypt(string ciphertext, int key)
+        {
+            string plaintext = null;
+            string str;
+            str = ciphertext.ToUpper();
+            foreach (char ch in str)
+            {
+                if(ch >= 'A' && ch <= 'Z')
+                {
+                    plaintext += (char)('A' + (ch - 'A' - key + 26) % 26);
+                }
+                else
+                {
+                    plaintext += ch;
+                }
+
+            }
+
+            return plaintext;
+        }
+
+        /// <summary>
+        /// Avocat解密（密钥为10）
+        /// </summary>
+        /// <param name="ciphertext">密文</param>
+        /// <returns>明文</returns>
+        internal string AvocatDeCrypt(string ciphertext)
+        {
+            return DeCrypt(ciphertext, 10);
+        }
+
+        /// <summary>
+        /// ROT13解密（密钥为13）
+        /// </summary>
+        /// <param name="ciphertext">密文</param>
+        /// <returns>明文</returns>
+        internal string ROT13DeCrypt(string ciphertext)
+        {
+            return DeCrypt(ciphertext, 13);
+        }
+
+        /// <summary>
+        /// Cassis解密（密钥为-5）
+        /// </summary>
+        /// <param name="ciphertext">密文</param>
+        /// <returns>明文</returns>
+        internal string CassisDeCrypt(string ciphertext)
+        {
+            return DeCrypt(ciphertext, -5);
+        }
+
+        /// <summary>
+        /// Cassette解密（密钥为-6）
+        /// </summary>
+        /// <param name="ciphertext">密文</param>
+        /// <returns>明文</returns>
+        internal string CassetteDeCrypt(string ciphertext)
+        {
+            return DeCrypt(ciphertext, -6);
+        }
+        #endregion
+    }
+}</code></pre>
 <p>Ceasar类核心解读：</p>
 <p>​        在ceasar中理解的字母表是一个转轮的形式，但在实际的存储中而是以线性方式存储，所有在本代码中通过使用《初等数论》中的<strong>模运算</strong>来得到移位后的字母。（全部以<strong>“A”</strong>为基准）</p>
 <ol>
@@ -556,8 +698,55 @@
 <li>得到相对于“A”偏移字母的ASCII码并将其<strong>强制转化为字母</strong></li>
 </ol>
 <p><strong>Program测试类：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line"></span><br><span class="line">namespace DemoCeasar</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            Console.Title = &quot;欢迎使用Ceasar&quot;;</span><br><span class="line">            Console.WriteLine(&quot;请输入您期望的操作：(1:加密,0:解密)&quot;);</span><br><span class="line"></span><br><span class="line">            string str = Console.ReadLine();</span><br><span class="line">            int op;</span><br><span class="line">            if(int.TryParse(str,out op))</span><br><span class="line">            &#123;</span><br><span class="line">                Ceasar ceasar = new Ceasar();</span><br><span class="line"></span><br><span class="line">                if (op == 1)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(&quot;请输入明文：(字母串)&quot;);</span><br><span class="line">                    string plaintext = Console.ReadLine();</span><br><span class="line">                    Console.WriteLine(&quot;请输入密钥:(整数)&quot;);</span><br><span class="line">                    int key = Console.Read() - &apos;0&apos;;</span><br><span class="line"></span><br><span class="line">                    string ciphertext = ceasar.EnCrypt(plaintext, key);</span><br><span class="line"></span><br><span class="line">                    Console.WriteLine(&quot;&#123;0&#125;加密之后的密文为:&#123;1&#125;&quot;,plaintext,ciphertext);</span><br><span class="line">                &#125;</span><br><span class="line">                else if(op == 0)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(&quot;请输入密文：(字母串)&quot;);</span><br><span class="line">                    string ciphertext = Console.ReadLine();</span><br><span class="line">                    Console.WriteLine(&quot;请输入密钥:(整数)&quot;);</span><br><span class="line">                    int key = Console.Read() - &apos;0&apos;;</span><br><span class="line"></span><br><span class="line">                    string plaintext = ceasar.DeCrypt(ciphertext, key);</span><br><span class="line"></span><br><span class="line">                    Console.WriteLine(plaintext);</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(&quot;输入错误程序终止!!!&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-C#"><code class="language-C#">using System;
 
+namespace DemoCeasar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "欢迎使用Ceasar";
+            Console.WriteLine("请输入您期望的操作：(1:加密,0:解密)");
+
+            string str = Console.ReadLine();
+            int op;
+            if(int.TryParse(str,out op))
+            {
+                Ceasar ceasar = new Ceasar();
+
+                if (op == 1)
+                {
+                    Console.WriteLine("请输入明文：(字母串)");
+                    string plaintext = Console.ReadLine();
+                    Console.WriteLine("请输入密钥:(整数)");
+                    int key = Console.Read() - '0';
+
+                    string ciphertext = ceasar.EnCrypt(plaintext, key);
+
+                    Console.WriteLine("{0}加密之后的密文为:{1}",plaintext,ciphertext);
+                }
+                else if(op == 0)
+                {
+                    Console.WriteLine("请输入密文：(字母串)");
+                    string ciphertext = Console.ReadLine();
+                    Console.WriteLine("请输入密钥:(整数)");
+                    int key = Console.Read() - '0';
+
+                    string plaintext = ceasar.DeCrypt(ciphertext, key);
+
+                    Console.WriteLine(plaintext);
+                }
+                else
+                {
+                    Console.WriteLine("输入错误程序终止!!!");
+                }
+            }
+
+            Console.ReadKey();
+        }
+    }
+}</code></pre>
 <h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p><strong>加密操作</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CeasarCipher/EnCrypt.png" alt="EnCrypt"></center>
 
@@ -566,11 +755,70 @@
 
 <h1 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h1><p>​        Ceasar密码作为经典的加密算法，在罗马时期有很好的应用。其明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合，也即其加密的密钥有25种情况(<font color="blue">0不计算在内</font>)，通过枚举密钥的方式揣测明文。</p>
 <h2 id="穷举搜索"><a href="#穷举搜索" class="headerlink" title="穷举搜索"></a>穷举搜索</h2><p><strong>CrackSeasar类</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">namespace Crack_Seasar</span><br><span class="line">&#123;</span><br><span class="line">    public class CrackSeasar</span><br><span class="line">    &#123;</span><br><span class="line">        #region 枚举检索</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 枚举搜索</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;返回可能的明文字符串组&lt;/returns&gt;</span><br><span class="line">        internal string[] EnumerativeSearch(string ciphertext)</span><br><span class="line">        &#123;</span><br><span class="line">            string[] plaintext = new string[26];</span><br><span class="line">            string str = ciphertext.ToUpper();</span><br><span class="line"></span><br><span class="line">            // 枚举解密</span><br><span class="line">            for (int key = 1; key &lt; 26; key++)</span><br><span class="line">            &#123;</span><br><span class="line">                foreach (char ch in str)</span><br><span class="line">                &#123;</span><br><span class="line">                    if (ch &gt;= &apos;A&apos; &amp;&amp; ch &lt;= &apos;Z&apos;)</span><br><span class="line">                    &#123;</span><br><span class="line">                        plaintext[key - 1] += (char)(&apos;A&apos; + (ch - &apos;A&apos; - key + 26) % 26);</span><br><span class="line">                    &#125;</span><br><span class="line">                    else</span><br><span class="line">                    &#123;</span><br><span class="line">                        plaintext[key - 1] += ch;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return plaintext;</span><br><span class="line">        &#125;</span><br><span class="line">        #endregion</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-C#"><code class="language-C#">namespace Crack_Seasar
+{
+    public class CrackSeasar
+    {
+        #region 枚举检索
+        /// <summary>
+        /// 枚举搜索
+        /// </summary>
+        /// <param name="ciphertext">密文</param>
+        /// <returns>返回可能的明文字符串组</returns>
+        internal string[] EnumerativeSearch(string ciphertext)
+        {
+            string[] plaintext = new string[26];
+            string str = ciphertext.ToUpper();
 
+            // 枚举解密
+            for (int key = 1; key < 26; key++)
+            {
+                foreach (char ch in str)
+                {
+                    if (ch >= 'A' && ch <= 'Z')
+                    {
+                        plaintext[key - 1] += (char)('A' + (ch - 'A' - key + 26) % 26);
+                    }
+                    else
+                    {
+                        plaintext[key - 1] += ch;
+                    }
+                }
+            }
+
+            return plaintext;
+        }
+        #endregion
+    }
+}</code></pre>
 <p><strong>Program测试类</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line"></span><br><span class="line">namespace Crack_Seasar</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            Console.Title = &quot;CrackSear&quot;;</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(&quot;请输入待破解密文：&quot;);</span><br><span class="line">            string ciphertext = Console.ReadLine();</span><br><span class="line"></span><br><span class="line">            // 枚举搜索</span><br><span class="line">            CrackSeasar crackSeasar = new CrackSeasar();</span><br><span class="line">            string[] plaintext = crackSeasar.EnumerativeSearch(ciphertext);</span><br><span class="line"></span><br><span class="line">            // Display</span><br><span class="line">            for(int i = 0;i &lt; 25;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(&quot;key:&#123;0&#125; \t -&gt; \t &#123;1&#125;&quot;, i + 1, plaintext[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-csahrp"><code class="language-csahrp">using System;
 
+namespace Crack_Seasar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "CrackSear";
+
+            Console.WriteLine("请输入待破解密文：");
+            string ciphertext = Console.ReadLine();
+
+            // 枚举搜索
+            CrackSeasar crackSeasar = new CrackSeasar();
+            string[] plaintext = crackSeasar.EnumerativeSearch(ciphertext);
+
+            // Display
+            for(int i = 0;i < 25;i++)
+            {
+                Console.WriteLine("key:{0} \t -> \t {1}", i + 1, plaintext[i]);
+            }
+
+            Console.ReadKey();
+        }
+    }
+}</code></pre>
 <p><strong>测试结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CeasarCipher/EnumerativeSearch1.png" alt="EnumerativeSearch1"></center>
 
@@ -782,7 +1030,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="VigenereCipher">
+                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="VigenereCipher">
                         
                         <span class="card-title">VigenereCipher</span>
                     </div>
@@ -849,7 +1097,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="CeasarCipher">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="CeasarCipher">
                         
                         <span class="card-title">CeasarCipher</span>
                     </div>
@@ -1048,7 +1296,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">63.9k</span>
+            <span class="white-color">59.5k</span>
             
 
             <br>
