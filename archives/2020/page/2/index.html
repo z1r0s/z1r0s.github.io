@@ -1300,7 +1300,7 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
     <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy; 2019-2020 z1r0s. 版权所有
+            &copy; 2020 z1r0s. 版权所有
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
@@ -1371,8 +1371,9 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
     $(document).ready(function () {
 
         var int = setInterval(fixCount, 50);
-        var pvcountOffset = 80000;
-        var uvcountOffset = 20000;
+		<!-- 设置初始值 -->
+        var pvcountOffset = 00000;
+        var uvcountOffset = 00000;
 
         function fixCount() {
             if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
@@ -1410,7 +1411,8 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
         minutes - 0-59之间的整数，做为date对象的分钟数
         seconds - 0-59之间的整数，做为date对象的秒数
         microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-        var t1 = Date.UTC(2019, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+		<!-- 设置建站时间 -->
+        var t1 = Date.UTC(2020, 08, 01, 00, 00, 00); //北京时间2018-2-13 00:00:00
         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
         var diff = t2 - t1;
         var diffYears = Math.floor(diff / years);
