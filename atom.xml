@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-05T13:31:44.862Z</updated>
+  <updated>2020-09-07T02:39:31.761Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL注入笔记</title>
+    <link href="https://z1r0s.github.io/2020/09/07/sql-zhu-ru-bi-ji/"/>
+    <id>https://z1r0s.github.io/2020/09/07/sql-zhu-ru-bi-ji/</id>
+    <published>2020-09-07T02:33:43.000Z</published>
+    <updated>2020-09-07T02:39:31.761Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SQL注入介绍&quot;&gt;&lt;a href=&quot;#SQL注入介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://z1r0s.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Web安全" scheme="https://z1r0s.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Web%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
+    
+      <category term="安全" scheme="https://z1r0s.github.io/tags/%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="笔记" scheme="https://z1r0s.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>解决BurpSuite Response中文乱码</title>
@@ -595,37 +627,6 @@
       <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="原型模式" scheme="https://z1r0s.github.io/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>代理模式</title>
-    <link href="https://z1r0s.github.io/2020/08/22/dai-li-mo-shi/"/>
-    <id>https://z1r0s.github.io/2020/08/22/dai-li-mo-shi/</id>
-    <published>2020-08-22T11:42:26.000Z</published>
-    <updated>2020-08-22T11:43:31.618Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​        代理模式为其他对象提供一种代理以控制对这个对象的访问。&lt;/p&gt;
-&lt;h1 id=&quot;角色与职责&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="代理模式" scheme="https://z1r0s.github.io/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
