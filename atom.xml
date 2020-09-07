@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-07T02:57:13.322Z</updated>
+  <updated>2020-09-07T05:28:38.761Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FTP服务器搭建(phpstudyftp)</title>
+    <link href="https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/"/>
+    <id>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/</id>
+    <published>2020-09-07T04:50:46.000Z</published>
+    <updated>2020-09-07T05:28:38.761Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;FTP服务&quot;&gt;&lt;a href=&quot;#FTP服务&quot; class=&quot;headerlink&quot; title=&quot;FTP服务&quot;&gt;&lt;/a&gt;FTP服务&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="FTP" scheme="https://z1r0s.github.io/tags/FTP/"/>
+    
+      <category term="PHPStudyFTP" scheme="https://z1r0s.github.io/tags/PHPStudyFTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FTP服务器搭建-IIS</title>
+    <link href="https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-iis/"/>
+    <id>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-iis/</id>
+    <published>2020-09-07T03:21:58.000Z</published>
+    <updated>2020-09-07T08:57:34.541Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;FTP服务&quot;&gt;&lt;a href=&quot;#FTP服务&quot; class=&quot;headerlink&quot; title=&quot;FTP服务&quot;&gt;&lt;/a&gt;FTP服务&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="FTP" scheme="https://z1r0s.github.io/tags/FTP/"/>
+    
+      <category term="IIS" scheme="https://z1r0s.github.io/tags/IIS/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL注入笔记</title>
@@ -569,64 +625,6 @@
       <category term="mstsc" scheme="https://z1r0s.github.io/tags/mstsc/"/>
     
       <category term="远程桌面" scheme="https://z1r0s.github.io/tags/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>批处理笔记</title>
-    <link href="https://z1r0s.github.io/2020/08/22/pi-chu-li-bi-ji/"/>
-    <id>https://z1r0s.github.io/2020/08/22/pi-chu-li-bi-ji/</id>
-    <published>2020-08-22T11:48:53.000Z</published>
-    <updated>2020-09-05T02:38:30.573Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;批处理文件&quot;&gt;&lt;a href=&quot;#批处理文件&quot; class=&quot;headerlink&quot; title=&quot;批处理文件&quot;&gt;&lt;/a&gt;批处理文件&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="批处理" scheme="https://z1r0s.github.io/categories/%E6%89%B9%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="学习笔记" scheme="https://z1r0s.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="批处理" scheme="https://z1r0s.github.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>原型模式</title>
-    <link href="https://z1r0s.github.io/2020/08/22/yuan-xing-mo-shi/"/>
-    <id>https://z1r0s.github.io/2020/08/22/yuan-xing-mo-shi/</id>
-    <published>2020-08-22T11:43:55.000Z</published>
-    <updated>2020-08-22T11:46:12.640Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;定义理解&quot;&gt;&lt;a href=&quot;#定义理解&quot; class=&quot;headerlink&quot; title=&quot;定义理解&quot;&gt;&lt;/a&gt;定义理解&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="C#" scheme="https://z1r0s.github.io/tags/C/"/>
-    
-      <category term="设计模式" scheme="https://z1r0s.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="原型模式" scheme="https://z1r0s.github.io/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>FTP服务器搭建(phpstudyftp)</title>
+      <link href="/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/"/>
+      <url>/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/</url>
+      
+        <content type="html"><![CDATA[<h1 id="FTP服务"><a href="#FTP服务" class="headerlink" title="FTP服务"></a>FTP服务</h1><p>​        FTP是用来在两台计算机之间传输文件，是Internet中应用非常广泛的服务之一。它可根据实际需要设置各用户的使用权限，同时还具有跨平台的特性，即在UNIX、Linux和Windows等操作系统中都可实现FTP客户端和服务器，相互之间可跨平台进行文件的传输。因此，FTP服务是网络中经常采用的资源共享方式之一。本问将介绍Windows下FTP服务器的搭建。</p><h1 id="FTP搭建"><a href="#FTP搭建" class="headerlink" title="FTP搭建"></a>FTP搭建</h1><p>​        Windows系统自带IIS可以使用IIS来搭建FTP服务器，但是IIS默认是不开启FTP功能的，需要用户手动开启。而且操作流程十分麻烦，下面使用phpstudyftp来搭建FTP服务器。</p><h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><ul><li>服务器：Windows Server 2012 R2 Standard</li><li>客户机：Windows 10</li></ul><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol><li><p>双击ftpserv.exe程序后，需要选择ftpServ自解压的位置。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/ftpserv自解压位置选择.png" alt="ftpserv自解压位置选择"></center></li><li><p>文件解压后包含的文件如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/ftpserv包含的文件.png" alt="ftpserv包含的文件"></center></li><li><p>双击phpstudyFtp.exe程序，单开phpStudy Ftp Server界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/phpstudyftpserver界面.png" alt="phpstudyftpserver界面"></center></li><li><p>点击【启动Ftp Server】按钮，启动FTP服务器。首次使用FTP服务器时需要做一些配置才可以使用。</p></li><li><p>点击【Ftp Server管理器】，打开Ftp Server管理器界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/ftpserver管理器界面.png" alt="ftpserver管理器界面"></center></li><li><p>点击【编辑】菜单，选择【设置】选项后，打开FileZillaServer选项界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/FileZillaServer选项界面.png" alt="FileZillaServer选项界面"></center></li><li><p>默认监听端口为21，根据需要可设置成其他端口，以及对其他参数的设置。</p></li><li><p>点击【编辑】菜单，选择【用户】选项后，打开用户界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/用户界面.png" alt="用户界面"></center></li><li><p>添加用户。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/添加账号.png" alt="添加账号"></center></li><li><p>添加共享文件夹，需要确保用户对文件夹有相应的操作权限。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/添加共享文件夹.png" alt="添加共享文件夹"></center></li><li><p>所有设置完成后，点击【确定】按钮。</p></li><li><p>客户端连接测试。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/FTP连接成功.png" alt="FTP连接成功"></center></li><li><p>文件传输测试。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/文件传输测试.png" alt="文件传输测试"></center></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FTP </tag>
+            
+            <tag> PHPStudyFTP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>FTP服务器搭建-IIS</title>
+      <link href="/2020/09/07/ftp-fu-wu-qi-da-jian-iis/"/>
+      <url>/2020/09/07/ftp-fu-wu-qi-da-jian-iis/</url>
+      
+        <content type="html"><![CDATA[<h1 id="FTP服务"><a href="#FTP服务" class="headerlink" title="FTP服务"></a>FTP服务</h1><p>​        FTP是用来在两台计算机之间传输文件，是Internet中应用非常广泛的服务之一。它可根据实际需要设置各用户的使用权限，同时还具有跨平台的特性，即在UNIX、Linux和Windows等操作系统中都可实现FTP客户端和服务器，相互之间可跨平台进行文件的传输。因此，FTP服务是网络中经常采用的资源共享方式之一。本问将介绍Windows下FTP服务器的搭建。</p><h1 id="FTP搭建"><a href="#FTP搭建" class="headerlink" title="FTP搭建"></a>FTP搭建</h1><p>​        Windows系统自带IIS可以使用IIS来搭建FTP服务器，但是IIS默认是不开启FTP功能的，需要用户手动开启。</p><h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><ul><li>服务器：Windows Server 2012 R2 Standard</li><li>客户机：Windows 10</li></ul><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol><li><p>新版系统的IIS默认也是关闭的，所以我们需要先启用IIS服务。首先打开<code>服务器管理器</code>，显示界面如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/服务器管理其面板.png" alt="服务器管理其面板"></center></li><li><p>点击【添加角色和功能】选项，打开功能向导界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/添加角色和功能向导.png" alt="添加角色和功能向导"></center></li><li><p>点击【下一步】按钮，进入安装类型选择界面，默认为：<code>基于角色或基于功能的安装</code>，采用默认设置。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/安装类型选择.png" alt="安装类型选择"></center></li><li><p>点击【下一步】按钮，进入添加服务器选择界面，采用默认选项即可。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/服务器选择.png" alt="服务器选择"></center></li><li><p>点击【下一步】按钮，进入服务器角色选择界面，打开Web服务器(IIS)节点，勾选FTP服务器相关选项。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/服务器角色.png" alt="服务器角色"></center></li><li><p>点击【下一步】按钮，进入功能选择界面，勾选IIS可承载Web核心选项及其他相关选项。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/功能.png" alt="功能"></center></li><li><p>点击【下一步】按钮，进入确认界面，确认FTP相关依赖被安装。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/确认界面.png" alt="确认界面"></center></li><li><p>点击【安装】按钮即开始安装。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/安装过程.png" alt="安装过程"></center></li><li><p>IIS安装完成后，打开IIS管理器，显示界面如下所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/IIS界面.png" alt="IIS界面"></center></li><li><p>右键【网站】选择【添加FTP站点】选项，打开添加FTP站点界面。填写FTP站点名称并执行目录物理路径。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/添加FTP站点-站点信息.png" alt="添加FTP站点-站点信息"></center></li><li><p>点击【下一步】按钮，进入绑定和SSL设置界面。绑定IP地址，选定SSL证书。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/添加FTP站点-绑定和SSL设置.png" alt="添加FTP站点-绑定和SSL设置"></center></li><li><p>点击【下一步】按钮，进入身份验证和授权信息界面。指定授权信息及权限。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/添加FTP站点-身份认证和授权.png" alt="添加FTP站点-身份认证和授权"></center></li><li><p>点击【完成】按钮即可启用改FTP站点。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/启用FTP站点.png" alt="启用FTP站点"></center></li><li><p>点击新建的FTP站点，打开ftp-demo主页。点击FTP防火墙支持，添加外部IP(即：服务器的公网IP)</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/FTP防火墙支持.png" alt="FTP防火墙支持"></center></li><li><p>为了实现权限分离，这里创建一个新的用户作为FTP的访问用户。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/FTP访问用户.png" alt="FTP访问用户"></center></li><li><p>设置新用户对FTP文件夹的访问权限。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/文件夹权限设置.png" alt="文件夹权限设置"></center></li><li><p>采用被动模式设置的IIS-FTP服务需要使用到50000-60000端口，所以需要配置安全组规则，否则无法完成目录读取操作。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/添加服务器安全组规则.png" alt="添加服务器安全组规则"></center></li><li><p>在客户端进行连接测试。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/IIS-FTPServer/客户端连接测试成功.png" alt="客户端连接测试成功"></center></li></ol><h1 id="问题反思"><a href="#问题反思" class="headerlink" title="问题反思"></a>问题反思</h1><h2 id="FTP模式分类"><a href="#FTP模式分类" class="headerlink" title="FTP模式分类"></a>FTP模式分类</h2><p>FTP服务器一般都支持主动和被动模式，连接采用何种模式是由FTP客户端软件决定。</p><p>主动 FTP ：<br>　　　　命令连接：客户端 &gt;1024 端口 → 服务器 21 端口<br>　　　　数据连接：客户端 &gt;1024 端口 ← 服务器 20 端口</p><p>被动 FTP ：<br>　　　　命令连接：客户端 &gt;1024 端口 → 服务器 21 端口<br>　　　　数据连接：客户端 &gt;1024 端口 ← 服务器 &gt;1024 端口</p><p>　　PORT（主动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。 当需要传送数据时， 客户端在命令链路上用PORT命令告诉服务器：“我打开了<code>***</code>X端口，你过来连接我”。于是服务器从20端口向客户端的<code>***</code>X端口发送连接请求，建立 一条数据链路来传送数据。 </p><p>　　PASV（被动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。 当需要传送数据时， 服务器在命令链路上用PASV命令告诉客户端：“我打开了<code>***</code>X端口，你过来连接我”。于是客户端向服务器的<code>***</code>X端口发送连接请求，建立一条数据链 路来传送数据。</p><p><strong>早先所有客户端都使用主动模式，而且工作的很好，而现在因为客户端防火墙的存在，将会关闭一些端口，这样主动模式将会失败。</strong>在这种情况下就要使用被动模式，但是一些端口也可能被服务器的防火墙封掉。不过因为ftp服务器需要它的ftp服务连接到一定数量的客户端，所以他们总是支持被动模式的。这就是我们为什么要使用被动模式的原意，为了确保数据可以正确的传输，<strong>使用 被动模式要明显优于主动模式。</strong></p><p>​        服务器上ftp用被动模式，服务器只开50000-60000的端口用于客户端访问，而看了下用1025-1034这样的端口并不行，用抓包也看到被动时，服务器端指定的端口是50492，大多是在5万-6万之间（这个是为什么，暂时没搞清）。<font color="red">依据这些信息说明FTP服务器需要开通50000-60000端口，因此需要修改服务器的安全组规则</font>。</p><h2 id="权限分配"><a href="#权限分配" class="headerlink" title="权限分配"></a>权限分配</h2><p>​        FTP服务器设置的另一个问题就是权限的分配，出于安全的考虑我们不会采用匿名访问策略，随意我们需要有序设置FTP访问用户，以及改用户对FTP目录对应的操作权限等。</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://www.cnblogs.com/peterYong/p/6596667.html" target="_blank" rel="noopener">在IIS上搭建FTP服务</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FTP </tag>
+            
+            <tag> IIS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入笔记</title>
       <link href="/2020/09/07/sql-zhu-ru-bi-ji/"/>
       <url>/2020/09/07/sql-zhu-ru-bi-ji/</url>
