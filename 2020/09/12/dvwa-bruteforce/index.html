@@ -8,8 +8,8 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="漏洞概述​        Brute Force即暴力（破解），是指黑客利用密码字典，使用穷举法猜解出用户口令，是现在最为广泛使用的攻击手法之一，如2014年轰动全国的12306“撞库”事件，实质就是暴力破解攻击。
-Brute Force模">
+    <meta name="description" content="0x01 漏洞概述​        Brute Force即暴力（破解），是指黑客利用密码字典，使用穷举法猜解出用户口令，是现在最为广泛使用的攻击手法之一，如2014年轰动全国的12306“撞库”事件，实质就是暴力破解攻击。
+Brute F">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -505,8 +505,9 @@ Brute Force模">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="漏洞概述"><a href="#漏洞概述" class="headerlink" title="漏洞概述"></a>漏洞概述</h1><p>​        Brute Force即暴力（破解），是指黑客利用密码字典，使用穷举法猜解出用户口令，是现在最为广泛使用的攻击手法之一，如2014年轰动全国的12306“撞库”事件，实质就是暴力破解攻击。</p>
-<h2 id="Brute-Force模块分析"><a href="#Brute-Force模块分析" class="headerlink" title="Brute Force模块分析"></a>Brute Force模块分析</h2><p>​        模仿用户登录界面：</p>
+                <h1 id="0x01-漏洞概述"><a href="#0x01-漏洞概述" class="headerlink" title="0x01 漏洞概述"></a>0x01 漏洞概述</h1><p>​        Brute Force即暴力（破解），是指黑客利用密码字典，使用穷举法猜解出用户口令，是现在最为广泛使用的攻击手法之一，如2014年轰动全国的12306“撞库”事件，实质就是暴力破解攻击。</p>
+<p><strong>Brute Force模块分析</strong></p>
+<p>​        模仿用户登录界面：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/BruteForce.png" alt="BruteForce"></center>
 
 <p>​        <strong>已授权用户登录</strong>：</p>
@@ -585,11 +586,11 @@ Brute Force模">
 
 <span class="token delimiter">?></span></code></pre>
 <p>​        可以看到，只有Impossible级别使用了<code>POST</code>提交方式，其他三种级别均是以<code>GET</code>方式进行提交的。</p>
-<h1 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h1><ul>
+<h1 id="0x02-测试工具"><a href="#0x02-测试工具" class="headerlink" title="0x02 测试工具"></a>0x02 测试工具</h1><ul>
 <li>Firefox</li>
 <li>Burp Suite</li>
 </ul>
-<h1 id="漏洞测试"><a href="#漏洞测试" class="headerlink" title="漏洞测试"></a>漏洞测试</h1><h2 id="Low级别"><a href="#Low级别" class="headerlink" title="Low级别"></a>Low级别</h2><p>​        设置 DVWA 安全级别为 LOW 。</p>
+<h1 id="0x03-漏洞测试"><a href="#0x03-漏洞测试" class="headerlink" title="0x03 漏洞测试"></a>0x03 漏洞测试</h1><h2 id="Low级别"><a href="#Low级别" class="headerlink" title="Low级别"></a>Low级别</h2><p>​        设置 DVWA 安全级别为 LOW 。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
@@ -1151,7 +1152,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <li>为了防止对用户登录的暴力破解，添加了登录错误后锁定账号的操作，可以有效地方式短时间内对用户名和密码的暴力破解。</li>
 <li>在动态生成SQL语句时使用PDO方式并对SQL参数过滤有效地避免了SQL注入的产生。</li>
 </ul>
-<h1 id="修复建议"><a href="#修复建议" class="headerlink" title="修复建议"></a>修复建议</h1><ul>
+<h1 id="0x04-修复建议"><a href="#0x04-修复建议" class="headerlink" title="0x04 修复建议"></a>0x04 修复建议</h1><ul>
 <li>对于修改数据和登陆表单提交使用 POST 方式，同时数据通过 POST 方式读取</li>
 <li>添加随机 token 预防 csrf 攻击</li>
 <li>针对登陆功能可添加图形验证码，每提交一次数据，验证码改变一次，验证功能在服务<br>端进行</li>
@@ -1160,7 +1161,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <li>可使用短信验证和邮箱验证方式实现双因子认证，注意对短信轰炸和邮件轰炸的防御</li>
 <li>密码等敏感字段进行加密后传输，例如密码使用加盐 hash 算法等加密后传输  </li>
 </ul>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<h1 id="0x05-参考资料"><a href="#0x05-参考资料" class="headerlink" title="0x05 参考资料"></a>0x05 参考资料</h1><ul>
 <li>《DVWA 漏洞测试平台分析》，红日安全工具研发组长-Silence</li>
 </ul>
 
@@ -1360,30 +1361,31 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/12/dvwa-bruteforce/">
+                <a href="/2020/09/12/dvwa-commandinjection/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="DVWA-BruteForce">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="DVWA-CommandInjection">
                         
-                        <span class="card-title">DVWA-BruteForce</span>
+                        <span class="card-title">DVWA-CommandInjection</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            漏洞概述​        Brute Force即暴力（破解），是指黑客利用密码字典，使用穷举法猜解出用户口令，是现在最为广泛使用的攻击手法之一，如2014年轰动全国的12306“撞库”事件，实质就是暴力破解攻击。
-Brute Force模
+                            0x01 漏洞概述​        命令注入是指在易受攻击的应用程序中注入和执行攻击者指定的命令(系统命令、)，执行的命令具有与web 服务相同的权限和环境。  
+Commmand Injection模块分析
+
+Command Inject
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-12
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1400,7 +1402,6 @@ Brute Force模
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1408,8 +1409,8 @@ Brute Force模
                         <span class="chip bg-color">DVWA</span>
                     </a>
                     
-                    <a href="/tags/BruteForce/" target="_blank">
-                        <span class="chip bg-color">BruteForce</span>
+                    <a href="/tags/命令执行/" target="_blank">
+                        <span class="chip bg-color">命令执行</span>
                     </a>
                     
                 </div>
@@ -1635,7 +1636,7 @@ Brute Force模
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">91.9k</span>
+            <span class="white-color">93.9k</span>
             
 
             <br>

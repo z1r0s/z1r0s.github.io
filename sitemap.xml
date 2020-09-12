@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/</loc>
+    
+    <lastmod>2020-09-12T12:45:32.035Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/</loc>
     
-    <lastmod>2020-09-12T00:19:26.778Z</lastmod>
+    <lastmod>2020-09-12T12:45:15.884Z</lastmod>
     
   </url>
   
