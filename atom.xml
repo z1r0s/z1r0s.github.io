@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-12T12:45:32.035Z</updated>
+  <updated>2020-09-14T03:47:28.826Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -17,11 +17,101 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>DVWA-FileUpload</title>
+    <link href="https://z1r0s.github.io/2020/09/14/dvwa-fileupload/"/>
+    <id>https://z1r0s.github.io/2020/09/14/dvwa-fileupload/</id>
+    <published>2020-09-14T03:27:30.000Z</published>
+    <updated>2020-09-14T03:47:28.826Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-漏洞概述&quot;&gt;&lt;a href=&quot;#0x01-漏洞概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 漏洞概述&quot;&gt;&lt;/a&gt;0x01 漏洞概述&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="靶机" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/"/>
+    
+    
+      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
+    
+      <category term="文件上传" scheme="https://z1r0s.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DVWA-FileInclusion</title>
+    <link href="https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/"/>
+    <id>https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/</id>
+    <published>2020-09-13T01:38:37.000Z</published>
+    <updated>2020-09-13T01:41:23.680Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-漏洞概述&quot;&gt;&lt;a href=&quot;#0x01-漏洞概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 漏洞概述&quot;&gt;&lt;/a&gt;0x01 漏洞概述&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="靶机" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/"/>
+    
+    
+      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
+    
+      <category term="文件包含" scheme="https://z1r0s.github.io/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DVWA-CSRF</title>
+    <link href="https://z1r0s.github.io/2020/09/13/dvwa-csrf/"/>
+    <id>https://z1r0s.github.io/2020/09/13/dvwa-csrf/</id>
+    <published>2020-09-12T23:54:10.000Z</published>
+    <updated>2020-09-14T03:47:35.815Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-漏洞概述&quot;&gt;&lt;a href=&quot;#0x01-漏洞概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 漏洞概述&quot;&gt;&lt;/a&gt;0x01 漏洞概述&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="靶机" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/"/>
+    
+    
+      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
+    
+      <category term="SCRF" scheme="https://z1r0s.github.io/tags/SCRF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DVWA-CommandInjection</title>
     <link href="https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/"/>
     <id>https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/</id>
     <published>2020-09-12T12:40:09.000Z</published>
-    <updated>2020-09-12T12:45:32.035Z</updated>
+    <updated>2020-09-13T01:04:47.098Z</updated>
     
     <summary type="html">
     
@@ -51,7 +141,7 @@
     <link href="https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/"/>
     <id>https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/</id>
     <published>2020-09-12T00:09:08.000Z</published>
-    <updated>2020-09-12T12:45:15.884Z</updated>
+    <updated>2020-09-14T02:39:00.517Z</updated>
     
     <summary type="html">
     
@@ -523,104 +613,6 @@
       <category term="网络配置" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
     
       <category term="Cisco" scheme="https://z1r0s.github.io/tags/Cisco/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WePE Win10 安装</title>
-    <link href="https://z1r0s.github.io/2020/08/27/wepe-win10-an-zhuang/"/>
-    <id>https://z1r0s.github.io/2020/08/27/wepe-win10-an-zhuang/</id>
-    <published>2020-08-27T12:32:55.000Z</published>
-    <updated>2020-08-27T12:38:57.371Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;WePE-Win10-安装&quot;&gt;&lt;a href=&quot;#WePE-Win10-安装&quot; class=&quot;headerlink&quot; title=&quot;WePE Win10 安装&quot;&gt;&lt;/a&gt;WePE Win10 安装&lt;/h1&gt;&lt;h2 id=&quot;安装须知&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    
-    
-      <category term="WePE" scheme="https://z1r0s.github.io/tags/WePE/"/>
-    
-      <category term="Win10" scheme="https://z1r0s.github.io/tags/Win10/"/>
-    
-      <category term="系统安装" scheme="https://z1r0s.github.io/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>运行框常用命令及功能</title>
-    <link href="https://z1r0s.github.io/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/"/>
-    <id>https://z1r0s.github.io/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/</id>
-    <published>2020-08-27T12:26:33.000Z</published>
-    <updated>2020-08-27T12:30:11.835Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;命令名称&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;功    能&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td
-        
-      
-    
-    </summary>
-    
-      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    
-    
-      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
-    
-      <category term="运行" scheme="https://z1r0s.github.io/tags/%E8%BF%90%E8%A1%8C/"/>
-    
-      <category term="常用命令" scheme="https://z1r0s.github.io/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RSTP应用实例</title>
-    <link href="https://z1r0s.github.io/2020/08/27/rstp-ying-yong-shi-li/"/>
-    <id>https://z1r0s.github.io/2020/08/27/rstp-ying-yong-shi-li/</id>
-    <published>2020-08-27T08:46:07.000Z</published>
-    <updated>2020-09-07T03:00:18.625Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;RSTP应用实例&quot;&gt;&lt;a href=&quot;#RSTP应用实例&quot; class=&quot;headerlink&quot; title=&quot;RSTP应用实例&quot;&gt;&lt;/a&gt;RSTP应用实例&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="网络基础" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="网络基础" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
-    
-      <category term="RSTP" scheme="https://z1r0s.github.io/tags/RSTP/"/>
-    
-      <category term="网络协议" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
     
   </entry>
   

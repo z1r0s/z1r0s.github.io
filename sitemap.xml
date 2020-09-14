@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/</loc>
+    <loc>https://z1r0s.github.io/2020/09/13/dvwa-csrf/</loc>
     
-    <lastmod>2020-09-12T12:45:32.035Z</lastmod>
+    <lastmod>2020-09-14T03:47:35.815Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/09/14/dvwa-fileupload/</loc>
+    
+    <lastmod>2020-09-14T03:47:28.826Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/</loc>
     
-    <lastmod>2020-09-12T12:45:15.884Z</lastmod>
+    <lastmod>2020-09-14T02:39:00.517Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/</loc>
+    
+    <lastmod>2020-09-13T01:41:23.680Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/</loc>
+    
+    <lastmod>2020-09-13T01:04:47.098Z</lastmod>
     
   </url>
   
@@ -282,13 +303,6 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/archives/index.html</loc>
-    
-    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
@@ -297,6 +311,13 @@
   
   <url>
     <loc>https://z1r0s.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/archives/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     

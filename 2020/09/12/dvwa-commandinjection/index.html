@@ -308,7 +308,7 @@ Command Inject">
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '17ea280c0887aa0e0954a6bd8f435171fa3fc3f29c87e4ec46e8dc17efe92fe6';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -1193,32 +1193,42 @@ WORKERS <span class="token operator">=</span> <span class="token number">10</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/12/dvwa-commandinjection/">
+                <a href="/2020/09/13/dvwa-csrf/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="DVWA-CommandInjection">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="DVWA-CSRF">
                         
-                        <span class="card-title">DVWA-CommandInjection</span>
+                        <span class="card-title">DVWA-CSRF</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            0x01 漏洞概述​        命令注入是指在易受攻击的应用程序中注入和执行攻击者指定的命令(系统命令、)，执行的命令具有与web 服务相同的权限和环境。  
-Commmand Injection模块分析
+                            0x01 漏洞概述​        跨站请求伪造是指攻击者引诱用户访问页面，攻击页面使用该用户身份在第三方网站自动进行操作。
+CSRF模块分析
 
-Command Inject
+模拟密码修改功能：
+
+
+
+
+密码修改
+
+
+
+0x02 测试工具
+FireFox
+BurpSui
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-13
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1235,7 +1245,6 @@ Command Inject
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1243,8 +1252,8 @@ Command Inject
                         <span class="chip bg-color">DVWA</span>
                     </a>
                     
-                    <a href="/tags/命令执行/" target="_blank">
-                        <span class="chip bg-color">命令执行</span>
+                    <a href="/tags/SCRF/" target="_blank">
+                        <span class="chip bg-color">SCRF</span>
                     </a>
                     
                 </div>
@@ -1475,7 +1484,7 @@ Brute F
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">93.9k</span>
+            <span class="white-color">97k</span>
             
 
             <br>
