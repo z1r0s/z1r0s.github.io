@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/</loc>
+    
+    <lastmod>2020-09-15T02:17:31.067Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/09/13/dvwa-csrf/</loc>
     
     <lastmod>2020-09-14T03:47:35.815Z</lastmod>
@@ -303,6 +310,13 @@
   </url>
   
   <url>
+    <loc>https://z1r0s.github.io/archives/index.html</loc>
+    
+    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
@@ -311,13 +325,6 @@
   
   <url>
     <loc>https://z1r0s.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/archives/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     

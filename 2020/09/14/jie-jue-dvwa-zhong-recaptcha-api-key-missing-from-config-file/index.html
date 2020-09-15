@@ -4,11 +4,16 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="FTP服务器搭建(phpstudyftp), z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="解决DVWA中reCAPTCHA API key missing from config file, z1r0s 安全 Web安全 学习总结">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="FTP服务​        FTP是用来在两台计算机之间传输文件，是Internet中应用非常广泛的服务之一。它可根据实际需要设置各用户的使用权限，同时还具有跨平台的特性，即在UNIX、Linux和Windows等操作系统中都可实现FTP客">
+    <meta name="description" content="0x01 问题描述​        在DVWA中测试Insecure CAPTCHA不安全的验证码关卡时，出现下图报错内容：
+
+
+
+
+0x02 解决思路​        根据报错提示信息应该是reCAPTCHA的问题，根据提示路径信息打开c">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>FTP服务器搭建(phpstudyftp) | z1r0s&#39;blogs</title>
+    <title>解决DVWA中reCAPTCHA API key missing from config file | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -318,13 +323,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        FTP服务器搭建(phpstudyftp)
+                        解决DVWA中reCAPTCHA API key missing from config file
                     </div>
                 </div>
             </div>
@@ -435,12 +440,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/FTP/" target="_blank">
-                            <span class="chip bg-color">FTP</span>
-                        </a>
-                        
-                        <a href="/tags/PHPStudyFTP/" target="_blank">
-                            <span class="chip bg-color">PHPStudyFTP</span>
+                        <a href="/tags/DVWA/" target="_blank">
+                            <span class="chip bg-color">DVWA</span>
                         </a>
                         
                     </div>
@@ -451,8 +452,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/软件使用/" class="post-category" target="_blank">
-                            软件使用
+                        <a href="/categories/debug/" class="post-category" target="_blank">
+                            debug
                         </a>
                         
                     </div>
@@ -463,7 +464,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-07
+                    2020-09-14
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -477,7 +478,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    435
+                    235
                 </div>
                 
 
@@ -500,55 +501,33 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="FTP服务"><a href="#FTP服务" class="headerlink" title="FTP服务"></a>FTP服务</h1><p>​        FTP是用来在两台计算机之间传输文件，是Internet中应用非常广泛的服务之一。它可根据实际需要设置各用户的使用权限，同时还具有跨平台的特性，即在UNIX、Linux和Windows等操作系统中都可实现FTP客户端和服务器，相互之间可跨平台进行文件的传输。因此，FTP服务是网络中经常采用的资源共享方式之一。本问将介绍Windows下FTP服务器的搭建。</p>
-<h1 id="FTP搭建"><a href="#FTP搭建" class="headerlink" title="FTP搭建"></a>FTP搭建</h1><p>​        Windows系统自带IIS可以使用IIS来搭建FTP服务器，但是IIS默认是不开启FTP功能的，需要用户手动开启。而且操作流程十分麻烦，下面使用phpstudyftp来搭建FTP服务器。</p>
-<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><ul>
-<li>服务器：Windows Server 2012 R2 Standard</li>
-<li>客户机：Windows 10</li>
-</ul>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol>
-<li><p>双击ftpserv.exe程序后，需要选择ftpServ自解压的位置。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/ftpserv自解压位置选择.png" alt="ftpserv自解压位置选择"></center>
-</li>
-<li><p>文件解压后包含的文件如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/ftpserv包含的文件.png" alt="ftpserv包含的文件"></center>
-</li>
-<li><p>双击phpstudyFtp.exe程序，单开phpStudy Ftp Server界面。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/phpstudyftpserver界面.png" alt="phpstudyftpserver界面"></center>
-</li>
-<li><p>点击【启动Ftp Server】按钮，启动FTP服务器。首次使用FTP服务器时需要做一些配置才可以使用。</p>
-</li>
-<li><p>点击【Ftp Server管理器】，打开Ftp Server管理器界面。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/ftpserver管理器界面.png" alt="ftpserver管理器界面"></center>
-</li>
-<li><p>点击【编辑】菜单，选择【设置】选项后，打开FileZillaServer选项界面。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/FileZillaServer选项界面.png" alt="FileZillaServer选项界面"></center>
-</li>
-<li><p>默认监听端口为21，根据需要可设置成其他端口，以及对其他参数的设置。</p>
-</li>
-<li><p>点击【编辑】菜单，选择【用户】选项后，打开用户界面。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/用户界面.png" alt="用户界面"></center>
-</li>
-<li><p>添加用户。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/添加账号.png" alt="添加账号"></center>
-</li>
-<li><p>添加共享文件夹，需要确保用户对文件夹有相应的操作权限。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/添加共享文件夹.png" alt="添加共享文件夹"></center>
-</li>
-<li><p>所有设置完成后，点击【确定】按钮。</p>
-</li>
-<li><p>客户端连接测试。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/FTP连接成功.png" alt="FTP连接成功"></center>
-</li>
-<li><p>文件传输测试。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/PHPStudyFTP/文件传输测试.png" alt="文件传输测试"></center>
+                <h1 id="0x01-问题描述"><a href="#0x01-问题描述" class="headerlink" title="0x01 问题描述"></a>0x01 问题描述</h1><p>​        在DVWA中测试<code>Insecure CAPTCHA</code>不安全的验证码关卡时，出现下图报错内容：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/DVWA/InsecureCAPTCHA/不安全验证码报错界面.png" alt="不安全验证码报错界面"></center>
 
 
 
+<h1 id="0x02-解决思路"><a href="#0x02-解决思路" class="headerlink" title="0x02 解决思路"></a>0x02 解决思路</h1><p>​        根据报错提示信息应该是<code>reCAPTCHA</code>的问题，根据提示路径信息打开<code>config.inc.php</code>文件，显示与<code>reCAPTCHA</code>相关信息如下图所示：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/DVWA/InsecureCAPTCHA/配置文件中reCAPTCHA设置为空.png" alt="配置文件中reCAPTCHA设置为空"></center>
 
-
-</li>
+<p>​        由图片信息可知，具体的出错原因是因为使用<code>reCAPTCHA</code>没有申请密钥，因此需要手动填入密钥。</p>
+<h1 id="0x03-解决步骤"><a href="#0x03-解决步骤" class="headerlink" title="0x03 解决步骤"></a>0x03 解决步骤</h1><ol>
+<li>打开<code>config.inc.php</code>配置文件，并将<code>recaptcha</code>相关参数修改成如下内容：</li>
 </ol>
+<pre class=" language-ini"><code class="language-ini">$_DVWA[ 'recaptcha_public_key' ]  <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg';</span>
+$_DVWA[ 'recaptcha_private_key' ] <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ';</span></code></pre>
+<p>​    也可以到<a href="https://www.google.com/recaptcha/admin" target="_blank" rel="noopener">reCAPTCHA申请页面</a>申请一对网站密钥，具体操作可参考<a href="https://blog.csdn.net/dulinanaaa/article/details/88126607" target="_blank" rel="noopener">reCaptcha 的使用</a>。</p>
+<ol start="2">
+<li>保存更改后的配置文件后，重新访问<code>Insecure CAPTCHA</code>模块，没有发现错误信息。</li>
+</ol>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/DVWA/InsecureCAPTCHA/不安全验证码界面正常显示.png" alt="不安全验证码界面正常显示"></center>
+
+
+
+<h1 id="0x04-参考链接"><a href="#0x04-参考链接" class="headerlink" title="0x04 参考链接"></a>0x04 参考链接</h1><ul>
+<li><a href="https://www.itfd.cn/post-757.html" target="_blank" rel="noopener">解决DVWA中reCAPTCHA API key missing from config file问题</a></li>
+<li><a href="https://www.jianshu.com/p/9ef5f9b0844f" target="_blank" rel="noopener">DVWA报错： reCAPTCHA API key missing from config file error</a></li>
+<li><a href="https://blog.csdn.net/dulinanaaa/article/details/88126607" target="_blank" rel="noopener">reCaptcha 的使用</a></li>
+</ul>
 
             </div>
             <hr />
@@ -705,8 +684,8 @@
             </div>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                  property="dct:title" rel="dct:type">《FTP服务器搭建(phpstudyftp)》</span> 由 <a
-                    xmlns:cc="http://creativecommons.org/ns#" href="/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/"
+                  property="dct:title" rel="dct:type">《解决DVWA中reCAPTCHA API key missing from config file》</span> 由 <a
+                    xmlns:cc="http://creativecommons.org/ns#" href="/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/"
                     property="cc:attributionName"
                     rel="cc:attributionURL">z1r0s</a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh">
@@ -746,49 +725,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/09/09/cisco-packet-tracer-shi-yan-ji-shi-xun/">
+                <a href="/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Ciscp Packet Tracer实验及实训">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="解决DVWA中reCAPTCHA API key missing from config file">
                         
-                        <span class="card-title">Ciscp Packet Tracer实验及实训</span>
+                        <span class="card-title">解决DVWA中reCAPTCHA API key missing from config file</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第1章 实验基础​        Ciscp Packet Tracer是一个非常理想的虚拟网络软件实验平台，可以完成各种规模校园网和企业网的设计、配置和调试过程，可以基于具体网络环境，分析各种网络协议运行过程中网络设备之间交换的报文类型、
+                            0x01 问题描述​        在DVWA中测试Insecure CAPTCHA不安全的验证码关卡时，出现下图报错内容：
+
+
+
+
+0x02 解决思路​        根据报错提示信息应该是reCAPTCHA的问题，根据提示路径信息打开c
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/网络配置/" class="post-category" target="_blank">
-                                    网络配置
+                            <a href="/categories/debug/" class="post-category" target="_blank">
+                                    debug
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/网络基础/" target="_blank">
-                        <span class="chip bg-color">网络基础</span>
-                    </a>
-                    
-                    <a href="/tags/Cisco/" target="_blank">
-                        <span class="chip bg-color">Cisco</span>
+                    <a href="/tags/DVWA/" target="_blank">
+                        <span class="chip bg-color">DVWA</span>
                     </a>
                     
                 </div>
@@ -802,30 +784,50 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/07/ftp-fu-wu-qi-da-jian-iis/">
+                <a href="/2020/09/14/dvwa-fileupload/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="FTP服务器搭建-IIS">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="DVWA-FileUpload">
                         
-                        <span class="card-title">FTP服务器搭建-IIS</span>
+                        <span class="card-title">DVWA-FileUpload</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            FTP服务​        FTP是用来在两台计算机之间传输文件，是Internet中应用非常广泛的服务之一。它可根据实际需要设置各用户的使用权限，同时还具有跨平台的特性，即在UNIX、Linux和Windows等操作系统中都可实现FTP客
+                            0x01 漏洞概述​        文件上传是指攻击者通过上传可执行脚本功能，从而获取服务器端可执行命令的权限。
+File Upload模块解析：
+
+文件上传界面
+
+
+
+
+文件上传操作结果
+
+
+
+
+
+0x02 测试工具
+FireFox
+Bu
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件使用/" class="post-category" target="_blank">
-                                    软件使用
+                            <a href="/categories/Web安全/" class="post-category" target="_blank">
+                                    Web安全
+                                </a>
+                            
+                            <a href="/categories/Web安全/靶机/" class="post-category" target="_blank">
+                                    靶机
                                 </a>
                             
                             
@@ -835,12 +837,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/FTP/" target="_blank">
-                        <span class="chip bg-color">FTP</span>
+                    <a href="/tags/DVWA/" target="_blank">
+                        <span class="chip bg-color">DVWA</span>
                     </a>
                     
-                    <a href="/tags/IIS/" target="_blank">
-                        <span class="chip bg-color">IIS</span>
+                    <a href="/tags/文件上传/" target="_blank">
+                        <span class="chip bg-color">文件上传</span>
                     </a>
                     
                 </div>

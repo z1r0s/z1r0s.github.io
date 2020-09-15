@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决DVWA中reCAPTCHA API key missing from config file</title>
+      <link href="/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/"/>
+      <url>/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-问题描述"><a href="#0x01-问题描述" class="headerlink" title="0x01 问题描述"></a>0x01 问题描述</h1><p>​        在DVWA中测试<code>Insecure CAPTCHA</code>不安全的验证码关卡时，出现下图报错内容：</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/DVWA/InsecureCAPTCHA/不安全验证码报错界面.png" alt="不安全验证码报错界面"></center><h1 id="0x02-解决思路"><a href="#0x02-解决思路" class="headerlink" title="0x02 解决思路"></a>0x02 解决思路</h1><p>​        根据报错提示信息应该是<code>reCAPTCHA</code>的问题，根据提示路径信息打开<code>config.inc.php</code>文件，显示与<code>reCAPTCHA</code>相关信息如下图所示：</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/DVWA/InsecureCAPTCHA/配置文件中reCAPTCHA设置为空.png" alt="配置文件中reCAPTCHA设置为空"></center><p>​        由图片信息可知，具体的出错原因是因为使用<code>reCAPTCHA</code>没有申请密钥，因此需要手动填入密钥。</p><h1 id="0x03-解决步骤"><a href="#0x03-解决步骤" class="headerlink" title="0x03 解决步骤"></a>0x03 解决步骤</h1><ol><li>打开<code>config.inc.php</code>配置文件，并将<code>recaptcha</code>相关参数修改成如下内容：</li></ol><pre class=" language-ini"><code class="language-ini">$_DVWA[ 'recaptcha_public_key' ]  <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg';</span>$_DVWA[ 'recaptcha_private_key' ] <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ';</span></code></pre><p>​    也可以到<a href="https://www.google.com/recaptcha/admin" target="_blank" rel="noopener">reCAPTCHA申请页面</a>申请一对网站密钥，具体操作可参考<a href="https://blog.csdn.net/dulinanaaa/article/details/88126607" target="_blank" rel="noopener">reCaptcha 的使用</a>。</p><ol start="2"><li>保存更改后的配置文件后，重新访问<code>Insecure CAPTCHA</code>模块，没有发现错误信息。</li></ol><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/DVWA/InsecureCAPTCHA/不安全验证码界面正常显示.png" alt="不安全验证码界面正常显示"></center><h1 id="0x04-参考链接"><a href="#0x04-参考链接" class="headerlink" title="0x04 参考链接"></a>0x04 参考链接</h1><ul><li><a href="https://www.itfd.cn/post-757.html" target="_blank" rel="noopener">解决DVWA中reCAPTCHA API key missing from config file问题</a></li><li><a href="https://www.jianshu.com/p/9ef5f9b0844f" target="_blank" rel="noopener">DVWA报错： reCAPTCHA API key missing from config file error</a></li><li><a href="https://blog.csdn.net/dulinanaaa/article/details/88126607" target="_blank" rel="noopener">reCaptcha 的使用</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> debug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DVWA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DVWA-FileUpload</title>
       <link href="/2020/09/14/dvwa-fileupload/"/>
       <url>/2020/09/14/dvwa-fileupload/</url>
@@ -632,11 +657,11 @@
       
         <tags>
             
-            <tag> 网络基础 </tag>
-            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
+            
+            <tag> 网络基础 </tag>
             
         </tags>
       

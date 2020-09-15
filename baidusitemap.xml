@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/</loc>
+    <lastmod>2020-09-15</lastmod>
+  </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/13/dvwa-csrf/</loc>
     <lastmod>2020-09-14</lastmod>
   </url>  <url>

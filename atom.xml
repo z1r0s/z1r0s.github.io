@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-14T03:47:28.826Z</updated>
+  <updated>2020-09-15T02:17:31.067Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决DVWA中reCAPTCHA API key missing from config file</title>
+    <link href="https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/"/>
+    <id>https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/</id>
+    <published>2020-09-14T07:26:38.000Z</published>
+    <updated>2020-09-15T02:17:31.067Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-问题描述&quot;&gt;&lt;a href=&quot;#0x01-问题描述&quot; class=&quot;headerlink&quot; title=&quot;0x01 问题描述&quot;&gt;&lt;/a&gt;0x01 问题描述&lt;/h1&gt;&lt;p&gt;​        在DVWA中测试&lt;code&gt;Insecure
+        
+      
+    
+    </summary>
+    
+      <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
+    
+    
+      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
+    
+  </entry>
   
   <entry>
     <title>DVWA-FileUpload</title>
@@ -583,36 +609,6 @@
     
     
       <category term="密码学" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Packet Tracer网络模拟实验实记</title>
-    <link href="https://z1r0s.github.io/2020/08/29/packet-tracer-wang-luo-mo-ni-shi-yan-shi-ji/"/>
-    <id>https://z1r0s.github.io/2020/08/29/packet-tracer-wang-luo-mo-ni-shi-yan-shi-ji/</id>
-    <published>2020-08-29T12:32:23.000Z</published>
-    <updated>2020-09-07T03:00:07.651Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;实验拓扑&quot;&gt;&lt;a href=&quot;#实验拓扑&quot; class=&quot;headerlink&quot; title=&quot;实验拓扑&quot;&gt;&lt;/a&gt;实验拓扑&lt;/h1&gt;&lt;center&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="网络基础" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
-    
-      <category term="网络配置" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-      <category term="Cisco" scheme="https://z1r0s.github.io/tags/Cisco/"/>
     
   </entry>
   
