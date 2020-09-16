@@ -1,3 +1,4 @@
+https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/
 https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/
 https://z1r0s.github.io/2020/09/14/dvwa-fileupload/
 https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/

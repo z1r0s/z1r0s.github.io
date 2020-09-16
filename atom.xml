@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-15T02:17:31.067Z</updated>
+  <updated>2020-09-16T01:52:24.043Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub渗透测试工具库(2020版)[转]</title>
+    <link href="https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/"/>
+    <id>https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/</id>
+    <published>2020-09-16T01:28:10.000Z</published>
+    <updated>2020-09-16T01:52:24.043Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1.前言&quot;&gt;&lt;/a&gt;1.前言&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="工具库" scheme="https://z1r0s.github.io/categories/%E5%B7%A5%E5%85%B7%E5%BA%93/"/>
+    
+    
+      <category term="github" scheme="https://z1r0s.github.io/tags/github/"/>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="工具" scheme="https://z1r0s.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>解决DVWA中reCAPTCHA API key missing from config file</title>
@@ -583,32 +613,6 @@
       <category term="GitHub" scheme="https://z1r0s.github.io/tags/GitHub/"/>
     
       <category term="代码托管" scheme="https://z1r0s.github.io/tags/%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常见密码简述</title>
-    <link href="https://z1r0s.github.io/2020/09/02/chang-jian-mi-ma-jian-shu/"/>
-    <id>https://z1r0s.github.io/2020/09/02/chang-jian-mi-ma-jian-shu/</id>
-    <published>2020-09-02T07:44:00.000Z</published>
-    <updated>2020-09-07T03:00:57.813Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;古典密码&quot;&gt;&lt;a href=&quot;#古典密码&quot; class=&quot;headerlink&quot; title=&quot;古典密码&quot;&gt;&lt;/a&gt;古典密码&lt;/h1&gt;&lt;h2 id=&quot;弱密码&quot;&gt;&lt;a href=&quot;#弱密码&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="密码学" scheme="https://z1r0s.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-    
-      <category term="密码学" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
   </entry>
   
