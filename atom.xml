@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-17T01:18:17.047Z</updated>
+  <updated>2020-09-17T12:45:37.824Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,90 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决rsatool-py脚本报错</title>
+    <link href="https://z1r0s.github.io/2020/09/17/jie-jue-rsatool-py-jiao-ben-bao-cuo/"/>
+    <id>https://z1r0s.github.io/2020/09/17/jie-jue-rsatool-py-jiao-ben-bao-cuo/</id>
+    <published>2020-09-17T11:57:10.000Z</published>
+    <updated>2020-09-17T12:45:37.824Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-问题描述&quot;&gt;&lt;a href=&quot;#0x01-问题描述&quot; class=&quot;headerlink&quot; title=&quot;0x01 问题描述&quot;&gt;&lt;/a&gt;0x01 问题描述&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
+    
+    
+      <category term="python" scheme="https://z1r0s.github.io/tags/python/"/>
+    
+      <category term="rsa" scheme="https://z1r0s.github.io/tags/rsa/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决python3安装gmpy2报错</title>
+    <link href="https://z1r0s.github.io/2020/09/17/jie-jue-python3-an-zhuang-gmpy2-bao-cuo/"/>
+    <id>https://z1r0s.github.io/2020/09/17/jie-jue-python3-an-zhuang-gmpy2-bao-cuo/</id>
+    <published>2020-09-17T04:57:35.000Z</published>
+    <updated>2020-09-17T12:45:32.337Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-问题描述&quot;&gt;&lt;a href=&quot;#0x01-问题描述&quot; class=&quot;headerlink&quot; title=&quot;0x01 问题描述&quot;&gt;&lt;/a&gt;0x01 问题描述&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
+    
+    
+      <category term="python" scheme="https://z1r0s.github.io/tags/python/"/>
+    
+      <category term="gmpy2" scheme="https://z1r0s.github.io/tags/gmpy2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows下python2和python3共存环境搭建</title>
+    <link href="https://z1r0s.github.io/2020/09/17/windows-xia-python2-he-python3-gong-cun-huan-jing-da-jian/"/>
+    <id>https://z1r0s.github.io/2020/09/17/windows-xia-python2-he-python3-gong-cun-huan-jing-da-jian/</id>
+    <published>2020-09-17T04:45:24.000Z</published>
+    <updated>2020-09-17T06:08:34.162Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-python版本下载&quot;&gt;&lt;a href=&quot;#0x01-python版本下载&quot; class=&quot;headerlink&quot; title=&quot;0x01 python版本下载&quot;&gt;&lt;/a&gt;0x01 python版本下载&lt;/h1&gt;&lt;p&gt;​        首先，需要到&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://z1r0s.github.io/categories/python/"/>
+    
+    
+      <category term="环境搭建" scheme="https://z1r0s.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>DVWA-SQLInjection</title>
@@ -525,94 +609,6 @@
     
     
       <category term="英语单词" scheme="https://z1r0s.github.io/tags/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>26个字母音标表</title>
-    <link href="https://z1r0s.github.io/2020/09/02/26-ge-zi-mu-yin-biao-biao/"/>
-    <id>https://z1r0s.github.io/2020/09/02/26-ge-zi-mu-yin-biao-biao/</id>
-    <published>2020-09-02T08:31:12.000Z</published>
-    <updated>2020-09-02T08:33:06.447Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;26个字母音标表&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;大写&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;小写&lt;/th&gt;
-&lt;th
-        
-      
-    
-    </summary>
-    
-      <category term="知识宫殿" scheme="https://z1r0s.github.io/categories/%E7%9F%A5%E8%AF%86%E5%AE%AB%E6%AE%BF/"/>
-    
-    
-      <category term="速记基础" scheme="https://z1r0s.github.io/tags/%E9%80%9F%E8%AE%B0%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法基础</title>
-    <link href="https://z1r0s.github.io/2020/09/02/suan-fa-ji-chu/"/>
-    <id>https://z1r0s.github.io/2020/09/02/suan-fa-ji-chu/</id>
-    <published>2020-09-02T08:19:08.000Z</published>
-    <updated>2020-09-02T08:50:30.056Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;算法定义&quot;&gt;&lt;a href=&quot;#算法定义&quot; class=&quot;headerlink&quot; title=&quot;算法定义&quot;&gt;&lt;/a&gt;算法定义&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="https://z1r0s.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="算法" scheme="https://z1r0s.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Typora编辑数学表达式</title>
-    <link href="https://z1r0s.github.io/2020/09/02/zai-typora-bian-ji-shu-xue-biao-da-shi/"/>
-    <id>https://z1r0s.github.io/2020/09/02/zai-typora-bian-ji-shu-xue-biao-da-shi/</id>
-    <published>2020-09-02T08:16:15.000Z</published>
-    <updated>2020-09-02T08:43:01.873Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;编辑器简述&quot;&gt;&lt;a href=&quot;#编辑器简述&quot; class=&quot;headerlink&quot; title=&quot;编辑器简述&quot;&gt;&lt;/a&gt;编辑器简述&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    
-    
-      <category term="Markdown" scheme="https://z1r0s.github.io/tags/Markdown/"/>
-    
-      <category term="Typora" scheme="https://z1r0s.github.io/tags/Typora/"/>
-    
-      <category term="数学表达式" scheme="https://z1r0s.github.io/tags/%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
