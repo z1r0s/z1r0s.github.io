@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-16T01:52:24.043Z</updated>
+  <updated>2020-09-17T01:18:17.047Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DVWA-SQLInjection</title>
+    <link href="https://z1r0s.github.io/2020/09/17/dvwa-sqlinjection/"/>
+    <id>https://z1r0s.github.io/2020/09/17/dvwa-sqlinjection/</id>
+    <published>2020-09-17T01:14:25.000Z</published>
+    <updated>2020-09-17T01:18:17.047Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-概述&quot;&gt;&lt;a href=&quot;#0x01-概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 概述&quot;&gt;&lt;/a&gt;0x01 概述&lt;/h1&gt;&lt;p&gt;​        SQL 注入是指应用程序中数据与操作未作分离，导致将攻击者提交的恶意数据拼写到
+        
+      
+    
+    </summary>
+    
+      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="靶机" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/"/>
+    
+    
+      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
+    
+  </entry>
   
   <entry>
     <title>GitHub渗透测试工具库(2020版)[转]</title>
@@ -77,7 +107,7 @@
     <link href="https://z1r0s.github.io/2020/09/14/dvwa-fileupload/"/>
     <id>https://z1r0s.github.io/2020/09/14/dvwa-fileupload/</id>
     <published>2020-09-14T03:27:30.000Z</published>
-    <updated>2020-09-14T03:47:28.826Z</updated>
+    <updated>2020-09-17T01:18:21.856Z</updated>
     
     <summary type="html">
     
@@ -583,36 +613,6 @@
       <category term="Typora" scheme="https://z1r0s.github.io/tags/Typora/"/>
     
       <category term="数学表达式" scheme="https://z1r0s.github.io/tags/%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git和GitHub</title>
-    <link href="https://z1r0s.github.io/2020/09/02/git-he-github/"/>
-    <id>https://z1r0s.github.io/2020/09/02/git-he-github/</id>
-    <published>2020-09-02T08:04:22.000Z</published>
-    <updated>2020-09-02T08:14:45.751Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;使用GitHub&quot;&gt;&lt;a href=&quot;#使用GitHub&quot; class=&quot;headerlink&quot; title=&quot;使用GitHub&quot;&gt;&lt;/a&gt;使用GitHub&lt;/h1&gt;&lt;h2 id=&quot;目的&quot;&gt;&lt;a href=&quot;#目的&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    
-    
-      <category term="Git" scheme="https://z1r0s.github.io/tags/Git/"/>
-    
-      <category term="GitHub" scheme="https://z1r0s.github.io/tags/GitHub/"/>
-    
-      <category term="代码托管" scheme="https://z1r0s.github.io/tags/%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/"/>
     
   </entry>
   

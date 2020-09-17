@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/09/14/dvwa-fileupload/</loc>
+    
+    <lastmod>2020-09-17T01:18:21.856Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/09/17/dvwa-sqlinjection/</loc>
+    
+    <lastmod>2020-09-17T01:18:17.047Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/</loc>
     
     <lastmod>2020-09-16T01:52:24.043Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://z1r0s.github.io/2020/09/13/dvwa-csrf/</loc>
     
     <lastmod>2020-09-14T03:47:35.815Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/09/14/dvwa-fileupload/</loc>
-    
-    <lastmod>2020-09-14T03:47:28.826Z</lastmod>
     
   </url>
   
@@ -317,14 +324,14 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/categories/index.html</loc>
+    <loc>https://z1r0s.github.io/archives/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/archives/index.html</loc>
+    <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
