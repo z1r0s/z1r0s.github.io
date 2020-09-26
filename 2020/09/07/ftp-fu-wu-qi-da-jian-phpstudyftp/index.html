@@ -477,14 +477,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    435
+                    711
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -547,8 +547,32 @@
 
 
 
+
 </li>
 </ol>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li><strong>权限问题</strong>。在创建FTP用户时需要指定该用户对执行FTP共享目录的操作权限。例如：用户想要删除该目录下的文件时就需要拥有<strong>删除权限，</strong>否则操作不会成功。</li>
+<li><strong>端口问题</strong>。FTP服务默认使用21端口，因此想要连接成功就需要确保21端口开放，这一点对云服务上的操作这是必要操作。</li>
+</ul>
+<h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><ul>
+<li><p>服务器发回了不可路由的地址。使用服务器地址代替</p>
+<p>错误描述：</p>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql">命令:  PASV
+响应:  <span class="token number">227</span> Entering Passive Mode 
+状态:  服务器发回了不可路由的地址。使用服务器地址代替。
+命令:  LIST
+错误:  连接超时
+错误: 读取目录列表失败</code></pre>
+<ul>
+<li><p>解决办法：</p>
+<p>更改Filezilla设置，编辑-&gt;设置-&gt;连接-&gt;FTP-被动模式，将“<strong>使用服务器的外部ip地址来代替</strong>”改为“<strong>回到主动模式</strong>”即可。</p>
+</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://blog.csdn.net/iastro/article/details/31729859" target="_blank" rel="noopener">Filezilla—–服务器发回了不可路由的地址,使用服务器地址代替——-解决办法</a></li>
+</ul>
 
             </div>
             <hr />
@@ -1014,7 +1038,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">107.2k</span>
+            <span class="white-color">107.5k</span>
             
 
             <br>
