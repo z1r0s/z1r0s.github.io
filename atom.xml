@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-28T10:39:03.294Z</updated>
+  <updated>2020-09-28T21:15:49.753Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>攻防世界新手区CRYPTO-writeup</title>
+    <link href="https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-crypto-writeup/"/>
+    <id>https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-crypto-writeup/</id>
+    <published>2020-09-28T21:08:21.000Z</published>
+    <updated>2020-09-28T21:15:49.753Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;001-base64&quot;&gt;&lt;a href=&quot;#001-base64&quot; class=&quot;headerlink&quot; title=&quot;001 base64&quot;&gt;&lt;/a&gt;001 base64&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;0x01 题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​  
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>攻防世界新手区Web-writeup</title>
+    <link href="https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/"/>
+    <id>https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/</id>
+    <published>2020-09-28T21:03:28.000Z</published>
+    <updated>2020-09-28T21:07:30.195Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;001-view-source&quot;&gt;&lt;a href=&quot;#001-view-source&quot; class=&quot;headerlink&quot; title=&quot;001 view_source&quot;&gt;&lt;/a&gt;001 view_source&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://z1r0s.github.io/categories/CTF/"/>
+    
+    
+      <category term="Web" scheme="https://z1r0s.github.io/tags/Web/"/>
+    
+      <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>攻防世界新手区MISC-writeup</title>
+    <link href="https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/"/>
+    <id>https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/</id>
+    <published>2020-09-28T14:55:16.000Z</published>
+    <updated>2020-09-28T21:03:54.453Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;001-this-is-flag&quot;&gt;&lt;a href=&quot;#001-this-is-flag&quot; class=&quot;headerlink&quot; title=&quot;001 this_is_flag&quot;&gt;&lt;/a&gt;001 this_is_flag&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://z1r0s.github.io/categories/CTF/"/>
+    
+    
+      <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
+    
+      <category term="MISC" scheme="https://z1r0s.github.io/tags/MISC/"/>
+    
+  </entry>
   
   <entry>
     <title>常规信息收集之真实IP</title>
@@ -182,9 +261,9 @@
       <category term="python" scheme="https://z1r0s.github.io/categories/python/"/>
     
     
-      <category term="环境搭建" scheme="https://z1r0s.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    
       <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="环境搭建" scheme="https://z1r0s.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
@@ -505,102 +584,6 @@
       <category term="FTP" scheme="https://z1r0s.github.io/tags/FTP/"/>
     
       <category term="IIS" scheme="https://z1r0s.github.io/tags/IIS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL注入笔记</title>
-    <link href="https://z1r0s.github.io/2020/09/07/sql-zhu-ru-bi-ji/"/>
-    <id>https://z1r0s.github.io/2020/09/07/sql-zhu-ru-bi-ji/</id>
-    <published>2020-09-07T02:33:43.000Z</published>
-    <updated>2020-09-07T02:57:13.322Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;SQL注入介绍&quot;&gt;&lt;a href=&quot;#SQL注入介绍&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="https://z1r0s.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Web%E5%AE%89%E5%85%A8/"/>
-    
-    
-      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
-    
-      <category term="安全" scheme="https://z1r0s.github.io/tags/%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="笔记" scheme="https://z1r0s.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决BurpSuite Response中文乱码</title>
-    <link href="https://z1r0s.github.io/2020/09/05/jie-jue-burpsuite-response-zhong-wen-luan-ma/"/>
-    <id>https://z1r0s.github.io/2020/09/05/jie-jue-burpsuite-response-zhong-wen-luan-ma/</id>
-    <published>2020-09-05T12:16:31.000Z</published>
-    <updated>2020-09-07T03:01:24.484Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
-    
-    
-      <category term="编码" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81/"/>
-    
-      <category term="BurpSuite" scheme="https://z1r0s.github.io/tags/BurpSuite/"/>
-    
-      <category term="字体" scheme="https://z1r0s.github.io/tags/%E5%AD%97%E4%BD%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>字母编码系统-动物版</title>
-    <link href="https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong-dong-wu-ban/"/>
-    <id>https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong-dong-wu-ban/</id>
-    <published>2020-09-02T09:29:13.000Z</published>
-    <updated>2020-09-02T09:30:00.272Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;字母&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;编码(汉字)&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;编码(英文)&lt;/th&gt;
-&lt;th
-        
-      
-    
-    </summary>
-    
-      <category term="知识宫殿" scheme="https://z1r0s.github.io/categories/%E7%9F%A5%E8%AF%86%E5%AE%AB%E6%AE%BF/"/>
-    
-    
-      <category term="字母编码" scheme="https://z1r0s.github.io/tags/%E5%AD%97%E6%AF%8D%E7%BC%96%E7%A0%81/"/>
-    
-      <category term="编码系统" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A0%81%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
