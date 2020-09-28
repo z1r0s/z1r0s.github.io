@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title>常规信息收集之真实IP</title>
+      <link href="/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/"/>
+      <url>/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/</url>
+      
+        <content type="html"><![CDATA[<h1 id="查找CDN背后的真实IP"><a href="#查找CDN背后的真实IP" class="headerlink" title="查找CDN背后的真实IP"></a>查找CDN背后的真实IP</h1><p><strong>第三方搜索引擎</strong>：</p><ul><li><a href="https://www.zoomeye.org/" target="_blank" rel="noopener">钟馗之眼</a></li><li><a href="https://censys.io/" target="_blank" rel="noopener">Censys</a></li><li><a href="https://www.shodan.io/" target="_blank" rel="noopener">Shodan</a></li><li><a href="https://dnsdb.io/zh-cn/" target="_blank" rel="noopener">全球DNS搜索引擎</a></li><li><a href="https://fofa.so/" target="_blank" rel="noopener">FOFA</a></li><li><a href="http://lookahead.surfwax.com/" target="_blank" rel="noopener">SurfWax</a></li><li><a href="archive.org/web/">Way Back Machine(搜索网站过去的样子)</a></li><li><a href="http://scholar.google.com.ph/" target="_blank" rel="noopener">Google学术</a></li></ul><p><strong>让网站与你主动建立连接</strong>：</p><p>example：订阅网站、RSS、注册链接</p><p>方法：查看邮件源代码（也有一种可能就是邮件服务器IP跟Web服务器只是在一个C段上，这时候就需要对整个C段进行扫描）</p><p>缺点：目标站使用其他邮箱接口此方法则失效</p><p>步骤：</p><ol><li>使用邮箱注册网站用户时一般会将验证码或验证链接发送到邮箱，下图为<a href="https://www.gushiwen.cn/" target="_blank" rel="noopener">古诗文网</a>注册时收到的验证码邮件信息。</li></ol><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/IP/收到古诗文网验证码邮件.png" alt="收到古诗文网验证码邮件"></center><ol start="2"><li>点击显示邮件原文选项，展示效果如下图所示。</li></ol><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/IP/显示邮件原文.png" alt="显示邮件原文"></center>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信息收集 </category>
+          
+          <category> 渗透测试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 信息收集 </tag>
+            
+            <tag> IP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>查看已连接的WiFi密码</title>
+      <link href="/2020/09/28/cha-kan-yi-lian-jie-de-wifi-mi-ma/"/>
+      <url>/2020/09/28/cha-kan-yi-lian-jie-de-wifi-mi-ma/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>​        有将WLAN设置为<strong>在信号范围内自动连接</strong>的习惯，今天想在一个新设备上连接WiFi时发现忘记密码了。<code>(:-……</code></p><h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>​        现在有一台电脑和一部手机已经连接到WiFi上，在不直接去路由器中查看WiFi密码或使用WiFi破解工具的情况下，想通过查看已连接设备中存储的WiFi密码来得到WiFi密码。</p><h1 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h1><h2 id="电脑端"><a href="#电脑端" class="headerlink" title="电脑端"></a>电脑端</h2><p><strong>环境</strong>：</p><ul><li>系统：Windows10</li><li>热点：CMCC-335574918</li></ul><p><strong>步骤</strong>：</p><ol><li><p>连接SSID为<code>CMCC-335574918</code>的热点，然后点击【网路和Internet设置】，打开网络和Internet设置界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/网络和Internet设置界面.png" alt="网络和Internet设置界面"></center></li><li><p>点击【网络和共享中心】，打开网络和共享中心设置界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/网络和共享中心界面.png" alt="网络和共享中心界面"></center></li><li><p>点击已连接的WLAN(CMCC-335574918)后显示WLAN状态界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/WLAN状态界面.png" alt="WLAN状态界面"></center></li><li><p>点击【无线属性按钮】后显示CMCC-335574918无线网络属性界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/无线网络属性界面.png" alt="无线网络属性界面"></center></li><li><p>点击【安全】选项卡后显示无线网络安全对应信息。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/无线网络安全选项卡.png" alt="无线网络安全选项卡"></center></li><li><p>勾选显示字符选项，即可查看CMCC-335574918无线网络的密码。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/查看无线网络密码.png" alt="查看无线网络密码"></center></li></ol><h2 id="手机端"><a href="#手机端" class="headerlink" title="手机端"></a>手机端</h2><p><strong>环境</strong>：</p><ul><li>系统：Android</li><li>热点：CMCC-EDU</li></ul><p><strong>步骤</strong>：</p><ol><li><p>确保无线已连接成功。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/连接WiFi.png" alt="连接WiFi"></center></li><li><p>点击手机的设置图标，进入设置界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/设置界面.jpg" alt="设置界面"></center></li><li><p>点击无线网络选项后进入无线网络界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/无线网络界面.png" alt="无线网络界面"></center></li><li><p>找到已连接的WiFi并点击详情图标。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/无线网络详情.png" alt="无线网络详情"></center></li><li><p>点击界面中的分享网络，接着会生成一个二维码，截图保存。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/无线二维码.jpg" alt="无线二维码"></center></li><li><p>使用微信扫一扫功能，扫描截取的二维码，得到无线密码信息。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/无线密码.png" alt="无线密码"></center></li></ol><h1 id="问题反思"><a href="#问题反思" class="headerlink" title="问题反思"></a>问题反思</h1><ul><li>人的记忆存在一点的有效期，某些记忆在一定时间后会被遗忘。因此我们可以选好记或印象深刻的信息作为密码。</li><li>在设置密码时不要设置简单常用的密码，防止密码被爆破成功。</li><li>对于种类繁多的密码，我们可以密码管理工具帮助我们整理和存储密码。</li><li>已连接的WiFi密码会存储在设备上，我们可以通过简单的操作得到已连接WiFi的密码。</li><li><font color="red">对于一个未知密码的热点，我们可以使用WiFi万能钥匙或其他工具先连接上该热点，再通过扫描分享网络的二维码得到该热点的密码。</font></li></ul><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://baike.baidu.com/item/Wi-Fi/151036" target="_blank" rel="noopener">Wi-Fi(无线上网)</a></li><li><a href="https://guanjia.qq.com/web_clinic/s4/1224.html" target="_blank" rel="noopener">在Win10中，怎么查看已连接wifi密码？</a></li><li><a href="https://jingyan.baidu.com/article/3065b3b6536f63becff8a484.html" target="_blank" rel="noopener">如何查看手机已连接的wifi密码？</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> dubug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WIFI </tag>
+            
+            <tag> 密码 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常规信息收集之域名</title>
+      <link href="/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/"/>
+      <url>/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/</url>
+      
+        <content type="html"><![CDATA[<h1 id="域名收集"><a href="#域名收集" class="headerlink" title="域名收集"></a>域名收集</h1><h2 id="子域名发现原理"><a href="#子域名发现原理" class="headerlink" title="子域名发现原理"></a>子域名发现原理</h2><ul><li>利用搜索引擎<ul><li>网页搜索引擎（如：google等）</li><li>空间搜索引擎（如：Shodan等）</li><li>SSL证书（如：crt.sh等）</li></ul></li><li>爆破<ul><li>直接访问子域名</li><li>利用DNS请求</li></ul></li><li>其他泄露信息<ul><li>crossdomain.xml文件等</li><li>爬虫递归爬取等</li><li>DNS域传送漏洞等</li></ul></li></ul><h1 id="备案号查询"><a href="#备案号查询" class="headerlink" title="备案号查询"></a>备案号查询</h1><p>​        备案号是网站是否合法注册经营的标志，可随时到国家工业和信息化部网站备案系统上查询该ICP备案的相关详细信息。</p><p>网址：<a href="http://www.beianbeian.com/" target="_blank" rel="noopener">ICP备案查询网</a></p><ul><li>查询<code>www.baidu.com</code>域名的备案信息。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/网站域名备案信息查询.png" alt="网站域名备案信息查询"></center><ul><li>点击【反查】，得到百度公司其他网站域名信息。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/备案号反查结果.png" alt="备案号反查结果"></center><h1 id="暴力枚举"><a href="#暴力枚举" class="headerlink" title="暴力枚举"></a>暴力枚举</h1><h2 id="Layer子域名挖掘机5-0-SAINTSEC更新版"><a href="#Layer子域名挖掘机5-0-SAINTSEC更新版" class="headerlink" title="Layer子域名挖掘机5.0 SAINTSEC更新版"></a>Layer子域名挖掘机5.0 SAINTSEC更新版</h2><p><strong>Author</strong>：<code>Seay</code></p><p><strong>Modify</strong>：<code>akast、dark3r</code></p><p><strong>描述</strong>：</p><ul><li><p>支持服务接口、暴力搜索、同服挖掘三种模式</p></li><li><p>支持打开网站、复制域名、复制IP、复制CDN</p></li><li><p>支持导出检测结果等功能</p></li><li><p>速度比较快，但比较吃带宽</p></li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/Layer爆破结果.png" alt="Layer爆破结果"></center><h2 id="subDomainsBrute"><a href="#subDomainsBrute" class="headerlink" title="subDomainsBrute"></a>subDomainsBrute</h2><p><strong>Author</strong>：李劼杰</p><p><strong>描述</strong>：</p><ul><li>这个脚本的主要目的是发现其他工具无法探测到的域名，如Google、aizhan、fofa。</li><li>高频扫描每秒DNS请求数可超过1000次</li></ul><p><strong>Download Link</strong>：</p><ul><li><a href="https://github.com/lijiejie/subDomainsBrute" target="_blank" rel="noopener">subDomainsBrute</a></li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/subDomainBrute爆破结束.png" alt="subDomainBrute爆破结束"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/subDomainBrute爆破结果展示.png" alt="subDomainBrute爆破结果展示"></center><h1 id="SSL证书查询"><a href="#SSL证书查询" class="headerlink" title="SSL证书查询"></a>SSL证书查询</h1><h2 id="censys-io"><a href="#censys-io" class="headerlink" title="censys.io"></a>censys.io</h2><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/censys子域名查询.png" alt="censys子域名查询"></center><h2 id="crt-sh"><a href="#crt-sh" class="headerlink" title="crt.sh"></a>crt.sh</h2><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/crt.sh.png" alt="crt.sh"></center><h2 id="dnsdumpster-com"><a href="#dnsdumpster-com" class="headerlink" title="dnsdumpster.com"></a>dnsdumpster.com</h2><ul><li>DNS服务器</li><li>MX记录</li><li>主机记录</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/IP地址分布.png" alt="IP地址分布"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/查询到的记录.png" alt="查询到的记录"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/查询域名关系图.png" alt="查询域名关系图"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/查询域名关系图(局部).png" alt="查询域名关系图(局部)"></center><h2 id="证书泄密"><a href="#证书泄密" class="headerlink" title="证书泄密"></a>证书泄密</h2><p>工具：火狐浏览器</p><p>操作：</p><ul><li>访问一个https的链接可能出现</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/面临潜在的安全风险.png" alt="面临潜在的安全风险"></center><ul><li>点击【高级…】按钮。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/高级选项.png" alt="高级选项"></center><h1 id="第三方接口"><a href="#第三方接口" class="headerlink" title="第三方接口"></a>第三方接口</h1><h2 id="shodan-io"><a href="#shodan-io" class="headerlink" title="shodan.io"></a>shodan.io</h2><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/shodan域名查询.png" alt="shodan域名查询"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/shodan主机名查询.png" alt="shodan主机名查询"></center><h2 id="fofa-so"><a href="#fofa-so" class="headerlink" title="fofa.so"></a>fofa.so</h2><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/fofa域名查询.png" alt="fofa域名查询"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/InfoGathering/Domain/fofa标题查询.png" alt="fofa标题查询"></center>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信息收集 </category>
+          
+          <category> 渗透测试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 信息收集 </tag>
+            
+            <tag> 域名收集 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决rsatool-py脚本报错</title>
       <link href="/2020/09/17/jie-jue-rsatool-py-jiao-ben-bao-cuo/"/>
       <url>/2020/09/17/jie-jue-rsatool-py-jiao-ben-bao-cuo/</url>
@@ -20,9 +105,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> rsa </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -74,9 +159,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 环境搭建 </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -796,11 +881,11 @@
       
         <tags>
             
-            <tag> 网络基础 </tag>
-            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
+            
+            <tag> 网络基础 </tag>
             
         </tags>
       
@@ -1117,9 +1202,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
