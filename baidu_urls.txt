@@ -1,3 +1,7 @@
+https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/
+https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-lu-jing/
+https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-zhi-wen/
+https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/
 https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-crypto-writeup/
 https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/
 https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/

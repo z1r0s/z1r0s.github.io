@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-28T21:15:49.753Z</updated>
+  <updated>2020-09-29T02:33:03.461Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,138 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL注入常用函数</title>
+    <link href="https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/"/>
+    <id>https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/</id>
+    <published>2020-09-29T02:25:05.000Z</published>
+    <updated>2020-09-29T02:33:03.461Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;函数&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="SQL注入" scheme="https://z1r0s.github.io/categories/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/SQL%E6%B3%A8%E5%85%A5/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
+    
+      <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常规信息收集之路径</title>
+    <link href="https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-lu-jing/"/>
+    <id>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-lu-jing/</id>
+    <published>2020-09-29T00:26:38.000Z</published>
+    <updated>2020-09-29T02:03:07.818Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;状态码浅析&quot;&gt;&lt;a href=&quot;#状态码浅析&quot; class=&quot;headerlink&quot; title=&quot;状态码浅析&quot;&gt;&lt;/a&gt;状态码浅析&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;200
+        
+      
+    
+    </summary>
+    
+      <category term="信息收集" scheme="https://z1r0s.github.io/categories/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="信息收集" scheme="https://z1r0s.github.io/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    
+      <category term="路径" scheme="https://z1r0s.github.io/tags/%E8%B7%AF%E5%BE%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常规信息收集之指纹</title>
+    <link href="https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-zhi-wen/"/>
+    <id>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-zhi-wen/</id>
+    <published>2020-09-28T23:58:38.000Z</published>
+    <updated>2020-09-29T00:23:29.066Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;指纹&quot;&gt;&lt;a href=&quot;#指纹&quot; class=&quot;headerlink&quot; title=&quot;指纹&quot;&gt;&lt;/a&gt;指纹&lt;/h1&gt;&lt;h1 id=&quot;收集方法&quot;&gt;&lt;a href=&quot;#收集方法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="信息收集" scheme="https://z1r0s.github.io/categories/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="信息收集" scheme="https://z1r0s.github.io/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    
+      <category term="指纹" scheme="https://z1r0s.github.io/tags/%E6%8C%87%E7%BA%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常规信息收集之端口</title>
+    <link href="https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/"/>
+    <id>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/</id>
+    <published>2020-09-28T21:54:46.000Z</published>
+    <updated>2020-09-28T23:59:30.539Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;常用端口安全风险&quot;&gt;&lt;a href=&quot;#常用端口安全风险&quot; class=&quot;headerlink&quot; title=&quot;常用端口安全风险&quot;&gt;&lt;/a&gt;常用端口安全风险&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th
+        
+      
+    
+    </summary>
+    
+      <category term="信息收集" scheme="https://z1r0s.github.io/categories/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="信息收集" scheme="https://z1r0s.github.io/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    
+      <category term="端口" scheme="https://z1r0s.github.io/tags/%E7%AB%AF%E5%8F%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>攻防世界新手区CRYPTO-writeup</title>
@@ -61,9 +193,9 @@
       <category term="CTF" scheme="https://z1r0s.github.io/categories/CTF/"/>
     
     
-      <category term="Web" scheme="https://z1r0s.github.io/tags/Web/"/>
-    
       <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
+    
+      <category term="Web" scheme="https://z1r0s.github.io/tags/Web/"/>
     
   </entry>
   
@@ -89,9 +221,9 @@
       <category term="CTF" scheme="https://z1r0s.github.io/categories/CTF/"/>
     
     
-      <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
-    
       <category term="MISC" scheme="https://z1r0s.github.io/tags/MISC/"/>
+    
+      <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
     
   </entry>
   
@@ -100,7 +232,7 @@
     <link href="https://z1r0s.github.io/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/"/>
     <id>https://z1r0s.github.io/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/</id>
     <published>2020-09-28T09:59:29.000Z</published>
-    <updated>2020-09-28T10:39:03.294Z</updated>
+    <updated>2020-09-28T21:53:24.626Z</updated>
     
     <summary type="html">
     
@@ -205,9 +337,9 @@
       <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
     
     
-      <category term="rsa" scheme="https://z1r0s.github.io/tags/rsa/"/>
-    
       <category term="python" scheme="https://z1r0s.github.io/tags/python/"/>
+    
+      <category term="rsa" scheme="https://z1r0s.github.io/tags/rsa/"/>
     
   </entry>
   
@@ -261,9 +393,9 @@
       <category term="python" scheme="https://z1r0s.github.io/categories/python/"/>
     
     
-      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
-    
       <category term="环境搭建" scheme="https://z1r0s.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
     
   </entry>
   
@@ -470,120 +602,6 @@
       <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
     
       <category term="命令执行" scheme="https://z1r0s.github.io/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DVWA-BruteForce</title>
-    <link href="https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/"/>
-    <id>https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/</id>
-    <published>2020-09-12T00:09:08.000Z</published>
-    <updated>2020-09-14T02:39:00.517Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-漏洞概述&quot;&gt;&lt;a href=&quot;#0x01-漏洞概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 漏洞概述&quot;&gt;&lt;/a&gt;0x01 漏洞概述&lt;/h1&gt;&lt;p&gt;​        Brute
-        
-      
-    
-    </summary>
-    
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="靶机" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/"/>
-    
-    
-      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
-    
-      <category term="BruteForce" scheme="https://z1r0s.github.io/tags/BruteForce/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ciscp Packet Tracer实验及实训</title>
-    <link href="https://z1r0s.github.io/2020/09/09/cisco-packet-tracer-shi-yan-ji-shi-xun/"/>
-    <id>https://z1r0s.github.io/2020/09/09/cisco-packet-tracer-shi-yan-ji-shi-xun/</id>
-    <published>2020-09-09T04:00:42.000Z</published>
-    <updated>2020-09-11T09:31:26.386Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;第1章-实验基础&quot;&gt;&lt;a href=&quot;#第1章-实验基础&quot; class=&quot;headerlink&quot; title=&quot;第1章 实验基础&quot;&gt;&lt;/a&gt;第1章 实验基础&lt;/h1&gt;&lt;p&gt;​        Ciscp Packet
-        
-      
-    
-    </summary>
-    
-      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="网络基础" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
-    
-      <category term="Cisco" scheme="https://z1r0s.github.io/tags/Cisco/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>FTP服务器搭建(phpstudyftp)</title>
-    <link href="https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/"/>
-    <id>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/</id>
-    <published>2020-09-07T04:50:46.000Z</published>
-    <updated>2020-09-26T09:12:13.887Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;FTP服务&quot;&gt;&lt;a href=&quot;#FTP服务&quot; class=&quot;headerlink&quot; title=&quot;FTP服务&quot;&gt;&lt;/a&gt;FTP服务&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    
-    
-      <category term="FTP" scheme="https://z1r0s.github.io/tags/FTP/"/>
-    
-      <category term="PHPStudyFTP" scheme="https://z1r0s.github.io/tags/PHPStudyFTP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>FTP服务器搭建-IIS</title>
-    <link href="https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-iis/"/>
-    <id>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-iis/</id>
-    <published>2020-09-07T03:21:58.000Z</published>
-    <updated>2020-09-26T09:12:50.342Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;FTP服务&quot;&gt;&lt;a href=&quot;#FTP服务&quot; class=&quot;headerlink&quot; title=&quot;FTP服务&quot;&gt;&lt;/a&gt;FTP服务&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    
-    
-      <category term="FTP" scheme="https://z1r0s.github.io/tags/FTP/"/>
-    
-      <category term="IIS" scheme="https://z1r0s.github.io/tags/IIS/"/>
     
   </entry>
   
