@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-09-29T02:33:03.461Z</updated>
+  <updated>2020-10-04T09:28:51.626Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PDF文件中失效链接修改</title>
+    <link href="https://z1r0s.github.io/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/"/>
+    <id>https://z1r0s.github.io/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/</id>
+    <published>2020-10-04T08:29:22.000Z</published>
+    <updated>2020-10-04T09:28:51.626Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-简介&quot;&gt;&lt;a href=&quot;#0x01-简介&quot; class=&quot;headerlink&quot; title=&quot;0x01 简介&quot;&gt;&lt;/a&gt;0x01 简介&lt;/h1&gt;&lt;h2 id=&quot;PDF&quot;&gt;&lt;a href=&quot;#PDF&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技巧" scheme="https://z1r0s.github.io/categories/%E6%8A%80%E5%B7%A7/"/>
+    
+    
+      <category term="PDF" scheme="https://z1r0s.github.io/tags/PDF/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL注入常用函数</title>
@@ -393,9 +419,9 @@
       <category term="python" scheme="https://z1r0s.github.io/categories/python/"/>
     
     
-      <category term="环境搭建" scheme="https://z1r0s.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    
       <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="环境搭建" scheme="https://z1r0s.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
@@ -572,36 +598,6 @@
       <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
     
       <category term="SCRF" scheme="https://z1r0s.github.io/tags/SCRF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DVWA-CommandInjection</title>
-    <link href="https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/"/>
-    <id>https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/</id>
-    <published>2020-09-12T12:40:09.000Z</published>
-    <updated>2020-09-13T01:04:47.098Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-漏洞概述&quot;&gt;&lt;a href=&quot;#0x01-漏洞概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 漏洞概述&quot;&gt;&lt;/a&gt;0x01 漏洞概述&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="靶机" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/"/>
-    
-    
-      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
-    
-      <category term="命令执行" scheme="https://z1r0s.github.io/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
     
   </entry>
   

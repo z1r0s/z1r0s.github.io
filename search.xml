@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>PDF文件中失效链接修改</title>
+      <link href="/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/"/>
+      <url>/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-简介"><a href="#0x01-简介" class="headerlink" title="0x01 简介"></a>0x01 简介</h1><h2 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h2><p>​        <strong>PDF</strong>（<strong>Portable Document Format</strong>的简称，意为“可携带文档格式”），是由Adobe Systems用于与应用程序、操作系统、硬件无关的方式进行文件交换所发展出的文件格式。PDF文件以PostScript语言图象模型为基础，无论在哪种打印机上都可保证精确的颜色和准确的打印效果，即PDF会忠实地再现原稿的每一个字符、颜色以及图象。</p><p>​        Adobe公司设计PDF文件格式的目的，是跨平台支持多媒体集成信息的出版和发布，尤其是提供对网络信息发布的支持。为了达到此目的， PDF具有许多其他电子文档格式无法相比的优点。PDF文件格式可以将文字、字型、格式、颜色及独立于设备和分辨率的图形图像等封装在一个文件中。该格式文件还可以包含<a href="https://baike.baidu.com/item/超文本链接/9705990" target="_blank" rel="noopener">超文本链接</a>、声音和动态影像等电子信息，支持特长文件，集成度和安全可靠性都较高。</p><p>​        对普通读者而言，用PDF制作的电子书具有纸版书的质感和阅读效果，可以逼真地展现原书的原貌，而显示大小可任意调节，给读者提供了个性化的阅读方式。</p><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>​        这里的链接具体值的是超文本链接(Hypertext link)也即超链接，是指用文字链接的形式来指向一个页面。超链接可以是一个<strong>URL</strong>、文件地址，也可以是一个邮件链接。</p><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>​        超链接是文件中常用到的一种引用跳转、打开引文等操作的方式，在PDF文件也可以实现超链接的跳转效果。超链接地址因为是跳转到外部页面，所以无法保证跳转的链接是否有效或失效，在Word、Markdown等文本文件中若超链接失效则只需要打开文件修改对应超链接地址即可，但是对于一些二进制文件，如：PDF文件等，其中的失效超链接就需要使用一些PDF编辑器来修改其中的链接。</p><h1 id="0x02-环境"><a href="#0x02-环境" class="headerlink" title="0x02 环境"></a>0x02 环境</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul><li>PDF编辑软件：FoxitPhantomPDF</li></ul><h2 id="失效链接"><a href="#失效链接" class="headerlink" title="失效链接"></a>失效链接</h2><ul><li>当鼠标指向超链接位置时，鼠标会变成一个手型。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Ingenuity/PDFLinks/PDF超链接.png" alt="PDF超链接"></center><ul><li>单击超链接即可在浏览器中打开指定链接。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Ingenuity/PDFLinks/超链接失效.png" alt="超链接失效"></center><h1 id="0x03-操作"><a href="#0x03-操作" class="headerlink" title="0x03 操作"></a>0x03 操作</h1><ol><li><p>查找一个新的替换链接并复制。如：脚本之家网站中的一篇《Safari浏览器代理设置》-<a href="https://www.jb51.net/softjc/644282.html。" target="_blank" rel="noopener">https://www.jb51.net/softjc/644282.html。</a></p></li><li><p>使用<strong>FoxitPhantomPDF</strong>打开待修改的PDF文件，【编辑】-&gt; 【链接】，右键待修改的超链接并选择【属性】选项。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Ingenuity/PDFLinks/打开链接属性选项.png" alt="打开链接属性选项"></center></li><li><p>选择【动作】选项卡，选中链接后单击【编辑】按钮，将失效链接替换成我们新查找到的链接。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Ingenuity/PDFLinks/替换失效链接.png" alt="替换失效链接"></center></li><li><p>重新单击超链接即可在浏览器中打开指定链接。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Ingenuity/PDFLinks/成功打开超链接.png" alt="成功打开超链接"></center></li></ol><h1 id="0x04-参考链接"><a href="#0x04-参考链接" class="headerlink" title="0x04 参考链接"></a>0x04 参考链接</h1><ul><li><a href="https://baike.baidu.com/item/pdf/317608?fr=aladdin" target="_blank" rel="noopener">pdf(便携式文档格式）</a></li><li><a href="https://baike.baidu.com/item/%E8%B6%85%E6%96%87%E6%9C%AC%E9%93%BE%E6%8E%A5/9705990" target="_blank" rel="noopener">超文本链接</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PDF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MySQL注入常用函数</title>
       <link href="/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/"/>
       <url>/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/</url>
@@ -342,9 +367,9 @@
       
         <tags>
             
-            <tag> 环境搭建 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> 环境搭建 </tag>
             
         </tags>
       
@@ -1385,9 +1410,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
