@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/</loc>
+    
+    <lastmod>2020-10-04T07:41:58.907Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/</loc>
     
     <lastmod>2020-09-29T02:33:03.461Z</lastmod>
@@ -145,13 +152,6 @@
     <loc>https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/</loc>
     
     <lastmod>2020-09-14T02:39:00.517Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/</loc>
-    
-    <lastmod>2020-09-13T01:41:23.680Z</lastmod>
     
   </url>
   
