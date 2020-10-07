@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>记一次被打经历</title>
+      <link href="/2020/10/06/ji-yi-ci-bei-da-jing-li/"/>
+      <url>/2020/10/06/ji-yi-ci-bei-da-jing-li/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>​        最初学习安全的小白大部分都会拿一些靶场来练习技术，靶场可以放在虚拟机中也可以放在云服务器中。刚好华为云做活动撸到三个月的服务器使用时间，于是就在华为云上搭建了一些安全靶场。</p><p>​        在某一个安全群里面拉了几个小伙伴加入安全讨论组，作为贡献我就把自己搭的靶场分享给了他们。最初说的是人数在5人左右，后来越拉越多人数不受控制，我也就潜水了。</p><h1 id="0x02-起因"><a href="#0x02-起因" class="headerlink" title="0x02 起因"></a>0x02 起因</h1><p>​        今天访问我的服务器靶场时，发现网站的首页被人篡改。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/主页被篡改.png" alt="主页被篡改"></center><p>​        于是就马上登上服务器去查看一下，发现网站主页内容被修改成下图所示内容，确定服务器被黑。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/首页内容被篡改.png" alt="首页内容被篡改"></center><p>​        (这TM黑就黑了吧，还留下这么一句很嚣张的话)</p><h1 id="0x03-发展"><a href="#0x03-发展" class="headerlink" title="0x03 发展"></a>0x03 发展</h1><p>​        既然这个人这么嚣张，应该是渗透的很完美没有留下痕迹，于是就去排查一下系统。</p><ul><li>既然渗透成功作为后渗透的手段都会留下后门，先使用<code>net user</code>查看一下当前系统中存在哪些用户，结果一个很明显的名为：<code>mel</code>的异常账户。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/netuser命令执行结果.png" alt="netuser命令执行结果"></center><ul><li>接着使用<code>net user mel</code>命令查看<code>mel</code>账户相关信息，发现该账户为管理员账户于今天3点左右创建。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/mel账户信息.png" alt="mel账户信息"></center><ul><li>发现存在异常账户后，下一步就去查看系统的日志信息。在运行框中输入<code>eventvwr</code>打开<code>事件查看器</code>主界面。查看Windows中的安全日志时发现在此之前所有的日志信息都被删除掉了。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/Windows安全日志被删除.png" alt="Windows安全日志被删除"></center><ul><li>日志有很多种类，安全日志被清除，但是其他程序的日志信息可能还存在，查找后发现<code>远程桌面服务</code>中有几条<code>mel</code>账号在3点左右的信息。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/远程桌面服务日志.png" alt="远程桌面服务日志"></center><ul><li>在我查看华为云的云服务器控制台时，系统也提示了“账户异地登录”，发现<code>mel</code>账户确实登陆过本服务器。（就在我开始写这片文章时，另一个名为<code>ad</code>的账户刚刚创建，嚣张呀）</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/账户异地登陆.png" alt="账户异地登陆"></center><ul><li>里面显示了异常登录的源IP地址为：<code>222.222.147.62</code>，社工查了一下IP的地址。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/IPLocal.png" alt="IPLocal"></center><ul><li>测试该IP地址发现不存活。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/主机不存活.png" alt="主机不存活"></center><ul><li>使用<code>nmap -Pn 222.222.147.62</code>仍不能准确测试。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/nmap-Pn扫描结果.png" alt="nmap-Pn扫描结果"></center><h1 id="0x04-高潮"><a href="#0x04-高潮" class="headerlink" title="0x04 高潮"></a>0x04 高潮</h1><ul><li>在phpstudy的网站目录下有其写入或修改的多个文件。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/恶意文件.png" alt="恶意文件"></center><ul><li><code>index.html</code>文件内容已经查看过，现在去查看一下<code>j.php</code>和<code>ll.php</code>文件里面的内容。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/恶意文件内容.png" alt="恶意文件内容"></center><ul><li>通过上图发现文件里面都有一句相似的木马，下面使用菜刀测试一下连接。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/菜刀连接.png" alt="菜刀连接"></center><ul><li>尝试使用菜刀虚拟终端创建账户。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/创建账户.png" alt="创建账户"></center><ul><li>由于网站权限比较高，创建的额用户为系统权限。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/新增的本地账户.png" alt="新增的本地账户"></center><ul><li>其中可以看到<code>mel</code>账号的权限比较高为<code>管理员</code>权限，因此其还使用了提权工具提升了账户的权限。</li></ul><h1 id="0x05-结尾"><a href="#0x05-结尾" class="headerlink" title="0x05 结尾"></a>0x05 结尾</h1><p>​        使用<code>systeminfo</code>命令查看系统已安装的补丁，如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Diary/hacker/hacked/系统补丁.png" alt="系统补丁"></center><p>虽然已经安装了将近两百个补丁，但是仍然有很多漏洞，日志文件被清理，也没有在系统中安装监控软件，不能确定其是从那里进入。(主要是太菜了)</p><h1 id="0x06-感想"><a href="#0x06-感想" class="headerlink" title="0x06 感想"></a>0x06 感想</h1><ul><li>技术太菜，被动挨打</li><li>信息外泄，鱼龙混杂</li><li>内网穿透，不屑嘲讽</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 渗透测试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hacked </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PDF文件中失效链接修改</title>
       <link href="/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/"/>
       <url>/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/</url>

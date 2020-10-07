@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-10-04T09:28:51.626Z</updated>
+  <updated>2020-10-07T01:05:58.597Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记一次被打经历</title>
+    <link href="https://z1r0s.github.io/2020/10/06/ji-yi-ci-bei-da-jing-li/"/>
+    <id>https://z1r0s.github.io/2020/10/06/ji-yi-ci-bei-da-jing-li/</id>
+    <published>2020-10-06T11:33:34.000Z</published>
+    <updated>2020-10-07T01:05:58.597Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-背景&quot;&gt;&lt;a href=&quot;#0x01-背景&quot; class=&quot;headerlink&quot; title=&quot;0x01 背景&quot;&gt;&lt;/a&gt;0x01 背景&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="Hacked" scheme="https://z1r0s.github.io/tags/Hacked/"/>
+    
+  </entry>
   
   <entry>
     <title>PDF文件中失效链接修改</title>
@@ -568,36 +594,6 @@
       <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
     
       <category term="文件包含" scheme="https://z1r0s.github.io/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DVWA-CSRF</title>
-    <link href="https://z1r0s.github.io/2020/09/13/dvwa-csrf/"/>
-    <id>https://z1r0s.github.io/2020/09/13/dvwa-csrf/</id>
-    <published>2020-09-12T23:54:10.000Z</published>
-    <updated>2020-09-14T03:47:35.815Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-漏洞概述&quot;&gt;&lt;a href=&quot;#0x01-漏洞概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 漏洞概述&quot;&gt;&lt;/a&gt;0x01 漏洞概述&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="靶机" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/"/>
-    
-    
-      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
-    
-      <category term="SCRF" scheme="https://z1r0s.github.io/tags/SCRF/"/>
     
   </entry>
   
