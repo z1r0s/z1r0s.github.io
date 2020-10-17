@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-10-17T12:01:16.652Z</updated>
+  <updated>2020-10-17T22:46:25.263Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL注入之GET-ErrorBasd-SingleQuotesWithTwist-String</title>
+    <link href="https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/"/>
+    <id>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/</id>
+    <published>2020-10-17T12:12:02.000Z</published>
+    <updated>2020-10-17T22:46:25.263Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-SQL注入&quot;&gt;&lt;a href=&quot;#0x01-SQL注入&quot; class=&quot;headerlink&quot; title=&quot;0x01 SQL注入&quot;&gt;&lt;/a&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/categories/SQLi/"/>
+    
+    
+      <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL注入之GET-ErrorBasd-IntigerBased</title>
@@ -38,9 +66,9 @@
       <category term="SQLi" scheme="https://z1r0s.github.io/categories/SQLi/"/>
     
     
-      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
-    
       <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
     
   </entry>
   
@@ -66,9 +94,9 @@
       <category term="SQLi" scheme="https://z1r0s.github.io/categories/SQLi/"/>
     
     
-      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
-    
       <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
     
   </entry>
   
@@ -156,9 +184,9 @@
       <category term="渗透测试" scheme="https://z1r0s.github.io/categories/SQL%E6%B3%A8%E5%85%A5/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
-    
       <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
     
   </entry>
   
@@ -564,32 +592,6 @@
       <category term="渗透测试" scheme="https://z1r0s.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
       <category term="工具" scheme="https://z1r0s.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决DVWA中reCAPTCHA API key missing from config file</title>
-    <link href="https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/"/>
-    <id>https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/</id>
-    <published>2020-09-14T07:26:38.000Z</published>
-    <updated>2020-09-15T02:17:31.067Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-问题描述&quot;&gt;&lt;a href=&quot;#0x01-问题描述&quot; class=&quot;headerlink&quot; title=&quot;0x01 问题描述&quot;&gt;&lt;/a&gt;0x01 问题描述&lt;/h1&gt;&lt;p&gt;​        在DVWA中测试&lt;code&gt;Insecure
-        
-      
-    
-    </summary>
-    
-      <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
-    
-    
-      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
     
   </entry>
   
