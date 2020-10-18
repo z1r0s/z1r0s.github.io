@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-10-18T07:57:41.391Z</updated>
+  <updated>2020-10-18T08:15:33.041Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/"/>
     <id>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</id>
     <published>2020-10-18T02:00:50.000Z</published>
-    <updated>2020-10-18T07:57:41.391Z</updated>
+    <updated>2020-10-18T08:15:33.041Z</updated>
     
     <summary type="html">
     
@@ -35,6 +35,12 @@
     
     </summary>
     
+      <category term="SQLi" scheme="https://z1r0s.github.io/categories/SQLi/"/>
+    
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
+    
+      <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
     
   </entry>
   
@@ -43,7 +49,7 @@
     <link href="https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/"/>
     <id>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</id>
     <published>2020-10-18T00:56:37.000Z</published>
-    <updated>2020-10-18T01:20:36.304Z</updated>
+    <updated>2020-10-18T08:15:34.875Z</updated>
     
     <summary type="html">
     
@@ -57,6 +63,12 @@
     
     </summary>
     
+      <category term="SQLi" scheme="https://z1r0s.github.io/categories/SQLi/"/>
+    
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
+    
+      <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
     
   </entry>
   
