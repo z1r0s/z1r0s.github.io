@@ -1,3 +1,4 @@
+https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/
 https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/
 https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/
 https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/

@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
+    
+    <lastmod>2020-10-18T01:20:36.304Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/</loc>
     
-    <lastmod>2020-10-17T22:46:25.263Z</lastmod>
+    <lastmod>2020-10-17T23:17:07.692Z</lastmod>
     
   </url>
   
@@ -457,14 +464,14 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/tags/index.html</loc>
+    <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/categories/index.html</loc>
+    <loc>https://z1r0s.github.io/tags/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     

