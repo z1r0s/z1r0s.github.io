@@ -1,3 +1,4 @@
+https://z1r0s.github.io/2020/10/19/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/
 https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/
 https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/
 https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/

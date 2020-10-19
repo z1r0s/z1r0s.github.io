@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
     
-    <lastmod>2020-10-18T08:15:34.875Z</lastmod>
+    <lastmod>2020-10-19T03:43:16.338Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/19/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</loc>
     
-    <lastmod>2020-10-18T08:15:33.041Z</lastmod>
+    <lastmod>2020-10-19T03:43:12.600Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/</loc>
     
-    <lastmod>2020-10-18T07:57:49.600Z</lastmod>
+    <lastmod>2020-10-18T08:15:36.607Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
+    
+    <lastmod>2020-10-18T08:15:34.875Z</lastmod>
     
   </url>
   

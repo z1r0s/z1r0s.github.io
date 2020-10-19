@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-10-18T08:15:33.041Z</updated>
+  <updated>2020-10-19T03:43:12.600Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SQL注入之GET-DoubleInjection-DoubleQuotes-String</title>
+    <link href="https://z1r0s.github.io/2020/10/19/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/"/>
+    <id>https://z1r0s.github.io/2020/10/19/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</id>
+    <published>2020-10-19T03:12:03.000Z</published>
+    <updated>2020-10-19T03:43:12.600Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-SQL注入&quot;&gt;&lt;a href=&quot;#0x01-SQL注入&quot; class=&quot;headerlink&quot; title=&quot;0x01 SQL注入&quot;&gt;&lt;/a&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/categories/SQLi/"/>
+    
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
+    
+      <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SQL注入之GET-DoubleInjection-SingleQuotes-String</title>
     <link href="https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/"/>
     <id>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</id>
     <published>2020-10-18T02:00:50.000Z</published>
-    <updated>2020-10-18T08:15:33.041Z</updated>
+    <updated>2020-10-19T03:43:16.338Z</updated>
     
     <summary type="html">
     
@@ -77,7 +105,7 @@
     <link href="https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/"/>
     <id>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/</id>
     <published>2020-10-17T12:12:02.000Z</published>
-    <updated>2020-10-18T07:57:49.600Z</updated>
+    <updated>2020-10-18T08:15:36.607Z</updated>
     
     <summary type="html">
     
@@ -560,34 +588,6 @@
       <category term="python" scheme="https://z1r0s.github.io/tags/python/"/>
     
       <category term="gmpy2" scheme="https://z1r0s.github.io/tags/gmpy2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows下python2和python3共存环境搭建</title>
-    <link href="https://z1r0s.github.io/2020/09/17/windows-xia-python2-he-python3-gong-cun-huan-jing-da-jian/"/>
-    <id>https://z1r0s.github.io/2020/09/17/windows-xia-python2-he-python3-gong-cun-huan-jing-da-jian/</id>
-    <published>2020-09-17T04:45:24.000Z</published>
-    <updated>2020-09-17T06:08:34.162Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-python版本下载&quot;&gt;&lt;a href=&quot;#0x01-python版本下载&quot; class=&quot;headerlink&quot; title=&quot;0x01 python版本下载&quot;&gt;&lt;/a&gt;0x01 python版本下载&lt;/h1&gt;&lt;p&gt;​        首先，需要到&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://z1r0s.github.io/categories/python/"/>
-    
-    
-      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
-    
-      <category term="环境搭建" scheme="https://z1r0s.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   

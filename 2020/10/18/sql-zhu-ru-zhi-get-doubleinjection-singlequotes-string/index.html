@@ -566,7 +566,7 @@
 </ul>
 </li>
 <li><p>查看数据库版本。对于无法回显回显时可以根据响应的页面不同来获取信息。对于获取MySQL数据库的版本信息也是如此，可以使用payload如下所示，操作结果如下图所示。</p>
-<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-5/index.php?id=1 and left(version(),1)>=5--+</span></code></pre>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-5/index.php?id=1' and left(version(),1)>=5--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-SingleQuotes-String/获取数据库版本信息.png" alt="获取数据库版本信息"></center>
 </li>
 <li><p>爆数据库名称的长度。由上述操作得知MySQL的版本为<code>5.0</code>或高于<code>5.0</code>版本，因此数据库中存在<code>information_schema</code>数据库，因此可以使用如下payload爆当前数据库名称的长度，操作结果如下图所示。</p>
@@ -935,17 +935,16 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-5/inde
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/">
+                <a href="/2020/10/19/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/66.jpg" class="responsive-img" alt="SQL注入之GET-DoubleInjection-SingleQuotes-String">
+                        <img src="/medias/featureimages/67.jpg" class="responsive-img" alt="SQL注入之GET-DoubleInjection-DoubleQuotes-String">
                         
-                        <span class="card-title">SQL注入之GET-DoubleInjection-SingleQuotes-String</span>
+                        <span class="card-title">SQL注入之GET-DoubleInjection-DoubleQuotes-String</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -955,9 +954,9 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-5/inde
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -970,7 +969,6 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-5/inde
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1205,7 +1203,7 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-5/inde
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">130k</span>
+            <span class="white-color">133.9k</span>
             
 
             <br>
