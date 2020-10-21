@@ -512,7 +512,7 @@ python环境所需安装包下载完毕之后就正式开始安装操作。
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0x01-python版本下载"><a href="#0x01-python版本下载" class="headerlink" title="0x01 python版本下载"></a>0x01 python版本下载</h1><p>​        首先，需要到<a href>python官网</a>下载相关python的安装包。</p>
+                <h1 id="0x01-python版本下载"><a href="#0x01-python版本下载" class="headerlink" title="0x01 python版本下载"></a>0x01 python版本下载</h1><p>​        首先，需要到<a href="https://www.python.org/" target="_blank" rel="noopener">python官网</a>下载相关python的安装包。</p>
 <ul>
 <li>python2下载页面</li>
 </ul>
@@ -528,13 +528,13 @@ python环境所需安装包下载完毕之后就正式开始安装操作。
 <li><p>找到之前下载python2的位置，双击<code>python-2.7.18.amd64.msi</code>文件后开始python2的安装。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/BasicEnvironment/python2+3(win)/python2安装文件.png" alt="python2安装文件"></center>
 </li>
-<li><p>双击python2安装文件后，首先需要设置python2的用户，是本机所有用户还是仅当前用户，这里采用默认设置(Install for all users)。</p>
+<li><p>双击python2安装文件后，首先需要设置python2的用户，是本机所有用户还是仅当前用户，这里采用默认设置<code>(Install for all users)</code>。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/BasicEnvironment/python2+3(win)/python2用户设置.png" alt="python2用户设置"></center>
 </li>
 <li><p>设置完用户后还需要设置python2的安装位置，默认安装位置为：<code>C:\Python27\</code>，这里我设置其位置为：<code>D:\Soft\Python27\</code>。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/BasicEnvironment/python2+3(win)/python2安装位置.png" alt="python2安装位置"></center>
 </li>
-<li><p>设置完跑python2安装路径后还需要设置安装python2解释器和基础库，这里采用默认设置即可。</p>
+<li><p>设置完python2安装路径后还需要设置安装python2解释器和基础库，这里采用默认设置即可。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/BasicEnvironment/python2+3(win)/python2解释器和基础类库设置.png" alt="python2解释器和基础类库设置"></center>
 </li>
 <li><p>所有都设置完成之后就开始python2的安装。</p>
@@ -554,7 +554,7 @@ python环境所需安装包下载完毕之后就正式开始安装操作。
 <li><p>找到之前下载python3的位置，双击<code>python-3.8.2-amd64.exe</code>文件后开始python3的安装。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/BasicEnvironment/python2+3(win)/python3安装包.png" alt="python3安装包"></center>
 </li>
-<li><p>双击python3安装文件后，首先需要设置python3的用户，是本机所有用户还是仅当前用户，这里勾选Install launcher for all users并采用自定义安装方式。</p>
+<li><p>双击python3安装文件后，首先需要设置python3的用户，是本机所有用户还是仅当前用户，这里勾选<code>Install launcher for all users</code>和<code>Add Python3.8 to PATH</code>并采用自定义安装方式。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/BasicEnvironment/python2+3(win)/python3用户设置.png" alt="python3用户设置"></center>
 </li>
 <li><p>设置安装python3解释器和基础库，这里采用默认设置即可。</p>
@@ -612,7 +612,7 @@ python环境所需安装包下载完毕之后就正式开始安装操作。
 <h2 id="使用临时镜像地址"><a href="#使用临时镜像地址" class="headerlink" title="使用临时镜像地址"></a>使用临时镜像地址</h2><p>在使用pip的时候加参数 <code>-i https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
 <p>例如：</p>
 <p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyspider</code>，这样就会从清华这边的镜像去安装<code>pyspider</code>库。</p>
-<h2 id="永久修改pip镜像-推荐"><a href="#永久修改pip镜像-推荐" class="headerlink" title="永久修改pip镜像(推荐)"></a>永久修改pip镜像(推荐)</h2><p>升级 pip 到最新的版本 (&gt;=10.0.0) 后进行配置：</p>
+<h2 id="永久修改pip镜像-推荐"><a href="#永久修改pip镜像-推荐" class="headerlink" title="永久修改pip镜像(推荐)"></a>永久修改pip镜像(推荐)</h2><p>升级 pip 到最新的版本<code>(&gt;=10.0.0)</code>后进行配置：</p>
 <pre class=" language-powershell"><code class="language-powershell">pip install pip <span class="token operator">-</span>U
 pip config <span class="token function">set</span> global<span class="token punctuation">.</span>index<span class="token operator">-</span>url https:<span class="token operator">/</span><span class="token operator">/</span>pypi<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>simple</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/BasicEnvironment/python2+3(win)/永久修改pip镜像.png" alt="永久修改pip镜像"></center>

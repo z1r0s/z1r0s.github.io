@@ -318,7 +318,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/71.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -585,9 +585,9 @@
 <li><strong>Power Cycle Devices</strong>：使所有设备重新加电</li>
 <li><strong>Fast Forward Time</strong>：加快设备的推进速度</li>
 </ul>
-<h2 id="操作模式"><a href="#操作模式" class="headerlink" title="操作模式"></a>操作模式</h2><p><strong>实时操作模式</strong><br>        实时操作模式为仿真网络实际运行过程，用户可以检查网络设备，转发表、路由表等控制信息，通过发送分组检测端到端连通性。实时操作模式下，完成网络配置过程后，网络设备自动完成相关协议执行过程。<br><strong>模拟操作模式</strong><br>        模拟操作模式是仿真网络软件提供的学习工具，用户可以了解网络中报文或分组的传输过程，同时可以查看以PDU形式传输的报文内容和格式。模拟操作模式下，完成网络配置过程后，可能需要用户完成多个推进步骤后，才能看到协议执行结果。<br>        (通常情况下，实验操作以实时操作模式为主，在理解报文传输过程、解析报文格式、排除链路故障时才会使用模拟操作模式)</p>
-<h2 id="IOS命令模式"><a href="#IOS命令模式" class="headerlink" title="IOS命令模式"></a>IOS命令模式</h2><p><strong>用户模式</strong>(User Mode)<br>        用户模式是权限最低的命令行模式，用户只能通过命令查看网络设备的一些状态，没有配置网络设备的权限，也不能修改网络设备状态和控制信息。用户登录网络设备之后，立即进入用户模式。<br><strong>特权模式</strong>(Privileged Mode)<br>        特权模式下不仅可以执行部分查询命令，还可以对网络设备中的文件进行操作。<font color="blue">(从用户模式进入特权模式需要使用enable命令)</font><br><strong>全局模式</strong>(Global Mode)</p>
-<p>​        全局模式下，用户可以完成对整个网络设备有效的配置。<font color="blue">(从特权模式进入全局模式需要输入configure terminal)</font></p>
+<h2 id="操作模式"><a href="#操作模式" class="headerlink" title="操作模式"></a>操作模式</h2><p><strong>实时操作模式</strong><br>        实时操作模式为仿真网络实际运行过程，用户可以检查网络设备，转发表、路由表等控制信息，通过发送分组检测端到端连通性。实时操作模式下，完成网络配置过程后，网络设备自动完成相关协议执行过程。<br><strong>模拟操作模式</strong><br>        模拟操作模式是仿真网络软件提供的学习工具，用户可以了解网络中报文或分组的传输过程，同时可以查看以PDU形式传输的报文内容和格式。模拟操作模式下，完成网络配置过程后，可能需要用户完成多个推进步骤后，才能看到协议执行结果。<br>        （通常情况下，实验操作以实时操作模式为主，在理解报文传输过程、解析报文格式、排除链路故障时才会使用模拟操作模式）</p>
+<h2 id="IOS命令模式"><a href="#IOS命令模式" class="headerlink" title="IOS命令模式"></a>IOS命令模式</h2><p><strong>用户模式</strong><code>（User Mode）</code><br>        用户模式是权限最低的命令行模式，用户只能通过命令查看网络设备的一些状态，没有配置网络设备的权限，也不能修改网络设备状态和控制信息。用户登录网络设备之后，立即进入用户模式。<br><strong>特权模式</strong><code>（Privileged Mode）</code><br>        特权模式下不仅可以执行部分查询命令，还可以对网络设备中的文件进行操作。<font color="blue">（从用户模式进入特权模式需要使用enable命令）</font><br><strong>全局模式</strong><code>（Global Mode）</code></p>
+<p>​        全局模式下，用户可以完成对整个网络设备有效的配置。<font color="blue">（从特权模式进入全局模式需要输入configure terminal）</font></p>
 <p><strong>帮助工具</strong></p>
 <ul>
 <li>查找工具：可使用“？”查询可键入命令</li>
@@ -595,13 +595,13 @@
 </ul>
 <p><strong>取消命令</strong></p>
 <p>​        使用”no”关键字可取消已经完成的配置</p>
-<p>​        eg:(取消设置的端口)</p>
-<p>​            Router(config)# int f0/0</p>
-<p>​            Router(config-if)# no ip add 192.168.1.1 255.255.255.0</p>
+<p>​        eg:（取消设置的端口）</p>
+<p>​            <code>Router（config）# int f0/0</code></p>
+<p>​            <code>Router（config-if）# no ip add 192.168.1.1 255.255.255.0</code></p>
 <h2 id="网络设备连接选择"><a href="#网络设备连接选择" class="headerlink" title="网络设备连接选择"></a>网络设备连接选择</h2><ul>
-<li>不同类型的设备，用于发送、接受信号的两对引脚的编号有可能是不同的，对于用不同编号的两对引脚发送、接受信号的两端设备，需要通过<strong>直通线(Copper Straight-Trough)</strong>连接；</li>
-<li>同一类型的设备，用于发送、接受信号的两对引脚的编号是相同的，需要通过<strong>交叉线(Copper Cross-Over)</strong>连接；</li>
-<li>路由器与路由器之间需要使用Serial模块和<strong>串行(Serial)线</strong>连接；</li>
+<li>不同类型的设备，用于发送、接受信号的两对引脚的编号有可能是不同的，对于用不同编号的两对引脚发送、接受信号的两端设备，需要通过<strong>直通线`（Copper Straight-Trough）</strong>`连接；</li>
+<li>同一类型的设备，用于发送、接受信号的两对引脚的编号是相同的，需要通过<strong>交叉线`（Copper Cross-Over）</strong>`连接；</li>
+<li>路由器与路由器之间需要使用Serial模块和<strong>串行（<code>Serial）</code>线</strong>连接；</li>
 <li>Console线用在PC端对交换机或路由器的直接配置时。</li>
 </ul>
 <h2 id="网络设备配置方式"><a href="#网络设备配置方式" class="headerlink" title="网络设备配置方式"></a>网络设备配置方式</h2><h3 id="控制台端口配置方式"><a href="#控制台端口配置方式" class="headerlink" title="控制台端口配置方式"></a>控制台端口配置方式</h3><p>​        交换机和路由器出厂时，只有默认配置，如果需要对交换机和路由器进行配置，最直接的配置方式是采用控制台端口配置方式，用串行口连接线互连<strong>PC的RS-232串行口</strong>和<strong>网络设备的Console端口</strong>，启动PC的<strong>超级终端程序</strong>，完成超级终端程序参数配置，按Enter键进入网络设备的命令行接口配置界面。</p>
@@ -648,9 +648,9 @@
 </ol>
 <h1 id="第2章-交换式以太网实验"><a href="#第2章-交换式以太网实验" class="headerlink" title="第2章 交换式以太网实验"></a>第2章 交换式以太网实验</h1><h2 id="影响交换机实验的因素"><a href="#影响交换机实验的因素" class="headerlink" title="影响交换机实验的因素"></a>影响交换机实验的因素</h2><ol>
 <li><p><strong>CDP干扰</strong>[^1]</p>
-<p>Cisco交换机默认状态下，启动<strong>Cisco发现协议(Cisco Discovery Protocol，CDP)</strong>，CDP能够检测到与交换机直接连接的设备，因此，即使终端不发送MAC帧，交换机也能检测到各个端口连接的终端，并<strong>在转发表中创建相应的转发项</strong>。为防止CDP干扰交换机实验，应该在交换机中停止运行CDP。</p>
+<p>Cisco交换机默认状态下，启动<strong>Cisco发现协议<code>（Cisco Discovery Protocol，CDP）</code></strong>，CDP能够检测到与交换机直接连接的设备，因此，即使终端不发送MAC帧，交换机也能检测到各个端口连接的终端，并<strong>在转发表中创建相应的转发项</strong>。为防止CDP干扰交换机实验，应该在交换机中停止运行CDP。</p>
 <p>eg:</p>
-<p><code>Switch(config)# no cdp run</code></p>
+<p><code>Switch（config）# no cdp run</code></p>
 </li>
 <li><p><strong>地址解析过程</strong>[^1]</p>
 <p>PT无法通过给出源和目的终端的MAC地址直接构建MAC帧，并启动MAC帧源终端至目的终端的传输过程，需要通过给出源和目的终端的IP地址构建IP分组，然后启动IP分组源终端至目的终端的传输过程。通过ARP协议解析报文，并在交换机的转发表中创建源和目的终端MAC地址对应的转发项。一旦终端完成某个IP地址的地址解析过程，该IP地址与对应的MAC地址之间的绑定项将在ARP缓冲区中保持一段时间，在该段时间内，终端无须再对该IP地址进行地址解析过程。</p>
@@ -674,7 +674,7 @@
 <li>验证交换机端口采用不同通信方式的条件</li>
 <li>验证以太网端到端数据传输过程</li>
 </ol>
-<h3 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        当交换机端口连接一个冲突域时(eg:交换机与Hub相连)，该交换机端口采用<strong>半双工通信</strong>方式。当交换机端口只连接一个终端时，该交换机端口采用<strong>全双工通信</strong>方式，交换机端口与终端之间不再构成冲突域。</p>
+<h3 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        当交换机端口连接一个冲突域时（eg:交换机与Hub相连），该交换机端口采用<strong>半双工通信</strong>方式。当交换机端口只连接一个终端时，该交换机端口采用<strong>全双工通信</strong>方式，交换机端口与终端之间不再构成冲突域。</p>
 <p><strong>① 终端A $\rightarrow$ 终端B</strong>，<strong>如图2-2所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/集线器和交换机工作原理验证实验-终端A到终端B.png" alt="集线器和交换机工作原理验证实验-终端A到终端B"></center>
 
@@ -711,7 +711,7 @@
 
 <center>图2-8 终端A-IP配置</center>
 
-<p>(<font color="blue">上图为终端A的IP配置，其他终端IP配置与其类似</font>)</p>
+<p>（<font color="blue">上图为终端A的IP配置，其他终端IP配置与其类似</font>）</p>
 </li>
 <li><p><strong>查看ARP缓冲区</strong></p>
 <p>使用工具栏中的<strong>查看工具</strong>单击指定网络设备后选择菜单中的<strong>ARP Table选项</strong>，即可展示此设备的ARP缓冲区中的数据，如图2-9所示。</p>
@@ -734,7 +734,7 @@
 <center> 图2-11 停止CDP和清空MAC表</center>
 </li>
 <li><p><strong>设置通信方式</strong></p>
-<p>交换机与Hub相连的端口设置成半双工(如图2-12所示。)，交换机与终端相连的端口设置成全双工，设置操作(如图2-13所示)</p>
+<p>交换机与Hub相连的端口设置成半双工（如图2-12所示），交换机与终端相连的端口设置成全双工，设置操作（如图2-13所示）</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/Switch与Hub相连端口设置.png" alt="Switch与Hub相连端口设置"></center>
 
 <center>图2-12 Switch与Hub相连端口设置</center>
@@ -1131,7 +1131,7 @@
 <p>   允许同时建立5个会话；指定用本地创建的用户名和口令来鉴别登录用户身份。</p>
 </li>
 </ul>
-<h1 id="第3章-虚拟局域网实验"><a href="#第3章-虚拟局域网实验" class="headerlink" title="第3章 虚拟局域网实验"></a>第3章 虚拟局域网实验</h1><p>​        虚拟局域网即(VLAN)，是一种在逻辑上划分广播域的技术。集线器和交换机通过中继器理论上可以实现无限远的通信连接，但随着网络的扩大广播域也将扩大(由集线器和中继器相连的区域属于同一个广播域)，无限的广播使得大量的带宽资源被浪费，物理上划分的广播域不能满足网络拓扑结构的变化，因此具有很大的限制性。VLAN在逻辑上对广播域进行划分，得到了更优的解决方案。</p>
+<h1 id="第3章-虚拟局域网实验"><a href="#第3章-虚拟局域网实验" class="headerlink" title="第3章 虚拟局域网实验"></a>第3章 虚拟局域网实验</h1><p>​        虚拟局域网即（VLAN），是一种在逻辑上划分广播域的技术。集线器和交换机通过中继器理论上可以实现无限远的通信连接，但随着网络的扩大广播域也将扩大（由集线器和中继器相连的区域属于同一个广播域），无限的广播使得大量的带宽资源被浪费，物理上划分的广播域不能满足网络拓扑结构的变化，因此具有很大的限制性。VLAN在逻辑上对广播域进行划分，得到了更优的解决方案。</p>
 <h2 id="单交换机VLAN配置实验"><a href="#单交换机VLAN配置实验" class="headerlink" title="单交换机VLAN配置实验"></a>单交换机VLAN配置实验</h2><h3 id="实验内容-3"><a href="#实验内容-3" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        交换机连接终端和集线器的方式及端口分配给各个VALN的情况如图5-1所示。初始状态下各个VLAN对应的转发表内容为空，依次进行一下①~⑥MAC帧传输过程，，针对每一次MAN帧传输过程，记录下转发表的变化过程及MAC帧达到的终端。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置鉴别授权用户方式.png" alt="配置鉴别授权用户方式"></center>
 
@@ -1413,7 +1413,7 @@
    <span class="token keyword">end</span></code></pre>
 <ol start="6">
 <li><p><strong>终端C至终端D的传输</strong></p>
-<p>由于交换机S1的f0/4端口是被VLAN2和VLAN4共享的共享端口，因此，该帧经过交换机S1的f0/4端口输出时，携带VLAN4对应的VLAN ID(4)，其数据帧格式如图6-7所示。</p>
+<p>由于交换机S1的f0/4端口是被VLAN2和VLAN4共享的共享端口，因此，该帧经过交换机S1的f0/4端口输出时，携带VLAN4对应的VLAN ID（4），其数据帧格式如图6-7所示。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端C至终端D（VLAN ID）.png" alt="终端C至终端D（VLAN ID）"></center>
 
 <center>图6-7 终端C至终端D（VLAN ID）</center>
@@ -1665,7 +1665,7 @@
 <li>no monitor session all ：清除所有已经配置的映射<ul>
 <li>monitor session 1 source interface f0/1 rx：指定f0/1为源端口；指定需要嗅探的MAC帧，且只嗅探源端口得到的MAC帧</li>
 <li>monitor session 1 destination remote vlan 5 reflector-port f0/17：指定vlan 5为RSPAN VLAN；指定f0/17端口为反射端口</li>
-<li>相同的会话号1(session 1)将源端口和RSPAN VLAN绑定在一起，将通过f0/1接收到的MAC帧映射到发射端口f0/17，并通过发射端口f0/17将该MAC帧发送到VLAN 5。</li>
+<li>相同的会话号1（session 1）将源端口和RSPAN VLAN绑定在一起，将通过f0/1接收到的MAC帧映射到发射端口f0/17，并通过发射端口f0/17将该MAC帧发送到VLAN 5。</li>
 </ul>
 </li>
 </ul>
@@ -1960,7 +1960,7 @@
 </li>
 </ol>
 <h1 id="第4章-生成树实验"><a href="#第4章-生成树实验" class="headerlink" title="第4章 生成树实验"></a>第4章 生成树实验</h1><p>​        生成树协议用于在一个存在冗余路径的以太网中为终端之间构建没有环路的交换路径，由于可以基于VLAN构建生成树，因此，可以通过网络设计和生成树协议同时实现容错和负载均衡功能。</p>
-<h2 id="容错实验"><a href="#容错实验" class="headerlink" title="容错实验"></a>容错实验</h2><h3 id="实验内容-8"><a href="#实验内容-8" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        构建如图10-1(a)所示的有着冗余路径的以太网结构，通过生成树协议生成如图10-1(b)所示的以交换机S4为根的生成树。为了验证生成树协议的容错性，删除交换机S4与交换机S5之间、交换机S5与交换机S7之间的物理链路，如图10-1(c)所示。生成树协议通过重新构建生成树保证网络的连通性，如图10-1(d)所示。</p>
+<h2 id="容错实验"><a href="#容错实验" class="headerlink" title="容错实验"></a>容错实验</h2><h3 id="实验内容-8"><a href="#实验内容-8" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        构建如图10-1（a）所示的有着冗余路径的以太网结构，通过生成树协议生成如图10-1（b）所示的以交换机S4为根的生成树。为了验证生成树协议的容错性，删除交换机S4与交换机S5之间、交换机S5与交换机S7之间的物理链路，如图10-1（c）所示。生成树协议通过重新构建生成树保证网络的连通性，如图10-1（d）所示。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(a) 原始网络结构.png" alt="图4.1(a) 原始网络结构"></center>
 
 <center>图10-1(a) 原始网络结构</center>
@@ -1983,7 +1983,7 @@
 <li>验证BPDU报文内容和格式</li>
 <li>验证生成树协议实现容错的机制</li>
 </ol>
-<h3 id="实验原理-8"><a href="#实验原理-8" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        为了生成如图10-1(b)所示的以交换机S4为根网桥的生成树，需要将交换机S4的优先级设置为最高，同时保证其他交换机优先级满足：S2&gt;S3&gt;S5&gt;S6。因此，S2、S3、S4、S5、S6的优先级配置分别为：8192，12288，4096，16384，20480，其余交换机采用默认值。在图10-1(b)所示的生成树中，橘色指示灯所在的端口是被生成树协议阻塞的端口，通过阻塞这些端口，该生成树既保持了交换机之间的连通性，又消除了交换机之间的环路。一旦如图10-1(c)所示，删除交换机S4和S5之间、交换机S5和S7的物理链路，将导致交换机S5和S7与其他交换机之间的连通性遭到破坏。生成树协议能过自动检测到网络拓扑结构发生的变化，通过调整阻塞端口，重新构建的生成树既保证了交换机之间的连通性，又保证交换机之间不存在环路。</p>
+<h3 id="实验原理-8"><a href="#实验原理-8" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        为了生成如图10-1（b）所示的以交换机S4为根网桥的生成树，需要将交换机S4的优先级设置为最高，同时保证其他交换机优先级满足：S2&gt;S3&gt;S5&gt;S6。因此，S2、S3、S4、S5、S6的优先级配置分别为：8192，12288，4096，16384，20480，其余交换机采用默认值。在图10-1（b）所示的生成树中，橘色指示灯所在的端口是被生成树协议阻塞的端口，通过阻塞这些端口，该生成树既保持了交换机之间的连通性，又消除了交换机之间的环路。一旦如图10-1（c）所示，删除交换机S4和S5之间、交换机S5和S7的物理链路，将导致交换机S5和S7与其他交换机之间的连通性遭到破坏。生成树协议能过自动检测到网络拓扑结构发生的变化，通过调整阻塞端口，重新构建的生成树既保证了交换机之间的连通性，又保证交换机之间不存在环路。</p>
 <h3 id="实验步骤-8"><a href="#实验步骤-8" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
 <li><p><strong>按照实验构建网络拓扑，根据默认设置构建的生成树如图10-2所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(a) 原始网络结构.png" alt="构建网络拓扑"></center>
@@ -2144,14 +2144,14 @@
 <center>图10-15 设置快速转换端口</center>
 
 <ul>
-<li>spanning-tree portfast default：一旦交换机执行该命令，交换机端口中不是阻塞端口，且是接入端口的那些端口的状态立即转换成转发状态，无须经过侦听和学习这两个中间状态。(该命令作用于交换机中所有接入端口)。</li>
+<li>spanning-tree portfast default：一旦交换机执行该命令，交换机端口中不是阻塞端口，且是接入端口的那些端口的状态立即转换成转发状态，无须经过侦听和学习这两个中间状态。（该命令作用于交换机中所有接入端口）。</li>
 <li>spanning-tree portfast disable：用于取消spanning-tree portfast default命令对该交换机接入端口的作用。</li>
 <li>spanning-tree portfast trunk：该命令使得spanning-tree portfast default命令对该交换机共享端口也起作用。</li>
 </ul>
 </li>
 </ol>
 <h2 id="负载均衡实验"><a href="#负载均衡实验" class="headerlink" title="负载均衡实验"></a>负载均衡实验</h2><h3 id="实验内容-9"><a href="#实验内容-9" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        由于可以基于每一个VLAN单独构建生成树，且这些生成树可以有不同的的根交换机和起作用的物理链路。因此，可以通过配置，一是使得每一个VLAN存在冗余路径，且可以通过生成树协议实现容错功能；二是使得不同VLAN对应的生成树有着不同的根交换机和起作用的物理链路，从而使得以太网中不存在所有生成树中都不起作用的物理链路。</p>
-<p>​        以太网结构如图11-1(a)所示，在该以太网上分别生成基于VLAN 2和VLAN 3的生成树，且通过配置使得基于VLAN 2的生成树如图11-1(b)所示，基于VLAN 3的生成树如图11-1(c)所示。</p>
+<p>​        以太网结构如图11-1（a）所示，在该以太网上分别生成基于VLAN 2和VLAN 3的生成树，且通过配置使得基于VLAN 2的生成树如图11-1（b）所示，基于VLAN 3的生成树如图11-1（c）所示。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-图4.2(a) 原始网络结构.png" alt="负载均衡-图4.2(a) 原始网络结构"></center>
 
 <center>图11-1(a) 原始网络结构</center>
@@ -2210,7 +2210,7 @@
 <td align="center"></td>
 </tr>
 </tbody></table>
-<p>​        为了实现负载均衡，要求不同VLAN对应的生成树中的阻塞端口是不同的，即某个端口如果在基于VLAN 2的生成树中是阻塞端口，在基于VLAN 3的生成树中不再是阻塞端口。为了做到这一点，对图11-1(a)所示的网络结构，通过配置，使得交换机S1和S2分别成为基于VLAN 2和VLAN 3的生成树的根网桥。对于基于VLAN 2的生成树，通过配置使得交换机S2的优先级大于交换机S3和S4。对于基于VLAN 3的生成树，通过配置使得交换机S1的优先级大于交换机S3和S4。为了使网络的容错性达到最大化，将所有交换之间的链路配置成被VLAN 2和VLAN 3共享的共享链路，VLAN与交换机端口之间映射如表11-3所示。这种情况下，基于VLAN 2的生成树如图11-1(b)所示，交换机S3端口3和交换机S4端口3成为阻塞端口；基于VLAN3的生成树如图11-1(c)所示，交换机S3端口4和交换机S4端口4成为阻塞端口。对于这两颗分别基于VLAN 2和VLAN 3的生成树，一是由于不同生成树的阻塞端口是不同的，使得所有链路都有可能承载某个VLAN内的流量；二是对应每一个VLAN，属于同一VLAN的终端之间存在多条传输路径，在其中一条或多条物理链路发生故障的情况下，仍能保证属于同一VLAN的终端之间的连通性。</p>
+<p>​        为了实现负载均衡，要求不同VLAN对应的生成树中的阻塞端口是不同的，即某个端口如果在基于VLAN 2的生成树中是阻塞端口，在基于VLAN 3的生成树中不再是阻塞端口。为了做到这一点，对图11-1（a）所示的网络结构，通过配置，使得交换机S1和S2分别成为基于VLAN 2和VLAN 3的生成树的根网桥。对于基于VLAN 2的生成树，通过配置使得交换机S2的优先级大于交换机S3和S4。对于基于VLAN 3的生成树，通过配置使得交换机S1的优先级大于交换机S3和S4。为了使网络的容错性达到最大化，将所有交换之间的链路配置成被VLAN 2和VLAN 3共享的共享链路，VLAN与交换机端口之间映射如表11-3所示。这种情况下，基于VLAN 2的生成树如图11-1（b）所示，交换机S3端口3和交换机S4端口3成为阻塞端口；基于VLAN3的生成树如图11-1（c）所示，交换机S3端口4和交换机S4端口4成为阻塞端口。对于这两颗分别基于VLAN 2和VLAN 3的生成树，一是由于不同生成树的阻塞端口是不同的，使得所有链路都有可能承载某个VLAN内的流量；二是对应每一个VLAN，属于同一VLAN的终端之间存在多条传输路径，在其中一条或多条物理链路发生故障的情况下，仍能保证属于同一VLAN的终端之间的连通性。</p>
 <center>表11-3 VLAN与交换机端口映射</center>
 
 <table>
@@ -3464,9 +3464,9 @@ Brute F
                 <a href="/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="FTP服务器搭建(phpstudyftp)">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="FTP服务器搭建（phpstudyftp）">
                         
-                        <span class="card-title">FTP服务器搭建(phpstudyftp)</span>
+                        <span class="card-title">FTP服务器搭建（phpstudyftp）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

@@ -435,11 +435,28 @@
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        <span class="chip bg-color">无标签</span>
+                        
+                        <a href="/tags/writeup/" target="_blank">
+                            <span class="chip bg-color">writeup</span>
+                        </a>
+                        
+                        <a href="/tags/CRYPTO/" target="_blank">
+                            <span class="chip bg-color">CRYPTO</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/CTF/" class="post-category" target="_blank">
+                            CTF
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -529,7 +546,7 @@
 <li>Ceasar</li>
 </ul>
 <h1 id="003-Morse"><a href="#003-Morse" class="headerlink" title="003 Morse"></a>003 Morse</h1><p><strong>0x01 题目描述</strong></p>
-<p>​        小鱼得意的瞟了你一眼，神神气气的拿走了答对谜语的奖励，你心里暗暗较劲 想着下一个谜题一定要比小鱼更快的解出来。不知不觉你们走到了下一个谜题的地方，这个地方有些奇怪。 上面没什么提示信息，只是刻着一些0和1，感觉有着一些奇怪的规律，你觉得有些熟悉，但是就是想不起来 这些01代表着什么意思。一旁的小鱼看你眉头紧锁的样子，扑哧一笑，对你讲“不好意思我又猜到答案了。”(flag格式为cyberpeace{xxxxxxxxxx},均为小写)</p>
+<p>​        小鱼得意的瞟了你一眼，神神气气的拿走了答对谜语的奖励，你心里暗暗较劲 想着下一个谜题一定要比小鱼更快的解出来。不知不觉你们走到了下一个谜题的地方，这个地方有些奇怪。 上面没什么提示信息，只是刻着一些0和1，感觉有着一些奇怪的规律，你觉得有些熟悉，但是就是想不起来 这些01代表着什么意思。一旁的小鱼看你眉头紧锁的样子，扑哧一笑，对你讲“不好意思我又猜到答案了。”<code>(flag格式为cyberpeace{xxxxxxxxxx},均为小写)</code></p>
 <p><strong>0x02 解题思路</strong></p>
 <ul>
 <li>莫斯密码</li>
@@ -740,7 +757,7 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
 <p>​        在一次RSA密钥对生成中，假设p=473398607161，q=4511491，e=17，求解出d</p>
 <p><strong>0x02 解题思路</strong></p>
 <ul>
-<li>RSA的算法涉及三个参数，n、e、d。<br>其中，n是两个大质数p、q的积，n的二进制表示所占用的位数，就是所谓的密钥长度。<br>e和d是一对相关的值，e可以任意取，但要求e与<code>(p-1)*(q-1)</code>互质；再选择d，要求<code>(d*e)mod((p-1)*(q-1))=1</code>。<br>（n，e),(n，d)就是密钥对。其中(n，e)为公钥，(n，d)为私钥。<br>RSA加解密的算法完全相同，设A为明文，B为密文，则：A=B^d mod n；B=A^e mod n；（公钥加密体制中，一般用公钥加密，私钥解密）<br>e和d可以互换使用，即：<br>A=B^d mod n；B=A^e mod n</li>
+<li>RSA的算法涉及三个参数，n、e、d。<br>其中，n是两个大质数p、q的积，n的二进制表示所占用的位数，就是所谓的密钥长度。<br>e和d是一对相关的值，e可以任意取，但要求e与<code>(p-1)*(q-1)</code>互质；再选择d，要求<code>(d*e)mod((p-1)*(q-1))=1</code>。<br><code>（n，e),(n，d)</code>就是密钥对。其中<code>(n，e)</code>为公钥，<code>(n，d)</code>为私钥。<br>RSA加解密的算法完全相同，设A为明文，B为密文，则：<code>A=B^d mod n</code>；<code>B=A^e mod n</code>；（公钥加密体制中，一般用公钥加密，私钥解密）<br>e和d可以互换使用，即：<br><code>A=B^d mod n；B=A^e mod n</code></li>
 <li>直接给了p,q,e，求d，即为暴力破解RSA的私钥之一的d</li>
 </ul>
 <p><strong>0x03 解题工具</strong></p>
@@ -1000,19 +1017,19 @@ e<span class="token operator">=</span><span class="token number">65537</span></c
 <p><strong>0x02 解题思路</strong></p>
 <p><strong>实现椭圆曲线密码实现</strong>：</p>
 <ul>
-<li><p>Alice选定一条椭圆曲线E，并取椭圆曲线上一点作为基点G 假设选定E29(4,20)，基点G(13,23) , 基点G的阶数n=37</p>
+<li><p>Alice选定一条椭圆曲线E，并取椭圆曲线上一点作为基点G 假设选定<code>E29(4,20)</code>，基点<code>G(13,23)</code>, 基点G的阶数<code>n=37</code></p>
 </li>
-<li><p>Alice选择一个私有密钥k（k&lt;n），并生成公开密钥K=kG 比如25, K= kG = 25G = (14,6）</p>
+<li><p>Alice选择一个私有密钥<code>k（k&lt;n）</code>，并生成公开密钥<code>K=kG</code> 比如25,<code>K= kG = 25G = (14,6）</code></p>
 </li>
 <li><p>Alice将E和点K、G传给Bob</p>
 </li>
-<li><p>Bob收到信息后，将待传输的明文编码到上的一点M（编码方法略），并产生一个随机整数r（r&lt;n,n为G的阶数） 假设r=6 要加密的信息为3,因为M也要在E29(4,20) 所以M=(3,28)</p>
+<li><p>Bob收到信息后，将待传输的明文编码到上的一点M（编码方法略），并产生一个随机整数r（r&lt;n,n为G的阶数） 假设r=6 要加密的信息为3,因为M也要在<code>E29(4,20)</code> 所以<code>M=(3,28)</code></p>
 </li>
-<li><p>Bob计算点C1=M+rK和C2=rG C1= M+6K= M+6<em>25</em>G=M+2G=(3,28)+(27,27)=(6,12) C2=6G=(5,7)</p>
+<li><p>Bob计算点<code>C1=M+rK</code>和<code>C2=rG C1= M+6K= M+6*25*G=M+2G=(3,28)+(27,27)=(6,12) C2=6G=(5,7)</code></p>
 </li>
 <li><p>Bob将C1、C2传给Alice</p>
 </li>
-<li><p>Alice收到信息后，计算C1-kC2，结果就应该是点M C1-kC2 =(6,12)-25C2 =(6,12)-25*6G =(6,12)-2G =(6,12)-(27,27) =(6,12)+(27,2) =(3,28)</p>
+<li><p>Alice收到信息后，计算<code>C1-kC2</code>，结果就应该是点<code>M C1-kC2 =(6,12)-25C2 =(6,12)-25*6G =(6,12)-2G =(6,12)-(27,27) =(6,12)+(27,2) =(3,28)</code></p>
 </li>
 <li><p><a href="https://blog.csdn.net/dianqu6970/article/details/76534222" target="_blank" rel="noopener">椭圆曲线加密学习的菜鸟入门</a></p>
 </li>
@@ -1042,7 +1059,7 @@ e<span class="token operator">=</span><span class="token number">65537</span></c
 </ul>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="http://www.360doc.com/content/18/0421/12/31784658_747506997.shtml" target="_blank" rel="noopener">古代密码学与信息安全</a></li>
-<li><a href="https://blog.csdn.net/zz_Caleb/article/details/87016017" target="_blank" rel="noopener">各种编码及密码原理(边积累边更新)</a></li>
+<li><a href="https://blog.csdn.net/zz_Caleb/article/details/87016017" target="_blank" rel="noopener">各种编码及密码原理</a></li>
 </ul>
 
             </div>
