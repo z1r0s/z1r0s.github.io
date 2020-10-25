@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-10-25T05:41:48.352Z</updated>
+  <updated>2020-10-25T13:08:46.120Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XSS之xss-labs-level2</title>
+    <link href="https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level2/"/>
+    <id>https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level2/</id>
+    <published>2020-10-25T12:33:48.000Z</published>
+    <updated>2020-10-25T13:08:46.120Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01 XSS-Labs&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
+    
+    
+      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
+    
+  </entry>
   
   <entry>
     <title>XSS之xss-labs-level1</title>
@@ -447,9 +473,9 @@
       <category term="CTF" scheme="https://z1r0s.github.io/categories/CTF/"/>
     
     
-      <category term="CRYPTO" scheme="https://z1r0s.github.io/tags/CRYPTO/"/>
-    
       <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
+    
+      <category term="CRYPTO" scheme="https://z1r0s.github.io/tags/CRYPTO/"/>
     
   </entry>
   
@@ -503,9 +529,9 @@
       <category term="CTF" scheme="https://z1r0s.github.io/categories/CTF/"/>
     
     
-      <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
-    
       <category term="MISC" scheme="https://z1r0s.github.io/tags/MISC/"/>
+    
+      <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
     
   </entry>
   
@@ -564,36 +590,6 @@
       <category term="WIFI" scheme="https://z1r0s.github.io/tags/WIFI/"/>
     
       <category term="密码" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常规信息收集之域名</title>
-    <link href="https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/"/>
-    <id>https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/</id>
-    <published>2020-09-27T06:43:03.000Z</published>
-    <updated>2020-10-21T10:57:52.995Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;域名收集&quot;&gt;&lt;a href=&quot;#域名收集&quot; class=&quot;headerlink&quot; title=&quot;域名收集&quot;&gt;&lt;/a&gt;域名收集&lt;/h1&gt;&lt;h2 id=&quot;子域名发现原理&quot;&gt;&lt;a href=&quot;#子域名发现原理&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="信息收集" scheme="https://z1r0s.github.io/categories/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
-    
-      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="信息收集" scheme="https://z1r0s.github.io/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
-    
-      <category term="域名收集" scheme="https://z1r0s.github.io/tags/%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/"/>
     
   </entry>
   
