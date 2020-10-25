@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-10-19T03:43:12.600Z</updated>
+  <updated>2020-10-25T05:41:48.352Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XSS之xss-labs-level1</title>
+    <link href="https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level1/"/>
+    <id>https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level1/</id>
+    <published>2020-10-25T03:12:20.000Z</published>
+    <updated>2020-10-25T05:41:48.352Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01 XSS-Labs&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
+    
+    
+      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL注入load_file函数常用路径[转]</title>
+    <link href="https://z1r0s.github.io/2020/10/25/mysql-zhu-ru-load-file-han-shu-chang-yong-lu-jing/"/>
+    <id>https://z1r0s.github.io/2020/10/25/mysql-zhu-ru-load-file-han-shu-chang-yong-lu-jing/</id>
+    <published>2020-10-24T23:55:50.000Z</published>
+    <updated>2020-10-25T00:08:22.991Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Windows下&quot;&gt;&lt;a href=&quot;#Windows下&quot; class=&quot;headerlink&quot; title=&quot;Windows下&quot;&gt;&lt;/a&gt;Windows下&lt;/h1&gt;&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/categories/SQLi/"/>
+    
+    
+      <category term="SQLi" scheme="https://z1r0s.github.io/tags/SQLi/"/>
+    
+      <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+    
+      <category term="load_file" scheme="https://z1r0s.github.io/tags/load-file/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL注入之GET-DoubleInjection-DoubleQuotes-String</title>
@@ -391,9 +447,9 @@
       <category term="CTF" scheme="https://z1r0s.github.io/categories/CTF/"/>
     
     
-      <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
-    
       <category term="CRYPTO" scheme="https://z1r0s.github.io/tags/CRYPTO/"/>
+    
+      <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
     
   </entry>
   
@@ -447,9 +503,9 @@
       <category term="CTF" scheme="https://z1r0s.github.io/categories/CTF/"/>
     
     
-      <category term="MISC" scheme="https://z1r0s.github.io/tags/MISC/"/>
-    
       <category term="writeup" scheme="https://z1r0s.github.io/tags/writeup/"/>
+    
+      <category term="MISC" scheme="https://z1r0s.github.io/tags/MISC/"/>
     
   </entry>
   
@@ -516,7 +572,7 @@
     <link href="https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/"/>
     <id>https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/</id>
     <published>2020-09-27T06:43:03.000Z</published>
-    <updated>2020-09-28T09:58:07.616Z</updated>
+    <updated>2020-10-21T10:57:52.995Z</updated>
     
     <summary type="html">
     
@@ -538,62 +594,6 @@
       <category term="信息收集" scheme="https://z1r0s.github.io/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
     
       <category term="域名收集" scheme="https://z1r0s.github.io/tags/%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决rsatool-py脚本报错</title>
-    <link href="https://z1r0s.github.io/2020/09/17/jie-jue-rsatool-py-jiao-ben-bao-cuo/"/>
-    <id>https://z1r0s.github.io/2020/09/17/jie-jue-rsatool-py-jiao-ben-bao-cuo/</id>
-    <published>2020-09-17T11:57:10.000Z</published>
-    <updated>2020-10-21T11:28:00.420Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-问题描述&quot;&gt;&lt;a href=&quot;#0x01-问题描述&quot; class=&quot;headerlink&quot; title=&quot;0x01 问题描述&quot;&gt;&lt;/a&gt;0x01 问题描述&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
-    
-    
-      <category term="python" scheme="https://z1r0s.github.io/tags/python/"/>
-    
-      <category term="rsa" scheme="https://z1r0s.github.io/tags/rsa/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决python3安装gmpy2报错</title>
-    <link href="https://z1r0s.github.io/2020/09/17/jie-jue-python3-an-zhuang-gmpy2-bao-cuo/"/>
-    <id>https://z1r0s.github.io/2020/09/17/jie-jue-python3-an-zhuang-gmpy2-bao-cuo/</id>
-    <published>2020-09-17T04:57:35.000Z</published>
-    <updated>2020-09-17T12:45:32.337Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-问题描述&quot;&gt;&lt;a href=&quot;#0x01-问题描述&quot; class=&quot;headerlink&quot; title=&quot;0x01 问题描述&quot;&gt;&lt;/a&gt;0x01 问题描述&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="debug" scheme="https://z1r0s.github.io/categories/debug/"/>
-    
-    
-      <category term="python" scheme="https://z1r0s.github.io/tags/python/"/>
-    
-      <category term="gmpy2" scheme="https://z1r0s.github.io/tags/gmpy2/"/>
     
   </entry>
   

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level1/</loc>
+    
+    <lastmod>2020-10-25T05:41:48.352Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/25/mysql-zhu-ru-load-file-han-shu-chang-yong-lu-jing/</loc>
+    
+    <lastmod>2020-10-25T00:08:22.991Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/</loc>
     
     <lastmod>2020-10-21T12:02:11.262Z</lastmod>
@@ -82,6 +96,13 @@
     <loc>https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/</loc>
     
     <lastmod>2020-10-21T11:20:32.796Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/</loc>
+    
+    <lastmod>2020-10-21T10:57:52.995Z</lastmod>
     
   </url>
   
@@ -243,13 +264,6 @@
     <loc>https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/</loc>
     
     <lastmod>2020-09-28T21:03:54.453Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/</loc>
-    
-    <lastmod>2020-09-28T09:58:07.616Z</lastmod>
     
   </url>
   
@@ -478,14 +492,14 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/tags/index.html</loc>
+    <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/categories/index.html</loc>
+    <loc>https://z1r0s.github.io/tags/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
