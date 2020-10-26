@@ -2,6 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level18/</loc>
+    
+    <lastmod>2020-10-26T18:42:56.595Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level17/</loc>
+    
+    <lastmod>2020-10-26T18:37:33.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level16/</loc>
+    
+    <lastmod>2020-10-26T18:24:11.774Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level15/</loc>
+    
+    <lastmod>2020-10-26T18:15:48.384Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level13/</loc>
+    
+    <lastmod>2020-10-26T18:04:24.506Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level11/</loc>
+    
+    <lastmod>2020-10-26T17:52:56.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level12/</loc>
+    
+    <lastmod>2020-10-26T17:52:43.819Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level10/</loc>
+    
+    <lastmod>2020-10-26T17:24:27.779Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level9/</loc>
+    
+    <lastmod>2020-10-26T17:07:18.339Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level8/</loc>
+    
+    <lastmod>2020-10-26T08:38:03.407Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level7/</loc>
     
     <lastmod>2020-10-26T05:51:06.365Z</lastmod>
@@ -527,14 +597,14 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/archives/index.html</loc>
+    <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/categories/index.html</loc>
+    <loc>https://z1r0s.github.io/archives/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
