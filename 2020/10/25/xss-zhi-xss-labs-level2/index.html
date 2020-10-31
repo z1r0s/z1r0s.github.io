@@ -474,14 +474,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    943
+                    990
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
                 
@@ -497,7 +497,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0x01-XSS-Labs"><a href="#0x01-XSS-Labs" class="headerlink" title="0x01 XSS-Labs"></a>0x01 XSS-Labs</h1><p>&emsp;&emsp;XSS（跨站脚本攻击）是指恶意攻击者往Web页面里插入恶意<code>Script</code>代码，当用户浏览该网页或请求该网页中的内容之时，嵌入其中Web里面的<code>Script</code>代码会被执行，从而达到恶意攻击用户的目的。<br>&emsp;&emsp;XSS按照利用方式主要分为：反射型XSS、存储型XSS、DOM型XSS。<strong>反射型XSS</strong>是攻击者事先制作好攻击链接, 需要欺骗用户自己去点击链接才能触发XSS代码（服务器中没有这样的页面和内容），一般容易出现在搜索页面。代码是存储在服务器中的，如在个人信息或发表文章等地方，加入代码，如果没有过滤或过滤不严，那么这些代码将储存到服务器中，每当有用户访问该页面的时候都会触发代码执行，这种XSS即<strong>存储型XSS</strong>，非常危险，容易造成蠕虫，大量盗窃cookie。客户端的脚本程序可以通过DOM动态地检查和修改页面内容，它不依赖于提交数据到服务器端，而从客户端获得DOM中的数据在本地执行，如果DOM中的数据没有经过严格确认，就会产生<strong>DOM XSS漏洞</strong>。</p>
+                <h1 id="0x01-XSS-Labs"><a href="#0x01-XSS-Labs" class="headerlink" title="0x01 XSS-Labs"></a>0x01 XSS-Labs</h1><p>&emsp;&emsp;XSS（跨站脚本攻击）是指恶意攻击者往Web页面里插入恶意<code>Script</code>代码，当用户浏览该网页或请求该网页中的内容之时，嵌入其中Web里面的<code>Script</code>代码会被执行，从而达到恶意攻击用户的目的。</p>
+<p>&emsp;&emsp;XSS按照利用方式主要分为：反射型XSS、存储型XSS、DOM型XSS。<strong>反射型XSS</strong>是攻击者事先制作好攻击链接, 需要欺骗用户自己去点击链接才能触发XSS代码（服务器中没有这样的页面和内容），一般容易出现在搜索页面。代码是存储在服务器中的，如在个人信息或发表文章等地方，加入代码，如果没有过滤或过滤不严，那么这些代码将储存到服务器中，每当有用户访问该页面的时候都会触发代码执行，这种XSS即<strong>存储型XSS</strong>，非常危险，容易造成蠕虫，大量盗窃cookie。客户端的脚本程序可以通过DOM动态地检查和修改页面内容，它不依赖于提交数据到服务器端，而从客户端获得DOM中的数据在本地执行，如果DOM中的数据没有经过严格确认，就会产生<strong>DOM XSS漏洞</strong>。</p>
 <p>&emsp;&emsp;XSS-Labs是使用PHP编写的一个XSS漏洞练习平台，一共包含20关，其主要为反射型XSS，可以练习基础XSS的过滤和绕过技巧，且每一关的后台源码都重写了<code>alert()</code>方法，只要成功弹框即可调用重写的<code>alert()</code>方法进入下一关或完成本关测试。</p>
 <h1 id="0x02-实验工具"><a href="#0x02-实验工具" class="headerlink" title="0x02 实验工具"></a>0x02 实验工具</h1><ul>
 <li><code>FireFox</code></li>
@@ -518,10 +519,11 @@
 <pre class="line-numbers language-javascript"><code class="language-javascript">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level2<span class="token punctuation">.</span>php<span class="token operator">?</span>keyword<span class="token operator">=</span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level2/注入点检测结果.png" alt="注入点检测结果"></center>
 
-<p>由上述操作可以推断，程序对<code>h2</code>标签的参数进行了转义，而对<code>name=keyword</code>的<code>input</code>标签中的参数未进行转义，闭合value和input标签就可以正常弹窗，所以此处存在XSS漏洞。</p>
+<p>由上述操作可以推断，程序对<code>h2</code>标签的参数进行了转义，而对<code>name=keyword</code>的<code>input</code>标签中的参数未进行转义，闭合value值和input标签就可以正常弹窗，所以此处存在XSS漏洞。</p>
 </li>
 <li><p>构造如下所示的payload进行漏洞测试，结果如下图所示。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level2<span class="token punctuation">.</span>php<span class="token operator">?</span>keyword<span class="token operator">=</span>"<span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span class="token comment" spellcheck="true">//</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 闭合标签+payload+注释</span>
+http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level2<span class="token punctuation">.</span>php<span class="token operator">?</span>keyword<span class="token operator">=</span>"<span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span class="token comment" spellcheck="true">//</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level2/注入成功.png" alt="注入成功"></center>
 </li>
 <li><p>代码审计。程序源码如下所示：</p>
@@ -560,20 +562,24 @@ window<span class="token punctuation">.</span>alert <span class="token operator"
 <li>由17、20行代码可知：程序将通过<strong>GET方法</strong>得到的参数未经任何转义或过滤直接赋值给<code>name=keyword</code>的<code>input</code>标签的<code>value</code>值。</li>
 </ul>
 </li>
-<li><p>所以闭合标签后可以成功调用<code>alert()</code>方法的脚本都可以做为payload。</p>
+<li><p>所以闭合标签或构造事件后可以成功调用<code>alert()</code>方法的脚本都可以做为payload。</p>
 </li>
 </ol>
 <h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul>
 <li><p>程序未做任何转义或过滤就将参数回显到HTML页面中，所以此关的payload非常多：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">"<span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span class="token comment" spellcheck="true">//</span>
-"<span class="token operator">></span><span class="token operator">&lt;</span>img src<span class="token operator">=</span>x onerror<span class="token operator">=</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token comment" spellcheck="true">//</span>
-<span class="token string">">&lt;a href="</span>javascript<span class="token punctuation">:</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>"<span class="token operator">></span>a<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"># 构造事件
 <span class="token string">"onclick="</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# 闭合原有标签，构造脚本
+"<span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span class="token comment" spellcheck="true">//</span>
+# 闭合原有标签，构造事件
+"<span class="token operator">></span><span class="token operator">&lt;</span>img src<span class="token operator">=</span>x onerror<span class="token operator">=</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token comment" spellcheck="true">//</span>
+# 闭合原有标签，构造伪协议
+<span class="token string">">&lt;a href="</span>javascript<span class="token punctuation">:</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>"<span class="token operator">></span>a<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+<span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h1 id="0x06-参考链接"><a href="#0x06-参考链接" class="headerlink" title="0x06 参考链接"></a>0x06 参考链接</h1><ul>
-<li><a href="https://www.jianshu.com/p/4fcb4b411a66" target="_blank" rel="noopener">跨站脚本漏洞(XSS)基础讲解</a></li>
+<li><a href="https://www.jianshu.com/p/4fcb4b411a66" target="_blank" rel="noopener">跨站脚本漏洞基础讲解</a></li>
 </ul>
 
             </div>
@@ -787,7 +793,7 @@ window<span class="token punctuation">.</span>alert <span class="token operator"
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            0x01 XSS-Labs&emsp;&emsp;XSS（跨站脚本攻击）是指恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。&emsp;&ems
+                            0x01 XSS-Labs&emsp;&emsp;XSS（跨站脚本攻击）是指恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该网页或请求该网页中的内容之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的
                         
                     </div>
                     <div class="publish-info">
@@ -1032,7 +1038,7 @@ window<span class="token punctuation">.</span>alert <span class="token operator"
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">150.5k</span>
+            <span class="white-color">151.8k</span>
             
 
             <br>
