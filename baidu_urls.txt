@@ -1,3 +1,5 @@
+https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level20/
+https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level19/
 https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level14/
 https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level18/
 https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level17/
