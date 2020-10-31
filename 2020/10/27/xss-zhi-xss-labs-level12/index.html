@@ -56,7 +56,8 @@
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
 
@@ -514,23 +515,23 @@
 
 <h1 id="0x04-实验步骤"><a href="#0x04-实验步骤" class="headerlink" title="0x04 实验步骤"></a>0x04 实验步骤</h1><ol>
 <li><p>使用如下payload进行测试，查看参数的回显位置以及是否被转义或过滤。</p>
-<pre class=" language-javascript"><code class="language-javascript">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level12<span class="token punctuation">.</span>php<span class="token operator">?</span>keyword<span class="token operator">=</span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex">/onclink+src+data+href/</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<pre class="line-numbers language-javascript"><code class="language-javascript">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level12<span class="token punctuation">.</span>php<span class="token operator">?</span>keyword<span class="token operator">=</span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex">/onclink+src+data+href/</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level12<span class="token punctuation">.</span>php<span class="token operator">?</span>t_sort<span class="token operator">=</span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex">/onclink+src+data+href/</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 User Agent<span class="token punctuation">:</span>
-<span class="token string">"type="</span>text<span class="token string">" onclick="</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>"</code></pre>
+<span class="token string">"type="</span>text<span class="token string">" onclick="</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level12/注入点检测.png" alt="注入点检测"></center>
 
 <p>由上述操作可以推断，程序对<code>h2</code>和<code>name=t_sort</code>的<code>input</code>标签中参数的尖括号进行了转义，而对<code>name=t_ua</code>的<code>input</code>标签参数中的尖括号进行过滤，使用不含尖括号的语句可以正常弹框，所以此处存在XSS漏洞。</p>
 </li>
 <li><p>构造如下所示的payload进行漏洞测试，结果如下图所示。</p>
-<pre class=" language-javascript"><code class="language-javascript">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level12<span class="token punctuation">.</span>php<span class="token operator">?</span>keyword<span class="token operator">=</span>good<span class="token operator">%</span>20job<span class="token operator">!</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level12<span class="token punctuation">.</span>php<span class="token operator">?</span>keyword<span class="token operator">=</span>good<span class="token operator">%</span>20job<span class="token operator">!</span>
 User Agent<span class="token punctuation">:</span>
 click me<span class="token operator">!</span><span class="token string">" type="</span>button<span class="token string">" onclick="</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token string">"type="</span>text<span class="token string">" onclick="</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>"</code></pre>
+<span class="token string">"type="</span>text<span class="token string">" onclick="</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level12/注入成功.png" alt="注入成功"></center>
 </li>
 <li><p>代码审计。程序源码如下所示：</p>
-<pre class=" language-php"><code class="language-php"><span class="token markup"><span class="token doctype">&lt;!DOCTYPE html></span></span><span class="token markup"><span class="token comment" spellcheck="true">&lt;!--STATUS OK--></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span></span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token doctype">&lt;!DOCTYPE html></span></span><span class="token markup"><span class="token comment" spellcheck="true">&lt;!--STATUS OK--></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span></span>
 <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></span>
 <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content-type<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/html;charset<span class="token punctuation">=</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
 <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span></span>
@@ -565,7 +566,7 @@ window<span class="token punctuation">.</span>alert <span class="token operator"
 <span class="token keyword">echo</span> <span class="token string">"&lt;h3 align=center>payload的长度:"</span><span class="token punctuation">.</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$str</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">"&lt;/h3>"</span><span class="token punctuation">;</span>
 <span class="token delimiter">?></span>
 <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span></code></pre>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>由22、26行代码可知：GET方法得到的参数经过<code>htmlspecialchars()</code>函数转义后回显到HTML页面中。</li>
 <li>由19-21、27行代码可知：程序将通过<strong>GET方法</strong>得到的参数中的尖括号进行过滤后赋值给<code>name=t_ref</code>的<code>a</code>标签的<code>value</code>值。</li>
@@ -576,9 +577,9 @@ window<span class="token punctuation">.</span>alert <span class="token operator"
 </ol>
 <h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul>
 <li><p>程序未做任何转义或过滤就将参数回显到HTML页面中，所以此关的payload非常多：</p>
-<pre class=" language-javascript"><code class="language-javascript">click me<span class="token operator">!</span><span class="token string">" type="</span>button<span class="token string">" onclick="</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript">click me<span class="token operator">!</span><span class="token string">" type="</span>button<span class="token string">" onclick="</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token string">"type="</span>text<span class="token string">" onclick="</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>"
-<span class="token operator">...</span></code></pre>
+<span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h1 id="0x06-参考链接"><a href="#0x06-参考链接" class="headerlink" title="0x06 参考链接"></a>0x06 参考链接</h1><ul>
@@ -1041,7 +1042,7 @@ window<span class="token punctuation">.</span>alert <span class="token operator"
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">150.4k</span>
+            <span class="white-color">150.5k</span>
             
 
             <br>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level1/</loc>
+    
+    <lastmod>2020-10-31T01:15:42.219Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level2/</loc>
+    
+    <lastmod>2020-10-31T01:15:04.419Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level18/</loc>
     
     <lastmod>2020-10-26T18:42:56.595Z</lastmod>
@@ -103,20 +117,6 @@
     <loc>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level3/</loc>
     
     <lastmod>2020-10-26T01:05:55.974Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level2/</loc>
-    
-    <lastmod>2020-10-26T00:23:12.324Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level1/</loc>
-    
-    <lastmod>2020-10-26T00:19:29.939Z</lastmod>
     
   </url>
   
@@ -597,13 +597,6 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/categories/index.html</loc>
-    
-    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://z1r0s.github.io/archives/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
@@ -612,6 +605,13 @@
   
   <url>
     <loc>https://z1r0s.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     

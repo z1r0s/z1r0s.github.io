@@ -59,7 +59,8 @@ Command Inject">
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
 
@@ -536,7 +537,7 @@ Command Inject">
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Submit'</span> <span class="token punctuation">]</span>  <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Get input</span>
@@ -556,7 +557,7 @@ Command Inject">
     <span class="token keyword">echo</span> <span class="token string">"&lt;pre>{$cmd}&lt;/pre>"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​        前端代码没有做任何注入防护。</p>
 <p><strong>漏洞利用</strong>：</p>
 <p><strong>方法一：文本框注入测试</strong></p>
@@ -582,7 +583,7 @@ Command Inject">
 </li>
 </ul>
 <p><strong>方法二：自编写POC</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
 <span class="token comment" spellcheck="true"># Author: Silence</span>
 <span class="token comment" spellcheck="true"># Encoding: utf-8</span>
 
@@ -641,7 +642,7 @@ Command Inject">
     headers <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token string">'Cookie'</span> <span class="token punctuation">:</span> <span class="token string">'security=low; PHPSESSID=gqhrhpesfenrmv2veseur4orb6'</span>
     <span class="token punctuation">}</span>
-    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span></code></pre>
+    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中 <code>copy</code>登陆成功后的 <code>cookie</code>信息</li>
@@ -660,7 +661,7 @@ Command Inject">
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Submit'</span> <span class="token punctuation">]</span>  <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Get input</span>
@@ -689,7 +690,7 @@ Command Inject">
     <span class="token keyword">echo</span> <span class="token string">"&lt;pre>{$cmd}&lt;/pre>"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>代码会对输入的<code>&amp;&amp;</code>和<code>;</code>进行过滤，可以使用<code>&amp;;&amp;</code>来绕过</li>
 </ul>
@@ -715,7 +716,7 @@ Command Inject">
 </li>
 </ul>
 <p><strong>方式二：自编写POC</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
 <span class="token comment" spellcheck="true"># Author: Silence</span>
 <span class="token comment" spellcheck="true"># Encoding: utf-8</span>
 
@@ -783,7 +784,7 @@ WORKERS <span class="token operator">=</span> <span class="token number">10</spa
     headers <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token string">'Cookie'</span> <span class="token punctuation">:</span> <span class="token string">'security=medium; PHPSESSID=gqhrhpesfenrmv2veseur4orb6'</span>
     <span class="token punctuation">}</span>
-    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span></code></pre>
+    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中 copy 登陆成功后的 cookie 信息</li>
@@ -798,7 +799,7 @@ WORKERS <span class="token operator">=</span> <span class="token number">10</spa
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Submit'</span> <span class="token punctuation">]</span>  <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Get input</span>
@@ -834,7 +835,7 @@ WORKERS <span class="token operator">=</span> <span class="token number">10</spa
     <span class="token keyword">echo</span> <span class="token string">"&lt;pre>{$cmd}&lt;/pre>"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>源码中对大部分关键符号都进行了过滤，但是过滤<code>|</code>时过滤的是:<code>&#39;| &#39;</code></li>
 </ul>
@@ -861,7 +862,7 @@ WORKERS <span class="token operator">=</span> <span class="token number">10</spa
 </li>
 </ul>
 <p><strong>方法二：自编写POC</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
 <span class="token comment" spellcheck="true"># Author: Silence</span>
 <span class="token comment" spellcheck="true"># Encoding: utf-8</span>
 
@@ -929,7 +930,7 @@ WORKERS <span class="token operator">=</span> <span class="token number">10</spa
     headers <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token string">'Cookie'</span> <span class="token punctuation">:</span> <span class="token string">'security=high; PHPSESSID=gqhrhpesfenrmv2veseur4orb6'</span>
     <span class="token punctuation">}</span>
-    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span></code></pre>
+    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中 copy 登陆成功后的 cookie 信息</li>
@@ -944,7 +945,7 @@ WORKERS <span class="token operator">=</span> <span class="token number">10</spa
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Submit'</span> <span class="token punctuation">]</span>  <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Check Anti-CSRF token</span>
@@ -984,7 +985,7 @@ WORKERS <span class="token operator">=</span> <span class="token number">10</spa
 <span class="token comment" spellcheck="true">// Generate Anti-CSRF token</span>
 <span class="token function">generateSessionToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>在后端对IP地址的格式进行验证，无法注入其他命令。</li>
 </ul>
@@ -1484,7 +1485,7 @@ Brute F
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">150.4k</span>
+            <span class="white-color">150.5k</span>
             
 
             <br>

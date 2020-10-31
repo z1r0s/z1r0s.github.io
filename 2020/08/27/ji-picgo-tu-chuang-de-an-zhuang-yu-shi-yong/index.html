@@ -56,7 +56,8 @@
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
 
@@ -318,7 +319,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/229.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/225.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -629,7 +630,7 @@
 </li>
 <li><p>检查：</p>
 <ul>
-<li><pre class=" language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> Get<span class="token operator">-</span>ExecutionPolicy</code></pre>
+<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> Get<span class="token operator">-</span>ExecutionPolicy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>如果返回的是 <code>Restricted</code>，那么需要更改为<code>Bypass</code>或<code>AllSigned</code></p>
 </li>
@@ -637,10 +638,10 @@
 </li>
 <li><p>更改：</p>
 <ul>
-<li><pre class=" language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">Set</span><span class="token operator">-</span>ExecutionPolicy AllSigned</code></pre>
+<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">Set</span><span class="token operator">-</span>ExecutionPolicy AllSigned<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>或</p>
 </li>
-<li><pre class=" language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">Set</span><span class="token operator">-</span>ExecutionPolicy Bypass <span class="token operator">-</span>Scope <span class="token keyword">Process</span></code></pre>
+<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">Set</span><span class="token operator">-</span>ExecutionPolicy Bypass <span class="token operator">-</span>Scope <span class="token keyword">Process</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -648,11 +649,11 @@
 <ul>
 <li><p>设置<code>执行策略</code>同时下载并执行安装脚本</p>
 </li>
-<li><pre class=" language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">Set</span><span class="token operator">-</span>ExecutionPolicy Bypass <span class="token operator">-</span>Scope <span class="token keyword">Process</span> <span class="token operator">-</span>Force<span class="token punctuation">;</span> <span class="token function">iex</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">New-Object</span> System<span class="token punctuation">.</span>Net<span class="token punctuation">.</span>WebClient<span class="token punctuation">)</span><span class="token punctuation">.</span>DownloadString<span class="token punctuation">(</span><span class="token string">'https://chocolatey.org/install.ps1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">Set</span><span class="token operator">-</span>ExecutionPolicy Bypass <span class="token operator">-</span>Scope <span class="token keyword">Process</span> <span class="token operator">-</span>Force<span class="token punctuation">;</span> <span class="token function">iex</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">New-Object</span> System<span class="token punctuation">.</span>Net<span class="token punctuation">.</span>WebClient<span class="token punctuation">)</span><span class="token punctuation">.</span>DownloadString<span class="token punctuation">(</span><span class="token string">'https://chocolatey.org/install.ps1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>如果执行策略已经更改，直接下载并执行也可以</p>
 </li>
-<li><pre class=" language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">iex</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">New-Object</span> System<span class="token punctuation">.</span>Net<span class="token punctuation">.</span>WebClient<span class="token punctuation">)</span><span class="token punctuation">.</span>DownloadString<span class="token punctuation">(</span><span class="token string">'https://chocolatey.org/install.ps1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">iex</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">New-Object</span> System<span class="token punctuation">.</span>Net<span class="token punctuation">.</span>WebClient<span class="token punctuation">)</span><span class="token punctuation">.</span>DownloadString<span class="token punctuation">(</span><span class="token string">'https://chocolatey.org/install.ps1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -1007,7 +1008,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/71.jpg" class="responsive-img" alt="Win10远程桌面及防火墙配置">
+                        <img src="/medias/featureimages/67.jpg" class="responsive-img" alt="Win10远程桌面及防火墙配置">
                         
                         <span class="card-title">Win10远程桌面及防火墙配置</span>
                     </div>
@@ -1220,7 +1221,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">150.4k</span>
+            <span class="white-color">150.5k</span>
             
 
             <br>

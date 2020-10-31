@@ -56,7 +56,8 @@
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
 
@@ -318,7 +319,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/151.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/155.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -533,7 +534,7 @@
 
 <p><strong>抽象策略角色</strong>：</p>
 <p><strong>CashSuper类</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//算法的公共接口</span>
     <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">CashSuper</span>
@@ -541,10 +542,10 @@
         <span class="token comment" spellcheck="true">//抽象出来的接口方法</span>
         <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>具体策略角色</strong>：</p>
 <p><strong>CashNormal类</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//不折扣算法</span>
     <span class="token keyword">class</span> <span class="token class-name">CashNormal</span> <span class="token punctuation">:</span> CashSuper
@@ -554,9 +555,9 @@
             <span class="token keyword">return</span> money<span class="token punctuation">;</span>
         <span class="token punctuation">}</span> 
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashRebate类</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//折扣算法</span>
     <span class="token keyword">class</span> <span class="token class-name">CashRebate</span> <span class="token punctuation">:</span> CashSuper
@@ -587,9 +588,9 @@
         <span class="token punctuation">}</span>
         <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashReturn类</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
@@ -630,10 +631,10 @@
         <span class="token punctuation">}</span>
         <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>环境角色</strong>：</p>
 <p><strong>CashContext类</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//收费策略Context</span>
     <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
@@ -653,13 +654,13 @@
             <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>测试类</strong>：</p>
 <p><strong>测试界面</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/策略模式/策略模式测试界面.png" alt="策略模式测试界面"></center>
 
 <p><strong>测试类代码</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 商场管理软件
@@ -708,7 +709,7 @@
             lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>测试结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/策略模式/策略模式测试结果展示.png" alt="策略模式测试结果展示"></center>
 
@@ -731,7 +732,7 @@
 <li>对客户隐藏具体的策略(算法)的实现细节，彼此完全独立。</li>
 </ol>
 <h1 id="算法改进"><a href="#算法改进" class="headerlink" title="算法改进"></a>算法改进</h1><h2 id="策略与简单工厂集合"><a href="#策略与简单工厂集合" class="headerlink" title="策略与简单工厂集合"></a>策略与简单工厂集合</h2><p>改造后的环境类：(CashContext.cs)</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//现金收取工厂</span>
     <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
@@ -763,9 +764,9 @@
             <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>客户端测试代码</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 商场管理软件
@@ -806,7 +807,7 @@
             lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>策略模式客户端需要认识<strong>CashSuper类</strong>、<strong>CashNormal类</strong>、<strong>CashReturn类</strong>、<strong>CashRebate类</strong>、<strong>CashContext类</strong>；</li>
@@ -814,7 +815,7 @@
 <li>策略与简单工厂集合之后，客户端只需要认识一个<strong>CashContext类</strong>即可，耦合度更加低。</li>
 </ul>
 <h2 id="策略-反射"><a href="#策略-反射" class="headerlink" title="策略 + 反射"></a>策略 + 反射</h2><p>改造后的环境类：(CashContext.cs)</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
     <span class="token punctuation">{</span>
@@ -831,9 +832,9 @@
             <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>客户端测试代码</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/**********************************
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/**********************************
  * 
  * 程序说明：使用反射 + 策略模式  来实现
  * 
@@ -914,9 +915,9 @@
             lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashAcceptType.xml</strong>：</p>
-<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CashAcceptType</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>正常收费<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
@@ -943,7 +944,7 @@
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashRebate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>0.7<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CashAcceptType</span><span class="token punctuation">></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CashAcceptType</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>测试结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/策略模式/策略+反射测试结果展示.png" alt="策略+反射测试结果展示"></center>
 
@@ -966,7 +967,7 @@
 <li>《设计模式精解及面试攻略》</li>
 </ul>
 <h2 id="策略与简单工厂集合完整源码"><a href="#策略与简单工厂集合完整源码" class="headerlink" title="策略与简单工厂集合完整源码"></a>策略与简单工厂集合完整源码</h2><p><strong>CashContext.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//现金收取工厂</span>
     <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
@@ -998,9 +999,9 @@
             <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashNormal.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//正常收费，继承CashSuper</span>
     <span class="token keyword">class</span> <span class="token class-name">CashNormal</span> <span class="token punctuation">:</span> CashSuper
@@ -1010,9 +1011,9 @@
             <span class="token keyword">return</span> money<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashRebate.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//打折收费，继承CashSuper</span>
     <span class="token keyword">class</span> <span class="token class-name">CashRebate</span> <span class="token punctuation">:</span> CashSuper
@@ -1029,9 +1030,9 @@
             <span class="token keyword">return</span> money <span class="token operator">*</span> moneyRebate<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashReturn.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
@@ -1057,9 +1058,9 @@
             <span class="token keyword">return</span> result<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashSuper.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//现金收取父类</span>
     <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">CashSuper</span>
@@ -1067,9 +1068,9 @@
         <span class="token comment" spellcheck="true">//抽象方法：收取现金，参数为原价，返回为当前价</span>
         <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Form1.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 商场管理软件
@@ -1109,9 +1110,9 @@
             lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashAcceptType.xml</strong>：</p>
-<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CashAcceptType</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>正常收费<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
@@ -1138,17 +1139,17 @@
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashRebate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>0.7<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CashAcceptType</span><span class="token punctuation">></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CashAcceptType</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="策略-反射完整源码"><a href="#策略-反射完整源码" class="headerlink" title="策略+反射完整源码"></a>策略+反射完整源码</h2><p><strong>CashSuper.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">CashSuper</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashNormal.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token keyword">class</span> <span class="token class-name">CashNormal</span> <span class="token punctuation">:</span> CashSuper
     <span class="token punctuation">{</span>
@@ -1157,9 +1158,9 @@
             <span class="token keyword">return</span> money<span class="token punctuation">;</span>
         <span class="token punctuation">}</span> 
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashRebate.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token keyword">class</span> <span class="token class-name">CashRebate</span> <span class="token punctuation">:</span> CashSuper
     <span class="token punctuation">{</span>
@@ -1174,9 +1175,9 @@
             <span class="token keyword">return</span> money <span class="token operator">*</span> moneyRebate<span class="token punctuation">;</span>
         <span class="token punctuation">}</span> 
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashReturn.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
@@ -1200,9 +1201,9 @@
             <span class="token keyword">return</span> result<span class="token punctuation">;</span>
         <span class="token punctuation">}</span> 
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>CashContext.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
 <span class="token punctuation">{</span>
     <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
     <span class="token punctuation">{</span>
@@ -1219,9 +1220,9 @@
             <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Form1.cs</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Reflection<span class="token punctuation">;</span>
@@ -1292,7 +1293,7 @@
             lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -1498,7 +1499,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/253.jpg" class="responsive-img" alt="装饰模式">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="装饰模式">
                         
                         <span class="card-title">装饰模式</span>
                     </div>
@@ -1560,7 +1561,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/239.jpg" class="responsive-img" alt="抽象工厂模式">
+                        <img src="/medias/featureimages/243.jpg" class="responsive-img" alt="抽象工厂模式">
                         
                         <span class="card-title">抽象工厂模式</span>
                     </div>
@@ -1774,7 +1775,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">150.4k</span>
+            <span class="white-color">150.5k</span>
             
 
             <br>

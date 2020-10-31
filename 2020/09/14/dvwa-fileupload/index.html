@@ -72,7 +72,8 @@ Bu">
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
 
@@ -543,7 +544,7 @@ Bu">
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
@@ -561,7 +562,7 @@ Bu">
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>上传文件过程无任何保护措施， 直接使用将上传文件移动到可访问的 <code>hackable/uploads</code>目录下  </li>
 </ul>
@@ -585,7 +586,7 @@ Bu">
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
@@ -617,7 +618,7 @@ Bu">
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span></code></pre>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>在上传过程中对文件类型进行白名单限制（文件类型来源自数据提交的 content-type,可通过篡改绕过数据检查）</li>
 </ul>
@@ -665,7 +666,7 @@ Bu">
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
@@ -699,7 +700,7 @@ Bu">
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>在上传过程中对文件后缀类型进行白名单限制，同时对文件大小以及图片尺寸大小进行检查，需要制作图片木马并结合命令注入（重命名文件名）进行漏洞利用。</li>
 </ul>
@@ -737,7 +738,7 @@ Bu">
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Check Anti-CSRF token</span>
@@ -798,7 +799,7 @@ Bu">
 <span class="token comment" spellcheck="true">// Generate Anti-CSRF token</span>
 <span class="token function">generateSessionToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>对上传的文件类型、大小等进行限制，同时还对上传文件进行重命名。</li>
 </ul>
@@ -1291,7 +1292,7 @@ file1.php
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">150.4k</span>
+            <span class="white-color">150.5k</span>
             
 
             <br>

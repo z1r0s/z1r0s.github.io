@@ -60,7 +60,8 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
         })();
     </script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
 
@@ -322,7 +323,7 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -513,7 +514,7 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 </ul>
 <h2 id="编写"><a href="#编写" class="headerlink" title="编写"></a>编写</h2><h3 id="copy命令"><a href="#copy命令" class="headerlink" title="copy命令"></a>copy命令</h3><p>​        copy命令是实现<strong>文件复制</strong>的命令，它可以将文件从某个目录复制到另外的目录。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">copy</span> con 批处理文件名称.bat</span></code></pre>
+<pre class="line-numbers language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">copy</span> con 批处理文件名称.bat</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
 <li>con：是指字符输入设备，通常指键盘</li>
@@ -543,14 +544,14 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 
 <h1 id="批处理命令"><a href="#批处理命令" class="headerlink" title="批处理命令"></a>批处理命令</h1><h2 id="批处理基础命令"><a href="#批处理基础命令" class="headerlink" title="批处理基础命令"></a>批处理基础命令</h2><h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><p>​        打开或关闭<strong>命令回显</strong>功能或<strong>显示消息</strong></p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">echo</span> [{on | off}] [message]</span></code></pre>
+<pre class="line-numbers language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">echo</span> [{on | off}] [message]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
 <li>{ on | off }：指定是否打开命令回显功能</li>
 <li>message：指定要在屏幕上显示的文本信息</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-batch"><code class="language-batch"><span class="token comment" spellcheck="true">:: 关闭回显功能</span>
+<pre class="line-numbers language-batch"><code class="language-batch"><span class="token comment" spellcheck="true">:: 关闭回显功能</span>
 <span class="token operator">@</span><span class="token command"><span class="token keyword">echo</span> off</span>
 <span class="token comment" spellcheck="true">:: 在命令提示符窗口显示"Pleione_Plus"</span>
 <span class="token command"><span class="token keyword">echo</span> By Pleione_Plus</span>
@@ -559,7 +560,7 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 <span class="token comment" spellcheck="true">:: 显示一个变量</span>
 <span class="token command"><span class="token keyword">echo</span> <span class="token variable">%windir%</span></span>
 <span class="token comment" spellcheck="true">:: 显示重定向到文件中</span>
-<span class="token command"><span class="token keyword">echo</span> <span class="token string">"this is a demo!"</span> > tmp.txt</span></code></pre>
+<span class="token command"><span class="token keyword">echo</span> <span class="token string">"this is a demo!"</span> > tmp.txt</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/echo-display.png" alt="echo-display"></center>
 
@@ -567,7 +568,7 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 
 <h3 id="pause"><a href="#pause" class="headerlink" title="pause"></a>pause</h3><p>​        <strong>暂停</strong>批处理程序，直到有一个按键<strong>被触发</strong></p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">pause</span></span></code></pre>
+<pre class="line-numbers language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">pause</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/pause-display.png" alt="pause-display"></center>
 
@@ -575,13 +576,13 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 
 <h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p>​        注释该行，可回显，但不执行<a href ::"执行时直接跳过该行">^1</a>:</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">rem [comment]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">rem [comment]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>comment：指定要作为注释的任何字符串</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">rem 这是一个内容注释
-:: 这也是一个内容注释，但该行执行时相当于不存在</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">rem 这是一个内容注释
+:: 这也是一个内容注释，但该行执行时相当于不存在<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/注释-display.png" alt="注释-display"></center>
 
@@ -594,7 +595,7 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 <li><font color="red">以命令行方式解析字符串变量</font></li>
 </ul>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">call [[Drive:] [Path] Filename [BatchParameters]] [:Label [Arguments]]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">call [[Drive:] [Path] Filename [BatchParameters]] [:Label [Arguments]]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>[Drive:] [Path] Filename：指定要调用的批处理程序的位置和名称。<ul>
 <li>Filename参数必须有.bat或.cmd扩展名</li>
@@ -605,13 +606,13 @@ DOS批处理文件是DOS命令的批量和技巧性的应用，体现了DOS的�
 <li>Arguments：指定要传递给其新实例的所有命令行信息</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 调用另一个批处理程序
+<pre class="line-numbers language-bat"><code class="language-bat">:: 调用另一个批处理程序
 call 1.bat
 
 :: 以命令方式解析变量值
 set aa=123456
 set cmdstr=echo %aa%
-call %cmdstr%</code></pre>
+call %cmdstr%<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/call-以命令行方式解析字符串-display.png" alt="call-以命令行方式解析字符串-display"></center>
 
@@ -620,21 +621,21 @@ call %cmdstr%</code></pre>
 <h3 id="cls"><a href="#cls" class="headerlink" title="cls"></a>cls</h3><p>​        <strong>清屏</strong>命令，但不清除历史记录</p>
 <h3 id="start"><a href="#start" class="headerlink" title="start"></a>start</h3><p>​        <strong>调用外部程序</strong>，所有的<strong>DOS命令</strong>和<strong>命令行程序</strong>都可以由<code>start</code>命令来调用</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">start [/min | /max] [parameters]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">start [/min | /max] [parameters]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>/min：以最小化方式启动窗口（必须在parameters之前）</li>
 <li>/max：以最大化方式启动窗口（必须在parameters之前）</li>
 <li>parameter：传递给程序的参数，（为空时默认打开一个新的命令提示符窗口）</li>
 </ul>
 <p><strong>eg1</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">start /max calc.exe
-:: 调用计算器程序，以最大状态展示</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">start /max calc.exe
+:: 调用计算器程序，以最大状态展示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/start-calc-display.png" alt="start-calc-display"></center>
 
 <p><strong>eg2</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">start "" "C:\Program Files (x86)\Tencent\TIM\Bin\TIM.exe"
-:: 中间的引号不能省略，否则将以CUI方式打开</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">start "" "C:\Program Files (x86)\Tencent\TIM\Bin\TIM.exe"
+:: 中间的引号不能省略，否则将以CUI方式打开<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/start-TIM-display.png" alt="start-TIM-display"></center>
 
@@ -644,12 +645,12 @@ call %cmdstr%</code></pre>
 
 <h2 id="批处理高级命令"><a href="#批处理高级命令" class="headerlink" title="批处理高级命令"></a>批处理高级命令</h2><h3 id="goto"><a href="#goto" class="headerlink" title="goto"></a>goto</h3><p>​        指定跳转到标签，找到标签后，程序将处理从下一行开始的命令</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">goto label</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">goto label<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>label：指定所要转向的批处理程序中的行</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 
 :start
 rem 如果var值小于3则输出
@@ -657,7 +658,7 @@ set /a var+=1
 echo %var%
 if %var% leq 3 goto start
 
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/goto-display.png" alt="goto-display"></center>
 
@@ -665,12 +666,12 @@ pause</code></pre>
 
 <h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><p>​        在批处理程序中执行条件处理</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">if [not] errorlevel Number Command [else Expression]
+<pre class="line-numbers language-bat"><code class="language-bat">if [not] errorlevel Number Command [else Expression]
 if [not] String1==String2 Command [else Expression]
 if [not] exist FileName Command [else Expression]
 if [/i] String1 ComoareOp String2 Command [else Expression]
 if defined Variable Command [else Expression]
-if cmdextversion Number Command [else Expression]</code></pre>
+if cmdextversion Number Command [else Expression]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>not：指定只有当条件为假时才执行该命令</li>
 <li><span name="iferrorlevel">errorlevel Number</span>：只有当有cmd运行的前一个程序返回等于或大于Number的退出码时，才能指定真条件</li>
@@ -694,7 +695,7 @@ if cmdextversion Number Command [else Expression]</code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：<span name="strCompare"> </span></p>
-<pre class=" language-bat"><code class="language-bat">:: 字符串比较
+<pre class="line-numbers language-bat"><code class="language-bat">:: 字符串比较
 @echo off
 set str1=abcd1234
 set str2=ABCD1234
@@ -736,7 +737,7 @@ if defined var (echo var=%var%) else (echo var尚未定义！)
 set var=
 :: 判断变量是否被定义
 if defined var (echo var=%var%) else (echo var尚未定义！)
-pause>nul</code></pre>
+pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/if-display.png" alt="if-display"></center>
 
@@ -744,7 +745,7 @@ pause>nul</code></pre>
 
 <h3 id="choice"><a href="#choice" class="headerlink" title="choice"></a>choice</h3><p>​        在批处理程序中，通过显示提示信息并暂停批处理程序，用户可以从一组选项键中进行选择</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">choice [/c [Choices]] [/n] [/cs] [/t Timeout /d Choice] [/m text]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">choice [/c [Choices]] [/n] [/cs] [/t Timeout /d Choice] [/m text]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>/c Choices：指定用户选项键。显示时，选项键用逗号分隔，出现在【】内，后面跟着问号。默认情况下只有【Y,N】</li>
 <li>/n：</li>
@@ -754,7 +755,7 @@ pause>nul</code></pre>
 <li>/m text：指定要在提示符之前显示的文字</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 choice /c dme /m "dir,mem,end"
 if errorlevel 3 goto end
 if errorlevel 2 goto mem
@@ -770,7 +771,7 @@ goto end
 
 :end
 echo goodbye
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/choice-display.png" alt="choice-display"></center>
 
@@ -778,10 +779,10 @@ pause</code></pre>
 
 <h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>​        对一组文件中的每个文件运行指定的命令</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">for {%Variable | %%Variable} in (Set) do Command [CommandLineOptions]
+<pre class="line-numbers language-bat"><code class="language-bat">for {%Variable | %%Variable} in (Set) do Command [CommandLineOptions]
 for /l {%Variable | %%Variable} in (start,step,end) do Command [CommandLineOptions]
 for /f ["options"] {%Variable | %%Variable} in (Set) do Command [CommandLineOptions]
-for {/d | /r} {%Variable | %%Variable} in (Set) do Command [CommandLineOptions]</code></pre>
+for {/d | /r} {%Variable | %%Variable} in (Set) do Command [CommandLineOptions]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>%Variable | %%Variable：代表可替换的参数，%Variable通过命令提示符执行for命令；%%Variable在批处理文件中执行for命令。（必须，变量区分大小写）</li>
 <li>(Set)：指定要用指定命令处理的一个或多个文件、目录、数值范围以及文本字符串。（必须，需要括号）</li>
@@ -800,7 +801,7 @@ for {/d | /r} {%Variable | %%Variable} in (Set) do Command [CommandLineOptions]<
 <li>/d | /r：与文件和目录有关</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">rem 循环结构
+<pre class="line-numbers language-bat"><code class="language-bat">rem 循环结构
 :: 基础循环结构
 @echo off
 echo 对集合遍历有：
@@ -861,7 +862,7 @@ set "dd=!dd:~0,-1!"
 echo !dd!
 )
 pause
-exit</code></pre>
+exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/for-display-1.png" alt="for-display-1"></center>
 
@@ -877,26 +878,26 @@ exit</code></pre>
 
 <h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>​        用于显示、设置或删除变量、做数值计算、获取用户输入、字符串截取、字符串替换</p>
 <p><strong>eg1</strong>：<span name="varDisplay">显示变量</span></p>
-<pre class=" language-bat"><code class="language-bat">:: 显示变量
+<pre class="line-numbers language-bat"><code class="language-bat">:: 显示变量
 set                    //显示所有定义的变量
-set s                //显示定义的以"s"开头的变量(无效)</code></pre>
+set s                //显示定义的以"s"开头的变量(无效)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/set-显示变量-display.png" alt="set-显示变量-display"></center>
 
 
 
 <p><strong>eg2</strong>：<span name="varSet">设置变量</span></p>
-<pre class=" language-bat"><code class="language-bat">:::::::::::::::::::::::::::::::::::::::::::::
+<pre class="line-numbers language-bat"><code class="language-bat">:::::::::::::::::::::::::::::::::::::::::::::
 :: 设置和调用变量
 set aa="123"        //bat中变量不区分类型
-echo %aa%            //调用变量时前后需要加上"%"</code></pre>
+echo %aa%            //调用变量时前后需要加上"%"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/set-设置和调用变量-display.png" alt="set-设置和调用变量-display"></center>
 
 
 
 <p><strong>eg3</strong>：<span name="varDel">删除变量</span></p>
-<pre class=" language-bat"><code class="language-bat">:::::::::::::::::::::::::::::::::::::::::::::
+<pre class="line-numbers language-bat"><code class="language-bat">:::::::::::::::::::::::::::::::::::::::::::::
 :: 删除变量，在设置变量之前先删除一下，若之前没有定义，则此句无任何意义
 @echo off
 title 删除变量
@@ -905,19 +906,19 @@ if defined aa (
     echo aa未被删除
 ) else ( 
     echo aa已被删除 )  
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/set-删除变量-display.png" alt="set-删除变量-display"></center>
 
 
 
 <p><strong>eg4</strong>：<span name="varCalculate">数值计算</span></p>
-<pre class=" language-bat"><code class="language-bat">:: 算数运算
+<pre class="line-numbers language-bat"><code class="language-bat">:: 算数运算
 set aa=1
 set bb=0
 set /a aa=%aa% + 1,bb+=%aa%
 echo %aa%
-echo %bb%</code></pre>
+echo %bb%<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>/a：等号右边按数值计算</li>
 </ul>
@@ -927,10 +928,10 @@ echo %bb%</code></pre>
 
 
 <p><strong>eg5</strong>：<span name="varInput">获取用户输入</span></p>
-<pre class=" language-bat"><code class="language-bat">:::::::::::::::::::::::::::::::::::::::::::::
+<pre class="line-numbers language-bat"><code class="language-bat">:::::::::::::::::::::::::::::::::::::::::::::
 :: 获取用户输入
 set /p msg=请输入信息:
-echo %msg%</code></pre>
+echo %msg%<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>/p：获取用户输入</li>
 </ul>
@@ -940,7 +941,7 @@ echo %msg%</code></pre>
 
 
 <p><strong>eg6</strong>：<span name="strSplit">字符串截取</span></p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 title 字符串截取
 :: 字符串截取
 set var=%str:~偏移量,长度%
@@ -983,7 +984,7 @@ cls
 
 :: 格式化显示时间
 @echo off
-echo 当前时间是：%time% 即 %time:~0,2%点%time:~3,2%分%time:~6,2%秒%time:~9,2%厘秒</code></pre>
+echo 当前时间是：%time% 即 %time:~0,2%点%time:~3,2%分%time:~6,2%秒%time:~9,2%厘秒<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>截取串获取：<code>%str:~偏移量,长度%</code><ul>
 <li>偏移量和长度可正可负。<ul>
@@ -1003,7 +1004,7 @@ echo 当前时间是：%time% 即 %time:~0,2%点%time:~3,2%分%time:~6,2%秒%tim
 
 
 <p><strong>eg7</strong>：<span name="strReplace">字符串替换</span></p>
-<pre class=" language-bat"><code class="language-bat">:::::::::::::::::::::::::::::::::::::::::::::
+<pre class="line-numbers language-bat"><code class="language-bat">:::::::::::::::::::::::::::::::::::::::::::::
 :: 替换字符串
 @echo off
 set aa=伟大的中国！我为你自豪！
@@ -1013,18 +1014,18 @@ echo 替换后：%aa:中国=中华人民共和国%
 echo aa=%aa%
 set "aa=%aa:中国=中华人民共和国%"
 echo aa=%aa%
-pause>nul</code></pre>
+pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/set-替换字符串-display.png" alt="set-替换字符串-display"></center>
 
 
 
 <h3 id="setx"><a href="#setx" class="headerlink" title="setx"></a>setx</h3><p>​        设置永久变量</p>
-<pre class=" language-bash"><code class="language-bash">:: 将D:\添加到PATH变量中
-setx PATH "%path%<span class="token punctuation">;</span>D:\"</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">:: 将D:\添加到PATH变量中
+setx PATH "%path%<span class="token punctuation">;</span>D:\"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="setlocal"><a href="#setlocal" class="headerlink" title="setlocal"></a>setlocal</h3><p>​        启动批处理文件中环境变量的本地化，本地化将持续到出现匹配的endlocal命令活着到达批处理文件结尾为止。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">setlocal {enableextension | disableextension} {enabledelayedexpansion | disabledelayedexpansion}</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">setlocal {enableextension | disableextension} {enabledelayedexpansion | disabledelayedexpansion}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>enableextension：启用命令扩展，直到出现endlocal命令</li>
 <li>disableextension：禁用命令扩展，直到出现endlocal命令</li>
@@ -1032,14 +1033,14 @@ setx PATH "%path%<span class="token punctuation">;</span>D:\"</code></pre>
 <li>disabledelayedexpansion：<span name="disabledelayedexpansion">禁用延迟的环境变量扩展</span>，直到出现endlocal命令</li>
 </ul>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">setlocal enableextension
+<pre class="line-numbers language-bat"><code class="language-bat">setlocal enableextension
 setlocal disableextension
 setlocal enabledelayedexpansion
-setlocal disabledelayedexpansion</code></pre>
+setlocal disabledelayedexpansion<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="使用参数"><a href="#使用参数" class="headerlink" title="使用参数"></a>使用参数</h3><p>​        可以在批处理文件内任何的地方使用批处理参数，以提取有关环境设置的信息。</p>
 <p>​        cmd提供批处理参数扩展变量（%0~%9）,%0将批处理文件名替换，而%1-%9将由命令行键入的参数替换。</p>
 <p><strong>eg</strong>:</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 
 rem 将echo回显重定向到tep.txt文件中
 Echo 产生一个临时文件 > tmp.txt
@@ -1078,7 +1079,7 @@ Echo 扩展到驱动器号和路径：%~dp1
 Echo 扩展到文件名和扩展名：%~nx1
 Echo 扩展到类似 DIR 的输出行：%~ftza1
 Echo.
-Goto :eof</code></pre>
+Goto :eof<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/使用参数-display.png" alt="使用参数-display"></center>
 
@@ -1103,7 +1104,7 @@ Goto :eof</code></pre>
 </ul>
 <h4 id="直接传递参数"><a href="#直接传递参数" class="headerlink" title="直接传递参数"></a>直接传递参数</h4><p>​        直接传递参数，即在使用<code>call</code>命令时，不使用任何参数，在<strong>子函数</strong>或<strong>子批处理</strong>里面<strong>直接对父批处理里面的变量进行修改</strong>。</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 乱序重排
+<pre class="line-numbers language-bat"><code class="language-bat">:: 乱序重排
 @echo off
 setlocal enabledelayedexpansion
 set var=aCdehiM,?mnrstW y
@@ -1124,7 +1125,7 @@ set var=
 for %%i in (6,3,11,11,16,15,1,4,11,5,12,13,9,0,12,7,15,14,5,10,2,16,18,8) do (
 set var=!var!!tm:~%%i,1!
 )
-goto :eof</code></pre>
+goto :eof<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>goto :eof为子程序返回命令，若子函数本身就在批处理文件的末尾的话，此命令可省略</li>
 </ul>
@@ -1135,14 +1136,14 @@ goto :eof</code></pre>
 
 <h4 id="间接传递参数"><a href="#间接传递参数" class="headerlink" title="间接传递参数"></a>间接传递参数</h4><p>​        间接传递参数，即在使用call命令时，在其后面添加参数。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">call {[:label] | [ChildBatch]} Parameter1 Parameter2 ... ParameterN</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">call {[:label] | [ChildBatch]} Parameter1 Parameter2 ... ParameterN<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>调用可是子函数，也可以是子批处理</li>
 <li>子函数或子批处理中不需要定义形参及其个数</li>
 <li>子函数或子批处理接受的参数依次存储在%1-%9中</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 call :deal aaa bbb "c c" ddd eee
 pause>nul
 exit
@@ -1153,7 +1154,7 @@ echo %%1 = %1
 echo %%2 = %2
 echo %%3 = %3
 echo %%4 = %4
-echo %%5 = %5</code></pre>
+echo %%5 = %5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>%0显示的是子函数的标号，而不是父批处理的文件名全程</li>
 </ul>
@@ -1240,7 +1241,7 @@ echo %%5 = %5</code></pre>
 </ul>
 <h3 id="使用筛选器"><a href="#使用筛选器" class="headerlink" title="使用筛选器"></a>使用筛选器</h3><p>​        命令筛选器与命令重定向竖线(|)联合使用，它实际上是一个命令，包含在可读取命令的输入、可转换输入并写入输出的命令中，筛选器命令可以帮助排序、查看和选择部分命令输出。</p>
 <p><strong>eg</strong>:</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 :: more查看C中目录
 tree C:\ | more
 
@@ -1249,7 +1250,7 @@ find "more" < demo.bat
 :: 查找指定文件中的指定字符串，并将存储在demo.txt文件中
 find "more" < demo.bat > demo.txt
 pause
-del demo.txt</code></pre>
+del demo.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/使用筛选器-display-1.png" alt="使用筛选器-display-1"></center>
 
@@ -1259,7 +1260,7 @@ del demo.txt</code></pre>
 
 <h3 id="使用命令重定向操作符"><a href="#使用命令重定向操作符" class="headerlink" title="使用命令重定向操作符"></a>使用命令重定向操作符</h3><p>​        使用重定向操作符将命令输入和输出的数据流从默认位置重定向到其他位置。输入或输出数据流的位置被称为句柄。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 重定向输入
+<pre class="line-numbers language-bat"><code class="language-bat">:: 重定向输入
 sort < demo.txt
 :: 重定向输出
 dir > demo.txt
@@ -1268,7 +1269,7 @@ dir >> demo.txt
 :: 使用管道操作符
 dir | sort
 :: 自动格式化A盘(无效)
-echo y|format a: /s /q /v:system</code></pre>
+echo y|format a: /s /q /v:system<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/重定向输入-display.png" alt="重定向输入-display"></center>
 
@@ -1282,7 +1283,7 @@ echo y|format a: /s /q /v:system</code></pre>
 <h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><p>​        对字符串的操作。包括：串拷贝、串拼接、串比较、串替换、串截取等。</p>
 <h3 id="串拷贝"><a href="#串拷贝" class="headerlink" title="串拷贝"></a>串拷贝</h3><p>​        在DOS批处理中，串拷贝可以通过set的赋值操作来实现。（批处理中变量不区分类型）</p>
 <h3 id="串拼接"><a href="#串拼接" class="headerlink" title="串拼接"></a>串拼接</h3><p>​        DOS批处理中，串拼接的操作也很简单，可以使用如下的语法来实现：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 set aa=伟大的中国！
 set bb=我为你自豪！
 :: 连续输出
@@ -1292,7 +1293,7 @@ echo bb=%bb%
 :: 拼接后赋给变量
 set aa=%aa%%bb%
 echo aa=%aa%
-pause>nul</code></pre>
+pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/串拼接.png" alt="串拼接"></center>
 
@@ -1367,7 +1368,7 @@ pause>nul</code></pre>
 </li>
 </ul>
 <p><strong>eg1</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 echo 正在运行的这个批处理：
 echo 完全路径：%0
 echo 去掉引号：%~0
@@ -1378,12 +1379,12 @@ echo 扩展名：%~x0
 echo 文件属性：%~a0
 echo 修改时间：%~t0
 echo 文件大小：%~z0
-pause>nul</code></pre>
+pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/串扩充-display-1.png" alt="串扩充-display-1"></center>
 
 <p><strong>eg2</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 set aa=C:\Windows\PPP\a.btx
 call :deal aaa %aa% "c c" ddd eee
 pause>nul
@@ -1395,7 +1396,7 @@ echo %%1 = %1
 echo %%2 = %2
 echo %%3 = %3
 echo %%4 = %4
-echo %%5 = %5</code></pre>
+echo %%5 = %5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>其中，变量aa在之前是不可以扩充的，通过call命令并将aa作为参数传递给子函数:deal，将aa变量转换成了变量%1，即符合%x格式，从而可以进行字符串扩充。</li>
 <li>至于%x中x取a-z A-Z的形式，可以复习一下for语句，for语句里面的变量就是用%x来表示的，因而可以直接进行扩充。</li>
@@ -1407,7 +1408,7 @@ echo %%5 = %5</code></pre>
 
 <h2 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h2><p>​        批处理里面的数值计算功能较弱，只能进行整型计算，忽略浮点数的小数部分；同时数值计算的范围也受限于系统位数，对于目前较为常见的32位机来说，数值计算能处理的数值范围为0x80000000h-0x7FFFFFFFh，即-2147483648-+2147483647。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">set /a expression</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">set /a expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>expressio：代表计算的表达式，可以跟多个需要用逗号(“,”)隔开</li>
 </ul>
@@ -1557,13 +1558,13 @@ echo %%5 = %5</code></pre>
 </tbody></table>
 <h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>​        有些命令在执行之后将会返回一定的错误值(errorlevel)，可以通过errorlevel的值<a href="#iferrorlevel">判断命令</a>执行的情况。</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 reg add HKCU /v try /f>nul
 reg delete HKCU /v try /f
 if errorlevel 0 (echo 删除成功！ ) else (echo 删除失败！)
 reg delete HKCU /v try /f
 if %errorlevel%==0 (echo 删除成功！ ) else (echo 删除失败！)
-pause>nul</code></pre>
+pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>一般情况下，程序或命令成功执行时，返回的errorlevel是0，错误时返回1或更高的值。</li>
 <li>逻辑判断也是根据命令的返回值(errorlevel)进行判断的</li>
@@ -1581,12 +1582,12 @@ pause>nul</code></pre>
 <li>msg：GUI交互窗口</li>
 </ul>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 设置颜色
+<pre class="line-numbers language-bat"><code class="language-bat">:: 设置颜色
 color [xx]
 :: 设置宽度和高度
 mode con [cols=c] [lines=n]
 :: 信息交互
-msg username /w /time:seconds message</code></pre>
+msg username /w /time:seconds message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>[xx]：x为一个十六进制数值，第一个x应用于背景，第二个x应用于前景<ul>
 <li>0 = 黑色      </li>
@@ -1615,7 +1616,7 @@ msg username /w /time:seconds message</code></pre>
 <li>message：要发送的信息</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 set a=10
 set b=0
 
@@ -1650,7 +1651,7 @@ color %%i
 :: msg
 msg %username% /w /time:3600 <ms.txt
 del ms.txt
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/视窗设置-display.png" alt="视窗设置-display"></center>
 
@@ -1658,7 +1659,7 @@ pause</code></pre>
 
 <h2 id="声音设置"><a href="#声音设置" class="headerlink" title="声音设置"></a>声音设置</h2><p>​        批处理中还能以语音的形式展示信息。</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 echo 做好准备，响了啊！！
 pause
 cls
@@ -1670,9 +1671,9 @@ cls
 
 echo.
 echo 怎么样？呵呵，刺激吧~
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII"></a>ASCII</h2><p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off&mode con cols=80
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off&mode con cols=80
 
 :begin
 cls
@@ -1704,7 +1705,7 @@ exit /b 0
         del %new% >nul 2>nul
         set file=
         set new=
-        pause>nul&goto :beginl</code></pre>
+        pause>nul&goto :beginl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/Batch/批处理笔记/ASCII-display.png" alt="ASCII-display"></center>
 
@@ -1712,25 +1713,25 @@ exit /b 0
 
 <h2 id="常用DOS命令"><a href="#常用DOS命令" class="headerlink" title="常用DOS命令"></a>常用DOS命令</h2><h3 id="文件夹管理"><a href="#文件夹管理" class="headerlink" title="文件夹管理"></a>文件夹管理</h3><h4 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h4><p>​    (<font color="blue">change directory</font>)跳转到指定目录下</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">cd [绝对路径]
+<pre class="line-numbers language-bat"><code class="language-bat">cd [绝对路径]
 ::跳转到指定的绝对路径下
 cd ..
 ::跳转到当前目录的父目录
 cd \
-::跳转到根目录</code></pre>
+::跳转到根目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="md"><a href="#md" class="headerlink" title="md"></a>md</h4><p>​    (<font color="blue">make directory</font>)创建目录</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">md [绝对路径] | [相对路径]
+<pre class="line-numbers language-bat"><code class="language-bat">md [绝对路径] | [相对路径]
 ::在指定位置创建文件夹
 md [文件夹名称]
-:: 在当前路径下创建文件夹</code></pre>
+:: 在当前路径下创建文件夹<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>路径中的文件夹不存在时会自动创建该文件夹</li>
 </ul>
 <h4 id="rd"><a href="#rd" class="headerlink" title="rd"></a>rd</h4><p>​    (<font color="blue">remove directory</font>)删除目录</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">rd [相对路径] | [绝对路径] | [文件夹名称]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">rd [相对路径] | [绝对路径] | [文件夹名称]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>删除的目录不能有子文件夹</li>
@@ -1741,8 +1742,8 @@ md [文件夹名称]
 </ul>
 <h4 id="dir"><a href="#dir" class="headerlink" title="dir"></a>dir</h4><p>​    (<font color="blue">directory</font>)展示当前目录下的文件和文件夹</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">::展示目录下的文件和文件夹
-dir [目录] [/p] [/w] [/ad] [/a] [/s]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">::展示目录下的文件和文件夹
+dir [目录] [/p] [/w] [/ad] [/a] [/s]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
 <li>/p：分屏显示文件夹内容</li>
@@ -1753,7 +1754,7 @@ dir [目录] [/p] [/w] [/ad] [/a] [/s]</code></pre>
 </ul>
 <h4 id="tree"><a href="#tree" class="headerlink" title="tree"></a>tree</h4><p>​    展示指定启动器的目录子树</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">tree [盘符] [/f] [/a]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">tree [盘符] [/f] [/a]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
 <li>盘符：显示所有的目录子树</li>
@@ -1762,12 +1763,12 @@ dir [目录] [/p] [/w] [/ad] [/a] [/s]</code></pre>
 </ul>
 <h4 id="path"><a href="#path" class="headerlink" title="path"></a>path</h4><h4 id="xcopy"><a href="#xcopy" class="headerlink" title="xcopy"></a>xcopy</h4><p>​        复制文件或目录到指定目录下</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 拷贝文件
+<pre class="line-numbers language-bat"><code class="language-bat">:: 拷贝文件
 xcopy [源目录] [目的目录]
 :: 拷贝目录
 xcopy [源文件名] [目的目录]
 :: 拷贝文件和目录
-xcopy *.* [目的目录] {/s | /e} /v</code></pre>
+xcopy *.* [目的目录] {/s | /e} /v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>/s：拷贝非空子目录</li>
 <li>/e：拷贝所有目录</li>
@@ -1775,8 +1776,8 @@ xcopy *.* [目的目录] {/s | /e} /v</code></pre>
 </ul>
 <h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><h4 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h4><p>​        复制源文件到到指定位置</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">copy [源文件] [目的文件]
-copy con 目标文件名</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">copy [源文件] [目的文件]
+copy con 目标文件名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>源文件与目标文件不能相同</li>
@@ -1786,10 +1787,10 @@ copy con 目标文件名</code></pre>
 </ul>
 <h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>​        在命令行中显示<strong>文本文件</strong>的内容</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">type [文本文件名称]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">type [文本文件名称]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="del"><a href="#del" class="headerlink" title="del"></a>del</h4><p>​        删除一个或数个文件</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">del {[文件名] | [*.后缀名]} [/p] [/q] [/f] [/s]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">del {[文件名] | [*.后缀名]} [/p] [/q] [/f] [/s]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>/p：删除每个文件之前提示确认信息</li>
 <li>/q：<font color="red">安静模式</font>，删除全局通配符时，不要求确认</li>
@@ -1798,17 +1799,17 @@ copy con 目标文件名</code></pre>
 </ul>
 <h4 id="move"><a href="#move" class="headerlink" title="move"></a>move</h4><p>​        移动文件或更改目录名</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 将文件移动到新的目录下
+<pre class="line-numbers language-bat"><code class="language-bat">:: 将文件移动到新的目录下
 move [文件名] [目的目录]
 :: 更改目录的名称
-move [目录名] [目录名] </code></pre>
+move [目录名] [目录名] <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="ren"><a href="#ren" class="headerlink" title="ren"></a>ren</h4><p>​        重命名文件</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">ren [源文件名] [新的文件名]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">ren [源文件名] [新的文件名]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><p>​        替换文件</p>
 <h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>​        搜索文件内容</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">find "string" filename</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">find "string" filename<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
 <li>string：待查找的字符串</li>
@@ -1818,8 +1819,8 @@ move [目录名] [目录名] </code></pre>
 <h4 id="fc"><a href="#fc" class="headerlink" title="fc"></a>fc</h4><p>​        比较两个文件或文件集并展示它们之间的不同</p>
 <h4 id="attrib"><a href="#attrib" class="headerlink" title="attrib"></a>attrib</h4><p>​        显示或更改文件属性</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">ATTRIB [+R | -R] [+A | -A] [+S | -S] [+H | -H] [+O | -O] [+I | -I] [+X | -X] [+P | -P] [+U | -U]
-       [drive:][path][filename] [/S [/D]] [/L]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">ATTRIB [+R | -R] [+A | -A] [+S | -S] [+H | -H] [+O | -O] [+I | -I] [+X | -X] [+P | -P] [+U | -U]
+       [drive:][path][filename] [/S [/D]] [/L]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>+/-R：设置或清除文件的只读属性</li>
 <li>+/-A：设置或清除文件的存档属性</li>
@@ -1829,7 +1830,7 @@ move [目录名] [目录名] </code></pre>
 <li>/s：处理当前文件夹及其所有子文件夹中的匹配文件</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 将D盘下demo文件夹中的1.txt文件设置为只读
+<pre class="line-numbers language-bat"><code class="language-bat">:: 将D盘下demo文件夹中的1.txt文件设置为只读
 attrib +r D:\demo\1.txt /s
 
 :: 将D盘下demo文件夹中的1.txt文件的属性设置为“存档”
@@ -1842,10 +1843,10 @@ attrib +s D:\demo\1.txt /s
 attrib +h D:\demo\1.txt /s
 
 :: 清除D盘下demo文件夹中的1.txt文件的“隐藏”属性
-attrib -h D:\demo\1.txt /s</code></pre>
+attrib -h D:\demo\1.txt /s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="openfiles"><a href="#openfiles" class="headerlink" title="openfiles"></a>openfiles</h4><p>​        允许管理员列出系统上已打开的文件和文件夹或与其断开连接。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">openfiles /parameter [arguments]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">openfiles /parameter [arguments]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>parameter：<ul>
 <li>disconnect：中断至少一个打开的文件的连接</li>
@@ -1855,7 +1856,7 @@ attrib -h D:\demo\1.txt /s</code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 断开IP地址为192.168.1.12的远程计算机中所有被打开的共享文件
+<pre class="line-numbers language-bat"><code class="language-bat">:: 断开IP地址为192.168.1.12的远程计算机中所有被打开的共享文件
 openfiles /disconnect /s 192.168.1.12 /id *
 :: 断开用户名为Guest、IP为192.168.1.12的远程计算机中所有被打开的文件
 openfiles /disconnect /s 192.168.1.12 /a Guest
@@ -1864,18 +1865,18 @@ openfiles /disconnect /s 192.168.1.12 /o read/write
 :: 显示IP为192.168.1.12的计算机的已经打开的远程文件
 openfiles /query /s 192.168.1.12
 :: 以Table格式显示IP为192.168.1.12的远程计算机中被打开的文件的基本信息
-openfiles /query /s 192.168.1.12 /fo table /v</code></pre>
+openfiles /query /s 192.168.1.12 /fo table /v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="takeown"><a href="#takeown" class="headerlink" title="takeown"></a>takeown</h4><p>​        该工具以重新分配文件所有权的方式允许管理员重新获取先前被拒绝访问的文件访问权。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">TAKEOWN [/S system [/U username [/P [password]]]]
-        /F filename [/A] [/R [/D prompt]]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">TAKEOWN [/S system [/U username [/P [password]]]]
+        /F filename [/A] [/R [/D prompt]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>/f：指定文件或目录名模式</li>
 <li>/a：将所有权给予管理员组，而不是当前用户</li>
 <li>/r：递归，指示工具运行于指定的目录和子目录的文件上</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 设置IP为192.168.1.12远程计算机为demo文件夹中的1.txt的访问权限由计算机的管理员所拥有
+<pre class="line-numbers language-bat"><code class="language-bat">:: 设置IP为192.168.1.12远程计算机为demo文件夹中的1.txt的访问权限由计算机的管理员所拥有
 takeown /f \\192.168.1.12\d:\demo\1.txt
 
 :: 设置本地管理员组拥有IP为192.168.1.12的远程计算机的demo文件或文件夹的访问权限
@@ -1883,17 +1884,17 @@ takeown /f \\192.168.1.12\d:\demo\1.txt /a
 
 :: 设置管理员拥有IP为192.168.1.12远程计算机的demo文件夹（包括其子文件）的访问权限
 :: takeown /f \\192.168.1.12\d:\demo /r
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="assoc"><a href="#assoc" class="headerlink" title="assoc"></a>assoc</h4><p>​        显示或修改文件扩展名关联</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">ASSOC [.ext[=[fileType]]]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">ASSOC [.ext[=[fileType]]]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>不带参数时，显示当前文件关联</li>
 <li>.ext：指定跟文件类型关联的文件扩展名</li>
 <li>fileType：指定跟文件扩展名关联的文件类型</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 显示当前文件关联
+<pre class="line-numbers language-bat"><code class="language-bat">:: 显示当前文件关联
 assoc
 
 :: 修改扩展名为.wsz的关联类型为wszfile
@@ -1901,10 +1902,10 @@ assoc .wsz=wszfile
 
 :: 显示文件扩展名为.txt的关联
 assoc .txt
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="bootcfg"><a href="#bootcfg" class="headerlink" title="bootcfg"></a>bootcfg</h4><p>​        用来在 BOOT.INI 文件中配置、查询、更改或删除启动项目设置。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">BOOTCFG /parameter [arguments]
+<pre class="line-numbers language-bat"><code class="language-bat">BOOTCFG /parameter [arguments]
 BOOTCFG /Copy [/S system [/U user [/P [password]]]] [/D description] /ID bootid
 BOOTCFG /Delete [/S system [/U user [/P [password]]]] /ID bootid
 BOOTCFG /Query [/S system [/U user [/P [password]]]]
@@ -1914,7 +1915,7 @@ BOOTCFG /Default [/S system [/U user [/P [password]]]] /ID bootid
 BOOTCFG /Addsw [/S system [/U user [/P [password]]]] 
                   { [/MM val] [/BV] [/SO] [/NG] } /ID bootid
 BOOTCFG /Rmsw [/S system [/U user [/P [password]]]]
-                  { [/MM] [/BV] [/SO] [/NG] } /ID bootid</code></pre>
+                  { [/MM] [/BV] [/SO] [/NG] } /ID bootid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>parameter：<ul>
 <li>copy：生成一个现有启动项目的副本</li>
@@ -1929,7 +1930,7 @@ BOOTCFG /Rmsw [/S system [/U user [/P [password]]]]
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 生成启动项目为“1”的副本
+<pre class="line-numbers language-bat"><code class="language-bat">:: 生成启动项目为“1”的副本
 bootcfg /copy /d "Windows With Debug" /ID 1
 
 :: 删除启动项目“1”
@@ -1952,38 +1953,38 @@ bootcfg /addsw /so /id 2
 
 :: 从boot.ini文件中删除启动项目“2”的开关
 bootcfg /rmsw /so /id 2
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="cacls"><a href="#cacls" class="headerlink" title="cacls"></a>cacls</h4><p>​        显示或者修改文件的访问控制列表(ACL)</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">CACLS filename [/T] [/M] [/L] [/S[:SDDL]] [/E] [/C] [/G user:perm]
-        [/R user [...]] [/P user:perm [...]] [/D user [...]]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">CACLS filename [/T] [/M] [/L] [/S[:SDDL]] [/E] [/C] [/G user:perm]
+        [/R user [...]] [/P user:perm [...]] [/D user [...]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>/e：编辑 ACL 而不替换。</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 显示D:\demo\1.txt文件的访问控制列表
+<pre class="line-numbers language-bat"><code class="language-bat">:: 显示D:\demo\1.txt文件的访问控制列表
 cacls D:\demo\1.txt
 
 :: 编辑D:\demo\1.txt文件的ACL
-cacls D:\demo\1.txt /e</code></pre>
+cacls D:\demo\1.txt /e<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="compact"><a href="#compact" class="headerlink" title="compact"></a>compact</h4><p>​        显示或改变 NTFS 分区上文件的压缩。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">COMPACT [/C | /U] [/S[:dir]] [/A] [/I] [/F] [/Q] [/EXE[:algorithm]]
-        [/CompactOs[:option] [/WinDir:dir]] [filename [...]]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">COMPACT [/C | /U] [/S[:dir]] [/A] [/I] [/F] [/Q] [/EXE[:algorithm]]
+        [/CompactOs[:option] [/WinDir:dir]] [filename [...]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 将D:\demo\1.txt文件压缩
+<pre class="line-numbers language-bat"><code class="language-bat">:: 将D:\demo\1.txt文件压缩
 compact /c D:\demo\1.txt
 
 :: 将D:\demo\1.txt文件解压缩
-compact /u D:\demo\1.txt</code></pre>
+compact /u D:\demo\1.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><h4 id="format"><a href="#format" class="headerlink" title="format"></a>format</h4><p>​        格式化磁盘</p>
 <h4 id="label"><a href="#label" class="headerlink" title="label"></a>label</h4><p>​        用于创建、修改或删除磁盘卷标</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">label [f:备份分区]
-:: 将F驱动器设置为“备份分区”卷标</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">label [f:备份分区]
+:: 将F驱动器设置为“备份分区”卷标<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="chkdsk"><a href="#chkdsk" class="headerlink" title="chkdsk"></a>chkdsk</h4><p>​        检查磁盘并显示状态报告</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">chkdsk [盘符] [文件路径] [/f] [/r] [/x] [/c]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">chkdsk [盘符] [文件路径] [/f] [/r] [/x] [/c]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
 <li>/f：修复磁盘上的错误（必须锁定磁盘）</li>
@@ -1992,17 +1993,17 @@ compact /u D:\demo\1.txt</code></pre>
 <li>/c：仅随NTFS使用。跳过文件夹结构中的周期检查，减少运行chkdsk所需的时间量</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">chkdsk D: /f
-:: 检查驱动器D，并修复错误</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">chkdsk D: /f
+:: 检查驱动器D，并修复错误<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="recover"><a href="#recover" class="headerlink" title="recover"></a>recover</h4><p>​        从损坏的磁盘中恢复可读取的信息。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">recover [盘符] [文件路径][文件名]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">recover [盘符] [文件路径][文件名]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">recover D:/readme.txt
-:: 恢复驱动器D中的文件readme.txt</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">recover D:/readme.txt
+:: 恢复驱动器D中的文件readme.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h3><h4 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h4><p>​        进行网络连接测试、名称解析</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">ping [-t] [-a] [-n count] [-l length] [-f] [-i ttl] [-v tos] [-r count] [-s count] [-j -Host-list] | [-k Host-list] [-w timeout] destination-list </code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">ping [-t] [-a] [-n count] [-l length] [-f] [-i ttl] [-v tos] [-r count] [-s count] [-j -Host-list] | [-k Host-list] [-w timeout] destination-list <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>-t：向目的主机持续发送ICMP包，知道按下【Ctrl+C】才停止</li>
 <li>-a：解析主机的NETBIOS主机名</li>
@@ -2019,7 +2020,7 @@ compact /u D:\demo\1.txt</code></pre>
 <li>destination-list：是指要测试的主机名或IP地址或网址</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 连通测试
+<pre class="line-numbers language-bat"><code class="language-bat">:: 连通测试
 ping 192.168.1.105
 
 :: 测试hosts文件
@@ -2035,34 +2036,34 @@ ping -a 192.168.1.1
 ping www.baidu.com
 
 :: 自定义检测数据包的数量
-ping -n 20 192.168.1.1</code></pre>
+ping -n 20 192.168.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="tracert"><a href="#tracert" class="headerlink" title="tracert"></a>tracert</h4><p>​        追踪ICMP包到达目标的路径</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">tracert [-d] [-h maximum_hops] [-j host-list] [-w timeout]
-               [-R] [-S srcaddr] [-4] [-6] target_name</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">tracert [-d] [-h maximum_hops] [-j host-list] [-w timeout]
+               [-R] [-S srcaddr] [-4] [-6] target_name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>target_name：追踪的目标（可以时IP地址也可以是网站）</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 检测到达百度服务器的路由是否存在故障
-tracert www.baidu.com</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">:: 检测到达百度服务器的路由是否存在故障
+tracert www.baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="pathping"><a href="#pathping" class="headerlink" title="pathping"></a>pathping</h4><p>​        提供有关在来源和目标之间的中间跃点处的网络滞后和网络丢失的信息。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">pathping [-g host-list] [-h maximum_hops] [-i address] [-n]
+<pre class="line-numbers language-bat"><code class="language-bat">pathping [-g host-list] [-h maximum_hops] [-i address] [-n]
                 [-p period] [-q num_queries] [-w timeout]
-                [-4] [-6] target_name</code></pre>
+                [-4] [-6] target_name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>-n：不将地址解析成主机名</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 检测本机计算机到本地网关之间的路径
+<pre class="line-numbers language-bat"><code class="language-bat">:: 检测本机计算机到本地网关之间的路径
 pathping 192.168.1.1
 
 :: 检测远程计算机的路径
-pathping -n www.baidu.com</code></pre>
+pathping -n www.baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="ipconfig"><a href="#ipconfig" class="headerlink" title="ipconfig"></a>ipconfig</h4><p>​        显示/修改TCP/IP设置</p>
 <p><strong>语法</strong>:</p>
-<pre class=" language-bat"><code class="language-bat">ipconfig [/all] [/renew [Adapter]] [/release [Adapter]] [/flushdns] [/displaydns] [/registerdns] [/showclassid Adapter] [/setclassid Adapter [ClassID]]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">ipconfig [/all] [/renew [Adapter]] [/release [Adapter]] [/flushdns] [/displaydns] [/registerdns] [/showclassid Adapter] [/setclassid Adapter [ClassID]]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>/all：显示所有适配器的完整 TCP/IP 配置信息。</li>
 <li>/renew [Adapter]：更新所有适配器（如果未指定适配器），或特定适配器（如果包含了 Adapter 参数）的 DHCP 配置信息。</li>
@@ -2074,7 +2075,7 @@ pathping -n www.baidu.com</code></pre>
 <li>/setclassid Adapter [ClassID]：配置特定适配器的 DHCP 类别 ID。要设置所有适配器的 DHCP 类别 ID，可以使用星号 (*) 通配符代替 Adapter。该参数仅在具有配置为自动获取 IP 地址的网卡的计算机上可用。如果未指定 DHCP 类别 ID，则会删除当前类别 ID。 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">ipconfig /all
+<pre class="line-numbers language-bat"><code class="language-bat">ipconfig /all
 :: 显示详细的网络协议配置信息
 
 ipconfig /renew
@@ -2093,22 +2094,22 @@ ipconfig /release
 :: 取消IP地址租用
 
 ipconfig /all > D:\ipconfigBak.txt
-:: 备份网络配置</code></pre>
+:: 备份网络配置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="getmac"><a href="#getmac" class="headerlink" title="getmac"></a>getmac</h4><p>​        显示计算机中网卡的媒体访问控制地址，即MAC地址</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">getmac [/S system]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">getmac [/S system]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>/s <em>system</em>：查看局域网内主机的MAC地址及网络协议</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">getmac
+<pre class="line-numbers language-bat"><code class="language-bat">getmac
 :: 显示本地网卡地址
 
 getmac /s 10.85.0.88 -u Administrator -p password
-:: 查看局域网内计算机网卡地址信息</code></pre>
+:: 查看局域网内计算机网卡地址信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h4><p>​        显示活动的TCP连接、计算机侦听的端口、以太网统计信息、IP路由表等。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">netstat [-a] [-e] [-n] [-o] [-p proto] [-r] [-s]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">netstat [-a] [-e] [-n] [-o] [-p proto] [-r] [-s]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>-a：显示所有连接和侦听端口</li>
 <li>-e：可以用来统计一些基本的网络流量</li>
@@ -2119,7 +2120,7 @@ getmac /s 10.85.0.88 -u Administrator -p password
 <li>-p proto：显示proto指定的协议的连接，与-s一起使用时可显示每个协议的统计信息</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">netstat
+<pre class="line-numbers language-bat"><code class="language-bat">netstat
 :: 显示网络连接情况
 
 netstat -n
@@ -2150,19 +2151,19 @@ netstat -s -p ip
 :: 查看本机所有IP连接情况
 
 netstat -o 8
-:: 显示当前活动的TCP连接和进行ID，以后每隔8s会自动显示当前活动的TCP连接的PID进程</code></pre>
+:: 显示当前活动的TCP连接和进行ID，以后每隔8s会自动显示当前活动的TCP连接的PID进程<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="arp"><a href="#arp" class="headerlink" title="arp"></a>arp</h4><p>​        显示、修改IP-MAC映射列表</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">ARP -s inet_addr eth_addr [if_addr]
+<pre class="line-numbers language-bat"><code class="language-bat">ARP -s inet_addr eth_addr [if_addr]
 ARP -d inet_addr [if_addr]
-ARP -a [inet_addr] [-N if_addr] [-v]</code></pre>
+ARP -a [inet_addr] [-N if_addr] [-v]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>a：显示本地计算机上所有接口的ARP缓存表信息</li>
 <li>-s inet_addr eth_addr：将IP地址与网卡地址绑定</li>
 <li>-d inet_addr：解除IP地址与网卡的绑定</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">arp -a
+<pre class="line-numbers language-bat"><code class="language-bat">arp -a
 :: 显示本地计算机所有接口的ARP缓存表
 
 arp -s 192.168.1.105 00-26-18-27-4A-8A
@@ -2172,12 +2173,12 @@ arp -d 192.168.1.105
 :: 解除IP地址192.168.1.105与网卡的绑定
 
 arp -d
-:: 解除所有IP地址与网卡的绑定</code></pre>
+:: 解除所有IP地址与网卡的绑定<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="route"><a href="#route" class="headerlink" title="route"></a>route</h4><p>​        操作网络路由表</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">ROUTE [-f] [-p] [-4|-6] command [destination]
+<pre class="line-numbers language-bat"><code class="language-bat">ROUTE [-f] [-p] [-4|-6] command [destination]
                   [MASK netmask]  [gateway] [METRIC metric]  [IF interface]
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li><em>command</em>：对路由表的操作命令<ul>
 <li>print：打印路由</li>
@@ -2189,7 +2190,7 @@ arp -d
 <li>-p：添加永久路由</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">route print
+<pre class="line-numbers language-bat"><code class="language-bat">route print
 :: 显示完整的IP路由表
 
 route print 192.*
@@ -2199,20 +2200,20 @@ route add 0.0.0.0 mask 0.0.0.0 192.168.1.1
 :: 添加192.168.1.1所在的网关为默认路由项
 
 route -p add 192.168.1.12 mask 255.255.255.255 192.168.2.1
-:: 添加一条到192.168.1.12的永久路由</code></pre>
+:: 添加一条到192.168.1.12的永久路由<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="nslookup"><a href="#nslookup" class="headerlink" title="nslookup"></a>nslookup</h4><p>​        显示可用来诊断域名系统（DNS）基础结构的信息。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">nslookup [-opt ...]             # 使用默认服务器的交互模式
+<pre class="line-numbers language-bat"><code class="language-bat">nslookup [-opt ...]             # 使用默认服务器的交互模式
 nslookup [-opt ...] - server    # 使用 "server" 的交互模式
 nslookup [-opt ...] host        # 仅查找使用默认服务器的 "host"
-nslookup [-opt ...] host server # 仅查找使用 "server" 的 "host"</code></pre>
+nslookup [-opt ...] host server # 仅查找使用 "server" 的 "host"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 检测DNS服务器
-nslookup www.baidu.com</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">:: 检测DNS服务器
+nslookup www.baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="nbtstat"><a href="#nbtstat" class="headerlink" title="nbtstat"></a>nbtstat</h4><p>​        显示协议统计和当前使用 NBI 的 TCP/IP 连接</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">NBTSTAT [ [-a RemoteName] [-A IP address] [-c] [-n]
-        [-r] [-R] [-RR] [-s] [-S] [interval] ]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">NBTSTAT [ [-a RemoteName] [-A IP address] [-c] [-n]
+        [-r] [-R] [-RR] [-s] [-S] [interval] ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>-a：列出指定名称的远程机器的名称表</li>
 <li>-A：列出指定IP的远程机器的名称表</li>
@@ -2221,7 +2222,7 @@ nslookup www.baidu.com</code></pre>
 <li>-S：列出具有目标IP地址的会话表</li>
 </ul>
 <p><strong>eg</strong>:</p>
-<pre class=" language-bat"><code class="language-bat">:: 探测对方计算机名称
+<pre class="line-numbers language-bat"><code class="language-bat">:: 探测对方计算机名称
 nbtstat -a 192.168.1.1
 
 :: 清除NetBIOS名称缓存信息，重新加载Lmhosts文件
@@ -2231,13 +2232,13 @@ nbtstat -R
 nbtstat -RR
 
 :: 统计NetBIOS会话信息,(每5秒统计一次)
-nbtstat -S 5</code></pre>
+nbtstat -S 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="net"><a href="#net" class="headerlink" title="net"></a>net</h4><p>​        网络命令集及用户管理</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">NET
+<pre class="line-numbers language-bat"><code class="language-bat">NET
     [ ACCOUNTS | COMPUTER | CONFIG | CONTINUE | FILE | GROUP | HELP |
       HELPMSG | LOCALGROUP | PAUSE | SESSION | SHARE | START |
-      STATISTICS | STOP | TIME | USE | USER | VIEW ]</code></pre>
+      STATISTICS | STOP | TIME | USE | USER | VIEW ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>view：查看局域网中运行的客户端</li>
 <li>share：用于共享资源的管理、添加、删除以及查看局域网中的共享资源等</li>
@@ -2254,7 +2255,7 @@ nbtstat -S 5</code></pre>
 <li>continue：主要用于重新激活当前暂停的服务</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 查看指定计算机的共享资源
+<pre class="line-numbers language-bat"><code class="language-bat">:: 查看指定计算机的共享资源
 net view 192.168.1.105
 :: 查看局域网中正在运行的客户端
 net view
@@ -2348,11 +2349,11 @@ net start "windows time"
 :: 暂停服务器服务
 net pause server
 :: 激活服务器服务
-net continue server</code></pre>
+net continue server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h4><p>​        文件传输</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">FTP [-v] [-d] [-i] [-n] [-g] [-s:filename] [-a] [-A] [-x:sendbuffer] [-r:recvbuffer] [-b:asyncbuffers] [-w:windowsize] [host]
-</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">FTP [-v] [-d] [-i] [-n] [-g] [-s:filename] [-a] [-A] [-x:sendbuffer] [-r:recvbuffer] [-b:asyncbuffers] [-w:windowsize] [host]
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>-A：匿名登录</li>
 <li>-v：禁止显示远程服务器响应</li>
@@ -2365,7 +2366,7 @@ net continue server</code></pre>
 <li>-s:filename：指定包含 FTP 命令的文本文件；命令在 FTP 启动后自动运行</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 登录远程的FTP服务器
+<pre class="line-numbers language-bat"><code class="language-bat">:: 登录远程的FTP服务器
 fpt 192.168.1.12
 
 :: 匿名登录远程的FTP服务器
@@ -2473,12 +2474,12 @@ verbose
 user
 
 :: 显示函数调用序列(一次命令执行一次跟踪)
-trace</code></pre>
+trace<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="telnet"><a href="#telnet" class="headerlink" title="telnet"></a>telnet</h4><p>​        远程登录</p>
 <h4 id="msg"><a href="#msg" class="headerlink" title="msg"></a>msg</h4><p>​        给用户发送消息</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">MSG {username | sessionname | sessionid | @filename | *}
-    [/SERVER:servername] [/TIME:seconds] [/V] [/W] [message]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">MSG {username | sessionname | sessionid | @filename | *}
+    [/SERVER:servername] [/TIME:seconds] [/V] [/W] [message]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>username：标识指定的用户名</li>
 <li>sessionname：会话名称</li>
@@ -2496,7 +2497,7 @@ trace</code></pre>
 <h4 id="at"><a href="#at" class="headerlink" title="at"></a>at</h4><p>​        安排在特定日期和时间运行命令和程序</p>
 <h4 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h4><p>​        立即或定时关闭或重启计算机</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">shutdown [-i]{[-s] | [-r] | [-I]} [-f] [-t time] [-c "消息内容"]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">shutdown [-i]{[-s] | [-r] | [-I]} [-f] [-t time] [-c "消息内容"]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>-i：显示图形用户界面，但必须是shutdown的第一项</li>
 <li>-s：关闭计算机</li>
@@ -2511,7 +2512,7 @@ trace</code></pre>
 <h4 id="reg"><a href="#reg" class="headerlink" title="reg"></a>reg</h4><p>​        对注册表子项信息和注册表项值中的值执行添加、更改、导入、导出以及其他操作</p>
 <h5 id="reg-add"><a href="#reg-add" class="headerlink" title="reg add"></a>reg add</h5><p>​        将新的子项或项添加到注册表中</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg Add KeyName [{/v ValueName | /ve}] [/t DataType] [/s Separator] [/d Data] [/f]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg Add KeyName [{/v ValueName | /ve}] [/t DataType] [/s Separator] [/d Data] [/f]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName：指定要添加的子项或项的完整路径。要指定远程计算机，请包括计算机名（以 \\ComputerName\ 格式表示），并将其作为 KeyName 的一部分。省略 \\ComputerName\ 会导致默认对本地计算机的操作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及HKCC。如果指定了远程计算机，则有效根键是 HKLM 和 HKU。</li>
 <li>/v ValueName：指定要添加到指定子项下的注册表项名称。</li>
@@ -2539,7 +2540,7 @@ trace</code></pre>
 <li>对于 Reg_EXPAND_SZ 项类型，在 /d 参数内将插入符号 ( ^ ) 与“%”一起使用。</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要在远程计算机 ABC 上添加 HKLM\Software\MyCo 项，请键入：
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要在远程计算机 ABC 上添加 HKLM\Software\MyCo 项，请键入：
 Reg ADD \\ABC\HKLM\Software\MyCo
 
 :: 要将一个注册表项添加到 HKLM\Software\MyCo，选项为值名：Data；类型：Reg_BINARY；数值数据：fe340ead；请键入：
@@ -2549,10 +2550,10 @@ Reg ADD HKLM\Software\MyCo /v Data /t Reg_BINARY /d fe340ead
  Reg ADD HKLM\Software\MyCo /v MRU /t Reg_MULTI_SZ /d fax\0mail\0\0
 
 :: 要将一个扩展的注册表项添加到 HKLM\Software\MyCo，选项为值名：Path；数据类型：Reg_EXPAND_SZ；数值数据：%systemroot%；请键入：
-Reg ADD HKLM\Software\MyCo /v Path /t Reg_EXPAND_SZ /d ^%systemroot^%</code></pre>
+Reg ADD HKLM\Software\MyCo /v Path /t Reg_EXPAND_SZ /d ^%systemroot^%<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="reg-compare"><a href="#reg-compare" class="headerlink" title="reg compare"></a>reg compare</h5><p>​        比较指定的注册表子项或项</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg Compare KeyName1 KeyName2 [{/v ValueName | /ve}] [{/oa | /od | /os | /on}] [/s]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg Compare KeyName1 KeyName2 [{/v ValueName | /ve}] [{/oa | /od | /os | /on}] [/s]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName1：指定要比较的第一个子项的完整路径。要指定远程计算机，请包括计算机名（以\\ComputerName\ 格式表示），并将其作为 KeyName 的一部分。省略 \\ComputerName\ 会导致默认对本地计算机的操作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。如果指定了远程计算机，则有效根键是 HKLM 和 HKU。</li>
 <li>KeyName2：指定要比较的第二个子项的完整路径。要指定远程计算机，请包括计算机名（以 \\ComputerName\ 格式表示），并将其作为 KeyName 的一部分。省略 \\ComputerName\ 会导致默认对本地计算机的操作。只在 KeyName2 中指定计算机名会导致该操作使用到 KeyName1 中指定的子项的路径。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。如果指定了远程计算机，则有效根键是HKLM和HKU。</li>
@@ -2580,17 +2581,17 @@ Reg ADD HKLM\Software\MyCo /v Path /t Reg_EXPAND_SZ /d ^%systemroot^%</code></pr
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要将 MyApp 项下的所有值与 SaveMyApp 项下的所有值进行比较，请键入：
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要将 MyApp 项下的所有值与 SaveMyApp 项下的所有值进行比较，请键入：
 Reg COMPARE HKLM\Software\MyCo\MyApp HKLM\Software\MyCo\SaveMyApp
 
 :: 要比较 MyCo 项下的 Version 的值和 MyCo1 项下的 Version 的值，请键入：
 Reg COMPARE HKLM\Software\MyCo HKLM\Software\MyCo1 /v Version
 
 :: 要将计算机 ZODIAC 上 HKLM\Software\MyCo 下的所有子项和值与当前计算机上 HKLM\Software\MyCo 下的所有子项和值进行比较，请键入： 
-Reg COMPARE \\ZODIAC\HKLM\Software\MyCo \\. /s</code></pre>
+Reg COMPARE \\ZODIAC\HKLM\Software\MyCo \\. /s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="reg-copy"><a href="#reg-copy" class="headerlink" title="reg copy"></a>reg copy</h5><p>​        将一个注册表项复制到本地或远程计算机的指定位置</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg Copy KeyName1 KeyName2 [/s] [/f] </code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg Copy KeyName1 KeyName2 [/s] [/f] <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName1：指定要复制子项的完整路径。要指定远程计算机，请包括计算机名（以 \\ComputerName\ 格式表示），并将其作为 KeyName 的一部分。省略\\ComputerName\ 会导致默认对本地计算机的操作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。如果指定了远程计算机，则有效根键是 HKLM 和 HKU。 </li>
 <li>KeyName2：指定子项目的地的完整路径。要指定远程计算机，请包括计算机名（以 \\ComputerName\ 格式表示），并将其作为 KeyName 的一部分。省略 \\ComputerName\会导致默认对本地计算机的操作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。如果指定了远程计算机，则有效根键是 HKLM 和 HKU。 </li>
@@ -2607,14 +2608,14 @@ Reg COMPARE \\ZODIAC\HKLM\Software\MyCo \\. /s</code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要将 MyApp 项下的所有子项和值复制到 SaveMyApp 项，请键入：
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要将 MyApp 项下的所有子项和值复制到 SaveMyApp 项，请键入：
 Reg COPY HKLM\Software\MyCo\MyApp HKLM\Software\MyCo\SaveMyApp /s 
 
 :: 要将计算机 ZODIAC 上的 MyCo 项下的所有值复制到当前计算机上的 MyCo1 项，请键入：
-Reg COPY \\ZODIAC\HKLM\Software\MyCo HKLM\Software\MyCo1 </code></pre>
+Reg COPY \\ZODIAC\HKLM\Software\MyCo HKLM\Software\MyCo1 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="reg-delete"><a href="#reg-delete" class="headerlink" title="reg delete"></a>reg delete</h5><p>​        从注册表删除子项或项</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg Delete KeyName [{/v ValueName | /ve | /va}] [/f]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg Delete KeyName [{/v ValueName | /ve | /va}] [/f]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName：指定要删除的子项或项的完整路径。要指定远程计算机，请包括计算机名（以 \\ComputerName\ 格式表示），并将其作为 KeyName 的一部分。省略 \\ComputerName\ 会导致默认对本地计算机的操作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。如果指定了远程计算机，则有效根键是 HKLM 和 HKU。</li>
 <li>/v ValueName：删除子项下的特定项。如果未指定项，则将删除子项下的所有项和子项。</li>
@@ -2631,14 +2632,14 @@ Reg COPY \\ZODIAC\HKLM\Software\MyCo HKLM\Software\MyCo1 </code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要删除注册表项 Timeout 以及其所有子项和值，请键入：
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要删除注册表项 Timeout 以及其所有子项和值，请键入：
 Reg DELETE HKLM\Software\MyCo\MyApp\Timeout 
 
 :: 要删除计算机 ZODIAC 上 HKLM\Software\MyCo 下的注册表值 MTU，请键入：
-Reg DELETE \\ZODIAC\HKLM\Software\MyCo /v MTU</code></pre>
+Reg DELETE \\ZODIAC\HKLM\Software\MyCo /v MTU<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="reg-export"><a href="#reg-export" class="headerlink" title="reg export"></a>reg export</h5><p>​         将本地计算机的指定子项、项和值复制到一个文件中，以便传输到其他服务器。 </p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg export KeyName FileName [/y]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg export KeyName FileName [/y]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName：指定子项的完全路径。Export 操作仅可在本地计算机上工作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。 </li>
 <li>FileName： 指定在操作期间创建的文件的名称和路径。该文件必须具有 .Reg 扩展名。 </li>
@@ -2653,11 +2654,11 @@ Reg DELETE \\ZODIAC\HKLM\Software\MyCo /v MTU</code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要将 MyApp 项的所有子项和值的内容导出到文件 AppBkUp.Reg，请键入：
-Reg Export HKLM\Software\MyCo\MyApp AppBkUp.Reg</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要将 MyApp 项的所有子项和值的内容导出到文件 AppBkUp.Reg，请键入：
+Reg Export HKLM\Software\MyCo\MyApp AppBkUp.Reg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="reg-import"><a href="#reg-import" class="headerlink" title="reg import"></a>reg import</h5><p>​        将包含已导出的注册表子项、项和值的文件的内容复制到本地计算机的注册表中。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">reg import FileName</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">reg import FileName<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>FileName：指定其内容将复制到本地计算机注册表中的文件的名称和路径。此文件必须使用 Reg export 预先创建。 </li>
 </ul>
@@ -2670,11 +2671,11 @@ Reg Export HKLM\Software\MyCo\MyApp AppBkUp.Reg</code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要从名为 AppBkUp.Reg 的文件导入注册表项，请键入：
-Reg Import AppBkUp.Reg</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要从名为 AppBkUp.Reg 的文件导入注册表项，请键入：
+Reg Import AppBkUp.Reg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="reg-load"><a href="#reg-load" class="headerlink" title="reg load"></a>reg load</h5><p>​        将保存的子项和项写回到注册表的不同子项中。与用于进行疑难解答或编辑注册表项的临时文件一起使用。 </p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg load KeyName FileName </code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg load KeyName FileName <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName：指定要加载的子项的完整路径。要指定远程计算机，请包括计算机名（以 \\ComputerName\ 格式表示），并将其作为 KeyName 的一部分。省略 \\ComputerName\ 会导致默认对本地计算机的操作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。如果指定了远程计算机，则有效根键是 HKLM 和 HKU。 </li>
 <li>FileName：指定要加载的文件的名称和路径。必须使用 .hiv 作为扩展名的 Reg Save 操作预先创建该文件。 </li>
@@ -2688,11 +2689,11 @@ Reg Import AppBkUp.Reg</code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">::要将名为 TempHive.hiv 的文件加载到 HKLM\TempHive 项，请键入：
-Reg LOAD HKLM\TempHive TempHive.hiv</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">::要将名为 TempHive.hiv 的文件加载到 HKLM\TempHive 项，请键入：
+Reg LOAD HKLM\TempHive TempHive.hiv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="reg-query"><a href="#reg-query" class="headerlink" title="reg query"></a>reg query</h5><p>​        返回位于注册表中指定的子项下的下一层子项和项的列表。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg query KeyName [{/v ValueName | /ve}] [/s] [/se Separator] [/f Data] [{/k | /d}] [/c] [/e] [/t Type] [/z]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg query KeyName [{/v ValueName | /ve}] [/s] [/se Separator] [/f Data] [{/k | /d}] [/c] [/e] [/t Type] [/z]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName：指定子项的完全路径。要指定远程计算机，请包括计算机名（以 \\ComputerName\ 格式表示），并将其作为 KeyName 的一部分。省略 \\ComputerName\会导致默认对本地计算机的操作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。如果指定了远程计算机，则有效根键是 HKLM 和 HKU。</li>
 <li>/v ValueName：指定要查询的注册表值名称。如果省略，则返回 KeyName 的所有值名称。如果还使用了 /f 选项，则此参数的 ValueName 是可选的。 </li>
@@ -2716,7 +2717,7 @@ Reg LOAD HKLM\TempHive TempHive.hiv</code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要显示 HKLM\Software\Microsoft\ResKit 项中的名称值 Version 的值，请键入：
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要显示 HKLM\Software\Microsoft\ResKit 项中的名称值 Version 的值，请键入：
 Reg QUERY HKLM\Software\Microsoft\ResKit /v Version
 
 :: 要显示远程计算机 ABC 上的 HKLM\Software\Microsoft\ResKit\Nt\Setup 项下的所有子项和值，请键入：
@@ -2732,10 +2733,10 @@ Reg QUERY HKLM /f SYSTEM /t Reg_SZ /c /e
 Reg QUERY HKCU /f 0F /d /t Reg_BINARY
 
 :: 要显示 HKLM\SOFTWARE 下的值名称 null（默认值）的值和数据，请键入：
-Reg QUERY HKLM\SOFTWARE /ve</code></pre>
+Reg QUERY HKLM\SOFTWARE /ve<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="reg-restore"><a href="#reg-restore" class="headerlink" title="reg restore"></a>reg restore</h5><p>​        将保存的子项和项写回到注册表。 </p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg restore KeyName FileName</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg restore KeyName FileName<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName：指定要还原的子项的完整路径。Restore 操作仅在本地计算机上工作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。</li>
 <li>FileName： 指定其内容将写回到注册表中的文件的名称和路径。必须使用 .hiv 作为扩展名的 Reg save 操作预先创建该文件。</li>
@@ -2750,11 +2751,11 @@ Reg QUERY HKLM\SOFTWARE /ve</code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要将名为 NTRKBkUp.hiv 的文件还原到 HKLM\Software\Microsoft\ResKit 项，并覆盖该项的现有内容，请键入：
-Reg RESTORE HKLM\Software\Microsoft\ResKit NTRKBkUp.hiv</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要将名为 NTRKBkUp.hiv 的文件还原到 HKLM\Software\Microsoft\ResKit 项，并覆盖该项的现有内容，请键入：
+Reg RESTORE HKLM\Software\Microsoft\ResKit NTRKBkUp.hiv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="reg-save"><a href="#reg-save" class="headerlink" title="reg save"></a>reg save</h5><p>​        将指定的子项、项和注册表值的副本保存到指定文件中。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg save KeyName FileName [/y]</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg save KeyName FileName [/y]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName： 指定子项的完全路径。要指定远程计算机，请包括计算机名（以 \\ComputerName\ 格式表示），并将其作为 KeyName 的一部分。省略\\ComputerName\会导致默认对本地计算机的操作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。如果指定了远程计算机，则有效根键是 HKLM 和 HKU。</li>
 <li>FileName：指定所创建的文件的名称和路径。如果未指定路径，则使用当前路径。</li>
@@ -2770,11 +2771,11 @@ Reg RESTORE HKLM\Software\Microsoft\ResKit NTRKBkUp.hiv</code></pre>
 <li>编辑任何注册表项之前，请使用 Reg Save 操作保存父子项。如果编辑失败，则可以使用 Reg Restore 操作还原原来的子项。</li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要将配置单元 MyApp 作为名为 AppBkUp.hiv 的文件保存到当前文件夹中，请键入：
-Reg SAVE HKLM\Software\MyCo\MyApp AppBkUp.hiv</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要将配置单元 MyApp 作为名为 AppBkUp.hiv 的文件保存到当前文件夹中，请键入：
+Reg SAVE HKLM\Software\MyCo\MyApp AppBkUp.hiv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="reg-unload"><a href="#reg-unload" class="headerlink" title="reg unload"></a>reg unload</h5><p>​        使用 Reg Load 操作删除已加载的部分注册表。</p>
 <p><strong>语法</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">Reg Unload KeyName</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">Reg Unload KeyName<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>KeyName：指定要卸载的子项的完整路径。要指定远程计算机，请包括计算机名（以 \\ComputerName\格式表示），并将其作为 KeyName 的一部分。省略 \\ComputerName\ 会导致默认对本地计算机的操作。KeyName 必须包括一个有效的根键。有效根键包括 HKLM、HKCU、HKCR、HKU 以及 HKCC。如果指定了远程计算机，则有效根键是 HKLM 和 HKU。</li>
 </ul>
@@ -2787,12 +2788,12 @@ Reg SAVE HKLM\Software\MyCo\MyApp AppBkUp.hiv</code></pre>
 </li>
 </ul>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 要卸载 HKLM 中的配置单元 TempHive，请键入：
-Reg UNLOAD HKLM\TempHive</code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">:: 要卸载 HKLM 中的配置单元 TempHive，请键入：
+Reg UNLOAD HKLM\TempHive<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h3><p>​        Netsh(Network Shell)是Windows系统提供的功能强大的网络配置命令行工具。</p>
 <h4 id="add"><a href="#add" class="headerlink" title="add"></a>add</h4><p>​        添加防火墙配置</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 添加通过防火墙的程序：
+<pre class="line-numbers language-bat"><code class="language-bat">:: 添加通过防火墙的程序：
 add allowedprogram program="C:\Program Files (x86)\Common Files\Tencent\QQProtect\Bin\QQProtect.exe" name="TIM" mode=enable
 :: 添加通过防火墙的C:\Program Files (x86)\Common Files\Tencent\QQProtect\Bin\QQProtect.exe程序，并将防火墙中对应程序的名称改为”TIM"
 
@@ -2830,17 +2831,17 @@ add portopening protocol=tcp port=8888 name=重要服务 mode=enable scop=custom
 
 :: 为指定的网络连接添加可用端口
 add portopening protocol=tcp port=8888 name=重要服务 mode=enable interface=本地连接
-:: 为名为“本地连接”的网络连接添加一个以TCP方式连接的端口(8888)，并且将该端口的名称命名为“重要服务”</code></pre>
+:: 为名为“本地连接”的网络连接添加一个以TCP方式连接的端口(8888)，并且将该端口的名称命名为“重要服务”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h4><p>​        删除防火墙配置</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">delete allowedprogram program="C:\Program Files (x86)\Common Files\Tencent\QQProtect\Bin\QQProtect.exe"
+<pre class="line-numbers language-bat"><code class="language-bat">delete allowedprogram program="C:\Program Files (x86)\Common Files\Tencent\QQProtect\Bin\QQProtect.exe"
 :: 删除防火墙允许的程序
 
 delete portopening protocol=tcp port=8888 interface=本地连接
-:: 删除通过网络连接名为“本地连接”的TCP连接端口“8888"</code></pre>
+:: 删除通过网络连接名为“本地连接”的TCP连接端口“8888"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="set-1"><a href="#set-1" class="headerlink" title="set"></a>set</h4><p>​        设置防火墙配置</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">:: 编辑已添加的程序设置
+<pre class="line-numbers language-bat"><code class="language-bat">:: 编辑已添加的程序设置
 set allowedprogram program="C:\Program Files (x86)\Common Files\Tencent\QQProtect\Bin\QQProtect.exe" scop=custom address=192.168.1.12
 :: 将QQProtect程序设置为只能访问IP为”192.168.1.12“的计算机
 
@@ -2914,10 +2915,10 @@ set service type=fileanprint mode enable scope=custom address=192.168.1.12
 
 reset
 :: 恢复防火墙默认设置
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="show"><a href="#show" class="headerlink" title="show"></a>show</h4><p>​        显示防火墙配置</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">show allowedprogram verbose=enable
+<pre class="line-numbers language-bat"><code class="language-bat">show allowedprogram verbose=enable
 :: 查看允许通过防火墙的程序
 
 show config verbose=enable
@@ -2939,7 +2940,7 @@ show service verbose=enable
 :: 查看防火墙服务设置信息
 
 show state verbose=enable
-:: 查看当前防火墙工作状态信息</code></pre>
+:: 查看当前防火墙工作状态信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="批处理应用"><a href="#批处理应用" class="headerlink" title="批处理应用"></a>批处理应用</h1><h2 id="程序的启动与关闭"><a href="#程序的启动与关闭" class="headerlink" title="程序的启动与关闭"></a>程序的启动与关闭</h2><p>​        start命令行可以用来启动程序，同时也可以使用start命令通过任务管理器来关闭程序。</p>
 <p><strong>步骤</strong>：</p>
 <ol>
@@ -2947,7 +2948,7 @@ show state verbose=enable
 <li>建立批处理文件</li>
 </ol>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">rem -------start--------
+<pre class="line-numbers language-bat"><code class="language-bat">rem -------start--------
 rem TIMstart.bat
 rem --------end---------
 @echo off
@@ -2969,10 +2970,10 @@ start taskkill /f /im TIM.exe
 start taskkill /f /im TXPlatform.exe
 start taskkill /f /im QQProtect.exe
 
-::实际上是通过“任务管理器”终止的进程来实现的</code></pre>
+::实际上是通过“任务管理器”终止的进程来实现的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="删除临时文件夹中的文件"><a href="#删除临时文件夹中的文件" class="headerlink" title="删除临时文件夹中的文件"></a>删除临时文件夹中的文件</h2><p>​        使用del命令快速删除指定文件夹中的文件。</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 title 删除临时文件夹中文件
 color B0
 echo -----------------------------------------
@@ -2985,10 +2986,10 @@ cd \
 cd windows\temp
 del *.* /p
 
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="自动清除系统垃圾文件"><a href="#自动清除系统垃圾文件" class="headerlink" title="自动清除系统垃圾文件"></a>自动清除系统垃圾文件</h2><p>​        Windows操作系统在安装和使用过程中会产生很多垃圾，包括临时文件(<code>*.tmp</code>、<code>*._mp</code>)、日志文件(<code>*.log</code>)、临时帮助文件(<code>*.gid</code>)、磁盘检查文件(<code>*.chk</code>)、临时备份文件(<code>*.old、*.bak</code>)以及其他临时文件。</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 title 自动清除系统垃文件
 color B0
 echo -----------------------------------------
@@ -3022,10 +3023,10 @@ color 2E
 echo ---------------------系统垃清理完成！！！-----------------------
 echo ----------------------------------------------------------------
 echo ----------------------------退出--------------------------------
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="批量转移同一类型的文件"><a href="#批量转移同一类型的文件" class="headerlink" title="批量转移同一类型的文件"></a>批量转移同一类型的文件</h2><p>​        转移指定目录下同一类型的文件到一个指定的目录下(存在)。</p>
 <p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 title 批量转移同一类型的文件
 color B0
 echo -----------------------------------------
@@ -3038,13 +3039,13 @@ move c:\download\*.jpg d:\images
 
 :: 目的路径必须存在
 
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="用批处理批量移动、删除文件"><a href="#用批处理批量移动、删除文件" class="headerlink" title="用批处理批量移动、删除文件"></a>用批处理批量移动、删除文件</h2><p>​        使用批处理可以很方便地进行文件的批量移动或删除，出错时也很容易修改</p>
 <p><strong>eg</strong>：</p>
 <ul>
 <li>将D盘.htm文件移动到E盘，再格式化D盘，然后将文件移回D盘，并将后缀改为.html。</li>
 </ul>
-<pre class=" language-bat"><code class="language-bat">rem --------------------------
+<pre class="line-numbers language-bat"><code class="language-bat">rem --------------------------
 rem 1.bat
 rem --------------------------
 @echo off
@@ -3053,21 +3054,21 @@ md d
 d:
 copy *.htm e:\d
 @if exist e:\d\*.htm call 2.bat
-rm e:\d</code></pre>
-<pre class=" language-bat"><code class="language-bat">rem ---------------------------
+rm e:\d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bat"><code class="language-bat">rem ---------------------------
 rem 2.bat
 rem ---------------------------
 @echo off
 format d: /q
 copy e:\d\*.htm d:
 d:
-ren *.htm *.html</code></pre>
+ren *.htm *.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="删除大小和类型一样的重复文件-没见效果"><a href="#删除大小和类型一样的重复文件-没见效果" class="headerlink" title="删除大小和类型一样的重复文件(没见效果)"></a>删除大小和类型一样的重复文件(没见效果)</h2><p>​        大小和类型一样的文件基本上都是重复文件，可以使用批处理文件将其删除。</p>
 <h2 id="删除某盘内的所有空目录"><a href="#删除某盘内的所有空目录" class="headerlink" title="删除某盘内的所有空目录"></a>删除某盘内的所有空目录</h2><p><strong>eg</strong>：</p>
 <ul>
 <li>删除H盘中所有的空目录</li>
 </ul>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 title 删除某盘内的所有空目录
 color B0
 echo -----------------------------------------
@@ -3086,9 +3087,9 @@ color 2E
 echo --------------------删除某盘所有空目录操作结束-----------------
 echo ---------------------------------------------------------------
 echo ----------------------------关闭-------------------------------
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="转换磁盘为NTFS格式"><a href="#转换磁盘为NTFS格式" class="headerlink" title="转换磁盘为NTFS格式"></a>转换磁盘为NTFS格式</h2><p><strong>eg</strong>：</p>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 title 转换磁盘为NTFS格式
 color B0
 echo -----------------------------------------
@@ -3108,7 +3109,7 @@ color 2E
 echo --------------------磁盘格式转换结束-----------------
 echo -----------------------------------------------------
 echo --------------------------关闭-----------------------
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>NTFS格式的分区在DOS/Windows 9X下均不支持，Windows 2000之后的系统才支持</li>
 <li>使用该方式转换不会删除磁盘中原来存在的文件</li>
@@ -3117,7 +3118,7 @@ pause</code></pre>
 <ul>
 <li>使用批处理程序通过修改注册表来实现扩展名的显示与隐藏</li>
 </ul>
-<pre class=" language-bat"><code class="language-bat">@echo off
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
 title 显示或隐藏文件扩展名
 color B0
 echo -----------------------------------------
@@ -3132,7 +3133,7 @@ color 2E
 echo --------------------操作结束-----------------
 echo ---------------------------------------------
 echo ----------------------关闭-------------------
-pause</code></pre>
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p>参考链接：</p>
 <p><a href="https://www.cnblogs.com/DswCnblog/category/820715.html" target="_blank" rel="noopener">dsw846</a></p>
 <p><a href="https://www.cnblogs.com/ECJTUACM-873284962/category/1081980.html" target="_blank" rel="noopener">Angel_Kitty</a></p>
@@ -3345,7 +3346,7 @@ pause</code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/71.jpg" class="responsive-img" alt="Win10远程桌面及防火墙配置">
+                        <img src="/medias/featureimages/67.jpg" class="responsive-img" alt="Win10远程桌面及防火墙配置">
                         
                         <span class="card-title">Win10远程桌面及防火墙配置</span>
                     </div>
@@ -3402,7 +3403,7 @@ pause</code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/88.jpg" class="responsive-img" alt="原型模式">
+                        <img src="/medias/featureimages/92.jpg" class="responsive-img" alt="原型模式">
                         
                         <span class="card-title">原型模式</span>
                     </div>
@@ -3616,7 +3617,7 @@ pause</code></pre>
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">150.4k</span>
+            <span class="white-color">150.5k</span>
             
 
             <br>
