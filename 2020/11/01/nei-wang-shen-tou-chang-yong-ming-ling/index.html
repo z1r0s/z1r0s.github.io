@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    340
+                    446
                 </div>
                 
 
@@ -595,6 +595,39 @@ net user <span class="token operator">/</span>domain
 net user 域用户 <span class="token operator">/</span>domain
 <span class="token comment" spellcheck="true"># 修改域用户密码（需要管理员权限）</span>
 net user <span class="token operator">/</span>domain xxx 123456<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="Windows（域）"><a href="#Windows（域）" class="headerlink" title="Windows（域）"></a>Windows（域）</h1><h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="0x01-查看当前权限"><a href="#0x01-查看当前权限" class="headerlink" title="0x01 查看当前权限"></a>0x01 查看当前权限</h2><pre class="line-numbers language-shell"><code class="language-shell">whoami<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看当前权限.png" alt="查看当前权限"></center>
+
+<ul>
+<li>若非<code>root</code>用户则需要提权</li>
+</ul>
+<h2 id="0x02-查看网卡配置"><a href="#0x02-查看网卡配置" class="headerlink" title="0x02 查看网卡配置"></a>0x02 查看网卡配置</h2><pre class="line-numbers language-shell"><code class="language-shell">ifconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看网卡配置.png" alt="查看网卡配置"></center>
+
+
+
+<h2 id="0x03-查看端口状态（开启了哪些服务，内网IP连接等）"><a href="#0x03-查看端口状态（开启了哪些服务，内网IP连接等）" class="headerlink" title="0x03 查看端口状态（开启了哪些服务，内网IP连接等）"></a>0x03 查看端口状态（开启了哪些服务，内网IP连接等）</h2><pre class="line-numbers language-shell"><code class="language-shell">netstat -anpt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看端口状态.png" alt="查看端口状态"></center>
+
+
+
+<h2 id="0x04-查看进程状态"><a href="#0x04-查看进程状态" class="headerlink" title="0x04 查看进程状态"></a>0x04 查看进程状态</h2><pre class="line-numbers language-shell"><code class="language-shell">ps -ef<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看进程状态.png" alt="查看进程状态"></center>
+
+
+
+<h2 id="0x05-查看管理员的历史输入命令"><a href="#0x05-查看管理员的历史输入命令" class="headerlink" title="0x05 查看管理员的历史输入命令"></a>0x05 查看管理员的历史输入命令</h2><pre class="line-numbers language-shell"><code class="language-shell">cat /root/.bash_history<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看管理员的历史输入命令.png" alt="查看管理员的历史输入命令"></center>
+
+<ul>
+<li>获取密码、网站目录、内网资产等信息</li>
+</ul>
+<h2 id="0x06-查找某个文件"><a href="#0x06-查找某个文件" class="headerlink" title="0x06 查找某个文件"></a>0x06 查找某个文件</h2><pre class="line-numbers language-shell"><code class="language-shell">find / -name *.cfg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查找某个文件.png" alt="查找某个文件"></center>
+
+<ul>
+<li>寻找配置文件</li>
+</ul>
 
             </div>
             <hr />
@@ -1070,7 +1103,7 @@ net user <span class="token operator">/</span>domain xxx 123456<span aria-hidden
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">158.9k</span>
+            <span class="white-color">159k</span>
             
 
             <br>
