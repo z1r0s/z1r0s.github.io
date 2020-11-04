@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-02T00:03:01.902Z</updated>
+  <updated>2020-11-04T13:21:29.251Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>玩转VMware之新建Windows虚拟机</title>
+    <link href="https://z1r0s.github.io/2020/11/04/wan-zhuan-vmware-zhi-xin-jian-windows-xu-ni-ji/"/>
+    <id>https://z1r0s.github.io/2020/11/04/wan-zhuan-vmware-zhi-xin-jian-windows-xu-ni-ji/</id>
+    <published>2020-11-04T10:59:08.000Z</published>
+    <updated>2020-11-04T13:21:29.251Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;双击VMware软件后，显示VMware主界面，如下图所示，本次演示操作中使用的VMware版本为&lt;code&gt;VMware Workstation 15 Pro&lt;/code&gt;。&lt;/p&gt;
+&lt;center&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="常用软件" scheme="https://z1r0s.github.io/categories/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="VMware" scheme="https://z1r0s.github.io/tags/VMware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows常用命令整理</title>
+    <link href="https://z1r0s.github.io/2020/11/04/windows-chang-yong-ming-ling-zheng-li/"/>
+    <id>https://z1r0s.github.io/2020/11/04/windows-chang-yong-ming-ling-zheng-li/</id>
+    <published>2020-11-04T09:09:51.000Z</published>
+    <updated>2020-11-04T10:51:23.127Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;查看网卡信息&quot;&gt;&lt;a href=&quot;#查看网卡信息&quot; class=&quot;headerlink&quot; title=&quot;查看网卡信息&quot;&gt;&lt;/a&gt;查看网卡信息&lt;/h1&gt;&lt;h2 id=&quot;查看网卡简略信息&quot;&gt;&lt;a href=&quot;#查看网卡简略信息&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="常用命令" scheme="https://z1r0s.github.io/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>内网渗透常用命令</title>
@@ -468,58 +526,6 @@
     <id>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level5/</id>
     <published>2020-10-26T01:13:10.000Z</published>
     <updated>2020-10-31T02:11:54.988Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level4</title>
-    <link href="https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level4/"/>
-    <id>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level4/</id>
-    <published>2020-10-26T00:43:43.000Z</published>
-    <updated>2020-10-31T01:58:37.708Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level3</title>
-    <link href="https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level3/"/>
-    <id>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level3/</id>
-    <published>2020-10-26T00:21:45.000Z</published>
-    <updated>2020-10-31T02:00:14.799Z</updated>
     
     <summary type="html">
     

@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>玩转VMware之新建Windows虚拟机</title>
+      <link href="/2020/11/04/wan-zhuan-vmware-zhi-xin-jian-windows-xu-ni-ji/"/>
+      <url>/2020/11/04/wan-zhuan-vmware-zhi-xin-jian-windows-xu-ni-ji/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>双击VMware软件后，显示VMware主界面，如下图所示，本次演示操作中使用的VMware版本为<code>VMware Workstation 15 Pro</code>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/VMware主界面及版本信息.png" alt="VMware主界面及版本信息"></center></li><li><p>接下来我们需要新建一个虚拟机，这里打开新建虚拟机向导有三种方式。</p><ul><li>点击【文件】 → 【新建虚拟机…】</li><li>在界面左侧的【库】中右键后，选择【新建虚拟机…】</li><li>在【主页】选项页中点击【创建新的虚拟机】</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/开始新建虚拟机.png" alt="开始新建虚拟机"></center></li><li><p>点击【新建虚拟机】后，将显示【新建虚拟机向导】界面，如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/新建虚拟机向导.png" alt="新建虚拟机向导"></center><p>这里将采用【自定义（高级）】方式来创建一个新的<strong>Windows Server 2008</strong>虚拟机。选择【自定义】选项后单击【下一步】按钮。</p></li><li><p>进入虚拟机硬件兼容性设置界面，一般来说软件的版本都是向后兼容，也就是说在旧版上创建的虚拟机可以在新版中打开，但是在新版中创建的虚拟机在旧版中不一定能打开。所以这里的硬件兼容性选择 最高版本。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/设置虚拟机硬件兼容性.png" alt="设置虚拟机硬件兼容性"></center></li><li><p>设置完成虚拟机的硬件兼容性后，接下来需要选择如何安装操作系统，这里有三种方式分别为：</p><ul><li>光盘形式</li><li>镜像文件形式</li><li>空白盘</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/如何安装系统.png" alt="如何安装系统"></center><p>这个选择【稍后安装操作系统】选项并单击【下一步】按钮。</p></li><li><p>选择完成安装方式之后，需要先定义一下安装操作系统的类型及版本。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/操作系统类型及版本.png" alt="操作系统类型及版本"></center><p>当然，前一步中选择的安装类型会对这一步产生影响，若选择空白硬盘则会出现此页面让用户选择安装操作系统的类型及版本信息，以选择的信息为标准推荐创建新虚拟机的一些操作；若选择镜像安装，则VMware会自动检测镜像文件中操作系统的类型及版本信息。</p></li><li><p>指定虚拟机操作系统类型后，还需要设置虚拟机名称及新虚拟机存放的位置信息。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/命令虚拟机.png" alt="命令虚拟机"></center></li><li><p>设置虚拟机名称和位置信息后，会开始导航到硬件信息的设置，首先是设置固件类型。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/设置固件类型.png" alt="设置固件类型"></center><p>这里我使用虚拟机是进行一个实验和环境的模拟所以采用较老的引导方式。</p></li><li><p>固件设置完毕后还需要对处理器进行设置。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/处理器配置.png" alt="处理器配置"></center><p>这里根据需要，如果需要更高的性能就多分配几个处理器数量或内核数量，但是不要超多宿主机的复合。</p></li><li><p>处理器设置完毕之后需要设置虚拟机的内存。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/内存设置.png" alt="内存设置"></center><p>这里也是同样的要求，需要更好的性能就多分一些内存给虚拟机，但是也不要分配的太多，虽然虚拟机使用资源是采用【按需分配】，目前使用到多少资源就到宿主中申请多少的内存空间，但是过多的申请宿主的内存会导致系统崩溃。</p></li><li><p>内存设置完毕之后，需要设置虚拟机的网络类型。VMware中提供三种网络连接：</p><ul><li>桥接模式：客户机与宿主具有一样的网络访问权限</li><li>NAT模式：客户机将宿主作为接口去访问网络</li><li>仅主机模式：客户机不能访问外网，仅可以做内部访问</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/网络配置.png" alt="网络配置"></center><p>这里不做修改，先采用默认设置，后续可以根据实验类型再进行修改。</p></li><li><p>网络设置完毕之后需要选择I/O控制器类型，低端实验对接口没什么要求，这里采用默认设置即可。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/输入输出控制器设置.png" alt="输入输出控制器设置"></center></li><li><p>设置磁盘类型，一般实验对此项没有要求，采用默认即可。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/磁盘类型设置.png" alt="磁盘类型设置"></center></li><li><p>设置完磁盘类型后，需要选择磁盘分配的方式：创建新磁盘、使用已创建的磁盘、使用本机物理磁盘。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/选择磁盘.png" alt="选择磁盘"></center><p>因为这样我们没有创建虚拟磁盘，也不想直接使用物理磁盘，所以这里需要新建一个磁盘。</p></li><li><p>指定磁盘容量及磁盘存储类型，按照需要指定磁盘大小，<font color="red">不要勾选立即分配所有磁盘空间</font>，磁盘空间有限，立即分配会影响宿主机存储空间的使用。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/磁盘空间设置.png" alt="磁盘空间设置"></center></li><li><p>接着需要指定虚拟磁盘文件名，也即我们创建的虚拟机磁盘的名称。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/磁盘文件名称.png" alt="磁盘文件名称"></center></li><li><p>设置完毕后最好进行自定义硬件操作，移除一些我们不会使用到的硬件设备。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/自定义硬件.png" alt="自定义硬件"></center></li><li><p>点击【完成】按钮之后会显示刚刚创建的虚拟机，到此为止仅仅是创建好了虚拟机，但这个虚拟机还需要写入系统后才能正常使用。</p></li><li><p>开启虚拟机，进入系统安装过程。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/新虚拟机启动.gif" alt="新虚拟机启动"></center></li><li><p>开始安装Windows操作系统，首先进行语言设置。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/安装语言设置.png" alt="安装语言设置"></center></li><li><p>选择安装操作系统的版本。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/选择安装操作系统的版本.png" alt="选择安装操作系统的版本"></center></li><li><p>接受许可条款。（霸王条款）</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/接收许可条款.png" alt="接收许可条款"></center></li><li><p>选择安装类型。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/安装类型.png" alt="安装类型"></center></li><li><p>将磁盘进行分区和格式化，以便安装操作系统。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/磁盘分区和格式化.gif" alt="磁盘分区和格式化"></center></li><li><p>系统开始复制和安装功能。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/系统安装过程.png" alt="系统安装过程"></center></li><li><p>等待一段时间之后显示如下界面表示系统已安装成功。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/需要重设密码.png" alt="需要重设密码"></center></li><li><p>重新设置管理员密码后可进入操作系统。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/重设密码.png" alt="重设密码"></center></li><li><p>初始化界面如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/CreateWindowsOfVM/系统初试界面.png" alt="系统初始界面"></center></li><li><p>至此Windows操作系统安装完毕。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常用软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> VMware </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows常用命令整理</title>
+      <link href="/2020/11/04/windows-chang-yong-ming-ling-zheng-li/"/>
+      <url>/2020/11/04/windows-chang-yong-ming-ling-zheng-li/</url>
+      
+        <content type="html"><![CDATA[<h1 id="查看网卡信息"><a href="#查看网卡信息" class="headerlink" title="查看网卡信息"></a>查看网卡信息</h1><h2 id="查看网卡简略信息"><a href="#查看网卡简略信息" class="headerlink" title="查看网卡简略信息"></a>查看网卡简略信息</h2><p><code>ipconfig</code></p><pre class="line-numbers language-shell"><code class="language-shell">λ ipconfigWindows IP 配置以太网适配器 以太网:   连接特定的 DNS 后缀 . . . . . . . :   本地链接 IPv6 地址. . . . . . . . : fe80::5838:9ef7:2e3a:9300%18   IPv4 地址 . . . . . . . . . . . . : 192.168.0.48   子网掩码  . . . . . . . . . . . . : 255.255.255.0   默认网关. . . . . . . . . . . . . : 192.168.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="查看网卡详细信息"><a href="#查看网卡详细信息" class="headerlink" title="查看网卡详细信息"></a>查看网卡详细信息</h2><p><code>ipconfig /all</code></p><pre class="line-numbers language-shell"><code class="language-shell">λ ipconfig /allWindows IP 配置   主机名  . . . . . . . . . . . . . : PARABOX   主 DNS 后缀 . . . . . . . . . . . :   节点类型  . . . . . . . . . . . . : 混合   IP 路由已启用 . . . . . . . . . . : 否   WINS 代理已启用 . . . . . . . . . : 否以太网适配器 以太网:   连接特定的 DNS 后缀 . . . . . . . :   描述. . . . . . . . . . . . . . . : Realtek PCIe GBE Family Controller   物理地址. . . . . . . . . . . . . : 80-FA-5B-45-7F-41   DHCP 已启用 . . . . . . . . . . . : 是   自动配置已启用. . . . . . . . . . : 是   本地链接 IPv6 地址. . . . . . . . : fe80::5838:9ef7:2e3a:9300%18(首选)   IPv4 地址 . . . . . . . . . . . . : 192.168.0.48(首选)   子网掩码  . . . . . . . . . . . . : 255.255.255.0   获得租约的时间  . . . . . . . . . : 2020年11月4日 星期三 8:51:55   租约过期的时间  . . . . . . . . . : 2020年11月4日 星期三 18:42:00   默认网关. . . . . . . . . . . . . : 192.168.0.1   DHCP 服务器 . . . . . . . . . . . : 192.168.0.1   DHCPv6 IAID . . . . . . . . . . . : 327219803   DHCPv6 客户端 DUID  . . . . . . . : 00-01-00-01-24-D6-F7-64-80-FA-5B-45-7F-41   DNS 服务器  . . . . . . . . . . . : 192.168.0.1   TCPIP 上的 NetBIOS  . . . . . . . : 已启用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="查看网卡名称"><a href="#查看网卡名称" class="headerlink" title="查看网卡名称"></a>查看网卡名称</h1><p><code>netsh interface show interface</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看网卡名称.png" alt="查看网卡名称"></center><h1 id="配置IP信息"><a href="#配置IP信息" class="headerlink" title="配置IP信息"></a>配置IP信息</h1><h2 id="配置静态-IP"><a href="#配置静态-IP" class="headerlink" title="配置静态 IP"></a>配置静态 IP</h2><p><code>netsh interface ip set address ccc static 192.168.10.2 255.255.255.0 192.168.10.1</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/配置静态IP.png" alt="配置静态IP"></center><h2 id="配置动态IP"><a href="#配置动态IP" class="headerlink" title="配置动态IP"></a>配置动态IP</h2><p><code>netsh interface ip set address ccc dhcp</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/配置动态IP.png" alt="配置动态IP"></center><h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><p><code>netsh interface ip set dnsserver ccc static 10.10.10.2</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/静态DNS配置.png" alt="静态DNS配置"></center><h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><p><code>netsh interface ip set dnsserver ccc dhcp</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/动态DNS配置.png" alt="动态DNS配置"></center><h1 id="查看主机名"><a href="#查看主机名" class="headerlink" title="查看主机名"></a>查看主机名</h1><pre class="line-numbers language-shell"><code class="language-shell">ping -a 127.0.0.1ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看主机名称.png" alt="查看主机名"></center><h1 id="配置主机名"><a href="#配置主机名" class="headerlink" title="配置主机名"></a>配置主机名</h1><p><code>netdom renamecomputer localhost /newname:cccc</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/配置主机名.png" alt="配置主机名"></center><h1 id="查看系统SID"><a href="#查看系统SID" class="headerlink" title="查看系统SID"></a>查看系统SID</h1><p><code>whoami /user</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看系统SID .png" alt="查看系统SID "></center><h1 id="添加新用户"><a href="#添加新用户" class="headerlink" title="添加新用户"></a>添加新用户</h1><p><code>net user admin cc.123 /add</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/添加新用户.png" alt="添加新用户"></center><h1 id="删除指定用户"><a href="#删除指定用户" class="headerlink" title="删除指定用户"></a>删除指定用户</h1><p><code>net user admin /del</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/删除指定用户.png" alt="删除指定用户"></center>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> 常用命令 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>内网渗透常用命令</title>
       <link href="/2020/11/01/nei-wang-shen-tou-chang-yong-ming-ling/"/>
       <url>/2020/11/01/nei-wang-shen-tou-chang-yong-ming-ling/</url>
@@ -599,11 +653,11 @@
       
         <tags>
             
+            <tag> SQLi </tag>
+            
             <tag> MySQL </tag>
             
             <tag> load_file </tag>
-            
-            <tag> SQLi </tag>
             
         </tags>
       
@@ -628,9 +682,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -655,9 +709,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -682,9 +736,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -709,9 +763,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -736,9 +790,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -763,9 +817,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -842,9 +896,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1176,9 +1230,9 @@
       
         <tags>
             
-            <tag> 环境搭建 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> 环境搭建 </tag>
             
         </tags>
       
@@ -2219,9 +2273,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
