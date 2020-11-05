@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/11/05/yu-cao-zuo-ming-ling/</loc>
+    
+    <lastmod>2020-11-05T12:50:25.074Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/11/05/powershell-chang-yong-ming-ling/</loc>
+    
+    <lastmod>2020-11-05T12:31:28.054Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/11/05/lu-you-cha-xun-chang-yong-ming-ling/</loc>
+    
+    <lastmod>2020-11-05T12:03:53.842Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/11/05/windows-fang-wen-kong-zhi-lie-biao-pei-zhi-shi-yan/</loc>
     
-    <lastmod>2020-11-05T10:46:41.539Z</lastmod>
+    <lastmod>2020-11-05T11:06:23.862Z</lastmod>
     
   </url>
   
@@ -674,14 +695,14 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/categories/index.html</loc>
+    <loc>https://z1r0s.github.io/archives/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/archives/index.html</loc>
+    <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     

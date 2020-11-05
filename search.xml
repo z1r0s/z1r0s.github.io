@@ -4,11 +4,94 @@
   
     
     <entry>
+      <title>域操作命令</title>
+      <link href="/2020/11/05/yu-cao-zuo-ming-ling/"/>
+      <url>/2020/11/05/yu-cao-zuo-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center"><code>net group /domain</code></td><td align="center">获得所有域用户组列表</td></tr><tr><td align="center"><code>net group xxxxx /domain</code></td><td align="center">显示域中xxxxx组的成员</td></tr><tr><td align="center"><code>net group xxxxx /del /domain</code></td><td align="center">删除域中xxxxx组</td></tr><tr><td align="center"><code>net group xxxxx xy /del /domain</code></td><td align="center">删除域内xxxxx 群组中的xy成员</td></tr><tr><td align="center"><code>net group xxxxx /add /domain</code></td><td align="center">增加域中的群组</td></tr><tr><td align="center"><code>net group &quot;domain admins&quot; /domain</code></td><td align="center">获得域管理员列表</td></tr><tr><td align="center"><code>net group &quot;enterprise admins&quot; /domain</code></td><td align="center">获得企业管理员列表</td></tr><tr><td align="center"><code>net localgroup administrators /domain</code></td><td align="center">获取域内置administrators组用（enterprise admins、domain admins）</td></tr><tr><td align="center"><code>net group &quot;domain controllers&quot; /domain</code></td><td align="center">获得域控制器列表</td></tr><tr><td align="center"><code>net group &quot;domain computers&quot; /domain</code></td><td align="center">获得所有域成员计算机列表</td></tr><tr><td align="center"><code>net user /domain</code></td><td align="center">获得所有域用户列表</td></tr><tr><td align="center"><code>net user xxxx /domain</code></td><td align="center">获得指定账户xxxx的详细信息</td></tr><tr><td align="center"><code>net accounts /domain</code></td><td align="center">获得域密码策略设置，密码长短，错误锁定等信息</td></tr><tr><td align="center"><code>net view /domain</code></td><td align="center">查询有几个域, 查询域列表</td></tr><tr><td align="center"><code>net view /domain:xxxx</code></td><td align="center">查看 xxxx域中的计算机列表</td></tr><tr><td align="center"><code>nltest /domain_trusts</code></td><td align="center">获取域信任信息</td></tr><tr><td align="center"><code>net user domain-admin /domain</code></td><td align="center">查看管理员登陆时间，密码过期时间，是否有登陆脚本，组分配等信息</td></tr><tr><td align="center"><code>net config Workstation</code></td><td align="center">查询机器属于哪个域</td></tr><tr><td align="center"><code>net time /domian</code></td><td align="center">查询主域服务器的时间</td></tr><tr><td align="center"><code>echo %logonserver%</code></td><td align="center">查看登陆到这台服务器的计算机名</td></tr><tr><td align="center"><code>gpupdate/force</code></td><td align="center">更新域策略</td></tr><tr><td align="center"><code>tasklist /S ip /U domain\username /P /V</code></td><td align="center">查看远程计算机进程列</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常用软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 常用命令 </tag>
+            
+            <tag> 域 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>PowerShell常用命令</title>
+      <link href="/2020/11/05/powershell-chang-yong-ming-ling/"/>
+      <url>/2020/11/05/powershell-chang-yong-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center"><code>get-host</code></td><td align="center">查看powershell版本</td></tr><tr><td align="center"><code>$host.version</code></td><td align="center">查看powershell版本</td></tr><tr><td align="center"><code>$PSVersionTable.PSVERSION</code></td><td align="center">查看powershell版本</td></tr><tr><td align="center"><code>new-item test -type directory</code></td><td align="center">新建目录</td></tr><tr><td align="center"><code>new-item test -type file</code></td><td align="center">新建文件</td></tr><tr><td align="center"><code>remove-item 文件或目录</code></td><td align="center">删除文件或目录</td></tr><tr><td align="center"><code>get-content 1.txt</code></td><td align="center">显示文件内容</td></tr><tr><td align="center"><code>set-content 1.txt -value &quot;helloworld&quot;</code></td><td align="center">设置文件内容</td></tr><tr><td align="center"><code>add-content 1.txt -value &quot;love&quot;</code></td><td align="center">追加文本内容</td></tr><tr><td align="center"><code>get-executionpolicy</code></td><td align="center">查看powershell执行策略</td></tr><tr><td align="center"><code>set-executionpolicy unrestricted</code></td><td align="center">设置powershell执行策略</td></tr><tr><td align="center"><font color="red">Restricted</font></td><td align="center">为脚本不能运行，是默认设置</td></tr><tr><td align="center"><font color="red">Unrestricted </font></td><td align="center">为允许所有的脚本运行</td></tr><tr><td align="center"><font color="red">RemoteSigned</font></td><td align="center">为只能运行本地创建的脚本，不能运行从网上下载的脚本，除了有数字签名证书</td></tr><tr><td align="center"><font color="red">Allsigned</font></td><td align="center">为只运行有受信任的发布者签名的脚本</td></tr><tr><td align="center"><code>get-process</code></td><td align="center">获取所有进程</td></tr><tr><td align="center">Set-Alias aaa get-process</td><td align="center">给命令起别名</td></tr><tr><td align="center"><code>Get-Command</code></td><td align="center">查看当前作用域支持的所有命令</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常用软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 常用命令 </tag>
+            
+            <tag> Windows </tag>
+            
+            <tag> PowerShell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>路由查询常用命令</title>
+      <link href="/2020/11/05/lu-you-cha-xun-chang-yong-ming-ling/"/>
+      <url>/2020/11/05/lu-you-cha-xun-chang-yong-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center"><code>tracert IP</code></td><td align="center">路由追踪</td></tr><tr><td align="center"><code>route print</code></td><td align="center">打印路由表</td></tr><tr><td align="center"><code>arp -a</code></td><td align="center">列出本网段内所有活跃的IP地址</td></tr><tr><td align="center"><code>arp -s (ip + mac)</code></td><td align="center">绑定mac与ip地址</td></tr><tr><td align="center"><code>arp -d (ip + mac)</code></td><td align="center">解绑mac与ip地址</td></tr><tr><td align="center"><code>netsh firewall show config</code></td><td align="center">查看防火墙策略</td></tr><tr><td align="center"><code>netsh firewall show state</code></td><td align="center">查看防火墙状态</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常用软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 常用命令 </tag>
+            
+            <tag> 路由 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows访问控制列表配置实验</title>
       <link href="/2020/11/05/windows-fang-wen-kong-zhi-lie-biao-pei-zhi-shi-yan/"/>
       <url>/2020/11/05/windows-fang-wen-kong-zhi-lie-biao-pei-zhi-shi-yan/</url>
       
-        <content type="html"><![CDATA[<h1 id="0x01-实验要求"><a href="#0x01-实验要求" class="headerlink" title="0x01 实验要求"></a>0x01 实验要求</h1><ol><li>所有部门的员工智能进入本部门文件夹和public</li><li>每个部门的部门经理对部门有写入权限，部门员工只能读取</li><li>总经理可以参与所有的部门，也可以完全控制</li><li>public文件夹，所有员工可以读取，经理可以写入</li></ol><h1 id="0x02-实验分析"><a href="#0x02-实验分析" class="headerlink" title="0x02 实验分析"></a>0x02 实验分析</h1><p><code>public</code>文件夹访问规则，总经理、技术经理、财务经理、销售经理具有完全读写、修改权限；技术部员工、财务部员工、销售部员工只能查看。</p><p><code>jishubu</code>文件夹访问规则，总经理、技术经理具有完全读写、修改权限；仅技术部员工具有查看权限。</p><p><code>caiwubu</code>文件夹访问规则，总经理、财务经理具有完全读写、修改权限；仅财务部员工具有查看权限。</p><p><code>xiaoshoubu</code>文件夹访问规则，总经理、销售经理具有完全读写、修改权限；仅销售部员工具有查看权限。</p><p>综合以上创建<strong>技术部、财务部、销售部、经理</strong>组，其中组内包含如下</p><ul><li>技术部：技术经理、技术员工</li><li>财务部：财务经理、财务员工</li><li>销售部：销售经理、销售员工</li><li>经理：总经理、销售经理、技术经理、财务经理</li></ul><p>文件夹权限设置：</p><ul><li><code>public</code>：经理组<strong>读写</strong>权限、技术部<strong>读</strong>权限、财务部<strong>读</strong>权限、销售部<strong>读</strong>权限</li><li><code>jishubu</code>：技术部组<strong>读</strong>权限、技术经理<strong>读写</strong>权限、总经理<strong>读写</strong>权限</li><li><code>caiwubu</code>：财务部组<strong>读</strong>权限、财务经理<strong>读写</strong>权限、总经理<strong>读写</strong>权限</li><li><code>xiaoshoubu</code>：销售部组<strong>读</strong>权限、销售经理<strong>读写</strong>权限、总经理<strong>读写</strong>权限</li></ul><h1 id="0x03-实验步骤"><a href="#0x03-实验步骤" class="headerlink" title="0x03 实验步骤"></a>0x03 实验步骤</h1><ol><li><p>创建用户、组并将用户划分到指定的组中。</p><pre class="line-numbers language-shell"><code class="language-shell"># 创建组net localgroup jishubu /addnet localgroup caiwubu /addnet localgroup xiaoshoubu /addnet localgroup jingli /add# 创建用户net user jishubujl 123.com /addnet user jishubuyg 123.com /addnet user caiwubujl 123.com /addnet user caiwubuyg 123.com /addnet user xiaoshoubujl 123.com /addnet user xiaoshoubuyg 123.com /addnet user zongjingli 123.com /add# 划分用户到组中net localgroup jishubu jishubujl /addnet localgroup jishubu jishubuyg /addnet localgroup caiwubu caiwubujl /addnet localgroup caiwubu caiwubuyg /addnet localgroup xiaoshoubu xiaoshoubujl /addnet localgroup xiaoshoubu xiaoshoubuyg /addnet localgroup jingli zongjingli /addnet localgroup jingli jishubujl /addnet localgroup jingli caiwubujl /addnet localgroup jingli xiaoshoubujl /add<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>设置<code>public</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/public文件权限设置.gif" alt="public文件权限设置"></center></li><li><p>设置<code>jishubu</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/jishubu文件权限设置.gif" alt="jishubu文件权限设置"></center></li><li><p>设置<code>caiwubu</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubu文件权限设置.gif" alt="caiwubu文件权限设置"></center></li><li><p>设置<code>xiaoshoubu</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/xiaoshoubu文件权限设置.gif" alt="xiaoshoubu文件权限设置"></center></li></ol><h1 id="0x04-实验结果"><a href="#0x04-实验结果" class="headerlink" title="0x04 实验结果"></a>0x04 实验结果</h1><ol><li><p>切换<code>caiwubujl</code>用户登录并查看对<code>caiwubu</code>文件夹的访问权限，结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubujl访问caiwubu.png" alt="caiwubujl访问caiwubu"></center></li><li><p><code>caiwubujl</code>用户访问<code>jishubu</code>文件夹，访问结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubujl访问jishubu文件夹.png" alt="caiwubujl访问jishubu文件夹"></center></li><li><p><code>caiwubujl</code>操作<code>public</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubujl访问public文件夹.png" alt="caiwubujl访问public文件夹"></center></li><li><p>切换<code>caiwubuyg</code>用户访问<code>caiwubu</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubuyg访问caiwubu文件夹.png" alt="caiwubuyg访问caiwubu文件夹"></center></li><li><p><code>caiwubuyg</code>用户访问<code>jishubu</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubuyg访问jishubu文件夹.png" alt="caiwubuyg访问jishubu文件夹"></center></li><li><p><code>caiwubuyg</code>用户访问<code>public</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubuyg在public文件夹中创建.png" alt="caiwubuyg在public文件夹中创建"></center></li><li><p>切换<code>zongjingli</code>用户访问<code>caiwubu</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/zongjingli访问caiwubu.png" alt="zongjingli访问caiwubu"></center></li><li><p><code>zongjingli</code>用户访问<code>jishubu</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/zongjingli在jishubu文件夹中创建操作.png" alt="zongjingli在jishubu文件夹中创建操作"></center></li><li><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/总经理访问public文件夹.png" alt="总经理访问public文件夹"></center></li></ol><h1 id="0x05-实验总结"><a href="#0x05-实验总结" class="headerlink" title="0x05 实验总结"></a>0x05 实验总结</h1><ul><li>由操作结果可知上述操作达到实验要求。</li><li>对于文件或文件夹权限设置步骤:<ol><li>确定文件夹的类型（各个用户对该文件夹的访问权限</li><li>确定用户组，将用户划分到组中（需要整体考虑文件数量、扩展性等）</li><li>创建用户、组</li><li>将用户划分到组中</li><li>分别为每个文件夹分配权限</li><li>登录不同账户验证权限设置效果</li></ol></li></ul><h1 id="0x06-附件"><a href="#0x06-附件" class="headerlink" title="0x06 附件"></a>0x06 附件</h1><ul><li><p>还原系统中的用户、组信息</p><pre class="line-numbers language-shell"><code class="language-shell"># 删除net localgroup jishubu /delnet localgroup caiwubu /delnet localgroup xiaoshoubu /delnet localgroup jingli /delnet user jishubujl /delnet user jishubuyg /delnet user caiwubujl /delnet user caiwubuyg /delnet user xiaoshoubujl /delnet user xiaoshoubuyg /delnet user zongjingli /del<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="0x01-实验要求"><a href="#0x01-实验要求" class="headerlink" title="0x01 实验要求"></a>0x01 实验要求</h1><ol><li>所有部门的员工智能进入本部门文件夹和public</li><li>每个部门的部门经理对部门有写入权限，部门员工只能读取</li><li>总经理可以参与所有的部门，也可以完全控制</li><li>public文件夹，所有员工可以读取，经理可以写入</li></ol><h1 id="0x02-实验分析"><a href="#0x02-实验分析" class="headerlink" title="0x02 实验分析"></a>0x02 实验分析</h1><p><code>public</code>文件夹访问规则，总经理、技术经理、财务经理、销售经理具有完全读写、修改权限；技术部员工、财务部员工、销售部员工只能查看。</p><p><code>jishubu</code>文件夹访问规则，总经理、技术经理具有完全读写、修改权限；仅技术部员工具有查看权限。</p><p><code>caiwubu</code>文件夹访问规则，总经理、财务经理具有完全读写、修改权限；仅财务部员工具有查看权限。</p><p><code>xiaoshoubu</code>文件夹访问规则，总经理、销售经理具有完全读写、修改权限；仅销售部员工具有查看权限。</p><p>综合以上创建<strong>技术部、财务部、销售部、经理</strong>组，其中组内包含如下</p><ul><li>技术部：技术经理、技术员工</li><li>财务部：财务经理、财务员工</li><li>销售部：销售经理、销售员工</li><li>经理：总经理、销售经理、技术经理、财务经理</li></ul><p>文件夹权限设置：</p><ul><li><code>public</code>：经理组<strong>读写</strong>权限、技术部<strong>读</strong>权限、财务部<strong>读</strong>权限、销售部<strong>读</strong>权限</li><li><code>jishubu</code>：技术部组<strong>读</strong>权限、技术经理<strong>读写</strong>权限、总经理<strong>读写</strong>权限</li><li><code>caiwubu</code>：财务部组<strong>读</strong>权限、财务经理<strong>读写</strong>权限、总经理<strong>读写</strong>权限</li><li><code>xiaoshoubu</code>：销售部组<strong>读</strong>权限、销售经理<strong>读写</strong>权限、总经理<strong>读写</strong>权限</li></ul><h1 id="0x03-实验步骤"><a href="#0x03-实验步骤" class="headerlink" title="0x03 实验步骤"></a>0x03 实验步骤</h1><ol><li><p>创建用户、组并将用户划分到指定的组中。</p><pre class="line-numbers language-shell"><code class="language-shell"># 创建组net localgroup jishubu /addnet localgroup caiwubu /addnet localgroup xiaoshoubu /addnet localgroup jingli /add# 创建用户net user jishubujl 123.com /addnet user jishubuyg 123.com /addnet user caiwubujl 123.com /addnet user caiwubuyg 123.com /addnet user xiaoshoubujl 123.com /addnet user xiaoshoubuyg 123.com /addnet user zongjingli 123.com /add# 划分用户到组中net localgroup jishubu jishubujl /addnet localgroup jishubu jishubuyg /addnet localgroup caiwubu caiwubujl /addnet localgroup caiwubu caiwubuyg /addnet localgroup xiaoshoubu xiaoshoubujl /addnet localgroup xiaoshoubu xiaoshoubuyg /addnet localgroup jingli zongjingli /addnet localgroup jingli jishubujl /addnet localgroup jingli caiwubujl /addnet localgroup jingli xiaoshoubujl /add<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>设置<code>public</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/public文件权限设置.gif" alt="public文件权限设置"></center></li><li><p>设置<code>jishubu</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/jishubu文件权限设置.gif" alt="jishubu文件权限设置"></center></li><li><p>设置<code>caiwubu</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubu文件权限设置.gif" alt="caiwubu文件权限设置"></center></li><li><p>设置<code>xiaoshoubu</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/xiaoshoubu文件权限设置.gif" alt="xiaoshoubu文件权限设置"></center></li></ol><h1 id="0x04-实验结果"><a href="#0x04-实验结果" class="headerlink" title="0x04 实验结果"></a>0x04 实验结果</h1><ol><li><p>切换<code>caiwubujl</code>用户登录并查看对<code>caiwubu</code>文件夹的访问权限，结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubujl访问caiwubu.png" alt="caiwubujl访问caiwubu"></center></li><li><p><code>caiwubujl</code>用户访问<code>jishubu</code>文件夹，访问结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubujl访问jishubu文件夹.png" alt="caiwubujl访问jishubu文件夹"></center></li><li><p><code>caiwubujl</code>操作<code>public</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubujl访问public文件夹.png" alt="caiwubujl访问public文件夹"></center></li><li><p>切换<code>caiwubuyg</code>用户访问<code>caiwubu</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubuyg访问caiwubu文件夹.png" alt="caiwubuyg访问caiwubu文件夹"></center></li><li><p><code>caiwubuyg</code>用户访问<code>jishubu</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubuyg访问jishubu文件夹.png" alt="caiwubuyg访问jishubu文件夹"></center></li><li><p><code>caiwubuyg</code>用户访问<code>public</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/caiwubuyg在public文件夹中创建.png" alt="caiwubuyg在public文件夹中创建"></center></li><li><p>切换<code>zongjingli</code>用户访问<code>caiwubu</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/zongjingli访问caiwubu.png" alt="zongjingli访问caiwubu"></center></li><li><p><code>zongjingli</code>用户访问<code>jishubu</code>文件夹，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/zongjingli在jishubu文件夹中创建操作.png" alt="zongjingli在jishubu文件夹中创建操作"></center></li><li><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/总经理访问public文件夹.png" alt="总经理访问public文件夹"></center></li></ol><h1 id="0x05-实验总结"><a href="#0x05-实验总结" class="headerlink" title="0x05 实验总结"></a>0x05 实验总结</h1><ul><li>由操作结果可知上述操作达到实验要求。</li><li>对于文件或文件夹权限设置步骤:<ol><li>确定文件夹的类型（各个用户对该文件夹的访问权限</li><li>确定用户组，将用户划分到组中（需要整体考虑文件数量、扩展性等）</li><li>创建用户、组</li><li>将用户划分到组中</li><li>分别为每个文件夹分配权限</li><li>登录不同账户验证权限设置效果</li></ol></li></ul><h1 id="0x06-附录"><a href="#0x06-附录" class="headerlink" title="0x06 附录"></a>0x06 附录</h1><ul><li><p>还原系统中的用户、组信息</p><pre class="line-numbers language-shell"><code class="language-shell"># 删除net localgroup jishubu /delnet localgroup caiwubu /delnet localgroup xiaoshoubu /delnet localgroup jingli /delnet user jishubujl /delnet user jishubuyg /delnet user caiwubujl /delnet user caiwubuyg /delnet user xiaoshoubujl /delnet user xiaoshoubuyg /delnet user zongjingli /del<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul>]]></content>
       
       
       <categories>
@@ -126,9 +209,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 常用命令 </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -1116,9 +1199,9 @@
       
         <tags>
             
-            <tag> Web </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> Web </tag>
             
         </tags>
       
@@ -1143,9 +1226,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> MISC </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2002,9 +2085,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 常用命令 </tag>
+            
+            <tag> Windows </tag>
             
             <tag> 运行 </tag>
             
