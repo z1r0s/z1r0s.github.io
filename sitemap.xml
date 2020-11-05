@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/</loc>
+    
+    <lastmod>2020-11-05T06:01:39.222Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/11/05/ji-chu-wang-luo-ming-ling/</loc>
+    
+    <lastmod>2020-11-05T05:56:51.134Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/11/04/windows-chang-yong-ming-ling-zheng-li/</loc>
+    
+    <lastmod>2020-11-05T03:45:53.229Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/11/05/wan-zhuan-vmware-zhi-zai-windows-xi-tong-zhong-an-zhuang-vmtools/</loc>
     
     <lastmod>2020-11-05T01:23:01.209Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>https://z1r0s.github.io/2020/11/04/wan-zhuan-vmware-zhi-xin-jian-windows-xu-ni-ji/</loc>
     
     <lastmod>2020-11-04T14:34:50.668Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/11/04/windows-chang-yong-ming-ling-zheng-li/</loc>
-    
-    <lastmod>2020-11-04T10:51:23.127Z</lastmod>
     
   </url>
   
@@ -194,13 +208,6 @@
     <loc>https://z1r0s.github.io/2020/10/25/mysql-zhu-ru-load-file-han-shu-chang-yong-lu-jing/</loc>
     
     <lastmod>2020-10-25T00:08:22.991Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/</loc>
-    
-    <lastmod>2020-10-21T12:02:11.262Z</lastmod>
     
   </url>
   
@@ -660,6 +667,13 @@
   </url>
   
   <url>
+    <loc>https://z1r0s.github.io/archives/index.html</loc>
+    
+    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
@@ -668,13 +682,6 @@
   
   <url>
     <loc>https://z1r0s.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/archives/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     

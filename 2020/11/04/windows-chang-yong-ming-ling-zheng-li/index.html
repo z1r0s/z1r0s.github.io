@@ -486,14 +486,14 @@ Windows IP 配置
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    409
+                    524
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -581,13 +581,57 @@ ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <h1 id="查看系统SID"><a href="#查看系统SID" class="headerlink" title="查看系统SID"></a>查看系统SID</h1><p><code>whoami /user</code></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看系统SID .png" alt="查看系统SID "></center>
 
+<h1 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h1><h2 id="查看主机所有用户信息"><a href="#查看主机所有用户信息" class="headerlink" title="查看主机所有用户信息"></a>查看主机所有用户信息</h2><p><code>net user</code></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看所有用户信息.png" alt="查看所有用户信息"></center>
 
 
-<h1 id="添加新用户"><a href="#添加新用户" class="headerlink" title="添加新用户"></a>添加新用户</h1><p><code>net user admin cc.123 /add</code></p>
+
+<h2 id="查看指定用户信息"><a href="#查看指定用户信息" class="headerlink" title="查看指定用户信息"></a>查看指定用户信息</h2><p><code>net user administrator</code></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看指定用户信息.png" alt="查看指定用户信息"></center>
+
+
+
+<h2 id="添加新用户"><a href="#添加新用户" class="headerlink" title="添加新用户"></a>添加新用户</h2><p><code>net user admin cc.123 /add</code></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/添加新用户.png" alt="添加新用户"></center>
 
-<h1 id="删除指定用户"><a href="#删除指定用户" class="headerlink" title="删除指定用户"></a>删除指定用户</h1><p><code>net user admin /del</code></p>
+
+
+<h2 id="修改用户密码"><a href="#修改用户密码" class="headerlink" title="修改用户密码"></a>修改用户密码</h2><p><code>net user admin 123.com</code></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/修改用户密码.png" alt="修改用户密码"></center>
+
+
+
+<h2 id="启用或禁用指定用户"><a href="#启用或禁用指定用户" class="headerlink" title="启用或禁用指定用户"></a>启用或禁用指定用户</h2><pre class="line-numbers language-shell"><code class="language-shell">net user admin /active:yes    # 启用
+net user admin /active:no    # 禁用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/禁用指定用户.png" alt="禁用指定用户"></center>
+
+
+
+<h2 id="删除指定用户"><a href="#删除指定用户" class="headerlink" title="删除指定用户"></a>删除指定用户</h2><p><code>net user admin /del</code></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/删除指定用户.png" alt="删除指定用户"></center>
+
+<h1 id="组配置"><a href="#组配置" class="headerlink" title="组配置"></a>组配置</h1><h2 id="将用户添加到指定组中"><a href="#将用户添加到指定组中" class="headerlink" title="将用户添加到指定组中"></a>将用户添加到指定组中</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup administrators admin /add<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/将用户添加到指定用户组中.png" alt="将用户添加到指定用户组中"></center>
+
+
+
+<h2 id="创建组"><a href="#创建组" class="headerlink" title="创建组"></a>创建组</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup z1r0s /add<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/创建组.png" alt="创建组"></center>
+
+
+
+<h2 id="查看指定组信息"><a href="#查看指定组信息" class="headerlink" title="查看指定组信息"></a>查看指定组信息</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup administrators <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看指定组信息.png" alt="查看指定组信息"></center>
+
+
+
+<h2 id="删除组中的用户"><a href="#删除组中的用户" class="headerlink" title="删除组中的用户"></a>删除组中的用户</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup administrators admin /del<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/删除组中的用户.png" alt="删除组中的用户"></center>
+
+
+
+<h2 id="删除组"><a href="#删除组" class="headerlink" title="删除组"></a>删除组</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup z1r0s /del<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/删除组.png" alt="删除组"></center>
             </div>
             <hr />
 
@@ -1066,7 +1110,7 @@ ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">167.5k</span>
+            <span class="white-color">168k</span>
             
 
             <br>

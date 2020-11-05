@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-05T01:23:01.209Z</updated>
+  <updated>2020-11-05T05:56:51.134Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基础网络命令</title>
+    <link href="https://z1r0s.github.io/2020/11/05/ji-chu-wang-luo-ming-ling/"/>
+    <id>https://z1r0s.github.io/2020/11/05/ji-chu-wang-luo-ming-ling/</id>
+    <published>2020-11-05T05:43:57.000Z</published>
+    <updated>2020-11-05T05:56:51.134Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;基础网络命令&quot;&gt;&lt;a href=&quot;#基础网络命令&quot; class=&quot;headerlink&quot; title=&quot;基础网络命令&quot;&gt;&lt;/a&gt;基础网络命令&lt;/h1&gt;&lt;pre class=&quot;line-numbers language-shell&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="常用软件" scheme="https://z1r0s.github.io/categories/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="常用命令" scheme="https://z1r0s.github.io/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>玩转VMware之在Windows系统中安装VMTools</title>
@@ -81,7 +107,7 @@
     <link href="https://z1r0s.github.io/2020/11/04/windows-chang-yong-ming-ling-zheng-li/"/>
     <id>https://z1r0s.github.io/2020/11/04/windows-chang-yong-ming-ling-zheng-li/</id>
     <published>2020-11-04T09:09:51.000Z</published>
-    <updated>2020-11-04T10:51:23.127Z</updated>
+    <updated>2020-11-05T03:45:53.229Z</updated>
     
     <summary type="html">
     
@@ -504,32 +530,6 @@
     <id>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level7/</id>
     <published>2020-10-26T01:40:40.000Z</published>
     <updated>2020-10-31T02:23:58.210Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level6</title>
-    <link href="https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level6/"/>
-    <id>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level6/</id>
-    <published>2020-10-26T01:28:06.000Z</published>
-    <updated>2020-10-31T02:23:45.552Z</updated>
     
     <summary type="html">
     
