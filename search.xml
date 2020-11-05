@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>玩转VMware之在Windows系统中安装VMTools</title>
+      <link href="/2020/11/05/wan-zhuan-vmware-zhi-zai-windows-xi-tong-zhong-an-zhuang-vmtools/"/>
+      <url>/2020/11/05/wan-zhuan-vmware-zhi-zai-windows-xi-tong-zhong-an-zhuang-vmtools/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>打开一个新建的虚拟机（未安装VMware Tools），在认证界面中输入正确的用户名和密码登录操作系统中，结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/InstallTheVMToolsInWindows/打开虚拟机并登录操作系统.png" alt="打开虚拟机并登录操作系统"></center></li><li><p>在VMware的【虚拟机】选项卡中选择【安装Vmware Tools】选项，此时操作系统中会虚拟出来一个名为<strong>WM ware Tools</strong>的DVD驱动，稍等一下驱动会自动播放，结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/InstallTheVMToolsInWindows/VMwareTools自动播放.png" alt="VMwareTools自动播放"></center><p>注：<font color="red">完成此项操作时必须保证系统的ISO镜像在虚拟光驱中。</font></p></li><li><p>点击【运行setup64.exe】选项后，系统准备完毕后会进入VMware Tools的安装界面，如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/InstallTheVMToolsInWindows/VMTools安装向导.png" alt="VMTools安装向导"></center></li><li><p>点击【下一步】按钮，进入安装类型界面，此处选择【典型安装】即可。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/InstallTheVMToolsInWindows/选择安装类型.png" alt="选择安装类型"></center></li><li><p>点击【下一步】按钮后，准备开始安装。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/InstallTheVMToolsInWindows/准备安装.png" alt="准备安装"></center></li><li><p>VMTools安装过程显示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/InstallTheVMToolsInWindows/VMTools安装.png" alt="VMTools安装"></center></li><li><p>显示安装完成界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/InstallTheVMToolsInWindows/安装完成.png" alt="安装完成"></center></li><li><p>安装完成之后需要重启才能应用成功。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/InstallTheVMToolsInWindows/需要重新启动.png" alt="需要重新启动"></center></li><li><p><code>VMware Tools</code>安装完毕之后结果显示如下所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/VMware/InstallTheVMToolsInWindows/VMTools安装完成.png" alt="VMTools安装完成"></center></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常用软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> VMware </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>玩转VMware之新建Windows虚拟机</title>
       <link href="/2020/11/04/wan-zhuan-vmware-zhi-xin-jian-windows-xu-ni-ji/"/>
       <url>/2020/11/04/wan-zhuan-vmware-zhi-xin-jian-windows-xu-ni-ji/</url>
@@ -1010,9 +1037,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> CRYPTO </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -1064,9 +1091,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -1176,9 +1203,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> rsa </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -1925,9 +1952,9 @@
             
             <tag> Windows </tag>
             
-            <tag> 运行 </tag>
-            
             <tag> 常用命令 </tag>
+            
+            <tag> 运行 </tag>
             
         </tags>
       

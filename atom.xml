@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-04T14:34:50.668Z</updated>
+  <updated>2020-11-05T01:23:01.209Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>玩转VMware之在Windows系统中安装VMTools</title>
+    <link href="https://z1r0s.github.io/2020/11/05/wan-zhuan-vmware-zhi-zai-windows-xi-tong-zhong-an-zhuang-vmtools/"/>
+    <id>https://z1r0s.github.io/2020/11/05/wan-zhuan-vmware-zhi-zai-windows-xi-tong-zhong-an-zhuang-vmtools/</id>
+    <published>2020-11-05T00:42:11.000Z</published>
+    <updated>2020-11-05T01:23:01.209Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;打开一个新建的虚拟机（未安装VMware Tools），在认证界面中输入正确的用户名和密码登录操作系统中，结果如下图所示。&lt;/p&gt;
+&lt;center&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="常用软件" scheme="https://z1r0s.github.io/categories/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="VMware" scheme="https://z1r0s.github.io/tags/VMware/"/>
+    
+  </entry>
   
   <entry>
     <title>玩转VMware之新建Windows虚拟机</title>
@@ -500,32 +530,6 @@
     <id>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level6/</id>
     <published>2020-10-26T01:28:06.000Z</published>
     <updated>2020-10-31T02:23:45.552Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level5</title>
-    <link href="https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level5/"/>
-    <id>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level5/</id>
-    <published>2020-10-26T01:13:10.000Z</published>
-    <updated>2020-10-31T02:11:54.988Z</updated>
     
     <summary type="html">
     
