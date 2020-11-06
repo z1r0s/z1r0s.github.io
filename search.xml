@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Windows用户和组管理</title>
+      <link href="/2020/11/06/windows-yong-hu-he-zu-guan-li/"/>
+      <url>/2020/11/06/windows-yong-hu-he-zu-guan-li/</url>
+      
+        <content type="html"><![CDATA[<h1 id="SID"><a href="#SID" class="headerlink" title="SID"></a>SID</h1><p>​        每个用户账户拥有唯一的<strong>安全标识符</strong>，用来记录用户的权限</p><p>组成：</p><ul><li><code>SID = Windows ID  +  用户的相对ID</code></li><li><code>Windows  ID</code>：在安装Windows 的过程每台计算机都会产生不同的<code>WindowsID</code>（<font color="blue">克隆的新虚拟机与原虚拟机SID相同</font>）</li><li><code>相对ID(用户ID)</code>： <font color="red">500 </font>是<code>Administrator</code>账户的相对ID ；新建的第一个用户是<font color="red">1000</font>，第二个是<font color="red">1001</font>，依次类推。</li></ul><p>举个栗子：</p><pre class="line-numbers language-shell"><code class="language-shell">S-1-5-21-2884017511-3916249987-3152507841-1001WIndows-ID：S-1-5-21-2884017511-3916249987-3152507841User-ID：1001<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h1 id="账户分类"><a href="#账户分类" class="headerlink" title="账户分类"></a>账户分类</h1><h2 id="1-与使用者相关联的账户"><a href="#1-与使用者相关联的账户" class="headerlink" title="1. 与使用者相关联的账户"></a>1. 与使用者相关联的账户</h2><ul><li><code>Administrator</code>：默认管理员账户（使用者中权限最高）</li><li><code>Guest</code>： 访客使用（默认禁用）</li></ul><h2 id="2-与Windows-组件关联的账户"><a href="#2-与Windows-组件关联的账户" class="headerlink" title="2. 与Windows 组件关联的账户"></a>2. 与Windows 组件关联的账户</h2><ul><li><code>SYSTEM</code> ：本地系统账户；为Windows 核心组件访问文件提供权限   （拥有高于Administrator的权限）</li></ul><ol start="2"><li><code>Local  Service</code>：本地服务， 一部分服务提供访问系统权限  ；权限非常低</li><li><code>Network  Service</code> ：（网络服务， 一部分网络提供访问系统的权限；权限非常低</li></ol><h1 id="用户管理相关操作"><a href="#用户管理相关操作" class="headerlink" title="用户管理相关操作"></a>用户管理相关操作</h1><h2 id="图形化界面管理用户"><a href="#图形化界面管理用户" class="headerlink" title="图形化界面管理用户"></a>图形化界面管理用户</h2><h2 id="命令行界面管理用户"><a href="#命令行界面管理用户" class="headerlink" title="命令行界面管理用户"></a>命令行界面管理用户</h2><pre class="line-numbers language-shell"><code class="language-shell">1.查看所有用户net user查看admin用户信息net user admin2.启用或禁用指定用户：-- 启用admin用户net user admin /active:yes # 启用-- 禁用admin用户net user admin /active:no    # 禁用3.命令创建用户-- 创建用户zhangsan密码为123.comnet user zhangsan 123.com /add 4.命令重置用户密码-- 将zhangsan用户密码重置位空net user zhangsan ""5.修改用户密码-- 将admin用户的密码修改为123@qq.comnet user admin 123@qq.com6.命令删除用户-- 删除zhangsan用户net user zhangsan /del 5.将用户加入指定组qq.com-- 将zhangsanj加入administrators管理组net localgroup administrators zhangsan /add<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="组的定义"><a href="#组的定义" class="headerlink" title="组的定义"></a>组的定义</h1><p>​        一些账户的集合，为“组”设置权限后，隶属于该组的账户默认具有这些权限，方便管理</p><h1 id="组的分类"><a href="#组的分类" class="headerlink" title="组的分类"></a>组的分类</h1><h2 id="1-需要人为添加成员的组"><a href="#1-需要人为添加成员的组" class="headerlink" title="1. 需要人为添加成员的组"></a>1. 需要人为添加成员的组</h2><ul><li><code>Administrators</code>组：默认管理员组  （<font color="blue">可以将账户加入该组让用户具有管理员权限）</font></li><li><code>Guests</code>组：默认来宾组</li><li><code>Power  Users</code>组：Windows Server 2008上为向下兼容保留的组  （不再使用）</li><li><code>Users</code>组：新用户的默认组</li></ul><h2 id="2-动态包含成员的组"><a href="#2-动态包含成员的组" class="headerlink" title="2. 动态包含成员的组"></a>2. 动态包含成员的组</h2><ul><li><code>INTERACTIVE</code>：默认包含在本地登录的账户</li><li><code>Authenticated  Users</code>：包含了通过验证的所有账户</li><li><code>Everyone</code>：所有账户  （设置开放权限时使用）</li></ul><h1 id="组的相关操作"><a href="#组的相关操作" class="headerlink" title="组的相关操作"></a>组的相关操作</h1><h2 id="图形化管理用户"><a href="#图形化管理用户" class="headerlink" title="图形化管理用户"></a>图形化管理用户</h2><h2 id="命令管理用户"><a href="#命令管理用户" class="headerlink" title="命令管理用户"></a>命令管理用户</h2><pre><code>1.    命令创建组-- 创建jishubu组net localgroup jishubu /add 2.    命令删除组-- 删除jishubu组net localgroup jishubu /del3.    命令添加用户到指定组-- 将zhangsanj加入administrators管理组net localgroup administrators zhangsan /add4.  把指定用户踢出组-- 将用户zhangsan踢出administrators组net localgroup administrators zhangsan /del</code></pre><h1 id="实验练习"><a href="#实验练习" class="headerlink" title="实验练习"></a>实验练习</h1><ul><li><a href="https://z1r0s.github.io/2020/11/05/windows-fang-wen-kong-zhi-lie-biao-pei-zhi-shi-yan/">Windows访问控制列表配置实验</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> 用户管理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>域操作命令</title>
       <link href="/2020/11/05/yu-cao-zuo-ming-ling/"/>
       <url>/2020/11/05/yu-cao-zuo-ming-ling/</url>
@@ -2435,9 +2462,9 @@
             
             <tag> C# </tag>
             
-            <tag> 程序实现 </tag>
-            
             <tag> 编码 </tag>
+            
+            <tag> 程序实现 </tag>
             
         </tags>
       
