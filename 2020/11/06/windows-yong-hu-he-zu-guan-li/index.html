@@ -482,14 +482,14 @@ Windows  ID：在安装Windows 的过程每台计算机都会产生不同的Wind
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    718
+                    841
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
                 
@@ -522,12 +522,21 @@ User-ID：1001<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 </ul>
 <h2 id="2-与Windows-组件关联的账户"><a href="#2-与Windows-组件关联的账户" class="headerlink" title="2. 与Windows 组件关联的账户"></a>2. 与Windows 组件关联的账户</h2><ul>
 <li><code>SYSTEM</code> ：本地系统账户；为Windows 核心组件访问文件提供权限   （拥有高于Administrator的权限）</li>
-</ul>
-<ol start="2">
 <li><code>Local  Service</code>：本地服务， 一部分服务提供访问系统权限  ；权限非常低</li>
-<li><code>Network  Service</code> ：（网络服务， 一部分网络提供访问系统的权限；权限非常低</li>
+<li><code>Network  Service</code> ：（网络服务， 一部分网络提供访问系统的权限；权限非常低<h1 id="用户管理相关操作"><a href="#用户管理相关操作" class="headerlink" title="用户管理相关操作"></a>用户管理相关操作</h1></li>
+</ul>
+<h2 id="图形化界面管理用户"><a href="#图形化界面管理用户" class="headerlink" title="图形化界面管理用户"></a>图形化界面管理用户</h2><ol>
+<li><p><strong>新建test用户</strong>。服务器管理器 → 配置 → 本地用户和组 → 用户 → 右键选择【新用户…】选项。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/ManagerUserAndGroup/新建test用户.png" alt="新建test用户"></center>
+</li>
+<li><p><strong>删除test用户</strong>。服务器管理器 → 配置 → 本地用户和组 → 用户 → 选中test用户右键选择【删除】选项。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/ManagerUserAndGroup/删除test用户.png" alt="删除test用户"></center>
+
+
+
+</li>
 </ol>
-<h1 id="用户管理相关操作"><a href="#用户管理相关操作" class="headerlink" title="用户管理相关操作"></a>用户管理相关操作</h1><h2 id="图形化界面管理用户"><a href="#图形化界面管理用户" class="headerlink" title="图形化界面管理用户"></a>图形化界面管理用户</h2><h2 id="命令行界面管理用户"><a href="#命令行界面管理用户" class="headerlink" title="命令行界面管理用户"></a>命令行界面管理用户</h2><pre class="line-numbers language-shell"><code class="language-shell">1.查看所有用户
+<h2 id="命令行界面管理用户"><a href="#命令行界面管理用户" class="headerlink" title="命令行界面管理用户"></a>命令行界面管理用户</h2><pre class="line-numbers language-shell"><code class="language-shell">1.查看所有用户
 net user
 
 查看admin用户信息
@@ -570,7 +579,18 @@ net localgroup administrators zhangsan /add<span aria-hidden="true" class="line-
 <li><code>Authenticated  Users</code>：包含了通过验证的所有账户</li>
 <li><code>Everyone</code>：所有账户  （设置开放权限时使用）</li>
 </ul>
-<h1 id="组的相关操作"><a href="#组的相关操作" class="headerlink" title="组的相关操作"></a>组的相关操作</h1><h2 id="图形化管理用户"><a href="#图形化管理用户" class="headerlink" title="图形化管理用户"></a>图形化管理用户</h2><h2 id="命令管理用户"><a href="#命令管理用户" class="headerlink" title="命令管理用户"></a>命令管理用户</h2><pre><code>1.    命令创建组
+<h1 id="组的相关操作"><a href="#组的相关操作" class="headerlink" title="组的相关操作"></a>组的相关操作</h1><h2 id="图形化管理用户"><a href="#图形化管理用户" class="headerlink" title="图形化管理用户"></a>图形化管理用户</h2><ol>
+<li><p><strong>新建tests组</strong>。服务器管理器 → 配置 → 本地用户和组 → 组 → 右键选择【新建组…】选项。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/ManagerUserAndGroup/新建组.png" alt="新建组"></center>
+</li>
+<li><p><strong>删除tests组</strong>。服务器管理器 → 配置 → 本地用户和组 → 组 → 选中tests组右键选择【删除】选项。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/ManagerUserAndGroup/删除组.png" alt="删除组"></center>
+
+
+
+</li>
+</ol>
+<h2 id="命令管理用户"><a href="#命令管理用户" class="headerlink" title="命令管理用户"></a>命令管理用户</h2><pre><code>1.    命令创建组
 -- 创建jishubu组
 net localgroup jishubu /add 
 
@@ -1075,7 +1095,7 @@ net group xxxxx /del /domain
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">170.5k</span>
+            <span class="white-color">170.6k</span>
             
 
             <br>
