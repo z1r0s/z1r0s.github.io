@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-06T08:14:36.453Z</updated>
+  <updated>2020-11-06T09:34:05.273Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>访问Windows系统默认的共享磁盘</title>
+    <link href="https://z1r0s.github.io/2020/11/06/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/"/>
+    <id>https://z1r0s.github.io/2020/11/06/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/</id>
+    <published>2020-11-06T09:16:01.000Z</published>
+    <updated>2020-11-06T09:34:05.273Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-情景简述&quot;&gt;&lt;a href=&quot;#0x01-情景简述&quot; class=&quot;headerlink&quot; title=&quot;0x01 情景简述&quot;&gt;&lt;/a&gt;0x01 情景简述&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="磁盘共享" scheme="https://z1r0s.github.io/tags/%E7%A3%81%E7%9B%98%E5%85%B1%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>组合拳之远程桌面加磁盘映射实现文件拷贝</title>
+    <link href="https://z1r0s.github.io/2020/11/06/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/"/>
+    <id>https://z1r0s.github.io/2020/11/06/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/</id>
+    <published>2020-11-06T08:34:00.000Z</published>
+    <updated>2020-11-06T09:12:27.246Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-情景简述&quot;&gt;&lt;a href=&quot;#0x01-情景简述&quot; class=&quot;headerlink&quot; title=&quot;0x01 情景简述&quot;&gt;&lt;/a&gt;0x01 情景简述&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="组合拳" scheme="https://z1r0s.github.io/categories/%E7%BB%84%E5%90%88%E6%8B%B3/"/>
+    
+    
+      <category term="远程桌面" scheme="https://z1r0s.github.io/tags/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/"/>
+    
+      <category term="文件拷贝" scheme="https://z1r0s.github.io/tags/%E6%96%87%E4%BB%B6%E6%8B%B7%E8%B4%9D/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows文件系统</title>
@@ -516,58 +572,6 @@
     <id>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level16/</id>
     <published>2020-10-26T16:45:58.000Z</published>
     <updated>2020-10-26T18:24:11.774Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level15</title>
-    <link href="https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level15/"/>
-    <id>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level15/</id>
-    <published>2020-10-26T16:45:49.000Z</published>
-    <updated>2020-10-26T18:15:48.384Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level13</title>
-    <link href="https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level13/"/>
-    <id>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level13/</id>
-    <published>2020-10-26T16:45:38.000Z</published>
-    <updated>2020-10-26T18:04:24.506Z</updated>
     
     <summary type="html">
     

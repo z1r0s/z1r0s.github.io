@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>访问Windows系统默认的共享磁盘</title>
+      <link href="/2020/11/06/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/"/>
+      <url>/2020/11/06/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-情景简述"><a href="#0x01-情景简述" class="headerlink" title="0x01 情景简述"></a>0x01 情景简述</h1><p>​        某服务器未关闭Windows系统默认共享的磁盘，且未对网络访问用户进行策略限制。</p><h1 id="0x02-实验环境"><a href="#0x02-实验环境" class="headerlink" title="0x02 实验环境"></a>0x02 实验环境</h1><ul><li>系统：<code>Windows Server 2008 R2 * 2</code></li></ul><h1 id="0x03-实验过程"><a href="#0x03-实验过程" class="headerlink" title="0x03 实验过程"></a>0x03 实验过程</h1><ol><li><p>在【运行框】中输入<code>\\10.10.10.155\c$</code>后点击【确认】按钮尝试使用当前登录账户尝试登录。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DefaultSharedDisk/访问共享磁盘.png" alt="访问共享磁盘"></center></li><li><p>输入正确的管理员和密码后即可访问共享的磁盘文件，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DefaultSharedDisk/共享磁盘中的文件.png" alt="共享磁盘中的文件"></center></li><li><p>文件操作权限。将共享磁盘中的文件夹拷贝到攻击机上。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DefaultSharedDisk/复制文件夹.png" alt="复制文件夹"></center><p>说明：</p><ul><li>登录的用户拥有的权限高低将限制对共享磁盘的操作权限。</li></ul></li></ol><h1 id="0x04-实验分析"><a href="#0x04-实验分析" class="headerlink" title="0x04 实验分析"></a>0x04 实验分析</h1><ul><li>WIndows系统默认的共享磁盘存在很高的危险性，如泄露管理员账户信息或通过其他方式得到管理员权限后靶机上的文件将完全沦陷。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> 磁盘共享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>组合拳之远程桌面加磁盘映射实现文件拷贝</title>
+      <link href="/2020/11/06/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/"/>
+      <url>/2020/11/06/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-情景简述"><a href="#0x01-情景简述" class="headerlink" title="0x01 情景简述"></a>0x01 情景简述</h1><p>​        在Windows系统中使用远程桌面程序时可以将自己的硬盘映射到被远程的主机上，实现文件快速拷贝。</p><h1 id="0x02-实验环境"><a href="#0x02-实验环境" class="headerlink" title="0x02 实验环境"></a>0x02 实验环境</h1><ul><li>系统：两个<code>Windows Server 2008 R2</code></li><li>软件：<code>mstsc</code></li></ul><h1 id="0x03-实验条件"><a href="#0x03-实验条件" class="headerlink" title="0x03 实验条件"></a>0x03 实验条件</h1><ul><li>拥有一个管理员账户</li><li>靶机开启远程登录服务</li></ul><h1 id="0x04-实验步骤"><a href="#0x04-实验步骤" class="headerlink" title="0x04 实验步骤"></a>0x04 实验步骤</h1><ol><li><p>靶机开启远程桌面服务。计算机属性 → 【高级系统设置】 → 勾选【身份认证】 → 点击【选择用户】按钮 → 添加用户。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/开启远程桌面服务.png" alt="开启远程桌面服务"></center></li><li><p>关闭防火墙。【运行框】 → <code>firewall.cpl</code> → 关闭防火墙。（<font color="DoderBlue">在2008中防火墙的默认规则会过滤远程桌面访问时的端口，为方便实验此处直接禁掉防火墙，但是在正常使用远程桌面服务时这样操作会大大降低系统的安全性，这里推荐参考<a href="https://z1r0s.github.io/2020/08/26/win10-yuan-cheng-zhuo-mian-ji-fang-huo-qiang-pei-zhi/">Win10远程桌面及防火墙配置</a>在较安全的前提下开启远程访问。</font>）</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/关闭防火墙.png" alt="关闭防火墙"></center></li><li><p>远程桌面设置对磁盘的映射。【运行框】 → <code>mstsc</code>  → 选择【本地资源】选项卡 → 点击【详细信息】按钮 → 勾选【本地磁盘】。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/远程桌面设置对磁盘的映射.png" alt="远程桌面设置对磁盘的映射"></center></li><li><p>远程桌面登录。输入用户名和密码进行远程桌面登录。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/远程桌面邓丽.png" alt="远程桌面登录"></center></li><li><p>稍等一会后，使用<code>administrator</code>账户登录成功后在资源管理器中显示本地映射的磁盘文件。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/本地磁盘映射成功.png" alt="本地磁盘映射成功"></center></li><li><p>成功拷贝文件。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/拷贝文件成功.png" alt="拷贝文件成功"></center></li></ol><h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul><li>存在限制条件：<ul><li>拥有管理员权限</li><li>靶机开启远程桌面</li></ul></li><li>渗透利用：<ul><li>拿到管理员权限后，远程桌面拷贝敏感文件到本地文件夹</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 组合拳 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 远程桌面 </tag>
+            
+            <tag> 文件拷贝 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows文件系统</title>
       <link href="/2020/11/06/windows-wen-jian-xi-tong/"/>
       <url>/2020/11/06/windows-wen-jian-xi-tong/</url>
@@ -1226,9 +1280,9 @@
       
         <tags>
             
-            <tag> CRYPTO </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> CRYPTO </tag>
             
         </tags>
       
@@ -1280,9 +1334,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> MISC </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
