@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-06T03:36:51.479Z</updated>
+  <updated>2020-11-06T08:14:36.453Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows文件系统</title>
+    <link href="https://z1r0s.github.io/2020/11/06/windows-wen-jian-xi-tong/"/>
+    <id>https://z1r0s.github.io/2020/11/06/windows-wen-jian-xi-tong/</id>
+    <published>2020-11-06T07:25:46.000Z</published>
+    <updated>2020-11-06T08:14:36.453Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-文件系统概念&quot;&gt;&lt;a href=&quot;#0x01-文件系统概念&quot; class=&quot;headerlink&quot; title=&quot;0x01 文件系统概念&quot;&gt;&lt;/a&gt;0x01 文件系统概念&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="文件系统" scheme="https://z1r0s.github.io/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows用户和组管理</title>
@@ -540,32 +568,6 @@
     <id>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level13/</id>
     <published>2020-10-26T16:45:38.000Z</published>
     <updated>2020-10-26T18:04:24.506Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level12</title>
-    <link href="https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level12/"/>
-    <id>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level12/</id>
-    <published>2020-10-26T16:45:32.000Z</published>
-    <updated>2020-10-26T17:52:43.819Z</updated>
     
     <summary type="html">
     

@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Windows文件系统</title>
+      <link href="/2020/11/06/windows-wen-jian-xi-tong/"/>
+      <url>/2020/11/06/windows-wen-jian-xi-tong/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-文件系统概念"><a href="#0x01-文件系统概念" class="headerlink" title="0x01 文件系统概念"></a>0x01 文件系统概念</h1><p>​        <strong>文件系统</strong>是操作系统用于明确存储设备（常见的是磁盘，也有基于NAND Flash的固态硬盘）或分区上的文件的方法和数据结构，即在存储设备上组织文件的方法。操作系统中负责管理和存储文件信息的软件机构称为文件管理系统，简称文件系统。<font color="red">文件系统是硬盘空间存储数据的一套科学合理的存储和管理方法。</font></p><h1 id="0x02-常见文件系统"><a href="#0x02-常见文件系统" class="headerlink" title="0x02 常见文件系统"></a>0x02 常见文件系统</h1><h2 id="FAT文件系统（windows）"><a href="#FAT文件系统（windows）" class="headerlink" title="FAT文件系统（windows）"></a>FAT文件系统（windows）</h2><p>​        FAT(<code>File Allocation Table</code>)文件系统诞生于1977年，它最初是为软盘设计的文件系统，但是后来随着微软推出<code>dos</code>和<code>win 9x</code>系统，FAT文件系统经过适配被逐渐用到了硬盘上，并且在那时的20年中，一直是主流的文件系统.（<code>FAT16 32 64</code>）</p><p><strong>特点</strong>：</p><ol><li>单个文件最大为4G</li><li>最大文件数量268,435,437</li><li>分区最大容量8TB</li><li>可在多种操作系统读写</li></ol><h2 id="NTFS文件系统（windows）"><a href="#NTFS文件系统（windows）" class="headerlink" title="NTFS文件系统（windows）"></a>NTFS文件系统（windows）</h2><p>​        NTFS全称是<code>New Technology File System</code>，它是一种比FAT32功能更加强大的文件系统。<br>从windows 2000之后的windows系统的默认文件系统都是NTFS，而且这些windows系统只能够安装在NTFS格式的磁盘上。</p><p><strong>特点</strong>：</p><ol><li>理论上最大文件尺寸可达<code>16EB-1KB</code>，实际上有<code>16TB-64KB(1EB = 1024PB 1PB = 1024TB)</code></li><li>操作系统支持大部分windows系统，Unix／Linux系统，Mac OS（在Mac OS 10.4+系统上，NTFS格式是只读的，即在Mac系统下，你只能从NTFS格式的磁盘上读取数据，而不能写入数据）</li><li>由于在Mac系统下，NTFS是只读的，所以要想在Mac下想要在NTFS格式的硬盘写入数据，要装一个插件<code>Paragon NTFS</code>，但不是太稳定</li></ol><h2 id="ExFAT（windows-MACos-linux）"><a href="#ExFAT（windows-MACos-linux）" class="headerlink" title="ExFAT（windows MACos linux）"></a>ExFAT（windows MACos linux）</h2><p>​        ExFAT(Extended File Allocation Table)又叫FAT64，看名字就知道它是对FAT文件系统的扩展。</p><p><strong>特点</strong>：</p><ol><li>ExFAT是虽然也是微软开发的文件系统，但说它是windows下的文件系统并不合适，它是专门为闪存盘设计的文件系统，单个文件突破了4G的限制，而且分区的最大容量可达64ZB（比EB大一级的），建议512TB</li><li>ExFAT在windows，Linux以及Mac系统上，都可以读写，作为U盘或者是移动硬盘的格式还是比较合适的。</li></ol><h2 id="HFS-HFS-（MAC-OS专用）"><a href="#HFS-HFS-（MAC-OS专用）" class="headerlink" title="HFS/HFS+（MAC OS专用）"></a>HFS/HFS+（MAC OS专用）</h2><p>​        HFS全称叫分层文件系统（<code>Hierarchical File System，HFS</code>），诞生于1985年，最初被设计用于软盘和硬盘，同时也可以在在只读媒体如CD-ROM上见到。</p><h2 id="EXT（3，4）（linux）"><a href="#EXT（3，4）（linux）" class="headerlink" title="EXT（3，4）（linux）"></a>EXT（3，4）（linux）</h2><p>​        Ext3是一种日志式文件系统,其最大的特点就是：它会将整个磁盘的写入动作完整的记录在磁盘的某个区域上，以便有需要时回溯追踪。当在某个过程中断时，系统可以根据这些记录直接回溯并重整被中断的部分，重整速度相当快。</p><h2 id="XFS（linux）"><a href="#XFS（linux）" class="headerlink" title="XFS（linux）"></a>XFS（linux）</h2><p>​        XFS文件系统是RHEL7系列的默认文件系统，目的是为了替代传统的EXT4文件系统.</p><p><strong>特点</strong>：</p><ol><li><strong>数据完全性</strong><br>采用XFS文件系统，当意想不到的宕机发生后，首先，由于文件系统开启了日志功能，所以你磁盘上的文件不再会意外宕机而遭到破坏了。不论目前文件系统上存储的文件与数据有多少，文件系统都可以根据所记录的日志在很短的时间内迅速恢复磁盘文件内容。</li><li><strong>传输特性</strong><br>XFS文件系统采用优化算法，日志记录对整体文件操作影响非常小。XFS查询与分配存储空间非常快。<code>xfs</code>文件系统能连续提供快速的反应时间。笔者曾经对<code>XFS、JFS、Ext3、ReiserFS</code>文件系统进行过测试，XFS文件文件系统的性能表现相当出众。</li><li><strong>可扩展性</strong><br>XFS 是一个全<code>64-bit</code>的文件系统，它可以支持上百万T字节的存储空间。对特大文件及小尺寸文件的支持都表现出众，支持特大数量的目录。最大可支持的文件大 小为<code>263 = 9 x 1018 = 9 exabytes</code>，最大文件系统尺寸为<code>18 exabytes</code>。<br>XFS使用高的表结构(B+树)，保证了文件系统可以快速搜索与快速空间分配。XFS能够持续提供高速操作，文件系统的性能不受目录中目录及文件数量的限制。</li><li><strong>传输带宽</strong><br>XFS 能以接近裸设备I/O的性能存储数据。在单个文件系统的测试中，其吞吐量最高可达7GB每秒，对单个文件的读写操作，其吞吐量可达4GB每秒。</li></ol><h1 id="0x03-NTFS相对于FAT的优势"><a href="#0x03-NTFS相对于FAT的优势" class="headerlink" title="0x03 NTFS相对于FAT的优势"></a>0x03 NTFS相对于FAT的优势</h1><h2 id="容错性"><a href="#容错性" class="headerlink" title="容错性"></a>容错性</h2><p>​        NTFS文件系统可以自动地修复磁盘错误而不会显示出错信息。</p><p>​        <code>WindowsNT/2000/XP</code>向NTFS分区中写入文件时，会在内存中保留文件的一份拷贝，然后检查，磁盘中写入的文件与内存中保留的拷贝是否一致。如果两者不一致，Windows就把相应的扇区标为坏扇区而不再使用它（即簇重映射），然后，用内存中保留的文件拷贝重新向磁盘上写文件。如果在读文件时出现错误，NTFS返回一个读错误信息，并告知相应的应用程序数据已经丢失。</p><h2 id="安全性（NTFS权限）"><a href="#安全性（NTFS权限）" class="headerlink" title="安全性（NTFS权限）"></a>安全性（NTFS权限）</h2><p>​        NTFS有许多安全性能方面的选项，可以在本机上和通过远程的方法保护文件及目录。NTFS还支持加密文件系统EFS（<code>Encrypting   File System</code>），可以阻止没有授权的用户访问文件。也可以通过设置NTFS，限制用户的访问。</p><h2 id="文件压缩"><a href="#文件压缩" class="headerlink" title="文件压缩"></a>文件压缩</h2><p>​        NTFS支持文件压缩功能，用户可以选择压缩单个文件或整个文件夹。</p><h2 id="磁盘配额"><a href="#磁盘配额" class="headerlink" title="磁盘配额"></a>磁盘配额</h2><p>​        磁盘配额功能允许系统管理员管理分配给各个用户的磁盘空间，合法用户只能访问属于自己的文件，<code>Windows NT/2000/XP</code>中的磁盘配额功能是基于用户和卷（<code>Windows NT/2000/XP</code>下文件系统以卷为单位划分，相当于<code>Windows 95/98/Me</code>下逻辑分区的概念）的所谓磁盘配额，就是管理员可以对本域中的每个用户所能使用的磁盘空间进行配额限制，即每个用户只能使用最大配额范围内的磁盘空间.</p><h1 id="0x04-NTFS权限应用规则"><a href="#0x04-NTFS权限应用规则" class="headerlink" title="0x04 NTFS权限应用规则"></a>0x04 NTFS权限应用规则</h1><ol><li><p><strong>默认继承</strong><br>默认文件或是文件夹继承父级文件夹的权限。</p></li><li><p><strong>权限不冲突累加</strong><br>当一个用户同时有两个权限（同时属于两个组），且不冲突时，两个权限累加。</p></li><li><p><strong>权限冲突，拒绝优先</strong><br>当一个用户同时有两个权限（同时属于两个组），权限冲突时，拒绝权限生效。</p></li><li><p><strong>特殊权限</strong></p><ul><li>读取权限的权限</li><li>更改权限的权限</li><li>取得所有权的权限</li></ul></li><li><p><strong>阻止继承</strong></p><p>在Windows中用文件或文件夹的高级安全属性界面中可以阻止从父文件夹中继承的权限</p></li><li><p><strong>强制继承</strong></p><p>在Windows中文件夹的高级安全属性界面中可以设置子类强制继承父文件夹的权限</p></li></ol><p>注：</p><ul><li><font color="red">强制继承和阻止继承在的生效取决于那个设置后被操作</font>。</li><li><font color="red">在Windows中文件或文件夹权限的设置对管理员无效，管理员可以强制获取权限。</font></li></ul><h1 id="0x05-NTFS权限基本设置"><a href="#0x05-NTFS权限基本设置" class="headerlink" title="0x05 NTFS权限基本设置"></a>0x05 NTFS权限基本设置</h1><ol><li><p><strong>阻止权限继承</strong>。文件或文件夹右键选择属性 → 选择【安全】选项卡 → 点击【高级】按钮 → 点击【更改权限】按钮 → 取消勾选【…继承权限】。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/NTFS/阻止权限继承.png" alt="阻止权限继承"></center></li><li><p><strong>强制权限继承</strong>。文件或文件夹右键选择属性 → 选择【安全】选项卡 → 点击【高级】按钮 → 点击【更改权限】按钮 → 勾选【使用可从此对象继承的权限替换所有对象权限】。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/NTFS/强制权限继承.png" alt="强制权限继承"></center></li></ol><h1 id="0x06-实验练习"><a href="#0x06-实验练习" class="headerlink" title="0x06 实验练习"></a>0x06 实验练习</h1><ul><li><a href="https://z1r0s.github.io/2020/11/05/windows-fang-wen-kong-zhi-lie-biao-pei-zhi-shi-yan/">Windows访问控制列表配置实验</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> 文件系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows用户和组管理</title>
       <link href="/2020/11/06/windows-yong-hu-he-zu-guan-li/"/>
       <url>/2020/11/06/windows-yong-hu-he-zu-guan-li/</url>
@@ -1199,9 +1226,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> CRYPTO </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -1253,9 +1280,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -2462,9 +2489,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
