@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Windows磁盘管理</title>
+      <link href="/2020/11/07/windows-ci-pan-guan-li/"/>
+      <url>/2020/11/07/windows-ci-pan-guan-li/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-磁盘管理概述"><a href="#0x01-磁盘管理概述" class="headerlink" title="0x01 磁盘管理概述"></a>0x01 磁盘管理概述</h1><p>​        磁盘管理是一项计算机使用时的常规任务，它是以一组磁盘管理应用程序的形式提供给用户的，他们位于计算机管理控制台中，它包括<strong>查错程序</strong>和<strong>磁盘碎片整理程序</strong>以及<strong>磁盘整理程序</strong>。（来源<a href="https://baike.baidu.com/item/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/9140310?fr=aladdin#1" target="_blank" rel="noopener">百度百科</a>）本文主要介绍的内容为磁盘整理程序中的分区管理。</p><h1 id="0x02-磁盘分区方式"><a href="#0x02-磁盘分区方式" class="headerlink" title="0x02 磁盘分区方式"></a>0x02 磁盘分区方式</h1><h2 id="MBR-分区方式（基本）"><a href="#MBR-分区方式（基本）" class="headerlink" title="MBR 分区方式（基本）"></a>MBR 分区方式（基本）</h2><p>​        MBR（<code>Master Boot Record</code>）主引导记录，是传统的分区机制，应用于绝大多数使用BIOS的PC设备。主启动记录存在第一扇区，共512字节，包含引导程序（446字节）和分区表（64字节）；每个分区信息会占16个字节；最多可划分4个主分区；标记（2字节）标记系统分区。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/MBR分区1.png" alt="MBR分区"></center><p><strong>特点</strong>：</p><ol><li>只能管理连续的磁盘空间</li><li>不能提高读写效率</li><li>无可靠性</li><li>MBR支持32位和64位系统</li><li>MBR支持分区数量有限</li><li>MBR只支持不超过2T的硬盘，超过2T的硬盘将只能用2T空间（有第三方解决方法）</li></ol><h2 id="GPT的分区方式（动态）"><a href="#GPT的分区方式（动态）" class="headerlink" title="GPT的分区方式（动态）"></a>GPT的分区方式（动态）</h2><p>​        GPT（<code>GUID Partition Table</code>）全局唯一标识分区表，是一个较新的分区机制，解决了MBR很多缺点，分区表突破64字节；Windows 2008上最多可划分128个主分区。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/GPT分区.png" alt="GPT分区"></center><p><strong>特点</strong>：</p><ol><li>可扩展性    （随时扩展文件系统的管理空间，即分区的容量）</li><li>高读写性    （动态磁盘中卷由多个硬盘组成，提高读写的速率）</li><li>高可靠性     （防止某个硬盘损坏导致数据丢失）</li><li>支持超过2T的磁盘（64位寻址空间）。<code>fdisk</code>最大只能建立2TB大小的分区，创建一个大于2TB的分区使用<code>parted</code></li><li>向后兼容MBR</li><li>必须在支持uEFI的硬件上才能使用（Intel提出，用于取代BIOS）</li><li>必须使用64位系统</li><li><code>Mac</code>、<code>Linux</code>系统都能支持GPT分区格式</li><li><code>Windows 7/8 64bit</code>、<code>Windows Server 2008 64bit</code>支持GPT</li></ol><h1 id="0x03-Windows动态磁盘管理"><a href="#0x03-Windows动态磁盘管理" class="headerlink" title="0x03 Windows动态磁盘管理"></a>0x03 Windows动态磁盘管理</h1><h2 id="新加硬盘建卷过程"><a href="#新加硬盘建卷过程" class="headerlink" title="新加硬盘建卷过程"></a>新加硬盘建卷过程</h2><ol><li><p><strong>联机</strong>。新加的硬盘在磁盘管理器中会以<strong>脱机</strong>状态显示，只有联机硬盘才能初始化使用。右键需要联机的磁盘 → 点击【联机】选项，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/联机磁盘.png" alt="联机磁盘"></center></li><li><p><strong>初始化</strong>。联机磁盘后还需要初始化磁盘，右键需要初始化的磁盘 → 点击【初始化】选项 → 在初始化界面中选择两种分区方式的一种，这里推荐使用GPT方式。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/初始化磁盘.png" alt="初始化磁盘"></center></li><li><p><strong>新建卷</strong>。新建卷的种类有很多这里仅演示简单卷的创建其他卷的创建将在后续章节中演示。右键已初始化的磁盘 → 选择【转换到动态磁盘】选项 → 选中待转化磁盘后点击【确定】按钮 → 右键磁盘选择【新建简单卷】选项 → 打开新建简单卷向导并按照提示操作。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建简单卷.gif" alt="新建简单卷"></center></li></ol><h2 id="卷的分类"><a href="#卷的分类" class="headerlink" title="卷的分类"></a>卷的分类</h2><h3 id="简单卷"><a href="#简单卷" class="headerlink" title="简单卷"></a>简单卷</h3><p>​        构成单个物理磁盘空间的卷。它可以由磁盘上的单个区域或同一磁盘上连接在一起的多个区域组成，可以在同一个磁盘内扩展简单卷。</p><h3 id="跨区卷"><a href="#跨区卷" class="headerlink" title="跨区卷"></a>跨区卷</h3><p>​        简单卷也可以扩展到其他的物理磁盘，这样由多个物理磁盘的空间组成的卷就称为跨区卷。简单卷和跨区卷都不属于RAID范畴。</p><h3 id="带区卷"><a href="#带区卷" class="headerlink" title="带区卷"></a>带区卷</h3><p>​        以带区形式在两个或多个物理磁盘上存储数据的卷。带区卷上的数据被交替、平均（以带区形式）地分配给这些磁盘，带区卷是所有Windows 2000可用的卷中性能最佳的，但它不提供容错。如果带区卷上的任何一个磁盘数据损坏或磁盘故障，则整个卷上的数据都将丢失。带区卷可以看作硬件RAID中的RAID0。</p><h3 id="镜像卷"><a href="#镜像卷" class="headerlink" title="镜像卷"></a>镜像卷</h3><p>​        在两个物理磁盘上复制数据的容错卷。它通过使用卷的副本（镜像））复制该卷中的信息来提供数据冗余，镜像总位于另一个磁盘上。如果其中一个物理磁盘出现故障，则该故障磁盘上的数据将不可用，但是系统可以使用未受影响的磁盘继续操作。镜像卷可以看作硬件RAID中的RAID1。</p><h3 id="RAID-5"><a href="#RAID-5" class="headerlink" title="RAID-5"></a>RAID-5</h3><p>​        具有数据和奇偶检验的容错卷，有时分布于三个或更多的物理磁盘，奇偶检验用于在阵列失效后重建数据。如果物理磁盘的某一部分失效，可以用余下的数据和奇偶检验信息重新常见磁盘上失效的那一部分数据，类似硬件RAID中的RAID5，在硬件IDE RAID中，RAID5是很少键的，通常在SCSI RAID卡和高档的IDE RAID卡中才能提供，普通IDE RAID卡仅提供RAID0、RAID1和TAID0+1。</p><p><strong>总结</strong>：</p><center><b>各种卷特点对比</b></center><table><thead><tr><th align="center">卷类型</th><th align="center">需要磁盘数量</th><th align="center">空间是否一致</th><th>可扩展性</th><th>读写性能</th><th>容错</th><th align="center">空间利用率</th></tr></thead><tbody><tr><td align="center">简单卷</td><td align="center"><code>1</code></td><td align="center">否</td><td>可扩展</td><td>正常读写</td><td>无</td><td align="center">100%</td></tr><tr><td align="center">跨区卷</td><td align="center"><code>2-32</code></td><td align="center">否</td><td>可扩展</td><td>正常读写</td><td>无</td><td align="center">100%</td></tr><tr><td align="center">带区卷</td><td align="center"><code>2-32</code></td><td align="center">是</td><td>不可扩展</td><td>多盘同读（最快）</td><td>无</td><td align="center">100%</td></tr><tr><td align="center">镜像卷</td><td align="center"><code>2</code></td><td align="center">是</td><td>不可扩展</td><td>正常读写</td><td>有</td><td align="center">50%</td></tr><tr><td align="center">RAID-5</td><td align="center"><code>3-32</code></td><td align="center">是</td><td>不可扩展</td><td>多盘同读（较快）</td><td>有</td><td align="center">n-1（n=磁盘数量）</td></tr></tbody></table><h2 id="卷的管理"><a href="#卷的管理" class="headerlink" title="卷的管理"></a>卷的管理</h2><p>​        卷的管理主要包括新建卷、扩展卷、压缩卷、添加镜像、删除镜像、中断镜像等操作。</p><h3 id="简单卷管理"><a href="#简单卷管理" class="headerlink" title="简单卷管理"></a>简单卷管理</h3><h4 id="新建简单卷"><a href="#新建简单卷" class="headerlink" title="新建简单卷"></a>新建简单卷</h4><ol><li><p>在想要创建简单卷的磁盘上右键点击【新建简单卷】选项后打开新建简单卷向导，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建简单卷向导界面.png" alt="新建简单卷向导界面"></center></li><li><p>点击【下一步】按钮进入卷大小设置界面，此处将卷大小设置为100M，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/指定简单卷大小.png" alt="指定简单卷大小"></center></li><li><p>点击【下一步】按钮，进入盘符分配界面，此处采用默认设置即可，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/为新建简单卷设置盘符.png" alt="为新建简单卷设置盘符"></center></li><li><p>点击【下一步】按钮进入分区格式化设置界面，在此界面中需要设置文件系统格式、卷标名称、是否执行快速格式化操作等信息，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷格式化设置.png" alt="简单卷格式化设置"></center></li><li><p>点击【下一步】按钮后进入设置检查界面，在此界面中可以核对之前对分区的设置信息，界面显示如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷设置信息核对.png" alt="简单卷设置信息核对"></center></li><li><p>单击【完成】按钮后，磁盘1中出现刚刚设置的新加卷F，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新加卷成功.png" alt="新加卷成功"></center></li></ol><h4 id="扩展简单卷"><a href="#扩展简单卷" class="headerlink" title="扩展简单卷"></a>扩展简单卷</h4><ol><li><p>在想要扩展的简单卷上右键点击【扩展卷…】选项后打开扩展卷向导，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷扩展向导.png" alt="简单卷扩展向导"></center></li><li><p>单击【下一步】按钮后将磁盘2和磁盘3各划分出100M来扩展简单卷，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷扩展容量设置.png" alt="简单卷扩展容量设置"></center></li><li><p>单击【下一步】按钮后将显示设置核对界面，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷扩展核对.png" alt="简单卷扩展核对"></center></li><li><p>点击【完成】按钮后扩展后的简单卷如下图所示。（简单卷 → 跨区卷）</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷跨区扩展.png" alt="简单卷跨区扩展"></center></li></ol><h4 id="压缩简单卷"><a href="#压缩简单卷" class="headerlink" title="压缩简单卷"></a>压缩简单卷</h4><ol><li><p>在想要压缩的简单卷上右键选择【压缩卷…】选项后显示压缩设置界面，此处采用默认设置以压缩出足够大的空间使得操作前后的结果形成明显对比。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷压缩设置界面.png" alt="简单卷压缩设置界面"></center></li><li><p>单击【压缩】按钮后，新加卷F被压缩至84M，结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷压缩结果.png" alt="简单卷压缩结果"></center></li></ol><h4 id="为简单卷添加镜像"><a href="#为简单卷添加镜像" class="headerlink" title="为简单卷添加镜像"></a>为简单卷添加镜像</h4><ol><li><p>选中想要添加镜像的简单卷右键选择【添加镜像】选项，打开添加镜像设置界面，这里选择磁盘2作为简单卷的镜像，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷添加镜像设置界面.png" alt="简单卷添加镜像设置界面"></center></li><li><p>点击【添加镜像】按钮后，磁盘2中将划分出84M作为新加卷F的镜像，操作结果如下图所示。（简单卷 → 镜像卷）</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷添加镜像结果.png" alt="简单卷添加镜像结果"></center></li></ol><h4 id="删除简单卷"><a href="#删除简单卷" class="headerlink" title="删除简单卷"></a>删除简单卷</h4><ol><li><p>选项想要删除的简单卷右键选择【删除卷..】选项，在提示界面中单击【是】按钮后即可将简单卷删除。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷删除.png" alt="简单卷删除"></center></li><li><p>简单卷删除后会变成未分配分区，结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷删除结果.png" alt="简单卷删除结果"></center></li></ol><h3 id="跨区卷管理"><a href="#跨区卷管理" class="headerlink" title="跨区卷管理"></a>跨区卷管理</h3><h4 id="新建跨区卷"><a href="#新建跨区卷" class="headerlink" title="新建跨区卷"></a>新建跨区卷</h4><ol><li><p>选中磁盘右键选择【新建跨区卷..】选项，打开新建跨区卷向导如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建跨区卷向导.png" alt="新建跨区卷向导"></center></li><li><p>单击【下一步】按钮进入磁盘与容量设置界面，此处将从磁盘1、磁盘2、磁盘3中分别划分出100M、200M、300M用来组建跨区卷。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/设置跨区卷容量.png" alt="设置跨区卷容量"></center></li><li><p>单击【下一步】按钮进入驱动器号设置界面，此处采用默认设置，结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷驱动器号设置.png" alt="跨区卷驱动器号设置"></center></li><li><p>单击【下一步】按钮进入卷区格式化设置界面，此处采用默认的NTFS文件系统等，结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷格式化设置.png" alt="跨区卷格式化设置"></center></li><li><p>单击【下一步】将显示跨区卷设置核对信息，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建跨区卷信息核对.png" alt="新建跨区卷信息核对"></center></li><li><p>单击【完成】按钮后创建的新加卷E结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建跨区卷结果.png" alt="新建跨区卷结果"></center></li></ol><h4 id="扩展跨区卷"><a href="#扩展跨区卷" class="headerlink" title="扩展跨区卷"></a>扩展跨区卷</h4><ol><li><p>选中需要设置扩展的跨区卷右键选择【扩展卷…】选项进入跨区卷扩展向导界面如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷扩展向导.png" alt="跨区卷扩展向导"></center></li><li><p>单击【下一步】按钮进入设置磁盘和容量界面，这里将磁盘1中划分100M到跨站卷中，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷扩展容量设置.png" alt="跨区卷扩展容量设置"></center></li><li><p>单击【下一步】按钮显示扩展卷设置信息，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/扩展跨区卷信息核对.png" alt="扩展跨区卷信息核对"></center></li><li><p>单击【完成】按钮，跨区卷扩展结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷扩展结果.png" alt="跨区卷扩展结果"></center></li></ol><h4 id="压缩跨区卷"><a href="#压缩跨区卷" class="headerlink" title="压缩跨区卷"></a>压缩跨区卷</h4><ol><li><p>选中想要压缩的跨区卷右键选择【压缩卷…】选项，显示压缩设置界面，这里采用默认设置以最大容量压缩空间使操作前后结果形成鲜明对比。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷 压缩设置.png" alt="跨区卷 压缩设置"></center></li><li><p>单击【压缩】按钮后扩展卷压缩结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷压缩结果.png" alt="跨区卷压缩结果"></center></li></ol><h4 id="删除跨区卷"><a href="#删除跨区卷" class="headerlink" title="删除跨区卷"></a>删除跨区卷</h4><ol><li><p>选中想要删除的跨区卷，右键选择【删除卷…】选项，在提示界面中单击【是】按钮即可删除跨区卷，操作结果如下图所示</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除跨区卷.png" alt="删除跨区卷"></center></li><li><p>删除跨区卷结果。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除跨区卷结果.png" alt="删除跨区卷结果"></center></li></ol><h3 id="带区卷管理"><a href="#带区卷管理" class="headerlink" title="带区卷管理"></a>带区卷管理</h3><h4 id="创建带区卷"><a href="#创建带区卷" class="headerlink" title="创建带区卷"></a>创建带区卷</h4><ol><li><p>选中磁盘右键选择【新建带区卷..】选项，显示新建带区卷向导如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建带区卷向导.png" alt="新建带区卷向导"></center></li><li><p>单击【下一步】进入磁盘与容量设置界面，这里设置磁盘1和磁盘2各100M，操作结果如下图所示</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷容量设置.png" alt="带区卷容量设置"></center></li><li><p>单击【下一步】进入驱动器号设置界面，采用默认设置即可，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷盘符设置.png" alt="带区卷盘符设置"></center></li><li><p>单击【下一步】按钮进入卷区格式化界面，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷格式化设置.png" alt="带区卷格式化设置"></center></li><li><p>单击【下一步】按钮显示新建带区卷设置核对信息，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷配置核对.png" alt="带区卷配置核对"></center></li><li><p>点击【完成】按钮，新建带区卷结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷新建结果.png" alt="带区卷新建结果"></center></li></ol><h4 id="删除带区卷"><a href="#删除带区卷" class="headerlink" title="删除带区卷"></a>删除带区卷</h4><ol><li><p>选项想要删除的带区卷右键选择【删除卷..]选项，在提示界面中单击【是】按钮，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除带区卷.png" alt="删除带区卷"></center></li><li><p>带区卷删除结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷删除结果.png" alt="带区卷删除结果"></center></li></ol><h3 id="镜像卷管理"><a href="#镜像卷管理" class="headerlink" title="镜像卷管理"></a>镜像卷管理</h3><h4 id="新建镜像卷"><a href="#新建镜像卷" class="headerlink" title="新建镜像卷"></a>新建镜像卷</h4><ol><li><p>选中磁盘右键选择【新建镜像卷…】选项，显示新建镜像卷向导如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建镜像卷向导.png" alt="新建镜像卷向导"></center></li><li><p>单击【下一步】按钮进入磁盘和容量设置界面，这里设置磁盘1和磁盘2各100M操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷容量设置.png" alt="镜像卷容量设置"></center></li><li><p>单击【下一步】按钮进入盘符设置界面，操作默认设置如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷盘符设置.png" alt="镜像卷盘符设置"></center></li><li><p>单击【下一步】按钮进入卷区格式化界面，操作默认设置界面如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷格式化设置.png" alt="镜像卷格式化设置"></center></li><li><p>单击【下一步】按钮显示镜像卷设置核对信息，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷设置核对.png" alt="镜像卷设置核对"></center></li><li><p>单击【完成】按钮，新建镜像卷操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建镜像卷结果.png" alt="新建镜像卷结果"></center></li></ol><h4 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h4><ol><li><p>选中想要删除镜像的镜像卷右键选择【删除镜像】选项，在删除镜像界面选中想要删除镜像的磁盘，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除镜像.png" alt="删除镜像"></center></li><li><p>点击【删除镜像】按钮并确定删除后，磁盘1中的镜像分区将被删除，操作结果如下图所示。（镜像卷 → 简单卷）</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷变简单卷.png" alt="镜像卷变简单卷"></center></li></ol><h4 id="中断镜像"><a href="#中断镜像" class="headerlink" title="中断镜像"></a>中断镜像</h4><ol><li><p>选中想要中断镜像的镜像卷右键选择【中断镜像卷】选项，在提示信息中单击【是】按钮，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷中断镜像.png" alt="镜像卷中断镜像"></center></li><li><p>中断镜像卷结果，镜像卷变成两个简单卷，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷中断操作结果.png" alt="镜像卷中断操作结果"></center></li></ol><h4 id="删除镜像卷"><a href="#删除镜像卷" class="headerlink" title="删除镜像卷"></a>删除镜像卷</h4><ol><li><p>选中想要删除卷的镜像卷右键选择【删除卷…】选项，在提示界面中单击【是】按钮操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷删除.png" alt="镜像卷删除"></center></li><li><p>镜像卷删除结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷删除结果.png" alt="镜像卷删除结果"></center></li></ol><h3 id="RAID-5管理"><a href="#RAID-5管理" class="headerlink" title="RAID-5管理"></a>RAID-5管理</h3><h4 id="新建RAID-5"><a href="#新建RAID-5" class="headerlink" title="新建RAID-5"></a>新建RAID-5</h4><ol><li><p>选中磁盘右键选择【新建RAID-5卷…】选项，打开新建RAID-5卷向导界面，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建RAID-5卷向导.png" alt="新建RAID-5卷向导"></center></li><li><p>单击【下一步】按钮进入磁盘和容量设置界面，此处设置在磁盘1、磁盘2、磁盘3中各划分100M，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5设置磁盘容量.png" alt="RAID-5设置磁盘容量"></center></li><li><p>单击【下一步】按钮，设置盘符操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5盘符设置.png" alt="RAID-5盘符设置"></center></li><li><p>单击【下一步】按钮，设置格式化操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5格式化.png" alt="RAID-5格式化"></center></li><li><p>单击【下一步】按钮，显示RAID-5设置核对信息，显示界面如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5核对信息.png" alt="RAID-5核对信息"></center></li><li><p>单击【完成】设置的RAID-5卷如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5设置结果.png" alt="RAID-5设置结果"></center></li></ol><h4 id="删除RAID-5卷"><a href="#删除RAID-5卷" class="headerlink" title="删除RAID-5卷"></a>删除RAID-5卷</h4><ol><li><p>选中想要删除的RAID-5卷右键选择【删除卷…】选项，在提示界面单击【是】按钮，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除RAID-5.png" alt="删除RAID-5"></center></li><li><p>删除RAID-5卷结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除RAID-5卷结果.png" alt="删除RAID-5卷结果"></center></li></ol><h4 id="修复RAID-5卷"><a href="#修复RAID-5卷" class="headerlink" title="修复RAID-5卷"></a>修复RAID-5卷</h4><p>​        三个盘模拟RAID-5卷，脱机其中一个磁盘，将数据修复到新磁盘中。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5修复卷.gif" alt="RAID-5修复卷"></center><ul><li>一块硬盘损坏后系统会虚拟出一块磁盘以保证RAID-5中数据可读。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> 磁盘管理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows本地安全策略</title>
       <link href="/2020/11/06/windows-ben-di-an-quan-ce-lue/"/>
       <url>/2020/11/06/windows-ben-di-an-quan-ce-lue/</url>
@@ -371,9 +398,9 @@
       
         <tags>
             
-            <tag> 内网渗透 </tag>
-            
             <tag> 渗透测试 </tag>
+            
+            <tag> 内网渗透 </tag>
             
         </tags>
       
@@ -398,9 +425,9 @@
       
         <tags>
             
-            <tag> nmap </tag>
-            
             <tag> tools </tag>
+            
+            <tag> nmap </tag>
             
         </tags>
       
@@ -1473,9 +1500,9 @@
       
         <tags>
             
-            <tag> rsa </tag>
-            
             <tag> python </tag>
+            
+            <tag> rsa </tag>
             
         </tags>
       
@@ -1583,11 +1610,11 @@
       
         <tags>
             
-            <tag> tools </tag>
+            <tag> github </tag>
             
             <tag> 渗透测试 </tag>
             
-            <tag> github </tag>
+            <tag> tools </tag>
             
         </tags>
       
@@ -2249,11 +2276,11 @@
       
         <tags>
             
+            <tag> 网络基础 </tag>
+            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
-            
-            <tag> 网络基础 </tag>
             
         </tags>
       
@@ -2570,9 +2597,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       

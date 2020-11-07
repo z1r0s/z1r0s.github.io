@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-06T12:54:01.137Z</updated>
+  <updated>2020-11-07T15:06:13.927Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows磁盘管理</title>
+    <link href="https://z1r0s.github.io/2020/11/07/windows-ci-pan-guan-li/"/>
+    <id>https://z1r0s.github.io/2020/11/07/windows-ci-pan-guan-li/</id>
+    <published>2020-11-07T07:52:08.000Z</published>
+    <updated>2020-11-07T15:06:13.927Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-磁盘管理概述&quot;&gt;&lt;a href=&quot;#0x01-磁盘管理概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 磁盘管理概述&quot;&gt;&lt;/a&gt;0x01 磁盘管理概述&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="磁盘管理" scheme="https://z1r0s.github.io/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows本地安全策略</title>
@@ -430,9 +458,9 @@
       <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="内网渗透" scheme="https://z1r0s.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
-    
       <category term="渗透测试" scheme="https://z1r0s.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="内网渗透" scheme="https://z1r0s.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
     
   </entry>
   
@@ -458,9 +486,9 @@
       <category term="tools" scheme="https://z1r0s.github.io/categories/tools/"/>
     
     
-      <category term="nmap" scheme="https://z1r0s.github.io/tags/nmap/"/>
-    
       <category term="tools" scheme="https://z1r0s.github.io/tags/tools/"/>
+    
+      <category term="nmap" scheme="https://z1r0s.github.io/tags/nmap/"/>
     
   </entry>
   
@@ -548,32 +576,6 @@
     <id>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level18/</id>
     <published>2020-10-26T16:46:07.000Z</published>
     <updated>2020-10-26T18:42:56.595Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level17</title>
-    <link href="https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level17/"/>
-    <id>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level17/</id>
-    <published>2020-10-26T16:46:02.000Z</published>
-    <updated>2020-10-26T18:37:33.950Z</updated>
     
     <summary type="html">
     
