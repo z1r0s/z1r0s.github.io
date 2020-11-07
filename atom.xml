@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-06T09:34:05.273Z</updated>
+  <updated>2020-11-06T12:54:01.137Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Windows本地安全策略</title>
+    <link href="https://z1r0s.github.io/2020/11/06/windows-ben-di-an-quan-ce-lue/"/>
+    <id>https://z1r0s.github.io/2020/11/06/windows-ben-di-an-quan-ce-lue/</id>
+    <published>2020-11-06T11:09:47.000Z</published>
+    <updated>2020-11-06T12:54:01.137Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-本地安全策略概述&quot;&gt;&lt;a href=&quot;#0x01-本地安全策略概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 本地安全策略概述&quot;&gt;&lt;/a&gt;0x01 本地安全策略概述&lt;/h1&gt;&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+    
+      <category term="安全策略" scheme="https://z1r0s.github.io/tags/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>访问Windows系统默认的共享磁盘</title>
     <link href="https://z1r0s.github.io/2020/11/06/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/"/>
     <id>https://z1r0s.github.io/2020/11/06/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/</id>
     <published>2020-11-06T09:16:01.000Z</published>
-    <updated>2020-11-06T09:34:05.273Z</updated>
+    <updated>2020-11-06T11:06:39.979Z</updated>
     
     <summary type="html">
     
@@ -402,9 +430,9 @@
       <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="渗透测试" scheme="https://z1r0s.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="内网渗透" scheme="https://z1r0s.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -430,9 +458,9 @@
       <category term="tools" scheme="https://z1r0s.github.io/categories/tools/"/>
     
     
-      <category term="tools" scheme="https://z1r0s.github.io/tags/tools/"/>
-    
       <category term="nmap" scheme="https://z1r0s.github.io/tags/nmap/"/>
+    
+      <category term="tools" scheme="https://z1r0s.github.io/tags/tools/"/>
     
   </entry>
   
@@ -546,32 +574,6 @@
     <id>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level17/</id>
     <published>2020-10-26T16:46:02.000Z</published>
     <updated>2020-10-26T18:37:33.950Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level16</title>
-    <link href="https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level16/"/>
-    <id>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level16/</id>
-    <published>2020-10-26T16:45:58.000Z</published>
-    <updated>2020-10-26T18:24:11.774Z</updated>
     
     <summary type="html">
     
