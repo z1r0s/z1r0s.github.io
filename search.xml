@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>FTP服务</title>
+      <link href="/2020/11/10/ftp-fu-wu/"/>
+      <url>/2020/11/10/ftp-fu-wu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="FTP协议概述"><a href="#FTP协议概述" class="headerlink" title="FTP协议概述"></a>FTP协议概述</h1><p>​        FTP（File Transfer Protocol，文件传输协议） 是 TCP/IP 协议组中的协议之一。<br>​        FTP协议包括两个组成部分，其一为<strong>FTP服务器</strong>，其二为<strong>FTP客户端</strong>。<br>​        其中FTP服务器用来存储文件，用户可以使用FTP客户端通过FTP协议访问位于FTP服务器上的资源。在开发网站的时候，通常利用FTP协议把网页或程序传到Web服务器上。此外，由于FTP传输效率非常高，在网络上传输大的文件时，一般也采用该协议。</p><h1 id="常见FTP客户端"><a href="#常见FTP客户端" class="headerlink" title="常见FTP客户端"></a>常见FTP客户端</h1><h2 id="WWW浏览器访问"><a href="#WWW浏览器访问" class="headerlink" title="WWW浏览器访问"></a>WWW浏览器访问</h2><ul><li>最常用（在资源管理器中打开，显示结果以文件的形式显示，其后台调用的还是浏览器）</li></ul><h2 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h2><p>​        具体操作方法：</p><ol><li><p>登录FTP服务器：命令提示符输入：</p><pre class="line-numbers language-shell"><code class="language-shell">ftp   FTP服务器的IP地址ftp 回车 open ip地址 端口号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p>输入用户名：直接输入</p><ul><li><font color="blue">以数字2或3的百位数说明登录成功；以5开头的百位数代表登录失败</font></li></ul></li><li><p>输入密码：</p><ul><li>不显示密码</li></ul></li><li><p>显示文件列表 </p><ul><li><code>ls</code> （简单显示）  </li><li><code>dir</code>  （详细显示）</li></ul></li><li><p>进入文件夹</p><ul><li><code>cd   文件夹名</code></li></ul></li><li><p>后退一步</p><ul><li><code>cd  . .</code></li></ul></li><li><p>下载文件</p><ul><li><code>get    文件名</code>    （<font color="blue">.默认所在的下载位置是当前登录账户所在的文件夹内</font>）</li></ul></li><li><p>上传文件</p><ul><li><code>put    文件名</code>    （<font color="blue">默认要把需要 上传的文件放在当前登录账户的文件夹内</font>）</li></ul></li><li><p>删除文件</p><ul><li><code>del    文件名</code></li></ul></li><li><p>退出登录</p><ul><li><code>bye</code></li><li><code>quit</code></li></ul></li></ol><h2 id="专用图形工具"><a href="#专用图形工具" class="headerlink" title="专用图形工具"></a>专用图形工具</h2><ul><li>FileZilla</li><li>CuteFTP</li><li>FlashFXP</li><li>LeapFTP</li></ul><h1 id="常见的服务端程序"><a href="#常见的服务端程序" class="headerlink" title="常见的服务端程序"></a>常见的服务端程序</h1><h2 id="windows-FTP-服务"><a href="#windows-FTP-服务" class="headerlink" title="windows FTP 服务"></a>windows FTP 服务</h2><p>​        windows服务器系统自带的FTP角色</p><ol><li>需要在角色中 → 添加角色 → Web服务器（IIS） → 添加必须的功能 → 勾选上FTP服务 → 安装</li></ol><p>2、启动FTP站点  （默认生成一个站点（可删也可保留）默认主目录：<code>C:\inetpub\ftproot</code>）</p><p>3、权限：用户的访问权限是NTFS权限和FTP权限的交集（严谨优先）</p><p>4、匿名账户：<code>anonymous</code>和 <code>ftp</code></p><h2 id="Server-U"><a href="#Server-U" class="headerlink" title="Server-U"></a>Server-U</h2><p>​        支持windows服务器系统和客户端系统，不可和FTP服务同时启动提供FTP服务，端口冲突。</p><h2 id="其他第三方程序"><a href="#其他第三方程序" class="headerlink" title="其他第三方程序"></a>其他第三方程序</h2><ul><li>Xlight  ftp Server  </li><li>RaidenFTPD </li><li>EFT  Server  </li><li>FileZilla  Server</li></ul><h1 id="FTP模式"><a href="#FTP模式" class="headerlink" title="FTP模式"></a>FTP模式</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>​        默认情况下FTP协议使用TCP端口中的 20和21这两个端口，其中20用于传输数据，21用于传输控制信息。但是，是否使用20作为传输数据的端口与FTP使用的传输模式有关，如果采用主动模式，那么数据传输端口就是20；如果采用被动模式，则具体最终使用哪个端口要服务器端和客户端协商决定</p><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol><li><p>Port（主动模式）<br>FTP 客户端首先和FTP服务器的TCP 21端口建立连接，通过这个通道发送命令，客户端需要接收数据的时候在这个通道上发送PORT命令。 PORT命令包含了客户端用什么端口接收数据。在传送数据的时候，服务器端通过自己的TCP 20端口连接至客户端的指定端口发送数据。 FTP server必须和客户端建立一个新的连接用来传送数据。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/FTPServer/主动模式.jpg" alt="主动模式"></center></li><li><p>Passive（被动模式）<br>在建立控制通道的时候和Standard模式类似，但建立连接后发送的不是Port命令，而是Pasv命令。FTP服务器收到Pasv命令后，随机打开一个高端端口（端口号大于1024）并且通知客户端在这个端口上传送数据的请求，客户端连接FTP服务器此端口，通过三次握手建立通道，然后FTP服务器将通过这个端口进行数据的传送。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/FTPServer/被动模式.jpg" alt="被动模式"></center><p>注：</p><pre><code>    很多防火墙在设置的时候都是不允许接受外部发起的连接的，所以许多位于防火墙后或内网的FTP服务器不支持PASV模式，因为客户端无法穿过防火墙打开FTP服务器的高端端口；而许多内网的客户端不能用PORT模式登陆FTP服务器，因为从服务器的TCP 20无法和内部网络的客户端建立一个新的连接，造成无法工作。</code></pre></li></ol><h1 id="FTP用户隔离"><a href="#FTP用户隔离" class="headerlink" title="FTP用户隔离"></a>FTP用户隔离</h1><ol><li><p>在ftproot(根目录)中创建<code>localuser</code>文件夹</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/FTPServer/localuser文件夹.png" alt="localuser文件夹"></center></li><li><p>创建本地用户，并在<code>localuser</code>文件夹中与用户名对应的文件夹</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/FTPServer/创建用户文件夹.png" alt="创建用户文件夹"></center></li><li><p>在FTP设置中启用用户隔离（勾选用户名目录&lt;禁用全局虚拟目录&gt;）</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/FTPServer/启用用户隔离.png" alt="启用用户隔离"></center></li></ol><h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><ul><li><a href="https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/">FTP服务器搭建（phpstudyftp）</a></li><li><a href="https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/">FTP服务器搭建（iis）</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络服务 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FTP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>文件共享</title>
+      <link href="/2020/11/10/wen-jian-gong-xiang-fu-wu/"/>
+      <url>/2020/11/10/wen-jian-gong-xiang-fu-wu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="文件共享"><a href="#文件共享" class="headerlink" title="文件共享"></a>文件共享</h1><h2 id="共享文件夹"><a href="#共享文件夹" class="headerlink" title="共享文件夹"></a>共享文件夹</h2><h3 id="访问方式"><a href="#访问方式" class="headerlink" title="访问方式"></a>访问方式</h3><p>UNC路径：<code>\\对方的IP地址（主机名）\共享名（映射网络驱动器）</code></p><ul><li>需要输入对方电脑上的一个用户及密码</li></ul><h3 id="共享分类"><a href="#共享分类" class="headerlink" title="共享分类"></a>共享分类</h3><ul><li>明文共享：<ul><li>访问方式：<code>\\服务器主机名或IP地址</code>：显示所有明文共享</li></ul></li><li>隐藏共享：在创建共享夹时共享名后加”$”<ul><li>访问方式：<code>\\服务器主机名或IP地址\共享名</code></li></ul></li><li>默认共享：（属于隐藏共享）<ul><li>Windows 默认创建分区的共享，访问这些默认共享需要administrator账户身份</li></ul></li></ul><h3 id="查看共享"><a href="#查看共享" class="headerlink" title="查看共享"></a>查看共享</h3><pre class="line-numbers language-shell"><code class="language-shell">net share<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="删除共享"><a href="#删除共享" class="headerlink" title="删除共享"></a>删除共享</h3><pre class="line-numbers language-shell"><code class="language-shell">net share c$ /del<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="文件服务器"><a href="#文件服务器" class="headerlink" title="文件服务器"></a>文件服务器</h1><h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><ol><li><p>对等网：所有的机器都需要创建相同的用户名和密码；实现彼此访问共享文件夹</p><ul><li>缺点：不适合大型网络，共享文件夹分散</li></ul></li><li><p>C/S结构：网络中提供文件资源的集中存储和访问，实现</p><ul><li>优点：集中化管理、内容控制、高可靠性、便捷的搜索服务。</li></ul></li></ol><h2 id="文件服务器角色服务"><a href="#文件服务器角色服务" class="headerlink" title="文件服务器角色服务"></a>文件服务器角色服务</h2><ul><li><strong>共享和存储管理</strong>：    为共享文件夹和存储资源提供简化管理</li><li><strong>分布式文件系统（ DFS）</strong>：两种技术：D F S命名空间和D F S复制技术<ul><li>DFS 命名空间可以使用户从一个入口访问位于多台计算机上的共享资源</li></ul></li><li><strong>文件服务器资源管理器</strong>  ：实现文件夹和卷的配额，主动屏蔽文件</li><li><strong>网络文件系统服务（NFS）</strong>：实现Windows 和Unix 混合环境的文件共享解决方案 </li><li><strong>Windows 搜索服务</strong>：是Windows  Server  2008上一种新型索引解决方案</li></ul><h1 id="文件服务安全策略"><a href="#文件服务安全策略" class="headerlink" title="文件服务安全策略"></a>文件服务安全策略</h1><ul><li>拒绝从网络访问  <ul><li>可以实现某些特殊用户通过网络访问服务器</li></ul></li><li>本地账户的共享安全模型   <ul><li>实现强制网络访问者以来宾身份访问文件服务器</li><li>注意：文件服务器上要启用来宾账户</li></ul></li><li>使用空白密码的本地账户只允许进行控制台登录   （实现服务器中没有设置密码的账户不被冒用，针对administrator账户）<ul><li>禁用选项：说明administrator 账户不能登录（空密码）</li><li>启用选项：说明administrator 账户能登录（空密码）</li></ul></li><li>密码保护共享   （启用，要求文件服务器和客户端必须拥有相同的用户名和密码才能访问）</li></ul><h1 id="共享权限"><a href="#共享权限" class="headerlink" title="共享权限"></a>共享权限</h1><ol><li><p>共享权限</p><ul><li><p>读取</p></li><li><p>更改</p></li><li><p>完全控制</p></li></ul></li><li><p>网络访问     <font color="blue">共享权限和NTFS权限的交集  （拒绝权限大于一切）</font></p><ul><li><font color="red">若将共享权限设置为everyone完全控制，则共享文件的本地NTFS权限生效</font></li></ul></li><li><p>本地访问</p><ul><li>只看NTFS权限（唯一生效NTFS权限）</li></ul></li></ol><h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><ul><li><p>137端口主要用于“NetBIOS Name Service”（NetBIOS名称服务），属于UDP协议端口，使用者只需要向局域网或互联网上的某台计算机的137端口发送一个请求，就可以获取该计算机的名称、注册用户名，以及是否安装主域控制器、IIS是否正在运行等信息。</p></li><li><p>138端口的主要作用就是提供NetBIOS环境下的计算机名浏览功能，也属于UDP协议端口，使用者只需要目标主机的138端口建立连接请求的话，就能轻松获得目标主机所处的局域网网络名称以及目标主机的计算机名称。有了计算机名称，其对应的IP地址也就能轻松获得。</p></li><li><p>139和445端口<code>NetBIOS File and Print Sharing</code>，属于TCP协议端口，通过这个端口进入的连接试图获得<code>NetBIOS/SMB</code>服务，有了他们，共享才能最终实现。这个协议被用于Windows”文件和打印机共享”和SAMBA，这里想必大家都知道<code>ipc$</code>，就是用的139，445端口，<code>net use</code>和<code>net view</code>就是去连接对端的139，445端口。访问共享的时候都是优先访问对方的445端口，因为这个就是TCP/IP 上的NetBIOS，有了他就能跨路由/网段访问共享，如果445端口无响应，则访问139端口，这个就是早期的NetBIOS，是无法跨路由的共享。</p></li><li><p>总结：一共需要的端口是UDP的137，138，TCP的139，445。</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络服务 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文件共享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DHCP服务</title>
       <link href="/2020/11/09/dhcp-fu-wu/"/>
       <url>/2020/11/09/dhcp-fu-wu/</url>
@@ -450,9 +500,9 @@
       
         <tags>
             
-            <tag> 内网渗透 </tag>
-            
             <tag> 渗透测试 </tag>
+            
+            <tag> 内网渗透 </tag>
             
         </tags>
       
@@ -477,9 +527,9 @@
       
         <tags>
             
-            <tag> nmap </tag>
-            
             <tag> tools </tag>
+            
+            <tag> nmap </tag>
             
         </tags>
       
@@ -1662,11 +1712,11 @@
       
         <tags>
             
-            <tag> tools </tag>
+            <tag> github </tag>
             
             <tag> 渗透测试 </tag>
             
-            <tag> github </tag>
+            <tag> tools </tag>
             
         </tags>
       
@@ -2649,9 +2699,9 @@
             
             <tag> C# </tag>
             
-            <tag> 程序实现 </tag>
-            
             <tag> 编码 </tag>
+            
+            <tag> 程序实现 </tag>
             
         </tags>
       

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-09T12:31:45.848Z</updated>
+  <updated>2020-11-10T07:58:22.050Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FTP服务</title>
+    <link href="https://z1r0s.github.io/2020/11/10/ftp-fu-wu/"/>
+    <id>https://z1r0s.github.io/2020/11/10/ftp-fu-wu/</id>
+    <published>2020-11-10T07:57:19.000Z</published>
+    <updated>2020-11-10T07:58:22.050Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;FTP协议概述&quot;&gt;&lt;a href=&quot;#FTP协议概述&quot; class=&quot;headerlink&quot; title=&quot;FTP协议概述&quot;&gt;&lt;/a&gt;FTP协议概述&lt;/h1&gt;&lt;p&gt;​        FTP（File Transfer Protocol，文件传输协议） 是
+        
+      
+    
+    </summary>
+    
+      <category term="网络服务" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+      <category term="FTP" scheme="https://z1r0s.github.io/tags/FTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件共享</title>
+    <link href="https://z1r0s.github.io/2020/11/10/wen-jian-gong-xiang-fu-wu/"/>
+    <id>https://z1r0s.github.io/2020/11/10/wen-jian-gong-xiang-fu-wu/</id>
+    <published>2020-11-10T07:52:28.000Z</published>
+    <updated>2020-11-10T07:56:59.908Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;文件共享&quot;&gt;&lt;a href=&quot;#文件共享&quot; class=&quot;headerlink&quot; title=&quot;文件共享&quot;&gt;&lt;/a&gt;文件共享&lt;/h1&gt;&lt;h2 id=&quot;共享文件夹&quot;&gt;&lt;a href=&quot;#共享文件夹&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络服务" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+      <category term="文件共享" scheme="https://z1r0s.github.io/tags/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>DHCP服务</title>
@@ -512,9 +564,9 @@
       <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="内网渗透" scheme="https://z1r0s.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
-    
       <category term="渗透测试" scheme="https://z1r0s.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="内网渗透" scheme="https://z1r0s.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
     
   </entry>
   
@@ -540,61 +592,9 @@
       <category term="tools" scheme="https://z1r0s.github.io/categories/tools/"/>
     
     
-      <category term="nmap" scheme="https://z1r0s.github.io/tags/nmap/"/>
-    
       <category term="tools" scheme="https://z1r0s.github.io/tags/tools/"/>
     
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level20</title>
-    <link href="https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level20/"/>
-    <id>https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level20/</id>
-    <published>2020-10-31T12:17:00.000Z</published>
-    <updated>2020-10-31T12:28:49.919Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XSS之xss-labs-level19</title>
-    <link href="https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level19/"/>
-    <id>https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level19/</id>
-    <published>2020-10-31T11:38:09.000Z</published>
-    <updated>2020-10-31T12:11:16.072Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-XSS-Labs&quot;&gt;&lt;a href=&quot;#0x01-XSS-Labs&quot; class=&quot;headerlink&quot; title=&quot;0x01 XSS-Labs&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/categories/XSS/"/>
-    
-    
-      <category term="XSS" scheme="https://z1r0s.github.io/tags/XSS/"/>
+      <category term="nmap" scheme="https://z1r0s.github.io/tags/nmap/"/>
     
   </entry>
   
