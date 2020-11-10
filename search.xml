@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Web服务器运行多个网站</title>
+      <link href="/2020/11/10/web-fu-wu-qi-yun-xing-duo-ge-wang-zhan/"/>
+      <url>/2020/11/10/web-fu-wu-qi-yun-xing-duo-ge-wang-zhan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-概述"><a href="#0x01-概述" class="headerlink" title="0x01 概述"></a>0x01 概述</h1><p>​        为了充分利用资源，一台服务器往往不会部署一个网站，通常都是一个服务器上运行多个网站，旁站攻击就利用该方式通过其他网站获取服务器权限，从而得到被测网站权限。</p><p>​        一台服务器上运行多个网站时，每个网站可以称为虚拟主机。对于虚拟主机的标识主要是通过IP地址、端口号、主机名。显示多网站运行的方式有如下几种方式：</p><ul><li>不同IP地址，相同端口<ul><li>服务器需要多个网卡（不太实用）</li></ul></li><li>相同IP地址，不同端口<ul><li>仅需要一个网卡即可</li></ul></li><li>不同IP地址，不同端口（不使用）</li><li>相同IP地址，相同端口，不同主机名<ul><li>根据主机名判别，但需要进行域名解析</li></ul></li></ul><h1 id="0x02-相同IP-不同端口"><a href="#0x02-相同IP-不同端口" class="headerlink" title="0x02 相同IP+不同端口"></a>0x02 相同IP+不同端口</h1><ol><li><p>新建端口为80的网站</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WebServerMultiSite/新建80端口网站.png" alt="新建80端口网站"></center></li><li><p>新建端口为81的网站</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WebServerMultiSite/新建81端口网站.png" alt="新建81端口网站"></center></li><li><p>jd网站访问结果。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WebServerMultiSite/jd网站访问结果.png" alt="jd网站访问结果"></center></li><li><p>baidu网站访问结果。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WebServerMultiSite/baidu网站访问结果.png" alt="baidu网站访问结果"></center></li></ol><h1 id="0x03-相同IP-相同端口"><a href="#0x03-相同IP-相同端口" class="headerlink" title="0x03 相同IP+相同端口"></a>0x03 相同IP+相同端口</h1><ol><li><p>创建主机名为<code>www.jd.com</code>的网站。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WebServerMultiSite/创建jd网站.png" alt="创建jd网站"></center></li><li><p>创建主机名为<code>www.baidu.com</code>的网站。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WebServerMultiSite/创建baidu网站.png" alt="创建baidu网站"></center></li><li><p>修改host文件。<code>C:\Windows\System32\drivers\etc\hosts</code>。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WebServerMultiSite/修改hosts文件.png" alt="修改hosts文件"></center></li><li><p>访问<code>www.baidu.com</code>显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WebServerMultiSite/访问baidu网站结果.png" alt="访问baidu网站结果"></center></li><li><p>访问<code>www.jd.com</code>显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WebServerMultiSite/访问jd网站结果.png" alt="访问jd网站结果"></center></li></ol><h1 id="0x04-实验分析"><a href="#0x04-实验分析" class="headerlink" title="0x04 实验分析"></a>0x04 实验分析</h1><ul><li>使用端口做多站运行时，不需要DNS进行解析、只需要指定一个未被使用的端口即可。</li><li>使用主机名做多占运行时，需要使用DNS进行解析，否则无法找到指定网站。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Web服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FTP服务</title>
       <link href="/2020/11/10/ftp-fu-wu/"/>
       <url>/2020/11/10/ftp-fu-wu/</url>
@@ -1436,9 +1461,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> CRYPTO </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -1490,9 +1515,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -2699,9 +2724,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
