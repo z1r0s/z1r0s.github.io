@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-10T09:39:41.327Z</updated>
+  <updated>2020-11-12T11:04:20.500Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>域控管理实验</title>
+    <link href="https://z1r0s.github.io/2020/11/12/yu-kong-guan-li-shi-yan/"/>
+    <id>https://z1r0s.github.io/2020/11/12/yu-kong-guan-li-shi-yan/</id>
+    <published>2020-11-12T07:32:51.000Z</published>
+    <updated>2020-11-12T11:04:20.500Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;创建主域控&quot;&gt;&lt;a href=&quot;#创建主域控&quot; class=&quot;headerlink&quot; title=&quot;创建主域控&quot;&gt;&lt;/a&gt;创建主域控&lt;/h1&gt;&lt;h2 id=&quot;主域控限制条件&quot;&gt;&lt;a href=&quot;#主域控限制条件&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络服务" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+      <category term="域" scheme="https://z1r0s.github.io/tags/%E5%9F%9F/"/>
+    
+      <category term="活动目录" scheme="https://z1r0s.github.io/tags/%E6%B4%BB%E5%8A%A8%E7%9B%AE%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Web服务器运行多个网站</title>
@@ -565,34 +593,6 @@
       <category term="常用命令" scheme="https://z1r0s.github.io/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     
       <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>内网渗透常用命令</title>
-    <link href="https://z1r0s.github.io/2020/11/01/nei-wang-shen-tou-chang-yong-ming-ling/"/>
-    <id>https://z1r0s.github.io/2020/11/01/nei-wang-shen-tou-chang-yong-ming-ling/</id>
-    <published>2020-11-01T11:48:55.000Z</published>
-    <updated>2020-11-02T00:03:01.902Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Windows（工作组和域）&quot;&gt;&lt;a href=&quot;#Windows（工作组和域）&quot; class=&quot;headerlink&quot; title=&quot;Windows（工作组和域）&quot;&gt;&lt;/a&gt;Windows（工作组和域）&lt;/h1&gt;&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="渗透测试" scheme="https://z1r0s.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="内网渗透" scheme="https://z1r0s.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
     
   </entry>
   
