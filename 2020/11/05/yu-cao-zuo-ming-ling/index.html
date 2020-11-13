@@ -16,6 +16,10 @@
 
 
 
+dsquery server
+得到域控制器的主机名（服务器中才可执行）
+
+
 net group /domain
 获得所有域用户组列表
 
@@ -23,9 +27,7 @@ net group /domain
 net group xxxxx /domain
 显示域中xxxxx组的成员
 
-
-net group xxxxx /del /domain
-删除域中xxxx">
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -495,7 +497,7 @@ net group xxxxx /del /domain
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    341
+                    377
                 </div>
                 
 
@@ -526,6 +528,10 @@ net group xxxxx /del /domain
 </tr>
 </thead>
 <tbody><tr>
+<td align="center"><code>dsquery server</code></td>
+<td align="center">得到域控制器的主机名（服务器中才可执行）</td>
+</tr>
+<tr>
 <td align="center"><code>net group /domain</code></td>
 <td align="center">获得所有域用户组列表</td>
 </tr>
@@ -595,7 +601,7 @@ net group xxxxx /del /domain
 </tr>
 <tr>
 <td align="center"><code>net config Workstation</code></td>
-<td align="center">查询机器属于哪个域</td>
+<td align="center">查询当前登录域</td>
 </tr>
 <tr>
 <td align="center"><code>net time /domian</code></td>
@@ -612,6 +618,14 @@ net group xxxxx /del /domain
 <tr>
 <td align="center"><code>tasklist /S ip /U domain\username /P /V</code></td>
 <td align="center">查看远程计算机进程列</td>
+</tr>
+<tr>
+<td align="center"><code>wmic qfe</code></td>
+<td align="center">查看补丁信息</td>
+</tr>
+<tr>
+<td align="center"><code>wmic os</code></td>
+<td align="center">查看操作系统类型</td>
 </tr>
 </tbody></table>
 
@@ -1107,7 +1121,7 @@ new-item
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">185k</span>
+            <span class="white-color">188.1k</span>
             
 
             <br>
