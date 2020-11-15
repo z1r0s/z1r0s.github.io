@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>DNS服务</title>
+      <link href="/2020/11/14/dns-fu-wu/"/>
+      <url>/2020/11/14/dns-fu-wu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-DNS概述"><a href="#0x01-DNS概述" class="headerlink" title="0x01 DNS概述"></a>0x01 DNS概述</h1><h2 id="域名如何解析"><a href="#域名如何解析" class="headerlink" title="域名如何解析"></a>域名如何解析</h2><p>​        根据TCP/TP中对HTTP协议的规则，在进行数据传输过程中报文需要的包含：源IP地址和目的IP地址，域名不是IP地址因此在访问时需要解析除域名对用的IP地址。</p><ol><li>早期使用<code>Hosts</code>文件解析域名<ul><li>主机名称重复</li><li>主机维护困难</li></ul></li><li>DNS（Domain Name System域名系统）：专门对域名进行解析的协议，安装DNS Server的服务器被称为DNS服务器。<ul><li>分布式</li><li>层次性</li></ul></li></ol><h2 id="域名结构"><a href="#域名结构" class="headerlink" title="域名结构"></a>域名结构</h2><p><code>FQDN（完全合格域名）= 主机名.DNS后缀</code></p><pre class="line-numbers language-html"><code class="language-html">www.jishubu.baidu.com.www:主机名jishubu:三级域名baidu:二级域名com:一级域名(顶级域名).:根<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>顶级域名</strong>:</p><ul><li>国家代码标识某个国家（如cn、uk等）</li><li>国际性组织在int下</li><li>国际通用<ul><li>com：商业部门</li><li>net：网络服务机构</li><li>org：民间组织团体</li><li>edu：教育部门</li><li>gov：政府部门</li><li>mil：军事部门</li></ul></li></ul><p><strong>二级域名</strong>：由各个国家自行确定</p><ul><li>类别域名（ac、com、edu、gov、net、org工6个）</li><li>行政区域名（34个，如bj、js等）</li></ul><p><strong>三级域名</strong>：二级域名下注册的公司、单位等</p><p><strong>主机名</strong>：服务所在服务器</p><h2 id="DNS区域"><a href="#DNS区域" class="headerlink" title="DNS区域"></a>DNS区域</h2><p>​        ns区域是为了便于根据实际情况来分散DNS名称管理工作的负荷，将DNS名称空间划分为区域（zone）来进行管理</p><ul><li>域名空间树形结构的一部分</li><li>将域名空间根据需要划分为较小区域</li><li>一台DNS服务器内可存放多个区域文件</li><li>一个区域所包含的范围在一个域名空间中是连续的</li></ul><h2 id="DNS服务器分类"><a href="#DNS服务器分类" class="headerlink" title="DNS服务器分类"></a>DNS服务器分类</h2><ol><li>主要名称服务器（主DNS）<ul><li>存放该区域中相关设置的DNS服务器（可修改）</li><li>其存放的是区域文件的正本数据</li><li>权威应答（查文件得到的结果)</li></ul></li><li>辅助名称服务器（辅DNS）<ul><li>从主DNS服务器中复制数据</li><li>数据为副本无法修改</li><li>权威应答（查文件得到的结果）</li></ul></li><li>主控名称服务器<ul><li>提供区域数据复制的DNS服务器（多个主DNS服务器谁提供辅助DNS的区域复制，谁就是主控名称服务器）</li></ul></li><li>Cache-Only名称服务器（缓存DNS）<ul><li>将查询到的数据保存在高速缓存中</li><li>非权威应答（查缓存）</li></ul></li></ol><h2 id="DNS查询方式"><a href="#DNS查询方式" class="headerlink" title="DNS查询方式"></a>DNS查询方式</h2><ol><li><p>从查询方式分类</p><ul><li><p>递归查询：客户端得到结果只能是成功或失败</p></li><li><p>迭代查询：</p><ul><li><p>DNS服务器如有客户机请求数据则返回正确地址</p></li><li><p>DNS服务器没有请求数据则返回一个指针</p></li></ul></li></ul></li><li><p>从查询内容分类</p><ul><li><p>正向查询：由域名查找IP地址 </p></li><li><p>反向查询：由IP地址查找域名 </p></li></ul></li></ol><h2 id="DNS查询过程"><a href="#DNS查询过程" class="headerlink" title="DNS查询过程"></a>DNS查询过程</h2><ol><li>输入一个HTTP网址 <code>www.taobao.com</code>【下单后收货时发现货物有瑕疵，计划换货】</li><li>通过DNS解析出这个网址的IP【找出卖家地址】<ol><li>此时操作系统会先检查本地<code>hosts</code>文件是否有这个网址的映射关系，如果有，就先调用这个IP地址映射，完成解析；如果没有执行2。</li><li>若<code>hosts</code>里没有，则查找本地DNS解析器缓存，若有映射，直接返回，完成解析；若无映射执行3。</li><li>若前两者没有，查找<code>TCP/IP</code>参数中设置的首选DNS服务器（此处称为本地DNS服务器）。若查询的域名包含在本地配置区域资源中，则返回解析结果给客户机，完成解析。（此解析具有权威性）若要查询的域名，不由本地DNS服务器区域解析，但该服务器缓存了网址的映射关系，则调用这个IP地址映射，完成解析。（此解析不具权威性）。若都没有则执行4。</li><li>若前三者没有，则根据本地DNS服务器的设置（是否设置转发器）进行查询。最后都由本地DNS服务器返回IP地址给客户机。<ul><li><strong>采用未转发模式</strong>：本地DNS将请求发至13台根DNS，根DNS收到后会判断这个域名.com是谁来授权管理，返回一个负责该顶级域名的服务器的IP。收到IP信息后，本地DNS联系负责.com的服务器，收到请求后进行解析，找到一个管理baidu.com的DNS服务器的IP，返回给本地DNS服务器。收到IP信息后，重复上述动作，直到找到<code>www.taobao.com</code>的IP地址。</li><li><strong>采用转发模式</strong>：本地DNS服务器将请求发送至上一级DNS解析器，由上一级DNS解析器进行解析。上一级若不能解析，或找根DNS或把请求转至上上级，以此循环。</li></ul></li></ol></li><li>有了IP后，通过IP地址找到对应服务器，请求与对方建立TCP连接（先通过子网掩码判断下是否是同一个网络的。如果不在同一个网络，需要通过网关转发）【跟客服扯皮，达成换货共识】</li><li>建立连接后，客户端向服务器发送HTTP Request（请求）包数据【寄快递】</li><li>服务器收到请求后，进行处理，返回HTTP Response（响应）包数据【卖家收到快递，寄回换的货】</li><li>客户端收到服务器的响应后，开始渲染这个Response包里的主体（body），收到全部的内容后断开与该服务器之间的TCP连接【收到货，点击确定收货，完成交易】</li></ol><p>总结：<br><font color="red"><code>www.taobao.com</code> → 本地HOSTS(无) → DNS本地缓存 → DNS服务器 → 根DNS–顶级域名DNS服务器 → 公司域名DNS服务器–找到主机对应IP → 本地DNS服务器 → 本地主机 → 完成解析得知ip</font></p><h2 id="资源记录类型"><a href="#资源记录类型" class="headerlink" title="资源记录类型"></a>资源记录类型</h2><table><thead><tr><th align="center">资源记录</th><th align="left">说明</th></tr></thead><tbody><tr><td align="center">SOA（起始授权机构）</td><td align="left">定义了该域中的权威名称服务器</td></tr><tr><td align="center">NS（名称服务器）</td><td align="left">表示某区域的权威服务器和SQA中指定的该区域的主要服务器和辅助服务器</td></tr><tr><td align="center">A（主机）</td><td align="left">列出了区域中FQDN（完全合格的域名）到IP地址的映射</td></tr><tr><td align="center">PTR（指针）</td><td align="left">相对于A资源记录，PTR记录是把IP地址映射到FQDN</td></tr><tr><td align="center">MX</td><td align="left">邮件交换器记录，向指定的邮件交换主机提供消息路由</td></tr><tr><td align="center">CNAME（别名）</td><td align="left">将多个名字映射到同一台计算机上，便于用户访问</td></tr></tbody></table><h1 id="0x02-配置DNS服务"><a href="#0x02-配置DNS服务" class="headerlink" title="0x02 配置DNS服务"></a>0x02 配置DNS服务</h1><h2 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h2><ul><li>有固定的IP地址</li><li>安装并启动DNS服务</li><li>有区域文件，配置转发器，或者配置根提示</li></ul><h2 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h2><ol><li>安装并启动DNS服务</li><li>新建A记录</li><li>配置转发器，或者配置跟提示</li></ol><h1 id="0x03-管理DNS服务"><a href="#0x03-管理DNS服务" class="headerlink" title="0x03 管理DNS服务"></a>0x03 管理DNS服务</h1><h2 id="子域"><a href="#子域" class="headerlink" title="子域"></a>子域</h2><p>​        可以将同一网络中的不同用户归于不同的子域，然后给不同资源创建不同的记录，实现不同的功能</p><h2 id="委派"><a href="#委派" class="headerlink" title="委派"></a>委派</h2><p>区域中的子域过多时:</p><ul><li>维护起来不方便</li><li>域名查询量的瓶颈</li></ul><p>新建委派可以将子域委派到其他服务器维护（）<br>子域与委派的对比</p><ul><li>子域的资源在父区域文件中，子域的权威服务器是父区域的权威服务器</li><li>委派有独立的区域文件，给新域指定新的权威服务器</li></ul><h2 id="区域传送"><a href="#区域传送" class="headerlink" title="区域传送"></a>区域传送</h2><ol><li>区域传送（减轻单台DNS服务器负载）<ul><li>将一个区域文件复制到多个DNS服务器的过程</li><li>从主服务器上将区域文件复制到辅助服务器</li></ul></li></ol><h2 id="转发器"><a href="#转发器" class="headerlink" title="转发器"></a>转发器</h2><p>​        具有特殊功能和应用的DNS服务器</p><ol><li>将本地DNS服务器无法解析的查询，转发到网络上其它DNS服务器 </li><li>转发到转发器的查询一般为递归查询</li><li>可以设置条件转发</li></ol><h2 id="根提示"><a href="#根提示" class="headerlink" title="根提示"></a>根提示</h2><ol><li>使非根域的DNS服务器可查到根域DNS服务器</li><li>根提示与转发器使用顺序<ul><li>DNS优先使用转发器</li></ul></li></ol><h1 id="0x04-配置DNS客户端"><a href="#0x04-配置DNS客户端" class="headerlink" title="0x04 配置DNS客户端"></a>0x04 配置DNS客户端</h1><h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><pre class="line-numbers language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> static 8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><pre class="line-numbers language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> dhcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="DNS相关命令"><a href="#DNS相关命令" class="headerlink" title="DNS相关命令"></a>DNS相关命令</h2><pre class="line-numbers language-powershell"><code class="language-powershell">1<span class="token punctuation">.</span>清空本地DNS缓存记录ipconfig <span class="token operator">/</span>flushdns2<span class="token punctuation">.</span>测试DNS服务器nslookup3<span class="token punctuation">.</span>查询域名相关信息（https:<span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>qq_15727809<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span>70052534）nslookup <span class="token operator">-</span>qt=<span class="token function">type</span> 域名 DNSip或是域名<span class="token function">type</span>=A 地址记录AAAA 地址记录CNAME 别名记录HINFO 硬件配置记录，包括CPU、操作系统信息MX 邮件服务器记录NS 名字服务器记录PTR 反向记录1<span class="token punctuation">.</span>例如： nslookup <span class="token operator">-</span>qt=mx baidu<span class="token punctuation">.</span>com 8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>82<span class="token punctuation">.</span>nslookup <span class="token operator">-</span>d www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com可以看到本地ISP服务器上缓存的时间，就算刷新了本机操作系统缓存，ISP上仍然存<span class="token punctuation">.</span>3<span class="token punctuation">.</span>>nslookup <span class="token operator">-</span>qt=cname lanou<span class="token punctuation">.</span>com 202<span class="token punctuation">.</span>106<span class="token punctuation">.</span>0<span class="token punctuation">.</span>20primary name server = ns<span class="token punctuation">.</span>163<span class="token punctuation">.</span>com主要名字服务器（DNS记录文件所在的主机位置    ）responsible mail addr = admin<span class="token punctuation">.</span>NEASE<span class="token punctuation">.</span>NET记录主机管理员邮件地址admin@nease<span class="token punctuation">.</span>netserial = 20010348区域传递序号，又叫文件版本，当发生区域复制时，该域用来指示区域信息的更新情况。格式为：yyyymmddnn<span class="token punctuation">,</span>nn代表这一天是第几次修改，辅助DNS通过比较这个号来决定是否复制该信息。大表示新。refresh = 10800 <span class="token punctuation">(</span>3 hours<span class="token punctuation">)</span>重刷新时间，当区域复制发生时，指定区域复制的更新时间间隔（告诉该区域的辅助DNS间隔多久检查该区域的数据是否是最新的）retry = 3600 <span class="token punctuation">(</span>1 hour<span class="token punctuation">)</span>重试时间，区域复制失败时，重新尝试的时间（要比刷新时间短）expire = 360000 <span class="token punctuation">(</span>4 days 4 hours<span class="token punctuation">)</span>有效时间，区域复制在有效时间内不能完成，则终止更新（设置时间要比刷新和重试时间长）default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="token punctuation">)</span>表示DNS记录在DNS服务器上缓存时间，数值越小，修改记录各地生效时间越快。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络服务 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DNS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows安全加固批处理脚本</title>
       <link href="/2020/11/13/windows-an-quan-jia-gu-pi-chu-li-jiao-ben/"/>
       <url>/2020/11/13/windows-an-quan-jia-gu-pi-chu-li-jiao-ben/</url>
@@ -1542,9 +1567,9 @@
       
         <tags>
             
-            <tag> Web </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> Web </tag>
             
         </tags>
       
@@ -1569,9 +1594,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> MISC </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2457,11 +2482,11 @@
       
         <tags>
             
+            <tag> 网络基础 </tag>
+            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
-            
-            <tag> 网络基础 </tag>
             
         </tags>
       
