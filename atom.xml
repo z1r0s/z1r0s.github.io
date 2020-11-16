@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-14T00:34:25.387Z</updated>
+  <updated>2020-11-16T07:38:46.688Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DNS服务部署</title>
+    <link href="https://z1r0s.github.io/2020/11/16/dns-fu-wu-bu-shu/"/>
+    <id>https://z1r0s.github.io/2020/11/16/dns-fu-wu-bu-shu/</id>
+    <published>2020-11-16T02:18:52.000Z</published>
+    <updated>2020-11-16T07:38:46.688Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;安装DNS服务器角色&quot;&gt;&lt;a href=&quot;#安装DNS服务器角色&quot; class=&quot;headerlink&quot; title=&quot;安装DNS服务器角色&quot;&gt;&lt;/a&gt;安装DNS服务器角色&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;环境描述&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;​      
+        
+      
+    
+    </summary>
+    
+      <category term="网络服务" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+      <category term="DNS" scheme="https://z1r0s.github.io/tags/DNS/"/>
+    
+      <category term="服务部署" scheme="https://z1r0s.github.io/tags/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
   
   <entry>
     <title>DNS服务</title>
@@ -560,36 +589,6 @@
     
     
       <category term="常用命令" scheme="https://z1r0s.github.io/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>玩转VMware之在Windows系统中安装VMTools</title>
-    <link href="https://z1r0s.github.io/2020/11/05/wan-zhuan-vmware-zhi-zai-windows-xi-tong-zhong-an-zhuang-vmtools/"/>
-    <id>https://z1r0s.github.io/2020/11/05/wan-zhuan-vmware-zhi-zai-windows-xi-tong-zhong-an-zhuang-vmtools/</id>
-    <published>2020-11-05T00:42:11.000Z</published>
-    <updated>2020-11-05T01:23:01.209Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;打开一个新建的虚拟机（未安装VMware Tools），在认证界面中输入正确的用户名和密码登录操作系统中，结果如下图所示。&lt;/p&gt;
-&lt;center&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="常用软件" scheme="https://z1r0s.github.io/categories/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
-    
-      <category term="VMware" scheme="https://z1r0s.github.io/tags/VMware/"/>
     
   </entry>
   
