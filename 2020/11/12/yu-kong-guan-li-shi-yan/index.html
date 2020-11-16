@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.7k
                 </div>
                 
 
@@ -673,10 +673,17 @@ admin@baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <li><p>退出域。在计算机属性界面中将隶属关系改为工作组，即可退出域，操作结果如下图所示。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DCProMoteTest/退出域.png" alt="退出域"></center>
 
-
-
 </li>
 </ol>
+<h1 id="域控强制降级"><a href="#域控强制降级" class="headerlink" title="域控强制降级"></a>域控强制降级</h1><ol>
+<li>在命令提示符下，输入<code>dcpromo /forceremoval</code></li>
+<li>如果域控制器托管任何操作主机角色，或者它是DNS服务器或全局编录服务器，则会出现警告，解释强制山下湖将如何应用其余环境。阅读每个警告之后，单击“是”。若要在删除操作之前抑制警告，请在命令行键入<code>/demotefsmo:yes</code>。</li>
+<li>在“欢迎使用”Active Directory域服务安装向导”页上，单击【下一步】。</li>
+<li>在“强制删除Active Directory域服务”页上，查看有关强制删除AD DS和源数据清理要求的信息，然后单击“下一步”。</li>
+<li>在“管理员密码”页面上，为本地Administrator账户键入安全密码并确认，然后单击【下一步】。</li>
+<li>确认所做选择正确无误之后，请单击【下一步】删除AD DS。</li>
+</ol>
+<p><font color="blue">由于强制卸载，域内其他DC不知此DC已不存在，需要在其复制伙伴上将其手动清理，然后把清理后的AD信息复制到其他DC上</font>。</p>
 
             </div>
             <hr />
@@ -1141,7 +1148,7 @@ WinSecurityReinforcement.bat内容@rem 适用操作系统：
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">192.3k</span>
+            <span class="white-color">194.1k</span>
             
 
             <br>
