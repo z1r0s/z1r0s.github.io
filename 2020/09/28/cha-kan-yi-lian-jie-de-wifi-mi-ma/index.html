@@ -492,14 +492,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-21
+                    2020-11-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    607
+                    734
                 </div>
                 
 
@@ -523,7 +523,7 @@
             <div id="articleContent">
                 <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>​        有将WLAN设置为<strong>在信号范围内自动连接</strong>的习惯，今天想在一个新设备上连接WiFi时发现忘记密码了。<code>(:-……</code></p>
 <h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>​        现在有一台电脑和一部手机已经连接到WiFi上，在不直接去路由器中查看WiFi密码或使用WiFi破解工具的情况下，想通过查看已连接设备中存储的WiFi密码来得到WiFi密码。</p>
-<h1 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h1><h2 id="电脑端"><a href="#电脑端" class="headerlink" title="电脑端"></a>电脑端</h2><p><strong>环境</strong>：</p>
+<h1 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h1><h2 id="电脑端"><a href="#电脑端" class="headerlink" title="电脑端"></a>电脑端</h2><h3 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h3><p><strong>环境</strong>：</p>
 <ul>
 <li>系统：Windows10</li>
 <li>热点：CMCC-335574918</li>
@@ -547,6 +547,22 @@
 </li>
 <li><p>勾选显示字符选项，即可查看CMCC-335574918无线网络的密码。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/查看无线网络密码.png" alt="查看无线网络密码"></center>
+
+</li>
+</ol>
+<p>局限性：</p>
+<ul>
+<li>必须是正在连接的网络</li>
+</ul>
+<h3 id="命令行界面"><a href="#命令行界面" class="headerlink" title="命令行界面"></a>命令行界面</h3><ol>
+<li><p>使用管理员身份打开PowerShell，【Win+X】 → 选择【Windows PowerShell（管理员）】选项，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/以管理员身份打开PowerShell.png" alt="以管理员身份打开PowerShell"></center>
+</li>
+<li><p>使用<code>netsh wlan show profile</code>命令查看当前主机连接过程的所有WiFi的配置文件名称，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/显示所有的配置文件.png" alt="显示所有的配置文件"></center>
+</li>
+<li><p>使用<code>netsh wlan show profile CMCC-335574918 key=clear</code>命令查看指定WiFi配置文件信息，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Debug/WiFi/ShowPassword/查看指定WiFi的密码.png" alt="查看指定WiFi的密码"></center>
 
 
 
@@ -592,6 +608,7 @@
 <li><a href="https://baike.baidu.com/item/Wi-Fi/151036" target="_blank" rel="noopener">Wi-Fi</a></li>
 <li><a href="https://guanjia.qq.com/web_clinic/s4/1224.html" target="_blank" rel="noopener">在Win10中，怎么查看已连接wifi密码？</a></li>
 <li><a href="https://jingyan.baidu.com/article/3065b3b6536f63becff8a484.html" target="_blank" rel="noopener">如何查看手机已连接的wifi密码？</a></li>
+<li><a href="https://www.freebuf.com/articles/network/148763.html" target="_blank" rel="noopener">使用cmd获知WIFI密码</a></li>
 </ul>
 
             </div>
@@ -1082,7 +1099,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1,h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1094,7 +1111,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1226,7 +1243,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">194.9k</span>&nbsp;字
+                class="white-color">195k</span>&nbsp;字
             
             
             
