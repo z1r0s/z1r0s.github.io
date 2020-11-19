@@ -488,21 +488,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-18
+                    2020-11-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    766
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -517,117 +517,185 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/静态路由综合实验.jpg" alt="静态路由综合实验"></center>
+                <h1 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/静态路由综合实验.png" alt="静态路由综合实验"></center>
 
 <h1 id="实验分析"><a href="#实验分析" class="headerlink" title="实验分析"></a>实验分析</h1><ul>
-<li>DHCP Server为<code>192.168.1.0</code>网段中的网络设置分配IP地址、子网掩码、默认网关、首选DNS服务器。</li>
-<li>DNS Server为网络中的DNS服务器提供域名解析服务。</li>
-<li>Web Server是网络中的Web服务器，网络中的主机可以访问其上面的网站。</li>
-<li>PC1的IP地址设置为自动获取由DHCP Server服务器分配。</li>
+<li>DHCP-Server为<code>192.168.10.0</code>网段中的网络设置分配IP地址、子网掩码、默认网关、首选DNS服务器。</li>
+<li>DNS-Server为网络中的DNS服务器提供域名解析服务。</li>
+<li>Web-Server是网络中的Web服务器，网络中的主机可以访问其上面的网站。</li>
+<li>PC1的IP地址设置为自动获取由DHCP-Server服务器分配。</li>
 <li>网络中的路由器除了设置IP地址之外还需要设置静态路由。</li>
+<li><code>tj-sw</code>和<code>tj-router</code>需要开启远程管理功能。</li>
 </ul>
 <h1 id="实验拓扑"><a href="#实验拓扑" class="headerlink" title="实验拓扑"></a>实验拓扑</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/实验拓扑.png" alt="实验拓扑"></center>
 
-<h1 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h1><h2 id="0x01-配置DHCP-Server"><a href="#0x01-配置DHCP-Server" class="headerlink" title="0x01 配置DHCP Server"></a>0x01 配置DHCP Server</h2><ol>
-<li><p>打开DHCP Server配置界面，在Desktop选项卡中对服务器的IP地址进行设置，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/DHCPServerIP设置.png" alt="DHCPServerIP设置"></center>
+<h1 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h1><h2 id="0x01-配置DHCP-Server"><a href="#0x01-配置DHCP-Server" class="headerlink" title="0x01 配置DHCP-Server"></a>0x01 配置DHCP-Server</h2><ol>
+<li><p>打开DHCP-Server配置界面，在【Desktop】选项卡中对服务器的IP地址进行设置，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/DHCP-ServerIP设置.png" alt="DHCP-ServerIP设置"></center>
 </li>
 <li><p>在Services选项卡中对DHCP模块进行设置，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/DHCPServer配置.png" alt="DHCPServer配置"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/DHCP服务设置.png" alt="DHCP服务设置"></center>
 </li>
 <li><p>打开PC1配置界面，在Desktop选项卡中将IP设置为通过DHCP获取，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/PC1获得IP地址.png" alt="PC1获得IP地址"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/PC1自动获取IP地址.png" alt="PC1自动获取IP地址"></center>
 
 
 
 </li>
 </ol>
-<h2 id="0x02-配置Router0"><a href="#0x02-配置Router0" class="headerlink" title="0x02 配置Router0"></a>0x02 配置Router0</h2><p>打开Router0的配置界面，在CLI选项卡中设置路由器的IP地址、和路由信息，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/Router0配置.png" alt="Router0配置"></center>
+<h2 id="0x02-配置tj-router"><a href="#0x02-配置tj-router" class="headerlink" title="0x02 配置tj-router"></a>0x02 配置tj-router</h2><p>打开tj-router的配置界面，在CLI选项卡中设置路由器的IP地址、和路由信息，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/tj-router配置.png" alt="tj-router配置"></center>
 
-<h2 id="0x03-配置Router1"><a href="#0x03-配置Router1" class="headerlink" title="0x03 配置Router1"></a>0x03 配置Router1</h2><p>打开Router1的配置界面，在CLI选项卡中设置路由器的IP地址、和路由信息，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/Router1配置.png" alt="Router1配置"></center>
+<h2 id="0x03-配置ISP"><a href="#0x03-配置ISP" class="headerlink" title="0x03 配置ISP"></a>0x03 配置ISP</h2><p>打开ISP的配置界面，在CLI选项卡中设置路由器的IP地址、和路由信息，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/ISP配置.png" alt="ISP配置"></center>
 
-<h2 id="0x04-配置Router2"><a href="#0x04-配置Router2" class="headerlink" title="0x04 配置Router2"></a>0x04 配置Router2</h2><p>打开Router2的配置界面，在CLI选项卡中设置路由器的IP地址、和路由信息，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/Router2配置.png" alt="Router2配置"></center>
+<h2 id="0x04-配置ISP-Web"><a href="#0x04-配置ISP-Web" class="headerlink" title="0x04 配置ISP-Web"></a>0x04 配置ISP-Web</h2><p>打开ISP-Web的配置界面，在CLI选项卡中设置路由器的IP地址、和路由信息，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/ISP-Web配置.png" alt="ISP-Web配置"></center>
 
-<h2 id="0x05-配置Router3"><a href="#0x05-配置Router3" class="headerlink" title="0x05 配置Router3"></a>0x05 配置Router3</h2><p>打开Router3的配置界面，在CLI选项卡中设置路由器的IP地址、和路由信息，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/Router3配置.png" alt="Router3配置"></center>
+<h2 id="0x05-配置ISP-DNS"><a href="#0x05-配置ISP-DNS" class="headerlink" title="0x05 配置ISP-DNS"></a>0x05 配置ISP-DNS</h2><p>打开ISP-DNS的配置界面，在CLI选项卡中设置路由器的IP地址、和路由信息，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/ISP-DNS配置.png" alt="ISP-DNS配置"></center>
 
-<h2 id="0x05-配置Web-Server"><a href="#0x05-配置Web-Server" class="headerlink" title="0x05 配置Web Server"></a>0x05 配置Web Server</h2><ol>
-<li><p>打开Web Server配置界面，在Desktop选项卡中设置IP地址，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/WebServerIP配置.png" alt="WebServerIP配置"></center>
+<h2 id="0x05-配置Web-Server"><a href="#0x05-配置Web-Server" class="headerlink" title="0x05 配置Web-Server"></a>0x05 配置Web-Server</h2><ol>
+<li><p>打开Web Server配置界面，在【Desktop】选项卡中设置IP地址，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/Web-ServerIP配置.png" alt="Web-ServerIP配置"></center>
 </li>
-<li><p>在Services选项卡中设置Web服务器，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/配置WebServer.png" alt="配置WebServer"></center>
-
-</li>
-</ol>
-<h2 id="0x06-配置DNS-Server"><a href="#0x06-配置DNS-Server" class="headerlink" title="0x06 配置DNS Server"></a>0x06 配置DNS Server</h2><ol>
-<li><p>打开DNS Server配置界面，在Desktop选项卡中设置IP地址，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/DNSServerIP配置.png" alt="DNSServerIP配置"></center>
-</li>
-<li><p>在Services选项卡中设置DNS服务器，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/DNS配置.png" alt="DNS配置"></center>
-
-
+<li><p>在【Services】选项卡中设置Web服务器，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/开启HTTP服务.png" alt="开启HTTP服务"></center>
 
 </li>
 </ol>
-<h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1><p>PC1在浏览器中输入<code>www.bihuo.com</code>访问结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/网站访问结果.png" alt="网站访问结果"></center>
+<h2 id="0x06-配置DNS-Server"><a href="#0x06-配置DNS-Server" class="headerlink" title="0x06 配置DNS-Server"></a>0x06 配置DNS-Server</h2><ol>
+<li><p>打开DNS Server配置界面，在【Desktop】选项卡中设置IP地址，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/DNS-ServerIP配置.png" alt="DNS-ServerIP配置"></center>
+</li>
+<li><p>在【Services】选项卡中设置DNS服务器，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/DNS服务配置.png" alt="DNS服务配置"></center>
+
+</li>
+</ol>
+<h2 id="0x07-配置tj-sw"><a href="#0x07-配置tj-sw" class="headerlink" title="0x07 配置tj-sw"></a>0x07 配置tj-sw</h2><p>打开tj-sw的配置界面，在CLI选项卡中设置VLAN1的IP地址、默认网关，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/tj-sw配置.png" alt="tj-sw配置"></center>
 
 
 
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>Router0配置脚本</strong>：</p>
+<h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1><ul>
+<li><p>PC1在浏览器中输入<code>www.bihuo.com</code>访问结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/访问网站显示结果.png" alt="访问网站显示结果"></center>
+</li>
+<li><p>PC1使用Telnet远程访问tj-router，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/远程访问tj-router.png" alt="远程访问tj-router"></center>
+</li>
+<li><p>PC1使用Telnet远程访问tj-sw，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/远程访问tj-sw.png" alt="远程访问tj-sw"></center>
+</li>
+<li><p>ISP-DNS使用Telnet远程访问tj-sw，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/StaticRoute/外网远程访问th-sw.png" alt="外网远程访问th-sw"></center>
+
+
+
+</li>
+</ul>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>tj-router配置脚本</strong>：</p>
 <pre class="line-numbers language-shell"><code class="language-shell">en
 conf t
+hostname tj-router
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
 int f0/0
-ip add 192.168.1.1 255.255.255.0
+ip add 192.168.10.1 255.255.255.0
 no sh
-int f0/1
-ip add 192.168.2.1 255.255.255.0
+int s1/0
+ip add 192.168.20.1 255.255.255.0
+clock rate 9600
 no sh
 ex
-ip route 0.0.0.0 0.0.0.0 192.168.2.2    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>Router1配置脚本</strong>：</p>
+ip route 0.0.0.0 0.0.0.0 192.168.20.2
+line vty 0 4
+password cisco
+login
+end
+wr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>ISP配置脚本</strong>：</p>
 <pre class="line-numbers language-shell"><code class="language-shell">en
 conf t
-int f1/0
-ip add 192.168.2.2 255.255.255.0
+hostname ISP
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+int s1/0
+ip add 192.168.20.2 255.255.255.0
 no sh
-int f0/0
-ip add 192.168.3.1 255.255.255.0
+int s1/1
+ip add 192.168.30.1 255.255.255.0
+clock rate 9600
 no sh
-int f0/1
-ip add 192.168.4.1 255.255.255.0
+int s1/2
+ip add 192.168.40.1 255.255.255.0
+clock rate 9600
 no sh
 ex
-ip route 192.168.1.0 255.255.255.0 192.168.2.1
-ip route 192.168.5.0 255.255.255.0 192.168.3.2
-ip route 192.168.6.0 255.255.255.0 192.168.4.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>Router2配置脚本</strong>：</p>
+ip route 192.168.10.0 255.255.255.0 192.168.20.1
+ip route 192.168.100.0 255.255.255.0 192.168.30.2
+ip route 192.168.200.0 255.255.255.0 192.168.40.2
+end
+wr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>ISP-Web配置脚本</strong>：</p>
 <pre class="line-numbers language-shell"><code class="language-shell">en
 conf t
+hostname ISP-Web
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
 int f0/0 
-ip add 192.168.5.1 255.255.255.0
+ip add 192.168.100.1 255.255.255.0
 no sh
-int f0/1
-ip add 192.168.3.2 255.255.255.0
+int s1/0
+ip add 192.168.30.2 255.255.255.0
 no sh
 ex
-ip route 0.0.0.0 0.0.0.0 192.168.3.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>Router3配置脚本</strong>：</p>
+ip route 0.0.0.0 0.0.0.0 192.168.30.1
+end
+wr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>ISP-DNS配置脚本</strong>：</p>
 <pre class="line-numbers language-shell"><code class="language-shell">en
 conf t
+hostname ISP-DNS
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
 int f0/0
-ip add 192.168.6.1 255.255.255.0
+ip add 192.168.200.1 255.255.255.0
 no sh
-int f0/1
-ip add 192.168.4.2 255.255.255.0
+int s1/0
+ip add 192.168.40.2 255.255.255.0
 no sh
 ex
-ip route 0.0.0.0 0.0.0.0 192.168.4.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ip route 0.0.0.0 0.0.0.0 192.168.40.1
+end
+wr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>tj-sw配置脚本</strong>：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">en
+conf t
+hostname tj-sw
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+int vlan1
+ip add 192.168.10.2 255.255.255.0 
+no sh
+ex
+ip default-gateway 192.168.10.1
+line vty 0 4
+password cisco
+login
+end
+wr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1245,7 +1313,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">196.6k</span>&nbsp;字
+                class="white-color">196.8k</span>&nbsp;字
             
             
             
