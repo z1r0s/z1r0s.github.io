@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-19T03:37:45.130Z</updated>
+  <updated>2020-11-22T07:30:47.783Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VLAN综合实验</title>
+    <link href="https://z1r0s.github.io/2020/11/22/vlan-zong-he-shi-yan/"/>
+    <id>https://z1r0s.github.io/2020/11/22/vlan-zong-he-shi-yan/</id>
+    <published>2020-11-22T06:23:56.000Z</published>
+    <updated>2020-11-22T07:30:47.783Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;实验要求&quot;&gt;&lt;a href=&quot;#实验要求&quot; class=&quot;headerlink&quot; title=&quot;实验要求&quot;&gt;&lt;/a&gt;实验要求&lt;/h1&gt;&lt;center&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="Cisco" scheme="https://z1r0s.github.io/tags/Cisco/"/>
+    
+      <category term="VALN" scheme="https://z1r0s.github.io/tags/VALN/"/>
+    
+  </entry>
   
   <entry>
     <title>无线安全之WPA密码破解</title>
@@ -541,44 +569,6 @@
       <category term="常用命令" scheme="https://z1r0s.github.io/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     
       <category term="域" scheme="https://z1r0s.github.io/tags/%E5%9F%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PowerShell常用命令</title>
-    <link href="https://z1r0s.github.io/2020/11/05/powershell-chang-yong-ming-ling/"/>
-    <id>https://z1r0s.github.io/2020/11/05/powershell-chang-yong-ming-ling/</id>
-    <published>2020-11-05T12:04:52.000Z</published>
-    <updated>2020-11-05T12:31:28.054Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;命令&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td
-        
-      
-    
-    </summary>
-    
-      <category term="常用软件" scheme="https://z1r0s.github.io/categories/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-      <category term="常用命令" scheme="https://z1r0s.github.io/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    
-      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
-    
-      <category term="PowerShell" scheme="https://z1r0s.github.io/tags/PowerShell/"/>
     
   </entry>
   

@@ -492,21 +492,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-21
+                    2020-11-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    19k
+                    19.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    74 分
+                    75 分
                 </div>
                 
 
@@ -620,9 +620,13 @@
 <p>​            <code>Router（config）# int f0/0</code></p>
 <p>​            <code>Router（config-if）# no ip add 192.168.1.1 255.255.255.0</code></p>
 <h2 id="网络设备连接选择"><a href="#网络设备连接选择" class="headerlink" title="网络设备连接选择"></a>网络设备连接选择</h2><ul>
-<li>不同类型的设备，用于发送、接受信号的两对引脚的编号有可能是不同的，对于用不同编号的两对引脚发送、接受信号的两端设备，需要通过<strong>直通线`（Copper Straight-Trough）</strong>`连接；</li>
-<li>同一类型的设备，用于发送、接受信号的两对引脚的编号是相同的，需要通过<strong>交叉线`（Copper Cross-Over）</strong>`连接；</li>
-<li>路由器与路由器之间需要使用Serial模块和<strong>串行（<code>Serial）</code>线</strong>连接；</li>
+<li>不同类型的设备，用于发送、接受信号的两对引脚的编号有可能是不同的，对于用不同编号的两对引脚发送、接受信号的两端设备，需要通过<strong>直通线（<code>Copper Straight-Trough</code>）</strong>连接；</li>
+<li>同一类型的设备，用于发送、接受信号的两对引脚的编号是相同的，需要通过<strong>交叉线（<code>Copper Cross-Over</code>）</strong>连接；</li>
+<li>路由器与路由器之间可以使用交叉线（同级设备）也可以使用Serial模块和<strong>串行（<code>Serial）</code>线</strong>连接；<ul>
+<li>串口通常是路由器在连接ISP路由器时使用，在模拟环境中使用serial时必须要配置时钟频率</li>
+<li>使用交叉线和串口线的区别在于：交叉线两端的设备之间可以进行协商、使用serial接口的设备不接受协商</li>
+</ul>
+</li>
 <li>Console线用在PC端对交换机或路由器的直接配置时。</li>
 </ul>
 <h2 id="网络设备配置方式"><a href="#网络设备配置方式" class="headerlink" title="网络设备配置方式"></a>网络设备配置方式</h2><h3 id="控制台端口配置方式"><a href="#控制台端口配置方式" class="headerlink" title="控制台端口配置方式"></a>控制台端口配置方式</h3><p>​        交换机和路由器出厂时，只有默认配置，如果需要对交换机和路由器进行配置，最直接的配置方式是采用控制台端口配置方式，用串行口连接线互连<strong>PC的RS-232串行口</strong>和<strong>网络设备的Console端口</strong>，启动PC的<strong>超级终端程序</strong>，完成超级终端程序参数配置，按Enter键进入网络设备的命令行接口配置界面。</p>
@@ -3860,7 +3864,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">196.9k</span>&nbsp;字
+                class="white-color">198.2k</span>&nbsp;字
             
             
             
