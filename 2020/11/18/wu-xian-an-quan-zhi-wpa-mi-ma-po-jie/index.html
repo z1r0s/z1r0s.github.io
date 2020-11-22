@@ -492,21 +492,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-19
+                    2020-11-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -603,10 +603,24 @@ airmon-ng start wlan0<span aria-hidden="true" class="line-numbers-rows"><span></
 <p>不知道为什么<code>airmon-ng</code>关闭无效，所以这里使用<code>iwconfig wlan0 mode manager</code>命令修改网卡的监听模式，但是注意在使用<code>iwconfig</code>命令时先使用<code>ifconfig wlan0 down</code>关闭网卡才能执行成功。</p>
 </li>
 </ul>
+<h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><p>​        hashcat是一个性能超强的爆破工具，<code>aircrack-ng+hashcat</code>可以节省爆破时间，但airodump-ng捕获的握手包默认情况下后缀为<code>cap</code>，而hashcat只能破解<code>hccapx</code>后缀的文件，因此需要先将<code>cap</code>转换成<code>hccapx</code>后缀。</p>
+<ol>
+<li><p>使用<code>aircrack-ng wpa-01.cap -j nova</code>命令将<code>wpa-01.cap</code>转换为<code>wpa-01.hccapx</code>，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Wireless/CrackPasswordOfWPA/cap转hccapx.png" alt="cap转hccapx"></center>
+</li>
+<li><p>使用<code>hashcat</code>破解破解握手包，操作结果如下图所示。</p>
+<pre class="line-numbers language-powershell"><code class="language-powershell">hashcat<span class="token punctuation">.</span>exe <span class="token operator">-</span>m 2500 <span class="token operator">-</span>D 2 C:\Users\yushe\Desktop\nova<span class="token punctuation">.</span>hccapx D:\Rolan\Tools\Dicts\top100<span class="token punctuation">.</span>txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Wireless/CrackPasswordOfWPA/hashcat破解.png" alt="hashcat破解"></center>
+
+
+
+</li>
+</ol>
 <h1 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h1><ul>
 <li><a href="https://blog.csdn.net/fuhanghang/article/details/104436299" target="_blank" rel="noopener">无线网卡的工作模式</a></li>
 <li><a href="https://github.com/aircrack-ng/aircrack-ng" target="_blank" rel="noopener">aircrack-ng源码</a></li>
 <li><a href="https://blog.csdn.net/qq_41973154/article/details/88665107" target="_blank" rel="noopener">Linux中GUI图形nmtui问题及网卡问题</a></li>
+<li><a href="https://www.jianshu.com/p/cf54288f789b" target="_blank" rel="noopener">Aircrack-ng 和 Hashcat的简单使用（握手包破解wifi）</a></li>
 </ul>
 
             </div>
@@ -1236,7 +1250,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">198.2k</span>&nbsp;字
+                class="white-color">198.3k</span>&nbsp;字
             
             
             
