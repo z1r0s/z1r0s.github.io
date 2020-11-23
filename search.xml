@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>网络综合实验2</title>
+      <link href="/2020/11/23/zong-he-shi-yan-2/"/>
+      <url>/2020/11/23/zong-he-shi-yan-2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="实验拓扑"><a href="#实验拓扑" class="headerlink" title="实验拓扑"></a>实验拓扑</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/实验拓扑.png" alt="实验拓扑"></center><h1 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h1><ul><li>天津的网络由DHCP-Server1分配IP</li><li>北京的网络由路由器分配IP</li><li>需要做以太网通道</li><li>上海的网关设备三层交换机，上海的DHCP中服务器做中继</li><li>实现全网互通</li><li>交换机和路由器都可以实现内网管理</li></ul><h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><h1 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cisco </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>VLAN综合实验</title>
       <link href="/2020/11/22/vlan-zong-he-shi-yan/"/>
       <url>/2020/11/22/vlan-zong-he-shi-yan/</url>
@@ -1314,11 +1339,11 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
             
             <tag> load_file </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1343,9 +1368,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1370,9 +1395,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1397,9 +1422,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1424,9 +1449,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1451,9 +1476,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1478,9 +1503,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1557,9 +1582,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -2934,9 +2959,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
