@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -498,14 +498,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -605,26 +605,245 @@
 <li>DHCP跨VLAN分配IP必须配置DHCP中继</li>
 </ol>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p>tj-sw1:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>exit<br>hostname tj-sw1<br>vlan 100<br>vlan 10<br>vlan 20<br>exit<br>int f0/1<br>switchport mode access <br>switchport access vlan 100<br>int f0/2<br>switchport mode access<br>switchport access vlan 10<br>int f0/3<br>switchport mode trunk<br>switchport trunk allowed vlan all<br>int range f0/4-6<br>switchport mode trunk<br>switchport trunk allowed vlan all<br>channel-group 1 mode on<br>ex<br>line vty 0 4<br>pass cisco<br>login<br>exit<br>enable pass cisco<br>int vlan 10<br>ip add 192.168.10.2 255.255.255.0<br>no sh<br>ex<br>ip default-gateway 192.168.20.1<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+exit
+hostname tj-sw1
+vlan 100
+vlan 10
+vlan 20
+exit
+int f0/1
+switchport mode access 
+switchport access vlan 100
+int f0/2
+switchport mode access
+switchport access vlan 10
+int f0/3
+switchport mode trunk
+switchport trunk allowed vlan all
+int range f0/4-6
+switchport mode trunk
+switchport trunk allowed vlan all
+channel-group 1 mode on
+ex
+line vty 0 4
+pass cisco
+login
+exit
+enable pass cisco
+int vlan 10
+ip add 192.168.10.2 255.255.255.0
+no sh
+ex
+ip default-gateway 192.168.20.1</code></pre>
 <p>tj-sw2:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>exit<br>hostname tj-sw2<br>vlan 10<br>vlan 20<br>exit<br>int f0/1<br>switchport mode access <br>switchport access vlan 20<br>int f0/2<br>switchport mode access<br>switchport access vlan 10<br>int range f0/4-6<br>switchport mode trunk<br>switchport trunk allowed vlan all<br>channel-group 1 mode on<br>ex<br>line vty 0 4<br>pass cisco<br>login<br>exit<br>enable pass cisco<br>int vlan 10<br>ip add 192.168.10.3 255.255.255.0<br>no sh<br>ex<br>ip default-gateway 192.168.20.1<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+exit
+hostname tj-sw2
+vlan 10
+vlan 20
+exit
+int f0/1
+switchport mode access 
+switchport access vlan 20
+int f0/2
+switchport mode access
+switchport access vlan 10
+int range f0/4-6
+switchport mode trunk
+switchport trunk allowed vlan all
+channel-group 1 mode on
+ex
+line vty 0 4
+pass cisco
+login
+exit
+enable pass cisco
+int vlan 10
+ip add 192.168.10.3 255.255.255.0
+no sh
+ex
+ip default-gateway 192.168.20.1</code></pre>
 <p>tj-R:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>exit<br>hostname tj-R<br>int s1/0<br>ip add 223.221.159.1 255.255.255.0<br>clock rate 9600<br>no sh<br>int f0/0.1<br>encapsulation dot1Q 100<br>ip add 192.168.10.1 255.255.255.0<br>no sh<br>ip helper-address 192.168.10.254<br>int f0/0.2<br>encapsulation dot1Q 10<br>ip add 192.168.20.1 255.255.255.0<br>no sh<br>ip helper-address 192.168.10.254<br>int f0/0.3<br>encapsulation dot1Q 20<br>ip add 192.168.30.1 255.255.255.0<br>no sh <br>ip helper-address 192.168.10.254<br>int f0/0<br>no sh<br>ex<br>router rip<br>version 2<br>network 192.168.10.0<br>network 192.168.20.0<br>network 192.168.30.0<br>network 223.221.159.0<br>ex<br>line vty 0 4<br>pass cisco<br>login<br>exit<br>enable pass cisco<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+exit
+hostname tj-R
+int s1/0
+ip add 223.221.159.1 255.255.255.0
+clock rate 9600
+no sh
+int f0/0.1
+encapsulation dot1Q 100
+ip add 192.168.10.1 255.255.255.0
+no sh
+ip helper-address 192.168.10.254
+int f0/0.2
+encapsulation dot1Q 10
+ip add 192.168.20.1 255.255.255.0
+no sh
+ip helper-address 192.168.10.254
+int f0/0.3
+encapsulation dot1Q 20
+ip add 192.168.30.1 255.255.255.0
+no sh 
+ip helper-address 192.168.10.254
+int f0/0
+no sh
+ex
+router rip
+version 2
+network 192.168.10.0
+network 192.168.20.0
+network 192.168.30.0
+network 223.221.159.0
+ex
+line vty 0 4
+pass cisco
+login
+exit
+enable pass cisco</code></pre>
 <p>ISP-A:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>exit<br>hostname ISP-B<br>int f0/0<br>ip add 111.111.111.1 255.255.255.0<br>no sh<br>int f0/1<br>ip add 11.11.11.1 255.255.255.0<br>no sh<br>int s1/0<br>ip add 223.221.159.2 255.255.255.0<br>no sh<br>ex<br>route rip<br>version 2<br>network 223.221.159.0<br>network 111.111.111.0<br>network 11.11.11.0<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+exit
+hostname ISP-B
+int f0/0
+ip add 111.111.111.1 255.255.255.0
+no sh
+int f0/1
+ip add 11.11.11.1 255.255.255.0
+no sh
+int s1/0
+ip add 223.221.159.2 255.255.255.0
+no sh
+ex
+route rip
+version 2
+network 223.221.159.0
+network 111.111.111.0
+network 11.11.11.0</code></pre>
 <p>ISP-B:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>exit<br>hostname ISP-B<br>int f0/0<br>ip add 222.222.222.1 255.255.255.0<br>no sh<br>int f0/1<br>ip add 11.11.11.2 255.255.255.0<br>no sh<br>int s1/0<br>ip add 223.11.115.1 255.255.255.0<br>clock rate 9600<br>no sh<br>ex<br>route rip<br>version 2<br>network 11.11.11.0<br>network 222.222.222.0<br>network 223.11.115.0<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+exit
+hostname ISP-B
+int f0/0
+ip add 222.222.222.1 255.255.255.0
+no sh
+int f0/1
+ip add 11.11.11.2 255.255.255.0
+no sh
+int s1/0
+ip add 223.11.115.1 255.255.255.0
+clock rate 9600
+no sh
+ex
+route rip
+version 2
+network 11.11.11.0
+network 222.222.222.0
+network 223.11.115.0</code></pre>
 <p>bj-R:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>exit<br>hostname bj-R<br>int f0/0.1<br>encapsulation dot1Q 100<br>ip add 192.168.100.1 255.255.255.0<br>no sh<br>int f0/0.2<br>encapsulation dot1Q 200<br>ip add 192.168.101.1 255.255.255.0<br>no sh<br>int f0/0<br>no sh<br>int s1/0<br>ip add 223.11.115.2 255.255.255.0<br>no sh<br>ex<br>ip dhcp pool vlan100<br>network 192.168.100.0 255.255.255.0<br>default-router 192.168.100.1<br>dns-server 222.222.222.222<br>ex<br>ip dhcp excluded-address 192.168.100.1 192.168.100.10<br>ip dhcp pool vlan200<br>network 192.168.101.0 255.255.255.0<br>default-router 192.168.101.1<br>dns-server 222.222.222.222<br>ex<br>ip dhcp excluded-address 192.168.101.1 192.168.101.10<br>route rip<br>version 2<br>network 223.11.115.0<br>network 192.168.100.0<br>network 192.168.101.0<br>ex<br>line vty 0 4<br>pass cisco<br>login<br>exit<br>enable pass cisco<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+exit
+hostname bj-R
+int f0/0.1
+encapsulation dot1Q 100
+ip add 192.168.100.1 255.255.255.0
+no sh
+int f0/0.2
+encapsulation dot1Q 200
+ip add 192.168.101.1 255.255.255.0
+no sh
+int f0/0
+no sh
+int s1/0
+ip add 223.11.115.2 255.255.255.0
+no sh
+ex
+ip dhcp pool vlan100
+network 192.168.100.0 255.255.255.0
+default-router 192.168.100.1
+dns-server 222.222.222.222
+ex
+ip dhcp excluded-address 192.168.100.1 192.168.100.10
+ip dhcp pool vlan200
+network 192.168.101.0 255.255.255.0
+default-router 192.168.101.1
+dns-server 222.222.222.222
+ex
+ip dhcp excluded-address 192.168.101.1 192.168.101.10
+route rip
+version 2
+network 223.11.115.0
+network 192.168.100.0
+network 192.168.101.0
+ex
+line vty 0 4
+pass cisco
+login
+exit
+enable pass cisco</code></pre>
 <p>bj-sw:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>exit<br>hostname bj-sw<br>vlan 100<br>vlan 200<br>exit<br>int f0/1<br>switchport mode access<br>switchport access vlan 100<br>int f0/2<br>switchport mode access<br>switchport access vlan 200<br>int f0/3<br>switchport mode trunk<br>switchport trunk allowed vlan all<br>ex<br>line vty 0 4<br>pass cisco<br>login<br>exit<br>enable pass cisco<br>int vlan 100<br>ip add 192.168.100.2 255.255.255.0<br>no sh<br>ex<br>ip default-gateway 192.168.100.1<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+exit
+hostname bj-sw
+vlan 100
+vlan 200
+exit
+int f0/1
+switchport mode access
+switchport access vlan 100
+int f0/2
+switchport mode access
+switchport access vlan 200
+int f0/3
+switchport mode trunk
+switchport trunk allowed vlan all
+ex
+line vty 0 4
+pass cisco
+login
+exit
+enable pass cisco
+int vlan 100
+ip add 192.168.100.2 255.255.255.0
+no sh
+ex
+ip default-gateway 192.168.100.1</code></pre>
 
             </div>
             <hr/>
@@ -1249,7 +1468,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

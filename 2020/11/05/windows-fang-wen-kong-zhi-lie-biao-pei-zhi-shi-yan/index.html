@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -546,7 +546,32 @@
 </ul>
 <h1 id="0x03-实验步骤"><a href="#0x03-实验步骤" class="headerlink" title="0x03 实验步骤"></a>0x03 实验步骤</h1><ol>
 <li><p>创建用户、组并将用户划分到指定的组中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 创建组</span><br>net localgroup jishubu /add<br>net localgroup caiwubu /add<br>net localgroup xiaoshoubu /add<br>net localgroup jingli /add<br><span class="hljs-meta"><br>#</span><span class="bash"> 创建用户</span><br>net user jishubujl 123.com /add<br>net user jishubuyg 123.com /add<br>net user caiwubujl 123.com /add<br>net user caiwubuyg 123.com /add<br>net user xiaoshoubujl 123.com /add<br>net user xiaoshoubuyg 123.com /add<br>net user zongjingli 123.com /add<br><span class="hljs-meta"><br>#</span><span class="bash"> 划分用户到组中</span><br>net localgroup jishubu jishubujl /add<br>net localgroup jishubu jishubuyg /add<br>net localgroup caiwubu caiwubujl /add<br>net localgroup caiwubu caiwubuyg /add<br>net localgroup xiaoshoubu xiaoshoubujl /add<br>net localgroup xiaoshoubu xiaoshoubuyg /add<br>net localgroup jingli zongjingli /add<br>net localgroup jingli jishubujl /add<br>net localgroup jingli caiwubujl /add<br>net localgroup jingli xiaoshoubujl /add<br></code></pre></td></tr></table></figure>
+<pre class=" language-shell"><code class="language-shell"># 创建组
+net localgroup jishubu /add
+net localgroup caiwubu /add
+net localgroup xiaoshoubu /add
+net localgroup jingli /add
+
+# 创建用户
+net user jishubujl 123.com /add
+net user jishubuyg 123.com /add
+net user caiwubujl 123.com /add
+net user caiwubuyg 123.com /add
+net user xiaoshoubujl 123.com /add
+net user xiaoshoubuyg 123.com /add
+net user zongjingli 123.com /add
+
+# 划分用户到组中
+net localgroup jishubu jishubujl /add
+net localgroup jishubu jishubuyg /add
+net localgroup caiwubu caiwubujl /add
+net localgroup caiwubu caiwubuyg /add
+net localgroup xiaoshoubu xiaoshoubujl /add
+net localgroup xiaoshoubu xiaoshoubuyg /add
+net localgroup jingli zongjingli /add
+net localgroup jingli jishubujl /add
+net localgroup jingli caiwubujl /add
+net localgroup jingli xiaoshoubujl /add</code></pre>
 </li>
 <li><p>设置<code>public</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/public文件权限设置.gif" alt="public文件权限设置"></center>
@@ -609,8 +634,19 @@
 </ul>
 <h1 id="0x06-附录"><a href="#0x06-附录" class="headerlink" title="0x06 附录"></a>0x06 附录</h1><ul>
 <li><p>还原系统中的用户、组信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 删除</span><br>net localgroup jishubu /del<br>net localgroup caiwubu /del<br>net localgroup xiaoshoubu /del<br>net localgroup jingli /del<br><br>net user jishubujl /del<br>net user jishubuyg /del<br>net user caiwubujl /del<br>net user caiwubuyg /del<br>net user xiaoshoubujl /del<br>net user xiaoshoubuyg /del<br>net user zongjingli /del<br></code></pre></td></tr></table></figure>
+<pre class=" language-shell"><code class="language-shell"># 删除
+net localgroup jishubu /del
+net localgroup caiwubu /del
+net localgroup xiaoshoubu /del
+net localgroup jingli /del
 
+net user jishubujl /del
+net user jishubuyg /del
+net user caiwubujl /del
+net user caiwubuyg /del
+net user xiaoshoubujl /del
+net user xiaoshoubuyg /del
+net user zongjingli /del</code></pre>
 </li>
 </ul>
 
@@ -1237,7 +1273,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

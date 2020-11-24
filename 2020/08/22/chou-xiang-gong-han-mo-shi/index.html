@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -502,14 +502,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    14 分
                 </div>
                 
 
@@ -554,44 +554,224 @@
 
 <p><strong>实体类</strong>：</p>
 <p>User:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">User</span><br>    &#123;<br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _id;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ID<br>        &#123;<br>            <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _id; &#125;<br>            <span class="hljs-keyword">set</span> &#123; _id = <span class="hljs-keyword">value</span>; &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> _name;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Name<br>        &#123;<br>            <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _name; &#125;<br>            <span class="hljs-keyword">set</span> &#123; _name = <span class="hljs-keyword">value</span>; &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">User</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> ID
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _id<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _id <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">private</span> <span class="token keyword">string</span> _name<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> Name
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _name<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Department:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Department</span><br>    &#123;<br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _id;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ID<br>        &#123;<br>            <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _id; &#125;<br>            <span class="hljs-keyword">set</span> &#123; _id = <span class="hljs-keyword">value</span>; &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> _deptName;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> DeptName<br>        &#123;<br>            <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _deptName; &#125;<br>            <span class="hljs-keyword">set</span> &#123; _deptName = <span class="hljs-keyword">value</span>; &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">Department</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> ID
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _id<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _id <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">private</span> <span class="token keyword">string</span> _deptName<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> DeptName
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _deptName<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _deptName <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>抽象产品</strong>：</p>
 <p>IUser:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">interface</span> <span class="hljs-title">IUser</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span>;<br><br>        <span class="hljs-function">User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">interface</span> <span class="token class-name">IUser</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+        User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>IDepartment:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">interface</span> <span class="hljs-title">IDepartment</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span>;<br><br>        <span class="hljs-function">Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">interface</span> <span class="token class-name">IDepartment</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+        Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>具体产品</strong>：</p>
 <p>AccessUser：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">AccessUser</span> : <span class="hljs-title">IUser</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Access中给User表增加一条记录"</span>);<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Access中根据ID得到User表一条记录"</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">AccessUser</span> <span class="token punctuation">:</span> IUser
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中给User表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>SqlserverUser:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">SqlserverUser</span> : <span class="hljs-title">IUser</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Sqlserver中给User表增加一条记录"</span>);<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Sqlserver中根据ID得到User表一条记录"</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">SqlserverUser</span> <span class="token punctuation">:</span> IUser
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中给User表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>AccessDepartment:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">AccessDepartment</span> : <span class="hljs-title">IDepartment</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Access中给Department表增加一条记录"</span>);<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Access中根据ID得到Department表一条记录"</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">AccessDepartment</span> <span class="token punctuation">:</span> IDepartment
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中给Department表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>SqlserverDepartment:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">SqlserverDepartment</span> : <span class="hljs-title">IDepartment</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Sqlserver中给Department表增加一条记录"</span>);<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Sqlserver中根据ID得到Department表一条记录"</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">SqlserverDepartment</span> <span class="token punctuation">:</span> IDepartment
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中给Department表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>抽象工厂</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">interface</span> <span class="hljs-title">IFactory</span><br>    &#123;<br>        <span class="hljs-function">IUser <span class="hljs-title">CreateUser</span>(<span class="hljs-params"></span>)</span>;<br><br>        <span class="hljs-function">IDepartment <span class="hljs-title">CreateDepartment</span>(<span class="hljs-params"></span>)</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">interface</span> <span class="token class-name">IFactory</span>
+    <span class="token punctuation">{</span>
+        IUser <span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+        IDepartment <span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>具体工厂</strong>：</p>
 <p>AccessFactory:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">AccessFactory</span> : <span class="hljs-title">IFactory</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> IUser <span class="hljs-title">CreateUser</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AccessUser();<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> IDepartment <span class="hljs-title">CreateDepartment</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AccessDepartment();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">AccessFactory</span> <span class="token punctuation">:</span> IFactory
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> IUser <span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">AccessUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> IDepartment <span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">AccessDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>SqlServerFactory:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">SqlServerFactory</span> : <span class="hljs-title">IFactory</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> IUser <span class="hljs-title">CreateUser</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> SqlserverUser();<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> IDepartment <span class="hljs-title">CreateDepartment</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> SqlserverDepartment();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">SqlServerFactory</span> <span class="token punctuation">:</span> IFactory
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> IUser <span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">SqlserverUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> IDepartment <span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">SqlserverDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>测试类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 测试类</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>        &#123;<br>            <span class="hljs-comment">// User实体</span><br>            User user = <span class="hljs-keyword">new</span> User();<br>            <span class="hljs-comment">// Department实体</span><br>            Department dept = <span class="hljs-keyword">new</span> Department();<br><br>            <span class="hljs-comment">// 实例化一个具体工厂的抽象父工厂的对象</span><br>            IFactory factory = <span class="hljs-keyword">new</span> AccessFactory();<br><br>            <span class="hljs-comment">// 实例化一个具体类的抽象父类对象</span><br>            IUser iu = factory.CreateUser();<br><br>            <span class="hljs-comment">// 具体商品对象的操作</span><br>            iu.Insert(user);<br>            iu.GetUser(<span class="hljs-number">1</span>);<br><br>            <span class="hljs-comment">// 抽象父工厂重新赋值</span><br>            factory = <span class="hljs-keyword">new</span> SqlServerFactory();<br><br>            IDepartment id = factory.CreateDepartment();<br>            id.Insert(dept);<br>            id.GetDepartment(<span class="hljs-number">1</span>);<br><br>            Console.ReadKey();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/// &lt;summary></span>
+    <span class="token comment" spellcheck="true">/// 测试类</span>
+    <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// User实体</span>
+            User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// Department实体</span>
+            Department dept <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Department</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">// 实例化一个具体工厂的抽象父工厂的对象</span>
+            IFactory factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AccessFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">// 实例化一个具体类的抽象父类对象</span>
+            IUser iu <span class="token operator">=</span> factory<span class="token punctuation">.</span><span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">// 具体商品对象的操作</span>
+            iu<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            iu<span class="token punctuation">.</span><span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">// 抽象父工厂重新赋值</span>
+            factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SqlServerFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            IDepartment id <span class="token operator">=</span> factory<span class="token punctuation">.</span><span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            id<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span>dept<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            id<span class="token punctuation">.</span><span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>结果展示</strong>:</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/抽象工厂模式/经典抽象工厂测试.png" alt="经典抽象工厂测试"></center>
 
@@ -601,18 +781,92 @@
 <p>将程序使用数据库全部换成Mysql数据库。</p>
 <p><strong>具体产品</strong>：</p>
 <p>添加MysqlUser类：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">MysqlUser</span> : <span class="hljs-title">IUser</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Mysql中给User表增加一条记录"</span>);<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Mysql中根据ID得到User表一条记录"</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">MysqlUser</span> <span class="token punctuation">:</span> IUser
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Mysql中给User表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Mysql中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>添加MysqlDepartment类：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">MysqlDepartment</span> : <span class="hljs-title">IDepartment</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Mysql中给Department表增加一条记录"</span>);<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">"在Mysql中根据ID得到Department表一条记录"</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">MysqlDepartment</span> <span class="token punctuation">:</span> IDepartment
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Mysql中给Department表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Mysql中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>具体工厂</strong>：</p>
 <p>添加MysqlFactory类：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">MysqlFactory</span> : <span class="hljs-title">IFactory</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> IUser <span class="hljs-title">CreateUser</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MysqlUser();<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> IDepartment <span class="hljs-title">CreateDepartment</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MysqlDepartment();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">MysqlFactory</span> <span class="token punctuation">:</span> IFactory
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> IUser <span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MysqlUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> IDepartment <span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MysqlDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>修改测试类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">AbstractFactory</span><br>&#123;<br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 测试类</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>        &#123;<br>            <span class="hljs-comment">// User实体</span><br>            User user = <span class="hljs-keyword">new</span> User();<br>            <span class="hljs-comment">// Department实体</span><br>            Department dept = <span class="hljs-keyword">new</span> Department();<br><br>            <span class="hljs-comment">// 实例化一个具体工厂的抽象父工厂的对象</span><br>            <span class="hljs-comment">//IFactory factory = new AccessFactory();</span><br>            IFactory factory = <span class="hljs-keyword">new</span> MysqlFactory();<br><br>            <span class="hljs-comment">// 实例化一个具体类的抽象父类对象</span><br>            IUser iu = factory.CreateUser();<br><br>            <span class="hljs-comment">// 具体商品对象的操作</span><br>            iu.Insert(user);<br>            iu.GetUser(<span class="hljs-number">1</span>);<br><br>            Console.ReadKey();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> AbstractFactory
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/// &lt;summary></span>
+    <span class="token comment" spellcheck="true">/// 测试类</span>
+    <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// User实体</span>
+            User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// Department实体</span>
+            Department dept <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Department</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">// 实例化一个具体工厂的抽象父工厂的对象</span>
+            <span class="token comment" spellcheck="true">//IFactory factory = new AccessFactory();</span>
+            IFactory factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MysqlFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">// 实例化一个具体类的抽象父类对象</span>
+            IUser iu <span class="token operator">=</span> factory<span class="token punctuation">.</span><span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">// 具体商品对象的操作</span>
+            iu<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            iu<span class="token punctuation">.</span><span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>测试结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/抽象工厂模式/抽象工厂-业务扩展测试.png" alt="抽象工厂-业务扩展测试"></center>
 
@@ -639,38 +893,168 @@
 
 <p><strong>实体类</strong>：</p>
 <p><strong>User类</strong>:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span><br>   &#123;<br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _id;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ID<br>       &#123;<br>           <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _id; &#125;<br>           <span class="hljs-keyword">set</span> &#123; _id = <span class="hljs-keyword">value</span>; &#125;<br>       &#125;<br><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> _name;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Name<br>       &#123;<br>           <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _name; &#125;<br>           <span class="hljs-keyword">set</span> &#123; _name = <span class="hljs-keyword">value</span>; &#125;<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">User</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> ID
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _id<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _id <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">private</span> <span class="token keyword">string</span> _name<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> Name
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _name<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>Department类</strong>:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Department</span><br>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _id;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ID<br>    &#123;<br>        <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _id; &#125;<br>        <span class="hljs-keyword">set</span> &#123; _id = <span class="hljs-keyword">value</span>; &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> _deptName;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> DeptName<br>    &#123;<br>        <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _deptName; &#125;<br>        <span class="hljs-keyword">set</span> &#123; _deptName = <span class="hljs-keyword">value</span>; &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Department</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> ID
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _id<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _id <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">private</span> <span class="token keyword">string</span> _deptName<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> DeptName
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _deptName<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _deptName <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>抽象产品</strong>：</p>
 <p><strong>IUser类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">interface</span> <span class="hljs-title">IUser</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span>;<br><br>       <span class="hljs-function">User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span>;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">interface</span> <span class="token class-name">IUser</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+        User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>IDepartment类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">interface</span> <span class="hljs-title">IDepartment</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span>;<br><br>       <span class="hljs-function">Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span>;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">interface</span> <span class="token class-name">IDepartment</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+        Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>具体产品</strong>：</p>
 <p><strong>SqlserverUser类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">SqlserverUser</span> : <span class="hljs-title">IUser</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Sqlserver中给User表增加一条记录"</span>);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Sqlserver中根据ID得到User表一条记录"</span>);<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">SqlserverUser</span> <span class="token punctuation">:</span> IUser
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中给User表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>AccessUser类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">AccessUser</span> : <span class="hljs-title">IUser</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">"在Access中给User表增加一条记录"</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">"在Access中根据ID得到User表一条记录"</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">AccessUser</span> <span class="token punctuation">:</span> IUser
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中给User表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>SqlserverDepartment类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">SqlserverDepartment</span> : <span class="hljs-title">IDepartment</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Sqlserver中给Department表增加一条记录"</span>);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Sqlserver中根据ID得到Department表一条记录"</span>);<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">SqlserverDepartment</span> <span class="token punctuation">:</span> IDepartment
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中给Department表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>AccessDepartment类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">AccessDepartment</span> : <span class="hljs-title">IDepartment</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">"在Access中给Department表增加一条记录"</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">"在Access中根据ID得到Department表一条记录"</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">AccessDepartment</span> <span class="token punctuation">:</span> IDepartment
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中给Department表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>工厂类</strong>：</p>
 <p><strong>DataAccess类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">DataAccess</span><br>   &#123;<br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> <span class="hljs-keyword">string</span> db = <span class="hljs-string">"Sqlserver"</span>;<br>       <span class="hljs-comment">//private static readonly string db = "Access";</span><br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> IUser <span class="hljs-title">CreateUser</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           IUser result = <span class="hljs-literal">null</span>;<br>           <span class="hljs-keyword">switch</span> (db)<br>           &#123;<br>               <span class="hljs-keyword">case</span> <span class="hljs-string">"Sqlserver"</span>:<br>                   result = <span class="hljs-keyword">new</span> SqlserverUser();<br>                   <span class="hljs-keyword">break</span>;<br>               <span class="hljs-keyword">case</span> <span class="hljs-string">"Access"</span>:<br>                   result = <span class="hljs-keyword">new</span> AccessUser();<br>                   <span class="hljs-keyword">break</span>;<br>           &#125;<br>           <span class="hljs-keyword">return</span> result;<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> IDepartment <span class="hljs-title">CreateDepartment</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           IDepartment result = <span class="hljs-literal">null</span>;<br>           <span class="hljs-keyword">switch</span> (db)<br>           &#123;<br>               <span class="hljs-keyword">case</span> <span class="hljs-string">"Sqlserver"</span>:<br>                   result = <span class="hljs-keyword">new</span> SqlserverDepartment();<br>                   <span class="hljs-keyword">break</span>;<br>               <span class="hljs-keyword">case</span> <span class="hljs-string">"Access"</span>:<br>                   result = <span class="hljs-keyword">new</span> AccessDepartment();<br>                   <span class="hljs-keyword">break</span>;<br>           &#125;<br>           <span class="hljs-keyword">return</span> result;<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">DataAccess</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">readonly</span> <span class="token keyword">string</span> db <span class="token operator">=</span> <span class="token string">"Sqlserver"</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//private static readonly string db = "Access";</span>
 
+        <span class="token keyword">public</span> <span class="token keyword">static</span> IUser <span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            IUser result <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>db<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string">"Sqlserver"</span><span class="token punctuation">:</span>
+                    result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SqlserverUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">"Access"</span><span class="token punctuation">:</span>
+                    result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AccessUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">static</span> IDepartment <span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            IDepartment result <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>db<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string">"Sqlserver"</span><span class="token punctuation">:</span>
+                    result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SqlserverDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">"Access"</span><span class="token punctuation">:</span>
+                    result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AccessDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>测试类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           User user = <span class="hljs-keyword">new</span> User();<br>           Department dept = <span class="hljs-keyword">new</span> Department();<br><br>           IUser iu = DataAccess.CreateUser();<br><br>           iu.Insert(user);<br>           iu.GetUser(<span class="hljs-number">1</span>);<br><br>           IDepartment id = DataAccess.CreateDepartment();<br>           id.Insert(dept);<br>           id.GetDepartment(<span class="hljs-number">1</span>);<br><br>           Console.Read();<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Department dept <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Department</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+            IUser iu <span class="token operator">=</span> DataAccess<span class="token punctuation">.</span><span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            iu<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            iu<span class="token punctuation">.</span><span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            IDepartment id <span class="token operator">=</span> DataAccess<span class="token punctuation">.</span><span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            id<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span>dept<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            id<span class="token punctuation">.</span><span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>测试结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/抽象工厂模式/用简单工厂来改进抽象工厂测试结果.png" alt="用简单工厂来改进抽象工厂测试结果"></center>
 
@@ -681,23 +1065,180 @@
 </ul>
 <h2 id="绝佳改进方案"><a href="#绝佳改进方案" class="headerlink" title="绝佳改进方案"></a>绝佳改进方案</h2><p>​        使用简单工厂改进的抽象工厂中，引入switch导致程序耦合，添加后修改程序时需要修改一连串的类，通过某种方式避免这种耦合就可以达到绝佳的改进效果。下面引入：<strong>反射 + 配置文件 + 抽象工厂</strong></p>
 <p><strong>实体类</strong>：（User 、 Department）</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 测试基类</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">User</span><br>   &#123;<br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _id;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ID<br>       &#123;<br>           <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _id; &#125;<br>           <span class="hljs-keyword">set</span> &#123; _id = <span class="hljs-keyword">value</span>; &#125;<br>       &#125;<br><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> _name;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Name<br>       &#123;<br>           <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _name; &#125;<br>           <span class="hljs-keyword">set</span> &#123; _name = <span class="hljs-keyword">value</span>; &#125;<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">Department</span><br>   &#123;<br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _id;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ID<br>       &#123;<br>           <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _id; &#125;<br>           <span class="hljs-keyword">set</span> &#123; _id = <span class="hljs-keyword">value</span>; &#125;<br>       &#125;<br><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> _deptName;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> DeptName<br>       &#123;<br>           <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _deptName; &#125;<br>           <span class="hljs-keyword">set</span> &#123; _deptName = <span class="hljs-keyword">value</span>; &#125;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试基类</span>
+    <span class="token keyword">class</span> <span class="token class-name">User</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> ID
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _id<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _id <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">private</span> <span class="token keyword">string</span> _name<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> Name
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _name<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">Department</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> ID
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _id<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _id <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">string</span> _deptName<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> DeptName
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _deptName<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _deptName <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>抽象产品</strong>：（IUser、IDepartment）</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> User类的数据操作接口</span><br>   <span class="hljs-keyword">interface</span> <span class="hljs-title">IUser</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span>;<br><br>       <span class="hljs-function">User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br>   <br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> Department类的数据操作接口</span><br>   <span class="hljs-keyword">interface</span> <span class="hljs-title">IDepartment</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span>;<br><br>       <span class="hljs-function">Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> User类的数据操作接口</span>
+    <span class="token keyword">interface</span> <span class="token class-name">IUser</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+        User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> Department类的数据操作接口</span>
+    <span class="token keyword">interface</span> <span class="token class-name">IDepartment</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>具体产品</strong>：（SqlserverUser、AccessUser、SqlserverDepartment、AccessDepartment）</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> SqlserverUser类在SQL Server中对User执行相关操作</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">SqlserverUser</span> : <span class="hljs-title">IUser</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Sqlserver中给User表增加一条记录"</span>);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Sqlserver中根据ID得到User表一条记录"</span>);<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br>   <br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> AccessUser类在Access中对User执行相关操作</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">AccessUser</span> : <span class="hljs-title">IUser</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">User user</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Access中给User表增加一条记录"</span>);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Access中根据ID得到User表一条记录"</span>);<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br>   <br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> SqlserverDepartment类在SQL Server中对Department执行相关操作</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">SqlserverDepartment</span> : <span class="hljs-title">IDepartment</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Sqlserver中给Department表增加一条记录"</span>);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Sqlserver中根据ID得到Department表一条记录"</span>);<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br>   <br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> AccessDepartment类在Access中对Department执行相关操作</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">AccessDepartment</span> : <span class="hljs-title">IDepartment</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span>(<span class="hljs-params">Department department</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Access中给Department表增加一条记录"</span>);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">GetDepartment</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"在Access中根据ID得到Department表一条记录"</span>);<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> SqlserverUser类在SQL Server中对User执行相关操作</span>
+    <span class="token keyword">class</span> <span class="token class-name">SqlserverUser</span> <span class="token punctuation">:</span> IUser
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中给User表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> AccessUser类在Access中对User执行相关操作</span>
+    <span class="token keyword">class</span> <span class="token class-name">AccessUser</span> <span class="token punctuation">:</span> IUser
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中给User表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> SqlserverDepartment类在SQL Server中对Department执行相关操作</span>
+    <span class="token keyword">class</span> <span class="token class-name">SqlserverDepartment</span> <span class="token punctuation">:</span> IDepartment
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中给Department表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> AccessDepartment类在Access中对Department执行相关操作</span>
+    <span class="token keyword">class</span> <span class="token class-name">AccessDepartment</span> <span class="token punctuation">:</span> IDepartment
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中给Department表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>工厂类</strong>：（DataAccess）</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 使用反射创建操作数据的接口</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">DataAccess</span><br>   &#123;<br>       <span class="hljs-comment">//程序集名称</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> <span class="hljs-keyword">string</span> AssemblyName = <span class="hljs-string">"抽象工厂模式"</span>;<br>       <span class="hljs-comment">//配置文件中链接的数据名称</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> <span class="hljs-keyword">string</span> db = ConfigurationManager.AppSettings[<span class="hljs-string">"DB"</span>];<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> IUser <span class="hljs-title">CreateUser</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">string</span> className = AssemblyName + <span class="hljs-string">"."</span> + db + <span class="hljs-string">"User"</span>;<br><br>           <span class="hljs-comment">//使用发射创建指定类的实例</span><br>           <span class="hljs-keyword">return</span> (IUser)Assembly.Load(AssemblyName).CreateInstance(className);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> IDepartment <span class="hljs-title">CreateDepartment</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">string</span> className = AssemblyName + <span class="hljs-string">"."</span> + db + <span class="hljs-string">"Department"</span>;<br><br>           <span class="hljs-comment">//使用反射创建指定类的实例</span><br>           <span class="hljs-keyword">return</span> (IDepartment)Assembly.Load(AssemblyName).CreateInstance(className);<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 使用反射创建操作数据的接口</span>
+    <span class="token keyword">class</span> <span class="token class-name">DataAccess</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//程序集名称</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">readonly</span> <span class="token keyword">string</span> AssemblyName <span class="token operator">=</span> <span class="token string">"抽象工厂模式"</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//配置文件中链接的数据名称</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">readonly</span> <span class="token keyword">string</span> db <span class="token operator">=</span> ConfigurationManager<span class="token punctuation">.</span>AppSettings<span class="token punctuation">[</span><span class="token string">"DB"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
+        <span class="token keyword">public</span> <span class="token keyword">static</span> IUser <span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">string</span> className <span class="token operator">=</span> AssemblyName <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> db <span class="token operator">+</span> <span class="token string">"User"</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//使用发射创建指定类的实例</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>IUser<span class="token punctuation">)</span>Assembly<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span>AssemblyName<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">CreateInstance</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">static</span> IDepartment <span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">string</span> className <span class="token operator">=</span> AssemblyName <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> db <span class="token operator">+</span> <span class="token string">"Department"</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//使用反射创建指定类的实例</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>IDepartment<span class="token punctuation">)</span>Assembly<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span>AssemblyName<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">CreateInstance</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>app.config</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"utf-8"</span>?&gt;<br>&lt;configuration&gt;<br>	&lt;appSettings&gt;<br>		&lt;<span class="hljs-keyword">add</span> key=<span class="hljs-string">"DB"</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"Sqlserver"</span>/&gt;<br>	&lt;/appSettings&gt;<br>&lt;startup&gt;&lt;supportedRuntime version=<span class="hljs-string">"v4.0"</span> sku=<span class="hljs-string">".NETFramework,Version=v4.6.1"</span>/&gt;&lt;/startup&gt;&lt;/configuration&gt;<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-csharp"><code class="language-csharp"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">?</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>configuration<span class="token operator">></span>
+    <span class="token operator">&lt;</span>appSettings<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token keyword">add</span> key<span class="token operator">=</span><span class="token string">"DB"</span> <span class="token keyword">value</span><span class="token operator">=</span><span class="token string">"Sqlserver"</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>appSettings<span class="token operator">></span>
+<span class="token operator">&lt;</span>startup<span class="token operator">></span><span class="token operator">&lt;</span>supportedRuntime version<span class="token operator">=</span><span class="token string">"v4.0"</span> sku<span class="token operator">=</span><span class="token string">".NETFramework,Version=v4.6.1"</span><span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>startup<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>configuration<span class="token operator">></span>
+</code></pre>
 <p><strong>测试类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           <span class="hljs-comment">//实例化对象</span><br>           User user = <span class="hljs-keyword">new</span> User();<br>           Department dept = <span class="hljs-keyword">new</span> Department();<br><br>           <span class="hljs-comment">//创建IUser对象，对User执行相关操作</span><br>           IUser iu = DataAccess.CreateUser();<br><br>           iu.Insert(user);<br>           iu.GetUser(<span class="hljs-number">1</span>);<br><br>           <span class="hljs-comment">//创建IDepartment对象，对Department执行相关操作</span><br>           IDepartment id = DataAccess.CreateDepartment();<br>           id.Insert(dept);<br>           id.GetDepartment(<span class="hljs-number">1</span>);<br><br>           Console.Read();<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//实例化对象</span>
+            User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Department dept <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Department</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+            <span class="token comment" spellcheck="true">//创建IUser对象，对User执行相关操作</span>
+            IUser iu <span class="token operator">=</span> DataAccess<span class="token punctuation">.</span><span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            iu<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            iu<span class="token punctuation">.</span><span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//创建IDepartment对象，对Department执行相关操作</span>
+            IDepartment id <span class="token operator">=</span> DataAccess<span class="token punctuation">.</span><span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            id<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span>dept<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            id<span class="token punctuation">.</span><span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>using System.Reflection;                        //使用反射必须要引入的命名空间</li>
@@ -709,11 +1250,202 @@
 </ul>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>反射 + 配置文件 + 抽象工厂</strong>完整代码：</p>
 <p><strong>Program.cs</strong>:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br></pre></td><td class="code"><pre><code class="hljs csharp">/********************************************************<br> * 设计模式：抽象工厂模式，（反射+配置文件+抽象工厂）<br> * <br> * 反射：<br> *       return (IUser)Assembly.Load(AssemblyName).CreateInstance(className);<br> *       AssemblyName：为本程序集名称<br> *       className：为程序集中要实例化的类的名称（完整路径）<br> *       (IUser)：将创建的对象强制转化为IUser对象<br> * <br> * 配置文件信息：<br> *       使用&lt;appStrings&gt;节点来设置链接的数据库名称<br> * <br> */<br><br><br>using System;<br>using System.Reflection;                        //使用反射必须要引入的命名空间<br>using System.Configuration;                     //拿到配置文件中的字符变量必须要引入的命名空间<br><br>namespace 抽象工厂模式<br>&#123;<br>    class Program<br>    &#123;<br>        static void Main(string[] args)<br>        &#123;<br>            //实例化对象<br>            User user = new User();<br>            Department dept = new Department();<br><br>            //创建IUser对象，对User执行相关操作<br>            IUser iu = DataAccess.CreateUser();<br><br>            iu.Insert(user);<br>            iu.GetUser(1);<br><br>            //创建IDepartment对象，对Department执行相关操作<br>            IDepartment id = DataAccess.CreateDepartment();<br>            id.Insert(dept);<br>            id.GetDepartment(1);<br><br>            Console.Read();<br>        &#125;<br>    &#125;<br><br>    #region 测试基类<br>    class User<br>    &#123;<br>        private int _id;<br>        public int ID<br>        &#123;<br>            get &#123; return _id; &#125;<br>            set &#123; _id = value; &#125;<br>        &#125;<br><br>        private string _name;<br>        public string Name<br>        &#123;<br>            get &#123; return _name; &#125;<br>            set &#123; _name = value; &#125;<br>        &#125;<br>    &#125;<br><br>    class Department<br>    &#123;<br>        private int _id;<br>        public int ID<br>        &#123;<br>            get &#123; return _id; &#125;<br>            set &#123; _id = value; &#125;<br>        &#125;<br><br>        private string _deptName;<br>        public string DeptName<br>        &#123;<br>            get &#123; return _deptName; &#125;<br>            set &#123; _deptName = value; &#125;<br>        &#125;<br>    &#125;<br>    #endregion<br><br>    #region User类的数据操作接口<br>    interface IUser<br>    &#123;<br>        void Insert(User user);<br><br>        User GetUser(int id);<br>    &#125;<br>    #endregion<br><br>    #region SqlserverUser类在SQL Server中对User执行相关操作<br>    class SqlserverUser : IUser<br>    &#123;<br>        public void Insert(User user)<br>        &#123;<br>            Console.WriteLine("在Sqlserver中给User表增加一条记录");<br>        &#125;<br><br>        public User GetUser(int id)<br>        &#123;<br>            Console.WriteLine("在Sqlserver中根据ID得到User表一条记录");<br>            return null;<br>        &#125;<br>    &#125;<br>    #endregion<br><br>    #region AccessUser类在Access中对User执行相关操作<br>    class AccessUser : IUser<br>    &#123;<br>        public void Insert(User user)<br>        &#123;<br>            Console.WriteLine("在Access中给User表增加一条记录");<br>        &#125;<br><br>        public User GetUser(int id)<br>        &#123;<br>            Console.WriteLine("在Access中根据ID得到User表一条记录");<br>            return null;<br>        &#125;<br>    &#125;<br>    #endregion<br><br>    #region Department类的数据操作接口<br>    interface IDepartment<br>    &#123;<br>        void Insert(Department department);<br><br>        Department GetDepartment(int id);<br>    &#125;<br>    #endregion<br><br>    #region SqlserverDepartment类在SQL Server中对Department执行相关操作<br>    class SqlserverDepartment : IDepartment<br>    &#123;<br>        public void Insert(Department department)<br>        &#123;<br>            Console.WriteLine("在Sqlserver中给Department表增加一条记录");<br>        &#125;<br><br>        public Department GetDepartment(int id)<br>        &#123;<br>            Console.WriteLine("在Sqlserver中根据ID得到Department表一条记录");<br>            return null;<br>        &#125;<br>    &#125;<br>    #endregion<br><br>    #region AccessDepartment类在Access中对Department执行相关操作<br>    class AccessDepartment : IDepartment<br>    &#123;<br>        public void Insert(Department department)<br>        &#123;<br>            Console.WriteLine("在Access中给Department表增加一条记录");<br>        &#125;<br><br>        public Department GetDepartment(int id)<br>        &#123;<br>            Console.WriteLine("在Access中根据ID得到Department表一条记录");<br>            return null;<br>        &#125;<br>    &#125;<br>    #endregion<br><br>    #region 使用反射创建操作数据的接口<br>    class DataAccess<br>    &#123;<br>        //程序集名称<br>        private static readonly string AssemblyName = "抽象工厂模式";<br>        //配置文件中链接的数据名称<br>        private static readonly string db = ConfigurationManager.AppSettings["DB"];<br><br>        public static IUser CreateUser()<br>        &#123;<br>            string className = AssemblyName + "." + db + "User";<br><br>            //使用发射创建指定类的实例<br>            return (IUser)Assembly.Load(AssemblyName).CreateInstance(className);<br>        &#125;<br><br>        public static IDepartment CreateDepartment()<br>        &#123;<br>            string className = AssemblyName + "." + db + "Department";<br><br>            //使用反射创建指定类的实例<br>            return (IDepartment)Assembly.Load(AssemblyName).CreateInstance(className);<br>        &#125;<br>    &#125;<br>    #endregion<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/********************************************************
+ * 设计模式：抽象工厂模式，（反射+配置文件+抽象工厂）
+ * 
+ * 反射：
+ *       return (IUser)Assembly.Load(AssemblyName).CreateInstance(className);
+ *       AssemblyName：为本程序集名称
+ *       className：为程序集中要实例化的类的名称（完整路径）
+ *       (IUser)：将创建的对象强制转化为IUser对象
+ * 
+ * 配置文件信息：
+ *       使用&lt;appStrings>节点来设置链接的数据库名称
+ * 
+ */</span>
 
+
+<span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Reflection<span class="token punctuation">;</span>                        <span class="token comment" spellcheck="true">//使用反射必须要引入的命名空间</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//拿到配置文件中的字符变量必须要引入的命名空间</span>
+
+<span class="token keyword">namespace</span> 抽象工厂模式
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//实例化对象</span>
+            User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Department dept <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Department</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//创建IUser对象，对User执行相关操作</span>
+            IUser iu <span class="token operator">=</span> DataAccess<span class="token punctuation">.</span><span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            iu<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            iu<span class="token punctuation">.</span><span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//创建IDepartment对象，对Department执行相关操作</span>
+            IDepartment id <span class="token operator">=</span> DataAccess<span class="token punctuation">.</span><span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            id<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span>dept<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            id<span class="token punctuation">.</span><span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试基类</span>
+    <span class="token keyword">class</span> <span class="token class-name">User</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> ID
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _id<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _id <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">string</span> _name<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> Name
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _name<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">Department</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> ID
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _id<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _id <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">string</span> _deptName<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> DeptName
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _deptName<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">set</span> <span class="token punctuation">{</span> _deptName <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> User类的数据操作接口</span>
+    <span class="token keyword">interface</span> <span class="token class-name">IUser</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> SqlserverUser类在SQL Server中对User执行相关操作</span>
+    <span class="token keyword">class</span> <span class="token class-name">SqlserverUser</span> <span class="token punctuation">:</span> IUser
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中给User表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> AccessUser类在Access中对User执行相关操作</span>
+    <span class="token keyword">class</span> <span class="token class-name">AccessUser</span> <span class="token punctuation">:</span> IUser
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中给User表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> Department类的数据操作接口</span>
+    <span class="token keyword">interface</span> <span class="token class-name">IDepartment</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> SqlserverDepartment类在SQL Server中对Department执行相关操作</span>
+    <span class="token keyword">class</span> <span class="token class-name">SqlserverDepartment</span> <span class="token punctuation">:</span> IDepartment
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中给Department表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> AccessDepartment类在Access中对Department执行相关操作</span>
+    <span class="token keyword">class</span> <span class="token class-name">AccessDepartment</span> <span class="token punctuation">:</span> IDepartment
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中给Department表增加一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 使用反射创建操作数据的接口</span>
+    <span class="token keyword">class</span> <span class="token class-name">DataAccess</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//程序集名称</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">readonly</span> <span class="token keyword">string</span> AssemblyName <span class="token operator">=</span> <span class="token string">"抽象工厂模式"</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//配置文件中链接的数据名称</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">readonly</span> <span class="token keyword">string</span> db <span class="token operator">=</span> ConfigurationManager<span class="token punctuation">.</span>AppSettings<span class="token punctuation">[</span><span class="token string">"DB"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">static</span> IUser <span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">string</span> className <span class="token operator">=</span> AssemblyName <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> db <span class="token operator">+</span> <span class="token string">"User"</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//使用发射创建指定类的实例</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>IUser<span class="token punctuation">)</span>Assembly<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span>AssemblyName<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">CreateInstance</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">static</span> IDepartment <span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">string</span> className <span class="token operator">=</span> AssemblyName <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> db <span class="token operator">+</span> <span class="token string">"Department"</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//使用反射创建指定类的实例</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>IDepartment<span class="token punctuation">)</span>Assembly<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span>AssemblyName<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">CreateInstance</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>App.config</strong>文件：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"utf-8"</span>?&gt;<br>&lt;configuration&gt;<br>	&lt;appSettings&gt;<br>		&lt;<span class="hljs-keyword">add</span> key=<span class="hljs-string">"DB"</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"Sqlserver"</span>/&gt;<br>	&lt;/appSettings&gt;<br>&lt;startup&gt;&lt;supportedRuntime version=<span class="hljs-string">"v4.0"</span> sku=<span class="hljs-string">".NETFramework,Version=v4.6.1"</span>/&gt;&lt;/startup&gt;&lt;/configuration&gt;<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-csharp"><code class="language-csharp"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">?</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>configuration<span class="token operator">></span>
+    <span class="token operator">&lt;</span>appSettings<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token keyword">add</span> key<span class="token operator">=</span><span class="token string">"DB"</span> <span class="token keyword">value</span><span class="token operator">=</span><span class="token string">"Sqlserver"</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>appSettings<span class="token operator">></span>
+<span class="token operator">&lt;</span>startup<span class="token operator">></span><span class="token operator">&lt;</span>supportedRuntime version<span class="token operator">=</span><span class="token string">"v4.0"</span> sku<span class="token operator">=</span><span class="token string">".NETFramework,Version=v4.6.1"</span><span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>startup<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>configuration<span class="token operator">></span>
+</code></pre>
 
             </div>
             <hr/>
@@ -1356,7 +2088,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

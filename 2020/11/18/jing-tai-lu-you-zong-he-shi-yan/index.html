@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -494,7 +494,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    952
+                    1k
                 </div>
                 
 
@@ -595,20 +595,106 @@
 </li>
 </ul>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>tj-router配置脚本</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>hostname tj-router<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>int f0/0<br>ip add 192.168.10.1 255.255.255.0<br>no sh<br>int s1/0<br>ip add 192.168.20.1 255.255.255.0<br>clock rate 9600<br>no sh<br>ex<br>ip route 0.0.0.0 0.0.0.0 192.168.20.2<br>line vty 0 4<br>password cisco<br>login<br>end<br>wr<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+hostname tj-router
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+int f0/0
+ip add 192.168.10.1 255.255.255.0
+no sh
+int s1/0
+ip add 192.168.20.1 255.255.255.0
+clock rate 9600
+no sh
+ex
+ip route 0.0.0.0 0.0.0.0 192.168.20.2
+line vty 0 4
+password cisco
+login
+end
+wr</code></pre>
 <p><strong>ISP配置脚本</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>hostname ISP<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>int s1/0<br>ip add 192.168.20.2 255.255.255.0<br>no sh<br>int s1/1<br>ip add 192.168.30.1 255.255.255.0<br>clock rate 9600<br>no sh<br>int s1/2<br>ip add 192.168.40.1 255.255.255.0<br>clock rate 9600<br>no sh<br>ex<br>ip route 192.168.10.0 255.255.255.0 192.168.20.1<br>ip route 192.168.100.0 255.255.255.0 192.168.30.2<br>ip route 192.168.200.0 255.255.255.0 192.168.40.2<br>end<br>wr<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+hostname ISP
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+int s1/0
+ip add 192.168.20.2 255.255.255.0
+no sh
+int s1/1
+ip add 192.168.30.1 255.255.255.0
+clock rate 9600
+no sh
+int s1/2
+ip add 192.168.40.1 255.255.255.0
+clock rate 9600
+no sh
+ex
+ip route 192.168.10.0 255.255.255.0 192.168.20.1
+ip route 192.168.100.0 255.255.255.0 192.168.30.2
+ip route 192.168.200.0 255.255.255.0 192.168.40.2
+end
+wr</code></pre>
 <p><strong>ISP-Web配置脚本</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>hostname ISP-Web<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>int f0/0 <br>ip add 192.168.100.1 255.255.255.0<br>no sh<br>int s1/0<br>ip add 192.168.30.2 255.255.255.0<br>no sh<br>ex<br>ip route 0.0.0.0 0.0.0.0 192.168.30.1<br>end<br>wr<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+hostname ISP-Web
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+int f0/0 
+ip add 192.168.100.1 255.255.255.0
+no sh
+int s1/0
+ip add 192.168.30.2 255.255.255.0
+no sh
+ex
+ip route 0.0.0.0 0.0.0.0 192.168.30.1
+end
+wr</code></pre>
 <p><strong>ISP-DNS配置脚本</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>hostname ISP-DNS<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>int f0/0<br>ip add 192.168.200.1 255.255.255.0<br>no sh<br>int s1/0<br>ip add 192.168.40.2 255.255.255.0<br>no sh<br>ex<br>ip route 0.0.0.0 0.0.0.0 192.168.40.1<br>end<br>wr<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+hostname ISP-DNS
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+int f0/0
+ip add 192.168.200.1 255.255.255.0
+no sh
+int s1/0
+ip add 192.168.40.2 255.255.255.0
+no sh
+ex
+ip route 0.0.0.0 0.0.0.0 192.168.40.1
+end
+wr</code></pre>
 <p><strong>tj-sw配置脚本</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>hostname tj-sw<br>no ip domain-lookup<br>line console 0<br>exec-timeout 0 0<br>logging syn<br>int vlan1<br>ip add 192.168.10.2 255.255.255.0 <br>no sh<br>ex<br>ip default-gateway 192.168.10.1<br>line vty 0 4<br>password cisco<br>login<br>end<br>wr<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+hostname tj-sw
+no ip domain-lookup
+line console 0
+exec-timeout 0 0
+logging syn
+int vlan1
+ip add 192.168.10.2 255.255.255.0 
+no sh
+ex
+ip default-gateway 192.168.10.1
+line vty 0 4
+password cisco
+login
+end
+wr</code></pre>
 <p><font color="red">资源链接：<a href="https://pan.baidu.com/s/1Q_fLY90M-Dyha6Nza8ud0w" target="_blank" rel="noopener">https://pan.baidu.com/s/1Q_fLY90M-Dyha6Nza8ud0w</a><br>提取码：y91i<br></font></p>
 
             </div>
@@ -1230,7 +1316,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

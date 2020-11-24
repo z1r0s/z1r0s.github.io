@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -494,7 +494,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    236
+                    235
                 </div>
                 
 
@@ -528,8 +528,8 @@
 <h1 id="0x03-解决步骤"><a href="#0x03-解决步骤" class="headerlink" title="0x03 解决步骤"></a>0x03 解决步骤</h1><ol>
 <li>打开<code>config.inc.php</code>配置文件，并将<code>recaptcha</code>相关参数修改成如下内容：</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini">$_DVWA[ 'recaptcha_public_key' ]  = '6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg';<br>$_DVWA[ 'recaptcha_private_key' ] = '6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ';<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-ini"><code class="language-ini">$_DVWA[ 'recaptcha_public_key' ]  <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg';</span>
+$_DVWA[ 'recaptcha_private_key' ] <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ';</span></code></pre>
 <p>​    也可以到<a href="https://www.google.com/recaptcha/admin" target="_blank" rel="noopener">reCAPTCHA申请页面</a>申请一对网站密钥，具体操作可参考<a href="https://blog.csdn.net/dulinanaaa/article/details/88126607" target="_blank" rel="noopener">reCaptcha 的使用</a>。</p>
 <ol start="2">
 <li>保存更改后的配置文件后，重新访问<code>Insecure CAPTCHA</code>模块，没有发现错误信息。</li>
@@ -1175,7 +1175,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

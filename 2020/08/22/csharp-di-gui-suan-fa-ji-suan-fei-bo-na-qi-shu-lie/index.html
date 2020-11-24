@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -502,7 +502,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    715
+                    549
                 </div>
                 
 
@@ -561,8 +561,53 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp递归算法计算斐波那契数列/界面设计.png" alt="界面设计"></center>
 
 <p><strong>代码设计</strong>：</p>
-<figure class="highlight C#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">using</span> System;<br><span class="hljs-keyword">using</span> System.Windows.Forms;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">Arithmetic</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Frm_Main</span> : <span class="hljs-title">Form</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Frm_Main</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            InitializeComponent();<br>        &#125;<br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 计算按钮的Click事件</span><br>        <span class="hljs-comment">//计算按钮的Click事件</span><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">btn_Get_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, EventArgs e</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">int</span> P_int_temp;                                         <span class="hljs-comment">//定义一个用于存储的整型变量</span><br>            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">int</span>.TryParse(txt_value.Text, <span class="hljs-keyword">out</span> P_int_temp))       <span class="hljs-comment">//为变量赋值</span><br>            &#123;<br>                lb_result.Text = <span class="hljs-string">"计算结果为："</span> + Get(P_int_temp).ToString();     <span class="hljs-comment">//输出计算结果</span><br>            &#125;<br>            <span class="hljs-keyword">else</span>                                    <span class="hljs-comment">//当数据转化失败时</span><br>            &#123;<br>                MessageBox.Show(<span class="hljs-string">"请输入正确的数值！"</span>, <span class="hljs-string">"提示！"</span>);                      <span class="hljs-comment">//提示输入正确数值</span><br>            &#125;<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 斐波那契数列的计算</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 递归算法                //斐波那契数列的计算问题</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="i"&gt;</span>参与计算的数值<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>计算结果<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Get</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> i</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">if</span> (i &lt;= <span class="hljs-number">0</span>)							<span class="hljs-comment">//判断数值是否小于0</span><br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;						<span class="hljs-comment">//返回数值0</span><br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; i &lt;= <span class="hljs-number">2</span>)			<span class="hljs-comment">//判断数值是否大于等于0并且小于等于2</span><br>                <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;						<span class="hljs-comment">//返回数值1</span><br>            <span class="hljs-keyword">else</span>								<span class="hljs-comment">//如果不满足上述条件执行下面语句</span><br>                <span class="hljs-keyword">return</span> Get(i - <span class="hljs-number">1</span>) + Get(i - <span class="hljs-number">2</span>);	<span class="hljs-comment">//返回指定位数前两位数的和</span><br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-C#"><code class="language-C#">using System;
+using System.Windows.Forms;
 
+namespace Arithmetic
+{
+    public partial class Frm_Main : Form
+    {
+        public Frm_Main()
+        {
+            InitializeComponent();
+        }
+
+        #region 计算按钮的Click事件
+        //计算按钮的Click事件
+        private void btn_Get_Click(object sender, EventArgs e)
+        {
+            int P_int_temp;                                         //定义一个用于存储的整型变量
+            if (int.TryParse(txt_value.Text, out P_int_temp))       //为变量赋值
+            {
+                lb_result.Text = "计算结果为：" + Get(P_int_temp).ToString();     //输出计算结果
+            }
+            else                                    //当数据转化失败时
+            {
+                MessageBox.Show("请输入正确的数值！", "提示！");                      //提示输入正确数值
+            }
+        }
+        #endregion
+
+        #region 斐波那契数列的计算
+        /// <summary>
+        /// 递归算法                //斐波那契数列的计算问题
+        /// </summary>
+        /// <param name="i">参与计算的数值</param>
+        /// <returns>计算结果</returns>
+        int Get(int i)
+        {
+            if (i <= 0)                            //判断数值是否小于0
+                return 0;                        //返回数值0
+            else if (i >= 0 && i <= 2)            //判断数值是否大于等于0并且小于等于2
+                return 1;                        //返回数值1
+            else                                //如果不满足上述条件执行下面语句
+                return Get(i - 1) + Get(i - 2);    //返回指定位数前两位数的和
+        }
+        #endregion
+
+    }
+}</code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>程序以int类型存储结果，当计算的数值超出int时，程序将会报错。</li>
@@ -1217,7 +1262,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -542,64 +542,153 @@
 </ol>
 <h2 id="0x02-tj-sw1配置"><a href="#0x02-tj-sw1配置" class="headerlink" title="0x02 tj-sw1配置"></a>0x02 tj-sw1配置</h2><ol>
 <li><p>打开tj-sw1交换机的【CLI】选项卡中使用如下命令配置一下设备的基础环境，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>no ip domain-lookup <br>line console 0<br>exec-timeout 0 0<br>logging synchronous<br>exit<br>hostname tj-sw1<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+no ip domain-lookup 
+line console 0
+exec-timeout 0 0
+logging synchronous
+exit
+hostname tj-sw1</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-sw1预配置1.png" alt="tj-sw1预配置"></center>
 </li>
 <li><p>使用如下命令配置tj-sw1的VLAN信息并在<code>f0/4-6</code>接口配置以太链路，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs shell">vlan 100 <br>vlan 10 <br>vlan 20 <br>exit <br>int f0/1 <br>switchport mode access <br>switchport access vlan 100 <br>int f0/2 <br>switchport mode access <br>switchport access vlan 10 <br>int f0/3 <br>switchport mode trunk <br>switchport trunk allowed vlan all <br>int range f0/4-6 <br>switchport mode trunk <br>switchport trunk allowed vlan all <br>channel-group 1 mode on <br>ex<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">vlan 100 
+vlan 10 
+vlan 20 
+exit 
+int f0/1 
+switchport mode access 
+switchport access vlan 100 
+int f0/2 
+switchport mode access 
+switchport access vlan 10 
+int f0/3 
+switchport mode trunk 
+switchport trunk allowed vlan all 
+int range f0/4-6 
+switchport mode trunk 
+switchport trunk allowed vlan all 
+channel-group 1 mode on 
+ex</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-sw配置VLAN.png" alt="tj-sw配置VLAN"></center>
 </li>
 <li><p>使用如下命令开启并配置tj-sw1交换机的远程管理功能，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell">ex <br>line vty 0 4 <br>pass cisco <br>login <br>exit <br>enable pass cisco <br>int vlan 10 <br>ip add 192.168.10.2 255.255.255.0 <br>no sh <br>ex <br>ip default-gateway 192.168.10.1<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">ex 
+line vty 0 4 
+pass cisco 
+login 
+exit 
+enable pass cisco 
+int vlan 10 
+ip add 192.168.10.2 255.255.255.0 
+no sh 
+ex 
+ip default-gateway 192.168.10.1</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-sw1配置远程管理.png" alt="tj-sw1配置远程管理"></center>
 
 </li>
 </ol>
 <h2 id="0x03-tj-sw2配置"><a href="#0x03-tj-sw2配置" class="headerlink" title="0x03 tj-sw2配置"></a>0x03 tj-sw2配置</h2><ol>
 <li><p>打开tj-sw2交换机的【CLI】选项卡中使用如下命令配置一下设备的基础环境，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t <br>no ip domain-lookup <br>line console 0 <br>exec-timeout 0 0 <br>logging syn <br>exit <br>hostname tj-sw2<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t 
+no ip domain-lookup 
+line console 0 
+exec-timeout 0 0 
+logging syn 
+exit 
+hostname tj-sw2</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-sw2预配置.png" alt="tj-sw2预配置"></center>
 </li>
 <li><p>使用如下命令配置tj-sw2的VLAN信息并在<code>f0/4-6</code>接口配置以太链路，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">vlan 10 <br>vlan 20 <br>exit <br>int f0/1 <br>switchport mode access <br>switchport access vlan 20 <br>int f0/2 <br>switchport mode access <br>switchport access vlan 10 <br>int range f0/4-6 <br>switchport mode trunk <br>switchport trunk allowed vlan all <br>channel-group 1 mode on<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">vlan 10 
+vlan 20 
+exit 
+int f0/1 
+switchport mode access 
+switchport access vlan 20 
+int f0/2 
+switchport mode access 
+switchport access vlan 10 
+int range f0/4-6 
+switchport mode trunk 
+switchport trunk allowed vlan all 
+channel-group 1 mode on</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-sw2配置VLAN.png" alt="tj-sw2配置VLAN"></center>
 </li>
 <li><p>使用如下命令开启并配置tj-sw2交换机的远程管理功能，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell">ex <br>line vty 0 4 <br>pass cisco <br>login <br>exit <br>enable pass cisco <br>int vlan 10 <br>ip add 192.168.10.3 255.255.255.0 <br>no sh <br>ex <br>ip default-gateway 192.168.10.1<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">ex 
+line vty 0 4 
+pass cisco 
+login 
+exit 
+enable pass cisco 
+int vlan 10 
+ip add 192.168.10.3 255.255.255.0 
+no sh 
+ex 
+ip default-gateway 192.168.10.1</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-sw2配置远程管理.png" alt="tj-sw2配置远程管理"></center>
 
 </li>
 </ol>
 <h2 id="0x04-tj-R配置"><a href="#0x04-tj-R配置" class="headerlink" title="0x04 tj-R配置"></a>0x04 tj-R配置</h2><ol>
 <li><p>打开tj-R路由器的【CLI】选项卡中使用如下命令配置一下设备的基础环境，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">en <br>conf t <br>no ip domain-lookup <br>line console 0 <br>exec-timeout 0 0 <br>logging syn <br>exit <br>hostname tj-R<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en 
+conf t 
+no ip domain-lookup 
+line console 0 
+exec-timeout 0 0 
+logging syn 
+exit 
+hostname tj-R</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-R预配置.png" alt="tj-R预配置"></center>
 </li>
 <li><p>使用如下命令配置tj-R路由器串口的IP地址、速率等信息，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">int s1/0 <br>ip add 223.221.159.1 255.255.255.0 <br>clock rate 9600<br>no sh<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">int s1/0 
+ip add 223.221.159.1 255.255.255.0 
+clock rate 9600
+no sh</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-R串口配置.png" alt="tj-R串口配置"></center>
 </li>
 <li><p>使用单臂路由（如下）实现tj地区各VLAN之间的数据传输，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">int f0/0.1 <br>encapsulation dot1Q 100 <br>ip add 192.168.30.1 255.255.255.0 <br>no sh <br>ip helper-address 192.168.30.254 <br>int f0/0.2 <br>encapsulation dot1Q 10 <br>ip add 192.168.10.1 255.255.255.0 <br>no sh <br>ip helper-address 192.168.30.254 <br>int f0/0.3 <br>encapsulation dot1Q 20 <br>ip add 192.168.20.1 255.255.255.0 <br>no sh <br>ip helper-address 192.168.30.254 <br>int f0/0 <br>no sh<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">int f0/0.1 
+encapsulation dot1Q 100 
+ip add 192.168.30.1 255.255.255.0 
+no sh 
+ip helper-address 192.168.30.254 
+int f0/0.2 
+encapsulation dot1Q 10 
+ip add 192.168.10.1 255.255.255.0 
+no sh 
+ip helper-address 192.168.30.254 
+int f0/0.3 
+encapsulation dot1Q 20 
+ip add 192.168.20.1 255.255.255.0 
+no sh 
+ip helper-address 192.168.30.254 
+int f0/0 
+no sh</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-R单臂路由.png" alt="tj-R单臂路由"></center>
 </li>
 <li><p>使用如下命令配置tj-R的路由，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">ex <br>router rip <br>version 2 <br>network 192.168.10.0 <br>network 192.168.20.0 <br>network 192.168.30.0 <br>network 223.221.159.0<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">ex 
+router rip 
+version 2 
+network 192.168.10.0 
+network 192.168.20.0 
+network 192.168.30.0 
+network 223.221.159.0</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-R路由配置.png" alt="tj-R路由配置"></center>
 </li>
 <li><p>使用如下命令开启并配置tj-R路由器的远程管理，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">ex <br>line vty 0 4 <br>pass cisco <br>login <br>exit <br>enable pass cisco<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">ex 
+line vty 0 4 
+pass cisco 
+login 
+exit 
+enable pass cisco</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/tj-R远程管理配置.png" alt="tj-R远程管理配置"></center>
 
 
@@ -607,18 +696,35 @@
 </ol>
 <h2 id="0x05-ISP-A配置"><a href="#0x05-ISP-A配置" class="headerlink" title="0x05 ISP-A配置"></a>0x05 ISP-A配置</h2><ol>
 <li><p>打开tj-R路由器的【CLI】选项卡中使用如下命令配置一下设备的基础环境，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">en <br>conf t <br>no ip domain-lookup <br>line console 0 <br>exec-timeout 0 0 <br>logging syn <br>exit <br>hostname ISP-B<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en 
+conf t 
+no ip domain-lookup 
+line console 0 
+exec-timeout 0 0 
+logging syn 
+exit 
+hostname ISP-B</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/ISP-R预配置.png" alt="ISP-R预配置"></center>
 </li>
 <li><p>使用如下命令配置ISP-A路由器的接口地址，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">int f0/0<br>ip add 111.111.111.1 255.255.255.0<br>no sh<br>int s1/0<br>ip add 223.221.159.2 255.255.255.0<br>no sh<br>int s1/1<br>ip add 223.11.115.1 255.255.255.0<br>clock rate 9600<br>no sh<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">int f0/0
+ip add 111.111.111.1 255.255.255.0
+no sh
+int s1/0
+ip add 223.221.159.2 255.255.255.0
+no sh
+int s1/1
+ip add 223.11.115.1 255.255.255.0
+clock rate 9600
+no sh</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/ISP-A接口配置.png" alt="ISP-A接口配置"></center>
 </li>
 <li><p>使用如下命令配置路由，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">router rip <br>version 2 <br>network 111.111.111.0 <br>network 223.11.115.0<br>network 223.221.159.0<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">router rip 
+version 2 
+network 111.111.111.0 
+network 223.11.115.0
+network 223.221.159.0</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/ISP-R配置路由.png" alt="ISP-R配置路由"></center>
 
 </li>
@@ -643,79 +749,169 @@
 </ol>
 <h2 id="0x09-bj-R配置"><a href="#0x09-bj-R配置" class="headerlink" title="0x09 bj-R配置"></a>0x09 bj-R配置</h2><ol>
 <li><p>打开bj-R路由器的【CLI】选项卡中使用如下命令配置一下设备的基础环境，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">en <br>conf t <br>no ip domain-lookup <br>line console 0 <br>exec-timeout 0 0 <br>logging syn <br>exit <br>hostname bj-R<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en 
+conf t 
+no ip domain-lookup 
+line console 0 
+exec-timeout 0 0 
+logging syn 
+exit 
+hostname bj-R</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/bj-R预配置.png" alt="bj-R预配置"></center>
 </li>
 <li><p>使用如下命令配置bj-R路由器串口的IP地址等信息，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">int s1/0 <br>ip add 223.11.115.2 255.255.255.0 <br>no sh<br>int f0/1<br>ip add 223.22.115.1 255.255.255.0<br>no sh<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">int s1/0 
+ip add 223.11.115.2 255.255.255.0 
+no sh
+int f0/1
+ip add 223.22.115.1 255.255.255.0
+no sh</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/bj-R串口配置.png" alt="bj-R串口配置"></center>
 </li>
 <li><p>使用单臂路由（如下）实现bj地区各VLAN之间的数据传输，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">int f0/0.1 <br>encapsulation dot1Q 100 <br>ip add 192.168.100.1 255.255.255.0 <br>no sh <br>int f0/0.2 <br>encapsulation dot1Q 200 <br>ip add 192.168.101.1 255.255.255.0 <br>no sh <br>int f0/0 <br>no sh<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">int f0/0.1 
+encapsulation dot1Q 100 
+ip add 192.168.100.1 255.255.255.0 
+no sh 
+int f0/0.2 
+encapsulation dot1Q 200 
+ip add 192.168.101.1 255.255.255.0 
+no sh 
+int f0/0 
+no sh</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/bj-R单臂路由实现.png" alt="bj-R单臂路由实现"></center>
 </li>
 <li><p>使用如下命令配置bj-R的DHCP服务，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell">ip dhcp pool vlan100 <br>network 192.168.100.0 255.255.255.0 <br>default-router 192.168.100.1 <br>dns-server 111.111.111.254<br>ex <br>ip dhcp excluded-address 192.168.100.1 192.168.100.10 <br>ip dhcp pool vlan200 <br>network 192.168.101.0 255.255.255.0 <br>default-router 192.168.101.1 <br>dns-server 111.111.111.254<br>ex <br>ip dhcp excluded-address 192.168.101.1 192.168.101.10<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">ip dhcp pool vlan100 
+network 192.168.100.0 255.255.255.0 
+default-router 192.168.100.1 
+dns-server 111.111.111.254
+ex 
+ip dhcp excluded-address 192.168.100.1 192.168.100.10 
+ip dhcp pool vlan200 
+network 192.168.101.0 255.255.255.0 
+default-router 192.168.101.1 
+dns-server 111.111.111.254
+ex 
+ip dhcp excluded-address 192.168.101.1 192.168.101.10</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/bj-R实现DHCP1.png" alt="bj-R实现DHCP"></center>
 </li>
 <li><p>使用如下命令配置bj-R的路由，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">router rip <br>version 2 <br>network 192.168.100.0 <br>network 192.168.101.0 <br>network 223.11.115.0<br>network 223.22.115.0<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">router rip 
+version 2 
+network 192.168.100.0 
+network 192.168.101.0 
+network 223.11.115.0
+network 223.22.115.0</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/bj-R配置路由.png" alt="bj-R配置路由"></center>
 </li>
 <li><p>使用如下命令开启并配置bj-R路由器的远程管理，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">ex <br>line vty 0 4 <br>pass cisco <br>login <br>exit <br>enable pass cisco<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">ex 
+line vty 0 4 
+pass cisco 
+login 
+exit 
+enable pass cisco</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/bj-R远程管理配置.png" alt="bj-R远程管理配置"></center>
 
 </li>
 </ol>
 <h2 id="0x10-bj-sw配置"><a href="#0x10-bj-sw配置" class="headerlink" title="0x10 bj-sw配置"></a>0x10 bj-sw配置</h2><ol>
 <li><p>打开bj-sw交换机的【CLI】选项卡中使用如下命令配置一下设备的基础环境，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t<br>no ip domain-lookup <br>line console 0<br>exec-timeout 0 0<br>logging synchronous<br>exit<br>hostname bj-sw<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t
+no ip domain-lookup 
+line console 0
+exec-timeout 0 0
+logging synchronous
+exit
+hostname bj-sw</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/bj-sw预配置.png" alt="bj-sw预配置"></center>
 </li>
 <li><p>使用如下命令配置bj-sw的VLAN信息，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">vlan 100 <br>vlan 200<br>exit <br>int f0/1 <br>switchport mode access <br>switchport access vlan 100 <br>int f0/2 <br>switchport mode access <br>switchport access vlan 200<br>int f0/3 <br>switchport mode trunk <br>switchport trunk allowed vlan all<br>ex<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">vlan 100 
+vlan 200
+exit 
+int f0/1 
+switchport mode access 
+switchport access vlan 100 
+int f0/2 
+switchport mode access 
+switchport access vlan 200
+int f0/3 
+switchport mode trunk 
+switchport trunk allowed vlan all
+ex</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/bj-sw配置VLAN.png" alt="bj-sw配置VLAN"></center>
 </li>
 <li><p>使用如下命令开启并配置bj-sw交换机的远程管理功能，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">line vty 0 4 <br>pass cisco <br>login <br>exit <br>enable pass cisco <br>int vlan 100<br>ip add 192.168.100.2 255.255.255.0 <br>no sh <br>ex <br>ip default-gateway 192.168.100.1<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">line vty 0 4 
+pass cisco 
+login 
+exit 
+enable pass cisco 
+int vlan 100
+ip add 192.168.100.2 255.255.255.0 
+no sh 
+ex 
+ip default-gateway 192.168.100.1</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/bj-sw配置远程管理.png" alt="bj-sw配置远程管理"></center>
 
 </li>
 </ol>
 <h2 id="0x11-sh-sw1配置"><a href="#0x11-sh-sw1配置" class="headerlink" title="0x11 sh-sw1配置"></a>0x11 sh-sw1配置</h2><ol>
 <li><p>打开sh-sw1交换机的【CLI】选项卡中使用如下命令配置一下设备的基础环境，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t <br>no ip domain-lookup <br>line console 0 <br>exec-timeout 0 0 <br>logging syn <br>exit <br>hostname sh-sw1<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t 
+no ip domain-lookup 
+line console 0 
+exec-timeout 0 0 
+logging syn 
+exit 
+hostname sh-sw1</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/sh-sw1预配置.png" alt="sh-sw1预配置"></center>
 </li>
 <li><p>使用如下命令配置sh-sw1的VLAN信息，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell">vlan 100<br>vlan 200<br>exit <br>int vlan 100<br>ip address 192.168.200.1 255.255.255.0<br>ip helper-address 192.168.201.254<br>no sh<br>int vlan 200<br>ip add 192.168.201.1 255.255.255.0<br>ip helper-address 192.168.201.254<br>no sh<br>int f0/1<br>switchport trunk encapsulation dot1q <br>switchport mode trunk <br>switchport trunk allowed vlan all<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">vlan 100
+vlan 200
+exit 
+int vlan 100
+ip address 192.168.200.1 255.255.255.0
+ip helper-address 192.168.201.254
+no sh
+int vlan 200
+ip add 192.168.201.1 255.255.255.0
+ip helper-address 192.168.201.254
+no sh
+int f0/1
+switchport trunk encapsulation dot1q 
+switchport mode trunk 
+switchport trunk allowed vlan all </code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/sh-sw1配置VLAN.png" alt="sh-sw1配置VLAN"></center>
 </li>
 <li><p>使用如下命令配置三层交换机接口，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">exit<br>ip routing<br>int f0/2<br>no switchport <br>ip add 223.22.115.2 255.255.255.0<br>no sh<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">exit
+ip routing
+int f0/2
+no switchport 
+ip add 223.22.115.2 255.255.255.0
+no sh</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/sh-sw1配置接口.png" alt="sh-sw1配置接口"></center>
 </li>
 <li><p>使用如下命令配置路由，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">route rip<br>version 2<br>network 223.22.115.0<br>network 192.168.200.0<br>network 192.168.201.0<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">route rip
+version 2
+network 223.22.115.0
+network 192.168.200.0
+network 192.168.201.0</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/sh-sw配置路由.png" alt="sh-sw配置路由"></center>
 </li>
 <li><p>使用如下命令开启并配置sh-sw1交换机的远程管理功能，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">line vty 0 4 <br>pass cisco <br>login <br>exit <br>enable pass cisco<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">line vty 0 4 
+pass cisco 
+login 
+exit 
+enable pass cisco </code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/sh-sw1配置远程管理.png" alt="sh-sw1配置远程管理"></center>
 
 
@@ -724,18 +920,42 @@
 </ol>
 <h2 id="0x12-sh-sw2配置"><a href="#0x12-sh-sw2配置" class="headerlink" title="0x12 sh-sw2配置"></a>0x12 sh-sw2配置</h2><ol>
 <li><p>打开sh-sw2交换机的【CLI】选项卡中使用如下命令配置一下设备的基础环境，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">en<br>conf t <br>no ip domain-lookup <br>line console 0 <br>exec-timeout 0 0 <br>logging syn <br>exit <br>hostname sh-sw2<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">en
+conf t 
+no ip domain-lookup 
+line console 0 
+exec-timeout 0 0 
+logging syn 
+exit 
+hostname sh-sw2</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/sh-sw2预配置.png" alt="sh-sw2预配置"></center>
 </li>
 <li><p>使用如下命令配置sh-sw2的VLAN信息，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell">vlan 100<br>vlan 200<br>exit <br>int f0/1 <br>switchport mode access <br>switchport access vlan 100<br>int f0/2 <br>switchport mode access <br>switchport access vlan 200<br>int f0/3<br>switchport mode trunk <br>switchport trunk allowed vlan all<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">vlan 100
+vlan 200
+exit 
+int f0/1 
+switchport mode access 
+switchport access vlan 100
+int f0/2 
+switchport mode access 
+switchport access vlan 200
+int f0/3
+switchport mode trunk 
+switchport trunk allowed vlan all </code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/sh-sw2配置VLAN.png" alt="sh-sw2配置VLAN"></center>
 </li>
 <li><p>使用如下命令开启并配置sh-sw2交换机的远程管理功能，操作结果如下图所示。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">line vty 0 4 <br>pass cisco <br>login <br>exit <br>enable pass cisco <br>int vlan 100<br>ip add 192.168.200.3 255.255.255.0 <br>no sh <br>ex <br>ip default-gateway 192.168.200.1<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-shell"><code class="language-shell">line vty 0 4 
+pass cisco 
+login 
+exit 
+enable pass cisco 
+int vlan 100
+ip add 192.168.200.3 255.255.255.0 
+no sh 
+ex 
+ip default-gateway 192.168.200.1</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ComExperiment/sh-sw2配置远程管理.png" alt="sh-sw2配置远程管理"></center>
 
 </li>
@@ -1403,7 +1623,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

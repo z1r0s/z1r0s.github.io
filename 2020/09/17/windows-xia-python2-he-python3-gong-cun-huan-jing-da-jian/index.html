@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -621,16 +621,14 @@
 <p>例如：</p>
 <p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyspider</code>，这样就会从清华这边的镜像去安装<code>pyspider</code>库。</p>
 <h2 id="永久修改pip镜像-推荐"><a href="#永久修改pip镜像-推荐" class="headerlink" title="永久修改pip镜像(推荐)"></a>永久修改pip镜像(推荐)</h2><p>升级 pip 到最新的版本<code>(&gt;=10.0.0)</code>后进行配置：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">pip install pip -U<br>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-powershell"><code class="language-powershell">pip install pip <span class="token operator">-</span>U
+pip config <span class="token function">set</span> global<span class="token punctuation">.</span>index<span class="token operator">-</span>url https:<span class="token operator">/</span><span class="token operator">/</span>pypi<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>simple</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/BasicEnvironment/python2+3(win)/永久修改pip镜像.png" alt="永久修改pip镜像"></center>
 
 <ul>
 <li><p>实质是创建了一个<code>pip.ini</code>文件，内容为：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">[global]<br>index-url = https://pypi.tuna.tsinghua.edu.cn/simple<br></code></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-powershell"><code class="language-powershell"><span class="token namespace">[global]</span>
+index<span class="token operator">-</span>url = https:<span class="token operator">/</span><span class="token operator">/</span>pypi<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>simple</code></pre>
 </li>
 </ul>
 <p>至此，Python2.7与Python3.8双环境共存设置完毕。</p>
@@ -1271,7 +1269,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

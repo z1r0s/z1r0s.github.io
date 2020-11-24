@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -384,7 +384,22 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                基础网络命令123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616
+                                基础网络命令# 查看IP地址
+ipconfig /all
+
+# 查询账号所属权限
+whoami
+
+# 查看sid值
+whoami /all
+
+# 查询系统以及补丁信息
+systeminfo
+
+# 查看进程
+tasklist /svc  
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -541,7 +556,14 @@
                         <div class="summary block-with-text">
                             
                                 查看网卡信息查看网卡简略信息ipconfig
-1234567891011λ ipconfigWindows IP 配置以太网适配器 以太网:   连接特定的 DNS 后缀 . . . . . . . :   本地链接 IPv6 地址. . 
+λ ipconfig
+
+Windows IP 配置
+
+以太网适配器 以太网:
+
+   连接特定的 DNS 后缀 . . . . . . . :
+   本地链接 IPv6 地址. . . . . 
                             
                         </div>
                         <div class="publish-info">
@@ -591,14 +613,15 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Windows（工作组和域）0x01 检查当前shell权限1whoami /user &amp;&amp; whoami /priv
-
+                                Windows（工作组和域）0x01 检查当前shell权限whoami /user &amp;&amp; whoami /priv
 
 
 
 获取用户SID值、根据特权信息判断当前用户权限等级
 
-0x02 查看系统信息1systeminf
+0x02 查看系统信息systeminfo
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -1062,7 +1085,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

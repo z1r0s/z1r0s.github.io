@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -459,12 +459,12 @@
                                 <span class="chip bg-color">C#</span>
                             </a>
                         
-                            <a href="/tags/编码/">
-                                <span class="chip bg-color">编码</span>
-                            </a>
-                        
                             <a href="/tags/程序实现/">
                                 <span class="chip bg-color">程序实现</span>
+                            </a>
+                        
+                            <a href="/tags/编码/">
+                                <span class="chip bg-color">编码</span>
                             </a>
                         
                     </div>
@@ -588,8 +588,44 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/界面.png" alt="界面"></center>
 
 <p><strong>代码设计</strong>:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><span class="hljs-keyword">using</span> System.Text;<br><span class="hljs-keyword">using</span> System.Windows.Forms;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">GetCode</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Form1</span> : <span class="hljs-title">Form</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Form1</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            InitializeComponent();<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">btn_Get_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, EventArgs e</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">try</span><br>            &#123;<br>                <span class="hljs-comment">//获得一个汉字字符</span><br>                <span class="hljs-keyword">char</span> ch = txt_ch.Text[<span class="hljs-number">0</span>];<br>                <span class="hljs-comment">//使用gb2312编码方式获得字节序列</span><br>                <span class="hljs-keyword">byte</span>[] gb2312_bt = Encoding.GetEncoding(<span class="hljs-string">"gb2312"</span>).GetBytes(<span class="hljs-keyword">new</span> Char[] &#123; ch &#125;);<br>                <span class="hljs-comment">//将字节序列的第一个字节向左移8位</span><br>                <span class="hljs-keyword">int</span> n = (<span class="hljs-keyword">int</span>)gb2312_bt[<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-number">8</span>;<br>                <br>                <span class="hljs-comment">//第一个字节移8位后与第二个字节相加得到汉字编码</span><br>                n += (<span class="hljs-keyword">int</span>)gb2312_bt[<span class="hljs-number">1</span>];<br>                <span class="hljs-comment">//显示汉字编码(十六进制)</span><br>                txt_Num.Text = Convert.ToString(n, <span class="hljs-number">16</span>);<br>            &#125;<br>            <span class="hljs-keyword">catch</span> (Exception)<br>            &#123;<br>                <span class="hljs-comment">//异常提示信息</span><br>                MessageBox.Show(<span class="hljs-string">"请输入汉字字符！"</span>, <span class="hljs-string">"出现错误！"</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Text<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> GetCode
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Form1</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token function">Form1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btn_Get_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">try</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//获得一个汉字字符</span>
+                <span class="token keyword">char</span> ch <span class="token operator">=</span> txt_ch<span class="token punctuation">.</span>Text<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//使用gb2312编码方式获得字节序列</span>
+                <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> gb2312_bt <span class="token operator">=</span> Encoding<span class="token punctuation">.</span><span class="token function">GetEncoding</span><span class="token punctuation">(</span><span class="token string">"gb2312"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">GetBytes</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span> ch <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//将字节序列的第一个字节向左移8位</span>
+                <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>gb2312_bt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">8</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">//第一个字节移8位后与第二个字节相加得到汉字编码</span>
+                n <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>gb2312_bt<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//显示汉字编码(十六进制)</span>
+                txt_Num<span class="token punctuation">.</span>Text <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//异常提示信息</span>
+                MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token string">"请输入汉字字符！"</span><span class="token punctuation">,</span> <span class="token string">"出现错误！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/结果.png" alt="结果"></center>
 
 <h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><ul>
@@ -673,12 +709,12 @@
                                     <span class="chip bg-color">C#</span>
                                 </a>
                             
-                                <a href="/tags/编码/">
-                                    <span class="chip bg-color">编码</span>
-                                </a>
-                            
                                 <a href="/tags/程序实现/">
                                     <span class="chip bg-color">程序实现</span>
+                                </a>
+                            
+                                <a href="/tags/编码/">
+                                    <span class="chip bg-color">编码</span>
                                 </a>
                             
                         </div>
@@ -1252,7 +1288,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

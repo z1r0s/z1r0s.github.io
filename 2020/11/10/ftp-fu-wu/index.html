@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -523,7 +523,8 @@
 <h2 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h2><p>​        具体操作方法：</p>
 <ol>
 <li><p>登录FTP服务器：命令提示符输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">ftp   FTP服务器的IP地址<br>ftp 回车 open ip地址 端口号<br></code></pre></td></tr></table></figure>
+<pre class=" language-shell"><code class="language-shell">ftp   FTP服务器的IP地址
+ftp 回车 open ip地址 端口号</code></pre>
 </li>
 <li><p>输入用户名：直接输入</p>
 <ul>
@@ -602,7 +603,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/FTPServer/被动模式.jpg" alt="被动模式"></center>
 
 <p>注：</p>
-<pre><code>很多防火墙在设置的时候都是不允许接受外部发起的连接的，所以许多位于防火墙后或内网的FTP服务器不支持PASV模式，因为客户端无法穿过防火墙打开FTP服务器的高端端口；而许多内网的客户端不能用PORT模式登陆FTP服务器，因为从服务器的TCP 20无法和内部网络的客户端建立一个新的连接，造成无法工作。</code></pre></li>
+<pre><code>    很多防火墙在设置的时候都是不允许接受外部发起的连接的，所以许多位于防火墙后或内网的FTP服务器不支持PASV模式，因为客户端无法穿过防火墙打开FTP服务器的高端端口；而许多内网的客户端不能用PORT模式登陆FTP服务器，因为从服务器的TCP 20无法和内部网络的客户端建立一个新的连接，造成无法工作。</code></pre></li>
 </ol>
 <h1 id="FTP用户隔离"><a href="#FTP用户隔离" class="headerlink" title="FTP用户隔离"></a>FTP用户隔离</h1><ol>
 <li><p>在ftproot(根目录)中创建<code>localuser</code>文件夹</p>
@@ -1238,7 +1239,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

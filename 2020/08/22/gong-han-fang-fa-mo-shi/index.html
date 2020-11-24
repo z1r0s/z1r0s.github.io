@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -502,14 +502,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    6 分
                 </div>
                 
 
@@ -551,49 +551,256 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/工厂方法模式/简单工厂方法模式类图.png" alt="简单工厂方法模式类图"></center>
 
 <p><strong>抽象产品角色</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 用于实例化工厂方法模式的基类（其一般为接口）</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 1、若为接口，则只能定义商品所具有的行为，且继承于该接口的类必须对其进行实现</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 2、若为类，一般将其定义为抽象类，</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类的创建</span><br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类--接口形式展示</span><br>   <span class="hljs-comment">// 本实例中使用的基类</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">//商品的行为（方法）   --只有方法体</span><br>       <span class="hljs-function"><span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类--抽象类形式展示</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Product</span><br>   &#123;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> name;<br>       <span class="hljs-comment">//必须声明为抽象方法</span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">string</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">/// &lt;summary></span>
+    <span class="token comment" spellcheck="true">/// 用于实例化工厂方法模式的基类（其一般为接口）</span>
+    <span class="token comment" spellcheck="true">/// 1、若为接口，则只能定义商品所具有的行为，且继承于该接口的类必须对其进行实现</span>
+    <span class="token comment" spellcheck="true">/// 2、若为类，一般将其定义为抽象类，</span>
+    <span class="token comment" spellcheck="true">/// &lt;/summary></span>
 
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 基类的创建</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 基类--接口形式展示</span>
+    <span class="token comment" spellcheck="true">// 本实例中使用的基类</span>
+    <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Pet</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//商品的行为（方法）   --只有方法体</span>
+        <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 基类--抽象类形式展示</span>
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Product</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> name<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//必须声明为抽象方法</span>
+        <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">string</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>具体产品角色</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 具体商品类对基类的继承与扩展</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">// 对接口中方法的实现</span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Bow Bow..."</span>;<br>       &#125;<br><br>       <span class="hljs-comment">// 具体商品类的扩展</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> color;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetColor</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> color</span>)</span><br>       &#123;<br>           <span class="hljs-keyword">this</span>.color = color;<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Meaw Meaw..."</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体商品类对基类的继承与扩展</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token punctuation">:</span> Pet
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 对接口中方法的实现</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"Bow Bow..."</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token comment" spellcheck="true">// 具体商品类的扩展</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> color<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetColor</span><span class="token punctuation">(</span><span class="token keyword">string</span> color<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token punctuation">:</span> Pet
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"Meaw Meaw..."</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>工厂角色</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 实例化商品的工厂</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 工厂类</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PetFactory</span><br>   &#123;<br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> 工厂类中创建对象的方法</span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="petType"&gt;</span>用来创建指定对象的参数<span class="hljs-doctag">&lt;/param&gt;</span></span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>返回创建的Pet对象<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> Pet <span class="hljs-title">getPet</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> petType</span>)</span><br>       &#123;<br>           Pet pet = <span class="hljs-literal">null</span>;<br>           <span class="hljs-keyword">if</span> (<span class="hljs-string">"Bow"</span>.Equals(petType))<br>           &#123;<br>               pet = <span class="hljs-keyword">new</span> Dog();<br>           &#125;<br>           <span class="hljs-keyword">if</span> (<span class="hljs-string">"Meaw"</span>.Equals(petType))<br>           &#123;<br>               pet = <span class="hljs-keyword">new</span> Cat();<br>           &#125;<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
-
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 实例化商品的工厂</span>
+    <span class="token comment" spellcheck="true">/// &lt;summary></span>
+    <span class="token comment" spellcheck="true">/// 工厂类</span>
+    <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PetFactory</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 工厂类中创建对象的方法</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="petType">用来创建指定对象的参数&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>返回创建的Pet对象&lt;/returns></span>
+        <span class="token keyword">public</span> Pet <span class="token function">getPet</span><span class="token punctuation">(</span><span class="token keyword">string</span> petType<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Pet pet <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">"Bow"</span><span class="token punctuation">.</span><span class="token function">Equals</span><span class="token punctuation">(</span>petType<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                pet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">"Meaw"</span><span class="token punctuation">.</span><span class="token function">Equals</span><span class="token punctuation">(</span>petType<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                pet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> pet<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>测试类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 测试类</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">SimpleFactoryMethod</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           <span class="hljs-comment">//1.实例化工厂对象</span><br>           PetFactory petFactory = <span class="hljs-keyword">new</span> FactoryMethod_Demo1.PetFactory();<br><br>           <span class="hljs-comment">//2.使用工厂对象创建指定的商品实例</span><br>           Pet pet = petFactory.getPet(<span class="hljs-string">"Bow"</span>);<br><br>           <span class="hljs-comment">//3.使用商品实例</span><br>           Console.WriteLine(pet.petSound());<br><br>           Console.ReadKey();<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试类</span>
+    <span class="token keyword">class</span> <span class="token class-name">SimpleFactoryMethod</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//1.实例化工厂对象</span>
+            PetFactory petFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FactoryMethod_Demo1<span class="token punctuation">.</span>PetFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+            <span class="token comment" spellcheck="true">//2.使用工厂对象创建指定的商品实例</span>
+            Pet pet <span class="token operator">=</span> petFactory<span class="token punctuation">.</span><span class="token function">getPet</span><span class="token punctuation">(</span><span class="token string">"Bow"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//3.使用商品实例</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>pet<span class="token punctuation">.</span><span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <h2 id="多工厂方法模式"><a href="#多工厂方法模式" class="headerlink" title="多工厂方法模式"></a><strong>多工厂方法模式</strong></h2><p>​        在多个工厂方法模式中，工厂类中每一个商品都有与其相对应的创建实例对象的方法。</p>
 <p><strong>多工厂方法模式UML类图</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/工厂方法模式/多方法工厂模式类图.png" alt="多方法工厂模式类图"></center>
 
 <p><strong>抽象产品角色</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类--接口形式展示</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">//商品的行为（方法）   --只有方法体</span><br>       <span class="hljs-function"><span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
-
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 基类--接口形式展示</span>
+    <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Pet</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//商品的行为（方法）   --只有方法体</span>
+        <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>具体产品角色</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 具体商品类对基类的继承与扩展</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">// 对接口中方法的实现</span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Bow Bow..."</span>;<br>       &#125;<br><br>       <span class="hljs-comment">// 具体商品类的扩展</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> color;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetColor</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> color</span>)</span><br>       &#123;<br>           <span class="hljs-keyword">this</span>.color = color;<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Meaw Meaw..."</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体商品类对基类的继承与扩展</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token punctuation">:</span> Pet
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 对接口中方法的实现</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"Bow Bow..."</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token comment" spellcheck="true">// 具体商品类的扩展</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> color<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetColor</span><span class="token punctuation">(</span><span class="token keyword">string</span> color<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token punctuation">:</span> Pet
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"Meaw Meaw..."</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>工厂角色</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 工厂角色</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 创建Pet的工厂类</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MultiplePetFactory</span><br>   &#123;<br>       Pet pet = <span class="hljs-literal">null</span>;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> Pet <span class="hljs-title">CreateDog</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           pet = <span class="hljs-keyword">new</span> Dog();<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> Pet <span class="hljs-title">CreateCat</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           pet = <span class="hljs-keyword">new</span> Cat();<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 工厂角色</span>
+    <span class="token comment" spellcheck="true">/// &lt;summary></span>
+    <span class="token comment" spellcheck="true">/// 创建Pet的工厂类</span>
+    <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MultiplePetFactory</span>
+    <span class="token punctuation">{</span>
+        Pet pet <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> Pet <span class="token function">CreateDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            pet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> pet<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> Pet <span class="token function">CreateCat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            pet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> pet<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>测试类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 测试类</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">MultipleFactoryMethod</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           <span class="hljs-comment">//1、创建工厂类对象</span><br>           MultiplePetFactory petFactory = <span class="hljs-keyword">new</span> MultiplePetFactory();<br><br>           <span class="hljs-comment">//2、使用工厂类对象得到商品对象</span><br>           Pet pet = petFactory.CreateDog();<br><br>           <span class="hljs-comment">//3、对商品对象进行操作</span><br>           Console.WriteLine(pet.petSound());<br><br>           Console.ReadKey();<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试类</span>
+    <span class="token keyword">class</span> <span class="token class-name">MultipleFactoryMethod</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//1、创建工厂类对象</span>
+            MultiplePetFactory petFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MultiplePetFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+            <span class="token comment" spellcheck="true">//2、使用工厂类对象得到商品对象</span>
+            Pet pet <span class="token operator">=</span> petFactory<span class="token punctuation">.</span><span class="token function">CreateDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//3、对商品对象进行操作</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>pet<span class="token punctuation">.</span><span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <h2 id="静态工厂方法模式"><a href="#静态工厂方法模式" class="headerlink" title="静态工厂方法模式"></a><strong>静态工厂方法模式</strong></h2><p>​        在静态工厂方法模式中，工厂类中每一个商品都有与其相对应的创建实例对象的静态方法</p>
 <p><strong>静态工厂方法模式</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/工厂方法模式/静态方法工厂模式类图.png" alt="静态方法工厂模式类图"></center>
 
 <p><strong>抽象产品角色</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类--接口形式展示</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">//商品的行为（方法）   --只有方法体</span><br>       <span class="hljs-function"><span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
-
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 基类--接口形式展示</span>
+    <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Pet</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//商品的行为（方法）   --只有方法体</span>
+        <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>具体产品角色</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 具体商品类对基类的继承与扩展</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">// 对接口中方法的实现</span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Bow Bow..."</span>;<br>       &#125;<br><br>       <span class="hljs-comment">// 具体商品类的扩展</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> color;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetColor</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> color</span>)</span><br>       &#123;<br>           <span class="hljs-keyword">this</span>.color = color;<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Meaw Meaw..."</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体商品类对基类的继承与扩展</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token punctuation">:</span> Pet
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 对接口中方法的实现</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"Bow Bow..."</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token comment" spellcheck="true">// 具体商品类的扩展</span>
+        <span class="token keyword">private</span> <span class="token keyword">string</span> color<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SetColor</span><span class="token punctuation">(</span><span class="token keyword">string</span> color<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token punctuation">:</span> Pet
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"Meaw Meaw..."</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>工厂角色</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 工厂角色</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 静态工厂</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">StaticMultiPetFactory</span><br>   &#123;<br>       <span class="hljs-keyword">static</span> Pet pet = <span class="hljs-literal">null</span>;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pet <span class="hljs-title">CreateDog</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           pet = <span class="hljs-keyword">new</span> Dog();<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pet <span class="hljs-title">CreateCat</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           pet = <span class="hljs-keyword">new</span> Cat();<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 工厂角色</span>
+    <span class="token comment" spellcheck="true">/// &lt;summary></span>
+    <span class="token comment" spellcheck="true">/// 静态工厂</span>
+    <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StaticMultiPetFactory</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> Pet pet <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> Pet <span class="token function">CreateDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            pet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> pet<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token keyword">public</span> <span class="token keyword">static</span> Pet <span class="token function">CreateCat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            pet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> pet<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>测试类</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 测试类</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">StaticMultiFactoryMethod</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           <span class="hljs-comment">//1、得到商品对象</span><br>           Pet pet = StaticMultiPetFactory.CreateDog();<br>           <br>           <span class="hljs-comment">//2、使用商品对象</span><br>           Console.WriteLine(pet.petSound());<br><br>           Console.ReadKey();<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试类</span>
+    <span class="token keyword">class</span> <span class="token class-name">StaticMultiFactoryMethod</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//1、得到商品对象</span>
+            Pet pet <span class="token operator">=</span> StaticMultiPetFactory<span class="token punctuation">.</span><span class="token function">CreateDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+            <span class="token comment" spellcheck="true">//2、使用商品对象</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>pet<span class="token punctuation">.</span><span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="三种工厂方法模式的比较"><a href="#三种工厂方法模式的比较" class="headerlink" title="三种工厂方法模式的比较"></a>三种工厂方法模式的比较</h2><p><strong>相同点</strong>：</p>
 <ul>
 <li>都存在三种角色：(工厂角色、抽象产品角色(抽象类或接口)、具体产品角色)；</li>
@@ -1019,12 +1226,12 @@
                         <span class="chip bg-color">C#</span>
                     </a>
                     
-                    <a href="/tags/编码/">
-                        <span class="chip bg-color">编码</span>
-                    </a>
-                    
                     <a href="/tags/程序实现/">
                         <span class="chip bg-color">程序实现</span>
+                    </a>
+                    
+                    <a href="/tags/编码/">
+                        <span class="chip bg-color">编码</span>
                     </a>
                     
                 </div>
@@ -1274,7 +1481,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

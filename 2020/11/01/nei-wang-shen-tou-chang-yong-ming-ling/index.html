@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -498,7 +498,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    447
+                    446
                 </div>
                 
 
@@ -520,15 +520,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Windows（工作组和域）"><a href="#Windows（工作组和域）" class="headerlink" title="Windows（工作组和域）"></a>Windows（工作组和域）</h1><h2 id="0x01-检查当前shell权限"><a href="#0x01-检查当前shell权限" class="headerlink" title="0x01 检查当前shell权限"></a>0x01 检查当前shell权限</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">whoami /user &amp;&amp; whoami /priv<br></code></pre></td></tr></table></figure>
-
+                <h1 id="Windows（工作组和域）"><a href="#Windows（工作组和域）" class="headerlink" title="Windows（工作组和域）"></a>Windows（工作组和域）</h1><h2 id="0x01-检查当前shell权限"><a href="#0x01-检查当前shell权限" class="headerlink" title="0x01 检查当前shell权限"></a>0x01 检查当前shell权限</h2><pre class=" language-powershell"><code class="language-powershell">whoami <span class="token operator">/</span>user &amp;&amp; whoami <span class="token operator">/</span>priv</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看当前shell权限.png" alt="查看当前shell权限"></center>
 
 <ul>
 <li>获取用户SID值、根据特权信息判断当前用户权限等级</li>
 </ul>
-<h2 id="0x02-查看系统信息"><a href="#0x02-查看系统信息" class="headerlink" title="0x02 查看系统信息"></a>0x02 查看系统信息</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">systeminfo<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x02-查看系统信息"><a href="#0x02-查看系统信息" class="headerlink" title="0x02 查看系统信息"></a>0x02 查看系统信息</h2><pre class=" language-powershell"><code class="language-powershell">systeminfo</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看系统信息.png" alt="查看系统信息"></center>
 
 <ul>
@@ -536,121 +534,106 @@
 <li>系统版本 → 整理相关漏洞</li>
 <li>修补程序 → 未及时修复的补丁</li>
 </ul>
-<h2 id="0x03-TCP-UDP网络连接状态信息"><a href="#0x03-TCP-UDP网络连接状态信息" class="headerlink" title="0x03 TCP/UDP网络连接状态信息"></a>0x03 TCP/UDP网络连接状态信息</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">netstat -ano<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x03-TCP-UDP网络连接状态信息"><a href="#0x03-TCP-UDP网络连接状态信息" class="headerlink" title="0x03 TCP/UDP网络连接状态信息"></a>0x03 TCP/UDP网络连接状态信息</h2><pre class=" language-powershell"><code class="language-powershell">netstat <span class="token operator">-</span>ano</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/网络连接状态信息.png" alt="网络连接状态信息"></center>
 
 <ul>
 <li>获取内网IP分布状态-服务（redis）</li>
 </ul>
-<h2 id="0x04-机器名"><a href="#0x04-机器名" class="headerlink" title="0x04 机器名"></a>0x04 机器名</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hostname<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x04-机器名"><a href="#0x04-机器名" class="headerlink" title="0x04 机器名"></a>0x04 机器名</h2><pre class=" language-powershell"><code class="language-powershell">hostname</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/获取机器名.png" alt="获取机器名"></center>
 
 
 
-<h2 id="0x05-查看当前操作系统"><a href="#0x05-查看当前操作系统" class="headerlink" title="0x05 查看当前操作系统"></a>0x05 查看当前操作系统</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">wmic OS get Caption,CSDversion,OSArchitecture,Version<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x05-查看当前操作系统"><a href="#0x05-查看当前操作系统" class="headerlink" title="0x05 查看当前操作系统"></a>0x05 查看当前操作系统</h2><pre class=" language-powershell"><code class="language-powershell">wmic OS get Caption<span class="token punctuation">,</span>CSDversion<span class="token punctuation">,</span>OSArchitecture<span class="token punctuation">,</span>Version</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看操作系统信息.png" alt="查看操作系统信息"></center>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ver<br></code></pre></td></tr></table></figure>
-
+<pre class=" language-powershell"><code class="language-powershell">ver</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/操作系统版本信息.png" alt="操作系统版本信息"></center>
 
 
 
-<h2 id="0x06-查杀软"><a href="#0x06-查杀软" class="headerlink" title="0x06 查杀软"></a>0x06 查杀软</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">wmic /node:localhost /Namespace:\\root\SecurityCenter2 Path AntivirusProduct Get displayName /Format:List<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x06-查杀软"><a href="#0x06-查杀软" class="headerlink" title="0x06 查杀软"></a>0x06 查杀软</h2><pre class=" language-powershell"><code class="language-powershell">wmic <span class="token operator">/</span>node:localhost <span class="token operator">/</span>Namespace:\\root\SecurityCenter2 Path AntivirusProduct Get displayName <span class="token operator">/</span>Format:List</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查杀软.png" alt="查杀软"></center>
 
 
 
-<h2 id="0x07-查看当前安装的程序"><a href="#0x07-查看当前安装的程序" class="headerlink" title="0x07 查看当前安装的程序"></a>0x07 查看当前安装的程序</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">wmic product get name,version<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x07-查看当前安装的程序"><a href="#0x07-查看当前安装的程序" class="headerlink" title="0x07 查看当前安装的程序"></a>0x07 查看当前安装的程序</h2><pre class=" language-powershell"><code class="language-powershell">wmic product get name<span class="token punctuation">,</span>version</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看当前安装的程序.png" alt="查看当前安装的程序"></center>
 
 
 
-<h2 id="0x08-查看在线用户"><a href="#0x08-查看在线用户" class="headerlink" title="0x08 查看在线用户"></a>0x08 查看在线用户</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">quser<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x08-查看在线用户"><a href="#0x08-查看在线用户" class="headerlink" title="0x08 查看在线用户"></a>0x08 查看在线用户</h2><pre class=" language-powershell"><code class="language-powershell">quser</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看在线用户.png" alt="查看在线用户"></center>
 
 
 
-<h2 id="0x09-查看网络配置"><a href="#0x09-查看网络配置" class="headerlink" title="0x09 查看网络配置"></a>0x09 查看网络配置</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ipconfig /all<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x09-查看网络配置"><a href="#0x09-查看网络配置" class="headerlink" title="0x09 查看网络配置"></a>0x09 查看网络配置</h2><pre class=" language-powershell"><code class="language-powershell">ipconfig <span class="token operator">/</span>all</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看网络配置.png" alt="查看网络配置"></center>
 
 <ul>
 <li>有<code>Primary Dns Suffix</code>就说明是域内，空的则当前机器应该在工作组</li>
 </ul>
-<h2 id="0x10-查看进程"><a href="#0x10-查看进程" class="headerlink" title="0x10 查看进程"></a>0x10 查看进程</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">tasklist /v<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x10-查看进程"><a href="#0x10-查看进程" class="headerlink" title="0x10 查看进程"></a>0x10 查看进程</h2><pre class=" language-powershell"><code class="language-powershell">tasklist <span class="token operator">/</span>v</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看进程.png" alt="查看进程"></center>
 
 <ul>
 <li>有些进程可能是域用户启用的 → 通过管理员权限窃取凭证 → 窃取域用户的凭证</li>
 </ul>
-<h2 id="0x11-查看当前登录域"><a href="#0x11-查看当前登录域" class="headerlink" title="0x11 查看当前登录域"></a>0x11 查看当前登录域</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">net config workstation<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x11-查看当前登录域"><a href="#0x11-查看当前登录域" class="headerlink" title="0x11 查看当前登录域"></a>0x11 查看当前登录域</h2><pre class=" language-powershell"><code class="language-powershell">net config workstation</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看当前登录域.png" alt="查看当前登录域"></center>
 
 
 
-<h2 id="0x12-远程桌面连接历史"><a href="#0x12-远程桌面连接历史" class="headerlink" title="0x12 远程桌面连接历史"></a>0x12 远程桌面连接历史</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">cmdkey /l<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x12-远程桌面连接历史"><a href="#0x12-远程桌面连接历史" class="headerlink" title="0x12 远程桌面连接历史"></a>0x12 远程桌面连接历史</h2><pre class=" language-powershell"><code class="language-powershell">cmdkey <span class="token operator">/</span>l</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/远程桌面连接历史.png" alt="远程桌面连接历史"></center>
 
 
 
-<h2 id="0x13-查看本机用户账户列表"><a href="#0x13-查看本机用户账户列表" class="headerlink" title="0x13 查看本机用户账户列表"></a>0x13 查看本机用户账户列表</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">net user<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x13-查看本机用户账户列表"><a href="#0x13-查看本机用户账户列表" class="headerlink" title="0x13 查看本机用户账户列表"></a>0x13 查看本机用户账户列表</h2><pre class=" language-powershell"><code class="language-powershell">net user</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/本机用户账户列表.png" alt="本机用户账户列表"></center>
 
 
 
-<h2 id="0x14-查看指定用户信息"><a href="#0x14-查看指定用户信息" class="headerlink" title="0x14 查看指定用户信息"></a>0x14 查看指定用户信息</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">net user Administrator<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x14-查看指定用户信息"><a href="#0x14-查看指定用户信息" class="headerlink" title="0x14 查看指定用户信息"></a>0x14 查看指定用户信息</h2><pre class=" language-powershell"><code class="language-powershell">net user Administrator</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看指定用户信息.png" alt="查看指定用户信息"></center>
 
 
 
-<h2 id="0x15-查看域用户"><a href="#0x15-查看域用户" class="headerlink" title="0x15 查看域用户"></a>0x15 查看域用户</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 显示所在域的用户名单</span><br>net user /domain<br><span class="hljs-comment"># 获取某个域用户的详细信息</span><br>net user 域用户 /domain<br><span class="hljs-comment"># 修改域用户密码（需要管理员权限）</span><br>net user /domain xxx <span class="hljs-number">123456</span><br></code></pre></td></tr></table></figure>
-
-<h1 id="Windows（域）"><a href="#Windows（域）" class="headerlink" title="Windows（域）"></a>Windows（域）</h1><h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="0x01-查看当前权限"><a href="#0x01-查看当前权限" class="headerlink" title="0x01 查看当前权限"></a>0x01 查看当前权限</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">whoami<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x15-查看域用户"><a href="#0x15-查看域用户" class="headerlink" title="0x15 查看域用户"></a>0x15 查看域用户</h2><pre class=" language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 显示所在域的用户名单</span>
+net user <span class="token operator">/</span>domain
+<span class="token comment" spellcheck="true"># 获取某个域用户的详细信息</span>
+net user 域用户 <span class="token operator">/</span>domain
+<span class="token comment" spellcheck="true"># 修改域用户密码（需要管理员权限）</span>
+net user <span class="token operator">/</span>domain xxx 123456</code></pre>
+<h1 id="Windows（域）"><a href="#Windows（域）" class="headerlink" title="Windows（域）"></a>Windows（域）</h1><h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="0x01-查看当前权限"><a href="#0x01-查看当前权限" class="headerlink" title="0x01 查看当前权限"></a>0x01 查看当前权限</h2><pre class=" language-shell"><code class="language-shell">whoami</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看当前权限.png" alt="查看当前权限"></center>
 
 <ul>
 <li>若非<code>root</code>用户则需要提权</li>
 </ul>
-<h2 id="0x02-查看网卡配置"><a href="#0x02-查看网卡配置" class="headerlink" title="0x02 查看网卡配置"></a>0x02 查看网卡配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ifconfig<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x02-查看网卡配置"><a href="#0x02-查看网卡配置" class="headerlink" title="0x02 查看网卡配置"></a>0x02 查看网卡配置</h2><pre class=" language-shell"><code class="language-shell">ifconfig</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看网卡配置.png" alt="查看网卡配置"></center>
 
 
 
-<h2 id="0x03-查看端口状态（开启了哪些服务，内网IP连接等）"><a href="#0x03-查看端口状态（开启了哪些服务，内网IP连接等）" class="headerlink" title="0x03 查看端口状态（开启了哪些服务，内网IP连接等）"></a>0x03 查看端口状态（开启了哪些服务，内网IP连接等）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">netstat -anpt<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x03-查看端口状态（开启了哪些服务，内网IP连接等）"><a href="#0x03-查看端口状态（开启了哪些服务，内网IP连接等）" class="headerlink" title="0x03 查看端口状态（开启了哪些服务，内网IP连接等）"></a>0x03 查看端口状态（开启了哪些服务，内网IP连接等）</h2><pre class=" language-shell"><code class="language-shell">netstat -anpt</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看端口状态.png" alt="查看端口状态"></center>
 
 
 
-<h2 id="0x04-查看进程状态"><a href="#0x04-查看进程状态" class="headerlink" title="0x04 查看进程状态"></a>0x04 查看进程状态</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -ef<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x04-查看进程状态"><a href="#0x04-查看进程状态" class="headerlink" title="0x04 查看进程状态"></a>0x04 查看进程状态</h2><pre class=" language-shell"><code class="language-shell">ps -ef</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看进程状态.png" alt="查看进程状态"></center>
 
 
 
-<h2 id="0x05-查看管理员的历史输入命令"><a href="#0x05-查看管理员的历史输入命令" class="headerlink" title="0x05 查看管理员的历史输入命令"></a>0x05 查看管理员的历史输入命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat /root/.bash_history<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x05-查看管理员的历史输入命令"><a href="#0x05-查看管理员的历史输入命令" class="headerlink" title="0x05 查看管理员的历史输入命令"></a>0x05 查看管理员的历史输入命令</h2><pre class=" language-shell"><code class="language-shell">cat /root/.bash_history</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看管理员的历史输入命令.png" alt="查看管理员的历史输入命令"></center>
 
 <ul>
 <li>获取密码、网站目录、内网资产等信息</li>
 </ul>
-<h2 id="0x06-查找某个文件"><a href="#0x06-查找某个文件" class="headerlink" title="0x06 查找某个文件"></a>0x06 查找某个文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">find / -name *.cfg<br></code></pre></td></tr></table></figure>
-
+<h2 id="0x06-查找某个文件"><a href="#0x06-查找某个文件" class="headerlink" title="0x06 查找某个文件"></a>0x06 查找某个文件</h2><pre class=" language-shell"><code class="language-shell">find / -name *.cfg</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查找某个文件.png" alt="查找某个文件"></center>
 
 <ul>
@@ -1284,7 +1267,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             

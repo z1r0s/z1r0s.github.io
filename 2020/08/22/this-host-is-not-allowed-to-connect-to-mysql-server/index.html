@@ -27,9 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -502,7 +502,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    407
+                    399
                 </div>
                 
 
@@ -557,7 +557,10 @@
 <li><p>修改mysql数据库中user表中root对应得host字段的值为%，来允许远程用户连接MySQL。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/修改表信息.png" alt="修改表信息"></center>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">use mysql;<br>select host,user from user where user=&apos;root&apos;;<br>update user set host=&apos;%&apos; where user=&apos;root&apos;;<br>select host,user from user where user=&apos;root&apos;;<br></code></pre></td></tr></table></figure>
+<pre class=" language-mysql"><code class="language-mysql">use mysql;
+select host,user from user where user='root';
+update user set host='%' where user='root';
+select host,user from user where user='root';</code></pre>
 </li>
 <li><p><font color="blue">重启MySQL服务</font>后，再进行远程连接测试。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/重启MySQL后的连接测试.png" alt="重启MySQL后的连接测试"></center>
@@ -1227,7 +1230,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.2k</span>&nbsp;字
+                class="white-color">201k</span>&nbsp;字
             
             
             
