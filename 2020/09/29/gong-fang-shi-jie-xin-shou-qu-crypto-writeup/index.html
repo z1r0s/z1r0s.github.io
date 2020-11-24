@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -455,12 +456,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CRYPTO/">
-                                <span class="chip bg-color">CRYPTO</span>
-                            </a>
-                        
                             <a href="/tags/writeup/">
                                 <span class="chip bg-color">writeup</span>
+                            </a>
+                        
+                            <a href="/tags/CRYPTO/">
+                                <span class="chip bg-color">CRYPTO</span>
                             </a>
                         
                     </div>
@@ -588,7 +589,7 @@
 <li>Morse</li>
 </ul>
 <p><strong>0x06 POC</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
 <span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
 
 CODE_TABLE <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -639,7 +640,7 @@ ciphertext <span class="token operator">=</span> ciphertext<span class="token pu
 FLAG <span class="token operator">=</span> morsedecode<span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span>
 flag <span class="token operator">=</span> FLAG<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
 flag <span class="token operator">=</span> <span class="token string">'cyberpeace{'</span><span class="token operator">+</span>flag<span class="token operator">+</span><span class="token string">'}'</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag is '</span><span class="token punctuation">,</span>flag<span class="token punctuation">)</span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag is '</span><span class="token punctuation">,</span>flag<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="004-不仅仅是Morse"><a href="#004-不仅仅是Morse" class="headerlink" title="004 不仅仅是Morse"></a>004 不仅仅是Morse</h1><p><strong>0x01 题目描述</strong></p>
 <p>​        “这个题目和我们刚刚做的那个好像啊但是为什么按照刚刚的方法做出来答案却不对呢” ，你奇怪的问了问小鱼，“可能是因为还有一些奇怪的加密方式在里面吧，我们在仔细观察观察”。两个人 安安静静的坐下来开始思考，很耐心的把自己可以想到的加密方式一种种的过了一遍，十多分钟后两个人 异口同声的说“我想到了！”。一种食物,格式为cyberpeace{小写的你解出的答案}</p>
 <p><strong>0x02 解题思路</strong></p>
@@ -705,7 +706,7 @@ flag <span class="token operator">=</span> <span class="token string">'cyberpeac
 <h1 id="006-幂数加密"><a href="#006-幂数加密" class="headerlink" title="006 幂数加密"></a>006 幂数加密</h1><p><strong>0x01 题目描述</strong></p>
 <p>​        你和小鱼终于走到了最后的一个谜题所在的地方，上面写着一段话“亲爱的朋友， 很开心你对网络安全有这么大的兴趣，希望你一直坚持下去，不要放弃 ，学到一些知识，  走进广阔的安全大世界”，你和小鱼接过谜题，开始了耐心细致的解答。flag为cyberpeace{你解答出的八位大写字母}</p>
 <p>附件内容：</p>
-<pre class=" language-php"><code class="language-php"><span class="token number">8842101220480224404014224202480122</span></code></pre>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token number">8842101220480224404014224202480122</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>0x02 解题思路</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/云影密码.png" alt="云影密码"></center>
 
@@ -719,7 +720,7 @@ flag <span class="token operator">=</span> <span class="token string">'cyberpeac
 <ul>
 <li>自编写payload</li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/user/bin/env python</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/user/bin/env python</span>
 <span class="token comment" spellcheck="true"># -*-coding:utf-8 -*-</span>
 
 a <span class="token operator">=</span> open<span class="token punctuation">(</span>r<span class="token string">'crypto11.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>
@@ -737,7 +738,7 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
         b <span class="token operator">+=</span> int<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># 字母ascii值与字母顺序相差为96</span>
     flag <span class="token operator">+=</span> chr<span class="token punctuation">(</span>b<span class="token operator">+</span><span class="token number">96</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag is '</span><span class="token punctuation">,</span>flag<span class="token punctuation">)</span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag is '</span><span class="token punctuation">,</span>flag<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>执行后得到flag：<code>cyberpeace{WELLDONE}</code></li>
 </ul>
@@ -787,7 +788,7 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
 <ul>
 <li>自编写payload。</li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
 <span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
 
 <span class="token keyword">import</span> gmpy2
@@ -798,7 +799,7 @@ e <span class="token operator">=</span> <span class="token number">17</span>
 
 s <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>q<span class="token number">-1</span><span class="token punctuation">)</span>
 d <span class="token operator">=</span> gmpy2<span class="token punctuation">.</span>invert<span class="token punctuation">(</span>e<span class="token punctuation">,</span>s<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag is :cyberpeace{%d}'</span> <span class="token operator">%</span> d<span class="token punctuation">)</span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag is :cyberpeace{%d}'</span> <span class="token operator">%</span> d<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>payload执行结果。</li>
 </ul>
@@ -835,7 +836,7 @@ d <span class="token operator">=</span> gmpy2<span class="token punctuation">.</
 <ul>
 <li>将下载的<code>pyc</code>文件反编译成<code>py</code>文件，反编译结果如下所示。</li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># uncompyle6 version 3.5.0</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># uncompyle6 version 3.5.0</span>
 <span class="token comment" spellcheck="true"># Python bytecode 2.7 (62211)</span>
 <span class="token comment" spellcheck="true"># Decompiled from: Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)]</span>
 <span class="token comment" spellcheck="true"># Embedded file name: ans.py</span>
@@ -872,11 +873,11 @@ final <span class="token operator">=</span> <span class="token string">'UC7KOWVX
 <span class="token keyword">else</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span> <span class="token string">'wrong'</span>
 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>通读代码逻辑编写解密脚本。</li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python</span>
 <span class="token comment" spellcheck="true"># encoding: utf-8</span>
 
 <span class="token keyword">import</span> base64
@@ -892,7 +893,7 @@ s <span class="token operator">=</span> <span class="token string">''</span>
 l <span class="token operator">=</span> <span class="token string">''</span>
 <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
     l <span class="token operator">+=</span> chr<span class="token punctuation">(</span><span class="token punctuation">(</span>ord<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">25</span><span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token number">36</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'flag is '</span><span class="token punctuation">,</span>l<span class="token punctuation">)</span></code></pre>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'flag is '</span><span class="token punctuation">,</span>l<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>运行得到flag：<code>cyberpeace{interestinghhhhh}</code></li>
 </ul>
@@ -904,7 +905,7 @@ l <span class="token operator">=</span> <span class="token string">''</span>
 <h1 id="010-转轮机加密"><a href="#010-转轮机加密" class="headerlink" title="010 转轮机加密"></a>010 转轮机加密</h1><p><strong>0x01 题目描述</strong></p>
 <p>​        你俩继续往前走，来到了前面的下一个关卡，这个铺面墙上写了好多奇奇怪怪的 英文字母，排列的的整整齐齐，店面前面还有一个大大的类似于土耳其旋转烤肉的架子，上面一圈圈的  也刻着很多英文字母，你是一个小历史迷，对于二战时候的历史刚好特别熟悉，一拍大腿：“嗨呀！我知道 是什么东西了！”。提示：托马斯·杰斐逊。 flag，是字符串，小写。</p>
 <p><strong>附件内容</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token number">1</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">ZWAXJGDLUBVIQHKYPNTCRMOSFE</span> <span class="token operator">&lt;</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token number">1</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">ZWAXJGDLUBVIQHKYPNTCRMOSFE</span> <span class="token operator">&lt;</span>
 <span class="token number">2</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">KPBELNACZDTRXMJQOYHGVSFUWI</span> <span class="token operator">&lt;</span>
 <span class="token number">3</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">BDMAIZVRNSJUWFHTEQGYXPLOCK</span> <span class="token operator">&lt;</span>
 <span class="token number">4</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">RPLNDVHGFCUKTEBSXQYIZMJWAO</span> <span class="token operator">&lt;</span>
@@ -919,7 +920,7 @@ l <span class="token operator">=</span> <span class="token string">''</span>
 <span class="token number">13</span>： <span class="token operator">&lt;</span> <span class="token constant">JZQAWSXCDERFVBGTYHNUMKILOP</span> <span class="token operator">&lt;</span>
 
 密钥为：<span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">6</span>
-密文为：<span class="token constant">NFQKSEVOQOFNP</span></code></pre>
+密文为：<span class="token constant">NFQKSEVOQOFNP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>0x02 解题思路</strong></p>
 <p><strong>转轮机的工作原理</strong><br>        每一个旋转轮代表一个单表替代系统，旋转一个引脚，再转变为另一个单表替代系统。为使机器更安全，可把几种转轮和移动的齿轮结合起来。因为所有转轮以不同的速度移动，n个转轮的机器的周期是26的n次方，即n个单表替代系统。最后一个转轮转完一圈之后，它前面的转轮就旋转一个引脚，有点像时钟的齿轮。</p>
 <p><strong>0x03 解题工具</strong></p>
@@ -930,7 +931,7 @@ l <span class="token operator">=</span> <span class="token string">''</span>
 <ul>
 <li>自编写payload。</li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
 <span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
 
 <span class="token keyword">import</span> re
@@ -952,7 +953,7 @@ vvv<span class="token operator">=</span><span class="token punctuation">[</span>
     flag<span class="token operator">=</span><span class="token string">""</span>
     <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         flag <span class="token operator">+=</span> content<span class="token punctuation">[</span>iv<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">(</span>vvv<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>i<span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">26</span><span class="token punctuation">]</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>flag<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>flag<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>执行结果，得到flag：<code>fireinthehole</code></li>
 </ul>
@@ -968,10 +969,10 @@ vvv<span class="token operator">=</span><span class="token punctuation">[</span>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/Normal_RSA附件内容.png" alt="Normal_RSA附件内容"></center>
 
 <p>pubkey.pem:</p>
-<pre class=" language-php"><code class="language-php"><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token constant">BEGIN</span> <span class="token keyword">PUBLIC</span> <span class="token constant">KEY</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token constant">BEGIN</span> <span class="token keyword">PUBLIC</span> <span class="token constant">KEY</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
 MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ<span class="token operator">/</span><span class="token operator">+</span>5erCQKPGqxsC<span class="token operator">/</span>bNPXDr
 yigb<span class="token operator">/</span><span class="token operator">+</span>l<span class="token operator">/</span>vjDdAgMBAAE<span class="token operator">=</span>
-<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token constant">END</span> <span class="token keyword">PUBLIC</span> <span class="token constant">KEY</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span></code></pre>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token constant">END</span> <span class="token keyword">PUBLIC</span> <span class="token constant">KEY</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>0x02 解题思路</strong></p>
 <p>​        OpenSSL使用 PEM 文件格式存储证书和密钥。PEM 实质上是 Base64 编码的二进制内容，再加上开始和结束行，如证书文件的<br> —–BEGIN CERTIFICATE—–<br> 和<br> —–END CERTIFICATE—–<br> 在这些标记外面可以有额外的信息，如编码内容的文字表示。文件是 ASCII 的，可以用任何文本编辑程序打开它们。</p>
 <p><strong>0x03 解题工具</strong></p>
@@ -985,39 +986,39 @@ yigb<span class="token operator">/</span><span class="token operator">+</span>l<
 <ul>
 <li>使用<code>openssl</code>提取出<code>pubkey.pem</code>中的参数。</li>
 </ul>
-<pre class=" language-python"><code class="language-python">openssl rsa <span class="token operator">-</span>pubin <span class="token operator">-</span>text <span class="token operator">-</span>modulus <span class="token operator">-</span><span class="token keyword">in</span> warmup <span class="token operator">-</span><span class="token keyword">in</span> pubkey<span class="token punctuation">.</span>pem</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">openssl rsa <span class="token operator">-</span>pubin <span class="token operator">-</span>text <span class="token operator">-</span>modulus <span class="token operator">-</span><span class="token keyword">in</span> warmup <span class="token operator">-</span><span class="token keyword">in</span> pubkey<span class="token punctuation">.</span>pem<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/openssl提取公钥参数.png" alt="openssl提取公钥参数"></center>
 
 <p>里面<code>modulus</code>就是<code>N</code>，<code>exponent</code>就是<code>e</code><br>这里显示：</p>
-<pre class=" language-python"><code class="language-python">Modulus（hex）
-<span class="token operator">=</span>C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">Modulus（hex）
+<span class="token operator">=</span>C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>明显是个16进制数，先转换成10进制。</p>
 <ul>
 <li>使用<a href="https://tool.lu/hexconvert/" target="_blank" rel="noopener">进制转换工具</a>将十六进制(hex)表示的大质数(N)转换成十进制(decimal)表示的大质数。</li>
 </ul>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/十六进制转十进制.png" alt="十六进制转十进制"></center>
 
-<pre class=" language-python"><code class="language-python">Modulus（dec）
-<span class="token operator">=</span><span class="token number">87924348264132406875276140514499937145050893665602592992418171647042491658461</span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">Modulus（dec）
+<span class="token operator">=</span><span class="token number">87924348264132406875276140514499937145050893665602592992418171647042491658461</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>使用yafu或<a href="http://www.factordb.com/" target="_blank" rel="noopener">factortdb</a>的得到p,q。</li>
 </ul>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/大质数分解.png" alt="大质数分解"></center>
 
 <p>所以现在知道了：</p>
-<pre class=" language-python"><code class="language-python">p<span class="token operator">=</span><span class="token number">275127860351348928173285174381581152299</span>
+<pre class="line-numbers language-python"><code class="language-python">p<span class="token operator">=</span><span class="token number">275127860351348928173285174381581152299</span>
 q<span class="token operator">=</span><span class="token number">319576316814478949870590164193048041239</span>
-e<span class="token operator">=</span><span class="token number">65537</span></code></pre>
+e<span class="token operator">=</span><span class="token number">65537</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>用<code>rsatool</code>生成私钥文件: <code>private.pem</code>。</li>
 </ul>
-<pre class=" language-python"><code class="language-python"> python2 <span class="token punctuation">.</span>\rsatool<span class="token punctuation">.</span>py <span class="token operator">-</span>o private<span class="token punctuation">.</span>pem <span class="token operator">-</span>e <span class="token number">65537</span> <span class="token operator">-</span>p <span class="token number">275127860351348928173285174381581152299</span> <span class="token operator">-</span>q <span class="token number">319576316814478949870590164193048041239</span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"> python2 <span class="token punctuation">.</span>\rsatool<span class="token punctuation">.</span>py <span class="token operator">-</span>o private<span class="token punctuation">.</span>pem <span class="token operator">-</span>e <span class="token number">65537</span> <span class="token operator">-</span>p <span class="token number">275127860351348928173285174381581152299</span> <span class="token operator">-</span>q <span class="token number">319576316814478949870590164193048041239</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/生成私钥pem文件.png" alt="生成私钥pem文件"></center>
 
 <ul>
 <li>用<code>private.pem</code>解密<code>flag.enc</code>，得到flag：<code>PCTF{256b_i5_m3dium}</code>。</li>
 </ul>
-<pre class=" language-python"><code class="language-python">openssl rsautl <span class="token operator">-</span>decrypt <span class="token operator">-</span><span class="token keyword">in</span> flag<span class="token punctuation">.</span>enc <span class="token operator">-</span>inkey private<span class="token punctuation">.</span>pem</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">openssl rsautl <span class="token operator">-</span>decrypt <span class="token operator">-</span><span class="token keyword">in</span> flag<span class="token punctuation">.</span>enc <span class="token operator">-</span>inkey private<span class="token punctuation">.</span>pem<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/私钥解密得到flag.png" alt="私钥解密得到flag"></center>
 
 <p><strong>0x05 考察知识</strong></p>
@@ -1143,12 +1144,12 @@ e<span class="token operator">=</span><span class="token number">65537</span></c
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CRYPTO/">
-                                    <span class="chip bg-color">CRYPTO</span>
-                                </a>
-                            
                                 <a href="/tags/writeup/">
                                     <span class="chip bg-color">writeup</span>
+                                </a>
+                            
+                                <a href="/tags/CRYPTO/">
+                                    <span class="chip bg-color">CRYPTO</span>
                                 </a>
                             
                         </div>

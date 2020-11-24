@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -539,7 +540,7 @@
 <li>在客户端调用具体原型类的Clone()方法完成对象的克隆操作</li>
 </ol>
 <h1 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h1><p>Prototype抽象原型类：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
 <span class="token comment" spellcheck="true">/// 抽象原型类</span>
 <span class="token comment" spellcheck="true">/// &lt;/summary></span>
 <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Prototype</span>
@@ -563,9 +564,9 @@
      <span class="token comment" spellcheck="true">/// &lt;/summary></span>
      <span class="token comment" spellcheck="true">/// &lt;returns>返回值类型是原型类类型&lt;/returns></span>
      <span class="token keyword">public</span> <span class="token keyword">abstract</span> Prototype <span class="token function">Clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>ConcretePrototype1具体原型类：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
 <span class="token comment" spellcheck="true">/// 具体原型类</span>
 <span class="token comment" spellcheck="true">/// &lt;/summary></span>
 <span class="token keyword">class</span> <span class="token class-name">ConcretePrototype1</span> <span class="token punctuation">:</span> Prototype
@@ -586,9 +587,9 @@
          <span class="token comment" spellcheck="true">// Shallow copy </span>
          <span class="token keyword">return</span> <span class="token punctuation">(</span>Prototype<span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">MemberwiseClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
      <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>ConcretePrototype2具体原型类：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
 <span class="token comment" spellcheck="true">/// 具体原型类</span>
 <span class="token comment" spellcheck="true">/// &lt;/summary></span>
 <span class="token keyword">class</span> <span class="token class-name">ConcretePrototype2</span> <span class="token punctuation">:</span> Prototype
@@ -609,9 +610,9 @@
          <span class="token comment" spellcheck="true">// Shallow copy </span>
          <span class="token keyword">return</span> <span class="token punctuation">(</span>Prototype<span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">MemberwiseClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
      <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Program客户类：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/// &lt;summary></span>
 <span class="token comment" spellcheck="true">/// 客户端</span>
 <span class="token comment" spellcheck="true">/// &lt;/summary></span>
 <span class="token keyword">class</span> <span class="token class-name">Program</span>
@@ -629,7 +630,7 @@
        <span class="token comment" spellcheck="true">// Wait for user </span>
        Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>结果展示：</p>
 <blockquote>
 <p>Cloned：$\mathbf I$</p>
@@ -663,7 +664,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/原型模式/普通实现.png" alt="普通实现"></center>
 
 <p><strong>代码实现：</strong></p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 原型模式
 <span class="token punctuation">{</span>
@@ -728,13 +729,13 @@
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示：</strong></p>
 <blockquote>
 <p>小王 男 29<br>工作经历：2010-2019 XX公司<br>小王 男 29<br>工作经历：2010-2019 XX公司<br>小王 男 29<br>工作经历：2010-2019 XX公司</p>
 </blockquote>
 <p>​        使用这个方式进行简历复制时会产生三个Resume对象，而且这三个对象存储的字面值完全相同，下面代码也能产生一致的效果但是占用的存储空间仅为上述代码实现的三分之一。</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -752,13 +753,13 @@
 
             Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​        上述两种代码都实现了简历复制的需求，但就占用存储空间来说的话，第二种实现更加节省空间。而就其扩展性来说，两种实现都没有满足很好的扩展，如：<font color="red">要投递不同职位的简历时，毕业生的基本信息是不会发生变化的，但是各个简历所侧重的工作经历是不同的。</font>要实现这样的需求，对于上面的实现就需要修改代码才能实现。而原型模式则可以在原有对象的基础上进行拷贝得到一个新的对象（<font color="blue">在这个可修改新对象的信息</font>）。</p>
 <h3 id="原型实现"><a href="#原型实现" class="headerlink" title="原型实现"></a>原型实现</h3><p><strong>程序类图：</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/原型模式/原型实现.png" alt="原型实现"></center>
 
 <p><strong>代码实现：</strong></p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 原型模式
 <span class="token punctuation">{</span>
@@ -825,7 +826,7 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示：</strong></p>
 <blockquote>
 <p>小王 男 29<br>工作经历：2010-2014 XX公司<br>小王 男 29<br>工作经历：2015-2018 YY企业<br>小王 男 24<br>工作经历：2010-2014 XX公司</p>
@@ -835,7 +836,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/原型模式/浅复制.png" alt="浅复制"></center>
 
 <p><strong>代码实现：</strong></p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 原型模式
 <span class="token punctuation">{</span>
@@ -920,7 +921,7 @@
             <span class="token keyword">set</span> <span class="token punctuation">{</span> company <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示：</strong></p>
 <blockquote>
 <p>小王 男 29<br>工作经历：1998-2003 ZZ企业<br>小王 男 29<br>工作经历：1998-2003 ZZ企业<br>小王 男 24<br>工作经历：1998-2003 ZZ企业</p>
@@ -930,7 +931,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/原型模式/深复制.png" alt="深复制"></center>
 
 <p><strong>代码实现：</strong></p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 原型模式
 <span class="token punctuation">{</span>
@@ -1035,7 +1036,7 @@
             <span class="token keyword">return</span> <span class="token punctuation">(</span>Object<span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">MemberwiseClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示：</strong></p>
 <blockquote>
 <p>小王 男 29<br>工作经历：2010-2014 XX公司<br>小王 男 29<br>工作经历：2015-2018 YY企业<br>小王 男 24<br>工作经历：1998-2003 ZZ企业</p>

@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -543,7 +544,7 @@
 </ol>
 <h1 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h1><p>使用代理追女孩：</p>
 <p><strong>被追求者</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//被追求者</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//被追求者</span>
     <span class="token keyword">class</span> <span class="token class-name">SchoolGirl</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">private</span> <span class="token keyword">string</span> name<span class="token punctuation">;</span>
@@ -552,17 +553,17 @@
             <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> name<span class="token punctuation">;</span> <span class="token punctuation">}</span>
             <span class="token keyword">set</span> <span class="token punctuation">{</span> name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>送礼物的接口</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//送礼物的接口</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//送礼物的接口</span>
     <span class="token keyword">interface</span> <span class="token class-name">GiveGift</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">void</span> <span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">void</span> <span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">void</span> <span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>雇主</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//追求者---（雇主）</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//追求者---（雇主）</span>
     <span class="token keyword">class</span> <span class="token class-name">Pursuit</span> <span class="token punctuation">:</span> GiveGift
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//雇主心意的女孩对象</span>
@@ -586,9 +587,9 @@
         <span class="token punctuation">{</span>
             Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>mm<span class="token punctuation">.</span>Name <span class="token operator">+</span> <span class="token string">" 送你巧克力"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>代理者</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//代理者实现接口</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//代理者实现接口</span>
     <span class="token keyword">class</span> <span class="token class-name">Proxy</span> <span class="token punctuation">:</span> GiveGift
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//声明一个雇主变量，用来存储聘用代理者的雇主对象</span>
@@ -615,9 +616,9 @@
         <span class="token punctuation">{</span>
             gg<span class="token punctuation">.</span><span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -633,7 +634,7 @@
 
             Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>代理使用的方法实际是雇主实现的方法</li>
@@ -645,7 +646,7 @@
 <li>《大话设计模式》</li>
 <li>《设计模式精解及面试攻略》</li>
 </ul>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 代理模式
 <span class="token punctuation">{</span>
@@ -741,7 +742,7 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>

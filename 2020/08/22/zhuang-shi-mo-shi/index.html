@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -552,7 +553,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/装饰模式/装饰模式UML.jpg" alt="装饰模式UML"></center>
 
 <p><strong>ConcreteComponent角色</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> Person类(ConcreteComponent)</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> Person类(ConcreteComponent)</span>
     <span class="token keyword">class</span> <span class="token class-name">Person</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -569,9 +570,9 @@
             Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"装扮的{0}"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Decorator角色</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 服饰类(Decorator)</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 服饰类(Decorator)</span>
     <span class="token keyword">class</span> <span class="token class-name">Finery</span> <span class="token punctuation">:</span> Person
     <span class="token punctuation">{</span>
         <span class="token keyword">protected</span> Person component<span class="token punctuation">;</span>
@@ -591,9 +592,9 @@
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>ConcreteDecorator角色</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体服饰类(ConcreteDecorator)</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体服饰类(ConcreteDecorator)</span>
     <span class="token keyword">class</span> <span class="token class-name">TShirts</span> <span class="token punctuation">:</span> Finery
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -647,9 +648,9 @@
             <span class="token keyword">base</span><span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -695,7 +696,7 @@
 
             Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/装饰模式/装饰模式测试结果展示.png" alt="装饰模式测试结果展示"></center>
 
@@ -722,7 +723,7 @@
 <li>《大话设计模式》</li>
 <li>《设计模式精解及面试攻略》</li>
 </ul>
-<h2 id="完整测试代码"><a href="#完整测试代码" class="headerlink" title="完整测试代码"></a>完整测试代码</h2><pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<h2 id="完整测试代码"><a href="#完整测试代码" class="headerlink" title="完整测试代码"></a>完整测试代码</h2><pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> 装饰模式
 <span class="token punctuation">{</span>
@@ -870,16 +871,16 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
     <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="装饰模式-基本代码"><a href="#装饰模式-基本代码" class="headerlink" title="装饰模式-基本代码"></a>装饰模式-基本代码</h2><p><strong>抽象组件对象</strong></p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//对象的接口</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//对象的接口</span>
     <span class="token comment" spellcheck="true">//可以为对象动态添加职责</span>
     <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Component</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">Operation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>具体组件对象</strong></p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//定义一个具体的对象</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//定义一个具体的对象</span>
     <span class="token comment" spellcheck="true">//可以为该对象添加一些职责</span>
     <span class="token keyword">class</span> <span class="token class-name">ConcreteComponent</span> <span class="token punctuation">:</span> Component
     <span class="token punctuation">{</span>
@@ -887,9 +888,9 @@
         <span class="token punctuation">{</span>
             Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"具体对象的操作"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>装饰器对象</strong></p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//装饰抽象类</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//装饰抽象类</span>
     <span class="token comment" spellcheck="true">//从外部扩展Component类对象的功能</span>
     <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Decorator</span> <span class="token punctuation">:</span> Component
     <span class="token punctuation">{</span>
@@ -907,9 +908,9 @@
                 component<span class="token punctuation">.</span><span class="token function">Operation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>具体装饰器对象</strong></p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//具体的装饰对象</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//具体的装饰对象</span>
     <span class="token comment" spellcheck="true">//为Component添加职责的功能</span>
     <span class="token keyword">class</span> <span class="token class-name">ConcreteDecoratorA</span> <span class="token punctuation">:</span> Decorator
     <span class="token punctuation">{</span>
@@ -939,9 +940,9 @@
         <span class="token punctuation">{</span>
 
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -956,7 +957,7 @@
 
             Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
