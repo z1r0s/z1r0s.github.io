@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><script src="/js/prism.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -555,7 +554,7 @@
 
 <p><strong>实体类</strong>：</p>
 <p>User:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
     <span class="token keyword">class</span> <span class="token class-name">User</span>
     <span class="token punctuation">{</span>
@@ -573,9 +572,9 @@
             <span class="token keyword">set</span> <span class="token punctuation">{</span> _name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>Department:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
     <span class="token keyword">class</span> <span class="token class-name">Department</span>
     <span class="token punctuation">{</span>
@@ -593,10 +592,10 @@
             <span class="token keyword">set</span> <span class="token punctuation">{</span> _deptName <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>抽象产品</strong>：</p>
 <p>IUser:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
     <span class="token keyword">interface</span> <span class="token class-name">IUser</span>
     <span class="token punctuation">{</span>
@@ -604,9 +603,9 @@
 
         User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>IDepartment:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
     <span class="token keyword">interface</span> <span class="token class-name">IDepartment</span>
     <span class="token punctuation">{</span>
@@ -614,10 +613,10 @@
 
         Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>具体产品</strong>：</p>
 <p>AccessUser：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
@@ -634,9 +633,9 @@
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>SqlserverUser:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
@@ -653,9 +652,9 @@
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>AccessDepartment:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
@@ -672,9 +671,9 @@
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>SqlserverDepartment:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
@@ -691,9 +690,9 @@
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>抽象工厂</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
     <span class="token keyword">interface</span> <span class="token class-name">IFactory</span>
     <span class="token punctuation">{</span>
@@ -701,10 +700,10 @@
 
         IDepartment <span class="token function">CreateDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>具体工厂</strong>：</p>
 <p>AccessFactory:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
     <span class="token keyword">class</span> <span class="token class-name">AccessFactory</span> <span class="token punctuation">:</span> IFactory
     <span class="token punctuation">{</span>
@@ -718,9 +717,9 @@
             <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">AccessDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>SqlServerFactory:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
     <span class="token keyword">class</span> <span class="token class-name">SqlServerFactory</span> <span class="token punctuation">:</span> IFactory
     <span class="token punctuation">{</span>
@@ -734,9 +733,9 @@
             <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">SqlserverDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
@@ -772,7 +771,7 @@
             Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>结果展示</strong>:</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/抽象工厂模式/经典抽象工厂测试.png" alt="经典抽象工厂测试"></center>
 
@@ -782,7 +781,7 @@
 <p>将程序使用数据库全部换成Mysql数据库。</p>
 <p><strong>具体产品</strong>：</p>
 <p>添加MysqlUser类：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
@@ -799,9 +798,9 @@
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>添加MysqlDepartment类：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
@@ -818,10 +817,10 @@
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>具体工厂</strong>：</p>
 <p>添加MysqlFactory类：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
     <span class="token keyword">class</span> <span class="token class-name">MysqlFactory</span> <span class="token punctuation">:</span> IFactory
     <span class="token punctuation">{</span>
@@ -835,9 +834,9 @@
             <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MysqlDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>修改测试类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> AbstractFactory
 <span class="token punctuation">{</span>
@@ -867,7 +866,7 @@
             Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>测试结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/抽象工厂模式/抽象工厂-业务扩展测试.png" alt="抽象工厂-业务扩展测试"></center>
 
@@ -894,7 +893,7 @@
 
 <p><strong>实体类</strong>：</p>
 <p><strong>User类</strong>:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">User</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">User</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
         <span class="token keyword">public</span> <span class="token keyword">int</span> ID
@@ -909,9 +908,9 @@
             <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _name<span class="token punctuation">;</span> <span class="token punctuation">}</span>
             <span class="token keyword">set</span> <span class="token punctuation">{</span> _name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>Department类</strong>:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Department</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Department</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
         <span class="token keyword">public</span> <span class="token keyword">int</span> ID
@@ -926,25 +925,25 @@
             <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _deptName<span class="token punctuation">;</span> <span class="token punctuation">}</span>
             <span class="token keyword">set</span> <span class="token punctuation">{</span> _deptName <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>抽象产品</strong>：</p>
 <p><strong>IUser类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">interface</span> <span class="token class-name">IUser</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">interface</span> <span class="token class-name">IUser</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         User <span class="token function">GetUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>IDepartment类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">interface</span> <span class="token class-name">IDepartment</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">interface</span> <span class="token class-name">IDepartment</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>具体产品</strong>：</p>
 <p><strong>SqlserverUser类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">SqlserverUser</span> <span class="token punctuation">:</span> IUser
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">SqlserverUser</span> <span class="token punctuation">:</span> IUser
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -956,9 +955,9 @@
             Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>AccessUser类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">AccessUser</span> <span class="token punctuation">:</span> IUser
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">AccessUser</span> <span class="token punctuation">:</span> IUser
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -970,9 +969,9 @@
             Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到User表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>SqlserverDepartment类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">SqlserverDepartment</span> <span class="token punctuation">:</span> IDepartment
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">SqlserverDepartment</span> <span class="token punctuation">:</span> IDepartment
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -984,9 +983,9 @@
             Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Sqlserver中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>AccessDepartment类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">AccessDepartment</span> <span class="token punctuation">:</span> IDepartment
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">AccessDepartment</span> <span class="token punctuation">:</span> IDepartment
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>Department department<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -998,10 +997,10 @@
             Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"在Access中根据ID得到Department表一条记录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>工厂类</strong>：</p>
 <p><strong>DataAccess类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">DataAccess</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">DataAccess</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">readonly</span> <span class="token keyword">string</span> db <span class="token operator">=</span> <span class="token string">"Sqlserver"</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">//private static readonly string db = "Access";</span>
@@ -1035,9 +1034,9 @@
             <span class="token punctuation">}</span>
             <span class="token keyword">return</span> result<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -1055,7 +1054,7 @@
 
             Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>测试结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/抽象工厂模式/用简单工厂来改进抽象工厂测试结果.png" alt="用简单工厂来改进抽象工厂测试结果"></center>
 
@@ -1066,7 +1065,7 @@
 </ul>
 <h2 id="绝佳改进方案"><a href="#绝佳改进方案" class="headerlink" title="绝佳改进方案"></a>绝佳改进方案</h2><p>​        使用简单工厂改进的抽象工厂中，引入switch导致程序耦合，添加后修改程序时需要修改一连串的类，通过某种方式避免这种耦合就可以达到绝佳的改进效果。下面引入：<strong>反射 + 配置文件 + 抽象工厂</strong></p>
 <p><strong>实体类</strong>：（User 、 Department）</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试基类</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试基类</span>
     <span class="token keyword">class</span> <span class="token class-name">User</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">private</span> <span class="token keyword">int</span> _id<span class="token punctuation">;</span>
@@ -1100,9 +1099,9 @@
             <span class="token keyword">set</span> <span class="token punctuation">{</span> _deptName <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>抽象产品</strong>：（IUser、IDepartment）</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> User类的数据操作接口</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> User类的数据操作接口</span>
     <span class="token keyword">interface</span> <span class="token class-name">IUser</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1118,9 +1117,9 @@
 
         Department <span class="token function">GetDepartment</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>具体产品</strong>：（SqlserverUser、AccessUser、SqlserverDepartment、AccessDepartment）</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> SqlserverUser类在SQL Server中对User执行相关操作</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> SqlserverUser类在SQL Server中对User执行相关操作</span>
     <span class="token keyword">class</span> <span class="token class-name">SqlserverUser</span> <span class="token punctuation">:</span> IUser
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Insert</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
@@ -1182,9 +1181,9 @@
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>工厂类</strong>：（DataAccess）</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 使用反射创建操作数据的接口</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 使用反射创建操作数据的接口</span>
     <span class="token keyword">class</span> <span class="token class-name">DataAccess</span>
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//程序集名称</span>
@@ -1208,17 +1207,17 @@
             <span class="token keyword">return</span> <span class="token punctuation">(</span>IDepartment<span class="token punctuation">)</span>Assembly<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span>AssemblyName<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">CreateInstance</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>app.config</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">?</span><span class="token operator">></span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">?</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>configuration<span class="token operator">></span>
     <span class="token operator">&lt;</span>appSettings<span class="token operator">></span>
         <span class="token operator">&lt;</span><span class="token keyword">add</span> key<span class="token operator">=</span><span class="token string">"DB"</span> <span class="token keyword">value</span><span class="token operator">=</span><span class="token string">"Sqlserver"</span><span class="token operator">/</span><span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>appSettings<span class="token operator">></span>
 <span class="token operator">&lt;</span>startup<span class="token operator">></span><span class="token operator">&lt;</span>supportedRuntime version<span class="token operator">=</span><span class="token string">"v4.0"</span> sku<span class="token operator">=</span><span class="token string">".NETFramework,Version=v4.6.1"</span><span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>startup<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>configuration<span class="token operator">></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -1239,7 +1238,7 @@
 
             Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span></code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>using System.Reflection;                        //使用反射必须要引入的命名空间</li>
@@ -1251,7 +1250,7 @@
 </ul>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>反射 + 配置文件 + 抽象工厂</strong>完整代码：</p>
 <p><strong>Program.cs</strong>:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/********************************************************
+<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/********************************************************
  * 设计模式：抽象工厂模式，（反射+配置文件+抽象工厂）
  * 
  * 反射：
@@ -1438,15 +1437,15 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
     <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>App.config</strong>文件：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">?</span><span class="token operator">></span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">?</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>configuration<span class="token operator">></span>
     <span class="token operator">&lt;</span>appSettings<span class="token operator">></span>
         <span class="token operator">&lt;</span><span class="token keyword">add</span> key<span class="token operator">=</span><span class="token string">"DB"</span> <span class="token keyword">value</span><span class="token operator">=</span><span class="token string">"Sqlserver"</span><span class="token operator">/</span><span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>appSettings<span class="token operator">></span>
 <span class="token operator">&lt;</span>startup<span class="token operator">></span><span class="token operator">&lt;</span>supportedRuntime version<span class="token operator">=</span><span class="token string">"v4.0"</span> sku<span class="token operator">=</span><span class="token string">".NETFramework,Version=v4.6.1"</span><span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>startup<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>configuration<span class="token operator">></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
             </div>
             <hr/>

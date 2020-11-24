@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><script src="/js/prism.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -552,7 +551,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/工厂方法模式/简单工厂方法模式类图.png" alt="简单工厂方法模式类图"></center>
 
 <p><strong>抽象产品角色</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">/// &lt;summary></span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">/// &lt;summary></span>
     <span class="token comment" spellcheck="true">/// 用于实例化工厂方法模式的基类（其一般为接口）</span>
     <span class="token comment" spellcheck="true">/// 1、若为接口，则只能定义商品所具有的行为，且继承于该接口的类必须对其进行实现</span>
     <span class="token comment" spellcheck="true">/// 2、若为类，一般将其定义为抽象类，</span>
@@ -576,9 +575,9 @@
         <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">string</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>具体产品角色</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体商品类对基类的继承与扩展</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体商品类对基类的继承与扩展</span>
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token punctuation">:</span> Pet
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 对接口中方法的实现</span>
@@ -602,9 +601,9 @@
             <span class="token keyword">return</span> <span class="token string">"Meaw Meaw..."</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>工厂角色</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 实例化商品的工厂</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 实例化商品的工厂</span>
     <span class="token comment" spellcheck="true">/// &lt;summary></span>
     <span class="token comment" spellcheck="true">/// 工厂类</span>
     <span class="token comment" spellcheck="true">/// &lt;/summary></span>
@@ -629,9 +628,9 @@
             <span class="token keyword">return</span> pet<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试类</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试类</span>
     <span class="token keyword">class</span> <span class="token class-name">SimpleFactoryMethod</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
@@ -648,21 +647,21 @@
             Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <h2 id="多工厂方法模式"><a href="#多工厂方法模式" class="headerlink" title="多工厂方法模式"></a><strong>多工厂方法模式</strong></h2><p>​        在多个工厂方法模式中，工厂类中每一个商品都有与其相对应的创建实例对象的方法。</p>
 <p><strong>多工厂方法模式UML类图</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/工厂方法模式/多方法工厂模式类图.png" alt="多方法工厂模式类图"></center>
 
 <p><strong>抽象产品角色</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 基类--接口形式展示</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 基类--接口形式展示</span>
     <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Pet</span>
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//商品的行为（方法）   --只有方法体</span>
         <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>具体产品角色</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体商品类对基类的继承与扩展</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体商品类对基类的继承与扩展</span>
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token punctuation">:</span> Pet
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 对接口中方法的实现</span>
@@ -686,9 +685,9 @@
             <span class="token keyword">return</span> <span class="token string">"Meaw Meaw..."</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>工厂角色</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 工厂角色</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 工厂角色</span>
     <span class="token comment" spellcheck="true">/// &lt;summary></span>
     <span class="token comment" spellcheck="true">/// 创建Pet的工厂类</span>
     <span class="token comment" spellcheck="true">/// &lt;/summary></span>
@@ -707,9 +706,9 @@
             <span class="token keyword">return</span> pet<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试类</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试类</span>
     <span class="token keyword">class</span> <span class="token class-name">MultipleFactoryMethod</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
@@ -726,21 +725,21 @@
             Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <h2 id="静态工厂方法模式"><a href="#静态工厂方法模式" class="headerlink" title="静态工厂方法模式"></a><strong>静态工厂方法模式</strong></h2><p>​        在静态工厂方法模式中，工厂类中每一个商品都有与其相对应的创建实例对象的静态方法</p>
 <p><strong>静态工厂方法模式</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/工厂方法模式/静态方法工厂模式类图.png" alt="静态方法工厂模式类图"></center>
 
 <p><strong>抽象产品角色</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 基类--接口形式展示</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 基类--接口形式展示</span>
     <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Pet</span>
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//商品的行为（方法）   --只有方法体</span>
         <span class="token keyword">string</span> <span class="token function">petSound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>具体产品角色</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体商品类对基类的继承与扩展</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 具体商品类对基类的继承与扩展</span>
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token punctuation">:</span> Pet
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 对接口中方法的实现</span>
@@ -764,9 +763,9 @@
             <span class="token keyword">return</span> <span class="token string">"Meaw Meaw..."</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>工厂角色</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 工厂角色</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 工厂角色</span>
     <span class="token comment" spellcheck="true">/// &lt;summary></span>
     <span class="token comment" spellcheck="true">/// 静态工厂</span>
     <span class="token comment" spellcheck="true">/// &lt;/summary></span>
@@ -785,9 +784,9 @@
             <span class="token keyword">return</span> pet<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试类</span>
+<pre class=" language-csharp"><code class="language-csharp">    <span class="token preprocessor property">#<span class="token directive keyword">region</span> 测试类</span>
     <span class="token keyword">class</span> <span class="token class-name">StaticMultiFactoryMethod</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
@@ -801,7 +800,7 @@
             Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span></code></pre>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="三种工厂方法模式的比较"><a href="#三种工厂方法模式的比较" class="headerlink" title="三种工厂方法模式的比较"></a>三种工厂方法模式的比较</h2><p><strong>相同点</strong>：</p>
 <ul>
 <li>都存在三种角色：(工厂角色、抽象产品角色(抽象类或接口)、具体产品角色)；</li>
@@ -1227,12 +1226,12 @@
                         <span class="chip bg-color">C#</span>
                     </a>
                     
-                    <a href="/tags/程序实现/">
-                        <span class="chip bg-color">程序实现</span>
-                    </a>
-                    
                     <a href="/tags/编码/">
                         <span class="chip bg-color">编码</span>
+                    </a>
+                    
+                    <a href="/tags/程序实现/">
+                        <span class="chip bg-color">程序实现</span>
                     </a>
                     
                 </div>

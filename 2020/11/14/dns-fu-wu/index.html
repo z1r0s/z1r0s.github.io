@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><script src="/js/prism.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -531,12 +530,12 @@
 </li>
 </ol>
 <h2 id="域名结构"><a href="#域名结构" class="headerlink" title="域名结构"></a>域名结构</h2><p><code>FQDN（完全合格域名）= 主机名.DNS后缀</code></p>
-<pre class="line-numbers language-html"><code class="language-html">www.jishubu.baidu.com.
+<pre class=" language-html"><code class="language-html">www.jishubu.baidu.com.
 www:主机名
 jishubu:三级域名
 baidu:二级域名
 com:一级域名(顶级域名)
-.:根<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+.:根</code></pre>
 <p><strong>顶级域名</strong>:</p>
 <ul>
 <li>国家代码标识某个国家（如cn、uk等）</li>
@@ -704,9 +703,9 @@ com:一级域名(顶级域名)
 </ul>
 </li>
 </ol>
-<h1 id="0x04-配置DNS客户端"><a href="#0x04-配置DNS客户端" class="headerlink" title="0x04 配置DNS客户端"></a>0x04 配置DNS客户端</h1><h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><pre class="line-numbers language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> static 8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><pre class="line-numbers language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> dhcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="DNS相关命令"><a href="#DNS相关命令" class="headerlink" title="DNS相关命令"></a>DNS相关命令</h2><pre class="line-numbers language-powershell"><code class="language-powershell">1<span class="token punctuation">.</span>清空本地DNS缓存记录
+<h1 id="0x04-配置DNS客户端"><a href="#0x04-配置DNS客户端" class="headerlink" title="0x04 配置DNS客户端"></a>0x04 配置DNS客户端</h1><h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><pre class=" language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> static 8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8</code></pre>
+<h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><pre class=" language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> dhcp</code></pre>
+<h2 id="DNS相关命令"><a href="#DNS相关命令" class="headerlink" title="DNS相关命令"></a>DNS相关命令</h2><pre class=" language-powershell"><code class="language-powershell">1<span class="token punctuation">.</span>清空本地DNS缓存记录
 ipconfig <span class="token operator">/</span>flushdns
 
 2<span class="token punctuation">.</span>测试DNS服务器
@@ -748,7 +747,7 @@ expire = 360000 <span class="token punctuation">(</span>4 days 4 hours<span clas
 有效时间，区域复制在有效时间内不能完成，则终止更新（设置时间要比刷新和重试时间长）
 
 default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="token punctuation">)</span>
-表示DNS记录在DNS服务器上缓存时间，数值越小，修改记录各地生效时间越快。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+表示DNS记录在DNS服务器上缓存时间，数值越小，修改记录各地生效时间越快。</code></pre>
 
             </div>
             <hr/>

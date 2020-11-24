@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><script src="/js/prism.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -563,8 +562,8 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Wireless/CrackPasswordOfWPA/修改网卡MAC地址.png" alt="修改网卡MAC地址"></center>
 </li>
 <li><p><strong>设置无线网卡为监听模式</strong>。使用如下所示命令开启无线网卡的监听模式，操作结果如下图所示。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">airmon-ng check kill
-airmon-ng start wlan0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">airmon-ng check kill
+airmon-ng start wlan0</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Wireless/CrackPasswordOfWPA/开启网卡监听端口.png" alt="开启网卡监听端口"></center>
 </li>
 <li><p><strong>查看周围网络</strong>。使用<code>airodump-ng wlan0</code>命令查看周围的无线网络，操作结果如下图所示。</p>
@@ -609,7 +608,7 @@ airmon-ng start wlan0<span aria-hidden="true" class="line-numbers-rows"><span></
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Wireless/CrackPasswordOfWPA/cap转hccapx.png" alt="cap转hccapx"></center>
 </li>
 <li><p>使用<code>hashcat</code>破解破解握手包，操作结果如下图所示。</p>
-<pre class="line-numbers language-powershell"><code class="language-powershell">hashcat<span class="token punctuation">.</span>exe <span class="token operator">-</span>m 2500 <span class="token operator">-</span>D 2 C:\Users\yushe\Desktop\nova<span class="token punctuation">.</span>hccapx D:\Rolan\Tools\Dicts\top100<span class="token punctuation">.</span>txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-powershell"><code class="language-powershell">hashcat<span class="token punctuation">.</span>exe <span class="token operator">-</span>m 2500 <span class="token operator">-</span>D 2 C:\Users\yushe\Desktop\nova<span class="token punctuation">.</span>hccapx D:\Rolan\Tools\Dicts\top100<span class="token punctuation">.</span>txt</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Wireless/CrackPasswordOfWPA/hashcat破解.png" alt="hashcat破解"></center>
 
 
