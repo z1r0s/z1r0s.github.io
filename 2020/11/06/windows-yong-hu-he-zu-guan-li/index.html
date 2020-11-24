@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -529,9 +528,9 @@
 <li><code>相对ID(用户ID)</code>： <font color="red">500 </font>是<code>Administrator</code>账户的相对ID ；新建的第一个用户是<font color="red">1000</font>，第二个是<font color="red">1001</font>，依次类推。</li>
 </ul>
 <p>举个栗子：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">S-1-5-21-2884017511-3916249987-3152507841-1001
+<pre class=" language-shell"><code class="language-shell">S-1-5-21-2884017511-3916249987-3152507841-1001
 WIndows-ID：S-1-5-21-2884017511-3916249987-3152507841
-User-ID：1001<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+User-ID：1001</code></pre>
 <h1 id="账户分类"><a href="#账户分类" class="headerlink" title="账户分类"></a>账户分类</h1><h2 id="1-与使用者相关联的账户"><a href="#1-与使用者相关联的账户" class="headerlink" title="1. 与使用者相关联的账户"></a>1. 与使用者相关联的账户</h2><ul>
 <li><code>Administrator</code>：默认管理员账户（使用者中权限最高）</li>
 <li><code>Guest</code>： 访客使用（默认禁用）</li>
@@ -552,7 +551,7 @@ User-ID：1001<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 
 </li>
 </ol>
-<h2 id="命令行界面管理用户"><a href="#命令行界面管理用户" class="headerlink" title="命令行界面管理用户"></a>命令行界面管理用户</h2><pre class="line-numbers language-shell"><code class="language-shell">1.查看所有用户
+<h2 id="命令行界面管理用户"><a href="#命令行界面管理用户" class="headerlink" title="命令行界面管理用户"></a>命令行界面管理用户</h2><pre class=" language-shell"><code class="language-shell">1.查看所有用户
 net user
 
 查看admin用户信息
@@ -582,7 +581,7 @@ net user zhangsan /del
 
 5.将用户加入指定组qq.com
 -- 将zhangsanj加入administrators管理组
-net localgroup administrators zhangsan /add<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+net localgroup administrators zhangsan /add</code></pre>
 <h1 id="组的定义"><a href="#组的定义" class="headerlink" title="组的定义"></a>组的定义</h1><p>​        一些账户的集合，为“组”设置权限后，隶属于该组的账户默认具有这些权限，方便管理</p>
 <h1 id="组的分类"><a href="#组的分类" class="headerlink" title="组的分类"></a>组的分类</h1><h2 id="1-需要人为添加成员的组"><a href="#1-需要人为添加成员的组" class="headerlink" title="1. 需要人为添加成员的组"></a>1. 需要人为添加成员的组</h2><ul>
 <li><code>Administrators</code>组：默认管理员组  （<font color="blue">可以将账户加入该组让用户具有管理员权限）</font></li>
@@ -606,7 +605,7 @@ net localgroup administrators zhangsan /add<span aria-hidden="true" class="line-
 
 </li>
 </ol>
-<h2 id="命令管理用户"><a href="#命令管理用户" class="headerlink" title="命令管理用户"></a>命令管理用户</h2><pre class="line-numbers language-shell"><code class="language-shell">1.    命令创建组
+<h2 id="命令管理用户"><a href="#命令管理用户" class="headerlink" title="命令管理用户"></a>命令管理用户</h2><pre class=" language-shell"><code class="language-shell">1.    命令创建组
 -- 创建jishubu组
 net localgroup jishubu /add 
 
@@ -620,7 +619,7 @@ net localgroup administrators zhangsan /add
 
 4.  把指定用户踢出组
 -- 将用户zhangsan踢出administrators组
-net localgroup administrators zhangsan /del<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+net localgroup administrators zhangsan /del</code></pre>
 <h1 id="实验练习"><a href="#实验练习" class="headerlink" title="实验练习"></a>实验练习</h1><ul>
 <li><a href="https://z1r0s.github.io/2020/11/05/windows-fang-wen-kong-zhi-lie-biao-pei-zhi-shi-yan/">Windows访问控制列表配置实验</a></li>
 </ul>

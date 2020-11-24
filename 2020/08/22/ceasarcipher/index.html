@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -565,7 +564,7 @@
 </li>
 </ul>
 <h1 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h1><p><strong>Ceasar类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> DemoCeasar
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> DemoCeasar
 <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Ceasar</span>
     <span class="token punctuation">{</span>
@@ -708,7 +707,7 @@
         <span class="token punctuation">}</span>
         <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>Ceasar类核心解读：</p>
 <p>​        在ceasar中理解的字母表是一个转轮的形式，但在实际的存储中而是以线性方式存储，所有在本代码中通过使用《初等数论》中的<strong>模运算</strong>来得到移位后的字母。（全部以<strong>“A”</strong>为基准）</p>
 <ol>
@@ -719,7 +718,7 @@
 <li>得到相对于“A”偏移字母的ASCII码并将其<strong>强制转化为字母</strong></li>
 </ol>
 <p><strong>Program测试类：</strong></p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 
 <span class="token keyword">namespace</span> DemoCeasar
 <span class="token punctuation">{</span>
@@ -767,7 +766,7 @@
             Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p><strong>加密操作</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CeasarCipher/EnCrypt.png" alt="EnCrypt"></center>
 
@@ -776,7 +775,7 @@
 
 <h1 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h1><p>​        Ceasar密码作为经典的加密算法，在罗马时期有很好的应用。其明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合，也即其加密的密钥有25种情况(<font color="blue">0不计算在内</font>)，通过枚举密钥的方式揣测明文。</p>
 <h2 id="穷举搜索"><a href="#穷举搜索" class="headerlink" title="穷举搜索"></a>穷举搜索</h2><p><strong>CrackSeasar类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> Crack_Seasar
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> Crack_Seasar
 <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CrackSeasar</span>
     <span class="token punctuation">{</span>
@@ -811,9 +810,9 @@
         <span class="token punctuation">}</span>
         <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>Program测试类</strong>：</p>
-<pre class="line-numbers language-csahrp"><code class="language-csahrp">using System;
+<pre class=" language-csahrp"><code class="language-csahrp">using System;
 
 namespace Crack_Seasar
 {
@@ -839,7 +838,7 @@ namespace Crack_Seasar
             Console.ReadKey();
         }
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}</code></pre>
 <p><strong>测试结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CeasarCipher/EnumerativeSearch1.png" alt="EnumerativeSearch1"></center>
 

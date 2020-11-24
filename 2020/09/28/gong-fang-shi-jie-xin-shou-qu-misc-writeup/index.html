@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -735,7 +734,7 @@
 <img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/base64stoge_winrar_stoge.png">
 </li>
 <li><p>使用如下poc对base64stoge进行解密。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#! python2</span>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#! python2</span>
 <span class="token comment" spellcheck="true"># base64stogeDecode.py - A poc.</span>
 
 <span class="token keyword">import</span> base64
@@ -749,7 +748,7 @@ b64chars <span class="token operator">=</span> <span class="token string">'ABCDE
         equalnum <span class="token operator">=</span> stegb64<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># no equalnum no offset</span>
         <span class="token keyword">if</span> equalnum<span class="token punctuation">:</span>
             bin_str <span class="token operator">+=</span> bin<span class="token punctuation">(</span>offset<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">.</span>zfill<span class="token punctuation">(</span>equalnum <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>chr<span class="token punctuation">(</span>int<span class="token punctuation">(</span>bin_str<span class="token punctuation">[</span>i<span class="token punctuation">:</span>i <span class="token operator">+</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>bin_str<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>chr<span class="token punctuation">(</span>int<span class="token punctuation">(</span>bin_str<span class="token punctuation">[</span>i<span class="token punctuation">:</span>i <span class="token operator">+</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>bin_str<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/base64stoge_python_poc_flag.png">
 </li>
 <li><p>得到Flag：<code>flag{Base_sixty_four_point_five}</code></p>

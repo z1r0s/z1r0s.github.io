@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -547,7 +546,7 @@
 </ul>
 <h1 id="0x03-实验步骤"><a href="#0x03-实验步骤" class="headerlink" title="0x03 实验步骤"></a>0x03 实验步骤</h1><ol>
 <li><p>创建用户、组并将用户划分到指定的组中。</p>
-<pre class="line-numbers language-shell"><code class="language-shell"># 创建组
+<pre class=" language-shell"><code class="language-shell"># 创建组
 net localgroup jishubu /add
 net localgroup caiwubu /add
 net localgroup xiaoshoubu /add
@@ -572,7 +571,7 @@ net localgroup xiaoshoubu xiaoshoubuyg /add
 net localgroup jingli zongjingli /add
 net localgroup jingli jishubujl /add
 net localgroup jingli caiwubujl /add
-net localgroup jingli xiaoshoubujl /add<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+net localgroup jingli xiaoshoubujl /add</code></pre>
 </li>
 <li><p>设置<code>public</code>文件夹权限。打开属性界面在安全的高级属性界面中<strong>取消继承权限</strong>，再删除无用组<strong>添加目的组或用户并设置相关权限</strong>。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/WindowsAccessControl/public文件权限设置.gif" alt="public文件权限设置"></center>
@@ -635,7 +634,7 @@ net localgroup jingli xiaoshoubujl /add<span aria-hidden="true" class="line-numb
 </ul>
 <h1 id="0x06-附录"><a href="#0x06-附录" class="headerlink" title="0x06 附录"></a>0x06 附录</h1><ul>
 <li><p>还原系统中的用户、组信息</p>
-<pre class="line-numbers language-shell"><code class="language-shell"># 删除
+<pre class=" language-shell"><code class="language-shell"># 删除
 net localgroup jishubu /del
 net localgroup caiwubu /del
 net localgroup xiaoshoubu /del
@@ -647,7 +646,7 @@ net user caiwubujl /del
 net user caiwubuyg /del
 net user xiaoshoubujl /del
 net user xiaoshoubuyg /del
-net user zongjingli /del<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+net user zongjingli /del</code></pre>
 </li>
 </ul>
 

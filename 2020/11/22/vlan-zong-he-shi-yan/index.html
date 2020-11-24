@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -606,7 +605,7 @@
 <li>DHCP跨VLAN分配IP必须配置DHCP中继</li>
 </ol>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p>tj-sw1:</p>
-<pre class="line-numbers language-shell"><code class="language-shell">en
+<pre class=" language-shell"><code class="language-shell">en
 conf t
 no ip domain-lookup
 line console 0
@@ -641,9 +640,9 @@ int vlan 10
 ip add 192.168.10.2 255.255.255.0
 no sh
 ex
-ip default-gateway 192.168.20.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ip default-gateway 192.168.20.1</code></pre>
 <p>tj-sw2:</p>
-<pre class="line-numbers language-shell"><code class="language-shell">en
+<pre class=" language-shell"><code class="language-shell">en
 conf t
 no ip domain-lookup
 line console 0
@@ -674,9 +673,9 @@ int vlan 10
 ip add 192.168.10.3 255.255.255.0
 no sh
 ex
-ip default-gateway 192.168.20.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ip default-gateway 192.168.20.1</code></pre>
 <p>tj-R:</p>
-<pre class="line-numbers language-shell"><code class="language-shell">en
+<pre class=" language-shell"><code class="language-shell">en
 conf t
 no ip domain-lookup
 line console 0
@@ -717,9 +716,9 @@ line vty 0 4
 pass cisco
 login
 exit
-enable pass cisco<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+enable pass cisco</code></pre>
 <p>ISP-A:</p>
-<pre class="line-numbers language-shell"><code class="language-shell">en
+<pre class=" language-shell"><code class="language-shell">en
 conf t
 no ip domain-lookup
 line console 0
@@ -741,9 +740,9 @@ route rip
 version 2
 network 223.221.159.0
 network 111.111.111.0
-network 11.11.11.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+network 11.11.11.0</code></pre>
 <p>ISP-B:</p>
-<pre class="line-numbers language-shell"><code class="language-shell">en
+<pre class=" language-shell"><code class="language-shell">en
 conf t
 no ip domain-lookup
 line console 0
@@ -766,9 +765,9 @@ route rip
 version 2
 network 11.11.11.0
 network 222.222.222.0
-network 223.11.115.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+network 223.11.115.0</code></pre>
 <p>bj-R:</p>
-<pre class="line-numbers language-shell"><code class="language-shell">en
+<pre class=" language-shell"><code class="language-shell">en
 conf t
 no ip domain-lookup
 line console 0
@@ -812,9 +811,9 @@ line vty 0 4
 pass cisco
 login
 exit
-enable pass cisco<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+enable pass cisco</code></pre>
 <p>bj-sw:</p>
-<pre class="line-numbers language-shell"><code class="language-shell">en
+<pre class=" language-shell"><code class="language-shell">en
 conf t
 no ip domain-lookup
 line console 0
@@ -844,7 +843,7 @@ int vlan 100
 ip add 192.168.100.2 255.255.255.0
 no sh
 ex
-ip default-gateway 192.168.100.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ip default-gateway 192.168.100.1</code></pre>
 
             </div>
             <hr/>

