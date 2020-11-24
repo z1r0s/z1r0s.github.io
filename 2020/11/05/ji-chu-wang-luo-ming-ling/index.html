@@ -399,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    448
+                    433
                 </div>
                 
 
@@ -421,110 +421,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="基础网络命令"><a href="#基础网络命令" class="headerlink" title="基础网络命令"></a>基础网络命令</h1><pre><code class="shell"># 查看IP地址
-ipconfig /all
-
-# 查询账号所属权限
-whoami
-
-# 查看sid值
-whoami /all
-
-# 查询系统以及补丁信息
-systeminfo
-
-# 查看进程
-tasklist /svc  
-
-# 结束进程
-taskkill /im 进程名称(cmd) 
-taskkill /pid [进程码] -t(结束该进程) -f(强制结束该进程和子进程)
-
-# 查看已安装过得补丁
-wmic qfe get hotfixid
-
-# 详细的补丁安装
-wmic qfe list full /format:htable &gt; hotfixid.html
-
-# 显示该机器名的IP
-ping hostname(主机名)
-
-# 查看当前运行的服务
-net start
-
-# 查看本地组的用户
-net user
-
-#  查看当前会话
-net session
-
-# 查看SMB指向的路径
-net share
-
-# 建立IPC会话
-net use \\IP\ipc$ password /user:username 
-
-
-# 查看SMB指向的路径
-wmic share get name,path
-
-# 查询系统日志文件存储位置
-wmic nteventlog get path,filename,writeable
-
-#  建立IPC会话
-net use \\IP\ipc$ password /user:username 
-
-#  查看开放的端口
-netstat -ano  
-
-#  找到3389端口
-netstat -an | find “3389”  
-
-# 查看本地密码策略
-net accounts
-
-# netbiso查询
-nbtstat –A ip
-
-# 查看机器注释
-net view
-
-# 查看系统是32还是64位
-echo %PROCESSOR_ARCHITECTURE%
-
-# 查看系统环境设置变量
-set
-
-#  查看进程服务
-wmic service list brief 
-
-# 查看进程
-wmic process list brief 
-
-# 查看启动程序信息
-wmic startup list brief 
-
-# 查看安装程序和版本信息
-wmic product list brief 
-
-#  识别开机启动的程序
-wmic startup list full  
-
-#  查看安装软件以及版本路径等信息，输出到pro.txt
-wmic product &gt; pro.txt    
-
-#  查看是否支持posershell
-if defined PSModulePath (echo 支持powershell) else (echo 不支持powershell) 
-
-# 查看登录情况
-qwinsta
-
-# 查看保存在注册表中的密码
-REG query HKCU /v &quot;pwd&quot; /s 
-
-# 批量扫描内网存活主机（192.168.1.内网IP段）
-for /l %i in (1,1,255) do @ping 192.168.1.%i -w 1 -n 1 | find /i&quot;ttl&quot; </code></pre>
-
+                <h1 id="基础网络命令"><a href="#基础网络命令" class="headerlink" title="基础网络命令"></a>基础网络命令</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看IP地址</span><br>ipconfig /all<br><span class="hljs-meta"><br>#</span><span class="bash"> 查询账号所属权限</span><br>whoami<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看sid值</span><br>whoami /all<br><span class="hljs-meta"><br>#</span><span class="bash"> 查询系统以及补丁信息</span><br>systeminfo<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看进程</span><br>tasklist /svc  <br><span class="hljs-meta"><br>#</span><span class="bash"> 结束进程</span><br>taskkill /im 进程名称(cmd) <br>taskkill /pid [进程码] -t(结束该进程) -f(强制结束该进程和子进程)<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看已安装过得补丁</span><br>wmic qfe get hotfixid<br><span class="hljs-meta"><br>#</span><span class="bash"> 详细的补丁安装</span><br>wmic qfe list full /format:htable &gt; hotfixid.html<br><span class="hljs-meta"><br>#</span><span class="bash"> 显示该机器名的IP</span><br>ping hostname(主机名)<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看当前运行的服务</span><br>net start<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看本地组的用户</span><br>net user<br><span class="hljs-meta"><br>#</span><span class="bash">  查看当前会话</span><br>net session<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看SMB指向的路径</span><br>net share<br><span class="hljs-meta"><br>#</span><span class="bash"> 建立IPC会话</span><br>net use \\IP\ipc$ password /user:username <br><span class="hljs-meta"><br><br>#</span><span class="bash"> 查看SMB指向的路径</span><br>wmic share get name,path<br><span class="hljs-meta"><br>#</span><span class="bash"> 查询系统日志文件存储位置</span><br>wmic nteventlog get path,filename,writeable<br><span class="hljs-meta"><br>#</span><span class="bash">  建立IPC会话</span><br>net use \\IP\ipc$ password /user:username <br><span class="hljs-meta"><br>#</span><span class="bash">  查看开放的端口</span><br>netstat -ano  <br><span class="hljs-meta"><br>#</span><span class="bash">  找到3389端口</span><br>netstat -an | find “3389”  <br><span class="hljs-meta"><br>#</span><span class="bash"> 查看本地密码策略</span><br>net accounts<br><span class="hljs-meta"><br>#</span><span class="bash"> netbiso查询</span><br>nbtstat –A ip<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看机器注释</span><br>net view<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看系统是32还是64位</span><br>echo %PROCESSOR_ARCHITECTURE%<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看系统环境设置变量</span><br>set<br><span class="hljs-meta"><br>#</span><span class="bash">  查看进程服务</span><br>wmic service list brief <br><span class="hljs-meta"><br>#</span><span class="bash"> 查看进程</span><br>wmic process list brief <br><span class="hljs-meta"><br>#</span><span class="bash"> 查看启动程序信息</span><br>wmic startup list brief <br><span class="hljs-meta"><br>#</span><span class="bash"> 查看安装程序和版本信息</span><br>wmic product list brief <br><span class="hljs-meta"><br>#</span><span class="bash">  识别开机启动的程序</span><br>wmic startup list full  <br><span class="hljs-meta"><br>#</span><span class="bash">  查看安装软件以及版本路径等信息，输出到pro.txt</span><br>wmic product &gt; pro.txt    <br><span class="hljs-meta"><br>#</span><span class="bash">  查看是否支持posershell</span><br>if defined PSModulePath (echo 支持powershell) else (echo 不支持powershell) <br><span class="hljs-meta"><br>#</span><span class="bash"> 查看登录情况</span><br>qwinsta<br><span class="hljs-meta"><br>#</span><span class="bash"> 查看保存在注册表中的密码</span><br>REG query HKCU /v "pwd" /s <br><span class="hljs-meta"><br>#</span><span class="bash"> 批量扫描内网存活主机（192.168.1.内网IP段）</span><br>for /l %i in (1,1,255) do @ping 192.168.1.%i -w 1 -n 1 | find /i"ttl"<br></code></pre></td></tr></table></figure>
             </div>
             <hr/>
 
@@ -1054,7 +951,7 @@ for /l %i in (1,1,255) do @ping 192.168.1.%i -w 1 -n 1 | find /i&quot;ttl&quot; 
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

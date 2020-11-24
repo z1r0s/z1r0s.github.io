@@ -530,12 +530,8 @@
 </li>
 </ol>
 <h2 id="域名结构"><a href="#域名结构" class="headerlink" title="域名结构"></a>域名结构</h2><p><code>FQDN（完全合格域名）= 主机名.DNS后缀</code></p>
-<pre><code class="html">www.jishubu.baidu.com.
-www:主机名
-jishubu:三级域名
-baidu:二级域名
-com:一级域名(顶级域名)
-.:根</code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html">www.jishubu.baidu.com.<br>www:主机名<br>jishubu:三级域名<br>baidu:二级域名<br>com:一级域名(顶级域名)<br>.:根<br></code></pre></td></tr></table></figure>
+
 <p><strong>顶级域名</strong>:</p>
 <ul>
 <li>国家代码标识某个国家（如cn、uk等）</li>
@@ -703,51 +699,12 @@ com:一级域名(顶级域名)
 </ul>
 </li>
 </ol>
-<h1 id="0x04-配置DNS客户端"><a href="#0x04-配置DNS客户端" class="headerlink" title="0x04 配置DNS客户端"></a>0x04 配置DNS客户端</h1><h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><pre><code class="powershell">netsh interface ip set dnsserver &quot;本地连接&quot; static 8.8.8.8</code></pre>
-<h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><pre><code class="powershell">netsh interface ip set dnsserver &quot;本地连接&quot; dhcp</code></pre>
-<h2 id="DNS相关命令"><a href="#DNS相关命令" class="headerlink" title="DNS相关命令"></a>DNS相关命令</h2><pre><code class="powershell">1.清空本地DNS缓存记录
-ipconfig /flushdns
+<h1 id="0x04-配置DNS客户端"><a href="#0x04-配置DNS客户端" class="headerlink" title="0x04 配置DNS客户端"></a>0x04 配置DNS客户端</h1><h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">netsh interface ip set dnsserver <span class="hljs-string">"本地连接"</span> static <span class="hljs-number">8.8</span>.<span class="hljs-number">8.8</span><br></code></pre></td></tr></table></figure>
 
-2.测试DNS服务器
-nslookup
+<h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">netsh interface ip set dnsserver <span class="hljs-string">"本地连接"</span> dhcp<br></code></pre></td></tr></table></figure>
 
-3.查询域名相关信息（https://blog.csdn.net/qq_15727809/article/details/70052534）
-nslookup -qt=type 域名 DNSip或是域名
-type=
-A 地址记录
-AAAA 地址记录
-CNAME 别名记录
-HINFO 硬件配置记录，包括CPU、操作系统信息
-MX 邮件服务器记录
-NS 名字服务器记录
-PTR 反向记录
-1.例如： nslookup -qt=mx baidu.com 8.8.8.8
+<h2 id="DNS相关命令"><a href="#DNS相关命令" class="headerlink" title="DNS相关命令"></a>DNS相关命令</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-number">1</span>.清空本地DNS缓存记录<br>ipconfig /flushdns<br><br><span class="hljs-number">2</span>.测试DNS服务器<br>nslookup<br><br><span class="hljs-number">3</span>.查询域名相关信息（https://blog.csdn.net/qq_15727809/article/details/<span class="hljs-number">70052534</span>）<br>nslookup -qt=type 域名 DNSip或是域名<br>type=<br>A 地址记录<br>AAAA 地址记录<br>CNAME 别名记录<br>HINFO 硬件配置记录，包括CPU、操作系统信息<br>MX 邮件服务器记录<br>NS 名字服务器记录<br>PTR 反向记录<br><span class="hljs-number">1</span>.例如： nslookup -qt=mx baidu.com <span class="hljs-number">8.8</span>.<span class="hljs-number">8.8</span><br><br><span class="hljs-number">2</span>.nslookup -d www.baidu.com<br>可以看到本地ISP服务器上缓存的时间，就算刷新了本机操作系统缓存，ISP上仍然存.<br><br><span class="hljs-number">3</span>.&gt;nslookup -qt=cname lanou.com <span class="hljs-number">202.106</span>.<span class="hljs-number">0.20</span><br>primary name server = ns.<span class="hljs-number">163</span>.com<br>主要名字服务器（DNS记录文件所在的主机位置	）<br><br>responsible mail addr = admin.NEASE.NET<br>记录主机管理员邮件地址admin@nease.net<br><br>serial = <span class="hljs-number">20010348</span><br>区域传递序号，又叫文件版本，当发生区域复制时，该域用来指示区域信息的更新情况。<br>格式为：yyyymmddnn,nn代表这一天是第几次修改，辅助DNS通过比较这个号来决定是否复制该信息。大表示新。<br><br>refresh = <span class="hljs-number">10800</span> (<span class="hljs-number">3</span> hours)<br>重刷新时间，当区域复制发生时，指定区域复制的更新时间间隔（告诉该区域的辅助DNS间隔多久检查该区域的数据是否是最新的）<br><br>retry = <span class="hljs-number">3600</span> (<span class="hljs-number">1</span> hour)<br>重试时间，区域复制失败时，重新尝试的时间（要比刷新时间短）<br><br>expire = <span class="hljs-number">360000</span> (<span class="hljs-number">4</span> days <span class="hljs-number">4</span> hours)<br>有效时间，区域复制在有效时间内不能完成，则终止更新（设置时间要比刷新和重试时间长）<br><br>default TTL = <span class="hljs-number">3600</span> (<span class="hljs-number">1</span> hour)<br>表示DNS记录在DNS服务器上缓存时间，数值越小，修改记录各地生效时间越快。<br></code></pre></td></tr></table></figure>
 
-2.nslookup -d www.baidu.com
-可以看到本地ISP服务器上缓存的时间，就算刷新了本机操作系统缓存，ISP上仍然存.
-
-3.&gt;nslookup -qt=cname lanou.com 202.106.0.20
-primary name server = ns.163.com
-主要名字服务器（DNS记录文件所在的主机位置    ）
-
-responsible mail addr = admin.NEASE.NET
-记录主机管理员邮件地址admin@nease.net
-
-serial = 20010348
-区域传递序号，又叫文件版本，当发生区域复制时，该域用来指示区域信息的更新情况。
-格式为：yyyymmddnn,nn代表这一天是第几次修改，辅助DNS通过比较这个号来决定是否复制该信息。大表示新。
-
-refresh = 10800 (3 hours)
-重刷新时间，当区域复制发生时，指定区域复制的更新时间间隔（告诉该区域的辅助DNS间隔多久检查该区域的数据是否是最新的）
-
-retry = 3600 (1 hour)
-重试时间，区域复制失败时，重新尝试的时间（要比刷新时间短）
-
-expire = 360000 (4 days 4 hours)
-有效时间，区域复制在有效时间内不能完成，则终止更新（设置时间要比刷新和重试时间长）
-
-default TTL = 3600 (1 hour)
-表示DNS记录在DNS服务器上缓存时间，数值越小，修改记录各地生效时间越快。</code></pre>
 
             </div>
             <hr/>
@@ -1372,7 +1329,7 @@ default TTL = 3600 (1 hour)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

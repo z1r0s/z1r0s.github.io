@@ -455,12 +455,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CRYPTO/">
-                                <span class="chip bg-color">CRYPTO</span>
-                            </a>
-                        
                             <a href="/tags/writeup/">
                                 <span class="chip bg-color">writeup</span>
+                            </a>
+                        
+                            <a href="/tags/CRYPTO/">
+                                <span class="chip bg-color">CRYPTO</span>
                             </a>
                         
                     </div>
@@ -498,14 +498,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.3k
+                    5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    19 分
                 </div>
                 
 
@@ -588,58 +588,8 @@
 <li>Morse</li>
 </ul>
 <p><strong>0x06 POC</strong></p>
-<pre><code class="python">#!/usr/bin/env python3
-# -*- coding:utf-8 -*-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span><br><span class="hljs-comment"># -*- coding:utf-8 -*-</span><br><br>CODE_TABLE = &#123;<br>    <span class="hljs-comment"># 26 个英文字符</span><br>    <span class="hljs-string">'A'</span>: <span class="hljs-string">'.-'</span>, <span class="hljs-string">'B'</span>: <span class="hljs-string">'-...'</span>, <span class="hljs-string">'C'</span>: <span class="hljs-string">'-.-.'</span>,<br>    <span class="hljs-string">'D'</span>: <span class="hljs-string">'-..'</span>, <span class="hljs-string">'E'</span>: <span class="hljs-string">'.'</span>, <span class="hljs-string">'F'</span>: <span class="hljs-string">'..-.'</span>,<br>    <span class="hljs-string">'G'</span>: <span class="hljs-string">'--.'</span>, <span class="hljs-string">'H'</span>: <span class="hljs-string">'....'</span>, <span class="hljs-string">'I'</span>: <span class="hljs-string">'..'</span>,<br>    <span class="hljs-string">'J'</span>: <span class="hljs-string">'.---'</span>, <span class="hljs-string">'K'</span>: <span class="hljs-string">'-.-'</span>, <span class="hljs-string">'L'</span>: <span class="hljs-string">'.-..'</span>,<br>    <span class="hljs-string">'M'</span>: <span class="hljs-string">'--'</span>, <span class="hljs-string">'N'</span>: <span class="hljs-string">'-.'</span>, <span class="hljs-string">'O'</span>: <span class="hljs-string">'---'</span>,<br>    <span class="hljs-string">'P'</span>: <span class="hljs-string">'.--.'</span>, <span class="hljs-string">'Q'</span>: <span class="hljs-string">'--.-'</span>, <span class="hljs-string">'R'</span>: <span class="hljs-string">'.-.'</span>,<br>    <span class="hljs-string">'S'</span>: <span class="hljs-string">'...'</span>, <span class="hljs-string">'T'</span>: <span class="hljs-string">'-'</span>, <span class="hljs-string">'U'</span>: <span class="hljs-string">'..-'</span>,<br>    <span class="hljs-string">'V'</span>: <span class="hljs-string">'...-'</span>, <span class="hljs-string">'W'</span>: <span class="hljs-string">'.--'</span>, <span class="hljs-string">'X'</span>: <span class="hljs-string">'-..-'</span>,<br>    <span class="hljs-string">'Y'</span>: <span class="hljs-string">'-.--'</span>, <span class="hljs-string">'Z'</span>: <span class="hljs-string">'--..'</span>,<br><br>    <span class="hljs-comment"># 10 个数字</span><br>    <span class="hljs-string">'0'</span>: <span class="hljs-string">'-----'</span>, <span class="hljs-string">'1'</span>: <span class="hljs-string">'.----'</span>, <span class="hljs-string">'2'</span>: <span class="hljs-string">'..---'</span>,<br>    <span class="hljs-string">'3'</span>: <span class="hljs-string">'...--'</span>, <span class="hljs-string">'4'</span>: <span class="hljs-string">'....-'</span>, <span class="hljs-string">'5'</span>: <span class="hljs-string">'.....'</span>,<br>    <span class="hljs-string">'6'</span>: <span class="hljs-string">'-....'</span>, <span class="hljs-string">'7'</span>: <span class="hljs-string">'--...'</span>, <span class="hljs-string">'8'</span>: <span class="hljs-string">'---..'</span>,<br>    <span class="hljs-string">'9'</span>: <span class="hljs-string">'----.'</span>,<br><br>    <span class="hljs-comment"># 16 个特殊字符</span><br>    <span class="hljs-string">','</span>: <span class="hljs-string">'--..--'</span>, <span class="hljs-string">'.'</span>: <span class="hljs-string">'.-.-.-'</span>, <span class="hljs-string">':'</span>: <span class="hljs-string">'---...'</span>, <span class="hljs-string">';'</span>: <span class="hljs-string">'-.-.-.'</span>,<br>    <span class="hljs-string">'?'</span>: <span class="hljs-string">'..--..'</span>, <span class="hljs-string">'='</span>: <span class="hljs-string">'-...-'</span>, <span class="hljs-string">"'"</span>: <span class="hljs-string">'.----.'</span>, <span class="hljs-string">'/'</span>: <span class="hljs-string">'-..-.'</span>,<br>    <span class="hljs-string">'!'</span>: <span class="hljs-string">'-.-.--'</span>, <span class="hljs-string">'-'</span>: <span class="hljs-string">'-....-'</span>, <span class="hljs-string">'_'</span>: <span class="hljs-string">'..--.-'</span>, <span class="hljs-string">'('</span>: <span class="hljs-string">'-.--.'</span>,<br>    <span class="hljs-string">')'</span>: <span class="hljs-string">'-.--.-'</span>, <span class="hljs-string">'$'</span>: <span class="hljs-string">'...-..-'</span>, <span class="hljs-string">'&amp;'</span>: <span class="hljs-string">'. . . .'</span>, <span class="hljs-string">'@'</span>: <span class="hljs-string">'.--.-.'</span><br><br>    <span class="hljs-comment"># 你还可以自定义</span><br><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">morsedecode</span><span class="hljs-params">(morse)</span>:</span><br>    msg =<span class="hljs-string">''</span><br>    codes = morse.split(<span class="hljs-string">' '</span>)<br>    <span class="hljs-keyword">for</span> code <span class="hljs-keyword">in</span> codes:<br>        <span class="hljs-keyword">if</span> code ==<span class="hljs-string">''</span>:<br>            msg += <span class="hljs-string">' '</span><br>        <span class="hljs-keyword">else</span>:<br>            UNCODE =dict(map(<span class="hljs-keyword">lambda</span> t:(t[<span class="hljs-number">1</span>],t[<span class="hljs-number">0</span>]),CODE_TABLE.items()))<br>            msg += UNCODE[code]<br>    <span class="hljs-keyword">return</span> msg<br><br>a = open(<span class="hljs-string">r'morse.txt'</span>,<span class="hljs-string">'r'</span>)<br>ciphertext = a.read()<br><br>ciphertext = ciphertext.replace(<span class="hljs-string">'1'</span>,<span class="hljs-string">'-'</span>)<br>ciphertext = ciphertext.replace(<span class="hljs-string">'0'</span>,<span class="hljs-string">'.'</span>)<br><br>FLAG = morsedecode(ciphertext)<br>flag = FLAG.lower()<br>flag = <span class="hljs-string">'cyberpeace&#123;'</span>+flag+<span class="hljs-string">'&#125;'</span><br>print(<span class="hljs-string">'flag is '</span>,flag)<br></code></pre></td></tr></table></figure>
 
-CODE_TABLE = {
-    # 26 个英文字符
-    &#39;A&#39;: &#39;.-&#39;, &#39;B&#39;: &#39;-...&#39;, &#39;C&#39;: &#39;-.-.&#39;,
-    &#39;D&#39;: &#39;-..&#39;, &#39;E&#39;: &#39;.&#39;, &#39;F&#39;: &#39;..-.&#39;,
-    &#39;G&#39;: &#39;--.&#39;, &#39;H&#39;: &#39;....&#39;, &#39;I&#39;: &#39;..&#39;,
-    &#39;J&#39;: &#39;.---&#39;, &#39;K&#39;: &#39;-.-&#39;, &#39;L&#39;: &#39;.-..&#39;,
-    &#39;M&#39;: &#39;--&#39;, &#39;N&#39;: &#39;-.&#39;, &#39;O&#39;: &#39;---&#39;,
-    &#39;P&#39;: &#39;.--.&#39;, &#39;Q&#39;: &#39;--.-&#39;, &#39;R&#39;: &#39;.-.&#39;,
-    &#39;S&#39;: &#39;...&#39;, &#39;T&#39;: &#39;-&#39;, &#39;U&#39;: &#39;..-&#39;,
-    &#39;V&#39;: &#39;...-&#39;, &#39;W&#39;: &#39;.--&#39;, &#39;X&#39;: &#39;-..-&#39;,
-    &#39;Y&#39;: &#39;-.--&#39;, &#39;Z&#39;: &#39;--..&#39;,
-
-    # 10 个数字
-    &#39;0&#39;: &#39;-----&#39;, &#39;1&#39;: &#39;.----&#39;, &#39;2&#39;: &#39;..---&#39;,
-    &#39;3&#39;: &#39;...--&#39;, &#39;4&#39;: &#39;....-&#39;, &#39;5&#39;: &#39;.....&#39;,
-    &#39;6&#39;: &#39;-....&#39;, &#39;7&#39;: &#39;--...&#39;, &#39;8&#39;: &#39;---..&#39;,
-    &#39;9&#39;: &#39;----.&#39;,
-
-    # 16 个特殊字符
-    &#39;,&#39;: &#39;--..--&#39;, &#39;.&#39;: &#39;.-.-.-&#39;, &#39;:&#39;: &#39;---...&#39;, &#39;;&#39;: &#39;-.-.-.&#39;,
-    &#39;?&#39;: &#39;..--..&#39;, &#39;=&#39;: &#39;-...-&#39;, &quot;&#39;&quot;: &#39;.----.&#39;, &#39;/&#39;: &#39;-..-.&#39;,
-    &#39;!&#39;: &#39;-.-.--&#39;, &#39;-&#39;: &#39;-....-&#39;, &#39;_&#39;: &#39;..--.-&#39;, &#39;(&#39;: &#39;-.--.&#39;,
-    &#39;)&#39;: &#39;-.--.-&#39;, &#39;$&#39;: &#39;...-..-&#39;, &#39;&amp;&#39;: &#39;. . . .&#39;, &#39;@&#39;: &#39;.--.-.&#39;
-
-    # 你还可以自定义
-
-}
-
-def morsedecode(morse):
-    msg =&#39;&#39;
-    codes = morse.split(&#39; &#39;)
-    for code in codes:
-        if code ==&#39;&#39;:
-            msg += &#39; &#39;
-        else:
-            UNCODE =dict(map(lambda t:(t[1],t[0]),CODE_TABLE.items()))
-            msg += UNCODE[code]
-    return msg
-
-a = open(r&#39;morse.txt&#39;,&#39;r&#39;)
-ciphertext = a.read()
-
-ciphertext = ciphertext.replace(&#39;1&#39;,&#39;-&#39;)
-ciphertext = ciphertext.replace(&#39;0&#39;,&#39;.&#39;)
-
-FLAG = morsedecode(ciphertext)
-flag = FLAG.lower()
-flag = &#39;cyberpeace{&#39;+flag+&#39;}&#39;
-print(&#39;flag is &#39;,flag)</code></pre>
 <h1 id="004-不仅仅是Morse"><a href="#004-不仅仅是Morse" class="headerlink" title="004 不仅仅是Morse"></a>004 不仅仅是Morse</h1><p><strong>0x01 题目描述</strong></p>
 <p>​        “这个题目和我们刚刚做的那个好像啊但是为什么按照刚刚的方法做出来答案却不对呢” ，你奇怪的问了问小鱼，“可能是因为还有一些奇怪的加密方式在里面吧，我们在仔细观察观察”。两个人 安安静静的坐下来开始思考，很耐心的把自己可以想到的加密方式一种种的过了一遍，十多分钟后两个人 异口同声的说“我想到了！”。一种食物,格式为cyberpeace{小写的你解出的答案}</p>
 <p><strong>0x02 解题思路</strong></p>
@@ -705,7 +655,8 @@ print(&#39;flag is &#39;,flag)</code></pre>
 <h1 id="006-幂数加密"><a href="#006-幂数加密" class="headerlink" title="006 幂数加密"></a>006 幂数加密</h1><p><strong>0x01 题目描述</strong></p>
 <p>​        你和小鱼终于走到了最后的一个谜题所在的地方，上面写着一段话“亲爱的朋友， 很开心你对网络安全有这么大的兴趣，希望你一直坚持下去，不要放弃 ，学到一些知识，  走进广阔的安全大世界”，你和小鱼接过谜题，开始了耐心细致的解答。flag为cyberpeace{你解答出的八位大写字母}</p>
 <p>附件内容：</p>
-<pre><code class="php">8842101220480224404014224202480122</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-number">8842101220480224404014224202480122</span><br></code></pre></td></tr></table></figure>
+
 <p><strong>0x02 解题思路</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/云影密码.png" alt="云影密码"></center>
 
@@ -719,25 +670,8 @@ print(&#39;flag is &#39;,flag)</code></pre>
 <ul>
 <li>自编写payload</li>
 </ul>
-<pre><code class="python">#!/user/bin/env python
-# -*-coding:utf-8 -*-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/user/bin/env python</span><br><span class="hljs-comment"># -*-coding:utf-8 -*-</span><br><br>a = open(<span class="hljs-string">r'crypto11.txt'</span>,<span class="hljs-string">'r'</span>)<br>ciphertext = a.read()<br><br>s = ciphertext.split(<span class="hljs-string">'0'</span>)<br><br>flag = <span class="hljs-string">''</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(s)):<br>    list = []<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> s[i]:<br>        list.append(j)<br>    b = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> list:<br>        b += int(k)<br>    <span class="hljs-comment"># 字母ascii值与字母顺序相差为96</span><br>    flag += chr(b+<span class="hljs-number">96</span>)<br>print(<span class="hljs-string">'flag is '</span>,flag)<br></code></pre></td></tr></table></figure>
 
-a = open(r&#39;crypto11.txt&#39;,&#39;r&#39;)
-ciphertext = a.read()
-
-s = ciphertext.split(&#39;0&#39;)
-
-flag = &#39;&#39;
-for i in range(len(s)):
-    list = []
-    for j in s[i]:
-        list.append(j)
-    b = 0
-    for k in list:
-        b += int(k)
-    # 字母ascii值与字母顺序相差为96
-    flag += chr(b+96)
-print(&#39;flag is &#39;,flag)</code></pre>
 <ul>
 <li>执行后得到flag：<code>cyberpeace{WELLDONE}</code></li>
 </ul>
@@ -787,18 +721,8 @@ print(&#39;flag is &#39;,flag)</code></pre>
 <ul>
 <li>自编写payload。</li>
 </ul>
-<pre><code class="python">#!/usr/bin/env python3
-# -*- coding:utf-8 -*-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span><br><span class="hljs-comment"># -*- coding:utf-8 -*-</span><br><br><span class="hljs-keyword">import</span> gmpy2<br><br>p = <span class="hljs-number">473398607161</span><br>q = <span class="hljs-number">4511491</span><br>e = <span class="hljs-number">17</span><br><br>s = (p<span class="hljs-number">-1</span>)*(q<span class="hljs-number">-1</span>)<br>d = gmpy2.invert(e,s)<br>print(<span class="hljs-string">'flag is :cyberpeace&#123;%d&#125;'</span> % d)<br></code></pre></td></tr></table></figure>
 
-import gmpy2
-
-p = 473398607161
-q = 4511491
-e = 17
-
-s = (p-1)*(q-1)
-d = gmpy2.invert(e,s)
-print(&#39;flag is :cyberpeace{%d}&#39; % d)</code></pre>
 <ul>
 <li>payload执行结果。</li>
 </ul>
@@ -835,64 +759,13 @@ print(&#39;flag is :cyberpeace{%d}&#39; % d)</code></pre>
 <ul>
 <li>将下载的<code>pyc</code>文件反编译成<code>py</code>文件，反编译结果如下所示。</li>
 </ul>
-<pre><code class="python"># uncompyle6 version 3.5.0
-# Python bytecode 2.7 (62211)
-# Decompiled from: Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)]
-# Embedded file name: ans.py
-# Compiled at: 2018-08-09 11:29:44
-import base64
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># uncompyle6 version 3.5.0</span><br><span class="hljs-comment"># Python bytecode 2.7 (62211)</span><br><span class="hljs-comment"># Decompiled from: Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)]</span><br><span class="hljs-comment"># Embedded file name: ans.py</span><br><span class="hljs-comment"># Compiled at: 2018-08-09 11:29:44</span><br><span class="hljs-keyword">import</span> base64<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encode1</span><span class="hljs-params">(ans)</span>:</span><br>    s = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ans:<br>        x = ord(i) ^ <span class="hljs-number">36</span><br>        x = x + <span class="hljs-number">25</span><br>        s += chr(x)<br><br>    <span class="hljs-keyword">return</span> s<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encode2</span><span class="hljs-params">(ans)</span>:</span><br>    s = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ans:<br>        x = ord(i) + <span class="hljs-number">36</span><br>        x = x ^ <span class="hljs-number">36</span><br>        s += chr(x)<br><br>    <span class="hljs-keyword">return</span> s<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encode3</span><span class="hljs-params">(ans)</span>:</span><br>    <span class="hljs-keyword">return</span> base64.b32encode(ans)<br><br>flag = <span class="hljs-string">' '</span><br><span class="hljs-keyword">print</span> <span class="hljs-string">'Please Input your flag:'</span><br>flag = raw_input()<br>final = <span class="hljs-string">'UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E==='</span><br><span class="hljs-keyword">if</span> encode3(encode2(encode1(flag))) == final:<br>    <span class="hljs-keyword">print</span> <span class="hljs-string">'correct'</span><br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-keyword">print</span> <span class="hljs-string">'wrong'</span><br></code></pre></td></tr></table></figure>
 
-def encode1(ans):
-    s = &#39;&#39;
-    for i in ans:
-        x = ord(i) ^ 36
-        x = x + 25
-        s += chr(x)
-
-    return s
-
-def encode2(ans):
-    s = &#39;&#39;
-    for i in ans:
-        x = ord(i) + 36
-        x = x ^ 36
-        s += chr(x)
-
-    return s
-
-def encode3(ans):
-    return base64.b32encode(ans)
-
-flag = &#39; &#39;
-print &#39;Please Input your flag:&#39;
-flag = raw_input()
-final = &#39;UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E===&#39;
-if encode3(encode2(encode1(flag))) == final:
-    print &#39;correct&#39;
-else:
-    print &#39;wrong&#39;
-
-</code></pre>
 <ul>
 <li>通读代码逻辑编写解密脚本。</li>
 </ul>
-<pre><code class="python">#!/usr/bin/env python
-# encoding: utf-8
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python</span><br><span class="hljs-comment"># encoding: utf-8</span><br><br><span class="hljs-keyword">import</span> base64<br><span class="hljs-string">'''<br>a = 'UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E==='<br>b = base64.b32decode(a)<br>'''</span><br><span class="hljs-comment"># 先将字符串base32解码出来，然后将其变为字符串再进行ord等操作。</span><br>b = <span class="hljs-string">"\xa0\xbe\xa7Z\xb7\xb5Z\xa6\xa0Z\xb8\xae\xa3\xa9Z\xb7Z\xb0\xa9\xae\xa3\xa4\xad\xad\xad\xad\xad\xb2"</span><br>s = <span class="hljs-string">''</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:<br>    s += chr((ord(i) ^ <span class="hljs-number">36</span>) - <span class="hljs-number">36</span>)<br>l = <span class="hljs-string">''</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> s:<br>    l += chr((ord(i) - <span class="hljs-number">25</span>) ^ <span class="hljs-number">36</span>)<br><span class="hljs-keyword">print</span> (<span class="hljs-string">'flag is '</span>,l)<br></code></pre></td></tr></table></figure>
 
-import base64
-&#39;&#39;&#39;
-a = &#39;UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E===&#39;
-b = base64.b32decode(a)
-&#39;&#39;&#39;
-# 先将字符串base32解码出来，然后将其变为字符串再进行ord等操作。
-b = &quot;\xa0\xbe\xa7Z\xb7\xb5Z\xa6\xa0Z\xb8\xae\xa3\xa9Z\xb7Z\xb0\xa9\xae\xa3\xa4\xad\xad\xad\xad\xad\xb2&quot;
-s = &#39;&#39;
-for i in b:
-    s += chr((ord(i) ^ 36) - 36)
-l = &#39;&#39;
-for i in s:
-    l += chr((ord(i) - 25) ^ 36)
-print (&#39;flag is &#39;,l)</code></pre>
 <ul>
 <li>运行得到flag：<code>cyberpeace{interestinghhhhh}</code></li>
 </ul>
@@ -904,22 +777,8 @@ print (&#39;flag is &#39;,l)</code></pre>
 <h1 id="010-转轮机加密"><a href="#010-转轮机加密" class="headerlink" title="010 转轮机加密"></a>010 转轮机加密</h1><p><strong>0x01 题目描述</strong></p>
 <p>​        你俩继续往前走，来到了前面的下一个关卡，这个铺面墙上写了好多奇奇怪怪的 英文字母，排列的的整整齐齐，店面前面还有一个大大的类似于土耳其旋转烤肉的架子，上面一圈圈的  也刻着很多英文字母，你是一个小历史迷，对于二战时候的历史刚好特别熟悉，一拍大腿：“嗨呀！我知道 是什么东西了！”。提示：托马斯·杰斐逊。 flag，是字符串，小写。</p>
 <p><strong>附件内容</strong>：</p>
-<pre><code class="php">1:  &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt;
-2:  &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt;
-3:  &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt;
-4:  &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt;
-5:  &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt;
-6:  &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt;
-7:  &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt;
-8:  &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt;
-9:  &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt;
-10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt;
-11： &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt;
-12： &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt;
-13： &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-number">1</span>:  &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt;<br><span class="hljs-number">2</span>:  &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt;<br><span class="hljs-number">3</span>:  &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt;<br><span class="hljs-number">4</span>:  &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt;<br><span class="hljs-number">5</span>:  &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt;<br><span class="hljs-number">6</span>:  &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt;<br><span class="hljs-number">7</span>:  &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt;<br><span class="hljs-number">8</span>:  &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt;<br><span class="hljs-number">9</span>:  &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt;<br><span class="hljs-number">10</span>: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt;<br><span class="hljs-number">11</span>： &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt;<br><span class="hljs-number">12</span>： &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt;<br><span class="hljs-number">13</span>： &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;<br><br>密钥为：<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">7</span>,<span class="hljs-number">5</span>,<span class="hljs-number">13</span>,<span class="hljs-number">12</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">10</span>,<span class="hljs-number">4</span>,<span class="hljs-number">11</span>,<span class="hljs-number">6</span><br>密文为：NFQKSEVOQOFNP<br></code></pre></td></tr></table></figure>
 
-密钥为：2,3,7,5,13,12,9,1,8,10,4,11,6
-密文为：NFQKSEVOQOFNP</code></pre>
 <p><strong>0x02 解题思路</strong></p>
 <p><strong>转轮机的工作原理</strong><br>        每一个旋转轮代表一个单表替代系统，旋转一个引脚，再转变为另一个单表替代系统。为使机器更安全，可把几种转轮和移动的齿轮结合起来。因为所有转轮以不同的速度移动，n个转轮的机器的周期是26的n次方，即n个单表替代系统。最后一个转轮转完一圈之后，它前面的转轮就旋转一个引脚，有点像时钟的齿轮。</p>
 <p><strong>0x03 解题工具</strong></p>
@@ -930,29 +789,8 @@ print (&#39;flag is &#39;,l)</code></pre>
 <ul>
 <li>自编写payload。</li>
 </ul>
-<pre><code class="python">#!/usr/bin/env python3
-# -*- coding:utf-8 -*-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span><br><span class="hljs-comment"># -*- coding:utf-8 -*-</span><br><br><span class="hljs-keyword">import</span> re<br><br>sss = <span class="hljs-string">'1: &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt; 2: &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt; 3: &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt; 4: &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt; 5: &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt; 6: &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt; 7: &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt; 8: &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt; 9: &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt; 10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt; 11 &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt; 12 &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt; 13 &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;'</span><br>m = <span class="hljs-string">'NFQKSEVOQOFNP'</span><br><span class="hljs-comment"># 将sss转化为列表形式</span><br>content=re.findall(<span class="hljs-string">r'&lt; (.*?) &lt;'</span>,sss,re.S)<br><span class="hljs-comment"># re.S:DOTALL，此模式下，"."的匹配不受限制，可匹配任何字符，包括换行符</span><br>iv=[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">7</span>,<span class="hljs-number">5</span>,<span class="hljs-number">13</span>,<span class="hljs-number">12</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">10</span>,<span class="hljs-number">4</span>,<span class="hljs-number">11</span>,<span class="hljs-number">6</span>]<br>print(content)<br>vvv=[]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">13</span>):<br>    index=content[iv[i]<span class="hljs-number">-1</span>].index(m[i])<br>    vvv.append(index)<br>print(vvv)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,<span class="hljs-number">26</span>):<br>    flag=<span class="hljs-string">""</span><br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">13</span>):<br>        flag += content[iv[j]<span class="hljs-number">-1</span>][(vvv[j]+i)%<span class="hljs-number">26</span>]<br>    print(flag.lower())<br></code></pre></td></tr></table></figure>
 
-import re
-
-sss = &#39;1: &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt; 2: &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt; 3: &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt; 4: &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt; 5: &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt; 6: &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt; 7: &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt; 8: &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt; 9: &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt; 10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt; 11 &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt; 12 &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt; 13 &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;&#39;
-m = &#39;NFQKSEVOQOFNP&#39;
-# 将sss转化为列表形式
-content=re.findall(r&#39;&lt; (.*?) &lt;&#39;,sss,re.S)
-# re.S:DOTALL，此模式下，&quot;.&quot;的匹配不受限制，可匹配任何字符，包括换行符
-iv=[2,3,7,5,13,12,9,1,8,10,4,11,6]
-print(content)
-vvv=[]
-for i in range(13):
-    index=content[iv[i]-1].index(m[i])
-    vvv.append(index)
-print(vvv)
-
-for i in range(0,26):
-    flag=&quot;&quot;
-    for j in range(13):
-        flag += content[iv[j]-1][(vvv[j]+i)%26]
-    print(flag.lower())</code></pre>
 <ul>
 <li>执行结果，得到flag：<code>fireinthehole</code></li>
 </ul>
@@ -968,10 +806,8 @@ for i in range(0,26):
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/Normal_RSA附件内容.png" alt="Normal_RSA附件内容"></center>
 
 <p>pubkey.pem:</p>
-<pre><code class="php">-----BEGIN PUBLIC KEY-----
-MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+5erCQKPGqxsC/bNPXDr
-yigb/+l/vjDdAgMBAAE=
------END PUBLIC KEY-----</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php">-----BEGIN <span class="hljs-keyword">PUBLIC</span> KEY-----<br>MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+<span class="hljs-number">5</span>erCQKPGqxsC/bNPXDr<br>yigb/+l/vjDdAgMBAAE=<br>-----END <span class="hljs-keyword">PUBLIC</span> KEY-----<br></code></pre></td></tr></table></figure>
+
 <p><strong>0x02 解题思路</strong></p>
 <p>​        OpenSSL使用 PEM 文件格式存储证书和密钥。PEM 实质上是 Base64 编码的二进制内容，再加上开始和结束行，如证书文件的<br> —–BEGIN CERTIFICATE—–<br> 和<br> —–END CERTIFICATE—–<br> 在这些标记外面可以有额外的信息，如编码内容的文字表示。文件是 ASCII 的，可以用任何文本编辑程序打开它们。</p>
 <p><strong>0x03 解题工具</strong></p>
@@ -985,39 +821,41 @@ yigb/+l/vjDdAgMBAAE=
 <ul>
 <li>使用<code>openssl</code>提取出<code>pubkey.pem</code>中的参数。</li>
 </ul>
-<pre><code class="python">openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">openssl rsa -pubin -text -modulus -<span class="hljs-keyword">in</span> warmup -<span class="hljs-keyword">in</span> pubkey.pem<br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/openssl提取公钥参数.png" alt="openssl提取公钥参数"></center>
 
 <p>里面<code>modulus</code>就是<code>N</code>，<code>exponent</code>就是<code>e</code><br>这里显示：</p>
-<pre><code class="python">Modulus（hex）
-=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">Modulus（hex）<br>=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD<br></code></pre></td></tr></table></figure>
+
 <p>明显是个16进制数，先转换成10进制。</p>
 <ul>
 <li>使用<a href="https://tool.lu/hexconvert/" target="_blank" rel="noopener">进制转换工具</a>将十六进制(hex)表示的大质数(N)转换成十进制(decimal)表示的大质数。</li>
 </ul>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/十六进制转十进制.png" alt="十六进制转十进制"></center>
 
-<pre><code class="python">Modulus（dec）
-=87924348264132406875276140514499937145050893665602592992418171647042491658461</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">Modulus（dec）<br>=<span class="hljs-number">87924348264132406875276140514499937145050893665602592992418171647042491658461</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>使用yafu或<a href="http://www.factordb.com/" target="_blank" rel="noopener">factortdb</a>的得到p,q。</li>
 </ul>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/大质数分解.png" alt="大质数分解"></center>
 
 <p>所以现在知道了：</p>
-<pre><code class="python">p=275127860351348928173285174381581152299
-q=319576316814478949870590164193048041239
-e=65537</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">p=<span class="hljs-number">275127860351348928173285174381581152299</span><br>q=<span class="hljs-number">319576316814478949870590164193048041239</span><br>e=<span class="hljs-number">65537</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>用<code>rsatool</code>生成私钥文件: <code>private.pem</code>。</li>
 </ul>
-<pre><code class="python"> python2 .\rsatool.py -o private.pem -e 65537 -p 275127860351348928173285174381581152299 -q 319576316814478949870590164193048041239</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">python2 .\rsatool.py -o private.pem -e <span class="hljs-number">65537</span> -p <span class="hljs-number">275127860351348928173285174381581152299</span> -q <span class="hljs-number">319576316814478949870590164193048041239</span><br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/生成私钥pem文件.png" alt="生成私钥pem文件"></center>
 
 <ul>
 <li>用<code>private.pem</code>解密<code>flag.enc</code>，得到flag：<code>PCTF{256b_i5_m3dium}</code>。</li>
 </ul>
-<pre><code class="python">openssl rsautl -decrypt -in flag.enc -inkey private.pem</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">openssl rsautl -decrypt -<span class="hljs-keyword">in</span> flag.enc -inkey private.pem<br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/私钥解密得到flag.png" alt="私钥解密得到flag"></center>
 
 <p><strong>0x05 考察知识</strong></p>
@@ -1143,12 +981,12 @@ e=65537</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CRYPTO/">
-                                    <span class="chip bg-color">CRYPTO</span>
-                                </a>
-                            
                                 <a href="/tags/writeup/">
                                     <span class="chip bg-color">writeup</span>
+                                </a>
+                            
+                                <a href="/tags/CRYPTO/">
+                                    <span class="chip bg-color">CRYPTO</span>
                                 </a>
                             
                         </div>
@@ -1712,7 +1550,7 @@ e=65537</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

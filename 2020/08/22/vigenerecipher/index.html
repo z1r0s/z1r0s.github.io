@@ -601,207 +601,16 @@
 <li>操作结果后显示加密或解密的结果。</li>
 </ul>
 <h1 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h1><p><strong>Vigenere类</strong>：</p>
-<pre><code class="csharp">using System;
-using System.Text;
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><span class="hljs-keyword">using</span> System.Text;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">Cryptology_Vigenere</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Vigenere</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 定义全局变量</span><br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">char</span>[,] codeMatrix;<br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 构造函数</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Vigenere</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            <span class="hljs-comment">// 初始化对象时也初始化密码矩阵</span><br>            Vigenere_InitCodeMatrix();<br><br>            <span class="hljs-comment">// 展示密码表</span><br>            DisplayCipherTable();<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 初始化Vigenere密码矩阵</span><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Vigenere_InitCodeMatrix</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            codeMatrix = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">26</span>, <span class="hljs-number">26</span>];<span class="hljs-comment">//矩阵</span><br>            <span class="hljs-keyword">char</span> temp;<br><br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">26</span>;i++)<br>            &#123;<br>                temp = <span class="hljs-string">'A'</span>;<br>                temp = (<span class="hljs-keyword">char</span>)(temp + i);<br>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j &lt; <span class="hljs-number">26</span>;j++)<br>                &#123;<br>                    <span class="hljs-keyword">if</span>((<span class="hljs-keyword">char</span>)(temp + j) &gt; <span class="hljs-string">'Z'</span>)<br>                    &#123;<br>                        codeMatrix[i, j] = (<span class="hljs-keyword">char</span>)((temp + j) - <span class="hljs-number">26</span>);<br>                    &#125;<br>                    <span class="hljs-keyword">else</span><br>                    &#123;<br>                        codeMatrix[i, j] = (<span class="hljs-keyword">char</span>)(temp + j);<br>                    &#125;<br>                    <br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 展示维吉尼亚密码表</span><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DisplayCipherTable</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            Console.Write(<span class="hljs-string">"  "</span>);<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">26</span>;i++)<br>            &#123;<br>                Console.Write((<span class="hljs-keyword">char</span>)(<span class="hljs-string">'a'</span> + i) + <span class="hljs-string">" "</span>);<br>            &#125;<br>            Console.WriteLine();<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">26</span>; i++)<br>            &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">26</span>; j++)<br>                &#123;<br>                    <span class="hljs-keyword">if</span>(j == <span class="hljs-number">0</span>)<br>                    &#123;<br>                        Console.Write((<span class="hljs-keyword">char</span>)(<span class="hljs-string">'a'</span> + i) + <span class="hljs-string">" "</span>);<br>                    &#125;<br><br>                    Console.Write(codeMatrix[i, j] + <span class="hljs-string">" "</span>);<br>                &#125;<br>                Console.WriteLine();<br>            &#125;<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> Vigenere加密</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Vigenere加密</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="plaintext"&gt;</span>明文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="key"&gt;</span>密钥<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>密文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">Encrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> plaintext, <span class="hljs-keyword">string</span> key</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">int</span> x, y,k=<span class="hljs-number">0</span>;<span class="hljs-comment">//k:密钥计数器</span><br>            <span class="hljs-keyword">string</span> str = plaintext.ToUpper();<br>            <span class="hljs-keyword">int</span> min_mod = str.Length &gt; key.Length ? key.Length : str.Length;<br>            StringBuilder strBuilder = <span class="hljs-keyword">new</span> StringBuilder();<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; str.Length;i++)<br>            &#123;<br>                <span class="hljs-keyword">if</span>(str[i] &gt;= <span class="hljs-string">'A'</span> &amp;&amp; str[i] &lt;= <span class="hljs-string">'Z'</span>)<br>                &#123;<br>                    x = str[i] - <span class="hljs-string">'A'</span>;<br>                    y = key[k++ % min_mod] - <span class="hljs-string">'A'</span>;<br>                    strBuilder.Append(codeMatrix[x, y]);<br>                &#125;<br>                <span class="hljs-keyword">else</span><br>                &#123;<br>                    strBuilder.Append(str[i]);<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">return</span> strBuilder.ToString();<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> Vigenere解密</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Vigenere解密</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="ciphertext"&gt;</span>密文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="key"&gt;</span>密钥<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>明文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">Decrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> ciphertext, <span class="hljs-keyword">string</span> key</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">int</span> x, y,temp,k=<span class="hljs-number">0</span>;<span class="hljs-comment">//k:密钥计数器</span><br>            <span class="hljs-keyword">string</span> str = ciphertext.ToUpper();<br>            <span class="hljs-keyword">int</span> min_mod = str.Length &gt; key.Length ? key.Length : str.Length;<br>            StringBuilder strBuilder = <span class="hljs-keyword">new</span> StringBuilder();<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; str.Length;i++)<br>            &#123;<br>                <span class="hljs-keyword">if</span>(str[i] &gt;= <span class="hljs-string">'A'</span> &amp;&amp; str[i] &lt;= <span class="hljs-string">'Z'</span>)<br>                &#123;<br>                    y = key[k++ % min_mod] - <span class="hljs-string">'A'</span>;<br>                    temp = str[i] - <span class="hljs-string">'A'</span>;<br>                    <span class="hljs-keyword">if</span> (temp &lt; y)<span class="hljs-comment">//是否发生回环</span><br>                    &#123;<br>                        x = temp + <span class="hljs-number">26</span> - y;<br>                    &#125;<br>                    <span class="hljs-keyword">else</span><br>                    &#123;<br>                        x = str[i] - <span class="hljs-string">'A'</span> - y;<br>                    &#125;<br>                    strBuilder.Append((<span class="hljs-keyword">char</span>)(x + <span class="hljs-string">'A'</span>));<br>                &#125;<br>                <span class="hljs-keyword">else</span><br>                &#123;<br>                    strBuilder.Append(str[i]);<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">return</span> strBuilder.ToString();<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-namespace Cryptology_Vigenere
-{
-    class Vigenere
-    {
-        #region 定义全局变量
-        private char[,] codeMatrix;
-
-        #endregion
-
-        #region 构造函数
-        public Vigenere()
-        {
-            // 初始化对象时也初始化密码矩阵
-            Vigenere_InitCodeMatrix();
-
-            // 展示密码表
-            DisplayCipherTable();
-        }
-        #endregion
-
-        #region 初始化Vigenere密码矩阵
-        private void Vigenere_InitCodeMatrix()
-        {
-            codeMatrix = new char[26, 26];//矩阵
-            char temp;
-
-            for(int i = 0;i &lt; 26;i++)
-            {
-                temp = &#39;A&#39;;
-                temp = (char)(temp + i);
-                for(int j = 0;j &lt; 26;j++)
-                {
-                    if((char)(temp + j) &gt; &#39;Z&#39;)
-                    {
-                        codeMatrix[i, j] = (char)((temp + j) - 26);
-                    }
-                    else
-                    {
-                        codeMatrix[i, j] = (char)(temp + j);
-                    }
-
-                }
-            }
-        }
-        #endregion
-
-        #region 展示维吉尼亚密码表
-        private void DisplayCipherTable()
-        {
-            Console.Write(&quot;  &quot;);
-            for(int i = 0;i &lt; 26;i++)
-            {
-                Console.Write((char)(&#39;a&#39; + i) + &quot; &quot;);
-            }
-            Console.WriteLine();
-
-            for (int i = 0; i &lt; 26; i++)
-            {
-                for (int j = 0; j &lt; 26; j++)
-                {
-                    if(j == 0)
-                    {
-                        Console.Write((char)(&#39;a&#39; + i) + &quot; &quot;);
-                    }
-
-                    Console.Write(codeMatrix[i, j] + &quot; &quot;);
-                }
-                Console.WriteLine();
-            }
-        }
-        #endregion
-
-        #region Vigenere加密
-        /// &lt;summary&gt;
-        /// Vigenere加密
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;
-        /// &lt;param name=&quot;key&quot;&gt;密钥&lt;/param&gt;
-        /// &lt;returns&gt;密文&lt;/returns&gt;
-        internal string Encrypt(string plaintext, string key)
-        {
-            int x, y,k=0;//k:密钥计数器
-            string str = plaintext.ToUpper();
-            int min_mod = str.Length &gt; key.Length ? key.Length : str.Length;
-            StringBuilder strBuilder = new StringBuilder();
-            for(int i = 0;i &lt; str.Length;i++)
-            {
-                if(str[i] &gt;= &#39;A&#39; &amp;&amp; str[i] &lt;= &#39;Z&#39;)
-                {
-                    x = str[i] - &#39;A&#39;;
-                    y = key[k++ % min_mod] - &#39;A&#39;;
-                    strBuilder.Append(codeMatrix[x, y]);
-                }
-                else
-                {
-                    strBuilder.Append(str[i]);
-                }
-            }
-            return strBuilder.ToString();
-        }
-        #endregion
-
-        #region Vigenere解密
-        /// &lt;summary&gt;
-        /// Vigenere解密
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;
-        /// &lt;param name=&quot;key&quot;&gt;密钥&lt;/param&gt;
-        /// &lt;returns&gt;明文&lt;/returns&gt;
-        internal string Decrypt(string ciphertext, string key)
-        {
-            int x, y,temp,k=0;//k:密钥计数器
-            string str = ciphertext.ToUpper();
-            int min_mod = str.Length &gt; key.Length ? key.Length : str.Length;
-            StringBuilder strBuilder = new StringBuilder();
-            for(int i = 0;i &lt; str.Length;i++)
-            {
-                if(str[i] &gt;= &#39;A&#39; &amp;&amp; str[i] &lt;= &#39;Z&#39;)
-                {
-                    y = key[k++ % min_mod] - &#39;A&#39;;
-                    temp = str[i] - &#39;A&#39;;
-                    if (temp &lt; y)//是否发生回环
-                    {
-                        x = temp + 26 - y;
-                    }
-                    else
-                    {
-                        x = str[i] - &#39;A&#39; - y;
-                    }
-                    strBuilder.Append((char)(x + &#39;A&#39;));
-                }
-                else
-                {
-                    strBuilder.Append(str[i]);
-                }
-            }
-            return strBuilder.ToString();
-        }
-        #endregion
-
-    }
-}</code></pre>
 <p>注：</p>
 <ul>
 <li>先构造一张密码表，并显示加(解)密时使用的表</li>
 <li>加密时<strong>查表</strong>，解密时也<strong>查表</strong></li>
 </ul>
 <p><strong>Program测试类</strong>：</p>
-<pre><code class="csharp">using System;
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">Cryptology_Vigenere</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>        &#123;<br>            Console.Title = <span class="hljs-string">"Vigenere"</span>;<br>            <span class="hljs-keyword">int</span> op;<br>            <span class="hljs-keyword">string</span> plaintext, key, ciphytext,str;<br>            Vigenere vig = <span class="hljs-keyword">new</span> Vigenere();<br><br>            Console.Write(<span class="hljs-string">"请输入您想要进行的操作：(1:加密,0:解密) -&gt;"</span>);<br>            str = Console.ReadLine();<br><br>            <span class="hljs-keyword">if</span>(<span class="hljs-keyword">int</span>.TryParse(str,<span class="hljs-keyword">out</span> op))<br>            &#123;<br>                <span class="hljs-keyword">if</span> (op == <span class="hljs-number">1</span>)<br>                &#123;<br>                    Console.Write(<span class="hljs-string">"请输入明文："</span>);<br>                    plaintext = Console.ReadLine();<br>                    Console.Write(<span class="hljs-string">"请输入密钥："</span>);<br>                    key = Console.ReadLine();<br>                    ciphytext = vig.Encrypt(plaintext, key);<br>                    Console.WriteLine(ciphytext);<br>                &#125;<br>                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (op == <span class="hljs-number">0</span>)<br>                &#123;<br>                    Console.Write(<span class="hljs-string">"请输入密文"</span>);<br>                    ciphytext = Console.ReadLine();<br>                    Console.Write(<span class="hljs-string">"请输入密钥："</span>);<br>                    key = Console.ReadLine();<br>                    plaintext = vig.Decrypt(ciphytext, key);<br>                    Console.WriteLine(plaintext);<br>                &#125;<br>                <span class="hljs-keyword">else</span><br>                &#123;<br>                    Console.WriteLine(<span class="hljs-string">"输入错误程序停止!!!"</span>);<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">else</span><br>            &#123;<br>                Console.WriteLine(<span class="hljs-string">"输入错误程序停止!!!"</span>);<br>            &#125;<br>            <br>            Console.ReadKey();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-namespace Cryptology_Vigenere
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.Title = &quot;Vigenere&quot;;
-            int op;
-            string plaintext, key, ciphytext,str;
-            Vigenere vig = new Vigenere();
-
-            Console.Write(&quot;请输入您想要进行的操作：(1:加密,0:解密) -&gt;&quot;);
-            str = Console.ReadLine();
-
-            if(int.TryParse(str,out op))
-            {
-                if (op == 1)
-                {
-                    Console.Write(&quot;请输入明文：&quot;);
-                    plaintext = Console.ReadLine();
-                    Console.Write(&quot;请输入密钥：&quot;);
-                    key = Console.ReadLine();
-                    ciphytext = vig.Encrypt(plaintext, key);
-                    Console.WriteLine(ciphytext);
-                }
-                else if (op == 0)
-                {
-                    Console.Write(&quot;请输入密文&quot;);
-                    ciphytext = Console.ReadLine();
-                    Console.Write(&quot;请输入密钥：&quot;);
-                    key = Console.ReadLine();
-                    plaintext = vig.Decrypt(ciphytext, key);
-                    Console.WriteLine(plaintext);
-                }
-                else
-                {
-                    Console.WriteLine(&quot;输入错误程序停止!!!&quot;);
-                }
-            }
-            else
-            {
-                Console.WriteLine(&quot;输入错误程序停止!!!&quot;);
-            }
-
-            Console.ReadKey();
-        }
-    }
-}</code></pre>
 <h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p><strong>加密结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/EnCrypt.png" alt="EnCrypt"></center>
 
@@ -1463,7 +1272,7 @@ namespace Cryptology_Vigenere
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

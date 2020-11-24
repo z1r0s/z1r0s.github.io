@@ -498,14 +498,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    4.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    25 分
+                    23 分
                 </div>
                 
 
@@ -602,115 +602,32 @@
 </tr>
 </tbody></table>
 <h1 id="0x01-基本扫描"><a href="#0x01-基本扫描" class="headerlink" title="0x01 基本扫描"></a>0x01 基本扫描</h1><p>​        该扫描方式可以针对<strong>IP或者域名</strong>进行扫描，扫描方式迅速，可以很方便地<strong>发现目标端口的开放情况及主机在线情况</strong>。使用命令为如下格式：</p>
-<pre><code class="powershell"># IP
-nmap 10.10.10.148
-# 域名
-nmap www.furi.com.cn</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># IP</span><br>nmap <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br><span class="hljs-comment"># 域名</span><br>nmap www.furi.com.cn<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>若主机不存活，扫描得到的结果如下图所示：</li>
 </ul>
-<pre><code class="powershell">λ nmap 10.10.10.148            # 基本扫描，扫IP
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 14:00 ?D1ú±ê×?ê±??
-Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
-Nmap done: 1 IP address (0 hosts up) scanned in 1.66 seconds        # 结果主机不存活</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span>			<span class="hljs-comment"># 基本扫描，扫IP</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">14</span>:<span class="hljs-number">00</span> ?D1ú±ê×?ê±??<br>Note: Host seems down. <span class="hljs-keyword">If</span> it is really up, but blocking our ping probes, <span class="hljs-keyword">try</span> -Pn<br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">0</span> hosts up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">1.66</span> seconds		<span class="hljs-comment"># 结果主机不存活</span><br></code></pre></td></tr></table></figure>
+
 <p><font color="blue">该命令执行结果和<code>nmap -sP 10.10.10.148</code>命令的执行结果一致。</font></p>
 <ul>
 <li>若主机存活，则扫描得到的结果如下图所示：</li>
 </ul>
-<pre><code class="powershell">λ nmap www.furi.com.cn             # 基本扫描，扫域名                         
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 13:36 
-Nmap scan report for www.furi.com.cn (58.215.65.32)         
-Host is up (0.029s latency).                                
-Not shown: 975 closed ports                                 
-PORT      STATE    SERVICE         # 主机中端口和服务扫描结果                         
-21/tcp    open     ftp             # ftp协议的21号端口开放                         
-42/tcp    filtered nameserver      # nameserver服务的42号端口可能被过滤               
-53/tcp    open     domain                                   
-80/tcp    open     http                                     
-135/tcp   filtered msrpc                                    
-139/tcp   filtered netbios-ssn                              
-445/tcp   filtered microsoft-ds                             
-593/tcp   filtered http-rpc-epmap                           
-901/tcp   filtered samba-swat                               
-1025/tcp  filtered NFS-or-IIS                               
-1433/tcp  open     ms-sql-s                                 
-1434/tcp  filtered ms-sql-m                                 
-3128/tcp  filtered squid-http                               
-3306/tcp  open     mysql                                    
-3389/tcp  open     ms-wbt-server                            
-4444/tcp  filtered krb524                                   
-6129/tcp  filtered unknown                                  
-6669/tcp  filtered irc                                      
-49152/tcp open     unknown                                  
-49153/tcp open     unknown                                  
-49154/tcp open     unknown                                  
-49155/tcp open     unknown                                  
-49156/tcp open     unknown                                  
-49158/tcp open     unknown                                  
-49167/tcp open     unknown                                  
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap www.furi.com.cn             <span class="hljs-comment"># 基本扫描，扫域名                         </span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">13</span>:<span class="hljs-number">36</span> <br>Nmap scan report <span class="hljs-keyword">for</span> www.furi.com.cn (<span class="hljs-number">58.215</span>.<span class="hljs-number">65.32</span>)         <br>Host is up (<span class="hljs-number">0.029</span>s latency).                                <br>Not shown: <span class="hljs-number">975</span> closed ports                                 <br>PORT      STATE    SERVICE         <span class="hljs-comment"># 主机中端口和服务扫描结果                         </span><br><span class="hljs-number">21</span>/tcp    open     ftp             <span class="hljs-comment"># ftp协议的21号端口开放                         </span><br><span class="hljs-number">42</span>/tcp    filtered nameserver      <span class="hljs-comment"># nameserver服务的42号端口可能被过滤               </span><br><span class="hljs-number">53</span>/tcp    open     domain                                   <br><span class="hljs-number">80</span>/tcp    open     http                                     <br><span class="hljs-number">135</span>/tcp   filtered msrpc                                    <br><span class="hljs-number">139</span>/tcp   filtered netbios-ssn                              <br><span class="hljs-number">445</span>/tcp   filtered microsoft-ds                             <br><span class="hljs-number">593</span>/tcp   filtered http-rpc-epmap                           <br><span class="hljs-number">901</span>/tcp   filtered samba-swat                               <br><span class="hljs-number">1025</span>/tcp  filtered NFS-or-IIS                               <br><span class="hljs-number">1433</span>/tcp  open     ms-sql-s                                 <br><span class="hljs-number">1434</span>/tcp  filtered ms-sql-m                                 <br><span class="hljs-number">3128</span>/tcp  filtered squid-http                               <br><span class="hljs-number">3306</span>/tcp  open     mysql                                    <br><span class="hljs-number">3389</span>/tcp  open     ms-wbt-server                            <br><span class="hljs-number">4444</span>/tcp  filtered krb524                                   <br><span class="hljs-number">6129</span>/tcp  filtered unknown                                  <br><span class="hljs-number">6669</span>/tcp  filtered irc                                      <br><span class="hljs-number">49152</span>/tcp open     unknown                                  <br><span class="hljs-number">49153</span>/tcp open     unknown                                  <br><span class="hljs-number">49154</span>/tcp open     unknown                                  <br><span class="hljs-number">49155</span>/tcp open     unknown                                  <br><span class="hljs-number">49156</span>/tcp open     unknown                                  <br><span class="hljs-number">49158</span>/tcp open     unknown                                  <br><span class="hljs-number">49167</span>/tcp open     unknown                                  <br>                                                            <br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">3.77</span> seconds<br></code></pre></td></tr></table></figure>
 
-Nmap done: 1 IP address (1 host up) scanned in 3.77 seconds </code></pre>
 <p><font color="blue">该命令执行结果和<code>nmap -P0 www.furi.com.cn</code>命令的执行结果一致。</font></p>
 <h1 id="0x02-Ping扫描"><a href="#0x02-Ping扫描" class="headerlink" title="0x02 Ping扫描"></a>0x02 Ping扫描</h1><p>​        Ping扫描只进行Ping，然后显示出在线的主机，使用该选项扫描可以轻易地获取目标信息而不会被轻易发现。在默认的情况下，Nmap会发送一个ICMP回声请求和一个TCP报文到目标端口。Ping扫描的优点是不会返回太多结果信息且效率很高，但不能保证扫描结果的准确性。</p>
-<pre><code class="powershell">λ nmap -sP 10.10.10.148-150            # 对指定范围内的IP进行Ping扫描
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 14:35 ?D1ú±ê×?ê±??
-Nmap scan report for 10.10.10.148       # 扫描10.10.10.148主机
-Host is up (0.00s latency).                # 确定主机存活
-MAC Address: 00:0C:29:7C:0C:79 (VMware)        # 主机的MAC地址
-Nmap done: 3 IP addresses (1 host up) scanned in 1.65 seconds</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -sP <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span>-<span class="hljs-number">150</span>			<span class="hljs-comment"># 对指定范围内的IP进行Ping扫描</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">14</span>:<span class="hljs-number">35</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span>   	<span class="hljs-comment"># 扫描10.10.10.148主机</span><br>Host is up (<span class="hljs-number">0.00</span>s latency).				<span class="hljs-comment"># 确定主机存活</span><br>MAC Address: <span class="hljs-number">00</span>:<span class="hljs-number">0</span>C:<span class="hljs-number">29</span>:<span class="hljs-number">7</span>C:<span class="hljs-number">0</span>C:<span class="hljs-number">79</span> (VMware)		<span class="hljs-comment"># 主机的MAC地址</span><br>Nmap done: <span class="hljs-number">3</span> IP addresses (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">1.65</span> seconds<br></code></pre></td></tr></table></figure>
+
 <h1 id="0x03-无Ping扫描"><a href="#0x03-无Ping扫描" class="headerlink" title="0x03 无Ping扫描"></a>0x03 无Ping扫描</h1><p>​        无Ping扫描常用于防火墙禁止Ping的情况下，它能确定正在运行的主机。默认情况下，Nmap只对正在运行的主机进行高强度的探测，如端口扫描、版本探测、操作系统探测等。使用<code>-P0</code>选项后禁止使用Ping进行主机发现而会对每一个指定目标的IP地址进行扫有要求的扫描，这可以穿透防火墙也可以避免被防火墙发现。</p>
 <ul>
 <li>命令格式：<code>nmap -P0 [协议1、协议2、...] 目标</code></li>
 </ul>
-<pre><code class="powershell">λ nmap -P0 10.10.10.148
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 14:46 ?D1ú±ê×?ê±??
-Nmap scan report for 10.10.10.148
-Host is up (0.00094s latency).
-Not shown: 963 closed ports
-PORT      STATE SERVICE
-80/tcp    open  http
-81/tcp    open  hosts2-ns
-82/tcp    open  xfer
-83/tcp    open  mit-ml-dev
-84/tcp    open  ctf
-85/tcp    open  mit-ml-dev
-88/tcp    open  kerberos-sec
-89/tcp    open  su-mit-tg
-90/tcp    open  dnsix
-135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-1433/tcp  open  ms-sql-s
-3306/tcp  open  mysql
-3389/tcp  open  ms-wbt-server
-8001/tcp  open  vcom-tunnel
-8002/tcp  open  teradataordbms
-8007/tcp  open  ajp12
-8008/tcp  open  http
-8009/tcp  open  ajp13
-8010/tcp  open  xmpp
-8021/tcp  open  ftp-proxy
-8022/tcp  open  oa-system
-8031/tcp  open  unknown
-8081/tcp  open  blackice-icecap
-8082/tcp  open  blackice-alerts
-8084/tcp  open  unknown
-8085/tcp  open  unknown
-8086/tcp  open  d-s-n
-8088/tcp  open  radan-http
-8200/tcp  open  trivnet1
-49152/tcp open  unknown
-49153/tcp open  unknown
-49154/tcp open  unknown
-49155/tcp open  unknown
-49156/tcp open  unknown
-49157/tcp open  unknown
-MAC Address: 00:0C:29:7C:0C:79 (VMware)
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -P0 <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">14</span>:<span class="hljs-number">46</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Host is up (<span class="hljs-number">0.00094</span>s latency).<br>Not shown: <span class="hljs-number">963</span> closed ports<br>PORT      STATE SERVICE<br><span class="hljs-number">80</span>/tcp    open  http<br><span class="hljs-number">81</span>/tcp    open  hosts2-ns<br><span class="hljs-number">82</span>/tcp    open  xfer<br><span class="hljs-number">83</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">84</span>/tcp    open  ctf<br><span class="hljs-number">85</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">88</span>/tcp    open  kerberos-sec<br><span class="hljs-number">89</span>/tcp    open  su-mit-tg<br><span class="hljs-number">90</span>/tcp    open  dnsix<br><span class="hljs-number">135</span>/tcp   open  msrpc<br><span class="hljs-number">139</span>/tcp   open  netbios-ssn<br><span class="hljs-number">445</span>/tcp   open  microsoft-ds<br><span class="hljs-number">1433</span>/tcp  open  ms-sql-s<br><span class="hljs-number">3306</span>/tcp  open  mysql<br><span class="hljs-number">3389</span>/tcp  open  ms-wbt-server<br><span class="hljs-number">8001</span>/tcp  open  vcom-tunnel<br><span class="hljs-number">8002</span>/tcp  open  teradataordbms<br><span class="hljs-number">8007</span>/tcp  open  ajp12<br><span class="hljs-number">8008</span>/tcp  open  http<br><span class="hljs-number">8009</span>/tcp  open  ajp13<br><span class="hljs-number">8010</span>/tcp  open  xmpp<br><span class="hljs-number">8021</span>/tcp  open  ftp-proxy<br><span class="hljs-number">8022</span>/tcp  open  oa-system<br><span class="hljs-number">8031</span>/tcp  open  unknown<br><span class="hljs-number">8081</span>/tcp  open  blackice-icecap<br><span class="hljs-number">8082</span>/tcp  open  blackice-alerts<br><span class="hljs-number">8084</span>/tcp  open  unknown<br><span class="hljs-number">8085</span>/tcp  open  unknown<br><span class="hljs-number">8086</span>/tcp  open  d-s-n<br><span class="hljs-number">8088</span>/tcp  open  radan-http<br><span class="hljs-number">8200</span>/tcp  open  trivnet1<br><span class="hljs-number">49152</span>/tcp open  unknown<br><span class="hljs-number">49153</span>/tcp open  unknown<br><span class="hljs-number">49154</span>/tcp open  unknown<br><span class="hljs-number">49155</span>/tcp open  unknown<br><span class="hljs-number">49156</span>/tcp open  unknown<br><span class="hljs-number">49157</span>/tcp open  unknown<br>MAC Address: <span class="hljs-number">00</span>:<span class="hljs-number">0</span>C:<span class="hljs-number">29</span>:<span class="hljs-number">7</span>C:<span class="hljs-number">0</span>C:<span class="hljs-number">79</span> (VMware)<br><br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">2.64</span> seconds<br></code></pre></td></tr></table></figure>
 
-Nmap done: 1 IP address (1 host up) scanned in 2.64 seconds</code></pre>
 <ul>
 <li><p>如果没有指定任何协议，Nmap会默认使用协议1、协议2、协议4，如果想知道这些协议的如何判断目标主机是否存活可以使用<code>--packet-trace</code>选项。</p>
-<pre><code class="powershell">nmap -P0 --packet-trace 10.10.10.148</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">nmap -P0 --packet-trace <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>Nmap支持的协议和编号如下所示</p>
 <ul>
@@ -719,163 +636,41 @@ Nmap done: 1 IP address (1 host up) scanned in 2.64 seconds</code></pre>
 <li>ICMP：对应协议编号为1.</li>
 <li>IGMP：对应协议编号为2.</li>
 </ul>
-<pre><code class="powershell">nmap -P0 6,17,2 10.10.10.148</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">nmap -P0 <span class="hljs-number">6</span>,<span class="hljs-number">17</span>,<span class="hljs-number">2</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br></code></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h1 id="0x04-TCP-SYN-Ping扫描"><a href="#0x04-TCP-SYN-Ping扫描" class="headerlink" title="0x04 TCP SYN Ping扫描"></a>0x04 TCP SYN Ping扫描</h1><p>​        通常情况下，Nmap默认Ping扫描是使用<code>TCP SYN</code>和<code>ICMP ECHO</code>请求对目标进行是否存活的响应，当目标主机的防火墙阻止这些请求时，可以使用<code>TCP SYN Ping</code>扫描来进行对目标主机存活的判断。</p>
-<pre><code class="powershell">λ nmap -PS 10.10.10.148
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 15:33 ?D1ú±ê×?ê±??
-Nmap scan report for 10.10.10.148
-Host is up (0.00085s latency).
-Not shown: 963 closed ports
-PORT      STATE SERVICE
-80/tcp    open  http
-81/tcp    open  hosts2-ns
-82/tcp    open  xfer
-83/tcp    open  mit-ml-dev
-84/tcp    open  ctf
-85/tcp    open  mit-ml-dev
-88/tcp    open  kerberos-sec
-89/tcp    open  su-mit-tg
-90/tcp    open  dnsix
-135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-1433/tcp  open  ms-sql-s
-3306/tcp  open  mysql
-3389/tcp  open  ms-wbt-server
-8001/tcp  open  vcom-tunnel
-8002/tcp  open  teradataordbms
-8007/tcp  open  ajp12
-8008/tcp  open  http
-8009/tcp  open  ajp13
-8010/tcp  open  xmpp
-8021/tcp  open  ftp-proxy
-8022/tcp  open  oa-system
-8031/tcp  open  unknown
-8081/tcp  open  blackice-icecap
-8082/tcp  open  blackice-alerts
-8084/tcp  open  unknown
-8085/tcp  open  unknown
-8086/tcp  open  d-s-n
-8088/tcp  open  radan-http
-8200/tcp  open  trivnet1
-49152/tcp open  unknown
-49153/tcp open  unknown
-49154/tcp open  unknown
-49155/tcp open  unknown
-49156/tcp open  unknown
-49157/tcp open  unknown
-MAC Address: 00:0C:29:7C:0C:79 (VMware)
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -PS <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">15</span>:<span class="hljs-number">33</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Host is up (<span class="hljs-number">0.00085</span>s latency).<br>Not shown: <span class="hljs-number">963</span> closed ports<br>PORT      STATE SERVICE<br><span class="hljs-number">80</span>/tcp    open  http<br><span class="hljs-number">81</span>/tcp    open  hosts2-ns<br><span class="hljs-number">82</span>/tcp    open  xfer<br><span class="hljs-number">83</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">84</span>/tcp    open  ctf<br><span class="hljs-number">85</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">88</span>/tcp    open  kerberos-sec<br><span class="hljs-number">89</span>/tcp    open  su-mit-tg<br><span class="hljs-number">90</span>/tcp    open  dnsix<br><span class="hljs-number">135</span>/tcp   open  msrpc<br><span class="hljs-number">139</span>/tcp   open  netbios-ssn<br><span class="hljs-number">445</span>/tcp   open  microsoft-ds<br><span class="hljs-number">1433</span>/tcp  open  ms-sql-s<br><span class="hljs-number">3306</span>/tcp  open  mysql<br><span class="hljs-number">3389</span>/tcp  open  ms-wbt-server<br><span class="hljs-number">8001</span>/tcp  open  vcom-tunnel<br><span class="hljs-number">8002</span>/tcp  open  teradataordbms<br><span class="hljs-number">8007</span>/tcp  open  ajp12<br><span class="hljs-number">8008</span>/tcp  open  http<br><span class="hljs-number">8009</span>/tcp  open  ajp13<br><span class="hljs-number">8010</span>/tcp  open  xmpp<br><span class="hljs-number">8021</span>/tcp  open  ftp-proxy<br><span class="hljs-number">8022</span>/tcp  open  oa-system<br><span class="hljs-number">8031</span>/tcp  open  unknown<br><span class="hljs-number">8081</span>/tcp  open  blackice-icecap<br><span class="hljs-number">8082</span>/tcp  open  blackice-alerts<br><span class="hljs-number">8084</span>/tcp  open  unknown<br><span class="hljs-number">8085</span>/tcp  open  unknown<br><span class="hljs-number">8086</span>/tcp  open  d-s-n<br><span class="hljs-number">8088</span>/tcp  open  radan-http<br><span class="hljs-number">8200</span>/tcp  open  trivnet1<br><span class="hljs-number">49152</span>/tcp open  unknown<br><span class="hljs-number">49153</span>/tcp open  unknown<br><span class="hljs-number">49154</span>/tcp open  unknown<br><span class="hljs-number">49155</span>/tcp open  unknown<br><span class="hljs-number">49156</span>/tcp open  unknown<br><span class="hljs-number">49157</span>/tcp open  unknown<br>MAC Address: <span class="hljs-number">00</span>:<span class="hljs-number">0</span>C:<span class="hljs-number">29</span>:<span class="hljs-number">7</span>C:<span class="hljs-number">0</span>C:<span class="hljs-number">79</span> (VMware)<br><br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">2.54</span> seconds<br></code></pre></td></tr></table></figure>
 
-Nmap done: 1 IP address (1 host up) scanned in 2.54 seconds</code></pre>
 <ul>
 <li><p><code>-PS</code>选项发送一个设置为SYN标志位的空TCP报文，默认目的端口为80，但不同的端口也可以作为选项指定，设置可以指定一个以逗号分隔的端口列表，每个端口会被并发地扫描。</p>
-<pre><code class="powershell">nmap -PS80,100-200 10.10.10.148</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">nmap -PS80,<span class="hljs-number">100</span>-<span class="hljs-number">200</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <h1 id="0x05-TCP-ACK-Ping扫描"><a href="#0x05-TCP-ACK-Ping扫描" class="headerlink" title="0x05 TCP ACK Ping扫描"></a>0x05 TCP ACK Ping扫描</h1><p>​        很多防火墙会封锁SYN报文，所以Nmap还提供了TCP ACK Ping扫描，与YCP SYN Ping不同的是TCP的标志位是ACK而不是SYN。Nmap发送一个ACK标志的TCP包给目标主机，如果目标主机不是存活状态则不响应该请求，如果目标主机在线会返回一个RST包。</p>
-<pre><code class="powershell">λ nmap -PA 10.10.10.148
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 15:48 ?D1ú±ê×?ê±??
-Nmap scan report for 10.10.10.148
-Host is up (0.00052s latency).
-Not shown: 963 closed ports
-PORT      STATE SERVICE
-80/tcp    open  http
-81/tcp    open  hosts2-ns
-82/tcp    open  xfer
-83/tcp    open  mit-ml-dev
-84/tcp    open  ctf
-85/tcp    open  mit-ml-dev
-88/tcp    open  kerberos-sec
-89/tcp    open  su-mit-tg
-90/tcp    open  dnsix
-135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-1433/tcp  open  ms-sql-s
-3306/tcp  open  mysql
-3389/tcp  open  ms-wbt-server
-8001/tcp  open  vcom-tunnel
-8002/tcp  open  teradataordbms
-8007/tcp  open  ajp12
-8008/tcp  open  http
-8009/tcp  open  ajp13
-8010/tcp  open  xmpp
-8021/tcp  open  ftp-proxy
-8022/tcp  open  oa-system
-8031/tcp  open  unknown
-8081/tcp  open  blackice-icecap
-8082/tcp  open  blackice-alerts
-8084/tcp  open  unknown
-8085/tcp  open  unknown
-8086/tcp  open  d-s-n
-8088/tcp  open  radan-http
-8200/tcp  open  trivnet1
-49152/tcp open  unknown
-49153/tcp open  unknown
-49154/tcp open  unknown
-49155/tcp open  unknown
-49156/tcp open  unknown
-49157/tcp open  unknown
-MAC Address: 00:0C:29:7C:0C:79 (VMware)
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -PA <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">15</span>:<span class="hljs-number">48</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Host is up (<span class="hljs-number">0.00052</span>s latency).<br>Not shown: <span class="hljs-number">963</span> closed ports<br>PORT      STATE SERVICE<br><span class="hljs-number">80</span>/tcp    open  http<br><span class="hljs-number">81</span>/tcp    open  hosts2-ns<br><span class="hljs-number">82</span>/tcp    open  xfer<br><span class="hljs-number">83</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">84</span>/tcp    open  ctf<br><span class="hljs-number">85</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">88</span>/tcp    open  kerberos-sec<br><span class="hljs-number">89</span>/tcp    open  su-mit-tg<br><span class="hljs-number">90</span>/tcp    open  dnsix<br><span class="hljs-number">135</span>/tcp   open  msrpc<br><span class="hljs-number">139</span>/tcp   open  netbios-ssn<br><span class="hljs-number">445</span>/tcp   open  microsoft-ds<br><span class="hljs-number">1433</span>/tcp  open  ms-sql-s<br><span class="hljs-number">3306</span>/tcp  open  mysql<br><span class="hljs-number">3389</span>/tcp  open  ms-wbt-server<br><span class="hljs-number">8001</span>/tcp  open  vcom-tunnel<br><span class="hljs-number">8002</span>/tcp  open  teradataordbms<br><span class="hljs-number">8007</span>/tcp  open  ajp12<br><span class="hljs-number">8008</span>/tcp  open  http<br><span class="hljs-number">8009</span>/tcp  open  ajp13<br><span class="hljs-number">8010</span>/tcp  open  xmpp<br><span class="hljs-number">8021</span>/tcp  open  ftp-proxy<br><span class="hljs-number">8022</span>/tcp  open  oa-system<br><span class="hljs-number">8031</span>/tcp  open  unknown<br><span class="hljs-number">8081</span>/tcp  open  blackice-icecap<br><span class="hljs-number">8082</span>/tcp  open  blackice-alerts<br><span class="hljs-number">8084</span>/tcp  open  unknown<br><span class="hljs-number">8085</span>/tcp  open  unknown<br><span class="hljs-number">8086</span>/tcp  open  d-s-n<br><span class="hljs-number">8088</span>/tcp  open  radan-http<br><span class="hljs-number">8200</span>/tcp  open  trivnet1<br><span class="hljs-number">49152</span>/tcp open  unknown<br><span class="hljs-number">49153</span>/tcp open  unknown<br><span class="hljs-number">49154</span>/tcp open  unknown<br><span class="hljs-number">49155</span>/tcp open  unknown<br><span class="hljs-number">49156</span>/tcp open  unknown<br><span class="hljs-number">49157</span>/tcp open  unknown<br>MAC Address: <span class="hljs-number">00</span>:<span class="hljs-number">0</span>C:<span class="hljs-number">29</span>:<span class="hljs-number">7</span>C:<span class="hljs-number">0</span>C:<span class="hljs-number">79</span> (VMware)<br><br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">2.50</span> seconds<br></code></pre></td></tr></table></figure>
 
-Nmap done: 1 IP address (1 host up) scanned in 2.50 seconds</code></pre>
 <ul>
 <li><p>Nmap提供的TCP SYN Ping和TCP ACK Ping两种方式可以同时使用</p>
-<pre><code class="powershell">nmap -PA -PS 10.10.10.148</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">nmap -PA -PS <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <h1 id="0x06-UDP-Ping扫描"><a href="#0x06-UDP-Ping扫描" class="headerlink" title="0x06 UDP Ping扫描"></a>0x06 UDP Ping扫描</h1><p>​        使用UDP Ping扫描时Nmap会发送一个空的UDP包到目标主机，如果目标主机响应则返回一个ICMP端口不可达错误，如果目标不是存活状态则会返回各种ICMP报错信息。<code>-PU</code>选项是发送一个空的UDP报文到指定端口。如果不指定端口则默认是40125。</p>
-<pre><code class="powershell">λ nmap -PU 10.10.10.148
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 15:55 ?D1ú±ê×?ê±??
-Nmap scan report for 10.10.10.148
-Host is up (0.0011s latency).
-Not shown: 963 closed ports
-PORT      STATE SERVICE
-80/tcp    open  http
-81/tcp    open  hosts2-ns
-82/tcp    open  xfer
-83/tcp    open  mit-ml-dev
-84/tcp    open  ctf
-85/tcp    open  mit-ml-dev
-88/tcp    open  kerberos-sec
-89/tcp    open  su-mit-tg
-90/tcp    open  dnsix
-135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-1433/tcp  open  ms-sql-s
-3306/tcp  open  mysql
-3389/tcp  open  ms-wbt-server
-8001/tcp  open  vcom-tunnel
-8002/tcp  open  teradataordbms
-8007/tcp  open  ajp12
-8008/tcp  open  http
-8009/tcp  open  ajp13
-8010/tcp  open  xmpp
-8021/tcp  open  ftp-proxy
-8022/tcp  open  oa-system
-8031/tcp  open  unknown
-8081/tcp  open  blackice-icecap
-8082/tcp  open  blackice-alerts
-8084/tcp  open  unknown
-8085/tcp  open  unknown
-8086/tcp  open  d-s-n
-8088/tcp  open  radan-http
-8200/tcp  open  trivnet1
-49152/tcp open  unknown
-49153/tcp open  unknown
-49154/tcp open  unknown
-49155/tcp open  unknown
-49156/tcp open  unknown
-49157/tcp open  unknown
-MAC Address: 00:0C:29:7C:0C:79 (VMware)
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -PU <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">15</span>:<span class="hljs-number">55</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Host is up (<span class="hljs-number">0.0011</span>s latency).<br>Not shown: <span class="hljs-number">963</span> closed ports<br>PORT      STATE SERVICE<br><span class="hljs-number">80</span>/tcp    open  http<br><span class="hljs-number">81</span>/tcp    open  hosts2-ns<br><span class="hljs-number">82</span>/tcp    open  xfer<br><span class="hljs-number">83</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">84</span>/tcp    open  ctf<br><span class="hljs-number">85</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">88</span>/tcp    open  kerberos-sec<br><span class="hljs-number">89</span>/tcp    open  su-mit-tg<br><span class="hljs-number">90</span>/tcp    open  dnsix<br><span class="hljs-number">135</span>/tcp   open  msrpc<br><span class="hljs-number">139</span>/tcp   open  netbios-ssn<br><span class="hljs-number">445</span>/tcp   open  microsoft-ds<br><span class="hljs-number">1433</span>/tcp  open  ms-sql-s<br><span class="hljs-number">3306</span>/tcp  open  mysql<br><span class="hljs-number">3389</span>/tcp  open  ms-wbt-server<br><span class="hljs-number">8001</span>/tcp  open  vcom-tunnel<br><span class="hljs-number">8002</span>/tcp  open  teradataordbms<br><span class="hljs-number">8007</span>/tcp  open  ajp12<br><span class="hljs-number">8008</span>/tcp  open  http<br><span class="hljs-number">8009</span>/tcp  open  ajp13<br><span class="hljs-number">8010</span>/tcp  open  xmpp<br><span class="hljs-number">8021</span>/tcp  open  ftp-proxy<br><span class="hljs-number">8022</span>/tcp  open  oa-system<br><span class="hljs-number">8031</span>/tcp  open  unknown<br><span class="hljs-number">8081</span>/tcp  open  blackice-icecap<br><span class="hljs-number">8082</span>/tcp  open  blackice-alerts<br><span class="hljs-number">8084</span>/tcp  open  unknown<br><span class="hljs-number">8085</span>/tcp  open  unknown<br><span class="hljs-number">8086</span>/tcp  open  d-s-n<br><span class="hljs-number">8088</span>/tcp  open  radan-http<br><span class="hljs-number">8200</span>/tcp  open  trivnet1<br><span class="hljs-number">49152</span>/tcp open  unknown<br><span class="hljs-number">49153</span>/tcp open  unknown<br><span class="hljs-number">49154</span>/tcp open  unknown<br><span class="hljs-number">49155</span>/tcp open  unknown<br><span class="hljs-number">49156</span>/tcp open  unknown<br><span class="hljs-number">49157</span>/tcp open  unknown<br>MAC Address: <span class="hljs-number">00</span>:<span class="hljs-number">0</span>C:<span class="hljs-number">29</span>:<span class="hljs-number">7</span>C:<span class="hljs-number">0</span>C:<span class="hljs-number">79</span> (VMware)<br><br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">2.78</span> seconds<br></code></pre></td></tr></table></figure>
 
-Nmap done: 1 IP address (1 host up) scanned in 2.78 seconds</code></pre>
 <ul>
 <li><p><code>-PU</code>选项也可以指定端口</p>
-<pre><code class="powershell">nmap -PU80,100 10.10.10.148</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">nmap -PU80,<span class="hljs-number">100</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <h1 id="0x07-ICMP-Ping-Types扫描"><a href="#0x07-ICMP-Ping-Types扫描" class="headerlink" title="0x07 ICMP Ping Types扫描"></a>0x07 ICMP Ping Types扫描</h1><p>​        使用<code>-PE,-PP,-PM</code>选项可以进行ICMP Ping Types扫描。</p>
@@ -884,279 +679,31 @@ Nmap done: 1 IP address (1 host up) scanned in 2.78 seconds</code></pre>
 <li><code>-PP</code>选项是ICMP时间戳Ping扫描，虽然大多数的防火墙配置不允许ICMP Echo请求，但由于配置不当可能回复ICMP时间戳请求，所以可以使用ICMP时间戳来确定主机是否存活；</li>
 <li><code>-PM</code>选项可以进行ICMP地址掩码Ping扫描。</li>
 </ul>
-<pre><code class="powershell">nmap -PE 10.10.10.148
-nmap -PP 10.10.10.148
-nmap -PM 10.10.10.148</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">nmap -PE <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>nmap -PP <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>nmap -PM <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br></code></pre></td></tr></table></figure>
+
 <h1 id="0x08-ARP-Ping扫描"><a href="#0x08-ARP-Ping扫描" class="headerlink" title="0x08 ARP Ping扫描"></a>0x08 ARP Ping扫描</h1><p>​        <code>-PR</code>选项通常在扫描局域网时使用。ARP Ping扫描是Nmap对目标进行一个ARP Ping的过程，尤其在内网的情况下，使用ARP Ping扫描方式是最有效的，在本地局域网中防火墙不会禁止ARP请求，所以在内容中使用ARP Ping非常有效。默认情况下若nmap与目标主机在同一局域网中，会默认进行ARP扫描，若不想使用可以指定<code>--send-ip</code>。</p>
-<pre><code class="powershell">λ nmap -PR 10.10.10.148
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 16:13 ?D1ú±ê×?ê±??
-Nmap scan report for 10.10.10.148
-Host is up (0.00066s latency).
-Not shown: 963 closed ports
-PORT      STATE SERVICE
-80/tcp    open  http
-81/tcp    open  hosts2-ns
-82/tcp    open  xfer
-83/tcp    open  mit-ml-dev
-84/tcp    open  ctf
-85/tcp    open  mit-ml-dev
-88/tcp    open  kerberos-sec
-89/tcp    open  su-mit-tg
-90/tcp    open  dnsix
-135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-1433/tcp  open  ms-sql-s
-3306/tcp  open  mysql
-3389/tcp  open  ms-wbt-server
-8001/tcp  open  vcom-tunnel
-8002/tcp  open  teradataordbms
-8007/tcp  open  ajp12
-8008/tcp  open  http
-8009/tcp  open  ajp13
-8010/tcp  open  xmpp
-8021/tcp  open  ftp-proxy
-8022/tcp  open  oa-system
-8031/tcp  open  unknown
-8081/tcp  open  blackice-icecap
-8082/tcp  open  blackice-alerts
-8084/tcp  open  unknown
-8085/tcp  open  unknown
-8086/tcp  open  d-s-n
-8088/tcp  open  radan-http
-8200/tcp  open  trivnet1
-49152/tcp open  unknown
-49153/tcp open  unknown
-49154/tcp open  unknown
-49155/tcp open  unknown
-49156/tcp open  unknown
-49157/tcp open  unknown
-MAC Address: 00:0C:29:7C:0C:79 (VMware)
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -PR <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">16</span>:<span class="hljs-number">13</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Host is up (<span class="hljs-number">0.00066</span>s latency).<br>Not shown: <span class="hljs-number">963</span> closed ports<br>PORT      STATE SERVICE<br><span class="hljs-number">80</span>/tcp    open  http<br><span class="hljs-number">81</span>/tcp    open  hosts2-ns<br><span class="hljs-number">82</span>/tcp    open  xfer<br><span class="hljs-number">83</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">84</span>/tcp    open  ctf<br><span class="hljs-number">85</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">88</span>/tcp    open  kerberos-sec<br><span class="hljs-number">89</span>/tcp    open  su-mit-tg<br><span class="hljs-number">90</span>/tcp    open  dnsix<br><span class="hljs-number">135</span>/tcp   open  msrpc<br><span class="hljs-number">139</span>/tcp   open  netbios-ssn<br><span class="hljs-number">445</span>/tcp   open  microsoft-ds<br><span class="hljs-number">1433</span>/tcp  open  ms-sql-s<br><span class="hljs-number">3306</span>/tcp  open  mysql<br><span class="hljs-number">3389</span>/tcp  open  ms-wbt-server<br><span class="hljs-number">8001</span>/tcp  open  vcom-tunnel<br><span class="hljs-number">8002</span>/tcp  open  teradataordbms<br><span class="hljs-number">8007</span>/tcp  open  ajp12<br><span class="hljs-number">8008</span>/tcp  open  http<br><span class="hljs-number">8009</span>/tcp  open  ajp13<br><span class="hljs-number">8010</span>/tcp  open  xmpp<br><span class="hljs-number">8021</span>/tcp  open  ftp-proxy<br><span class="hljs-number">8022</span>/tcp  open  oa-system<br><span class="hljs-number">8031</span>/tcp  open  unknown<br><span class="hljs-number">8081</span>/tcp  open  blackice-icecap<br><span class="hljs-number">8082</span>/tcp  open  blackice-alerts<br><span class="hljs-number">8084</span>/tcp  open  unknown<br><span class="hljs-number">8085</span>/tcp  open  unknown<br><span class="hljs-number">8086</span>/tcp  open  d-s-n<br><span class="hljs-number">8088</span>/tcp  open  radan-http<br><span class="hljs-number">8200</span>/tcp  open  trivnet1<br><span class="hljs-number">49152</span>/tcp open  unknown<br><span class="hljs-number">49153</span>/tcp open  unknown<br><span class="hljs-number">49154</span>/tcp open  unknown<br><span class="hljs-number">49155</span>/tcp open  unknown<br><span class="hljs-number">49156</span>/tcp open  unknown<br><span class="hljs-number">49157</span>/tcp open  unknown<br>MAC Address: <span class="hljs-number">00</span>:<span class="hljs-number">0</span>C:<span class="hljs-number">29</span>:<span class="hljs-number">7</span>C:<span class="hljs-number">0</span>C:<span class="hljs-number">79</span> (VMware)<br><br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">2.71</span> seconds<br></code></pre></td></tr></table></figure>
 
-Nmap done: 1 IP address (1 host up) scanned in 2.71 seconds</code></pre>
 <h1 id="0x09-列表扫描"><a href="#0x09-列表扫描" class="headerlink" title="0x09 列表扫描"></a>0x09 列表扫描</h1><p>​        列表扫描是主机发现的一种退化形式，它仅仅列出指定网络上的每台主机，不发送任何报文到目标主机。默认情况下，Nmap仍然对主机进行反向域名解析以获取他们的名字。</p>
-<pre><code class="powershell">λ nmap -sL 127.0.0.1/30
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 16:39 ?D1ú±ê×?ê±??
-Nmap scan report for 127.0.0.0
-Nmap scan report for transact.netsarang.com (127.0.0.1)
-Nmap scan report for 127.0.0.2
-Nmap scan report for 127.0.0.3
-Nmap done: 4 IP addresses (0 hosts up) scanned in 3.64 seconds</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -sL <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>/<span class="hljs-number">30</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">16</span>:<span class="hljs-number">39</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.0</span><br>Nmap scan report <span class="hljs-keyword">for</span> transact.netsarang.com (<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>)<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.2</span><br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.3</span><br>Nmap done: <span class="hljs-number">4</span> IP addresses (<span class="hljs-number">0</span> hosts up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">3.64</span> seconds<br></code></pre></td></tr></table></figure>
+
 <h1 id="0x10-禁止反向域名解析"><a href="#0x10-禁止反向域名解析" class="headerlink" title="0x10 禁止反向域名解析"></a>0x10 禁止反向域名解析</h1><p>​        <code>-n</code>选项意为禁止解析域名，使用该选项时Nmap永远不会对目标主机IP地址作反向域名解析。</p>
-<pre><code class="powershell">λ nmap -n -sL 127.0.0.1/30
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 16:40 ?D1ú±ê×?ê±??
-Nmap scan report for 127.0.0.0
-Nmap scan report for 127.0.0.1
-Nmap scan report for 127.0.0.2
-Nmap scan report for 127.0.0.3
-Nmap done: 4 IP addresses (0 hosts up) scanned in 0.22 seconds</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -n -sL <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>/<span class="hljs-number">30</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">16</span>:<span class="hljs-number">40</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.0</span><br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span><br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.2</span><br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.3</span><br>Nmap done: <span class="hljs-number">4</span> IP addresses (<span class="hljs-number">0</span> hosts up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">0.22</span> seconds<br></code></pre></td></tr></table></figure>
+
 <h1 id="0x11-反向域名解析"><a href="#0x11-反向域名解析" class="headerlink" title="0x11 反向域名解析"></a>0x11 反向域名解析</h1><p>​        <code>-R</code>选项意为反向解析域名，使用该选项时Nmap永远对目标IP地址做反向域名解析。</p>
-<pre><code class="powershell">λ nmap -R -sL 127.0.0.1/30
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 16:40 ?D1ú±ê×?ê±??
-Nmap scan report for 127.0.0.0
-Nmap scan report for transact.netsarang.com (127.0.0.1)
-Nmap scan report for 127.0.0.2
-Nmap scan report for 127.0.0.3
-Nmap done: 4 IP addresses (0 hosts up) scanned in 1.07 seconds</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -R -sL <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>/<span class="hljs-number">30</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">16</span>:<span class="hljs-number">40</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.0</span><br>Nmap scan report <span class="hljs-keyword">for</span> transact.netsarang.com (<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>)<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.2</span><br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.3</span><br>Nmap done: <span class="hljs-number">4</span> IP addresses (<span class="hljs-number">0</span> hosts up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">1.07</span> seconds<br></code></pre></td></tr></table></figure>
+
 <h1 id="0x12-使用系统域名解析器"><a href="#0x12-使用系统域名解析器" class="headerlink" title="0x12 使用系统域名解析器"></a>0x12 使用系统域名解析器</h1><p>​        <code>--system-dns</code>意为使用系统域名解析器。默认情况下，Nmap通过直接发送查询到您主机上配置的域名服务器来解析域名。为了提高性能，许多请求并发执行。如果希望使用系统自带的解析器，就指定该选项。</p>
-<pre><code class="powershell">λ nmap --system-dns 127.0.0.1/30
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 16:45 ?D1ú±ê×?ê±??
-Nmap scan report for 127.0.0.0
-Host is up.
-All 1000 scanned ports on 127.0.0.0 are filtered
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap --system-dns <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>/<span class="hljs-number">30</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">16</span>:<span class="hljs-number">45</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.0</span><br>Host is up.<br>All <span class="hljs-number">1000</span> scanned ports on <span class="hljs-number">127.0</span>.<span class="hljs-number">0.0</span> are filtered<br><br>Nmap scan report <span class="hljs-keyword">for</span> transact.netsarang.com (<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>)<br>Host is up (<span class="hljs-number">0.0014</span>s latency).<br>Not shown: <span class="hljs-number">990</span> closed ports<br>PORT      STATE SERVICE<br><span class="hljs-number">135</span>/tcp   open  msrpc<br><span class="hljs-number">443</span>/tcp   open  https<br><span class="hljs-number">445</span>/tcp   open  microsoft-ds<br><span class="hljs-number">808</span>/tcp   open  ccproxy-http<br><span class="hljs-number">902</span>/tcp   open  iss-realsecure<br><span class="hljs-number">912</span>/tcp   open  apex-mesh<br><span class="hljs-number">1001</span>/tcp  open  webpush<br><span class="hljs-number">5357</span>/tcp  open  wsdapi<br><span class="hljs-number">6000</span>/tcp  open  X11<br><span class="hljs-number">50000</span>/tcp open  ibm-db2<br><br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.2</span><br>Host is up (<span class="hljs-number">0.0017</span>s latency).<br>Not shown: <span class="hljs-number">993</span> closed ports<br>PORT     STATE SERVICE<br><span class="hljs-number">135</span>/tcp  open  msrpc<br><span class="hljs-number">443</span>/tcp  open  https<br><span class="hljs-number">445</span>/tcp  open  microsoft-ds<br><span class="hljs-number">808</span>/tcp  open  ccproxy-http<br><span class="hljs-number">902</span>/tcp  open  iss-realsecure<br><span class="hljs-number">912</span>/tcp  open  apex-mesh<br><span class="hljs-number">5357</span>/tcp open  wsdapi<br><br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.3</span><br>Host is up (<span class="hljs-number">0.0018</span>s latency).<br>Not shown: <span class="hljs-number">993</span> closed ports<br>PORT     STATE SERVICE<br><span class="hljs-number">135</span>/tcp  open  msrpc<br><span class="hljs-number">443</span>/tcp  open  https<br><span class="hljs-number">445</span>/tcp  open  microsoft-ds<br><span class="hljs-number">808</span>/tcp  open  ccproxy-http<br><span class="hljs-number">902</span>/tcp  open  iss-realsecure<br><span class="hljs-number">912</span>/tcp  open  apex-mesh<br><span class="hljs-number">5357</span>/tcp open  wsdapi<br><br>Nmap done: <span class="hljs-number">4</span> IP addresses (<span class="hljs-number">4</span> hosts up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">18.36</span> seconds<br></code></pre></td></tr></table></figure>
 
-Nmap scan report for transact.netsarang.com (127.0.0.1)
-Host is up (0.0014s latency).
-Not shown: 990 closed ports
-PORT      STATE SERVICE
-135/tcp   open  msrpc
-443/tcp   open  https
-445/tcp   open  microsoft-ds
-808/tcp   open  ccproxy-http
-902/tcp   open  iss-realsecure
-912/tcp   open  apex-mesh
-1001/tcp  open  webpush
-5357/tcp  open  wsdapi
-6000/tcp  open  X11
-50000/tcp open  ibm-db2
+<h1 id="0x13-扫描一个IPv6地址"><a href="#0x13-扫描一个IPv6地址" class="headerlink" title="0x13 扫描一个IPv6地址"></a>0x13 扫描一个IPv6地址</h1><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -<span class="hljs-number">6</span> fe80::a8b7:c0a2:aa08:<span class="hljs-number">4655</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">17</span>:<span class="hljs-number">11</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> fe80::a8b7:c0a2:aa08:<span class="hljs-number">4655</span><br>Host is up.<br>All <span class="hljs-number">1000</span> scanned ports on fe80::a8b7:c0a2:aa08:<span class="hljs-number">4655</span> are filtered<br><br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">202.67</span> seconds<br></code></pre></td></tr></table></figure>
 
-Nmap scan report for 127.0.0.2
-Host is up (0.0017s latency).
-Not shown: 993 closed ports
-PORT     STATE SERVICE
-135/tcp  open  msrpc
-443/tcp  open  https
-445/tcp  open  microsoft-ds
-808/tcp  open  ccproxy-http
-902/tcp  open  iss-realsecure
-912/tcp  open  apex-mesh
-5357/tcp open  wsdapi
-
-Nmap scan report for 127.0.0.3
-Host is up (0.0018s latency).
-Not shown: 993 closed ports
-PORT     STATE SERVICE
-135/tcp  open  msrpc
-443/tcp  open  https
-445/tcp  open  microsoft-ds
-808/tcp  open  ccproxy-http
-902/tcp  open  iss-realsecure
-912/tcp  open  apex-mesh
-5357/tcp open  wsdapi
-
-Nmap done: 4 IP addresses (4 hosts up) scanned in 18.36 seconds</code></pre>
-<h1 id="0x13-扫描一个IPv6地址"><a href="#0x13-扫描一个IPv6地址" class="headerlink" title="0x13 扫描一个IPv6地址"></a>0x13 扫描一个IPv6地址</h1><pre><code class="powershell">λ nmap -6 fe80::a8b7:c0a2:aa08:4655
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 17:11 ?D1ú±ê×?ê±??
-Nmap scan report for fe80::a8b7:c0a2:aa08:4655
-Host is up.
-All 1000 scanned ports on fe80::a8b7:c0a2:aa08:4655 are filtered
-
-Nmap done: 1 IP address (1 host up) scanned in 202.67 seconds</code></pre>
 <h1 id="0x14-路由跟踪"><a href="#0x14-路由跟踪" class="headerlink" title="0x14 路由跟踪"></a>0x14 路由跟踪</h1><p>​        使用<code>--traceroute</code>选线即可进行路由跟踪，使用路由跟踪功能可以帮助用户了解网络的同行情况，通过此选项可以轻松查出从本地计算机到目标之间所经过的网络节点，并可以看到通过各个节点的时间。</p>
-<pre><code class="powershell">λ nmap --traceroute -v 10.10.10.148
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 16:57 ?D1ú±ê×?ê±??
-Initiating ARP Ping Scan at 16:57
-Scanning 10.10.10.148 [1 port]
-Completed ARP Ping Scan at 16:57, 0.62s elapsed (1 total hosts)
-Initiating Parallel DNS resolution of 1 host. at 16:57
-Completed Parallel DNS resolution of 1 host. at 16:58, 2.55s elapsed
-Initiating SYN Stealth Scan at 16:58
-Scanning 10.10.10.148 [1000 ports]
-Discovered open port 3306/tcp on 10.10.10.148
-Discovered open port 445/tcp on 10.10.10.148
-Discovered open port 135/tcp on 10.10.10.148
-Discovered open port 3389/tcp on 10.10.10.148
-Discovered open port 80/tcp on 10.10.10.148
-Discovered open port 81/tcp on 10.10.10.148
-Discovered open port 8009/tcp on 10.10.10.148
-Discovered open port 8008/tcp on 10.10.10.148
-Discovered open port 49153/tcp on 10.10.10.148
-Discovered open port 8200/tcp on 10.10.10.148
-Discovered open port 8021/tcp on 10.10.10.148
-Discovered open port 8084/tcp on 10.10.10.148
-Discovered open port 49154/tcp on 10.10.10.148
-Discovered open port 49157/tcp on 10.10.10.148
-Discovered open port 83/tcp on 10.10.10.148
-Discovered open port 8081/tcp on 10.10.10.148
-Discovered open port 1433/tcp on 10.10.10.148
-Discovered open port 8031/tcp on 10.10.10.148
-Discovered open port 49155/tcp on 10.10.10.148
-Discovered open port 89/tcp on 10.10.10.148
-Discovered open port 8086/tcp on 10.10.10.148
-Discovered open port 85/tcp on 10.10.10.148
-Discovered open port 90/tcp on 10.10.10.148
-Discovered open port 8085/tcp on 10.10.10.148
-Discovered open port 8001/tcp on 10.10.10.148
-Discovered open port 139/tcp on 10.10.10.148
-Discovered open port 8002/tcp on 10.10.10.148
-Discovered open port 88/tcp on 10.10.10.148
-Discovered open port 8007/tcp on 10.10.10.148
-Discovered open port 8022/tcp on 10.10.10.148
-Discovered open port 49152/tcp on 10.10.10.148
-Discovered open port 8088/tcp on 10.10.10.148
-Discovered open port 84/tcp on 10.10.10.148
-Discovered open port 82/tcp on 10.10.10.148
-Discovered open port 8082/tcp on 10.10.10.148
-Discovered open port 8010/tcp on 10.10.10.148
-Discovered open port 49156/tcp on 10.10.10.148
-Completed SYN Stealth Scan at 16:58, 1.37s elapsed (1000 total ports)
-Nmap scan report for 10.10.10.148
-Host is up (0.00034s latency).
-Not shown: 963 closed ports
-PORT      STATE SERVICE
-80/tcp    open  http
-81/tcp    open  hosts2-ns
-82/tcp    open  xfer
-83/tcp    open  mit-ml-dev
-84/tcp    open  ctf
-85/tcp    open  mit-ml-dev
-88/tcp    open  kerberos-sec
-89/tcp    open  su-mit-tg
-90/tcp    open  dnsix
-135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-1433/tcp  open  ms-sql-s
-3306/tcp  open  mysql
-3389/tcp  open  ms-wbt-server
-8001/tcp  open  vcom-tunnel
-8002/tcp  open  teradataordbms
-8007/tcp  open  ajp12
-8008/tcp  open  http
-8009/tcp  open  ajp13
-8010/tcp  open  xmpp
-8021/tcp  open  ftp-proxy
-8022/tcp  open  oa-system
-8031/tcp  open  unknown
-8081/tcp  open  blackice-icecap
-8082/tcp  open  blackice-alerts
-8084/tcp  open  unknown
-8085/tcp  open  unknown
-8086/tcp  open  d-s-n
-8088/tcp  open  radan-http
-8200/tcp  open  trivnet1
-49152/tcp open  unknown
-49153/tcp open  unknown
-49154/tcp open  unknown
-49155/tcp open  unknown
-49156/tcp open  unknown
-49157/tcp open  unknown
-MAC Address: 00:0C:29:7C:0C:79 (VMware)
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap --traceroute -v <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">16</span>:<span class="hljs-number">57</span> ?D1ú±ê×?ê±??<br>Initiating ARP Ping Scan at <span class="hljs-number">16</span>:<span class="hljs-number">57</span><br>Scanning <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span> [<span class="hljs-number">1</span> port]<br>Completed ARP Ping Scan at <span class="hljs-number">16</span>:<span class="hljs-number">57</span>, <span class="hljs-number">0.62</span>s elapsed (<span class="hljs-number">1</span> total hosts)<br>Initiating Parallel DNS resolution of <span class="hljs-number">1</span> host. at <span class="hljs-number">16</span>:<span class="hljs-number">57</span><br>Completed Parallel DNS resolution of <span class="hljs-number">1</span> host. at <span class="hljs-number">16</span>:<span class="hljs-number">58</span>, <span class="hljs-number">2.55</span>s elapsed<br>Initiating SYN Stealth Scan at <span class="hljs-number">16</span>:<span class="hljs-number">58</span><br>Scanning <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span> [<span class="hljs-number">1000</span> ports]<br>Discovered open port <span class="hljs-number">3306</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">445</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">135</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">3389</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">80</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">81</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8009</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8008</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">49153</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8200</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8021</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8084</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">49154</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">49157</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">83</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8081</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">1433</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8031</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">49155</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">89</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8086</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">85</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">90</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8085</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8001</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">139</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8002</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">88</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8007</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8022</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">49152</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8088</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">84</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">82</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8082</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">8010</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Discovered open port <span class="hljs-number">49156</span>/tcp on <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Completed SYN Stealth Scan at <span class="hljs-number">16</span>:<span class="hljs-number">58</span>, <span class="hljs-number">1.37</span>s elapsed (<span class="hljs-number">1000</span> total ports)<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Host is up (<span class="hljs-number">0.00034</span>s latency).<br>Not shown: <span class="hljs-number">963</span> closed ports<br>PORT      STATE SERVICE<br><span class="hljs-number">80</span>/tcp    open  http<br><span class="hljs-number">81</span>/tcp    open  hosts2-ns<br><span class="hljs-number">82</span>/tcp    open  xfer<br><span class="hljs-number">83</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">84</span>/tcp    open  ctf<br><span class="hljs-number">85</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">88</span>/tcp    open  kerberos-sec<br><span class="hljs-number">89</span>/tcp    open  su-mit-tg<br><span class="hljs-number">90</span>/tcp    open  dnsix<br><span class="hljs-number">135</span>/tcp   open  msrpc<br><span class="hljs-number">139</span>/tcp   open  netbios-ssn<br><span class="hljs-number">445</span>/tcp   open  microsoft-ds<br><span class="hljs-number">1433</span>/tcp  open  ms-sql-s<br><span class="hljs-number">3306</span>/tcp  open  mysql<br><span class="hljs-number">3389</span>/tcp  open  ms-wbt-server<br><span class="hljs-number">8001</span>/tcp  open  vcom-tunnel<br><span class="hljs-number">8002</span>/tcp  open  teradataordbms<br><span class="hljs-number">8007</span>/tcp  open  ajp12<br><span class="hljs-number">8008</span>/tcp  open  http<br><span class="hljs-number">8009</span>/tcp  open  ajp13<br><span class="hljs-number">8010</span>/tcp  open  xmpp<br><span class="hljs-number">8021</span>/tcp  open  ftp-proxy<br><span class="hljs-number">8022</span>/tcp  open  oa-system<br><span class="hljs-number">8031</span>/tcp  open  unknown<br><span class="hljs-number">8081</span>/tcp  open  blackice-icecap<br><span class="hljs-number">8082</span>/tcp  open  blackice-alerts<br><span class="hljs-number">8084</span>/tcp  open  unknown<br><span class="hljs-number">8085</span>/tcp  open  unknown<br><span class="hljs-number">8086</span>/tcp  open  d-s-n<br><span class="hljs-number">8088</span>/tcp  open  radan-http<br><span class="hljs-number">8200</span>/tcp  open  trivnet1<br><span class="hljs-number">49152</span>/tcp open  unknown<br><span class="hljs-number">49153</span>/tcp open  unknown<br><span class="hljs-number">49154</span>/tcp open  unknown<br><span class="hljs-number">49155</span>/tcp open  unknown<br><span class="hljs-number">49156</span>/tcp open  unknown<br><span class="hljs-number">49157</span>/tcp open  unknown<br>MAC Address: <span class="hljs-number">00</span>:<span class="hljs-number">0</span>C:<span class="hljs-number">29</span>:<span class="hljs-number">7</span>C:<span class="hljs-number">0</span>C:<span class="hljs-number">79</span> (VMware)<br><br>TRACEROUTE<br>HOP RTT     ADDRESS<br><span class="hljs-number">1</span>   <span class="hljs-number">0.34</span> ms <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br><br>Read <span class="hljs-keyword">data</span> files from: D:\Rolan\Tools\InfoGathering\Nmap<br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">5.17</span> seconds<br>           Raw packets sent: <span class="hljs-number">1093</span> (<span class="hljs-number">48.076</span>KB) | Rcvd: <span class="hljs-number">1001</span> (<span class="hljs-number">40.176</span>KB)<br></code></pre></td></tr></table></figure>
 
-TRACEROUTE
-HOP RTT     ADDRESS
-1   0.34 ms 10.10.10.148
-
-Read data files from: D:\Rolan\Tools\InfoGathering\Nmap
-Nmap done: 1 IP address (1 host up) scanned in 5.17 seconds
-           Raw packets sent: 1093 (48.076KB) | Rcvd: 1001 (40.176KB)</code></pre>
 <h1 id="0x15-SCTP-INIT-Ping扫描"><a href="#0x15-SCTP-INIT-Ping扫描" class="headerlink" title="0x15 SCTP INIT Ping扫描"></a>0x15 SCTP INIT Ping扫描</h1><p>​        SCTP是IETF在2000年定义的一个传输层协议。SCTP可看作是TCP协议的改进，它改进了TCP的一些不足，SCTF INIT Ping扫描通过向目标发送INIT包，根据目标主机的响应判断目标主机是否存活。</p>
-<pre><code class="powershell">λ nmap -PY 10.10.10.148
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-01 17:03 ?D1ú±ê×?ê±??
-Nmap scan report for 10.10.10.148
-Host is up (0.0015s latency).
-Not shown: 963 closed ports
-PORT      STATE SERVICE
-80/tcp    open  http
-81/tcp    open  hosts2-ns
-82/tcp    open  xfer
-83/tcp    open  mit-ml-dev
-84/tcp    open  ctf
-85/tcp    open  mit-ml-dev
-88/tcp    open  kerberos-sec
-89/tcp    open  su-mit-tg
-90/tcp    open  dnsix
-135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-1433/tcp  open  ms-sql-s
-3306/tcp  open  mysql
-3389/tcp  open  ms-wbt-server
-8001/tcp  open  vcom-tunnel
-8002/tcp  open  teradataordbms
-8007/tcp  open  ajp12
-8008/tcp  open  http
-8009/tcp  open  ajp13
-8010/tcp  open  xmpp
-8021/tcp  open  ftp-proxy
-8022/tcp  open  oa-system
-8031/tcp  open  unknown
-8081/tcp  open  blackice-icecap
-8082/tcp  open  blackice-alerts
-8084/tcp  open  unknown
-8085/tcp  open  unknown
-8086/tcp  open  d-s-n
-8088/tcp  open  radan-http
-8200/tcp  open  trivnet1
-49152/tcp open  unknown
-49153/tcp open  unknown
-49154/tcp open  unknown
-49155/tcp open  unknown
-49156/tcp open  unknown
-49157/tcp open  unknown
-MAC Address: 00:0C:29:7C:0C:79 (VMware)
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs powershell">λ nmap -PY <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Starting Nmap <span class="hljs-number">7.80</span> ( https://nmap.org ) at <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">01</span> <span class="hljs-number">17</span>:<span class="hljs-number">03</span> ?D1ú±ê×?ê±??<br>Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.148</span><br>Host is up (<span class="hljs-number">0.0015</span>s latency).<br>Not shown: <span class="hljs-number">963</span> closed ports<br>PORT      STATE SERVICE<br><span class="hljs-number">80</span>/tcp    open  http<br><span class="hljs-number">81</span>/tcp    open  hosts2-ns<br><span class="hljs-number">82</span>/tcp    open  xfer<br><span class="hljs-number">83</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">84</span>/tcp    open  ctf<br><span class="hljs-number">85</span>/tcp    open  mit-ml-dev<br><span class="hljs-number">88</span>/tcp    open  kerberos-sec<br><span class="hljs-number">89</span>/tcp    open  su-mit-tg<br><span class="hljs-number">90</span>/tcp    open  dnsix<br><span class="hljs-number">135</span>/tcp   open  msrpc<br><span class="hljs-number">139</span>/tcp   open  netbios-ssn<br><span class="hljs-number">445</span>/tcp   open  microsoft-ds<br><span class="hljs-number">1433</span>/tcp  open  ms-sql-s<br><span class="hljs-number">3306</span>/tcp  open  mysql<br><span class="hljs-number">3389</span>/tcp  open  ms-wbt-server<br><span class="hljs-number">8001</span>/tcp  open  vcom-tunnel<br><span class="hljs-number">8002</span>/tcp  open  teradataordbms<br><span class="hljs-number">8007</span>/tcp  open  ajp12<br><span class="hljs-number">8008</span>/tcp  open  http<br><span class="hljs-number">8009</span>/tcp  open  ajp13<br><span class="hljs-number">8010</span>/tcp  open  xmpp<br><span class="hljs-number">8021</span>/tcp  open  ftp-proxy<br><span class="hljs-number">8022</span>/tcp  open  oa-system<br><span class="hljs-number">8031</span>/tcp  open  unknown<br><span class="hljs-number">8081</span>/tcp  open  blackice-icecap<br><span class="hljs-number">8082</span>/tcp  open  blackice-alerts<br><span class="hljs-number">8084</span>/tcp  open  unknown<br><span class="hljs-number">8085</span>/tcp  open  unknown<br><span class="hljs-number">8086</span>/tcp  open  d-s-n<br><span class="hljs-number">8088</span>/tcp  open  radan-http<br><span class="hljs-number">8200</span>/tcp  open  trivnet1<br><span class="hljs-number">49152</span>/tcp open  unknown<br><span class="hljs-number">49153</span>/tcp open  unknown<br><span class="hljs-number">49154</span>/tcp open  unknown<br><span class="hljs-number">49155</span>/tcp open  unknown<br><span class="hljs-number">49156</span>/tcp open  unknown<br><span class="hljs-number">49157</span>/tcp open  unknown<br>MAC Address: <span class="hljs-number">00</span>:<span class="hljs-number">0</span>C:<span class="hljs-number">29</span>:<span class="hljs-number">7</span>C:<span class="hljs-number">0</span>C:<span class="hljs-number">79</span> (VMware)<br><br>Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">2.49</span> seconds<br></code></pre></td></tr></table></figure>
 
-Nmap done: 1 IP address (1 host up) scanned in 2.49 seconds</code></pre>
 
             </div>
             <hr/>
@@ -1781,7 +1328,7 @@ Nmap done: 1 IP address (1 host up) scanned in 2.49 seconds</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

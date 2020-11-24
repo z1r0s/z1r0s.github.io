@@ -502,7 +502,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
@@ -551,256 +551,49 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/工厂方法模式/简单工厂方法模式类图.png" alt="简单工厂方法模式类图"></center>
 
 <p><strong>抽象产品角色</strong>：</p>
-<pre><code class="csharp">    /// &lt;summary&gt;
-    /// 用于实例化工厂方法模式的基类（其一般为接口）
-    /// 1、若为接口，则只能定义商品所具有的行为，且继承于该接口的类必须对其进行实现
-    /// 2、若为类，一般将其定义为抽象类，
-    /// &lt;/summary&gt;
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 用于实例化工厂方法模式的基类（其一般为接口）</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 1、若为接口，则只能定义商品所具有的行为，且继承于该接口的类必须对其进行实现</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 2、若为类，一般将其定义为抽象类，</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类的创建</span><br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类--接口形式展示</span><br>   <span class="hljs-comment">// 本实例中使用的基类</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">//商品的行为（方法）   --只有方法体</span><br>       <span class="hljs-function"><span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类--抽象类形式展示</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Product</span><br>   &#123;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> name;<br>       <span class="hljs-comment">//必须声明为抽象方法</span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">string</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-    #region 基类的创建
-    #region 基类--接口形式展示
-    // 本实例中使用的基类
-    public interface Pet
-    {
-        //商品的行为（方法）   --只有方法体
-        string petSound();
-    }
-    #endregion
-
-    #region 基类--抽象类形式展示
-    public abstract class Product
-    {
-        public string name;
-        //必须声明为抽象方法
-        public abstract string show();
-    }
-    #endregion
-    #endregion</code></pre>
 <p><strong>具体产品角色</strong>：</p>
-<pre><code class="csharp">    #region 具体商品类对基类的继承与扩展
-    public class Dog : Pet
-    {
-        // 对接口中方法的实现
-        public string petSound()
-        {
-            return &quot;Bow Bow...&quot;;
-        }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 具体商品类对基类的继承与扩展</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">// 对接口中方法的实现</span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Bow Bow..."</span>;<br>       &#125;<br><br>       <span class="hljs-comment">// 具体商品类的扩展</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> color;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetColor</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> color</span>)</span><br>       &#123;<br>           <span class="hljs-keyword">this</span>.color = color;<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Meaw Meaw..."</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-        // 具体商品类的扩展
-        private string color;
-        public void SetColor(string color)
-        {
-            this.color = color;
-        }
-    }
-
-    public class Cat : Pet
-    {
-        public string petSound()
-        {
-            return &quot;Meaw Meaw...&quot;;
-        }
-    }
-    #endregion</code></pre>
 <p><strong>工厂角色</strong>：</p>
-<pre><code class="csharp">    #region 实例化商品的工厂
-    /// &lt;summary&gt;
-    /// 工厂类
-    /// &lt;/summary&gt;
-    public class PetFactory
-    {
-        /// &lt;summary&gt;
-        /// 工厂类中创建对象的方法
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;petType&quot;&gt;用来创建指定对象的参数&lt;/param&gt;
-        /// &lt;returns&gt;返回创建的Pet对象&lt;/returns&gt;
-        public Pet getPet(string petType)
-        {
-            Pet pet = null;
-            if (&quot;Bow&quot;.Equals(petType))
-            {
-                pet = new Dog();
-            }
-            if (&quot;Meaw&quot;.Equals(petType))
-            {
-                pet = new Cat();
-            }
-            return pet;
-        }
-    }
-    #endregion</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 实例化商品的工厂</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 工厂类</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PetFactory</span><br>   &#123;<br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> 工厂类中创建对象的方法</span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="petType"&gt;</span>用来创建指定对象的参数<span class="hljs-doctag">&lt;/param&gt;</span></span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>返回创建的Pet对象<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> Pet <span class="hljs-title">getPet</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> petType</span>)</span><br>       &#123;<br>           Pet pet = <span class="hljs-literal">null</span>;<br>           <span class="hljs-keyword">if</span> (<span class="hljs-string">"Bow"</span>.Equals(petType))<br>           &#123;<br>               pet = <span class="hljs-keyword">new</span> Dog();<br>           &#125;<br>           <span class="hljs-keyword">if</span> (<span class="hljs-string">"Meaw"</span>.Equals(petType))<br>           &#123;<br>               pet = <span class="hljs-keyword">new</span> Cat();<br>           &#125;<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+
 <p><strong>测试类</strong>：</p>
-<pre><code class="csharp">    #region 测试类
-    class SimpleFactoryMethod
-    {
-        static void Main(string[] args)
-        {
-            //1.实例化工厂对象
-            PetFactory petFactory = new FactoryMethod_Demo1.PetFactory();
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 测试类</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">SimpleFactoryMethod</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           <span class="hljs-comment">//1.实例化工厂对象</span><br>           PetFactory petFactory = <span class="hljs-keyword">new</span> FactoryMethod_Demo1.PetFactory();<br><br>           <span class="hljs-comment">//2.使用工厂对象创建指定的商品实例</span><br>           Pet pet = petFactory.getPet(<span class="hljs-string">"Bow"</span>);<br><br>           <span class="hljs-comment">//3.使用商品实例</span><br>           Console.WriteLine(pet.petSound());<br><br>           Console.ReadKey();<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-            //2.使用工厂对象创建指定的商品实例
-            Pet pet = petFactory.getPet(&quot;Bow&quot;);
-
-            //3.使用商品实例
-            Console.WriteLine(pet.petSound());
-
-            Console.ReadKey();
-        }
-    }
-    #endregion</code></pre>
 <h2 id="多工厂方法模式"><a href="#多工厂方法模式" class="headerlink" title="多工厂方法模式"></a><strong>多工厂方法模式</strong></h2><p>​        在多个工厂方法模式中，工厂类中每一个商品都有与其相对应的创建实例对象的方法。</p>
 <p><strong>多工厂方法模式UML类图</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/工厂方法模式/多方法工厂模式类图.png" alt="多方法工厂模式类图"></center>
 
 <p><strong>抽象产品角色</strong>：</p>
-<pre><code class="csharp">    #region 基类--接口形式展示
-    public interface Pet
-    {
-        //商品的行为（方法）   --只有方法体
-        string petSound();
-    }
-    #endregion</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类--接口形式展示</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">//商品的行为（方法）   --只有方法体</span><br>       <span class="hljs-function"><span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+
 <p><strong>具体产品角色</strong>：</p>
-<pre><code class="csharp">    #region 具体商品类对基类的继承与扩展
-    public class Dog : Pet
-    {
-        // 对接口中方法的实现
-        public string petSound()
-        {
-            return &quot;Bow Bow...&quot;;
-        }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 具体商品类对基类的继承与扩展</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">// 对接口中方法的实现</span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Bow Bow..."</span>;<br>       &#125;<br><br>       <span class="hljs-comment">// 具体商品类的扩展</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> color;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetColor</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> color</span>)</span><br>       &#123;<br>           <span class="hljs-keyword">this</span>.color = color;<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Meaw Meaw..."</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-        // 具体商品类的扩展
-        private string color;
-        public void SetColor(string color)
-        {
-            this.color = color;
-        }
-    }
-
-    public class Cat : Pet
-    {
-        public string petSound()
-        {
-            return &quot;Meaw Meaw...&quot;;
-        }
-    }
-    #endregion</code></pre>
 <p><strong>工厂角色</strong>：</p>
-<pre><code class="csharp">    #region 工厂角色
-    /// &lt;summary&gt;
-    /// 创建Pet的工厂类
-    /// &lt;/summary&gt;
-    public class MultiplePetFactory
-    {
-        Pet pet = null;
-        public Pet CreateDog()
-        {
-            pet = new Dog();
-            return pet;
-        }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 工厂角色</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 创建Pet的工厂类</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MultiplePetFactory</span><br>   &#123;<br>       Pet pet = <span class="hljs-literal">null</span>;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> Pet <span class="hljs-title">CreateDog</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           pet = <span class="hljs-keyword">new</span> Dog();<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> Pet <span class="hljs-title">CreateCat</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           pet = <span class="hljs-keyword">new</span> Cat();<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-        public Pet CreateCat()
-        {
-            pet = new Cat();
-            return pet;
-        }
-    }
-    #endregion</code></pre>
 <p><strong>测试类</strong>：</p>
-<pre><code class="csharp">    #region 测试类
-    class MultipleFactoryMethod
-    {
-        static void Main(string[] args)
-        {
-            //1、创建工厂类对象
-            MultiplePetFactory petFactory = new MultiplePetFactory();
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 测试类</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">MultipleFactoryMethod</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           <span class="hljs-comment">//1、创建工厂类对象</span><br>           MultiplePetFactory petFactory = <span class="hljs-keyword">new</span> MultiplePetFactory();<br><br>           <span class="hljs-comment">//2、使用工厂类对象得到商品对象</span><br>           Pet pet = petFactory.CreateDog();<br><br>           <span class="hljs-comment">//3、对商品对象进行操作</span><br>           Console.WriteLine(pet.petSound());<br><br>           Console.ReadKey();<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-            //2、使用工厂类对象得到商品对象
-            Pet pet = petFactory.CreateDog();
-
-            //3、对商品对象进行操作
-            Console.WriteLine(pet.petSound());
-
-            Console.ReadKey();
-        }
-    }
-    #endregion</code></pre>
 <h2 id="静态工厂方法模式"><a href="#静态工厂方法模式" class="headerlink" title="静态工厂方法模式"></a><strong>静态工厂方法模式</strong></h2><p>​        在静态工厂方法模式中，工厂类中每一个商品都有与其相对应的创建实例对象的静态方法</p>
 <p><strong>静态工厂方法模式</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/工厂方法模式/静态方法工厂模式类图.png" alt="静态方法工厂模式类图"></center>
 
 <p><strong>抽象产品角色</strong>：</p>
-<pre><code class="csharp">    #region 基类--接口形式展示
-    public interface Pet
-    {
-        //商品的行为（方法）   --只有方法体
-        string petSound();
-    }
-    #endregion</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 基类--接口形式展示</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">//商品的行为（方法）   --只有方法体</span><br>       <span class="hljs-function"><span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+
 <p><strong>具体产品角色</strong>：</p>
-<pre><code class="csharp">    #region 具体商品类对基类的继承与扩展
-    public class Dog : Pet
-    {
-        // 对接口中方法的实现
-        public string petSound()
-        {
-            return &quot;Bow Bow...&quot;;
-        }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 具体商品类对基类的继承与扩展</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-comment">// 对接口中方法的实现</span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Bow Bow..."</span>;<br>       &#125;<br><br>       <span class="hljs-comment">// 具体商品类的扩展</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> color;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetColor</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> color</span>)</span><br>       &#123;<br>           <span class="hljs-keyword">this</span>.color = color;<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> : <span class="hljs-title">Pet</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">petSound</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-string">"Meaw Meaw..."</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-        // 具体商品类的扩展
-        private string color;
-        public void SetColor(string color)
-        {
-            this.color = color;
-        }
-    }
-
-    public class Cat : Pet
-    {
-        public string petSound()
-        {
-            return &quot;Meaw Meaw...&quot;;
-        }
-    }
-    #endregion</code></pre>
 <p><strong>工厂角色</strong>：</p>
-<pre><code class="csharp">    #region 工厂角色
-    /// &lt;summary&gt;
-    /// 静态工厂
-    /// &lt;/summary&gt;
-    public class StaticMultiPetFactory
-    {
-        static Pet pet = null;
-        public static Pet CreateDog()
-        {
-            pet = new Dog();
-            return pet;
-        }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 工厂角色</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> 静态工厂</span><br>   <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">StaticMultiPetFactory</span><br>   &#123;<br>       <span class="hljs-keyword">static</span> Pet pet = <span class="hljs-literal">null</span>;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pet <span class="hljs-title">CreateDog</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           pet = <span class="hljs-keyword">new</span> Dog();<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pet <span class="hljs-title">CreateCat</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           pet = <span class="hljs-keyword">new</span> Cat();<br>           <span class="hljs-keyword">return</span> pet;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-        public static Pet CreateCat()
-        {
-            pet = new Cat();
-            return pet;
-        }
-    }
-    #endregion</code></pre>
 <p><strong>测试类</strong>：</p>
-<pre><code class="csharp">    #region 测试类
-    class StaticMultiFactoryMethod
-    {
-        static void Main(string[] args)
-        {
-            //1、得到商品对象
-            Pet pet = StaticMultiPetFactory.CreateDog();
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 测试类</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">StaticMultiFactoryMethod</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           <span class="hljs-comment">//1、得到商品对象</span><br>           Pet pet = StaticMultiPetFactory.CreateDog();<br>           <br>           <span class="hljs-comment">//2、使用商品对象</span><br>           Console.WriteLine(pet.petSound());<br><br>           Console.ReadKey();<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-            //2、使用商品对象
-            Console.WriteLine(pet.petSound());
-
-            Console.ReadKey();
-        }
-    }
-    #endregion</code></pre>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="三种工厂方法模式的比较"><a href="#三种工厂方法模式的比较" class="headerlink" title="三种工厂方法模式的比较"></a>三种工厂方法模式的比较</h2><p><strong>相同点</strong>：</p>
 <ul>
 <li>都存在三种角色：(工厂角色、抽象产品角色(抽象类或接口)、具体产品角色)；</li>
@@ -1226,12 +1019,12 @@
                         <span class="chip bg-color">C#</span>
                     </a>
                     
-                    <a href="/tags/程序实现/">
-                        <span class="chip bg-color">程序实现</span>
-                    </a>
-                    
                     <a href="/tags/编码/">
                         <span class="chip bg-color">编码</span>
+                    </a>
+                    
+                    <a href="/tags/程序实现/">
+                        <span class="chip bg-color">程序实现</span>
                     </a>
                     
                 </div>
@@ -1481,7 +1274,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

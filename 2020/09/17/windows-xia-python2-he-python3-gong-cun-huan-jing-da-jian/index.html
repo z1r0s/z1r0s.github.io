@@ -621,14 +621,16 @@
 <p>例如：</p>
 <p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyspider</code>，这样就会从清华这边的镜像去安装<code>pyspider</code>库。</p>
 <h2 id="永久修改pip镜像-推荐"><a href="#永久修改pip镜像-推荐" class="headerlink" title="永久修改pip镜像(推荐)"></a>永久修改pip镜像(推荐)</h2><p>升级 pip 到最新的版本<code>(&gt;=10.0.0)</code>后进行配置：</p>
-<pre><code class="powershell">pip install pip -U
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">pip install pip -U<br>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple<br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/BasicEnvironment/python2+3(win)/永久修改pip镜像.png" alt="永久修改pip镜像"></center>
 
 <ul>
 <li><p>实质是创建了一个<code>pip.ini</code>文件，内容为：</p>
-<pre><code class="powershell">[global]
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">[global]<br>index-url = https://pypi.tuna.tsinghua.edu.cn/simple<br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <p>至此，Python2.7与Python3.8双环境共存设置完毕。</p>
@@ -1269,7 +1271,7 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

@@ -513,7 +513,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -564,150 +564,8 @@
 </li>
 </ul>
 <h1 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h1><p><strong>Ceasar类</strong>：</p>
-<pre><code class="csharp">namespace DemoCeasar
-{
-    public class Ceasar
-    {
-        #region 加密操作
-        /// &lt;summary&gt;
-        /// Ceasar加密操作
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;plaintext&quot;&gt;明文)&lt;/param&gt;
-        /// &lt;param name=&quot;key&quot;&gt;密钥(1-25)&lt;/param&gt;
-        /// &lt;returns&gt;密文&lt;/returns&gt;
-        internal string EnCrypt(string plaintext, int key)
-        {
-            string ciphertext = null;
-            string str;
-            str = plaintext.ToUpper();
-            foreach(char ch in str)
-            {
-                if(ch &gt;= &#39;A&#39; &amp;&amp; ch &lt;= &#39;Z&#39;)
-                {
-                    ciphertext += (char)(&#39;A&#39; + (ch - &#39;A&#39; + key + 26) % 26);
-                }
-                else
-                {
-                    ciphertext += ch;
-                }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">DemoCeasar</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Ceasar</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 加密操作</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Ceasar加密操作</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="plaintext"&gt;</span>明文)<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="key"&gt;</span>密钥(1-25)<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>密文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">EnCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> plaintext, <span class="hljs-keyword">int</span> key</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">string</span> ciphertext = <span class="hljs-literal">null</span>;<br>            <span class="hljs-keyword">string</span> str;<br>            str = plaintext.ToUpper();<br>            <span class="hljs-keyword">foreach</span>(<span class="hljs-keyword">char</span> ch <span class="hljs-keyword">in</span> str)<br>            &#123;<br>                <span class="hljs-keyword">if</span>(ch &gt;= <span class="hljs-string">'A'</span> &amp;&amp; ch &lt;= <span class="hljs-string">'Z'</span>)<br>                &#123;<br>                    ciphertext += (<span class="hljs-keyword">char</span>)(<span class="hljs-string">'A'</span> + (ch - <span class="hljs-string">'A'</span> + key + <span class="hljs-number">26</span>) % <span class="hljs-number">26</span>);<br>                &#125;<br>                <span class="hljs-keyword">else</span><br>                &#123;<br>                    ciphertext += ch;<br>                &#125;<br>                <br>            &#125;<br><br>            <span class="hljs-keyword">return</span> ciphertext;<br>        &#125;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Avocat加密（密钥为10）</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="plaintext"&gt;</span>明文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>密文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">AvocatEnCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> plaintext</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> EnCrypt(plaintext, <span class="hljs-number">10</span>);<br>        &#125;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> ROT13加密（密钥为13）</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="plaintext"&gt;</span>明文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>密文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">ROT13EnCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> plaintext</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> EnCrypt(plaintext, <span class="hljs-number">13</span>);<br>        &#125;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Cassis加密（密钥为-5）</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="plaintext"&gt;</span>明文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>密文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">CassisEnCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> plaintext</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> EnCrypt(plaintext, <span class="hljs-number">-5</span>);<br>        &#125;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Cassette加密（密钥为-6）</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="plaintext"&gt;</span>明文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>密文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">CassetteEnCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> plaintext</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> EnCrypt(plaintext, <span class="hljs-number">-6</span>);<br>        &#125;<br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 解密操作</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Ceasar解密操作</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="ciphertext"&gt;</span>密文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="key"&gt;</span>密钥(1-25)<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>明文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">DeCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> ciphertext, <span class="hljs-keyword">int</span> key</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">string</span> plaintext = <span class="hljs-literal">null</span>;<br>            <span class="hljs-keyword">string</span> str;<br>            str = ciphertext.ToUpper();<br>            <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">char</span> ch <span class="hljs-keyword">in</span> str)<br>            &#123;<br>                <span class="hljs-keyword">if</span>(ch &gt;= <span class="hljs-string">'A'</span> &amp;&amp; ch &lt;= <span class="hljs-string">'Z'</span>)<br>                &#123;<br>                    plaintext += (<span class="hljs-keyword">char</span>)(<span class="hljs-string">'A'</span> + (ch - <span class="hljs-string">'A'</span> - key + <span class="hljs-number">26</span>) % <span class="hljs-number">26</span>);<br>                &#125;<br>                <span class="hljs-keyword">else</span><br>                &#123;<br>                    plaintext += ch;<br>                &#125;<br>                <br>            &#125;<br><br>            <span class="hljs-keyword">return</span> plaintext;<br>        &#125;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Avocat解密（密钥为10）</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="ciphertext"&gt;</span>密文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>明文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">AvocatDeCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> ciphertext</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> DeCrypt(ciphertext, <span class="hljs-number">10</span>);<br>        &#125;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> ROT13解密（密钥为13）</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="ciphertext"&gt;</span>密文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>明文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">ROT13DeCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> ciphertext</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> DeCrypt(ciphertext, <span class="hljs-number">13</span>);<br>        &#125;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Cassis解密（密钥为-5）</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="ciphertext"&gt;</span>密文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>明文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">CassisDeCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> ciphertext</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> DeCrypt(ciphertext, <span class="hljs-number">-5</span>);<br>        &#125;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> Cassette解密（密钥为-6）</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="ciphertext"&gt;</span>密文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>明文<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span> <span class="hljs-title">CassetteDeCrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> ciphertext</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> DeCrypt(ciphertext, <span class="hljs-number">-6</span>);<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-            }
-
-            return ciphertext;
-        }
-
-        /// &lt;summary&gt;
-        /// Avocat加密（密钥为10）
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;
-        /// &lt;returns&gt;密文&lt;/returns&gt;
-        internal string AvocatEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, 10);
-        }
-
-        /// &lt;summary&gt;
-        /// ROT13加密（密钥为13）
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;
-        /// &lt;returns&gt;密文&lt;/returns&gt;
-        internal string ROT13EnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, 13);
-        }
-
-        /// &lt;summary&gt;
-        /// Cassis加密（密钥为-5）
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;
-        /// &lt;returns&gt;密文&lt;/returns&gt;
-        internal string CassisEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, -5);
-        }
-
-        /// &lt;summary&gt;
-        /// Cassette加密（密钥为-6）
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;
-        /// &lt;returns&gt;密文&lt;/returns&gt;
-        internal string CassetteEnCrypt(string plaintext)
-        {
-            return EnCrypt(plaintext, -6);
-        }
-
-        #endregion
-
-        #region 解密操作
-        /// &lt;summary&gt;
-        /// Ceasar解密操作
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;
-        /// &lt;param name=&quot;key&quot;&gt;密钥(1-25)&lt;/param&gt;
-        /// &lt;returns&gt;明文&lt;/returns&gt;
-        internal string DeCrypt(string ciphertext, int key)
-        {
-            string plaintext = null;
-            string str;
-            str = ciphertext.ToUpper();
-            foreach (char ch in str)
-            {
-                if(ch &gt;= &#39;A&#39; &amp;&amp; ch &lt;= &#39;Z&#39;)
-                {
-                    plaintext += (char)(&#39;A&#39; + (ch - &#39;A&#39; - key + 26) % 26);
-                }
-                else
-                {
-                    plaintext += ch;
-                }
-
-            }
-
-            return plaintext;
-        }
-
-        /// &lt;summary&gt;
-        /// Avocat解密（密钥为10）
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;
-        /// &lt;returns&gt;明文&lt;/returns&gt;
-        internal string AvocatDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, 10);
-        }
-
-        /// &lt;summary&gt;
-        /// ROT13解密（密钥为13）
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;
-        /// &lt;returns&gt;明文&lt;/returns&gt;
-        internal string ROT13DeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, 13);
-        }
-
-        /// &lt;summary&gt;
-        /// Cassis解密（密钥为-5）
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;
-        /// &lt;returns&gt;明文&lt;/returns&gt;
-        internal string CassisDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, -5);
-        }
-
-        /// &lt;summary&gt;
-        /// Cassette解密（密钥为-6）
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;
-        /// &lt;returns&gt;明文&lt;/returns&gt;
-        internal string CassetteDeCrypt(string ciphertext)
-        {
-            return DeCrypt(ciphertext, -6);
-        }
-        #endregion
-    }
-}</code></pre>
 <p>Ceasar类核心解读：</p>
 <p>​        在ceasar中理解的字母表是一个转轮的形式，但在实际的存储中而是以线性方式存储，所有在本代码中通过使用《初等数论》中的<strong>模运算</strong>来得到移位后的字母。（全部以<strong>“A”</strong>为基准）</p>
 <ol>
@@ -718,55 +576,8 @@
 <li>得到相对于“A”偏移字母的ASCII码并将其<strong>强制转化为字母</strong></li>
 </ol>
 <p><strong>Program测试类：</strong></p>
-<pre><code class="csharp">using System;
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">DemoCeasar</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>        &#123;<br>            Console.Title = <span class="hljs-string">"欢迎使用Ceasar"</span>;<br>            Console.WriteLine(<span class="hljs-string">"请输入您期望的操作：(1:加密,0:解密)"</span>);<br><br>            <span class="hljs-keyword">string</span> str = Console.ReadLine();<br>            <span class="hljs-keyword">int</span> op;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-keyword">int</span>.TryParse(str,<span class="hljs-keyword">out</span> op))<br>            &#123;<br>                Ceasar ceasar = <span class="hljs-keyword">new</span> Ceasar();<br><br>                <span class="hljs-keyword">if</span> (op == <span class="hljs-number">1</span>)<br>                &#123;<br>                    Console.WriteLine(<span class="hljs-string">"请输入明文：(字母串)"</span>);<br>                    <span class="hljs-keyword">string</span> plaintext = Console.ReadLine();<br>                    Console.WriteLine(<span class="hljs-string">"请输入密钥:(整数)"</span>);<br>                    <span class="hljs-keyword">int</span> key = Console.Read() - <span class="hljs-string">'0'</span>;<br><br>                    <span class="hljs-keyword">string</span> ciphertext = ceasar.EnCrypt(plaintext, key);<br><br>                    Console.WriteLine(<span class="hljs-string">"&#123;0&#125;加密之后的密文为:&#123;1&#125;"</span>,plaintext,ciphertext);<br>                &#125;<br>                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-number">0</span>)<br>                &#123;<br>                    Console.WriteLine(<span class="hljs-string">"请输入密文：(字母串)"</span>);<br>                    <span class="hljs-keyword">string</span> ciphertext = Console.ReadLine();<br>                    Console.WriteLine(<span class="hljs-string">"请输入密钥:(整数)"</span>);<br>                    <span class="hljs-keyword">int</span> key = Console.Read() - <span class="hljs-string">'0'</span>;<br><br>                    <span class="hljs-keyword">string</span> plaintext = ceasar.DeCrypt(ciphertext, key);<br><br>                    Console.WriteLine(plaintext);<br>                &#125;<br>                <span class="hljs-keyword">else</span><br>                &#123;<br>                    Console.WriteLine(<span class="hljs-string">"输入错误程序终止!!!"</span>);<br>                &#125;<br>            &#125;<br><br>            Console.ReadKey();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-namespace DemoCeasar
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.Title = &quot;欢迎使用Ceasar&quot;;
-            Console.WriteLine(&quot;请输入您期望的操作：(1:加密,0:解密)&quot;);
-
-            string str = Console.ReadLine();
-            int op;
-            if(int.TryParse(str,out op))
-            {
-                Ceasar ceasar = new Ceasar();
-
-                if (op == 1)
-                {
-                    Console.WriteLine(&quot;请输入明文：(字母串)&quot;);
-                    string plaintext = Console.ReadLine();
-                    Console.WriteLine(&quot;请输入密钥:(整数)&quot;);
-                    int key = Console.Read() - &#39;0&#39;;
-
-                    string ciphertext = ceasar.EnCrypt(plaintext, key);
-
-                    Console.WriteLine(&quot;{0}加密之后的密文为:{1}&quot;,plaintext,ciphertext);
-                }
-                else if(op == 0)
-                {
-                    Console.WriteLine(&quot;请输入密文：(字母串)&quot;);
-                    string ciphertext = Console.ReadLine();
-                    Console.WriteLine(&quot;请输入密钥:(整数)&quot;);
-                    int key = Console.Read() - &#39;0&#39;;
-
-                    string plaintext = ceasar.DeCrypt(ciphertext, key);
-
-                    Console.WriteLine(plaintext);
-                }
-                else
-                {
-                    Console.WriteLine(&quot;输入错误程序终止!!!&quot;);
-                }
-            }
-
-            Console.ReadKey();
-        }
-    }
-}</code></pre>
 <h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p><strong>加密操作</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CeasarCipher/EnCrypt.png" alt="EnCrypt"></center>
 
@@ -775,70 +586,11 @@ namespace DemoCeasar
 
 <h1 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h1><p>​        Ceasar密码作为经典的加密算法，在罗马时期有很好的应用。其明文空间M、密文空间C、密钥空间K<del>m</del>相同都为模26的余数集合，也即其加密的密钥有25种情况(<font color="blue">0不计算在内</font>)，通过枚举密钥的方式揣测明文。</p>
 <h2 id="穷举搜索"><a href="#穷举搜索" class="headerlink" title="穷举搜索"></a>穷举搜索</h2><p><strong>CrackSeasar类</strong>：</p>
-<pre><code class="csharp">namespace Crack_Seasar
-{
-    public class CrackSeasar
-    {
-        #region 枚举检索
-        /// &lt;summary&gt;
-        /// 枚举搜索
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;
-        /// &lt;returns&gt;返回可能的明文字符串组&lt;/returns&gt;
-        internal string[] EnumerativeSearch(string ciphertext)
-        {
-            string[] plaintext = new string[26];
-            string str = ciphertext.ToUpper();
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Crack_Seasar</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CrackSeasar</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 枚举检索</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 枚举搜索</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="ciphertext"&gt;</span>密文<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>返回可能的明文字符串组<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">string</span>[] <span class="hljs-title">EnumerativeSearch</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> ciphertext</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">string</span>[] plaintext = <span class="hljs-keyword">new</span> <span class="hljs-keyword">string</span>[<span class="hljs-number">26</span>];<br>            <span class="hljs-keyword">string</span> str = ciphertext.ToUpper();<br><br>            <span class="hljs-comment">// 枚举解密</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> key = <span class="hljs-number">1</span>; key &lt; <span class="hljs-number">26</span>; key++)<br>            &#123;<br>                <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">char</span> ch <span class="hljs-keyword">in</span> str)<br>                &#123;<br>                    <span class="hljs-keyword">if</span> (ch &gt;= <span class="hljs-string">'A'</span> &amp;&amp; ch &lt;= <span class="hljs-string">'Z'</span>)<br>                    &#123;<br>                        plaintext[key - <span class="hljs-number">1</span>] += (<span class="hljs-keyword">char</span>)(<span class="hljs-string">'A'</span> + (ch - <span class="hljs-string">'A'</span> - key + <span class="hljs-number">26</span>) % <span class="hljs-number">26</span>);<br>                    &#125;<br>                    <span class="hljs-keyword">else</span><br>                    &#123;<br>                        plaintext[key - <span class="hljs-number">1</span>] += ch;<br>                    &#125;<br>                &#125;<br>            &#125;<br><br>            <span class="hljs-keyword">return</span> plaintext;<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-            // 枚举解密
-            for (int key = 1; key &lt; 26; key++)
-            {
-                foreach (char ch in str)
-                {
-                    if (ch &gt;= &#39;A&#39; &amp;&amp; ch &lt;= &#39;Z&#39;)
-                    {
-                        plaintext[key - 1] += (char)(&#39;A&#39; + (ch - &#39;A&#39; - key + 26) % 26);
-                    }
-                    else
-                    {
-                        plaintext[key - 1] += ch;
-                    }
-                }
-            }
-
-            return plaintext;
-        }
-        #endregion
-    }
-}</code></pre>
 <p><strong>Program测试类</strong>：</p>
-<pre><code class="csahrp">using System;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs csahrp">using System;<br><br>namespace Crack_Seasar<br>&#123;<br>    class Program<br>    &#123;<br>        static void Main(string[] args)<br>        &#123;<br>            Console.Title = &quot;CrackSear&quot;;<br><br>            Console.WriteLine(&quot;请输入待破解密文：&quot;);<br>            string ciphertext = Console.ReadLine();<br><br>            // 枚举搜索<br>            CrackSeasar crackSeasar = new CrackSeasar();<br>            string[] plaintext = crackSeasar.EnumerativeSearch(ciphertext);<br><br>            // Display<br>            for(int i = 0;i &lt; 25;i++)<br>            &#123;<br>                Console.WriteLine(&quot;key:&#123;0&#125; \t -&gt; \t &#123;1&#125;&quot;, i + 1, plaintext[i]);<br>            &#125;<br><br>            Console.ReadKey();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-namespace Crack_Seasar
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.Title = &quot;CrackSear&quot;;
-
-            Console.WriteLine(&quot;请输入待破解密文：&quot;);
-            string ciphertext = Console.ReadLine();
-
-            // 枚举搜索
-            CrackSeasar crackSeasar = new CrackSeasar();
-            string[] plaintext = crackSeasar.EnumerativeSearch(ciphertext);
-
-            // Display
-            for(int i = 0;i &lt; 25;i++)
-            {
-                Console.WriteLine(&quot;key:{0} \t -&gt; \t {1}&quot;, i + 1, plaintext[i]);
-            }
-
-            Console.ReadKey();
-        }
-    }
-}</code></pre>
 <p><strong>测试结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CeasarCipher/EnumerativeSearch1.png" alt="EnumerativeSearch1"></center>
 
@@ -1500,7 +1252,7 @@ namespace Crack_Seasar
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

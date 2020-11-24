@@ -494,7 +494,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    922
+                    904
                 </div>
                 
 
@@ -535,37 +535,15 @@
 
 <h1 id="0x04-实验步骤"><a href="#0x04-实验步骤" class="headerlink" title="0x04 实验步骤"></a>0x04 实验步骤</h1><ol>
 <li><p>使用如下payload进行测试，查看参数的回显位置以及是否被转义或过滤。</p>
-<pre><code class="javascript">http://10.10.10.148:8203/level1.php?name=&lt;script&gt;alert(1)&lt;/script&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">http:<span class="hljs-comment">//10.10.10.148:8203/level1.php?name=&lt;script&gt;alert(1)&lt;/script&gt;</span><br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level1/注入点检测结果.png" alt="注入点检测结果"></center>
 
 <p>由上述操作可以推断，系统未将对参数中的<code>&lt;</code>、<code>&gt;</code>、<code>\</code>等符号和<code>script</code>、<code>alert</code>等关键字进行过滤，且检测的参数被回显到<code>h2</code>标签中，所以此处存在XSS漏洞。</p>
 </li>
 <li><p>代码审计。程序源码如下所示：</p>
-<pre><code class="php">&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;
-&lt;script&gt;
-window.alert = function()  
-{     
-confirm(&quot;完成的不错！&quot;);
- window.location.href=&quot;level2.php?keyword=test&quot;; 
-}
-&lt;/script&gt;
-&lt;title&gt;欢迎来到level1&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1 align=center&gt;欢迎来到level1&lt;/h1&gt;
-&lt;?php 
-ini_set(&quot;display_errors&quot;, 0);
-$str = $_GET[&quot;name&quot;];
-echo &quot;&lt;h2 align=center&gt;欢迎用户&quot;.$str.&quot;&lt;/h2&gt;&quot;;
-?&gt;
-&lt;center&gt;&lt;img src=level1.png&gt;&lt;/center&gt;
-&lt;?php 
-echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str).&quot;&lt;/h3&gt;&quot;;
-?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=<span class="hljs-string">"content-type"</span> content=<span class="hljs-string">"text/html;charset=utf-8"</span>&gt;<br>&lt;script&gt;<br>window.alert = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>  <br></span>&#123;     <br>confirm(<span class="hljs-string">"完成的不错！"</span>);<br> window.location.href=<span class="hljs-string">"level2.php?keyword=test"</span>; <br>&#125;<br>&lt;/script&gt;<br>&lt;title&gt;欢迎来到level1&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;h1 align=center&gt;欢迎来到level1&lt;/h1&gt;<br><span class="hljs-meta">&lt;?php</span> <br>ini_set(<span class="hljs-string">"display_errors"</span>, <span class="hljs-number">0</span>);<br>$str = $_GET[<span class="hljs-string">"name"</span>];<br><span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;h2 align=center&gt;欢迎用户"</span>.$str.<span class="hljs-string">"&lt;/h2&gt;"</span>;<br><span class="hljs-meta">?&gt;</span><br>&lt;center&gt;&lt;img src=level1.png&gt;&lt;/center&gt;<br><span class="hljs-meta">&lt;?php</span> <br><span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;h3 align=center&gt;payload的长度:"</span>.strlen($str).<span class="hljs-string">"&lt;/h3&gt;"</span>;<br><span class="hljs-meta">?&gt;</span><br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
 <p>由17-18行代码可知：程序将通过<strong>GET方法</strong>得到的参数未经任何转义或过滤直接使用<code>echo</code>回显到页面中，浏览器进行渲染时将参数信息作为<code>javascript</code>脚本执行。</p>
 </li>
 <li><p>所以此关可以成功调用<code>alert()</code>方法的脚本都可以做为payload。</p>
@@ -573,15 +551,12 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str).&quot;&lt
 </ol>
 <h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul>
 <li><p>程序未做任何转义或过滤就将参数回显到HTML页面中，所以此关的payload非常多：</p>
-<pre><code class="javascript"># 直接脚本的alert()方法
-&lt;script&gt;alert(1)&lt;/script&gt;
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"># 直接脚本的alert()方法<br>&lt;script&gt;alert(1)&lt;/script&gt;<br><br># 通过事件调用alert()方法<br>&lt;img src=x onerror=alert()&gt;<br><br># 伪协议<br>&lt;a href="javascript:alert()"&gt;a&lt;/a&gt;<br>...<br></code></pre></td></tr></table></figure>
 
-# 通过事件调用alert()方法
-&lt;img src=x onerror=alert()&gt;
 
-# 伪协议
-&lt;a href=&quot;javascript:alert()&quot;&gt;a&lt;/a&gt;
-...</code></pre>
+
+
+
 </li>
 </ul>
 <h1 id="0x06-参考链接"><a href="#0x06-参考链接" class="headerlink" title="0x06 参考链接"></a>0x06 参考链接</h1><ul>
@@ -1203,7 +1178,7 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str).&quot;&lt
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

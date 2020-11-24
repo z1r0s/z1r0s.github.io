@@ -552,150 +552,17 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/装饰模式/装饰模式UML.jpg" alt="装饰模式UML"></center>
 
 <p><strong>ConcreteComponent角色</strong>：</p>
-<pre><code class="csharp">    #region Person类(ConcreteComponent)
-    class Person
-    {
-        public Person()
-        { }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> Person类(ConcreteComponent)</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span><br>       &#123; &#125;<br><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> name;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> name</span>)</span><br>       &#123;<br>           <span class="hljs-keyword">this</span>.name = name;<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Show</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"装扮的&#123;0&#125;"</span>, name);<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-        private string name;
-        public Person(string name)
-        {
-            this.name = name;
-        }
-
-        public virtual void Show()
-        {
-            Console.WriteLine(&quot;装扮的{0}&quot;, name);
-        }
-    }
-    #endregion</code></pre>
 <p><strong>Decorator角色</strong>：</p>
-<pre><code class="csharp">    #region 服饰类(Decorator)
-    class Finery : Person
-    {
-        protected Person component;
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 服饰类(Decorator)</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">Finery</span> : <span class="hljs-title">Person</span><br>   &#123;<br>       <span class="hljs-keyword">protected</span> Person component;<br><br>       <span class="hljs-comment">//打扮</span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Decorate</span>(<span class="hljs-params">Person component</span>)</span><br>       &#123;<br>           <span class="hljs-keyword">this</span>.component = component;<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Show</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-comment">//调用的是父类中的方法</span><br>           <span class="hljs-keyword">if</span> (component != <span class="hljs-literal">null</span>)<br>           &#123;<br>               component.Show();<br>           &#125;<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-        //打扮
-        public void Decorate(Person component)
-        {
-            this.component = component;
-        }
-
-        public override void Show()
-        {
-            //调用的是父类中的方法
-            if (component != null)
-            {
-                component.Show();
-            }
-        }
-    }
-    #endregion</code></pre>
 <p><strong>ConcreteDecorator角色</strong>：</p>
-<pre><code class="csharp">    #region 具体服饰类(ConcreteDecorator)
-    class TShirts : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;大T恤 &quot;);
-            base.Show();
-        }
-    }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 具体服饰类(ConcreteDecorator)</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">TShirts</span> : <span class="hljs-title">Finery</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Show</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.Write(<span class="hljs-string">"大T恤 "</span>);<br>           <span class="hljs-keyword">base</span>.Show();<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">BigTrouser</span> : <span class="hljs-title">Finery</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Show</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.Write(<span class="hljs-string">"垮裤 "</span>);<br>           <span class="hljs-keyword">base</span>.Show();<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">Sneakers</span> : <span class="hljs-title">Finery</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Show</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.Write(<span class="hljs-string">"破球鞋 "</span>);<br>           <span class="hljs-keyword">base</span>.Show();<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">Suit</span> : <span class="hljs-title">Finery</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Show</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.Write(<span class="hljs-string">"西装 "</span>);<br>           <span class="hljs-keyword">base</span>.Show();<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">Tie</span> : <span class="hljs-title">Finery</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Show</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.Write(<span class="hljs-string">"领带 "</span>);<br>           <span class="hljs-keyword">base</span>.Show();<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">LeatherShoes</span> : <span class="hljs-title">Finery</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Show</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.Write(<span class="hljs-string">"皮鞋 "</span>);<br>           <span class="hljs-keyword">base</span>.Show();<br>       &#125;<br>   &#125;<br><span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
 
-    class BigTrouser : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;垮裤 &quot;);
-            base.Show();
-        }
-    }
-
-    class Sneakers : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;破球鞋 &quot;);
-            base.Show();
-        }
-    }
-
-    class Suit : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;西装 &quot;);
-            base.Show();
-        }
-    }
-
-    class Tie : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;领带 &quot;);
-            base.Show();
-        }
-    }
-
-    class LeatherShoes : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;皮鞋 &quot;);
-            base.Show();
-        }
-    }
-    #endregion</code></pre>
 <p><strong>测试类</strong>：</p>
-<pre><code class="csharp">    class Program
-    {
-        static void Main(string[] args)
-        {
-            Person xc = new Person(&quot;小菜&quot;);
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           Person xc = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"小菜"</span>);<br><br>           Console.WriteLine(<span class="hljs-string">"\n第一种装扮："</span>);<br><br>           Sneakers pqx = <span class="hljs-keyword">new</span> Sneakers();<br>           BigTrouser kk = <span class="hljs-keyword">new</span> BigTrouser();<br>           TShirts dtx = <span class="hljs-keyword">new</span> TShirts();<br><br>           <span class="hljs-comment">//装饰过程          ---里氏替换原则</span><br>           pqx.Decorate(xc);                   <span class="hljs-comment">//破球鞋装扮</span><br>           kk.Decorate(pqx);                   <span class="hljs-comment">//跨库装扮</span><br>           dtx.Decorate(kk);                   <span class="hljs-comment">//大T衫装扮</span><br>           dtx.Show();                         <span class="hljs-comment">//回调方法直至最底层</span><br><br>           Console.WriteLine(<span class="hljs-string">"\n第二种装扮："</span>);<br><br>           LeatherShoes px = <span class="hljs-keyword">new</span> LeatherShoes();           <br>           Tie ld = <span class="hljs-keyword">new</span> Tie();                            <br>           Suit xz = <span class="hljs-keyword">new</span> Suit();                          <br><br>           <span class="hljs-comment">//装饰过程</span><br>           px.Decorate(xc);                        <span class="hljs-comment">//皮鞋装扮 </span><br>           ld.Decorate(px);                        <span class="hljs-comment">//领带装扮</span><br>           xz.Decorate(ld);                         <span class="hljs-comment">//西装装扮</span><br>           xz.Show();<br><br>           Console.WriteLine(<span class="hljs-string">"\n第三种装扮："</span>);<br>           Sneakers pqx2 = <span class="hljs-keyword">new</span> Sneakers();<br>           LeatherShoes px2 = <span class="hljs-keyword">new</span> LeatherShoes();<br>           BigTrouser kk2 = <span class="hljs-keyword">new</span> BigTrouser();<br>           Tie ld2 = <span class="hljs-keyword">new</span> Tie();<br><br>           <span class="hljs-comment">//装饰过程</span><br>           pqx2.Decorate(xc);<br>           px2.Decorate(pqx);<br>           kk2.Decorate(px2);<br>           ld2.Decorate(kk2);<br><br>           ld2.Show();<br><br>           Console.Read();<br>       &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-            Console.WriteLine(&quot;\n第一种装扮：&quot;);
-
-            Sneakers pqx = new Sneakers();
-            BigTrouser kk = new BigTrouser();
-            TShirts dtx = new TShirts();
-
-            //装饰过程          ---里氏替换原则
-            pqx.Decorate(xc);                   //破球鞋装扮
-            kk.Decorate(pqx);                   //跨库装扮
-            dtx.Decorate(kk);                   //大T衫装扮
-            dtx.Show();                         //回调方法直至最底层
-
-            Console.WriteLine(&quot;\n第二种装扮：&quot;);
-
-            LeatherShoes px = new LeatherShoes();           
-            Tie ld = new Tie();                            
-            Suit xz = new Suit();                          
-
-            //装饰过程
-            px.Decorate(xc);                        //皮鞋装扮 
-            ld.Decorate(px);                        //领带装扮
-            xz.Decorate(ld);                         //西装装扮
-            xz.Show();
-
-            Console.WriteLine(&quot;\n第三种装扮：&quot;);
-            Sneakers pqx2 = new Sneakers();
-            LeatherShoes px2 = new LeatherShoes();
-            BigTrouser kk2 = new BigTrouser();
-            Tie ld2 = new Tie();
-
-            //装饰过程
-            pqx2.Decorate(xc);
-            px2.Decorate(pqx);
-            kk2.Decorate(px2);
-            ld2.Decorate(kk2);
-
-            ld2.Show();
-
-            Console.Read();
-        }
-    }</code></pre>
 <p><strong>结果展示</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/装饰模式/装饰模式测试结果展示.png" alt="装饰模式测试结果展示"></center>
 
@@ -722,241 +589,23 @@
 <li>《大话设计模式》</li>
 <li>《设计模式精解及面试攻略》</li>
 </ul>
-<h2 id="完整测试代码"><a href="#完整测试代码" class="headerlink" title="完整测试代码"></a>完整测试代码</h2><pre><code class="csharp">using System;
+<h2 id="完整测试代码"><a href="#完整测试代码" class="headerlink" title="完整测试代码"></a>完整测试代码</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><code class="hljs csharp">using System;<br><br>namespace 装饰模式<br>&#123;<br>    class Program<br>    &#123;<br>        static void Main(string[] args)<br>        &#123;<br>            Person xc = new Person("小菜");<br><br>            Console.WriteLine("\n第一种装扮：");<br><br>            Sneakers pqx = new Sneakers();<br>            BigTrouser kk = new BigTrouser();<br>            TShirts dtx = new TShirts();<br><br>            //装饰过程          ---里氏替换原则<br>            pqx.Decorate(xc);                   //破球鞋装扮<br>            kk.Decorate(pqx);                   //跨库装扮<br>            dtx.Decorate(kk);                   //大T衫装扮<br>            dtx.Show();                         //回调方法直至最底层<br><br>            Console.WriteLine("\n第二种装扮：");<br><br>            LeatherShoes px = new LeatherShoes();           <br>            Tie ld = new Tie();                            <br>            Suit xz = new Suit();                          <br><br>            //装饰过程<br>            px.Decorate(xc);                        //皮鞋装扮 <br>            ld.Decorate(px);                        //领带装扮<br>            xz.Decorate(ld);                         //西装装扮<br>            xz.Show();<br><br>            Console.WriteLine("\n第三种装扮：");<br>            Sneakers pqx2 = new Sneakers();<br>            LeatherShoes px2 = new LeatherShoes();<br>            BigTrouser kk2 = new BigTrouser();<br>            Tie ld2 = new Tie();<br><br>            //装饰过程<br>            pqx2.Decorate(xc);<br>            px2.Decorate(pqx);<br>            kk2.Decorate(px2);<br>            ld2.Decorate(kk2);<br><br>            ld2.Show();<br><br>            Console.Read();<br>        &#125;<br>    &#125;<br><br>    #region Person类(ConcreteComponent)<br>    class Person<br>    &#123;<br>        public Person()<br>        &#123; &#125;<br><br>        private string name;<br>        public Person(string name)<br>        &#123;<br>            this.name = name;<br>        &#125;<br><br>        public virtual void Show()<br>        &#123;<br>            Console.WriteLine("装扮的&#123;0&#125;", name);<br>        &#125;<br>    &#125;<br>    #endregion<br>   <br>    #region 服饰类(Decorator)<br>    class Finery : Person<br>    &#123;<br>        protected Person component;<br><br>        //打扮<br>        public void Decorate(Person component)<br>        &#123;<br>            this.component = component;<br>        &#125;<br><br>        public override void Show()<br>        &#123;<br>            //调用的是父类中的方法<br>            if (component != null)<br>            &#123;<br>                component.Show();<br>            &#125;<br>        &#125;<br>    &#125;<br>    #endregion<br>    <br>    #region 具体服饰类(ConcreteDecorator)<br>    class TShirts : Finery<br>    &#123;<br>        public override void Show()<br>        &#123;<br>            Console.Write("大T恤 ");<br>            base.Show();<br>        &#125;<br>    &#125;<br><br>    class BigTrouser : Finery<br>    &#123;<br>        public override void Show()<br>        &#123;<br>            Console.Write("垮裤 ");<br>            base.Show();<br>        &#125;<br>    &#125;<br><br>    class Sneakers : Finery<br>    &#123;<br>        public override void Show()<br>        &#123;<br>            Console.Write("破球鞋 ");<br>            base.Show();<br>        &#125;<br>    &#125;<br><br>    class Suit : Finery<br>    &#123;<br>        public override void Show()<br>        &#123;<br>            Console.Write("西装 ");<br>            base.Show();<br>        &#125;<br>    &#125;<br><br>    class Tie : Finery<br>    &#123;<br>        public override void Show()<br>        &#123;<br>            Console.Write("领带 ");<br>            base.Show();<br>        &#125;<br>    &#125;<br><br>    class LeatherShoes : Finery<br>    &#123;<br>        public override void Show()<br>        &#123;<br>            Console.Write("皮鞋 ");<br>            base.Show();<br>        &#125;<br>    &#125;<br>	#endregion<br>&#125;<br></code></pre></td></tr></table></figure>
 
-namespace 装饰模式
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Person xc = new Person(&quot;小菜&quot;);
-
-            Console.WriteLine(&quot;\n第一种装扮：&quot;);
-
-            Sneakers pqx = new Sneakers();
-            BigTrouser kk = new BigTrouser();
-            TShirts dtx = new TShirts();
-
-            //装饰过程          ---里氏替换原则
-            pqx.Decorate(xc);                   //破球鞋装扮
-            kk.Decorate(pqx);                   //跨库装扮
-            dtx.Decorate(kk);                   //大T衫装扮
-            dtx.Show();                         //回调方法直至最底层
-
-            Console.WriteLine(&quot;\n第二种装扮：&quot;);
-
-            LeatherShoes px = new LeatherShoes();           
-            Tie ld = new Tie();                            
-            Suit xz = new Suit();                          
-
-            //装饰过程
-            px.Decorate(xc);                        //皮鞋装扮 
-            ld.Decorate(px);                        //领带装扮
-            xz.Decorate(ld);                         //西装装扮
-            xz.Show();
-
-            Console.WriteLine(&quot;\n第三种装扮：&quot;);
-            Sneakers pqx2 = new Sneakers();
-            LeatherShoes px2 = new LeatherShoes();
-            BigTrouser kk2 = new BigTrouser();
-            Tie ld2 = new Tie();
-
-            //装饰过程
-            pqx2.Decorate(xc);
-            px2.Decorate(pqx);
-            kk2.Decorate(px2);
-            ld2.Decorate(kk2);
-
-            ld2.Show();
-
-            Console.Read();
-        }
-    }
-
-    #region Person类(ConcreteComponent)
-    class Person
-    {
-        public Person()
-        { }
-
-        private string name;
-        public Person(string name)
-        {
-            this.name = name;
-        }
-
-        public virtual void Show()
-        {
-            Console.WriteLine(&quot;装扮的{0}&quot;, name);
-        }
-    }
-    #endregion
-
-    #region 服饰类(Decorator)
-    class Finery : Person
-    {
-        protected Person component;
-
-        //打扮
-        public void Decorate(Person component)
-        {
-            this.component = component;
-        }
-
-        public override void Show()
-        {
-            //调用的是父类中的方法
-            if (component != null)
-            {
-                component.Show();
-            }
-        }
-    }
-    #endregion
-
-    #region 具体服饰类(ConcreteDecorator)
-    class TShirts : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;大T恤 &quot;);
-            base.Show();
-        }
-    }
-
-    class BigTrouser : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;垮裤 &quot;);
-            base.Show();
-        }
-    }
-
-    class Sneakers : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;破球鞋 &quot;);
-            base.Show();
-        }
-    }
-
-    class Suit : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;西装 &quot;);
-            base.Show();
-        }
-    }
-
-    class Tie : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;领带 &quot;);
-            base.Show();
-        }
-    }
-
-    class LeatherShoes : Finery
-    {
-        public override void Show()
-        {
-            Console.Write(&quot;皮鞋 &quot;);
-            base.Show();
-        }
-    }
-    #endregion
-}</code></pre>
 <h2 id="装饰模式-基本代码"><a href="#装饰模式-基本代码" class="headerlink" title="装饰模式-基本代码"></a>装饰模式-基本代码</h2><p><strong>抽象组件对象</strong></p>
-<pre><code class="csharp">    //对象的接口
-    //可以为对象动态添加职责
-    abstract class Component
-    {
-        public abstract void Operation();
-    }</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//对象的接口</span><br>   <span class="hljs-comment">//可以为对象动态添加职责</span><br>   <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Component</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Operation</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br></code></pre></td></tr></table></figure>
+
 <p><strong>具体组件对象</strong></p>
-<pre><code class="csharp">    //定义一个具体的对象
-    //可以为该对象添加一些职责
-    class ConcreteComponent : Component
-    {
-        public override void Operation()
-        {
-            Console.WriteLine(&quot;具体对象的操作&quot;);
-        }
-    }</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//定义一个具体的对象</span><br>   <span class="hljs-comment">//可以为该对象添加一些职责</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteComponent</span> : <span class="hljs-title">Component</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Operation</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.WriteLine(<span class="hljs-string">"具体对象的操作"</span>);<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+
 <p><strong>装饰器对象</strong></p>
-<pre><code class="csharp">    //装饰抽象类
-    //从外部扩展Component类对象的功能
-    abstract class Decorator : Component
-    {
-        protected Component component;
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//装饰抽象类</span><br>   <span class="hljs-comment">//从外部扩展Component类对象的功能</span><br>   <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Decorator</span> : <span class="hljs-title">Component</span><br>   &#123;<br>       <span class="hljs-keyword">protected</span> Component component;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetComponent</span>(<span class="hljs-params">Component component</span>)</span><br>       &#123;<br>           <span class="hljs-keyword">this</span>.component = component;<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Operation</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">if</span> (component != <span class="hljs-literal">null</span>)<br>           &#123;<br>               component.Operation();<br>           &#125;<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
 
-        public void SetComponent(Component component)
-        {
-            this.component = component;
-        }
-
-        public override void Operation()
-        {
-            if (component != null)
-            {
-                component.Operation();
-            }
-        }
-    }</code></pre>
 <p><strong>具体装饰器对象</strong></p>
-<pre><code class="csharp">    //具体的装饰对象
-    //为Component添加职责的功能
-    class ConcreteDecoratorA : Decorator
-    {
-        private string addedState;
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//具体的装饰对象</span><br>   <span class="hljs-comment">//为Component添加职责的功能</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteDecoratorA</span> : <span class="hljs-title">Decorator</span><br>   &#123;<br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> addedState;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Operation</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">base</span>.Operation();<br>           addedState = <span class="hljs-string">"New State"</span>;<br>           Console.WriteLine(<span class="hljs-string">"具体装饰对象A的操作"</span>);<br>       &#125;<br>   &#125;<br><br>   <span class="hljs-comment">//具体的装饰对象</span><br>   <span class="hljs-comment">//为Component添加职责的功能</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteDecoratorB</span> : <span class="hljs-title">Decorator</span><br>   &#123;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Operation</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-keyword">base</span>.Operation();<br>           AddedBehavior();<br>           Console.WriteLine(<span class="hljs-string">"具体装饰对象B的操作"</span>);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddedBehavior</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br><br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
 
-        public override void Operation()
-        {
-            base.Operation();
-            addedState = &quot;New State&quot;;
-            Console.WriteLine(&quot;具体装饰对象A的操作&quot;);
-        }
-    }
-
-    //具体的装饰对象
-    //为Component添加职责的功能
-    class ConcreteDecoratorB : Decorator
-    {
-
-        public override void Operation()
-        {
-            base.Operation();
-            AddedBehavior();
-            Console.WriteLine(&quot;具体装饰对象B的操作&quot;);
-        }
-
-        private void AddedBehavior()
-        {
-
-        }
-    }</code></pre>
 <p><strong>测试类</strong>：</p>
-<pre><code class="csharp">    class Program
-    {
-        static void Main(string[] args)
-        {
-            ConcreteComponent c = new ConcreteComponent();
-            ConcreteDecoratorA d1 = new ConcreteDecoratorA();
-            ConcreteDecoratorB d2 = new ConcreteDecoratorB();
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           ConcreteComponent c = <span class="hljs-keyword">new</span> ConcreteComponent();<br>           ConcreteDecoratorA d1 = <span class="hljs-keyword">new</span> ConcreteDecoratorA();<br>           ConcreteDecoratorB d2 = <span class="hljs-keyword">new</span> ConcreteDecoratorB();<br><br>           d1.SetComponent(c);<br>           d2.SetComponent(d1);<br><br>           d2.Operation();<br><br>           Console.Read();<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
 
-            d1.SetComponent(c);
-            d2.SetComponent(d1);
-
-            d2.Operation();
-
-            Console.Read();
-        }
-    }</code></pre>
 
             </div>
             <hr/>
@@ -1599,7 +1248,7 @@ namespace 装饰模式
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

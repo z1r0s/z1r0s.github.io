@@ -564,181 +564,8 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp多线程猜数字游戏/设计界面.png" alt="设计界面"></center>
 
 <p><strong>代码设计</strong>:</p>
-<pre><code class="csharp">using System;
-using System.Drawing;
-using System.Windows.Forms;
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><span class="hljs-keyword">using</span> System.Drawing;<br><span class="hljs-keyword">using</span> System.Windows.Forms;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">NumGame</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Frm_Main</span> : <span class="hljs-title">Form</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Frm_Main</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            InitializeComponent();<br>        &#125;<br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 声明全局变量</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 定义一个计时器线程</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        System.Threading.Thread G_th;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 定义一个随机数对象</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        Random G_random = <span class="hljs-keyword">new</span> Random();<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 定义一个int型全局变量，用于存放产生的随机变量</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-keyword">int</span> G_int_num;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 开始按钮的Click事件</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 开始按钮的Click事件</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="sender"&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="e"&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">btn_begin_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, EventArgs e</span>)</span><br>        &#123;<br>            RemoveControl();                                        <span class="hljs-comment">//调用自定义的RemoveControl()方法清空自定义的按钮</span><br>            <span class="hljs-keyword">int</span> p_int_x = <span class="hljs-number">10</span>;                                       <span class="hljs-comment">//X坐标初始值为10</span><br>            <span class="hljs-keyword">int</span> p_int_y = <span class="hljs-number">60</span>;                                       <span class="hljs-comment">//Y坐标初始值为60</span><br><br>            <span class="hljs-comment">//向窗体添加按钮</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++)                           <span class="hljs-comment">//添加100个按钮</span><br>            &#123;<br>                Button bt = <span class="hljs-keyword">new</span> Button();                           <span class="hljs-comment">//创建button按钮</span><br>                bt.Text = (i + <span class="hljs-number">1</span>).ToString();                       <span class="hljs-comment">//设置button按钮的文本值</span><br>                bt.Name = (i + <span class="hljs-number">1</span>).ToString();                       <span class="hljs-comment">//设置button按钮的Name属性</span><br>                bt.Width = <span class="hljs-number">35</span>;                                      <span class="hljs-comment">//设置button按钮的宽</span><br>                bt.Height = <span class="hljs-number">35</span>;                                     <span class="hljs-comment">//设置button按钮的高</span><br>                bt.Location = <span class="hljs-keyword">new</span> Point(p_int_x, p_int_y);          <span class="hljs-comment">//设置button按钮的位置</span><br>                bt.Click += <span class="hljs-keyword">new</span> EventHandler(bt_Click);             <span class="hljs-comment">//定义button按钮的Click事件</span><br><br>                p_int_x += <span class="hljs-number">36</span>;                                      <span class="hljs-comment">//设置下一个按钮的位置</span><br>                <span class="hljs-keyword">if</span> ((i + <span class="hljs-number">1</span>) % <span class="hljs-number">10</span> == <span class="hljs-number">0</span>)                            <span class="hljs-comment">//设定每行有10个按钮</span><br>                &#123;<br>                    p_int_x = <span class="hljs-number">10</span>;                                   <span class="hljs-comment">//换行后重新设置X坐标  --X坐标不变</span><br>                    p_int_y += <span class="hljs-number">36</span>;                                  <span class="hljs-comment">//换行后重新设置Y坐标  --Y坐标将变化为原来的+距离</span><br>                &#125;<br><br>                Controls.Add(bt);                                   <span class="hljs-comment">//使用Controls.Add()方法将button按钮放入窗体控件集合中</span><br>            &#125;<br><br>            <span class="hljs-comment">//创建线程</span><br>            <span class="hljs-comment">//跨线程调用控件</span><br>            G_th = <span class="hljs-keyword">new</span> System.Threading.Thread(                 <span class="hljs-comment">//新建一条线程</span><br>                <span class="hljs-keyword">delegate</span> ()                              <span class="hljs-comment">//使用匿名方法创建一个委托</span><br>                &#123;<br>                    <span class="hljs-keyword">int</span> P_int_count = <span class="hljs-number">0</span>;                            <span class="hljs-comment">//初始化计数器</span><br>                    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)                                <span class="hljs-comment">//开始无限循环</span><br>                    &#123;<br>                        P_int_count = ++P_int_count &gt; <span class="hljs-number">100000000</span> ? <span class="hljs-number">0</span> : P_int_count;      <span class="hljs-comment">//计数器累加</span><br><br>                        <span class="hljs-keyword">this</span>.Invoke(                            <span class="hljs-comment">//将代码交给主线程执行</span><br>                            (MethodInvoker)<span class="hljs-keyword">delegate</span>         <span class="hljs-comment">//使用匿名方法</span><br>                            &#123;<br>                                lb_time.Text = P_int_count.ToString();          <span class="hljs-comment">//窗体中显示计数</span><br>                            &#125;);<br>                        System.Threading.Thread.Sleep(<span class="hljs-number">1000</span>);                    <span class="hljs-comment">//线程睡眠1秒</span><br>                    &#125;<br>                &#125;);<br><br>            G_th.IsBackground = <span class="hljs-literal">true</span>;                                   <span class="hljs-comment">//设置线程为后台线程</span><br>            G_th.Start();                                           <span class="hljs-comment">//开始执行线程</span><br><br>            <span class="hljs-comment">//生成一个随机数</span><br>            G_int_num = G_random.Next(<span class="hljs-number">1</span>, <span class="hljs-number">100</span>);                          <span class="hljs-comment">//生成一个1-100之间的随机数</span><br>            btn_begin.Enabled = <span class="hljs-literal">false</span>;                              <span class="hljs-comment">//停用开始按钮</span><br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 注册生成按钮的Click事件的方法</span><br>        <span class="hljs-comment">//注册按钮的Click事件的方法</span><br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bt_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, EventArgs e</span>)</span><br>        &#123;<br>            Control P_control = sender <span class="hljs-keyword">as</span> Control;                          <span class="hljs-comment">//将sender转换为control类型对象</span><br>            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">int</span>.Parse(P_control.Name) &gt; G_int_num)                  <span class="hljs-comment">//强制转化并判断猜测数值与随机产生的数值之间的差距</span><br>            &#123;<br>                P_control.BackColor = Color.Red;                        <span class="hljs-comment">//设置按钮背景为红色</span><br>                P_control.Enabled = <span class="hljs-literal">false</span>;                              <span class="hljs-comment">//设置按钮停用</span><br>                P_control.Text = <span class="hljs-string">"大"</span>;                                   <span class="hljs-comment">//更改按钮文本--猜测数值偏大</span><br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">int</span>.Parse(P_control.Name) &lt; G_int_num)<br>            &#123;<br>                P_control.BackColor = Color.Red;                        <span class="hljs-comment">//设置按钮背景为红色</span><br>                P_control.Enabled = <span class="hljs-literal">false</span>;                              <span class="hljs-comment">//设置按钮停用</span><br>                P_control.Text = <span class="hljs-string">"小"</span>;                                       <span class="hljs-comment">//更改按钮文本--猜测数偏小</span><br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">int</span>.Parse(P_control.Name) == G_int_num)                 <span class="hljs-comment">//当猜测数值与随机产生的数值相等时</span><br>            &#123;<br>                G_th.Abort();                                                   <span class="hljs-comment">//终止计数线程</span><br>                <span class="hljs-comment">//显示游戏信息</span><br>                MessageBox.Show(<span class="hljs-keyword">string</span>.Format(<span class="hljs-string">"恭喜你猜对了！共猜了&#123;0&#125;次 用时&#123;1&#125;秒"</span>, GetCount(), lb_time.Text), <span class="hljs-string">"恭喜！"</span>);<br>                btn_begin.Enabled = <span class="hljs-literal">true</span>;                           <span class="hljs-comment">//启用开始按钮</span><br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 计数方法</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 用于查找窗体中Enable属性为False控件的数量    --遍历窗体中的控件</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 用于计算玩家有多少次没有猜中</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>返回没有猜中数量<span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">string</span> <span class="hljs-title">GetCount</span>(<span class="hljs-params"></span>)</span><br>        &#123;<br>            <span class="hljs-keyword">int</span> P_int_temp = <span class="hljs-number">0</span>;                                             <span class="hljs-comment">//初始化计数器</span><br>            <span class="hljs-keyword">foreach</span> (Control c <span class="hljs-keyword">in</span> Controls)                                     <span class="hljs-comment">//遍历控件集合</span><br>            &#123;<br>                <span class="hljs-keyword">if</span> (!c.Enabled) P_int_temp++;                               <span class="hljs-comment">//计数器累加</span><br>            &#125;<br>            <span class="hljs-keyword">return</span> P_int_temp.ToString();                               <span class="hljs-comment">//返回计数器信息</span><br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 清除控件方法</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 用于清空窗体中动态生成的按钮</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">RemoveControl</span>(<span class="hljs-params"></span>)                                            <span class="hljs-comment">//自定义的清除方法</span></span><br>        &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++)                               <span class="hljs-comment">//开始遍历100个按钮</span><br>            &#123;<br>                <span class="hljs-keyword">if</span> (Controls.ContainsKey((i + <span class="hljs-number">1</span>).ToString()))             <span class="hljs-comment">//窗体中是否有此按钮</span><br>                &#123;<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; Controls.Count; j++)                <span class="hljs-comment">//遍历窗体控件集合</span><br>                    &#123;<br>                        <span class="hljs-keyword">if</span> (Controls[j].Name == (i + <span class="hljs-number">1</span>).ToString())         <span class="hljs-comment">//是否查找到按钮</span><br>                        &#123;<br>                            Controls.RemoveAt(j);                           <span class="hljs-comment">//删除指定按钮</span><br>                            <span class="hljs-keyword">break</span>;<br>                        &#125;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 窗体的FormClosing事件</span><br>        <span class="hljs-comment">//窗体的FormClosing事件</span><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Frm_Main_FormClosing</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, FormClosingEventArgs e</span>)</span><br>        &#123;<br>            <span class="hljs-keyword">if</span> (G_th != <span class="hljs-literal">null</span>)<br>            &#123;<br>                G_th.Abort();<br>            &#125;<br><br>            Environment.Exit(<span class="hljs-number">0</span>);                                <span class="hljs-comment">//强行关闭窗体</span><br>        &#125;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-namespace NumGame
-{
-    public partial class Frm_Main : Form
-    {
-        public Frm_Main()
-        {
-            InitializeComponent();
-        }
-
-        #region 声明全局变量
-        /// &lt;summary&gt;
-        /// 定义一个计时器线程
-        /// &lt;/summary&gt;
-        System.Threading.Thread G_th;
-
-        /// &lt;summary&gt;
-        /// 定义一个随机数对象
-        /// &lt;/summary&gt;
-        Random G_random = new Random();
-
-        /// &lt;summary&gt;
-        /// 定义一个int型全局变量，用于存放产生的随机变量
-        /// &lt;/summary&gt;
-        int G_int_num;
-        #endregion
-
-        #region 开始按钮的Click事件
-        /// &lt;summary&gt;
-        /// 开始按钮的Click事件
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;
-        /// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;
-        private void btn_begin_Click(object sender, EventArgs e)
-        {
-            RemoveControl();                                        //调用自定义的RemoveControl()方法清空自定义的按钮
-            int p_int_x = 10;                                       //X坐标初始值为10
-            int p_int_y = 60;                                       //Y坐标初始值为60
-
-            //向窗体添加按钮
-            for (int i = 0; i &lt; 100; i++)                           //添加100个按钮
-            {
-                Button bt = new Button();                           //创建button按钮
-                bt.Text = (i + 1).ToString();                       //设置button按钮的文本值
-                bt.Name = (i + 1).ToString();                       //设置button按钮的Name属性
-                bt.Width = 35;                                      //设置button按钮的宽
-                bt.Height = 35;                                     //设置button按钮的高
-                bt.Location = new Point(p_int_x, p_int_y);          //设置button按钮的位置
-                bt.Click += new EventHandler(bt_Click);             //定义button按钮的Click事件
-
-                p_int_x += 36;                                      //设置下一个按钮的位置
-                if ((i + 1) % 10 == 0)                            //设定每行有10个按钮
-                {
-                    p_int_x = 10;                                   //换行后重新设置X坐标  --X坐标不变
-                    p_int_y += 36;                                  //换行后重新设置Y坐标  --Y坐标将变化为原来的+距离
-                }
-
-                Controls.Add(bt);                                   //使用Controls.Add()方法将button按钮放入窗体控件集合中
-            }
-
-            //创建线程
-            //跨线程调用控件
-            G_th = new System.Threading.Thread(                 //新建一条线程
-                delegate ()                              //使用匿名方法创建一个委托
-                {
-                    int P_int_count = 0;                            //初始化计数器
-                    while (true)                                //开始无限循环
-                    {
-                        P_int_count = ++P_int_count &gt; 100000000 ? 0 : P_int_count;      //计数器累加
-
-                        this.Invoke(                            //将代码交给主线程执行
-                            (MethodInvoker)delegate         //使用匿名方法
-                            {
-                                lb_time.Text = P_int_count.ToString();          //窗体中显示计数
-                            });
-                        System.Threading.Thread.Sleep(1000);                    //线程睡眠1秒
-                    }
-                });
-
-            G_th.IsBackground = true;                                   //设置线程为后台线程
-            G_th.Start();                                           //开始执行线程
-
-            //生成一个随机数
-            G_int_num = G_random.Next(1, 100);                          //生成一个1-100之间的随机数
-            btn_begin.Enabled = false;                              //停用开始按钮
-        }
-        #endregion
-
-        #region 注册生成按钮的Click事件的方法
-        //注册按钮的Click事件的方法
-        void bt_Click(object sender, EventArgs e)
-        {
-            Control P_control = sender as Control;                          //将sender转换为control类型对象
-            if (int.Parse(P_control.Name) &gt; G_int_num)                  //强制转化并判断猜测数值与随机产生的数值之间的差距
-            {
-                P_control.BackColor = Color.Red;                        //设置按钮背景为红色
-                P_control.Enabled = false;                              //设置按钮停用
-                P_control.Text = &quot;大&quot;;                                   //更改按钮文本--猜测数值偏大
-                return;
-            }
-            if (int.Parse(P_control.Name) &lt; G_int_num)
-            {
-                P_control.BackColor = Color.Red;                        //设置按钮背景为红色
-                P_control.Enabled = false;                              //设置按钮停用
-                P_control.Text = &quot;小&quot;;                                       //更改按钮文本--猜测数偏小
-                return;
-            }
-            if (int.Parse(P_control.Name) == G_int_num)                 //当猜测数值与随机产生的数值相等时
-            {
-                G_th.Abort();                                                   //终止计数线程
-                //显示游戏信息
-                MessageBox.Show(string.Format(&quot;恭喜你猜对了！共猜了{0}次 用时{1}秒&quot;, GetCount(), lb_time.Text), &quot;恭喜！&quot;);
-                btn_begin.Enabled = true;                           //启用开始按钮
-                return;
-            }
-        }
-        #endregion
-
-        #region 计数方法
-        /// &lt;summary&gt;
-        /// 用于查找窗体中Enable属性为False控件的数量    --遍历窗体中的控件
-        /// 用于计算玩家有多少次没有猜中
-        /// &lt;/summary&gt;
-        /// &lt;returns&gt;返回没有猜中数量&lt;/returns&gt;
-        string GetCount()
-        {
-            int P_int_temp = 0;                                             //初始化计数器
-            foreach (Control c in Controls)                                     //遍历控件集合
-            {
-                if (!c.Enabled) P_int_temp++;                               //计数器累加
-            }
-            return P_int_temp.ToString();                               //返回计数器信息
-        }
-        #endregion
-
-        #region 清除控件方法
-        /// &lt;summary&gt;
-        /// 用于清空窗体中动态生成的按钮
-        /// &lt;/summary&gt;
-        void RemoveControl()                                            //自定义的清除方法
-        {
-            for (int i = 0; i &lt; 100; i++)                               //开始遍历100个按钮
-            {
-                if (Controls.ContainsKey((i + 1).ToString()))             //窗体中是否有此按钮
-                {
-                    for (int j = 0; j &lt; Controls.Count; j++)                //遍历窗体控件集合
-                    {
-                        if (Controls[j].Name == (i + 1).ToString())         //是否查找到按钮
-                        {
-                            Controls.RemoveAt(j);                           //删除指定按钮
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        #endregion
-
-        #region 窗体的FormClosing事件
-        //窗体的FormClosing事件
-        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (G_th != null)
-            {
-                G_th.Abort();
-            }
-
-            Environment.Exit(0);                                //强行关闭窗体
-        }
-        #endregion
-    }
-}</code></pre>
 <h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp多线程猜数字游戏/测试结果.png" alt="测试结果"></center>
 
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>程序流程分析</strong>:</p>
@@ -1080,12 +907,12 @@ namespace NumGame
                         <span class="chip bg-color">C#</span>
                     </a>
                     
-                    <a href="/tags/程序实现/">
-                        <span class="chip bg-color">程序实现</span>
-                    </a>
-                    
                     <a href="/tags/编码/">
                         <span class="chip bg-color">编码</span>
+                    </a>
+                    
+                    <a href="/tags/程序实现/">
+                        <span class="chip bg-color">程序实现</span>
                     </a>
                     
                 </div>
@@ -1392,7 +1219,7 @@ namespace NumGame
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

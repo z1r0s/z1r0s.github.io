@@ -534,48 +534,20 @@
 
 <h1 id="0x04-实验步骤"><a href="#0x04-实验步骤" class="headerlink" title="0x04 实验步骤"></a>0x04 实验步骤</h1><ol>
 <li><p>使用如下payload进行测试，查看参数的回显位置以及是否被转义或过滤。</p>
-<pre><code class="javascript">http://10.10.10.148:8203/level4.php?keyword=&lt;script&gt;alert(/onclink/)&lt;/script&gt;</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">http:<span class="hljs-comment">//10.10.10.148:8203/level4.php?keyword=&lt;script&gt;alert(/onclink/)&lt;/script&gt;</span><br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level4/注入点检测.png" alt="注入点检测"></center>
 
 <p>由上述操作可以推断，程序对<code>h2</code>标签中参数的尖括号进行了转义，而对<code>name=keyword</code>的<code>input</code>标签中的<strong>尖括号</strong>进行了过滤，构造不含尖括号的触发事件就可以正常弹窗，所以此处存在XSS漏洞。</p>
 </li>
 <li><p>构造如下所示的payload进行漏洞测试，结果如下图所示。</p>
-<pre><code class="javascript">http://10.10.10.148:8203/level4.php?keyword=&quot;+onclick=&quot;alert(1)</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">http:<span class="hljs-comment">//10.10.10.148:8203/level4.php?keyword="+onclick="alert(1)</span><br></code></pre></td></tr></table></figure>
+
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level4/注入成功.png" alt="注入成功"></center>
 </li>
 <li><p>代码审计。程序源码如下所示：</p>
-<pre><code class="php">&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;
-&lt;script&gt;
-window.alert = function()  
-{     
-confirm(&quot;完成的不错！&quot;);
- window.location.href=&quot;level5.php?keyword=find a way out!&quot;; 
-}
-&lt;/script&gt;
-&lt;title&gt;欢迎来到level4&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1 align=center&gt;欢迎来到level4&lt;/h1&gt;
-&lt;?php 
-ini_set(&quot;display_errors&quot;, 0);
-$str = $_GET[&quot;keyword&quot;];
-$str2=str_replace(&quot;&gt;&quot;,&quot;&quot;,$str);
-$str3=str_replace(&quot;&lt;&quot;,&quot;&quot;,$str2);
-echo &quot;&lt;h2 align=center&gt;没有找到和&quot;.htmlspecialchars($str).&quot;相关的结果.&lt;/h2&gt;&quot;.&#39;&lt;center&gt;
-&lt;form action=level4.php method=GET&gt;
-&lt;input name=keyword  value=&quot;&#39;.$str3.&#39;&quot;&gt;
-&lt;input type=submit name=submit value=搜索 /&gt;
-&lt;/form&gt;
-&lt;/center&gt;&#39;;
-?&gt;
-&lt;center&gt;&lt;img src=level4.png&gt;&lt;/center&gt;
-&lt;?php 
-echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str3).&quot;&lt;/h3&gt;&quot;;
-?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;<br>&lt;script&gt;<br>window.alert = function()  <br>&#123;     <br>confirm("完成的不错！");<br> window.location.href="level5.php?keyword=find a way out!"; <br>&#125;<br>&lt;/script&gt;<br>&lt;title&gt;欢迎来到level4&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;h1 align=center&gt;欢迎来到level4&lt;/h1&gt;<br>&lt;?php <br>ini_set("display_errors", 0);<br>$str = $_GET["keyword"];<br>$str2=str_replace("&gt;","",$str);<br>$str3=str_replace("&lt;","",$str2);<br>echo "&lt;h2 align=center&gt;没有找到和".htmlspecialchars($str)."相关的结果.&lt;/h2&gt;".'&lt;center&gt;<br>&lt;form action=level4.php method=GET&gt;<br>&lt;input name=keyword  value="'.$str3.'"&gt;<br>&lt;input type=submit name=submit value=搜索 /&gt;<br>&lt;/form&gt;<br>&lt;/center&gt;';<br>?&gt;<br>&lt;center&gt;&lt;img src=level4.png&gt;&lt;/center&gt;<br>&lt;?php <br>echo "&lt;h3 align=center&gt;payload的长度:".strlen($str3)."&lt;/h3&gt;";<br>?&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>由20行代码可知：GET方法得到的参数经过<code>htmlspecialchars()</code>函数转义后回显到HTML页面中。</li>
 <li>由17-19、22行代码可知：程序将通过<strong>GET方法</strong>得到的参数做尖括号过滤后赋值给<code>name=keyword</code>的<code>input</code>标签的<code>value</code>值。</li>
@@ -586,15 +558,12 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str3).&quot;&l
 </ol>
 <h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul>
 <li><p>程序对参数中的尖括号进行过滤后回显到HTML页面中，所以此关的payload非常多：</p>
-<pre><code class="javascript"># 构造事件，闭合引号
-&quot;+onclick=&quot;alert(1)
-# 构造事件，闭合引号
-&quot;+onmouseover=&quot;javascript:alert(1)
-# 构造事件
-# //的作用：因为参数是由双引号包裹，所以需要事件参数与双引号保持一定的距离，因此使用+也可以达到相同的效果
-&quot;+onclick=alert(1)//
-&quot;+onfocus=alert(1)//
-...</code></pre>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript">  # 构造事件，闭合引号<br>  "+onclick="alert(1)<br>  # 构造事件，闭合引号<br>  "+onmouseover="javascript:alert(1)<br>  # 构造事件<br>  # //的作用：因为参数是由双引号包裹，所以需要事件参数与双引号保持一定的距离，因此使用+也可以达到相同的效果<br>"+onclick=alert(1)//<br>  "+onfocus=alert(1)//<br>  ...<br></code></pre></td></tr></table></figure>
+
+
+
+
+
 </li>
 </ul>
 <h1 id="0x06-参考链接"><a href="#0x06-参考链接" class="headerlink" title="0x06 参考链接"></a>0x06 参考链接</h1><ul>
@@ -1217,7 +1186,7 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str3).&quot;&l
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

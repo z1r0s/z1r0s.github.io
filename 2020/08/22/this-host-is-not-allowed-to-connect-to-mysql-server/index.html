@@ -557,10 +557,7 @@
 <li><p>修改mysql数据库中user表中root对应得host字段的值为%，来允许远程用户连接MySQL。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/修改表信息.png" alt="修改表信息"></center>
 
-<pre><code class="mysql">use mysql;
-select host,user from user where user=&#39;root&#39;;
-update user set host=&#39;%&#39; where user=&#39;root&#39;;
-select host,user from user where user=&#39;root&#39;;</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">use mysql;<br>select host,user from user where user=&apos;root&apos;;<br>update user set host=&apos;%&apos; where user=&apos;root&apos;;<br>select host,user from user where user=&apos;root&apos;;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><font color="blue">重启MySQL服务</font>后，再进行远程连接测试。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/重启MySQL后的连接测试.png" alt="重启MySQL后的连接测试"></center>
@@ -1230,7 +1227,7 @@ select host,user from user where user=&#39;root&#39;;</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

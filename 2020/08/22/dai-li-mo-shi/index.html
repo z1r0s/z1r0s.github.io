@@ -502,7 +502,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    875
+                    933
                 </div>
                 
 
@@ -543,97 +543,20 @@
 </ol>
 <h1 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h1><p>使用代理追女孩：</p>
 <p><strong>被追求者</strong>：</p>
-<pre><code class="csharp">    //被追求者
-    class SchoolGirl
-    {
-        private string name;
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-    }</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//被追求者</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">SchoolGirl</span><br>   &#123;<br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> name;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Name<br>       &#123;<br>           <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> name; &#125;<br>           <span class="hljs-keyword">set</span> &#123; name = <span class="hljs-keyword">value</span>; &#125;<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+
 <p><strong>送礼物的接口</strong>：</p>
-<pre><code class="csharp">    //送礼物的接口
-    interface GiveGift
-    {
-        void GiveDolls();
-        void GiveFlowers();
-        void GiveChocolate();
-    }</code></pre>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//送礼物的接口</span><br>   <span class="hljs-keyword">interface</span> <span class="hljs-title">GiveGift</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">GiveDolls</span>(<span class="hljs-params"></span>)</span>;<br>       <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">GiveFlowers</span>(<span class="hljs-params"></span>)</span>;<br>       <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">GiveChocolate</span>(<span class="hljs-params"></span>)</span>;<br>   &#125;<br></code></pre></td></tr></table></figure>
+
 <p><strong>雇主</strong>：</p>
-<pre><code class="csharp">    //追求者---（雇主）
-    class Pursuit : GiveGift
-    {
-        //雇主心意的女孩对象
-        SchoolGirl mm;
-        public Pursuit(SchoolGirl mm)
-        {
-            //追求者与被追求者之间的联系
-            this.mm = mm;
-        }
-        public void GiveDolls()
-        {
-            Console.WriteLine(mm.Name + &quot; 送你洋娃娃&quot;);
-        }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//追求者---（雇主）</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">Pursuit</span> : <span class="hljs-title">GiveGift</span><br>   &#123;<br>       <span class="hljs-comment">//雇主心意的女孩对象</span><br>       SchoolGirl mm;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Pursuit</span>(<span class="hljs-params">SchoolGirl mm</span>)</span><br>       &#123;<br>           <span class="hljs-comment">//追求者与被追求者之间的联系</span><br>           <span class="hljs-keyword">this</span>.mm = mm;<br>       &#125;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GiveDolls</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.WriteLine(mm.Name + <span class="hljs-string">" 送你洋娃娃"</span>);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GiveFlowers</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.WriteLine(mm.Name + <span class="hljs-string">" 送你鲜花"</span>);<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GiveChocolate</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           Console.WriteLine(mm.Name + <span class="hljs-string">" 送你巧克力"</span>);<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
 
-        public void GiveFlowers()
-        {
-            Console.WriteLine(mm.Name + &quot; 送你鲜花&quot;);
-        }
-
-        public void GiveChocolate()
-        {
-            Console.WriteLine(mm.Name + &quot; 送你巧克力&quot;);
-        }
-    }</code></pre>
 <p><strong>代理者</strong>：</p>
-<pre><code class="csharp">    //代理者实现接口
-    class Proxy : GiveGift
-    {
-        //声明一个雇主变量，用来存储聘用代理者的雇主对象
-        Pursuit gg;
-        public Proxy(SchoolGirl mm)
-        {
-            //建立追求者与本追求者之间的关系
-            gg = new Pursuit(mm);
-        }
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//代理者实现接口</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title">Proxy</span> : <span class="hljs-title">GiveGift</span><br>   &#123;<br>       <span class="hljs-comment">//声明一个雇主变量，用来存储聘用代理者的雇主对象</span><br>       Pursuit gg;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Proxy</span>(<span class="hljs-params">SchoolGirl mm</span>)</span><br>       &#123;<br>           <span class="hljs-comment">//建立追求者与本追求者之间的关系</span><br>           gg = <span class="hljs-keyword">new</span> Pursuit(mm);<br>       &#125;<br><br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GiveDolls</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           <span class="hljs-comment">//调用雇主对象自身的方法</span><br>           gg.GiveDolls();<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GiveFlowers</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           gg.GiveFlowers();<br>       &#125;<br><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GiveChocolate</span>(<span class="hljs-params"></span>)</span><br>       &#123;<br>           gg.GiveChocolate();<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
 
-
-        public void GiveDolls()
-        {
-            //调用雇主对象自身的方法
-            gg.GiveDolls();
-        }
-
-        public void GiveFlowers()
-        {
-            gg.GiveFlowers();
-        }
-
-        public void GiveChocolate()
-        {
-            gg.GiveChocolate();
-        }
-    }</code></pre>
 <p><strong>测试类</strong>：</p>
-<pre><code class="csharp">    class Program
-    {
-        static void Main(string[] args)
-        {
-            SchoolGirl jiaojiao = new SchoolGirl();
-            jiaojiao.Name = &quot;李娇娇&quot;;
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>   &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span><br>       &#123;<br>           SchoolGirl jiaojiao = <span class="hljs-keyword">new</span> SchoolGirl();<br>           jiaojiao.Name = <span class="hljs-string">"李娇娇"</span>;<br><br>           Proxy daili = <span class="hljs-keyword">new</span> Proxy(jiaojiao);<br><br>           daili.GiveDolls();<br>           daili.GiveFlowers();<br>           daili.GiveChocolate();<br><br><br>           Console.Read();<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
 
-            Proxy daili = new Proxy(jiaojiao);
-
-            daili.GiveDolls();
-            daili.GiveFlowers();
-            daili.GiveChocolate();
-
-
-            Console.Read();
-        }
-    }</code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>代理使用的方法实际是雇主实现的方法</li>
@@ -645,103 +568,8 @@
 <li>《大话设计模式》</li>
 <li>《设计模式精解及面试攻略》</li>
 </ul>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre><code class="csharp">using System;
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><code class="hljs csharp">using System;<br><br>namespace 代理模式<br>&#123;<br>    class Program<br>    &#123;<br>        static void Main(string[] args)<br>        &#123;<br>            SchoolGirl jiaojiao = new SchoolGirl();<br>            jiaojiao.Name = "李娇娇";<br><br>            Proxy daili = new Proxy(jiaojiao);<br><br>            daili.GiveDolls();<br>            daili.GiveFlowers();<br>            daili.GiveChocolate();<br><br><br>            Console.Read();<br>        &#125;<br>    &#125;<br><br>    //送礼物的接口<br>    interface GiveGift<br>    &#123;<br>        void GiveDolls();<br>        void GiveFlowers();<br>        void GiveChocolate();<br>    &#125;<br><br>    //代理者实现接口<br>    class Proxy : GiveGift<br>    &#123;<br>        //声明一个雇主变量，用来存储聘用代理者的雇主对象<br>        Pursuit gg;<br>        public Proxy(SchoolGirl mm)<br>        &#123;<br>            //建立追求者与本追求者之间的关系<br>            gg = new Pursuit(mm);<br>        &#125;<br><br><br>        public void GiveDolls()<br>        &#123;<br>            //调用雇主对象自身的方法<br>            gg.GiveDolls();<br>        &#125;<br><br>        public void GiveFlowers()<br>        &#123;<br>            gg.GiveFlowers();<br>        &#125;<br><br>        public void GiveChocolate()<br>        &#123;<br>            gg.GiveChocolate();<br>        &#125;<br>    &#125;<br><br>    //追求者---（雇主）<br>    class Pursuit : GiveGift<br>    &#123;<br>        //雇主心意的女孩对象<br>        SchoolGirl mm;<br>        public Pursuit(SchoolGirl mm)<br>        &#123;<br>            //追求者与被追求者之间的联系<br>            this.mm = mm;<br>        &#125;<br>        public void GiveDolls()<br>        &#123;<br>            Console.WriteLine(mm.Name + " 送你洋娃娃");<br>        &#125;<br><br>        public void GiveFlowers()<br>        &#123;<br>            Console.WriteLine(mm.Name + " 送你鲜花");<br>        &#125;<br><br>        public void GiveChocolate()<br>        &#123;<br>            Console.WriteLine(mm.Name + " 送你巧克力");<br>        &#125;<br>    &#125;<br><br>    //被追求者<br>    class SchoolGirl<br>    &#123;<br>        private string name;<br>        public string Name<br>        &#123;<br>            get &#123; return name; &#125;<br>            set &#123; name = value; &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-namespace 代理模式
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            SchoolGirl jiaojiao = new SchoolGirl();
-            jiaojiao.Name = &quot;李娇娇&quot;;
-
-            Proxy daili = new Proxy(jiaojiao);
-
-            daili.GiveDolls();
-            daili.GiveFlowers();
-            daili.GiveChocolate();
-
-
-            Console.Read();
-        }
-    }
-
-    //送礼物的接口
-    interface GiveGift
-    {
-        void GiveDolls();
-        void GiveFlowers();
-        void GiveChocolate();
-    }
-
-    //代理者实现接口
-    class Proxy : GiveGift
-    {
-        //声明一个雇主变量，用来存储聘用代理者的雇主对象
-        Pursuit gg;
-        public Proxy(SchoolGirl mm)
-        {
-            //建立追求者与本追求者之间的关系
-            gg = new Pursuit(mm);
-        }
-
-
-        public void GiveDolls()
-        {
-            //调用雇主对象自身的方法
-            gg.GiveDolls();
-        }
-
-        public void GiveFlowers()
-        {
-            gg.GiveFlowers();
-        }
-
-        public void GiveChocolate()
-        {
-            gg.GiveChocolate();
-        }
-    }
-
-    //追求者---（雇主）
-    class Pursuit : GiveGift
-    {
-        //雇主心意的女孩对象
-        SchoolGirl mm;
-        public Pursuit(SchoolGirl mm)
-        {
-            //追求者与被追求者之间的联系
-            this.mm = mm;
-        }
-        public void GiveDolls()
-        {
-            Console.WriteLine(mm.Name + &quot; 送你洋娃娃&quot;);
-        }
-
-        public void GiveFlowers()
-        {
-            Console.WriteLine(mm.Name + &quot; 送你鲜花&quot;);
-        }
-
-        public void GiveChocolate()
-        {
-            Console.WriteLine(mm.Name + &quot; 送你巧克力&quot;);
-        }
-    }
-
-    //被追求者
-    class SchoolGirl
-    {
-        private string name;
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-    }
-
-}</code></pre>
 
             </div>
             <hr/>
@@ -1384,7 +1212,7 @@ namespace 代理模式
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

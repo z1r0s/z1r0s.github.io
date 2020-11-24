@@ -498,14 +498,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    19.1k
+                    18.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    75 分
+                    72 分
                 </div>
                 
 
@@ -1043,19 +1043,8 @@
 <p>命令脚本：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t
-   hostname S1
-   username aaa1 pass bbb1
-   enable pass ccc1
-   int vlan 1
-   ip add 192.1.1.7 255.255.255.0
-   no shut
-   exit
-   ip default-gateway 192.1.1.254
-   line vty 0 4
-   login local
-   exit</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname S1<br>username aaa1 pass bbb1<br>enable pass ccc1<br>int vlan 1<br>ip add 192.1.1.7 255.255.255.0<br>no shut<br>exit<br>ip default-gateway 192.1.1.254<br>line vty 0 4<br>login local<br>exit<br></code></pre></td></tr></table></figure>
+
 <ol start="4">
 <li><p><strong>对R路由器进行配置，如图4-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/R配置过程.png" alt="R配置过程"></center>
@@ -1065,17 +1054,8 @@
 <p>命令脚本：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t
-   hostname R
-   nt g0/0
-   p add 192.1.1.254 255.255.255.0
-   no shut
-   exit
-   int g0/1
-   ip add 192.1.2.254 255.255.255.0
-   no shut
-   exit</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname R<br>nt g0/0<br>p add 192.1.1.254 255.255.255.0<br>no shut<br>exit<br>int g0/1<br>ip add 192.1.2.254 255.255.255.0<br>no shut<br>exit<br></code></pre></td></tr></table></figure>
+
 <ol start="5">
 <li><p><strong>对S2交换机进行配置，如图4-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S2配置过程.png" alt="S2配置过程"></center>
@@ -1085,19 +1065,8 @@
 <p>命令脚本：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t
-   hostname S2
-   username aaa2 pass bbb2
-   enable pass ccc2
-   int vlan 1
-   ip add 192.1.2.7 255.255.255.0
-   no shut
-   exit
-   ip default-gateway 192.1.2.254
-   line vty 0 4
-   login local
-   exit</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname S2<br>username aaa2 pass bbb2<br>enable pass ccc2<br>int vlan 1<br>ip add 192.1.2.7 255.255.255.0<br>no shut<br>exit<br>ip default-gateway 192.1.2.254<br>line vty 0 4<br>login local<br>exit<br></code></pre></td></tr></table></figure>
+
 <ol start="6">
 <li><p><strong>PC远程登录S1，如图4-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/PC远程登录S1.png" alt="PC远程登录S1"></center>
@@ -1245,23 +1214,8 @@
 <p><strong>命令脚本</strong>:</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t
-   vlan 2
-   name vlan2
-   exit
-   vlan 3
-   name vlan3
-   exit
-   int range f0/1-2,f0/5
-   switchport mode access
-   switchport access vlan 2
-   exit
-   int range f0/3,f0/8
-   switchport mode access
-   switchport access vlan 3
-   exit
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>vlan 2<br>name vlan2<br>exit<br>vlan 3<br>name vlan3<br>exit<br>int range f0/1-2,f0/5<br>switchport mode access<br>switchport access vlan 2<br>exit<br>int range f0/3,f0/8<br>switchport mode access<br>switchport access vlan 3<br>exit<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="5">
 <li><p><strong>终端A $\rightarrow$ 终端B</strong></p>
 <p>由于Switch转发表为空，当Switch接收到终端A发送的MAC帧时，将广播至该VLAN中的其他终端（终端B和终端D），如图5-8所示。</p>
@@ -1354,25 +1308,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t
-   hostname S1
-   vlan 2
-   name vlan2
-   exit
-   vlan 4
-   name vlan4
-   exit
-   int range f0/1-2
-   switchport mode access
-   switchport access vlan 2
-   int f0/3
-   switchport mode access
-   switchport access vlan 4
-   int f0/4
-   switchport mode trunk
-   switchport trunk allowed vlan 2,4
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname S1<br>vlan 2<br>name vlan2<br>exit<br>vlan 4<br>name vlan4<br>exit<br>int range f0/1-2<br>switchport mode access<br>switchport access vlan 2<br>int f0/3<br>switchport mode access<br>switchport access vlan 4<br>int f0/4<br>switchport mode trunk<br>switchport trunk allowed vlan 2,4<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="4">
 <li><p><strong>S2配置，如图6-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S2配置.png" alt="S2配置"></center>
@@ -1382,31 +1319,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t
-   hostname S2
-   vlan 2
-   name vlan2
-   exit
-   vlan 3
-   name vlan3
-   exit
-   vlan 4
-   name vlan4
-   exit
-   int f0/1
-   switchport mode trunk
-   switchport trunk allowed vlan 2,4
-   int f0/2
-   switchport mode trunk
-   switchport trunk allowed vlan 3,4
-   int f0/3
-   switchport mode access
-   switchport access vlan 2
-   int f0/4
-   switchport mode access
-   switchport access vlan 3
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname S2<br>vlan 2<br>name vlan2<br>exit<br>vlan 3<br>name vlan3<br>exit<br>vlan 4<br>name vlan4<br>exit<br>int f0/1<br>switchport mode trunk<br>switchport trunk allowed vlan 2,4<br>int f0/2<br>switchport mode trunk<br>switchport trunk allowed vlan 3,4<br>int f0/3<br>switchport mode access<br>switchport access vlan 2<br>int f0/4<br>switchport mode access<br>switchport access vlan 3<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="5">
 <li><p><strong>S3配置，如图6-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S3配置.png" alt="S3配置"></center>
@@ -1416,25 +1330,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t
-   hostname S3 
-   vlan 3
-   name vlan3
-   exit
-   vlan 4
-   name vlan4
-   exit
-   int f0/1
-   switchport mode access
-   switchport access vlan 4
-   int range f0/2-3
-   switchport mode access
-   switchport access vlan 3
-   int f0/4
-   switchport mode trunk
-   switchport trunk allowed vlan 3,4
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t<br>hostname S3 <br>vlan 3<br>name vlan3<br>exit<br>vlan 4<br>name vlan4<br>exit<br>int f0/1<br>switchport mode access<br>switchport access vlan 4<br>int range f0/2-3<br>switchport mode access<br>switchport access vlan 3<br>int f0/4<br>switchport mode trunk<br>switchport trunk allowed vlan 3,4<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="6">
 <li><p><strong>终端C至终端D的传输</strong></p>
 <p>由于交换机S1的f0/4端口是被VLAN2和VLAN4共享的共享端口，因此，该帧经过交换机S1的f0/4端口输出时，携带VLAN4对应的VLAN ID（4），其数据帧格式如图6-7所示。</p>
@@ -1490,16 +1387,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   username aaa1 password bbb1
-   line vty 0 4
-   login local 
-   exit
-   enable password ccc1
-   int vlan 4
-   ip add 192.168.1.17 255.255.255.0
-   exit</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>username aaa1 password bbb1<br>line vty 0 4<br>login local <br>exit<br>enable password ccc1<br>int vlan 4<br>ip add 192.168.1.17 255.255.255.0<br>exit<br></code></pre></td></tr></table></figure>
+
 <ol start="4">
 <li><p><strong>S2远程管理配置，如图7-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置S2远程管理配置.png" alt="交换机VLAN远程配置S2远程管理配置"></center>
@@ -1509,16 +1398,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   username aaa2 password bbb2
-   line vty 0 4
-   login local 
-   exit
-   enable password ccc2
-   int vlan 4
-   ip add 192.168.1.27 255.255.255.0
-   exit</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>username aaa2 password bbb2<br>line vty 0 4<br>login local <br>exit<br>enable password ccc2<br>int vlan 4<br>ip add 192.168.1.27 255.255.255.0<br>exit<br></code></pre></td></tr></table></figure>
+
 <ol start="5">
 <li><p><strong>S3远程管理配置，如图7-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置S3远程管理配置.png" alt="交换机VLAN远程配置S3远程管理配置"></center>
@@ -1528,16 +1409,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   username aaa3 password bbb3
-   line vty 0 4
-   login local 
-   exit
-   enable password ccc3
-   int vlan 4
-   ip add 192.168.1.37 255.255.255.0
-   exit</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>username aaa3 password bbb3<br>line vty 0 4<br>login local <br>exit<br>enable password ccc3<br>int vlan 4<br>ip add 192.168.1.37 255.255.255.0<br>exit<br></code></pre></td></tr></table></figure>
+
 <ol start="6">
 <li><p><strong>终端C-Telnet-交换机S3，如图7-8所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置终端C-Telnet-S3.png" alt="交换机VLAN远程配置终端C-Telnet-S3"></center>
@@ -1593,23 +1466,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   ccc1
-   conf t 
-   vlan 5
-   remote-span
-   name rspan
-   exit
-   no monitor session all 
-   monitor session 1 source interface f0/1 rx
-   monitor session 1 destination remote vlan 5 reflector-port f0/17
-   int f0/17
-   shutdown
-   exit
-   int f0/4
-   switchport mode trunk 
-   switchport trunk allowed vlan 1-10
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>ccc1<br>conf t <br>vlan 5<br>remote-span<br>name rspan<br>exit<br>no monitor session all <br>monitor session 1 source interface f0/1 rx<br>monitor session 1 destination remote vlan 5 reflector-port f0/17<br>int f0/17<br>shutdown<br>exit<br>int f0/4<br>switchport mode trunk <br>switchport trunk allowed vlan 1-10<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="4">
 <li><p><strong>S2的RSPAN VLAN配置，如图8-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置S2RSPAN配置.png" alt="RSPAN配置S2RSPAN配置"></center>
@@ -1619,21 +1477,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   ccc2
-   conf t 
-   vlan 5
-   remote-span
-   name rspan
-   exit
-   int f0/1
-   switchport mode trunk
-   switchport trunk allowed vlan 1-10
-   exit
-   int f0/2
-   switchport mode trunk 
-   switchport trunk allowed vlan 1-10
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>ccc2<br>conf t <br>vlan 5<br>remote-span<br>name rspan<br>exit<br>int f0/1<br>switchport mode trunk<br>switchport trunk allowed vlan 1-10<br>exit<br>int f0/2<br>switchport mode trunk <br>switchport trunk allowed vlan 1-10<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="5">
 <li><p><strong>S3的RSPAN VLAN配置，如图8-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置S3RSPAN配置.png" alt="RSPAN配置S3RSPAN配置"></center>
@@ -1643,24 +1488,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   ccc3
-   conf t 
-   vlan 5
-   remote-span
-   name rspan
-   exit
-   no monitor session all
-   monitor session 1 source remote vlan 5
-   monitor session 1 destination int f0/5
-   int f0/5
-   switchport mode access
-   switchport access vlan 5
-   exit
-   int f0/4
-   switchport mode trunk
-   switchport trunk allowed vlan 1-10
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>ccc3<br>conf t <br>vlan 5<br>remote-span<br>name rspan<br>exit<br>no monitor session all<br>monitor session 1 source remote vlan 5<br>monitor session 1 destination int f0/5<br>int f0/5<br>switchport mode access<br>switchport access vlan 5<br>exit<br>int f0/4<br>switchport mode trunk<br>switchport trunk allowed vlan 1-10<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="6">
 <li><p>进入模拟模式，启动终端A至终端B的ICMP报文传输过程，发现终端A发送的ICMP报文同时沿着两条传输路径传输：一是终端A至终端B传输路径；二是交换机S1连接终端A端口至交换机S3连接嗅探器（Sniffer）端口传输路径，如图8-8所示。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置终端A至终端B.png" alt="RSPAN配置终端A至终端B"></center>
@@ -1764,25 +1593,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S1
-   vtp version 2
-   vtp domain abc
-   vtp mode client
-   vtp password 123456
-   int f0/3
-   switchport mode trunk
-   exit
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S1<br>vtp version 2<br>vtp domain abc<br>vtp mode client<br>vtp password 123456<br>int f0/3<br>switchport mode trunk<br>exit<br><br>int f0/1<br>switchport mode access<br>switchport access vlan 2<br>exit<br>int f0/2<br>switchport mode access<br>switchport access vlan 3<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
 
-   int f0/1
-   switchport mode access
-   switchport access vlan 2
-   exit
-   int f0/2
-   switchport mode access
-   switchport access vlan 3
-   end</code></pre>
 <ol start="4">
 <li><p><strong>S2配置命令，如图9-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS2配置.png" alt="VTPS2配置"></center>
@@ -1792,26 +1604,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en 
-   conf t 
-   hostname S2
-   vtp version 2
-   vtp mode server
-   vtp domain abc
-   vtp password 123456
-   int range f0/1-2
-   switchport mode trunk
-   exit
-   int f0/3
-   switchport mode trunk
-   switchport nonegotiate
-   exit
-   vlan 2
-   name vtpabc2
-   exit
-   vlan 3
-   name vtpabc3
-   exit</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs sql">en <br>conf t <br>hostname S2<br>vtp version 2<br>vtp mode server<br>vtp domain abc<br>vtp password 123456<br>int range f0/1-2<br>switchport mode trunk<br>exit<br>int f0/3<br>switchport mode trunk<br>switchport nonegotiate<br>exit<br>vlan 2<br>name vtpabc2<br>exit<br>vlan 3<br>name vtpabc3<br>exit<br></code></pre></td></tr></table></figure>
+
 <ol start="5">
 <li><p><strong>S3配置命令，如图9-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS3配置.png" alt="VTPS3配置"></center>
@@ -1821,25 +1615,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S3
-   vtp version 2
-   vtp domain abc
-   vtp mode client
-   vtp password 123456
-   int f0/3
-   switchport mode trunk
-   exit
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S3<br>vtp version 2<br>vtp domain abc<br>vtp mode client<br>vtp password 123456<br>int f0/3<br>switchport mode trunk<br>exit<br><br>int f0/1<br>switchport mode access<br>switchport access vlan 2<br>exit<br>int f0/2<br>switchport mode access<br>switchport access vlan 3<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
 
-   int f0/1
-   switchport mode access
-   switchport access vlan 2
-   exit
-   int f0/2
-   switchport mode access
-   switchport access vlan 3
-   end</code></pre>
 <ol start="6">
 <li><p><strong>S4配置命令，如图9-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS4配置.png" alt="VTPS4配置"></center>
@@ -1849,25 +1626,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S4
-   vtp version 2
-   vtp domain bcd
-   vtp mode client
-   vtp password 123456
-   int f0/3
-   switchport mode trunk
-   exit
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S4<br>vtp version 2<br>vtp domain bcd<br>vtp mode client<br>vtp password 123456<br>int f0/3<br>switchport mode trunk<br>exit<br><br>int f0/1<br>switchport mode access<br>switchport access vlan 2<br>exit<br>int f0/2<br>switchport mode access<br>switchport access vlan 3<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
 
-   int f0/1
-   switchport mode access
-   switchport access vlan 2
-   exit
-   int f0/2
-   switchport mode access
-   switchport access vlan 3
-   end</code></pre>
 <ol start="7">
 <li><p><strong>S5配置命令，如图9-8所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS5配置.png" alt="VTPS5配置"></center>
@@ -1877,25 +1637,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S5
-   vtp version 2
-   vtp mode server
-   vtp domain bcd
-   int range f0/1-2
-   switchport mode trunk
-   exit
-   int f0/3
-   switchport mode trunk
-   switchport nonegotiate
-   exit
-   vlan 2
-   name vtpbcd2
-   exit
-   vlan 3
-   name vtpbcd3
-   exit</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S5<br>vtp version 2<br>vtp mode server<br>vtp domain bcd<br>int range f0/1-2<br>switchport mode trunk<br>exit<br>int f0/3<br>switchport mode trunk<br>switchport nonegotiate<br>exit<br>vlan 2<br>name vtpbcd2<br>exit<br>vlan 3<br>name vtpbcd3<br>exit<br></code></pre></td></tr></table></figure>
+
 <ol start="8">
 <li><p><strong>S6配置命令，如图9-9所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS6配置.png" alt="VTPS6配置"></center>
@@ -1905,25 +1648,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S6
-   vtp version 2
-   vtp domain bcd
-   vtp mode client
-   vtp password 123456
-   int f0/3
-   switchport mode trunk
-   exit
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S6<br>vtp version 2<br>vtp domain bcd<br>vtp mode client<br>vtp password 123456<br>int f0/3<br>switchport mode trunk<br>exit<br><br>int f0/1<br>switchport mode access<br>switchport access vlan 2<br>exit<br>int f0/2<br>switchport mode access<br>switchport access vlan 3<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
 
-   int f0/1
-   switchport mode access
-   switchport access vlan 2
-   exit
-   int f0/2
-   switchport mode access
-   switchport access vlan 3
-   end</code></pre>
 <ol start="9">
 <li><p><strong>终端A与终端G的连通性测试，如图9-10所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTP终端A与终端G的连通性测试.png" alt="VTP终端A与终端G的连通性测试"></center>
@@ -2022,11 +1748,8 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S1
-   spanning-tree mode pvst
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S1<br>spanning-tree mode pvst<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="3">
 <li><p><strong>S2配置命令，如图10-4所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S2配置.png" alt="容错配置-S2配置"></center>
@@ -2036,12 +1759,8 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S2
-   spanning-tree mode pvst
-   spanning-tree vlan 1 priority 8192
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S2<br>spanning-tree mode pvst<br>spanning-tree vlan 1 priority 8192<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="4">
 <li><p><strong>S3配置命令，如图10-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S3配置.png" alt="容错配置-S3配置"></center>
@@ -2051,12 +1770,8 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S3
-   spanning-tree mode pvst
-   spanning-tree vlan 1 priority 12288
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S3<br>spanning-tree mode pvst<br>spanning-tree vlan 1 priority 12288<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="5">
 <li><p><strong>S4配置命令，如图10-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S4配置.png" alt="容错配置-S4配置"></center>
@@ -2066,13 +1781,8 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S4
-   spanning-tree mode pvst
-   spanning-tree vlan 1 priority 4096
-   end
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S4<br>spanning-tree mode pvst<br>spanning-tree vlan 1 priority 4096<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="6">
 <li><p><strong>S5配置命令，如图10-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S5.png" alt="容错配置-S5"></center>
@@ -2082,12 +1792,8 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S5
-   spanning-tree mode pvst
-   spanning-tree vlan 1 priority 16384
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S5<br>spanning-tree mode pvst<br>spanning-tree vlan 1 priority 16384<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="7">
 <li><p><strong>S6配置命令，如图10-8所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置S6配置.png" alt="容错配置S6配置"></center>
@@ -2097,12 +1803,8 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S6
-   spanning-tree mode pvst
-   spanning-tree vlan 1 priority 20480
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S6<br>spanning-tree mode pvst<br>spanning-tree vlan 1 priority 20480<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="8">
 <li><p><strong>S7配置命令，如图10-9所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S7配置.png" alt="容错配置-S7配置"></center>
@@ -2112,11 +1814,8 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S7
-   spanning-tree mode pvst
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S7<br>spanning-tree mode pvst<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="9">
 <li><p><strong>根据配置构建的生成树如图10-10所示</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(b) 生成树协议阻塞的端口.png" alt="生成树协议阻塞的端口"></center>
@@ -2285,21 +1984,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S1
-   vlan 2
-   name vlan2
-   vlan 3
-   name vlan3
-   exit
-   int range f0/1-3
-   switchport mode trunk 
-   exit
-   spanning-tree mode pvst
-   spanning-tree vlan 2 priority 4096
-   spanning-tree vlan 3 priority 8192
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S1<br>vlan 2<br>name vlan2<br>vlan 3<br>name vlan3<br>exit<br>int range f0/1-3<br>switchport mode trunk <br>exit<br>spanning-tree mode pvst<br>spanning-tree vlan 2 priority 4096<br>spanning-tree vlan 3 priority 8192<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="6">
 <li><p><strong>为S2配置有容错功能的负载均衡，如图11-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S2配置.png" alt="负载均衡-S2配置"></center>
@@ -2309,21 +1995,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S2
-   vlan 2
-   name vlan2
-   vlan 3
-   name vlan3
-   exit
-   int range f0/1-3
-   switchport mode trunk 
-   exit
-   spanning-tree mode pvst
-   spanning-tree vlan 2 priority 4096
-   spanning-tree vlan 3 priority 8192
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S2<br>vlan 2<br>name vlan2<br>vlan 3<br>name vlan3<br>exit<br>int range f0/1-3<br>switchport mode trunk <br>exit<br>spanning-tree mode pvst<br>spanning-tree vlan 2 priority 4096<br>spanning-tree vlan 3 priority 8192<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="7">
 <li><p><strong>为S3配置有容错功能的负载均衡，如图11-8所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S3配置.png" alt="负载均衡-S3配置"></center>
@@ -2333,25 +2006,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S3 
-   vlan 2
-   name vlan2
-   vlan 3
-   name vlan3
-   exit
-   int f0/1
-   switchport mode access
-   switchport access vlan 2
-   int f0/2
-   switchport mode access
-   switchport access vlan 3
-   int range f0/3-4
-   switchport mode trunk
-   exit
-   spanning-tree mode pvst
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S3 <br>vlan 2<br>name vlan2<br>vlan 3<br>name vlan3<br>exit<br>int f0/1<br>switchport mode access<br>switchport access vlan 2<br>int f0/2<br>switchport mode access<br>switchport access vlan 3<br>int range f0/3-4<br>switchport mode trunk<br>exit<br>spanning-tree mode pvst<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="8">
 <li><p><strong>为S4配置有容错功能的负载均衡，如图11-9所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S4配置.png" alt="负载均衡-S4配置"></center>
@@ -2361,25 +2017,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S4
-   vlan 2
-   name vlan2
-   vlan 3
-   name vlan3
-   exit
-   int f0/1
-   switchport mode access
-   switchport access vlan 2
-   int f0/2
-   switchport mode access
-   switchport access vlan 3
-   int range f0/3-4
-   switchport mode trunk
-   exit
-   spanning-tree mode pvst
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S4<br>vlan 2<br>name vlan2<br>vlan 3<br>name vlan3<br>exit<br>int f0/1<br>switchport mode access<br>switchport access vlan 2<br>int f0/2<br>switchport mode access<br>switchport access vlan 3<br>int range f0/3-4<br>switchport mode trunk<br>exit<br>spanning-tree mode pvst<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="9">
 <li><p><strong>通过ping操作验证属于同一VLAN的终端之间的连通性，如图11-10所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-终端A至终端C3.png" alt="负载均衡-终端A至终端C3"></center>
@@ -2428,14 +2067,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S1
-   port-channel load-balance src-dst-mac
-   int range f0/3-5
-   channel-protocol lacp
-   channel-group 1 mode active 
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S1<br>port-channel <span class="hljs-keyword">load</span>-balance src-dst-mac<br><span class="hljs-built_in">int</span> <span class="hljs-keyword">range</span> f0/<span class="hljs-number">3</span><span class="hljs-number">-5</span><br>channel-protocol lacp<br>channel-<span class="hljs-keyword">group</span> <span class="hljs-number">1</span> <span class="hljs-keyword">mode</span> active <br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="4">
 <li><p><strong>交换机S2的配置，如图12-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-S2配置.png" alt="链路聚合-S2配置"></center>
@@ -2445,14 +2078,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S2
-   port-channel load-balance src-dst-mac
-   int range f0/3-5
-   channel-protocol lacp
-   channel-group 1 mode active 
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S2<br>port-channel <span class="hljs-keyword">load</span>-balance src-dst-mac<br><span class="hljs-built_in">int</span> <span class="hljs-keyword">range</span> f0/<span class="hljs-number">3</span><span class="hljs-number">-5</span><br>channel-protocol lacp<br>channel-<span class="hljs-keyword">group</span> <span class="hljs-number">1</span> <span class="hljs-keyword">mode</span> active <br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="5">
 <li><p><strong>终端A至终端C，如图12-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-终端A至终端C.png" alt="链路聚合-终端A至终端C"></center>
@@ -2670,29 +2297,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S1 
-   vlan 2
-   name vlan2
-   vlan 3
-   name vlan3
-   exit
-   int range f0/3-5
-   channel-group 1 mode on
-   exit
-   port-channel load-balance src-dst-mac
-   int f0/1
-   switchport mode access
-   switchport access vlan 2
-   exit
-   int f0/2
-   switchport mode access
-   switchport access vlan 3
-   int port-channel 1
-   switchport mode trunk
-   end
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S1 <br>vlan 2<br>name vlan2<br>vlan 3<br>name vlan3<br>exit<br>int range f0/3-5<br>channel-group 1 mode on<br>exit<br>port-channel <span class="hljs-keyword">load</span>-balance src-dst-mac<br><span class="hljs-built_in">int</span> f0/<span class="hljs-number">1</span><br>switchport <span class="hljs-keyword">mode</span> <span class="hljs-keyword">access</span><br>switchport <span class="hljs-keyword">access</span> vlan <span class="hljs-number">2</span><br><span class="hljs-keyword">exit</span><br><span class="hljs-built_in">int</span> f0/<span class="hljs-number">2</span><br>switchport <span class="hljs-keyword">mode</span> <span class="hljs-keyword">access</span><br>switchport <span class="hljs-keyword">access</span> vlan <span class="hljs-number">3</span><br><span class="hljs-built_in">int</span> port-channel <span class="hljs-number">1</span><br>switchport <span class="hljs-keyword">mode</span> trunk<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="4">
 <li><p><strong>交换机S2配置，如图13-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLANS2配置.png" alt="链路聚合与VLANS2配置"></center>
@@ -2702,27 +2308,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S2
-   vlan 2
-   name vlan2
-   vlan 3
-   name vlan3
-   exit
-   int range f0/1-3
-   channel-group 1 mode on
-   exit
-   int range f0/4-6
-   channel-group 2 mode on
-   exit
-   port-channel load-balance src-dst-mac
-   int port-channel 1
-   switchport mode trunk
-   exit
-   int port-channel 2
-   switchport mode trunk
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S2<br>vlan 2<br>name vlan2<br>vlan 3<br>name vlan3<br>exit<br>int range f0/1-3<br>channel-group 1 mode on<br>exit<br>int range f0/4-6<br>channel-group 2 mode on<br>exit<br>port-channel <span class="hljs-keyword">load</span>-balance src-dst-mac<br><span class="hljs-built_in">int</span> port-channel <span class="hljs-number">1</span><br>switchport <span class="hljs-keyword">mode</span> trunk<br><span class="hljs-keyword">exit</span><br><span class="hljs-built_in">int</span> port-channel <span class="hljs-number">2</span><br>switchport <span class="hljs-keyword">mode</span> trunk<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="5">
 <li><p><strong>交换机S3配置，如图13-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-S3配置.png" alt="链路聚合与VLAN-S3配置"></center>
@@ -2733,28 +2320,8 @@
 </li>
 </ol>
 <p>   <strong>命令脚本</strong>：</p>
-<pre><code class="sql">   en
-   conf t 
-   hostname S3 
-   vlan 2
-   name vlan2
-   vlan 3
-   name vlan3
-   exit
-   int range f0/3-5
-   channel-group 2 mode on
-   exit
-   port-channel load-balance src-dst-mac
-   int f0/1
-   switchport mode access
-   switchport access vlan 2
-   exit
-   int f0/2
-   switchport mode access
-   switchport access vlan 3
-   int port-channel 2
-   switchport mode trunk
-   end</code></pre>
+   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S3 <br>vlan 2<br>name vlan2<br>vlan 3<br>name vlan3<br>exit<br>int range f0/3-5<br>channel-group 2 mode on<br>exit<br>port-channel <span class="hljs-keyword">load</span>-balance src-dst-mac<br><span class="hljs-built_in">int</span> f0/<span class="hljs-number">1</span><br>switchport <span class="hljs-keyword">mode</span> <span class="hljs-keyword">access</span><br>switchport <span class="hljs-keyword">access</span> vlan <span class="hljs-number">2</span><br><span class="hljs-keyword">exit</span><br><span class="hljs-built_in">int</span> f0/<span class="hljs-number">2</span><br>switchport <span class="hljs-keyword">mode</span> <span class="hljs-keyword">access</span><br>switchport <span class="hljs-keyword">access</span> vlan <span class="hljs-number">3</span><br><span class="hljs-built_in">int</span> port-channel <span class="hljs-number">2</span><br>switchport <span class="hljs-keyword">mode</span> trunk<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="6">
 <li><p><strong>终端A与终端C的连通性测试，如图13-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-终端A至终端B的连通性测试.png" alt="链路聚合与VLAN-终端A至终端B的连通性测试"></center>
@@ -3103,33 +2670,8 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre><code class="sql">   en
-   conf t 
-   hostname S1
-   vlan 2
-   name vlan2
-   vlan 3
-   name vlan3
-   vlan 5
-   name vlan5
-   name rspan
-   remote-span
-   exit
-   int f0/1
-   switchport mode access
-   switchport access vlan 2
-   int f0/2
-   switchport mode access
-   switchport access vlan 3
-   int f0/3
-   switchport mode trunk 
-   exit
-   no monitor session all
-   monitor session 1 source int f0/1 rx
-   monitor session 1 destination remote vlan 5 reflector-port f0/17
-   int f0/17
-   shutdown
-   end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S1<br>vlan 2<br>name vlan2<br>vlan 3<br>name vlan3<br>vlan 5<br>name vlan5<br>name rspan<br>remote-span<br>exit<br>int f0/1<br>switchport mode access<br>switchport access vlan 2<br>int f0/2<br>switchport mode access<br>switchport access vlan 3<br>int f0/3<br>switchport mode trunk <br>exit<br>no monitor session all<br>monitor session 1 source int f0/1 rx<br>monitor session 1 destination remote vlan 5 reflector-port f0/17<br>int f0/17<br>shutdown<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
 <ol start="4">
 <li><p><strong>对交换机S2进行配置，如图15-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-S2配置.png" alt="链路聚合与RSPAN-S2配置"></center>
@@ -3137,38 +2679,7 @@
 <center>图15-5 S2配置</center>
 
 <p><strong>命令脚本</strong>：</p>
-<pre><code class="sql">en
-conf t 
-hostname S2 
-vlan 2
-name vlan2 
-vlan 3
-name vlan3
-vlan 4
-name vlan4
-vlan 5
-name rspan
-remote-span
-exit
-int f0/1
-switchport mode access
-switchport acces vlan 2
-int f0/2
-switchport mode access
-switchport access vlan 3
-int f0/3
-switchport mode access
-switchport access vlan 4
-int range f0/5-7
-channel-group 1 mode on
-exit
-port-channel load-balance src-dst-mac
-int f0/4
-switchport mode trunk
-exit
-int port-channel 1
-switchport mode trunk
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs sql">en<br>conf t <br>hostname S2 <br>vlan 2<br>name vlan2 <br>vlan 3<br>name vlan3<br>vlan 4<br>name vlan4<br>vlan 5<br>name rspan<br>remote-span<br>exit<br>int f0/1<br>switchport mode access<br>switchport acces vlan 2<br>int f0/2<br>switchport mode access<br>switchport access vlan 3<br>int f0/3<br>switchport mode access<br>switchport access vlan 4<br>int range f0/5-7<br>channel-group 1 mode on<br>exit<br>port-channel <span class="hljs-keyword">load</span>-balance src-dst-mac<br><span class="hljs-built_in">int</span> f0/<span class="hljs-number">4</span><br>switchport <span class="hljs-keyword">mode</span> trunk<br><span class="hljs-keyword">exit</span><br><span class="hljs-built_in">int</span> port-channel <span class="hljs-number">1</span><br>switchport <span class="hljs-keyword">mode</span> trunk<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><strong>对交换机S3进行配置，如图15-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-S3配置.png" alt="链路聚合与RSPAN-S3配置"></center>
@@ -3176,29 +2687,7 @@ end</code></pre>
 <center>图15-6 S3配置</center>
 
 <p><strong>命令脚本</strong>：</p>
-<pre><code class="sql">en 
-conf t 
-hostname S3 
-vlan 4
-name vlan4
-vlan 5
-name rspan
-remote-span
-exit
-int f0/1
-switchport mode access
-switchport access vlan 4
-int range f0/5-7
-channel-group 1 mode on
-exit
-port-channel load-balance src-dst-mac
-int port-channel 1
-switchport mode trunk
-exit
-no monitor session all
-monitor session 1 source remote vlan 5
-monitor session 1 destination int f0/2
-end</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs sql">en <br>conf t <br>hostname S3 <br>vlan 4<br>name vlan4<br>vlan 5<br>name rspan<br>remote-span<br>exit<br>int f0/1<br>switchport mode access<br>switchport access vlan 4<br>int range f0/5-7<br>channel-group 1 mode on<br>exit<br>port-channel <span class="hljs-keyword">load</span>-balance src-dst-mac<br><span class="hljs-built_in">int</span> port-channel <span class="hljs-number">1</span><br>switchport <span class="hljs-keyword">mode</span> trunk<br><span class="hljs-keyword">exit</span><br><span class="hljs-keyword">no</span> monitor <span class="hljs-keyword">session</span> <span class="hljs-keyword">all</span><br>monitor <span class="hljs-keyword">session</span> <span class="hljs-number">1</span> <span class="hljs-keyword">source</span> remote vlan <span class="hljs-number">5</span><br>monitor <span class="hljs-keyword">session</span> <span class="hljs-number">1</span> destination <span class="hljs-built_in">int</span> f0/<span class="hljs-number">2</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><strong>终端A至终端C的ping测试，如图15-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-终端A至终端C的ping测试.png" alt="链路聚合与RSPAN-终端A至终端C的ping测试"></center>
@@ -3859,7 +3348,7 @@ end</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             

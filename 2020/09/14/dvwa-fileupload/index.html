@@ -502,14 +502,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    5 分
                 </div>
                 
 
@@ -547,25 +547,8 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_POST[ <span class="hljs-string">'Upload'</span> ] ) ) &#123;<br>    <span class="hljs-comment">// Where are we going to be writing to?</span><br>    $target_path  = DVWA_WEB_PAGE_TO_ROOT . <span class="hljs-string">"hackable/uploads/"</span>;<br>    $target_path .= basename( $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'name'</span> ] );<br><br>    <span class="hljs-comment">// Can we move the file to the upload folder?</span><br>    <span class="hljs-keyword">if</span>( !move_uploaded_file( $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'tmp_name'</span> ], $target_path ) ) &#123;<br>        <span class="hljs-comment">// No</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;'</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// Yes!</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;&#123;$target_path&#125; succesfully uploaded!&lt;/pre&gt;"</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
-    // Where are we going to be writing to?
-    $target_path  = DVWA_WEB_PAGE_TO_ROOT . &quot;hackable/uploads/&quot;;
-    $target_path .= basename( $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ] );
-
-    // Can we move the file to the upload folder?
-    if( !move_uploaded_file( $_FILES[ &#39;uploaded&#39; ][ &#39;tmp_name&#39; ], $target_path ) ) {
-        // No
-        echo &#39;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&#39;;
-    }
-    else {
-        // Yes!
-        echo &quot;&lt;pre&gt;{$target_path} succesfully uploaded!&lt;/pre&gt;&quot;;
-    }
-}
-
-?&gt; </code></pre>
 <ul>
 <li>上传文件过程无任何保护措施， 直接使用将上传文件移动到可访问的 <code>hackable/uploads</code>目录下  </li>
 </ul>
@@ -589,39 +572,8 @@ if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_POST[ <span class="hljs-string">'Upload'</span> ] ) ) &#123;<br>    <span class="hljs-comment">// Where are we going to be writing to?</span><br>    $target_path  = DVWA_WEB_PAGE_TO_ROOT . <span class="hljs-string">"hackable/uploads/"</span>;<br>    $target_path .= basename( $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'name'</span> ] );<br><br>    <span class="hljs-comment">// File information</span><br>    $uploaded_name = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'name'</span> ];<br>    $uploaded_type = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'type'</span> ];<br>    $uploaded_size = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'size'</span> ];<br><br>    <span class="hljs-comment">// Is it an image?</span><br>    <span class="hljs-keyword">if</span>( ( $uploaded_type == <span class="hljs-string">"image/jpeg"</span> || $uploaded_type == <span class="hljs-string">"image/png"</span> ) &amp;&amp;<br>        ( $uploaded_size &lt; <span class="hljs-number">100000</span> ) ) &#123;<br><br>        <span class="hljs-comment">// Can we move the file to the upload folder?</span><br>        <span class="hljs-keyword">if</span>( !move_uploaded_file( $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'tmp_name'</span> ], $target_path ) ) &#123;<br>            <span class="hljs-comment">// No</span><br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;'</span>;<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// Yes!</span><br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;&#123;$target_path&#125; succesfully uploaded!&lt;/pre&gt;"</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// Invalid file</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre&gt;'</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
-    // Where are we going to be writing to?
-    $target_path  = DVWA_WEB_PAGE_TO_ROOT . &quot;hackable/uploads/&quot;;
-    $target_path .= basename( $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ] );
-
-    // File information
-    $uploaded_name = $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ];
-    $uploaded_type = $_FILES[ &#39;uploaded&#39; ][ &#39;type&#39; ];
-    $uploaded_size = $_FILES[ &#39;uploaded&#39; ][ &#39;size&#39; ];
-
-    // Is it an image?
-    if( ( $uploaded_type == &quot;image/jpeg&quot; || $uploaded_type == &quot;image/png&quot; ) &amp;&amp;
-        ( $uploaded_size &lt; 100000 ) ) {
-
-        // Can we move the file to the upload folder?
-        if( !move_uploaded_file( $_FILES[ &#39;uploaded&#39; ][ &#39;tmp_name&#39; ], $target_path ) ) {
-            // No
-            echo &#39;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&#39;;
-        }
-        else {
-            // Yes!
-            echo &quot;&lt;pre&gt;{$target_path} succesfully uploaded!&lt;/pre&gt;&quot;;
-        }
-    }
-    else {
-        // Invalid file
-        echo &#39;&lt;pre&gt;Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre&gt;&#39;;
-    }
-}
-
-?&gt;</code></pre>
 <ul>
 <li>在上传过程中对文件类型进行白名单限制（文件类型来源自数据提交的 content-type,可通过篡改绕过数据检查）</li>
 </ul>
@@ -669,41 +621,8 @@ if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_POST[ <span class="hljs-string">'Upload'</span> ] ) ) &#123;<br>    <span class="hljs-comment">// Where are we going to be writing to?</span><br>    $target_path  = DVWA_WEB_PAGE_TO_ROOT . <span class="hljs-string">"hackable/uploads/"</span>;<br>    $target_path .= basename( $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'name'</span> ] );<br><br>    <span class="hljs-comment">// File information</span><br>    $uploaded_name = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'name'</span> ];<br>    $uploaded_ext  = substr( $uploaded_name, strrpos( $uploaded_name, <span class="hljs-string">'.'</span> ) + <span class="hljs-number">1</span>);<br>    $uploaded_size = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'size'</span> ];<br>    $uploaded_tmp  = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'tmp_name'</span> ];<br><br>    <span class="hljs-comment">// Is it an image?</span><br>    <span class="hljs-keyword">if</span>( ( strtolower( $uploaded_ext ) == <span class="hljs-string">"jpg"</span> || strtolower( $uploaded_ext ) == <span class="hljs-string">"jpeg"</span> || strtolower( $uploaded_ext ) == <span class="hljs-string">"png"</span> ) &amp;&amp;<br>        ( $uploaded_size &lt; <span class="hljs-number">100000</span> ) &amp;&amp;<br>        getimagesize( $uploaded_tmp ) ) &#123;<br><br>        <span class="hljs-comment">// Can we move the file to the upload folder?</span><br>        <span class="hljs-keyword">if</span>( !move_uploaded_file( $uploaded_tmp, $target_path ) ) &#123;<br>            <span class="hljs-comment">// No</span><br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;'</span>;<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// Yes!</span><br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;&#123;$target_path&#125; succesfully uploaded!&lt;/pre&gt;"</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// Invalid file</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre&gt;'</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
-    // Where are we going to be writing to?
-    $target_path  = DVWA_WEB_PAGE_TO_ROOT . &quot;hackable/uploads/&quot;;
-    $target_path .= basename( $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ] );
-
-    // File information
-    $uploaded_name = $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ];
-    $uploaded_ext  = substr( $uploaded_name, strrpos( $uploaded_name, &#39;.&#39; ) + 1);
-    $uploaded_size = $_FILES[ &#39;uploaded&#39; ][ &#39;size&#39; ];
-    $uploaded_tmp  = $_FILES[ &#39;uploaded&#39; ][ &#39;tmp_name&#39; ];
-
-    // Is it an image?
-    if( ( strtolower( $uploaded_ext ) == &quot;jpg&quot; || strtolower( $uploaded_ext ) == &quot;jpeg&quot; || strtolower( $uploaded_ext ) == &quot;png&quot; ) &amp;&amp;
-        ( $uploaded_size &lt; 100000 ) &amp;&amp;
-        getimagesize( $uploaded_tmp ) ) {
-
-        // Can we move the file to the upload folder?
-        if( !move_uploaded_file( $uploaded_tmp, $target_path ) ) {
-            // No
-            echo &#39;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&#39;;
-        }
-        else {
-            // Yes!
-            echo &quot;&lt;pre&gt;{$target_path} succesfully uploaded!&lt;/pre&gt;&quot;;
-        }
-    }
-    else {
-        // Invalid file
-        echo &#39;&lt;pre&gt;Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre&gt;&#39;;
-    }
-}
-
-?&gt; </code></pre>
 <ul>
 <li>在上传过程中对文件后缀类型进行白名单限制，同时对文件大小以及图片尺寸大小进行检查，需要制作图片木马并结合命令注入（重命名文件名）进行漏洞利用。</li>
 </ul>
@@ -741,68 +660,8 @@ if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre><code class="php">&lt;?php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_POST[ <span class="hljs-string">'Upload'</span> ] ) ) &#123;<br>    <span class="hljs-comment">// Check Anti-CSRF token</span><br>    checkToken( $_REQUEST[ <span class="hljs-string">'user_token'</span> ], $_SESSION[ <span class="hljs-string">'session_token'</span> ], <span class="hljs-string">'index.php'</span> );<br><br><br>    <span class="hljs-comment">// File information</span><br>    $uploaded_name = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'name'</span> ];<br>    $uploaded_ext  = substr( $uploaded_name, strrpos( $uploaded_name, <span class="hljs-string">'.'</span> ) + <span class="hljs-number">1</span>);<br>    $uploaded_size = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'size'</span> ];<br>    $uploaded_type = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'type'</span> ];<br>    $uploaded_tmp  = $_FILES[ <span class="hljs-string">'uploaded'</span> ][ <span class="hljs-string">'tmp_name'</span> ];<br><br>    <span class="hljs-comment">// Where are we going to be writing to?</span><br>    $target_path   = DVWA_WEB_PAGE_TO_ROOT . <span class="hljs-string">'hackable/uploads/'</span>;<br>    <span class="hljs-comment">//$target_file   = basename( $uploaded_name, '.' . $uploaded_ext ) . '-';</span><br>    $target_file   =  md5( uniqid() . $uploaded_name ) . <span class="hljs-string">'.'</span> . $uploaded_ext;<br>    $temp_file     = ( ( ini_get( <span class="hljs-string">'upload_tmp_dir'</span> ) == <span class="hljs-string">''</span> ) ? ( sys_get_temp_dir() ) : ( ini_get( <span class="hljs-string">'upload_tmp_dir'</span> ) ) );<br>    $temp_file    .= DIRECTORY_SEPARATOR . md5( uniqid() . $uploaded_name ) . <span class="hljs-string">'.'</span> . $uploaded_ext;<br><br>    <span class="hljs-comment">// Is it an image?</span><br>    <span class="hljs-keyword">if</span>( ( strtolower( $uploaded_ext ) == <span class="hljs-string">'jpg'</span> || strtolower( $uploaded_ext ) == <span class="hljs-string">'jpeg'</span> || strtolower( $uploaded_ext ) == <span class="hljs-string">'png'</span> ) &amp;&amp;<br>        ( $uploaded_size &lt; <span class="hljs-number">100000</span> ) &amp;&amp;<br>        ( $uploaded_type == <span class="hljs-string">'image/jpeg'</span> || $uploaded_type == <span class="hljs-string">'image/png'</span> ) &amp;&amp;<br>        getimagesize( $uploaded_tmp ) ) &#123;<br><br>        <span class="hljs-comment">// Strip any metadata, by re-encoding image (Note, using php-Imagick is recommended over php-GD)</span><br>        <span class="hljs-keyword">if</span>( $uploaded_type == <span class="hljs-string">'image/jpeg'</span> ) &#123;<br>            $img = imagecreatefromjpeg( $uploaded_tmp );<br>            imagejpeg( $img, $temp_file, <span class="hljs-number">100</span>);<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            $img = imagecreatefrompng( $uploaded_tmp );<br>            imagepng( $img, $temp_file, <span class="hljs-number">9</span>);<br>        &#125;<br>        imagedestroy( $img );<br><br>        <span class="hljs-comment">// Can we move the file to the web root from the temp folder?</span><br>        <span class="hljs-keyword">if</span>( rename( $temp_file, ( getcwd() . DIRECTORY_SEPARATOR . $target_path . $target_file ) ) ) &#123;<br>            <span class="hljs-comment">// Yes!</span><br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;pre&gt;&lt;a href='$&#123;target_path&#125;$&#123;target_file&#125;'&gt;$&#123;target_file&#125;&lt;/a&gt; succesfully uploaded!&lt;/pre&gt;"</span>;<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// No</span><br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;'</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// Delete any temp files</span><br>        <span class="hljs-keyword">if</span>( file_exists( $temp_file ) )<br>            unlink( $temp_file );<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// Invalid file</span><br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre&gt;'</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// Generate Anti-CSRF token</span><br>generateSessionToken();<br><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
-if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
-    // Check Anti-CSRF token
-    checkToken( $_REQUEST[ &#39;user_token&#39; ], $_SESSION[ &#39;session_token&#39; ], &#39;index.php&#39; );
-
-
-    // File information
-    $uploaded_name = $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ];
-    $uploaded_ext  = substr( $uploaded_name, strrpos( $uploaded_name, &#39;.&#39; ) + 1);
-    $uploaded_size = $_FILES[ &#39;uploaded&#39; ][ &#39;size&#39; ];
-    $uploaded_type = $_FILES[ &#39;uploaded&#39; ][ &#39;type&#39; ];
-    $uploaded_tmp  = $_FILES[ &#39;uploaded&#39; ][ &#39;tmp_name&#39; ];
-
-    // Where are we going to be writing to?
-    $target_path   = DVWA_WEB_PAGE_TO_ROOT . &#39;hackable/uploads/&#39;;
-    //$target_file   = basename( $uploaded_name, &#39;.&#39; . $uploaded_ext ) . &#39;-&#39;;
-    $target_file   =  md5( uniqid() . $uploaded_name ) . &#39;.&#39; . $uploaded_ext;
-    $temp_file     = ( ( ini_get( &#39;upload_tmp_dir&#39; ) == &#39;&#39; ) ? ( sys_get_temp_dir() ) : ( ini_get( &#39;upload_tmp_dir&#39; ) ) );
-    $temp_file    .= DIRECTORY_SEPARATOR . md5( uniqid() . $uploaded_name ) . &#39;.&#39; . $uploaded_ext;
-
-    // Is it an image?
-    if( ( strtolower( $uploaded_ext ) == &#39;jpg&#39; || strtolower( $uploaded_ext ) == &#39;jpeg&#39; || strtolower( $uploaded_ext ) == &#39;png&#39; ) &amp;&amp;
-        ( $uploaded_size &lt; 100000 ) &amp;&amp;
-        ( $uploaded_type == &#39;image/jpeg&#39; || $uploaded_type == &#39;image/png&#39; ) &amp;&amp;
-        getimagesize( $uploaded_tmp ) ) {
-
-        // Strip any metadata, by re-encoding image (Note, using php-Imagick is recommended over php-GD)
-        if( $uploaded_type == &#39;image/jpeg&#39; ) {
-            $img = imagecreatefromjpeg( $uploaded_tmp );
-            imagejpeg( $img, $temp_file, 100);
-        }
-        else {
-            $img = imagecreatefrompng( $uploaded_tmp );
-            imagepng( $img, $temp_file, 9);
-        }
-        imagedestroy( $img );
-
-        // Can we move the file to the web root from the temp folder?
-        if( rename( $temp_file, ( getcwd() . DIRECTORY_SEPARATOR . $target_path . $target_file ) ) ) {
-            // Yes!
-            echo &quot;&lt;pre&gt;&lt;a href=&#39;${target_path}${target_file}&#39;&gt;${target_file}&lt;/a&gt; succesfully uploaded!&lt;/pre&gt;&quot;;
-        }
-        else {
-            // No
-            echo &#39;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&#39;;
-        }
-
-        // Delete any temp files
-        if( file_exists( $temp_file ) )
-            unlink( $temp_file );
-    }
-    else {
-        // Invalid file
-        echo &#39;&lt;pre&gt;Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre&gt;&#39;;
-    }
-}
-
-// Generate Anti-CSRF token
-generateSessionToken();
-
-?&gt; </code></pre>
 <ul>
 <li>对上传的文件类型、大小等进行限制，同时还对上传文件进行重命名。</li>
 </ul>
@@ -1445,7 +1304,7 @@ generateSessionToken();
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">207.6k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             
