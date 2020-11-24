@@ -1,3 +1,4 @@
+https://z1r0s.github.io/2020/11/24/wang-luo-pei-zhi-zhi-hsrp-shi-yan/
 https://z1r0s.github.io/2020/11/23/wang-luo-zong-he-shi-yan-2/
 https://z1r0s.github.io/2020/11/22/vlan-zong-he-shi-yan/
 https://z1r0s.github.io/2020/11/18/wu-xian-an-quan-zhi-wpa-mi-ma-po-jie/
@@ -97,4 +98,3 @@ https://z1r0s.github.io/2020/08/29/packet-tracer-wang-luo-mo-ni-shi-yan-shi-ji/
 https://z1r0s.github.io/2020/08/27/wepe-win10-an-zhuang/
 https://z1r0s.github.io/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/
 https://z1r0s.github.io/2020/08/27/rstp-ying-yong-shi-li/
-https://z1r0s.github.io/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/

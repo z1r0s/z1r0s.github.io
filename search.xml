@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>网络配置之HSRP实验</title>
+      <link href="/2020/11/24/wang-luo-pei-zhi-zhi-hsrp-shi-yan/"/>
+      <url>/2020/11/24/wang-luo-pei-zhi-zhi-hsrp-shi-yan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="实验拓扑"><a href="#实验拓扑" class="headerlink" title="实验拓扑"></a>实验拓扑</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/实验拓扑.png" alt="实验拓扑"></center><h1 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h1><ul><li>配置HSRP并保证其稳健性</li><li>理解并掌握HSRP原理</li><li>保证网络连通性</li></ul><h1 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h1><h2 id="0x01-基础环境配置"><a href="#0x01-基础环境配置" class="headerlink" title="0x01 基础环境配置"></a>0x01 基础环境配置</h2><ol><li><p>打开内网PC设置界面，选择【Desktop】选项卡中的【IP Configuration】图标打开IP设置界面，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/PC0配置IP.png" alt="PC0配置IP"></center></li><li><p>打开交换设置界面，在【CLI】选项卡中对交换机进行设置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/Switch0配置.png" alt="Switch0配置"></center></li><li><p>打开Router0（左边）设置界面，在【CLI】选项卡中对路由器的IP和路由进行设置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/Router0基础胚子.png" alt="Router0基础配置"></center></li><li><p>打开Router1（右边）设置界面，在【CLI】选项卡中对路由器的IP和路由进行设置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/Router1基础配置.png" alt="Router1基础配置"></center></li><li><p>打开Router2（上边）设置界面，在【CLI】选项卡中对路由器的IP和路由进行设置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/Router2基础配置.png" alt="Router2基础配置"></center></li><li><p>打开外网PC设置界面，选择【Desktop】选项卡中的【IP Configuration】图标打开IP设置界面，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/PC1配置IP.png" alt="PC1配置IP"></center></li><li><p>基础环境已经配置完成，这里先将PC0的默认网关设置为<code>192.168.1.1</code>以验证网络的连通性。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/基础环境连通性测试.png" alt="基础环境连通性测试"></center><p>如上图显示结果所示，网络的基础环境设置完成。</p></li></ol><h2 id="0x02-配置HSRP"><a href="#0x02-配置HSRP" class="headerlink" title="0x02 配置HSRP"></a>0x02 配置HSRP</h2><ol><li><p>使用如下命令在Router0中配置HSRP，操作结果如下图所示。</p><pre class=" language-powershell"><code class="language-powershell">int f0<span class="token operator">/</span>0standby 100 ip 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>3standby 100 priority 100standby 100 preempt </code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/Router0配置HSRP.png" alt="Router0配置HSRP"></center></li><li><p>使用如下命令在Router1中配置HSRP，操作结果如下图所示。</p><pre class=" language-powershell"><code class="language-powershell">int f0<span class="token operator">/</span>0standby 100 ip 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>3standby 100 priority 105standby 100 preempt </code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/Router1配置HSRP.png" alt="Router1配置HSRP"></center></li><li><p>在Router1中查看HSRP配置，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/查看HSRP配置结果.png" alt="查看HSRP配置结果"></center></li></ol><h2 id="0x03-验证HSRP"><a href="#0x03-验证HSRP" class="headerlink" title="0x03 验证HSRP"></a>0x03 验证HSRP</h2><p>​        假设Router1的F0/0接口出现问题，按照HSRP原理，整个网络仍然可以正常传输数据，操作结果如下图所示。</p><ol><li><p>使用<code>shotdown</code>命令关闭Router1路由的F0/0接口，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/关闭Router1路由的00端口.png" alt="关闭Router1路由的00端口"></center></li><li><p>重新配置PC0的IP信息，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/PC0配置IP.png" alt="PC0配置IP1"></center></li><li><p>使用PC0测试网络的连通性，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/PC0测试网络连通性1.png" alt="PC0测试网络连通性"></center><p>由上图结果可知HSRP配置成功，但是这里配置还存在一个问题。</p></li></ol><h2 id="0x04-优化HSRP"><a href="#0x04-优化HSRP" class="headerlink" title="0x04 优化HSRP"></a>0x04 优化HSRP</h2><p>​        上述情况在<code>F0/0</code>故障时没有问题，但是在<code>F0/1</code>出现故障时，数据仍然发送不出去，链路情况如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/断点故障.png" alt="断点故障"></center><p>​        要解决这种情况，需要配置端口追踪，当端口出现问题时，主路由器会自动降级，以保证备份路由启动。</p><ol><li><p>在Router1中配置端口追踪，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/配置端口追踪.png" alt="配置端口追踪"></center></li><li><p>在Router1中查看HSRP状态，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/查看HSRP状态2.png" alt="查看HSRP状态"></center><p>这种情况下要成功夺权需要确定已经配置占先权，否则使用<code>standby 100 preempt</code>命令配置占先权。</p></li><li><p>使用PC0进行网络连通性测试，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP/网络连通性测试3.png" alt="网络连通性测试"></center></li></ol><h1 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h1><ul><li>PT中HSRP的端口追踪自动降级数值不能配置，但其默认值为10。</li><li>在HSRP中占先权非常重要，若不设置及时满足转换条件也不能夺权。</li></ul><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><pre class=" language-powershell"><code class="language-powershell">Switch0配置：enconf tint range f0<span class="token operator">/</span>1<span class="token operator">-</span>2switchport mode trunkRoute0：enconf tint f0<span class="token operator">/</span>0ip add 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1 255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0no shint f0<span class="token operator">/</span>1ip add 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>2<span class="token punctuation">.</span>1 255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0no sh<span class="token keyword">exit</span>ip route 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>2<span class="token punctuation">.</span>2int f0<span class="token operator">/</span>0standby 100 ip 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>3standby 100 priority 100standby 100 preempt <span class="token keyword">exit</span>跟踪端口：int f0<span class="token operator">/</span>0standby 100 track f0<span class="token operator">/</span>1Route1:enconf tint f0<span class="token operator">/</span>0ip add 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>2 255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0no shint f0<span class="token operator">/</span>1ip add 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>3<span class="token punctuation">.</span>1 255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0no sh<span class="token keyword">exit</span>ip route 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>3<span class="token punctuation">.</span>2int f0<span class="token operator">/</span>0standby 100 ip 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>3standby 100 priority 105standby 100 preempt <span class="token keyword">exit</span>Router2配置：enconf tint f0<span class="token operator">/</span>0ip add 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>2<span class="token punctuation">.</span>2 255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0no shint f0<span class="token operator">/</span>1ip add 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>3<span class="token punctuation">.</span>2 255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0no shint f1<span class="token operator">/</span>0ip add 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>4<span class="token punctuation">.</span>1 255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0no sh<span class="token keyword">exit</span>ip route 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>2<span class="token punctuation">.</span>1ip route 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>3<span class="token punctuation">.</span>1 5</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HSRP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网络综合实验2</title>
       <link href="/2020/11/23/wang-luo-zong-he-shi-yan-2/"/>
       <url>/2020/11/23/wang-luo-zong-he-shi-yan-2/</url>
@@ -1339,9 +1364,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
             <tag> load_file </tag>
             
@@ -1368,9 +1393,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1395,9 +1420,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1422,9 +1447,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1449,9 +1474,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1476,9 +1501,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1503,9 +1528,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1582,9 +1607,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1862,9 +1887,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> rsa </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -2638,11 +2663,11 @@
       
         <tags>
             
-            <tag> 网络基础 </tag>
-            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
+            
+            <tag> 网络基础 </tag>
             
         </tags>
       
@@ -2959,9 +2984,9 @@
             
             <tag> C# </tag>
             
-            <tag> 程序实现 </tag>
-            
             <tag> 编码 </tag>
+            
+            <tag> 程序实现 </tag>
             
         </tags>
       
