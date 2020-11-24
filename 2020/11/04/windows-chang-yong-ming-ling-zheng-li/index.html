@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -521,7 +522,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="查看网卡信息"><a href="#查看网卡信息" class="headerlink" title="查看网卡信息"></a>查看网卡信息</h1><h2 id="查看网卡简略信息"><a href="#查看网卡简略信息" class="headerlink" title="查看网卡简略信息"></a>查看网卡简略信息</h2><p><code>ipconfig</code></p>
-<pre class=" language-shell"><code class="language-shell">λ ipconfig
+<pre class="line-numbers language-shell"><code class="language-shell">λ ipconfig
 
 Windows IP 配置
 
@@ -531,9 +532,9 @@ Windows IP 配置
    本地链接 IPv6 地址. . . . . . . . : fe80::5838:9ef7:2e3a:9300%18
    IPv4 地址 . . . . . . . . . . . . : 192.168.0.48
    子网掩码  . . . . . . . . . . . . : 255.255.255.0
-   默认网关. . . . . . . . . . . . . : 192.168.0.1</code></pre>
+   默认网关. . . . . . . . . . . . . : 192.168.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="查看网卡详细信息"><a href="#查看网卡详细信息" class="headerlink" title="查看网卡详细信息"></a>查看网卡详细信息</h2><p><code>ipconfig /all</code></p>
-<pre class=" language-shell"><code class="language-shell">λ ipconfig /all
+<pre class="line-numbers language-shell"><code class="language-shell">λ ipconfig /all
 
 Windows IP 配置
 
@@ -560,7 +561,7 @@ Windows IP 配置
    DHCPv6 IAID . . . . . . . . . . . : 327219803
    DHCPv6 客户端 DUID  . . . . . . . : 00-01-00-01-24-D6-F7-64-80-FA-5B-45-7F-41
    DNS 服务器  . . . . . . . . . . . : 192.168.0.1
-   TCPIP 上的 NetBIOS  . . . . . . . : 已启用</code></pre>
+   TCPIP 上的 NetBIOS  . . . . . . . : 已启用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="查看网卡名称"><a href="#查看网卡名称" class="headerlink" title="查看网卡名称"></a>查看网卡名称</h1><p><code>netsh interface show interface</code></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看网卡名称.png" alt="查看网卡名称"></center>
 
@@ -578,8 +579,8 @@ Windows IP 配置
 <h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><p><code>netsh interface ip set dnsserver ccc dhcp</code></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/动态DNS配置.png" alt="动态DNS配置"></center>
 
-<h1 id="查看主机名"><a href="#查看主机名" class="headerlink" title="查看主机名"></a>查看主机名</h1><pre class=" language-shell"><code class="language-shell">ping -a 127.0.0.1
-ipconfig</code></pre>
+<h1 id="查看主机名"><a href="#查看主机名" class="headerlink" title="查看主机名"></a>查看主机名</h1><pre class="line-numbers language-shell"><code class="language-shell">ping -a 127.0.0.1
+ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看主机名称.png" alt="查看主机名"></center>
 
 
@@ -612,8 +613,8 @@ ipconfig</code></pre>
 
 
 
-<h2 id="启用或禁用指定用户"><a href="#启用或禁用指定用户" class="headerlink" title="启用或禁用指定用户"></a>启用或禁用指定用户</h2><pre class=" language-shell"><code class="language-shell">net user admin /active:yes    # 启用
-net user admin /active:no    # 禁用</code></pre>
+<h2 id="启用或禁用指定用户"><a href="#启用或禁用指定用户" class="headerlink" title="启用或禁用指定用户"></a>启用或禁用指定用户</h2><pre class="line-numbers language-shell"><code class="language-shell">net user admin /active:yes    # 启用
+net user admin /active:no    # 禁用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/禁用指定用户.png" alt="禁用指定用户"></center>
 
 
@@ -621,27 +622,27 @@ net user admin /active:no    # 禁用</code></pre>
 <h2 id="删除指定用户"><a href="#删除指定用户" class="headerlink" title="删除指定用户"></a>删除指定用户</h2><p><code>net user admin /del</code></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/删除指定用户.png" alt="删除指定用户"></center>
 
-<h1 id="组配置"><a href="#组配置" class="headerlink" title="组配置"></a>组配置</h1><h2 id="将用户添加到指定组中"><a href="#将用户添加到指定组中" class="headerlink" title="将用户添加到指定组中"></a>将用户添加到指定组中</h2><pre class=" language-shell"><code class="language-shell">net localgroup administrators admin /add</code></pre>
+<h1 id="组配置"><a href="#组配置" class="headerlink" title="组配置"></a>组配置</h1><h2 id="将用户添加到指定组中"><a href="#将用户添加到指定组中" class="headerlink" title="将用户添加到指定组中"></a>将用户添加到指定组中</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup administrators admin /add<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/将用户添加到指定用户组中.png" alt="将用户添加到指定用户组中"></center>
 
 
 
-<h2 id="创建组"><a href="#创建组" class="headerlink" title="创建组"></a>创建组</h2><pre class=" language-shell"><code class="language-shell">net localgroup z1r0s /add</code></pre>
+<h2 id="创建组"><a href="#创建组" class="headerlink" title="创建组"></a>创建组</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup z1r0s /add<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/创建组.png" alt="创建组"></center>
 
 
 
-<h2 id="查看指定组信息"><a href="#查看指定组信息" class="headerlink" title="查看指定组信息"></a>查看指定组信息</h2><pre class=" language-shell"><code class="language-shell">net localgroup administrators </code></pre>
+<h2 id="查看指定组信息"><a href="#查看指定组信息" class="headerlink" title="查看指定组信息"></a>查看指定组信息</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup administrators <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看指定组信息.png" alt="查看指定组信息"></center>
 
 
 
-<h2 id="删除组中的用户"><a href="#删除组中的用户" class="headerlink" title="删除组中的用户"></a>删除组中的用户</h2><pre class=" language-shell"><code class="language-shell">net localgroup administrators admin /del</code></pre>
+<h2 id="删除组中的用户"><a href="#删除组中的用户" class="headerlink" title="删除组中的用户"></a>删除组中的用户</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup administrators admin /del<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/删除组中的用户.png" alt="删除组中的用户"></center>
 
 
 
-<h2 id="删除组"><a href="#删除组" class="headerlink" title="删除组"></a>删除组</h2><pre class=" language-shell"><code class="language-shell">net localgroup z1r0s /del</code></pre>
+<h2 id="删除组"><a href="#删除组" class="headerlink" title="删除组"></a>删除组</h2><pre class="line-numbers language-shell"><code class="language-shell">net localgroup z1r0s /del<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/删除组.png" alt="删除组"></center>
             </div>
             <hr/>

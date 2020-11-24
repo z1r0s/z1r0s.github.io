@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -528,8 +529,8 @@
 <h1 id="0x03-解决步骤"><a href="#0x03-解决步骤" class="headerlink" title="0x03 解决步骤"></a>0x03 解决步骤</h1><ol>
 <li>打开<code>config.inc.php</code>配置文件，并将<code>recaptcha</code>相关参数修改成如下内容：</li>
 </ol>
-<pre class=" language-ini"><code class="language-ini">$_DVWA[ 'recaptcha_public_key' ]  <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg';</span>
-$_DVWA[ 'recaptcha_private_key' ] <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ';</span></code></pre>
+<pre class="line-numbers language-ini"><code class="language-ini">$_DVWA[ 'recaptcha_public_key' ]  <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg';</span>
+$_DVWA[ 'recaptcha_private_key' ] <span class="token attr-value"><span class="token punctuation">=</span> '6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ';</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>​    也可以到<a href="https://www.google.com/recaptcha/admin" target="_blank" rel="noopener">reCAPTCHA申请页面</a>申请一对网站密钥，具体操作可参考<a href="https://blog.csdn.net/dulinanaaa/article/details/88126607" target="_blank" rel="noopener">reCaptcha 的使用</a>。</p>
 <ol start="2">
 <li>保存更改后的配置文件后，重新访问<code>Insecure CAPTCHA</code>模块，没有发现错误信息。</li>

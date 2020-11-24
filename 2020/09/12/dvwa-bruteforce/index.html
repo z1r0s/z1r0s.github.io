@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -536,7 +537,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/BruteForce_FailedLogin.png" alt="BruteForce_FailedLogin"></center>
 
 <p>​        BruteForce模块的index.php代码：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token function">define</span><span class="token punctuation">(</span> <span class="token string">'DVWA_WEB_PAGE_TO_ROOT'</span><span class="token punctuation">,</span> <span class="token string">'../../'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">require_once</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">'dvwa/includes/dvwaPage.inc.php'</span><span class="token punctuation">;</span>
@@ -603,7 +604,7 @@
 
 <span class="token function">dvwaHtmlEcho</span><span class="token punctuation">(</span> <span class="token variable">$page</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token delimiter">?></span></code></pre>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​        可以看到，只有Impossible级别使用了<code>POST</code>提交方式，其他三种级别均是以<code>GET</code>方式进行提交的。</p>
 <h1 id="0x02-测试工具"><a href="#0x02-测试工具" class="headerlink" title="0x02 测试工具"></a>0x02 测试工具</h1><ul>
 <li>Firefox</li>
@@ -613,7 +614,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'Login'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Get username</span>
@@ -644,7 +645,7 @@
     <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">false</span> <span class="token punctuation">:</span> <span class="token variable">$___mysqli_res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​        可以看到，服务器只是验证了参数Login是否被设置（isset函数在php中用来检测变量是否设置，该函数返回的是布尔类型的值，即true/false），没有任何的防爆破机制，且对参数username、password没有做任何过滤，存在明显的sql注入漏洞[^【2】]。</p>
 <p><strong>漏洞利用</strong>：</p>
 <p><strong>方法一：BurpSuite爆破</strong></p>
@@ -675,20 +676,20 @@
 <p><strong>方法二：手工SQL注入</strong></p>
 <ul>
 <li><p>登录时用到的SQL</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'$user'</span> <span class="token operator">AND</span> password <span class="token operator">=</span> <span class="token string">'$pass'</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'$user'</span> <span class="token operator">AND</span> password <span class="token operator">=</span> <span class="token string">'$pass'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>SQL注入设计</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'admin'</span> <span class="token comment" spellcheck="true"># AND password = '$pass';</span>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'admin'</span> <span class="token comment" spellcheck="true"># AND password = '$pass';</span>
 <span class="token keyword">user</span>:admin' <span class="token comment" spellcheck="true">#</span>
 password:<span class="token punctuation">(</span>空<span class="token punctuation">)</span>
 
 <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'admin'</span> <span class="token operator">or</span> <span class="token string">'1'</span><span class="token operator">=</span><span class="token string">'1'</span> <span class="token operator">AND</span> password <span class="token operator">=</span> <span class="token string">'$pass'</span><span class="token punctuation">;</span>
 <span class="token keyword">user</span>:admin<span class="token string">' or '</span><span class="token number">1</span><span class="token string">'='</span><span class="token number">1</span>
-password:<span class="token punctuation">(</span>空<span class="token punctuation">)</span></code></pre>
+password:<span class="token punctuation">(</span>空<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <p><strong>方法三：自编Python脚本暴力破解</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
 <span class="token comment" spellcheck="true"># Author: Silence</span>
 <span class="token comment" spellcheck="true"># Encoding: utf-8</span>
 
@@ -725,7 +726,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
         <span class="token string">'Cookie'</span> <span class="token punctuation">:</span> <span class="token string">'security=low; PHPSESSID=atp0ssp267g2cgum8rvndgr855'</span>
     <span class="token punctuation">}</span>
     main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中复制Brute Force模块登录请求中的cookie信息</li>
@@ -745,7 +746,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'Login'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Sanitise username input</span>
@@ -779,7 +780,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
     <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">false</span> <span class="token punctuation">:</span> <span class="token variable">$___mysqli_res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>说明：        </p>
 <ul>
 <li>相比Low级别的代码，Medium级别的代码主要增加了<strong>mysql_real_escape_string</strong>函数，这个函数会对字符串中的特殊符号（x00，n，r，，’，”，x1a）进行转义，<font color="blue">在代码第6行和第10行分别对user和password进行转义</font>，<strong>基本上</strong>能够抵御sql注入攻击，说基本上是因为查到说 MySQL5.5.37以下版本如果设置编码为GBK，能够构造编码绕过mysql_real_escape_string 对单引号的转义[^【2】]；</li>
@@ -823,7 +824,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 </li>
 </ul>
 <p><strong>方法三：自编Python脚本暴力破解</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
 <span class="token comment" spellcheck="true"># Author: Silence</span>
 <span class="token comment" spellcheck="true"># Encoding: utf-8</span>
 
@@ -875,7 +876,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
     headers <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token string">'Cookie'</span> <span class="token punctuation">:</span> <span class="token string">'security=low; PHPSESSID=atp0ssp267g2cgum8rvndgr855'</span>
     <span class="token punctuation">}</span>
-    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span></code></pre>
+    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中复制Brute Force模块登录请求中的cookie信息</li>
@@ -896,7 +897,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'Login'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Check Anti-CSRF token</span>
@@ -938,7 +939,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <span class="token comment" spellcheck="true">// Generate Anti-CSRF token</span>
 <span class="token function">generateSessionToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>说明：</p>
 <ul>
 <li>相比Medium级别的代码，High级别的代码主要增加了<code>token</code>校验机制，<code>user_token</code>键值在一定程度上能够防止重放攻击；</li>
@@ -998,7 +999,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/BruteForce_result_High.png" alt="BruteForce_result_High"></center>
 
 <p> 方法二：自编写python脚本暴力破解</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
 <span class="token comment" spellcheck="true"># Author: Silence</span>
 <span class="token comment" spellcheck="true"># Encoding: utf-8</span>
 
@@ -1048,7 +1049,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
         <span class="token string">'Cookie'</span> <span class="token punctuation">:</span> <span class="token string">'security=high; PHPSESSID=jkaljlp2tsinkkvvi7psh9rb31'</span>
     <span class="token punctuation">}</span>
     main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中 copy 登陆成功后的 cookie 信息</li>
@@ -1063,7 +1064,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
 <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Login'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isset</span> <span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isset</span> <span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// Check Anti-CSRF token</span>
@@ -1164,7 +1165,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <span class="token comment" spellcheck="true">// Generate Anti-CSRF token</span>
 <span class="token function">generateSessionToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token delimiter">?></span> </code></pre>
+<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>说明：</p>
 <ul>
 <li>相比High级别的代码，Impossible级别的代码采用POST方式向服务器提交数据。</li>

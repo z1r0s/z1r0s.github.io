@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -521,7 +522,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>​        此安全加固脚本以文件驱动，可在<code>win.ini</code>文件中设置部分参数，其他参数脚本中已默认设置，若想要修改则需要打开批处理中进行设置。</p>
-<h1 id="WinSecurityReinforcement-bat内容"><a href="#WinSecurityReinforcement-bat内容" class="headerlink" title="WinSecurityReinforcement.bat内容"></a>WinSecurityReinforcement.bat内容</h1><pre class=" language-powershell"><code class="language-powershell">@rem 适用操作系统：
+<h1 id="WinSecurityReinforcement-bat内容"><a href="#WinSecurityReinforcement-bat内容" class="headerlink" title="WinSecurityReinforcement.bat内容"></a>WinSecurityReinforcement.bat内容</h1><pre class="line-numbers language-powershell"><code class="language-powershell">@rem 适用操作系统：
 @rem Windows Server 2008
 @rem Windows Server 2012
 
@@ -837,8 +838,8 @@ secedit <span class="token operator">/</span>configure <span class="token operat
 <span class="token function">echo</span>=
 <span class="token function">echo</span> 按任意键退出
 pause
-shutdown <span class="token operator">-</span>r <span class="token operator">-</span>t 0</code></pre>
-<h1 id="win-ini文件内容"><a href="#win-ini文件内容" class="headerlink" title="win.ini文件内容"></a>win.ini文件内容</h1><pre class=" language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true">#口令相关配置</span>
+shutdown <span class="token operator">-</span>r <span class="token operator">-</span>t 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="win-ini文件内容"><a href="#win-ini文件内容" class="headerlink" title="win.ini文件内容"></a>win.ini文件内容</h1><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true">#口令相关配置</span>
 minlen=12
 PASS_MAX_DAYS=180
 PASS_MIN_DAYS=0
@@ -863,7 +864,7 @@ NTP_ip=210<span class="token punctuation">.</span>72<span class="token punctuati
 
 <span class="token comment" spellcheck="true">#登录信息设置</span>
 Title=<span class="token string">"This is a normal server."</span>
-Content=<span class="token string">"You can't use the compter."</span></code></pre>
+Content=<span class="token string">"You can't use the compter."</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​        批处理实现的原理使用<code>secedit</code>命令将自定义的安全模板（<code>win.ini</code>）应用于本地策略并将其转化为数据库（<code>win.sdb</code>）进行存储。其中安全模板有指定的格式可以通过在<code>mmc</code>中的【安全模板】和【安全配置和分析】查看其书写格式。</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="https://github.com/pssss/Security-Baseline" target="_blank" rel="noopener">Security-Baseline</a> </li>
