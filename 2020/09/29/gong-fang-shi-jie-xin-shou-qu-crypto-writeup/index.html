@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -456,12 +455,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/writeup/">
-                                <span class="chip bg-color">writeup</span>
-                            </a>
-                        
                             <a href="/tags/CRYPTO/">
                                 <span class="chip bg-color">CRYPTO</span>
+                            </a>
+                        
+                            <a href="/tags/writeup/">
+                                <span class="chip bg-color">writeup</span>
                             </a>
                         
                     </div>
@@ -499,14 +498,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    5.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    21 分
                 </div>
                 
 
@@ -589,58 +588,58 @@
 <li>Morse</li>
 </ul>
 <p><strong>0x06 POC</strong></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
-<span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
 
-CODE_TABLE <span class="token operator">=</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true"># 26 个英文字符</span>
-    <span class="token string">'A'</span><span class="token punctuation">:</span> <span class="token string">'.-'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">:</span> <span class="token string">'-...'</span><span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">:</span> <span class="token string">'-.-.'</span><span class="token punctuation">,</span>
-    <span class="token string">'D'</span><span class="token punctuation">:</span> <span class="token string">'-..'</span><span class="token punctuation">,</span> <span class="token string">'E'</span><span class="token punctuation">:</span> <span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">'F'</span><span class="token punctuation">:</span> <span class="token string">'..-.'</span><span class="token punctuation">,</span>
-    <span class="token string">'G'</span><span class="token punctuation">:</span> <span class="token string">'--.'</span><span class="token punctuation">,</span> <span class="token string">'H'</span><span class="token punctuation">:</span> <span class="token string">'....'</span><span class="token punctuation">,</span> <span class="token string">'I'</span><span class="token punctuation">:</span> <span class="token string">'..'</span><span class="token punctuation">,</span>
-    <span class="token string">'J'</span><span class="token punctuation">:</span> <span class="token string">'.---'</span><span class="token punctuation">,</span> <span class="token string">'K'</span><span class="token punctuation">:</span> <span class="token string">'-.-'</span><span class="token punctuation">,</span> <span class="token string">'L'</span><span class="token punctuation">:</span> <span class="token string">'.-..'</span><span class="token punctuation">,</span>
-    <span class="token string">'M'</span><span class="token punctuation">:</span> <span class="token string">'--'</span><span class="token punctuation">,</span> <span class="token string">'N'</span><span class="token punctuation">:</span> <span class="token string">'-.'</span><span class="token punctuation">,</span> <span class="token string">'O'</span><span class="token punctuation">:</span> <span class="token string">'---'</span><span class="token punctuation">,</span>
-    <span class="token string">'P'</span><span class="token punctuation">:</span> <span class="token string">'.--.'</span><span class="token punctuation">,</span> <span class="token string">'Q'</span><span class="token punctuation">:</span> <span class="token string">'--.-'</span><span class="token punctuation">,</span> <span class="token string">'R'</span><span class="token punctuation">:</span> <span class="token string">'.-.'</span><span class="token punctuation">,</span>
-    <span class="token string">'S'</span><span class="token punctuation">:</span> <span class="token string">'...'</span><span class="token punctuation">,</span> <span class="token string">'T'</span><span class="token punctuation">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span> <span class="token string">'U'</span><span class="token punctuation">:</span> <span class="token string">'..-'</span><span class="token punctuation">,</span>
-    <span class="token string">'V'</span><span class="token punctuation">:</span> <span class="token string">'...-'</span><span class="token punctuation">,</span> <span class="token string">'W'</span><span class="token punctuation">:</span> <span class="token string">'.--'</span><span class="token punctuation">,</span> <span class="token string">'X'</span><span class="token punctuation">:</span> <span class="token string">'-..-'</span><span class="token punctuation">,</span>
-    <span class="token string">'Y'</span><span class="token punctuation">:</span> <span class="token string">'-.--'</span><span class="token punctuation">,</span> <span class="token string">'Z'</span><span class="token punctuation">:</span> <span class="token string">'--..'</span><span class="token punctuation">,</span>
+CODE_TABLE = {
+    # 26 个英文字符
+    &#39;A&#39;: &#39;.-&#39;, &#39;B&#39;: &#39;-...&#39;, &#39;C&#39;: &#39;-.-.&#39;,
+    &#39;D&#39;: &#39;-..&#39;, &#39;E&#39;: &#39;.&#39;, &#39;F&#39;: &#39;..-.&#39;,
+    &#39;G&#39;: &#39;--.&#39;, &#39;H&#39;: &#39;....&#39;, &#39;I&#39;: &#39;..&#39;,
+    &#39;J&#39;: &#39;.---&#39;, &#39;K&#39;: &#39;-.-&#39;, &#39;L&#39;: &#39;.-..&#39;,
+    &#39;M&#39;: &#39;--&#39;, &#39;N&#39;: &#39;-.&#39;, &#39;O&#39;: &#39;---&#39;,
+    &#39;P&#39;: &#39;.--.&#39;, &#39;Q&#39;: &#39;--.-&#39;, &#39;R&#39;: &#39;.-.&#39;,
+    &#39;S&#39;: &#39;...&#39;, &#39;T&#39;: &#39;-&#39;, &#39;U&#39;: &#39;..-&#39;,
+    &#39;V&#39;: &#39;...-&#39;, &#39;W&#39;: &#39;.--&#39;, &#39;X&#39;: &#39;-..-&#39;,
+    &#39;Y&#39;: &#39;-.--&#39;, &#39;Z&#39;: &#39;--..&#39;,
 
-    <span class="token comment" spellcheck="true"># 10 个数字</span>
-    <span class="token string">'0'</span><span class="token punctuation">:</span> <span class="token string">'-----'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">:</span> <span class="token string">'.----'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">:</span> <span class="token string">'..---'</span><span class="token punctuation">,</span>
-    <span class="token string">'3'</span><span class="token punctuation">:</span> <span class="token string">'...--'</span><span class="token punctuation">,</span> <span class="token string">'4'</span><span class="token punctuation">:</span> <span class="token string">'....-'</span><span class="token punctuation">,</span> <span class="token string">'5'</span><span class="token punctuation">:</span> <span class="token string">'.....'</span><span class="token punctuation">,</span>
-    <span class="token string">'6'</span><span class="token punctuation">:</span> <span class="token string">'-....'</span><span class="token punctuation">,</span> <span class="token string">'7'</span><span class="token punctuation">:</span> <span class="token string">'--...'</span><span class="token punctuation">,</span> <span class="token string">'8'</span><span class="token punctuation">:</span> <span class="token string">'---..'</span><span class="token punctuation">,</span>
-    <span class="token string">'9'</span><span class="token punctuation">:</span> <span class="token string">'----.'</span><span class="token punctuation">,</span>
+    # 10 个数字
+    &#39;0&#39;: &#39;-----&#39;, &#39;1&#39;: &#39;.----&#39;, &#39;2&#39;: &#39;..---&#39;,
+    &#39;3&#39;: &#39;...--&#39;, &#39;4&#39;: &#39;....-&#39;, &#39;5&#39;: &#39;.....&#39;,
+    &#39;6&#39;: &#39;-....&#39;, &#39;7&#39;: &#39;--...&#39;, &#39;8&#39;: &#39;---..&#39;,
+    &#39;9&#39;: &#39;----.&#39;,
 
-    <span class="token comment" spellcheck="true"># 16 个特殊字符</span>
-    <span class="token string">','</span><span class="token punctuation">:</span> <span class="token string">'--..--'</span><span class="token punctuation">,</span> <span class="token string">'.'</span><span class="token punctuation">:</span> <span class="token string">'.-.-.-'</span><span class="token punctuation">,</span> <span class="token string">':'</span><span class="token punctuation">:</span> <span class="token string">'---...'</span><span class="token punctuation">,</span> <span class="token string">';'</span><span class="token punctuation">:</span> <span class="token string">'-.-.-.'</span><span class="token punctuation">,</span>
-    <span class="token string">'?'</span><span class="token punctuation">:</span> <span class="token string">'..--..'</span><span class="token punctuation">,</span> <span class="token string">'='</span><span class="token punctuation">:</span> <span class="token string">'-...-'</span><span class="token punctuation">,</span> <span class="token string">"'"</span><span class="token punctuation">:</span> <span class="token string">'.----.'</span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">:</span> <span class="token string">'-..-.'</span><span class="token punctuation">,</span>
-    <span class="token string">'!'</span><span class="token punctuation">:</span> <span class="token string">'-.-.--'</span><span class="token punctuation">,</span> <span class="token string">'-'</span><span class="token punctuation">:</span> <span class="token string">'-....-'</span><span class="token punctuation">,</span> <span class="token string">'_'</span><span class="token punctuation">:</span> <span class="token string">'..--.-'</span><span class="token punctuation">,</span> <span class="token string">'('</span><span class="token punctuation">:</span> <span class="token string">'-.--.'</span><span class="token punctuation">,</span>
-    <span class="token string">')'</span><span class="token punctuation">:</span> <span class="token string">'-.--.-'</span><span class="token punctuation">,</span> <span class="token string">'$'</span><span class="token punctuation">:</span> <span class="token string">'...-..-'</span><span class="token punctuation">,</span> <span class="token string">'&amp;'</span><span class="token punctuation">:</span> <span class="token string">'. . . .'</span><span class="token punctuation">,</span> <span class="token string">'@'</span><span class="token punctuation">:</span> <span class="token string">'.--.-.'</span>
+    # 16 个特殊字符
+    &#39;,&#39;: &#39;--..--&#39;, &#39;.&#39;: &#39;.-.-.-&#39;, &#39;:&#39;: &#39;---...&#39;, &#39;;&#39;: &#39;-.-.-.&#39;,
+    &#39;?&#39;: &#39;..--..&#39;, &#39;=&#39;: &#39;-...-&#39;, &quot;&#39;&quot;: &#39;.----.&#39;, &#39;/&#39;: &#39;-..-.&#39;,
+    &#39;!&#39;: &#39;-.-.--&#39;, &#39;-&#39;: &#39;-....-&#39;, &#39;_&#39;: &#39;..--.-&#39;, &#39;(&#39;: &#39;-.--.&#39;,
+    &#39;)&#39;: &#39;-.--.-&#39;, &#39;$&#39;: &#39;...-..-&#39;, &#39;&amp;&#39;: &#39;. . . .&#39;, &#39;@&#39;: &#39;.--.-.&#39;
 
-    <span class="token comment" spellcheck="true"># 你还可以自定义</span>
+    # 你还可以自定义
 
-<span class="token punctuation">}</span>
+}
 
-<span class="token keyword">def</span> <span class="token function">morsedecode</span><span class="token punctuation">(</span>morse<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    msg <span class="token operator">=</span><span class="token string">''</span>
-    codes <span class="token operator">=</span> morse<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> code <span class="token keyword">in</span> codes<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> code <span class="token operator">==</span><span class="token string">''</span><span class="token punctuation">:</span>
-            msg <span class="token operator">+=</span> <span class="token string">' '</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            UNCODE <span class="token operator">=</span>dict<span class="token punctuation">(</span>map<span class="token punctuation">(</span><span class="token keyword">lambda</span> t<span class="token punctuation">:</span><span class="token punctuation">(</span>t<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>CODE_TABLE<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            msg <span class="token operator">+=</span> UNCODE<span class="token punctuation">[</span>code<span class="token punctuation">]</span>
-    <span class="token keyword">return</span> msg
+def morsedecode(morse):
+    msg =&#39;&#39;
+    codes = morse.split(&#39; &#39;)
+    for code in codes:
+        if code ==&#39;&#39;:
+            msg += &#39; &#39;
+        else:
+            UNCODE =dict(map(lambda t:(t[1],t[0]),CODE_TABLE.items()))
+            msg += UNCODE[code]
+    return msg
 
-a <span class="token operator">=</span> open<span class="token punctuation">(</span>r<span class="token string">'morse.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>
-ciphertext <span class="token operator">=</span> a<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+a = open(r&#39;morse.txt&#39;,&#39;r&#39;)
+ciphertext = a.read()
 
-ciphertext <span class="token operator">=</span> ciphertext<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span><span class="token string">'-'</span><span class="token punctuation">)</span>
-ciphertext <span class="token operator">=</span> ciphertext<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'0'</span><span class="token punctuation">,</span><span class="token string">'.'</span><span class="token punctuation">)</span>
+ciphertext = ciphertext.replace(&#39;1&#39;,&#39;-&#39;)
+ciphertext = ciphertext.replace(&#39;0&#39;,&#39;.&#39;)
 
-FLAG <span class="token operator">=</span> morsedecode<span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span>
-flag <span class="token operator">=</span> FLAG<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
-flag <span class="token operator">=</span> <span class="token string">'cyberpeace{'</span><span class="token operator">+</span>flag<span class="token operator">+</span><span class="token string">'}'</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag is '</span><span class="token punctuation">,</span>flag<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+FLAG = morsedecode(ciphertext)
+flag = FLAG.lower()
+flag = &#39;cyberpeace{&#39;+flag+&#39;}&#39;
+print(&#39;flag is &#39;,flag)</code></pre>
 <h1 id="004-不仅仅是Morse"><a href="#004-不仅仅是Morse" class="headerlink" title="004 不仅仅是Morse"></a>004 不仅仅是Morse</h1><p><strong>0x01 题目描述</strong></p>
 <p>​        “这个题目和我们刚刚做的那个好像啊但是为什么按照刚刚的方法做出来答案却不对呢” ，你奇怪的问了问小鱼，“可能是因为还有一些奇怪的加密方式在里面吧，我们在仔细观察观察”。两个人 安安静静的坐下来开始思考，很耐心的把自己可以想到的加密方式一种种的过了一遍，十多分钟后两个人 异口同声的说“我想到了！”。一种食物,格式为cyberpeace{小写的你解出的答案}</p>
 <p><strong>0x02 解题思路</strong></p>
@@ -706,7 +705,7 @@ flag <span class="token operator">=</span> <span class="token string">'cyberpeac
 <h1 id="006-幂数加密"><a href="#006-幂数加密" class="headerlink" title="006 幂数加密"></a>006 幂数加密</h1><p><strong>0x01 题目描述</strong></p>
 <p>​        你和小鱼终于走到了最后的一个谜题所在的地方，上面写着一段话“亲爱的朋友， 很开心你对网络安全有这么大的兴趣，希望你一直坚持下去，不要放弃 ，学到一些知识，  走进广阔的安全大世界”，你和小鱼接过谜题，开始了耐心细致的解答。flag为cyberpeace{你解答出的八位大写字母}</p>
 <p>附件内容：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token number">8842101220480224404014224202480122</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="php">8842101220480224404014224202480122</code></pre>
 <p><strong>0x02 解题思路</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/云影密码.png" alt="云影密码"></center>
 
@@ -720,25 +719,25 @@ flag <span class="token operator">=</span> <span class="token string">'cyberpeac
 <ul>
 <li>自编写payload</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/user/bin/env python</span>
-<span class="token comment" spellcheck="true"># -*-coding:utf-8 -*-</span>
+<pre><code class="python">#!/user/bin/env python
+# -*-coding:utf-8 -*-
 
-a <span class="token operator">=</span> open<span class="token punctuation">(</span>r<span class="token string">'crypto11.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>
-ciphertext <span class="token operator">=</span> a<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+a = open(r&#39;crypto11.txt&#39;,&#39;r&#39;)
+ciphertext = a.read()
 
-s <span class="token operator">=</span> ciphertext<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'0'</span><span class="token punctuation">)</span>
+s = ciphertext.split(&#39;0&#39;)
 
-flag <span class="token operator">=</span> <span class="token string">''</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>j<span class="token punctuation">)</span>
-    b <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">for</span> k <span class="token keyword">in</span> list<span class="token punctuation">:</span>
-        b <span class="token operator">+=</span> int<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 字母ascii值与字母顺序相差为96</span>
-    flag <span class="token operator">+=</span> chr<span class="token punctuation">(</span>b<span class="token operator">+</span><span class="token number">96</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag is '</span><span class="token punctuation">,</span>flag<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+flag = &#39;&#39;
+for i in range(len(s)):
+    list = []
+    for j in s[i]:
+        list.append(j)
+    b = 0
+    for k in list:
+        b += int(k)
+    # 字母ascii值与字母顺序相差为96
+    flag += chr(b+96)
+print(&#39;flag is &#39;,flag)</code></pre>
 <ul>
 <li>执行后得到flag：<code>cyberpeace{WELLDONE}</code></li>
 </ul>
@@ -788,18 +787,18 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
 <ul>
 <li>自编写payload。</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
-<span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
 
-<span class="token keyword">import</span> gmpy2
+import gmpy2
 
-p <span class="token operator">=</span> <span class="token number">473398607161</span>
-q <span class="token operator">=</span> <span class="token number">4511491</span>
-e <span class="token operator">=</span> <span class="token number">17</span>
+p = 473398607161
+q = 4511491
+e = 17
 
-s <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>q<span class="token number">-1</span><span class="token punctuation">)</span>
-d <span class="token operator">=</span> gmpy2<span class="token punctuation">.</span>invert<span class="token punctuation">(</span>e<span class="token punctuation">,</span>s<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag is :cyberpeace{%d}'</span> <span class="token operator">%</span> d<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+s = (p-1)*(q-1)
+d = gmpy2.invert(e,s)
+print(&#39;flag is :cyberpeace{%d}&#39; % d)</code></pre>
 <ul>
 <li>payload执行结果。</li>
 </ul>
@@ -836,64 +835,64 @@ d <span class="token operator">=</span> gmpy2<span class="token punctuation">.</
 <ul>
 <li>将下载的<code>pyc</code>文件反编译成<code>py</code>文件，反编译结果如下所示。</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># uncompyle6 version 3.5.0</span>
-<span class="token comment" spellcheck="true"># Python bytecode 2.7 (62211)</span>
-<span class="token comment" spellcheck="true"># Decompiled from: Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)]</span>
-<span class="token comment" spellcheck="true"># Embedded file name: ans.py</span>
-<span class="token comment" spellcheck="true"># Compiled at: 2018-08-09 11:29:44</span>
-<span class="token keyword">import</span> base64
+<pre><code class="python"># uncompyle6 version 3.5.0
+# Python bytecode 2.7 (62211)
+# Decompiled from: Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ans.py
+# Compiled at: 2018-08-09 11:29:44
+import base64
 
-<span class="token keyword">def</span> <span class="token function">encode1</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    s <span class="token operator">=</span> <span class="token string">''</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> ans<span class="token punctuation">:</span>
-        x <span class="token operator">=</span> ord<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token number">36</span>
-        x <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">25</span>
-        s <span class="token operator">+=</span> chr<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+def encode1(ans):
+    s = &#39;&#39;
+    for i in ans:
+        x = ord(i) ^ 36
+        x = x + 25
+        s += chr(x)
 
-    <span class="token keyword">return</span> s
+    return s
 
-<span class="token keyword">def</span> <span class="token function">encode2</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    s <span class="token operator">=</span> <span class="token string">''</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> ans<span class="token punctuation">:</span>
-        x <span class="token operator">=</span> ord<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">36</span>
-        x <span class="token operator">=</span> x <span class="token operator">^</span> <span class="token number">36</span>
-        s <span class="token operator">+=</span> chr<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+def encode2(ans):
+    s = &#39;&#39;
+    for i in ans:
+        x = ord(i) + 36
+        x = x ^ 36
+        s += chr(x)
 
-    <span class="token keyword">return</span> s
+    return s
 
-<span class="token keyword">def</span> <span class="token function">encode3</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> base64<span class="token punctuation">.</span>b32encode<span class="token punctuation">(</span>ans<span class="token punctuation">)</span>
+def encode3(ans):
+    return base64.b32encode(ans)
 
-flag <span class="token operator">=</span> <span class="token string">' '</span>
-<span class="token keyword">print</span> <span class="token string">'Please Input your flag:'</span>
-flag <span class="token operator">=</span> raw_input<span class="token punctuation">(</span><span class="token punctuation">)</span>
-final <span class="token operator">=</span> <span class="token string">'UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E==='</span>
-<span class="token keyword">if</span> encode3<span class="token punctuation">(</span>encode2<span class="token punctuation">(</span>encode1<span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> final<span class="token punctuation">:</span>
-    <span class="token keyword">print</span> <span class="token string">'correct'</span>
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span> <span class="token string">'wrong'</span>
+flag = &#39; &#39;
+print &#39;Please Input your flag:&#39;
+flag = raw_input()
+final = &#39;UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E===&#39;
+if encode3(encode2(encode1(flag))) == final:
+    print &#39;correct&#39;
+else:
+    print &#39;wrong&#39;
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <ul>
 <li>通读代码逻辑编写解密脚本。</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python</span>
-<span class="token comment" spellcheck="true"># encoding: utf-8</span>
+<pre><code class="python">#!/usr/bin/env python
+# encoding: utf-8
 
-<span class="token keyword">import</span> base64
-<span class="token triple-quoted-string string">'''
-a = 'UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E==='
+import base64
+&#39;&#39;&#39;
+a = &#39;UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E===&#39;
 b = base64.b32decode(a)
-'''</span>
-<span class="token comment" spellcheck="true"># 先将字符串base32解码出来，然后将其变为字符串再进行ord等操作。</span>
-b <span class="token operator">=</span> <span class="token string">"\xa0\xbe\xa7Z\xb7\xb5Z\xa6\xa0Z\xb8\xae\xa3\xa9Z\xb7Z\xb0\xa9\xae\xa3\xa4\xad\xad\xad\xad\xad\xb2"</span>
-s <span class="token operator">=</span> <span class="token string">''</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> b<span class="token punctuation">:</span>
-    s <span class="token operator">+=</span> chr<span class="token punctuation">(</span><span class="token punctuation">(</span>ord<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token number">36</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">36</span><span class="token punctuation">)</span>
-l <span class="token operator">=</span> <span class="token string">''</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
-    l <span class="token operator">+=</span> chr<span class="token punctuation">(</span><span class="token punctuation">(</span>ord<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">25</span><span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token number">36</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'flag is '</span><span class="token punctuation">,</span>l<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#39;&#39;&#39;
+# 先将字符串base32解码出来，然后将其变为字符串再进行ord等操作。
+b = &quot;\xa0\xbe\xa7Z\xb7\xb5Z\xa6\xa0Z\xb8\xae\xa3\xa9Z\xb7Z\xb0\xa9\xae\xa3\xa4\xad\xad\xad\xad\xad\xb2&quot;
+s = &#39;&#39;
+for i in b:
+    s += chr((ord(i) ^ 36) - 36)
+l = &#39;&#39;
+for i in s:
+    l += chr((ord(i) - 25) ^ 36)
+print (&#39;flag is &#39;,l)</code></pre>
 <ul>
 <li>运行得到flag：<code>cyberpeace{interestinghhhhh}</code></li>
 </ul>
@@ -905,22 +904,22 @@ l <span class="token operator">=</span> <span class="token string">''</span>
 <h1 id="010-转轮机加密"><a href="#010-转轮机加密" class="headerlink" title="010 转轮机加密"></a>010 转轮机加密</h1><p><strong>0x01 题目描述</strong></p>
 <p>​        你俩继续往前走，来到了前面的下一个关卡，这个铺面墙上写了好多奇奇怪怪的 英文字母，排列的的整整齐齐，店面前面还有一个大大的类似于土耳其旋转烤肉的架子，上面一圈圈的  也刻着很多英文字母，你是一个小历史迷，对于二战时候的历史刚好特别熟悉，一拍大腿：“嗨呀！我知道 是什么东西了！”。提示：托马斯·杰斐逊。 flag，是字符串，小写。</p>
 <p><strong>附件内容</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token number">1</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">ZWAXJGDLUBVIQHKYPNTCRMOSFE</span> <span class="token operator">&lt;</span>
-<span class="token number">2</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">KPBELNACZDTRXMJQOYHGVSFUWI</span> <span class="token operator">&lt;</span>
-<span class="token number">3</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">BDMAIZVRNSJUWFHTEQGYXPLOCK</span> <span class="token operator">&lt;</span>
-<span class="token number">4</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">RPLNDVHGFCUKTEBSXQYIZMJWAO</span> <span class="token operator">&lt;</span>
-<span class="token number">5</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">IHFRLABEUOTSGJVDKCPMNZQWXY</span> <span class="token operator">&lt;</span>
-<span class="token number">6</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">AMKGHIWPNYCJBFZDRUSLOQXVET</span> <span class="token operator">&lt;</span>
-<span class="token number">7</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">GWTHSPYBXIZULVKMRAFDCEONJQ</span> <span class="token operator">&lt;</span>
-<span class="token number">8</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">NOZUTWDCVRJLXKISEFAPMYGHBQ</span> <span class="token operator">&lt;</span>
-<span class="token number">9</span><span class="token punctuation">:</span>  <span class="token operator">&lt;</span> <span class="token constant">XPLTDSRFHENYVUBMCQWAOIKZGJ</span> <span class="token operator">&lt;</span>
-<span class="token number">10</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span> <span class="token constant">UDNAJFBOWTGVRSCZQKELMXYIHP</span> <span class="token operator">&lt;</span>
-<span class="token number">11</span>： <span class="token operator">&lt;</span> <span class="token constant">MNBVCXZQWERTPOIUYALSKDJFHG</span> <span class="token operator">&lt;</span>
-<span class="token number">12</span>： <span class="token operator">&lt;</span> <span class="token constant">LVNCMXZPQOWEIURYTASBKJDFHG</span> <span class="token operator">&lt;</span>
-<span class="token number">13</span>： <span class="token operator">&lt;</span> <span class="token constant">JZQAWSXCDERFVBGTYHNUMKILOP</span> <span class="token operator">&lt;</span>
+<pre><code class="php">1:  &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt;
+2:  &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt;
+3:  &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt;
+4:  &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt;
+5:  &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt;
+6:  &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt;
+7:  &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt;
+8:  &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt;
+9:  &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt;
+10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt;
+11： &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt;
+12： &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt;
+13： &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;
 
-密钥为：<span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">6</span>
-密文为：<span class="token constant">NFQKSEVOQOFNP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+密钥为：2,3,7,5,13,12,9,1,8,10,4,11,6
+密文为：NFQKSEVOQOFNP</code></pre>
 <p><strong>0x02 解题思路</strong></p>
 <p><strong>转轮机的工作原理</strong><br>        每一个旋转轮代表一个单表替代系统，旋转一个引脚，再转变为另一个单表替代系统。为使机器更安全，可把几种转轮和移动的齿轮结合起来。因为所有转轮以不同的速度移动，n个转轮的机器的周期是26的n次方，即n个单表替代系统。最后一个转轮转完一圈之后，它前面的转轮就旋转一个引脚，有点像时钟的齿轮。</p>
 <p><strong>0x03 解题工具</strong></p>
@@ -931,29 +930,29 @@ l <span class="token operator">=</span> <span class="token string">''</span>
 <ul>
 <li>自编写payload。</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
-<span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
 
-<span class="token keyword">import</span> re
+import re
 
-sss <span class="token operator">=</span> <span class="token string">'1: &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt; 2: &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt; 3: &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt; 4: &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt; 5: &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt; 6: &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt; 7: &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt; 8: &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt; 9: &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt; 10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt; 11 &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt; 12 &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt; 13 &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;'</span>
-m <span class="token operator">=</span> <span class="token string">'NFQKSEVOQOFNP'</span>
-<span class="token comment" spellcheck="true"># 将sss转化为列表形式</span>
-content<span class="token operator">=</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'&lt; (.*?) &lt;'</span><span class="token punctuation">,</span>sss<span class="token punctuation">,</span>re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># re.S:DOTALL，此模式下，"."的匹配不受限制，可匹配任何字符，包括换行符</span>
-iv<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
-vvv<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    index<span class="token operator">=</span>content<span class="token punctuation">[</span>iv<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>index<span class="token punctuation">(</span>m<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-    vvv<span class="token punctuation">.</span>append<span class="token punctuation">(</span>index<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>vvv<span class="token punctuation">)</span>
+sss = &#39;1: &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt; 2: &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt; 3: &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt; 4: &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt; 5: &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt; 6: &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt; 7: &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt; 8: &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt; 9: &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt; 10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt; 11 &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt; 12 &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt; 13 &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;&#39;
+m = &#39;NFQKSEVOQOFNP&#39;
+# 将sss转化为列表形式
+content=re.findall(r&#39;&lt; (.*?) &lt;&#39;,sss,re.S)
+# re.S:DOTALL，此模式下，&quot;.&quot;的匹配不受限制，可匹配任何字符，包括换行符
+iv=[2,3,7,5,13,12,9,1,8,10,4,11,6]
+print(content)
+vvv=[]
+for i in range(13):
+    index=content[iv[i]-1].index(m[i])
+    vvv.append(index)
+print(vvv)
 
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    flag<span class="token operator">=</span><span class="token string">""</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        flag <span class="token operator">+=</span> content<span class="token punctuation">[</span>iv<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">(</span>vvv<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>i<span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">26</span><span class="token punctuation">]</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>flag<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+for i in range(0,26):
+    flag=&quot;&quot;
+    for j in range(13):
+        flag += content[iv[j]-1][(vvv[j]+i)%26]
+    print(flag.lower())</code></pre>
 <ul>
 <li>执行结果，得到flag：<code>fireinthehole</code></li>
 </ul>
@@ -969,10 +968,10 @@ vvv<span class="token operator">=</span><span class="token punctuation">[</span>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/Normal_RSA附件内容.png" alt="Normal_RSA附件内容"></center>
 
 <p>pubkey.pem:</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token constant">BEGIN</span> <span class="token keyword">PUBLIC</span> <span class="token constant">KEY</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
-MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ<span class="token operator">/</span><span class="token operator">+</span>5erCQKPGqxsC<span class="token operator">/</span>bNPXDr
-yigb<span class="token operator">/</span><span class="token operator">+</span>l<span class="token operator">/</span>vjDdAgMBAAE<span class="token operator">=</span>
-<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token constant">END</span> <span class="token keyword">PUBLIC</span> <span class="token constant">KEY</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="php">-----BEGIN PUBLIC KEY-----
+MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+5erCQKPGqxsC/bNPXDr
+yigb/+l/vjDdAgMBAAE=
+-----END PUBLIC KEY-----</code></pre>
 <p><strong>0x02 解题思路</strong></p>
 <p>​        OpenSSL使用 PEM 文件格式存储证书和密钥。PEM 实质上是 Base64 编码的二进制内容，再加上开始和结束行，如证书文件的<br> —–BEGIN CERTIFICATE—–<br> 和<br> —–END CERTIFICATE—–<br> 在这些标记外面可以有额外的信息，如编码内容的文字表示。文件是 ASCII 的，可以用任何文本编辑程序打开它们。</p>
 <p><strong>0x03 解题工具</strong></p>
@@ -986,39 +985,39 @@ yigb<span class="token operator">/</span><span class="token operator">+</span>l<
 <ul>
 <li>使用<code>openssl</code>提取出<code>pubkey.pem</code>中的参数。</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python">openssl rsa <span class="token operator">-</span>pubin <span class="token operator">-</span>text <span class="token operator">-</span>modulus <span class="token operator">-</span><span class="token keyword">in</span> warmup <span class="token operator">-</span><span class="token keyword">in</span> pubkey<span class="token punctuation">.</span>pem<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="python">openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/openssl提取公钥参数.png" alt="openssl提取公钥参数"></center>
 
 <p>里面<code>modulus</code>就是<code>N</code>，<code>exponent</code>就是<code>e</code><br>这里显示：</p>
-<pre class="line-numbers language-python"><code class="language-python">Modulus（hex）
-<span class="token operator">=</span>C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="python">Modulus（hex）
+=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD</code></pre>
 <p>明显是个16进制数，先转换成10进制。</p>
 <ul>
 <li>使用<a href="https://tool.lu/hexconvert/" target="_blank" rel="noopener">进制转换工具</a>将十六进制(hex)表示的大质数(N)转换成十进制(decimal)表示的大质数。</li>
 </ul>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/十六进制转十进制.png" alt="十六进制转十进制"></center>
 
-<pre class="line-numbers language-python"><code class="language-python">Modulus（dec）
-<span class="token operator">=</span><span class="token number">87924348264132406875276140514499937145050893665602592992418171647042491658461</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="python">Modulus（dec）
+=87924348264132406875276140514499937145050893665602592992418171647042491658461</code></pre>
 <ul>
 <li>使用yafu或<a href="http://www.factordb.com/" target="_blank" rel="noopener">factortdb</a>的得到p,q。</li>
 </ul>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/大质数分解.png" alt="大质数分解"></center>
 
 <p>所以现在知道了：</p>
-<pre class="line-numbers language-python"><code class="language-python">p<span class="token operator">=</span><span class="token number">275127860351348928173285174381581152299</span>
-q<span class="token operator">=</span><span class="token number">319576316814478949870590164193048041239</span>
-e<span class="token operator">=</span><span class="token number">65537</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code class="python">p=275127860351348928173285174381581152299
+q=319576316814478949870590164193048041239
+e=65537</code></pre>
 <ul>
 <li>用<code>rsatool</code>生成私钥文件: <code>private.pem</code>。</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"> python2 <span class="token punctuation">.</span>\rsatool<span class="token punctuation">.</span>py <span class="token operator">-</span>o private<span class="token punctuation">.</span>pem <span class="token operator">-</span>e <span class="token number">65537</span> <span class="token operator">-</span>p <span class="token number">275127860351348928173285174381581152299</span> <span class="token operator">-</span>q <span class="token number">319576316814478949870590164193048041239</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="python"> python2 .\rsatool.py -o private.pem -e 65537 -p 275127860351348928173285174381581152299 -q 319576316814478949870590164193048041239</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/生成私钥pem文件.png" alt="生成私钥pem文件"></center>
 
 <ul>
 <li>用<code>private.pem</code>解密<code>flag.enc</code>，得到flag：<code>PCTF{256b_i5_m3dium}</code>。</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python">openssl rsautl <span class="token operator">-</span>decrypt <span class="token operator">-</span><span class="token keyword">in</span> flag<span class="token punctuation">.</span>enc <span class="token operator">-</span>inkey private<span class="token punctuation">.</span>pem<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="python">openssl rsautl -decrypt -in flag.enc -inkey private.pem</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/CTF/writeup/adworld-Exercise Area-writeup/私钥解密得到flag.png" alt="私钥解密得到flag"></center>
 
 <p><strong>0x05 考察知识</strong></p>
@@ -1144,12 +1143,12 @@ e<span class="token operator">=</span><span class="token number">65537</span><sp
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/writeup/">
-                                    <span class="chip bg-color">writeup</span>
-                                </a>
-                            
                                 <a href="/tags/CRYPTO/">
                                     <span class="chip bg-color">CRYPTO</span>
+                                </a>
+                            
+                                <a href="/tags/writeup/">
+                                    <span class="chip bg-color">writeup</span>
                                 </a>
                             
                         </div>
@@ -1713,7 +1712,7 @@ e<span class="token operator">=</span><span class="token number">65537</span><sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

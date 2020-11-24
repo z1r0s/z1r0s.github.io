@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -495,14 +494,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    991
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -552,66 +551,66 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level14/注入成功.png" alt="注入成功"></center>
 </li>
 <li><p>代码审计。程序源码如下所示：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content-type<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/html;charset<span class="token punctuation">=</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span></span>欢迎来到level14<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation">=</span>center</span><span class="token punctuation">></span></span></span>欢迎来到level14<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></span>
-<span class="token markup">&lt;!--<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>center</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>leftframe<span class="token punctuation">"</span></span> <span class="token attr-name">marginwidth</span><span class="token attr-value"><span class="token punctuation">=</span>10</span> <span class="token attr-name">marginheight</span><span class="token attr-value"><span class="token punctuation">=</span>10</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.exifviewer.org/<span class="token punctuation">"</span></span> <span class="token attr-name">frameborder</span><span class="token attr-value"><span class="token punctuation">=</span>no</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>80%<span class="token punctuation">"</span></span> <span class="token attr-name">scrolling</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span>80%</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>center</span><span class="token punctuation">></span></span></span><span class="token operator">--</span><span class="token operator">></span>
-    <span class="token delimiter">&lt;?php</span>
-   <span class="token keyword">echo</span> "<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>center</span><span class="token punctuation">></span></span></span>
-   <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span>level14.php</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span>POST</span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span>multipart/form-data</span><span class="token punctuation">></span></span></span>
-   <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span>file</span><span class="token punctuation">></span></span></span>文件名：<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span></span>
-   <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span>file</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span>file</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>file</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span></span>
-   <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span>submit</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span>submit</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span>提交</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>center</span><span class="token punctuation">></span></span></span>"<span class="token punctuation">;</span>
+<pre><code class="php">&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;
+&lt;title&gt;欢迎来到level14&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1 align=center&gt;欢迎来到level14&lt;/h1&gt;
+&lt;!--&lt;center&gt;&lt;iframe name=&quot;leftframe&quot; marginwidth=10 marginheight=10 src=&quot;http://www.exifviewer.org/&quot; frameborder=no width=&quot;80%&quot; scrolling=&quot;no&quot; height=80%&gt;&lt;/iframe&gt;&lt;/center&gt;--&gt;
+    &lt;?php
+   echo &quot;&lt;center&gt;
+   &lt;form action=level14.php method=POST enctype=multipart/form-data&gt;
+   &lt;label for=file&gt;文件名：&lt;/label&gt;
+   &lt;input type=file name=file id=file&gt;&lt;br&gt;
+   &lt;input type=submit name=submit value=提交&gt;
+&lt;/form&gt;&lt;/center&gt;&quot;;
 
-<span class="token comment" spellcheck="true">// 允许上传的图片后缀</span>
-<span class="token variable">$allowedExts</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">"gif"</span><span class="token punctuation">,</span> <span class="token string">"jpeg"</span><span class="token punctuation">,</span> <span class="token string">"jpg"</span><span class="token punctuation">,</span> <span class="token string">"png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$temp</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">,</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"size"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token variable">$extension</span> <span class="token operator">=</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token variable">$temp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 获取文件后缀名</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"image/gif"</span><span class="token punctuation">)</span>
-<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"image/jpeg"</span><span class="token punctuation">)</span>
-<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"image/jpg"</span><span class="token punctuation">)</span>
-<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"image/pjpeg"</span><span class="token punctuation">)</span>
-<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"image/x-png"</span><span class="token punctuation">)</span>
-<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"image/png"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"size"</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">204800</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">// 小于 200 kb</span>
-<span class="token operator">&amp;&amp;</span> <span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$extension</span><span class="token punctuation">,</span> <span class="token variable">$allowedExts</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"error"</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">echo</span> <span class="token string">"错误：: "</span> <span class="token punctuation">.</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"error"</span><span class="token punctuation">]</span> <span class="token punctuation">.</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">echo</span> <span class="token string">"上传文件名: "</span> <span class="token punctuation">.</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span> <span class="token punctuation">.</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"文件类型: "</span> <span class="token punctuation">.</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token punctuation">.</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"文件大小: "</span> <span class="token punctuation">.</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"size"</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">1024</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">" kB&lt;br>"</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"文件临时存储的位置: "</span> <span class="token punctuation">.</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"tmp_name"</span><span class="token punctuation">]</span> <span class="token punctuation">.</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+// 允许上传的图片后缀
+$allowedExts = array(&quot;gif&quot;, &quot;jpeg&quot;, &quot;jpg&quot;, &quot;png&quot;);
+$temp = explode(&quot;.&quot;, $_FILES[&quot;file&quot;][&quot;name&quot;]);
+echo $_FILES[&quot;file&quot;][&quot;size&quot;];
+$extension = end($temp);     // 获取文件后缀名
+if ((($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/gif&quot;)
+|| ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpeg&quot;)
+|| ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpg&quot;)
+|| ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/pjpeg&quot;)
+|| ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/x-png&quot;)
+|| ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/png&quot;))
+&amp;&amp; ($_FILES[&quot;file&quot;][&quot;size&quot;] &lt; 204800)   // 小于 200 kb
+&amp;&amp; in_array($extension, $allowedExts))
+{
+    if ($_FILES[&quot;file&quot;][&quot;error&quot;] &gt; 0)
+    {
+        echo &quot;错误：: &quot; . $_FILES[&quot;file&quot;][&quot;error&quot;] . &quot;&lt;br&gt;&quot;;
+    }
+    else
+    {
+        echo &quot;上传文件名: &quot; . $_FILES[&quot;file&quot;][&quot;name&quot;] . &quot;&lt;br&gt;&quot;;
+        echo &quot;文件类型: &quot; . $_FILES[&quot;file&quot;][&quot;type&quot;] . &quot;&lt;br&gt;&quot;;
+        echo &quot;文件大小: &quot; . ($_FILES[&quot;file&quot;][&quot;size&quot;] / 1024) . &quot; kB&lt;br&gt;&quot;;
+        echo &quot;文件临时存储的位置: &quot; . $_FILES[&quot;file&quot;][&quot;tmp_name&quot;] . &quot;&lt;br&gt;&quot;;
 
-        <span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"tmp_name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">else</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token string">"非法的文件格式"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-    <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token variable">$file</span><span class="token punctuation">;</span>
+        move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;], $_FILES[&quot;file&quot;][&quot;name&quot;]);
+    }
+}
+else
+{
+    echo &quot;非法的文件格式&quot;;
+}
+    $file = $_FILES[&quot;file&quot;][&quot;name&quot;];
+    echo $file;
 
-    <span class="token variable">$exif</span> <span class="token operator">=</span> <span class="token function">exif_read_data</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$exif</span><span class="token punctuation">)</span>
-<span class="token delimiter">?></span>
-<span class="token delimiter">&lt;?php</span>
+    $exif = exif_read_data($file);
+    var_dump($exif)
+?&gt;
+&lt;?php
 
-<span class="token delimiter">?></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>center</span><span class="token punctuation">></span></span></span>这关成功后不会自动跳转。成功者<span class="token markup">&lt;a href=/level15.php?src=level15.png></span>点我进level15<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>center</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt;
+&lt;center&gt;这关成功后不会自动跳转。成功者&lt;a href=/level15.php?src=level15.png&gt;点我进level15&lt;/a&gt;&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 <ul>
 <li>由52-53行代码可知：程序读取图片的EXIF信息后直接回显在页面中，未经任何过滤操作。</li>
 </ul>
@@ -621,8 +620,8 @@
 </ol>
 <h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul>
 <li><p>程序未做任何转义或过滤就将参数回显到HTML页面中，所以此关的payload非常多：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="javascript">&lt;script&gt;alert(1)&lt;/script&gt;
+...</code></pre>
 </li>
 </ul>
 <h1 id="0x06-参考链接"><a href="#0x06-参考链接" class="headerlink" title="0x06 参考链接"></a>0x06 参考链接</h1><ul>
@@ -1246,7 +1245,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

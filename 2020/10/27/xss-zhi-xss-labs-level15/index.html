@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -495,7 +494,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    873
+                    922
                 </div>
                 
 
@@ -535,37 +534,37 @@
 
 <h1 id="0x04-实验步骤"><a href="#0x04-实验步骤" class="headerlink" title="0x04 实验步骤"></a>0x04 实验步骤</h1><ol>
 <li><p>使用如下payload进行测试，查看参数的回显位置以及是否被转义或过滤。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level15<span class="token punctuation">.</span>php<span class="token operator">?</span>src<span class="token operator">=</span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex">/onclink+src+data+href/</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level15<span class="token punctuation">.</span>php<span class="token operator">?</span>src<span class="token operator">=</span><span class="token string">'level1.php?name=&lt;img src=x onerror=alert(1)>'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="javascript">http://10.10.10.148:8203/level15.php?src=&lt;script&gt;alert(/onclink+src+data+href/)&lt;/script&gt;
+http://10.10.10.148:8203/level15.php?src=&#39;level1.php?name=&lt;img src=x onerror=alert(1)&gt;&#39;</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level15/注入点检测.png" alt="注入点检测"></center>
 
 <p>由上述操作可以推断，程序对<code>span</code>标签中参数的尖括号进行了转义，使用外链可以正常弹框，所以此处存在XSS漏洞。</p>
 </li>
 <li><p>构造如下所示的payload进行漏洞测试，结果如下图所示。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">10.10</span><span class="token punctuation">.</span><span class="token number">10.148</span><span class="token punctuation">:</span><span class="token number">8203</span><span class="token operator">/</span>level15<span class="token punctuation">.</span>php<span class="token operator">?</span>src<span class="token operator">=</span><span class="token string">'level1.php?name=&lt;img src=x onerror=alert(1)>'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="javascript">http://10.10.10.148:8203/level15.php?src=&#39;level1.php?name=&lt;img src=x onerror=alert(1)&gt;&#39;</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XSS/xss-labs/level15/注入成功.png" alt="注入成功"></center>
 </li>
 <li><p>代码审计。程序源码如下所示：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">ng-app</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span></span>
-window<span class="token punctuation">.</span>alert <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
-<span class="token punctuation">{</span>     
-<span class="token function">confirm</span><span class="token punctuation">(</span><span class="token string">"完成的不错！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token operator">=</span><span class="token string">"level16.php?keyword=test"</span><span class="token punctuation">;</span> 
-<span class="token punctuation">}</span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span></span>欢迎来到level15<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation">=</span>center</span><span class="token punctuation">></span></span></span>欢迎来到第<span class="token number">15</span>关，自己想个办法走出去吧！<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation">=</span>center</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span>level15.png</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
-<span class="token delimiter">&lt;?php</span> 
-<span class="token function">ini_set</span><span class="token punctuation">(</span><span class="token string">"display_errors"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$str</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">"src"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;body>&lt;span class="ng-include:'</span><span class="token punctuation">.</span><span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token variable">$str</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">'">&lt;/span>&lt;/body>'</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="php">&lt;html ng-app&gt;
+&lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;script src=&quot;https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+window.alert = function()  
+{     
+confirm(&quot;完成的不错！&quot;);
+ window.location.href=&quot;level16.php?keyword=test&quot;; 
+}
+&lt;/script&gt;
+&lt;title&gt;欢迎来到level15&lt;/title&gt;
+&lt;/head&gt;
+&lt;h1 align=center&gt;欢迎来到第15关，自己想个办法走出去吧！&lt;/h1&gt;
+&lt;p align=center&gt;&lt;img src=level15.png&gt;&lt;/p&gt;
+&lt;?php 
+ini_set(&quot;display_errors&quot;, 0);
+$str = $_GET[&quot;src&quot;];
+echo &#39;&lt;body&gt;&lt;span class=&quot;ng-include:&#39;.htmlspecialchars($str).&#39;&quot;&gt;&lt;/span&gt;&lt;/body&gt;&#39;;
+?&gt;</code></pre>
 <ul>
 <li>由18-19行代码可知：程序将通过<strong>GET方法</strong>得到的参数中的预定义字符进行转换后赋值给<code>span</code>标签。</li>
 </ul>
@@ -575,8 +574,8 @@ window<span class="token punctuation">.</span>alert <span class="token operator"
 </ol>
 <h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul>
 <li><p>程序未做任何转义或过滤就将参数回显到HTML页面中，所以此关的payload非常多：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token string">'level1.php?name=&lt;img src=x onerror=alert(1)>'</span>
-<span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="javascript">&#39;level1.php?name=&lt;img src=x onerror=alert(1)&gt;&#39;
+...</code></pre>
 </li>
 </ul>
 <h1 id="0x06-参考链接"><a href="#0x06-参考链接" class="headerlink" title="0x06 参考链接"></a>0x06 参考链接</h1><ul>
@@ -1198,7 +1197,7 @@ window<span class="token punctuation">.</span>alert <span class="token operator"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

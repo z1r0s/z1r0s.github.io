@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -531,12 +530,12 @@
 </li>
 </ol>
 <h2 id="域名结构"><a href="#域名结构" class="headerlink" title="域名结构"></a>域名结构</h2><p><code>FQDN（完全合格域名）= 主机名.DNS后缀</code></p>
-<pre class="line-numbers language-html"><code class="language-html">www.jishubu.baidu.com.
+<pre><code class="html">www.jishubu.baidu.com.
 www:主机名
 jishubu:三级域名
 baidu:二级域名
 com:一级域名(顶级域名)
-.:根<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+.:根</code></pre>
 <p><strong>顶级域名</strong>:</p>
 <ul>
 <li>国家代码标识某个国家（如cn、uk等）</li>
@@ -704,17 +703,17 @@ com:一级域名(顶级域名)
 </ul>
 </li>
 </ol>
-<h1 id="0x04-配置DNS客户端"><a href="#0x04-配置DNS客户端" class="headerlink" title="0x04 配置DNS客户端"></a>0x04 配置DNS客户端</h1><h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><pre class="line-numbers language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> static 8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><pre class="line-numbers language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> dhcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="DNS相关命令"><a href="#DNS相关命令" class="headerlink" title="DNS相关命令"></a>DNS相关命令</h2><pre class="line-numbers language-powershell"><code class="language-powershell">1<span class="token punctuation">.</span>清空本地DNS缓存记录
-ipconfig <span class="token operator">/</span>flushdns
+<h1 id="0x04-配置DNS客户端"><a href="#0x04-配置DNS客户端" class="headerlink" title="0x04 配置DNS客户端"></a>0x04 配置DNS客户端</h1><h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><pre><code class="powershell">netsh interface ip set dnsserver &quot;本地连接&quot; static 8.8.8.8</code></pre>
+<h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><pre><code class="powershell">netsh interface ip set dnsserver &quot;本地连接&quot; dhcp</code></pre>
+<h2 id="DNS相关命令"><a href="#DNS相关命令" class="headerlink" title="DNS相关命令"></a>DNS相关命令</h2><pre><code class="powershell">1.清空本地DNS缓存记录
+ipconfig /flushdns
 
-2<span class="token punctuation">.</span>测试DNS服务器
+2.测试DNS服务器
 nslookup
 
-3<span class="token punctuation">.</span>查询域名相关信息（https:<span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>qq_15727809<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span>70052534）
-nslookup <span class="token operator">-</span>qt=<span class="token function">type</span> 域名 DNSip或是域名
-<span class="token function">type</span>=
+3.查询域名相关信息（https://blog.csdn.net/qq_15727809/article/details/70052534）
+nslookup -qt=type 域名 DNSip或是域名
+type=
 A 地址记录
 AAAA 地址记录
 CNAME 别名记录
@@ -722,33 +721,33 @@ HINFO 硬件配置记录，包括CPU、操作系统信息
 MX 邮件服务器记录
 NS 名字服务器记录
 PTR 反向记录
-1<span class="token punctuation">.</span>例如： nslookup <span class="token operator">-</span>qt=mx baidu<span class="token punctuation">.</span>com 8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8
+1.例如： nslookup -qt=mx baidu.com 8.8.8.8
 
-2<span class="token punctuation">.</span>nslookup <span class="token operator">-</span>d www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
-可以看到本地ISP服务器上缓存的时间，就算刷新了本机操作系统缓存，ISP上仍然存<span class="token punctuation">.</span>
+2.nslookup -d www.baidu.com
+可以看到本地ISP服务器上缓存的时间，就算刷新了本机操作系统缓存，ISP上仍然存.
 
-3<span class="token punctuation">.</span>>nslookup <span class="token operator">-</span>qt=cname lanou<span class="token punctuation">.</span>com 202<span class="token punctuation">.</span>106<span class="token punctuation">.</span>0<span class="token punctuation">.</span>20
-primary name server = ns<span class="token punctuation">.</span>163<span class="token punctuation">.</span>com
+3.&gt;nslookup -qt=cname lanou.com 202.106.0.20
+primary name server = ns.163.com
 主要名字服务器（DNS记录文件所在的主机位置    ）
 
-responsible mail addr = admin<span class="token punctuation">.</span>NEASE<span class="token punctuation">.</span>NET
-记录主机管理员邮件地址admin@nease<span class="token punctuation">.</span>net
+responsible mail addr = admin.NEASE.NET
+记录主机管理员邮件地址admin@nease.net
 
 serial = 20010348
 区域传递序号，又叫文件版本，当发生区域复制时，该域用来指示区域信息的更新情况。
-格式为：yyyymmddnn<span class="token punctuation">,</span>nn代表这一天是第几次修改，辅助DNS通过比较这个号来决定是否复制该信息。大表示新。
+格式为：yyyymmddnn,nn代表这一天是第几次修改，辅助DNS通过比较这个号来决定是否复制该信息。大表示新。
 
-refresh = 10800 <span class="token punctuation">(</span>3 hours<span class="token punctuation">)</span>
+refresh = 10800 (3 hours)
 重刷新时间，当区域复制发生时，指定区域复制的更新时间间隔（告诉该区域的辅助DNS间隔多久检查该区域的数据是否是最新的）
 
-retry = 3600 <span class="token punctuation">(</span>1 hour<span class="token punctuation">)</span>
+retry = 3600 (1 hour)
 重试时间，区域复制失败时，重新尝试的时间（要比刷新时间短）
 
-expire = 360000 <span class="token punctuation">(</span>4 days 4 hours<span class="token punctuation">)</span>
+expire = 360000 (4 days 4 hours)
 有效时间，区域复制在有效时间内不能完成，则终止更新（设置时间要比刷新和重试时间长）
 
-default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="token punctuation">)</span>
-表示DNS记录在DNS服务器上缓存时间，数值越小，修改记录各地生效时间越快。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+default TTL = 3600 (1 hour)
+表示DNS记录在DNS服务器上缓存时间，数值越小，修改记录各地生效时间越快。</code></pre>
 
             </div>
             <hr/>
@@ -1373,7 +1372,7 @@ default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="to
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

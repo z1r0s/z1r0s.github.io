@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -503,14 +502,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -548,25 +547,25 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
-    <span class="token variable">$target_path</span>  <span class="token operator">=</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">"hackable/uploads/"</span><span class="token punctuation">;</span>
-    <span class="token variable">$target_path</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token function">basename</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
+    // Where are we going to be writing to?
+    $target_path  = DVWA_WEB_PAGE_TO_ROOT . &quot;hackable/uploads/&quot;;
+    $target_path .= basename( $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ] );
 
-    <span class="token comment" spellcheck="true">// Can we move the file to the upload folder?</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'tmp_name'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$target_path</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// No</span>
-        <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded.&lt;/pre>'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Yes!</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;pre>{$target_path} succesfully uploaded!&lt;/pre>"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    // Can we move the file to the upload folder?
+    if( !move_uploaded_file( $_FILES[ &#39;uploaded&#39; ][ &#39;tmp_name&#39; ], $target_path ) ) {
+        // No
+        echo &#39;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&#39;;
+    }
+    else {
+        // Yes!
+        echo &quot;&lt;pre&gt;{$target_path} succesfully uploaded!&lt;/pre&gt;&quot;;
+    }
+}
 
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt; </code></pre>
 <ul>
 <li>上传文件过程无任何保护措施， 直接使用将上传文件移动到可访问的 <code>hackable/uploads</code>目录下  </li>
 </ul>
@@ -590,39 +589,39 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
-    <span class="token variable">$target_path</span>  <span class="token operator">=</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">"hackable/uploads/"</span><span class="token punctuation">;</span>
-    <span class="token variable">$target_path</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token function">basename</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
+    // Where are we going to be writing to?
+    $target_path  = DVWA_WEB_PAGE_TO_ROOT . &quot;hackable/uploads/&quot;;
+    $target_path .= basename( $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ] );
 
-    <span class="token comment" spellcheck="true">// File information</span>
-    <span class="token variable">$uploaded_name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$uploaded_type</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'type'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$uploaded_size</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'size'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    // File information
+    $uploaded_name = $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ];
+    $uploaded_type = $_FILES[ &#39;uploaded&#39; ][ &#39;type&#39; ];
+    $uploaded_size = $_FILES[ &#39;uploaded&#39; ][ &#39;size&#39; ];
 
-    <span class="token comment" spellcheck="true">// Is it an image?</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">"image/jpeg"</span> <span class="token operator">||</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">"image/png"</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-        <span class="token punctuation">(</span> <span class="token variable">$uploaded_size</span> <span class="token operator">&lt;</span> <span class="token number">100000</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    // Is it an image?
+    if( ( $uploaded_type == &quot;image/jpeg&quot; || $uploaded_type == &quot;image/png&quot; ) &amp;&amp;
+        ( $uploaded_size &lt; 100000 ) ) {
 
-        <span class="token comment" spellcheck="true">// Can we move the file to the upload folder?</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'tmp_name'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$target_path</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// No</span>
-            <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded.&lt;/pre>'</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// Yes!</span>
-            <span class="token keyword">echo</span> <span class="token string">"&lt;pre>{$target_path} succesfully uploaded!&lt;/pre>"</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Invalid file</span>
-        <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre>'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        // Can we move the file to the upload folder?
+        if( !move_uploaded_file( $_FILES[ &#39;uploaded&#39; ][ &#39;tmp_name&#39; ], $target_path ) ) {
+            // No
+            echo &#39;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&#39;;
+        }
+        else {
+            // Yes!
+            echo &quot;&lt;pre&gt;{$target_path} succesfully uploaded!&lt;/pre&gt;&quot;;
+        }
+    }
+    else {
+        // Invalid file
+        echo &#39;&lt;pre&gt;Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre&gt;&#39;;
+    }
+}
 
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt;</code></pre>
 <ul>
 <li>在上传过程中对文件类型进行白名单限制（文件类型来源自数据提交的 content-type,可通过篡改绕过数据检查）</li>
 </ul>
@@ -670,41 +669,41 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
-    <span class="token variable">$target_path</span>  <span class="token operator">=</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">"hackable/uploads/"</span><span class="token punctuation">;</span>
-    <span class="token variable">$target_path</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token function">basename</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
+    // Where are we going to be writing to?
+    $target_path  = DVWA_WEB_PAGE_TO_ROOT . &quot;hackable/uploads/&quot;;
+    $target_path .= basename( $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ] );
 
-    <span class="token comment" spellcheck="true">// File information</span>
-    <span class="token variable">$uploaded_name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$uploaded_ext</span>  <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_name</span><span class="token punctuation">,</span> <span class="token function">strrpos</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_name</span><span class="token punctuation">,</span> <span class="token string">'.'</span> <span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$uploaded_size</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'size'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$uploaded_tmp</span>  <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'tmp_name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    // File information
+    $uploaded_name = $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ];
+    $uploaded_ext  = substr( $uploaded_name, strrpos( $uploaded_name, &#39;.&#39; ) + 1);
+    $uploaded_size = $_FILES[ &#39;uploaded&#39; ][ &#39;size&#39; ];
+    $uploaded_tmp  = $_FILES[ &#39;uploaded&#39; ][ &#39;tmp_name&#39; ];
 
-    <span class="token comment" spellcheck="true">// Is it an image?</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"jpg"</span> <span class="token operator">||</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"jpeg"</span> <span class="token operator">||</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"png"</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-        <span class="token punctuation">(</span> <span class="token variable">$uploaded_size</span> <span class="token operator">&lt;</span> <span class="token number">100000</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-        <span class="token function">getimagesize</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    // Is it an image?
+    if( ( strtolower( $uploaded_ext ) == &quot;jpg&quot; || strtolower( $uploaded_ext ) == &quot;jpeg&quot; || strtolower( $uploaded_ext ) == &quot;png&quot; ) &amp;&amp;
+        ( $uploaded_size &lt; 100000 ) &amp;&amp;
+        getimagesize( $uploaded_tmp ) ) {
 
-        <span class="token comment" spellcheck="true">// Can we move the file to the upload folder?</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span><span class="token punctuation">,</span> <span class="token variable">$target_path</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// No</span>
-            <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded.&lt;/pre>'</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// Yes!</span>
-            <span class="token keyword">echo</span> <span class="token string">"&lt;pre>{$target_path} succesfully uploaded!&lt;/pre>"</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Invalid file</span>
-        <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre>'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        // Can we move the file to the upload folder?
+        if( !move_uploaded_file( $uploaded_tmp, $target_path ) ) {
+            // No
+            echo &#39;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&#39;;
+        }
+        else {
+            // Yes!
+            echo &quot;&lt;pre&gt;{$target_path} succesfully uploaded!&lt;/pre&gt;&quot;;
+        }
+    }
+    else {
+        // Invalid file
+        echo &#39;&lt;pre&gt;Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre&gt;&#39;;
+    }
+}
 
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt; </code></pre>
 <ul>
 <li>在上传过程中对文件后缀类型进行白名单限制，同时对文件大小以及图片尺寸大小进行检查，需要制作图片木马并结合命令注入（重命名文件名）进行漏洞利用。</li>
 </ul>
@@ -742,68 +741,68 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Check Anti-CSRF token</span>
-    <span class="token function">checkToken</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span> <span class="token string">'user_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span> <span class="token string">'session_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'index.php'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+if( isset( $_POST[ &#39;Upload&#39; ] ) ) {
+    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ &#39;user_token&#39; ], $_SESSION[ &#39;session_token&#39; ], &#39;index.php&#39; );
 
 
-    <span class="token comment" spellcheck="true">// File information</span>
-    <span class="token variable">$uploaded_name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$uploaded_ext</span>  <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_name</span><span class="token punctuation">,</span> <span class="token function">strrpos</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_name</span><span class="token punctuation">,</span> <span class="token string">'.'</span> <span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$uploaded_size</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'size'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$uploaded_type</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'type'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$uploaded_tmp</span>  <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'tmp_name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    // File information
+    $uploaded_name = $_FILES[ &#39;uploaded&#39; ][ &#39;name&#39; ];
+    $uploaded_ext  = substr( $uploaded_name, strrpos( $uploaded_name, &#39;.&#39; ) + 1);
+    $uploaded_size = $_FILES[ &#39;uploaded&#39; ][ &#39;size&#39; ];
+    $uploaded_type = $_FILES[ &#39;uploaded&#39; ][ &#39;type&#39; ];
+    $uploaded_tmp  = $_FILES[ &#39;uploaded&#39; ][ &#39;tmp_name&#39; ];
 
-    <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
-    <span class="token variable">$target_path</span>   <span class="token operator">=</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">'hackable/uploads/'</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//$target_file   = basename( $uploaded_name, '.' . $uploaded_ext ) . '-';</span>
-    <span class="token variable">$target_file</span>   <span class="token operator">=</span>  <span class="token function">md5</span><span class="token punctuation">(</span> <span class="token function">uniqid</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token variable">$uploaded_name</span> <span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'.'</span> <span class="token punctuation">.</span> <span class="token variable">$uploaded_ext</span><span class="token punctuation">;</span>
-    <span class="token variable">$temp_file</span>     <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token function">ini_get</span><span class="token punctuation">(</span> <span class="token string">'upload_tmp_dir'</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">''</span> <span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">(</span> <span class="token function">sys_get_temp_dir</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span> <span class="token function">ini_get</span><span class="token punctuation">(</span> <span class="token string">'upload_tmp_dir'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$temp_file</span>    <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token constant">DIRECTORY_SEPARATOR</span> <span class="token punctuation">.</span> <span class="token function">md5</span><span class="token punctuation">(</span> <span class="token function">uniqid</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token variable">$uploaded_name</span> <span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'.'</span> <span class="token punctuation">.</span> <span class="token variable">$uploaded_ext</span><span class="token punctuation">;</span>
+    // Where are we going to be writing to?
+    $target_path   = DVWA_WEB_PAGE_TO_ROOT . &#39;hackable/uploads/&#39;;
+    //$target_file   = basename( $uploaded_name, &#39;.&#39; . $uploaded_ext ) . &#39;-&#39;;
+    $target_file   =  md5( uniqid() . $uploaded_name ) . &#39;.&#39; . $uploaded_ext;
+    $temp_file     = ( ( ini_get( &#39;upload_tmp_dir&#39; ) == &#39;&#39; ) ? ( sys_get_temp_dir() ) : ( ini_get( &#39;upload_tmp_dir&#39; ) ) );
+    $temp_file    .= DIRECTORY_SEPARATOR . md5( uniqid() . $uploaded_name ) . &#39;.&#39; . $uploaded_ext;
 
-    <span class="token comment" spellcheck="true">// Is it an image?</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'jpg'</span> <span class="token operator">||</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'jpeg'</span> <span class="token operator">||</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'png'</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-        <span class="token punctuation">(</span> <span class="token variable">$uploaded_size</span> <span class="token operator">&lt;</span> <span class="token number">100000</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-        <span class="token punctuation">(</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">'image/jpeg'</span> <span class="token operator">||</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">'image/png'</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-        <span class="token function">getimagesize</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    // Is it an image?
+    if( ( strtolower( $uploaded_ext ) == &#39;jpg&#39; || strtolower( $uploaded_ext ) == &#39;jpeg&#39; || strtolower( $uploaded_ext ) == &#39;png&#39; ) &amp;&amp;
+        ( $uploaded_size &lt; 100000 ) &amp;&amp;
+        ( $uploaded_type == &#39;image/jpeg&#39; || $uploaded_type == &#39;image/png&#39; ) &amp;&amp;
+        getimagesize( $uploaded_tmp ) ) {
 
-        <span class="token comment" spellcheck="true">// Strip any metadata, by re-encoding image (Note, using php-Imagick is recommended over php-GD)</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">'image/jpeg'</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$img</span> <span class="token operator">=</span> <span class="token function">imagecreatefromjpeg</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">imagejpeg</span><span class="token punctuation">(</span> <span class="token variable">$img</span><span class="token punctuation">,</span> <span class="token variable">$temp_file</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token variable">$img</span> <span class="token operator">=</span> <span class="token function">imagecreatefrompng</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">imagepng</span><span class="token punctuation">(</span> <span class="token variable">$img</span><span class="token punctuation">,</span> <span class="token variable">$temp_file</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token function">imagedestroy</span><span class="token punctuation">(</span> <span class="token variable">$img</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        // Strip any metadata, by re-encoding image (Note, using php-Imagick is recommended over php-GD)
+        if( $uploaded_type == &#39;image/jpeg&#39; ) {
+            $img = imagecreatefromjpeg( $uploaded_tmp );
+            imagejpeg( $img, $temp_file, 100);
+        }
+        else {
+            $img = imagecreatefrompng( $uploaded_tmp );
+            imagepng( $img, $temp_file, 9);
+        }
+        imagedestroy( $img );
 
-        <span class="token comment" spellcheck="true">// Can we move the file to the web root from the temp folder?</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">rename</span><span class="token punctuation">(</span> <span class="token variable">$temp_file</span><span class="token punctuation">,</span> <span class="token punctuation">(</span> <span class="token function">getcwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token constant">DIRECTORY_SEPARATOR</span> <span class="token punctuation">.</span> <span class="token variable">$target_path</span> <span class="token punctuation">.</span> <span class="token variable">$target_file</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// Yes!</span>
-            <span class="token keyword">echo</span> <span class="token string">"&lt;pre>&lt;a href='${target_path}${target_file}'>${target_file}&lt;/a> succesfully uploaded!&lt;/pre>"</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// No</span>
-            <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded.&lt;/pre>'</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        // Can we move the file to the web root from the temp folder?
+        if( rename( $temp_file, ( getcwd() . DIRECTORY_SEPARATOR . $target_path . $target_file ) ) ) {
+            // Yes!
+            echo &quot;&lt;pre&gt;&lt;a href=&#39;${target_path}${target_file}&#39;&gt;${target_file}&lt;/a&gt; succesfully uploaded!&lt;/pre&gt;&quot;;
+        }
+        else {
+            // No
+            echo &#39;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&#39;;
+        }
 
-        <span class="token comment" spellcheck="true">// Delete any temp files</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">file_exists</span><span class="token punctuation">(</span> <span class="token variable">$temp_file</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span>
-            <span class="token function">unlink</span><span class="token punctuation">(</span> <span class="token variable">$temp_file</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Invalid file</span>
-        <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre>'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        // Delete any temp files
+        if( file_exists( $temp_file ) )
+            unlink( $temp_file );
+    }
+    else {
+        // Invalid file
+        echo &#39;&lt;pre&gt;Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre&gt;&#39;;
+    }
+}
 
-<span class="token comment" spellcheck="true">// Generate Anti-CSRF token</span>
-<span class="token function">generateSessionToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+// Generate Anti-CSRF token
+generateSessionToken();
 
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt; </code></pre>
 <ul>
 <li>对上传的文件类型、大小等进行限制，同时还对上传文件进行重命名。</li>
 </ul>
@@ -1446,7 +1445,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

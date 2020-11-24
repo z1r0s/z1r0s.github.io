@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -400,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    442
+                    448
                 </div>
                 
 
@@ -422,7 +421,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="基础网络命令"><a href="#基础网络命令" class="headerlink" title="基础网络命令"></a>基础网络命令</h1><pre class="line-numbers language-shell"><code class="language-shell"># 查看IP地址
+                <h1 id="基础网络命令"><a href="#基础网络命令" class="headerlink" title="基础网络命令"></a>基础网络命令</h1><pre><code class="shell"># 查看IP地址
 ipconfig /all
 
 # 查询账号所属权限
@@ -445,7 +444,7 @@ taskkill /pid [进程码] -t(结束该进程) -f(强制结束该进程和子进�
 wmic qfe get hotfixid
 
 # 详细的补丁安装
-wmic qfe list full /format:htable > hotfixid.html
+wmic qfe list full /format:htable &gt; hotfixid.html
 
 # 显示该机器名的IP
 ping hostname(主机名)
@@ -512,7 +511,7 @@ wmic product list brief
 wmic startup list full  
 
 #  查看安装软件以及版本路径等信息，输出到pro.txt
-wmic product > pro.txt    
+wmic product &gt; pro.txt    
 
 #  查看是否支持posershell
 if defined PSModulePath (echo 支持powershell) else (echo 不支持powershell) 
@@ -521,10 +520,10 @@ if defined PSModulePath (echo 支持powershell) else (echo 不支持powershell)
 qwinsta
 
 # 查看保存在注册表中的密码
-REG query HKCU /v "pwd" /s 
+REG query HKCU /v &quot;pwd&quot; /s 
 
 # 批量扫描内网存活主机（192.168.1.内网IP段）
-for /l %i in (1,1,255) do @ping 192.168.1.%i -w 1 -n 1 | find /i"ttl" <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+for /l %i in (1,1,255) do @ping 192.168.1.%i -w 1 -n 1 | find /i&quot;ttl&quot; </code></pre>
 
             </div>
             <hr/>
@@ -1055,7 +1054,7 @@ for /l %i in (1,1,255) do @ping 192.168.1.%i -w 1 -n 1 | find /i"ttl" <span aria
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

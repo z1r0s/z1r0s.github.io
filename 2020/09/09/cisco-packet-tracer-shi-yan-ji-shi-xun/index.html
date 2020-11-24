@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -1044,19 +1043,19 @@
 <p>命令脚本：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t
    hostname S1
-   username <span class="token number">aaa1</span> pass <span class="token number">bbb1</span>
-   <span class="token keyword">enable</span> pass <span class="token number">ccc1</span>
-   <span class="token keyword">int</span> vlan <span class="token number">1</span>
-   ip <span class="token keyword">add</span> <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">1.7</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
-   <span class="token keyword">no</span> shut
-   <span class="token keyword">exit</span>
-   ip <span class="token keyword">default</span><span class="token operator">-</span>gateway <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">1.254</span>
-   line vty <span class="token number">0</span> <span class="token number">4</span>
-   login <span class="token keyword">local</span>
-   <span class="token keyword">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   username aaa1 pass bbb1
+   enable pass ccc1
+   int vlan 1
+   ip add 192.1.1.7 255.255.255.0
+   no shut
+   exit
+   ip default-gateway 192.1.1.254
+   line vty 0 4
+   login local
+   exit</code></pre>
 <ol start="4">
 <li><p><strong>对R路由器进行配置，如图4-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/R配置过程.png" alt="R配置过程"></center>
@@ -1066,17 +1065,17 @@
 <p>命令脚本：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t
    hostname R
-   nt g0<span class="token operator">/</span><span class="token number">0</span>
-   p <span class="token keyword">add</span> <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">1.254</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
-   <span class="token keyword">no</span> shut
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> g0<span class="token operator">/</span><span class="token number">1</span>
-   ip <span class="token keyword">add</span> <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">2.254</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
-   <span class="token keyword">no</span> shut
-   <span class="token keyword">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   nt g0/0
+   p add 192.1.1.254 255.255.255.0
+   no shut
+   exit
+   int g0/1
+   ip add 192.1.2.254 255.255.255.0
+   no shut
+   exit</code></pre>
 <ol start="5">
 <li><p><strong>对S2交换机进行配置，如图4-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S2配置过程.png" alt="S2配置过程"></center>
@@ -1086,19 +1085,19 @@
 <p>命令脚本：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t
    hostname S2
-   username <span class="token number">aaa2</span> pass <span class="token number">bbb2</span>
-   <span class="token keyword">enable</span> pass <span class="token number">ccc2</span>
-   <span class="token keyword">int</span> vlan <span class="token number">1</span>
-   ip <span class="token keyword">add</span> <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">2.7</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
-   <span class="token keyword">no</span> shut
-   <span class="token keyword">exit</span>
-   ip <span class="token keyword">default</span><span class="token operator">-</span>gateway <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">2.254</span>
-   line vty <span class="token number">0</span> <span class="token number">4</span>
-   login <span class="token keyword">local</span>
-   <span class="token keyword">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   username aaa2 pass bbb2
+   enable pass ccc2
+   int vlan 1
+   ip add 192.1.2.7 255.255.255.0
+   no shut
+   exit
+   ip default-gateway 192.1.2.254
+   line vty 0 4
+   login local
+   exit</code></pre>
 <ol start="6">
 <li><p><strong>PC远程登录S1，如图4-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/PC远程登录S1.png" alt="PC远程登录S1"></center>
@@ -1246,23 +1245,23 @@
 <p><strong>命令脚本</strong>:</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   <span class="token keyword">exit</span>
-   vlan <span class="token number">3</span>
+   exit
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span>
+   exit
+   int range f0/1-2,f0/5
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">f0</span><span class="token operator">/</span><span class="token number">8</span>
+   switchport access vlan 2
+   exit
+   int range f0/3,f0/8
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport access vlan 3
+   exit
+   end</code></pre>
 <ol start="5">
 <li><p><strong>终端A $\rightarrow$ 终端B</strong></p>
 <p>由于Switch转发表为空，当Switch接收到终端A发送的MAC帧时，将广播至该VLAN中的其他终端（终端B和终端D），如图5-8所示。</p>
@@ -1355,25 +1354,25 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t
    hostname S1
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   <span class="token keyword">exit</span>
-   vlan <span class="token number">4</span>
+   exit
+   vlan 4
    name vlan4
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">2</span>
+   exit
+   int range f0/1-2
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport access vlan 2
+   int f0/3
    switchport mode access
-   switchport access vlan <span class="token number">4</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   switchport access vlan 4
+   int f0/4
    switchport mode trunk
-   switchport trunk allowed vlan <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport trunk allowed vlan 2,4
+   end</code></pre>
 <ol start="4">
 <li><p><strong>S2配置，如图6-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S2配置.png" alt="S2配置"></center>
@@ -1383,31 +1382,31 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t
    hostname S2
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   <span class="token keyword">exit</span>
-   vlan <span class="token number">3</span>
+   exit
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   vlan <span class="token number">4</span>
+   exit
+   vlan 4
    name vlan4
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   exit
+   int f0/1
    switchport mode trunk
-   switchport trunk allowed vlan <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport trunk allowed vlan 2,4
+   int f0/2
    switchport mode trunk
-   switchport trunk allowed vlan <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport trunk allowed vlan 3,4
+   int f0/3
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   switchport access vlan 2
+   int f0/4
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport access vlan 3
+   end</code></pre>
 <ol start="5">
 <li><p><strong>S3配置，如图6-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S3配置.png" alt="S3配置"></center>
@@ -1417,25 +1416,25 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t
    hostname S3 
-   vlan <span class="token number">3</span>
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   vlan <span class="token number">4</span>
+   exit
+   vlan 4
    name vlan4
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   exit
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">4</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">3</span>
+   switchport access vlan 4
+   int range f0/2-3
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   switchport access vlan 3
+   int f0/4
    switchport mode trunk
-   switchport trunk allowed vlan <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport trunk allowed vlan 3,4
+   end</code></pre>
 <ol start="6">
 <li><p><strong>终端C至终端D的传输</strong></p>
 <p>由于交换机S1的f0/4端口是被VLAN2和VLAN4共享的共享端口，因此，该帧经过交换机S1的f0/4端口输出时，携带VLAN4对应的VLAN ID（4），其数据帧格式如图6-7所示。</p>
@@ -1491,16 +1490,16 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
-   username <span class="token number">aaa1</span> password <span class="token number">bbb1</span>
-   line vty <span class="token number">0</span> <span class="token number">4</span>
-   login <span class="token keyword">local</span> 
-   <span class="token keyword">exit</span>
-   <span class="token keyword">enable</span> password <span class="token number">ccc1</span>
-   <span class="token keyword">int</span> vlan <span class="token number">4</span>
-   ip <span class="token keyword">add</span> <span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.17</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
-   <span class="token keyword">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   username aaa1 password bbb1
+   line vty 0 4
+   login local 
+   exit
+   enable password ccc1
+   int vlan 4
+   ip add 192.168.1.17 255.255.255.0
+   exit</code></pre>
 <ol start="4">
 <li><p><strong>S2远程管理配置，如图7-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置S2远程管理配置.png" alt="交换机VLAN远程配置S2远程管理配置"></center>
@@ -1510,16 +1509,16 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
-   username <span class="token number">aaa2</span> password <span class="token number">bbb2</span>
-   line vty <span class="token number">0</span> <span class="token number">4</span>
-   login <span class="token keyword">local</span> 
-   <span class="token keyword">exit</span>
-   <span class="token keyword">enable</span> password <span class="token number">ccc2</span>
-   <span class="token keyword">int</span> vlan <span class="token number">4</span>
-   ip <span class="token keyword">add</span> <span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.27</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
-   <span class="token keyword">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   username aaa2 password bbb2
+   line vty 0 4
+   login local 
+   exit
+   enable password ccc2
+   int vlan 4
+   ip add 192.168.1.27 255.255.255.0
+   exit</code></pre>
 <ol start="5">
 <li><p><strong>S3远程管理配置，如图7-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置S3远程管理配置.png" alt="交换机VLAN远程配置S3远程管理配置"></center>
@@ -1529,16 +1528,16 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
-   username <span class="token number">aaa3</span> password <span class="token number">bbb3</span>
-   line vty <span class="token number">0</span> <span class="token number">4</span>
-   login <span class="token keyword">local</span> 
-   <span class="token keyword">exit</span>
-   <span class="token keyword">enable</span> password <span class="token number">ccc3</span>
-   <span class="token keyword">int</span> vlan <span class="token number">4</span>
-   ip <span class="token keyword">add</span> <span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.37</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
-   <span class="token keyword">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   username aaa3 password bbb3
+   line vty 0 4
+   login local 
+   exit
+   enable password ccc3
+   int vlan 4
+   ip add 192.168.1.37 255.255.255.0
+   exit</code></pre>
 <ol start="6">
 <li><p><strong>终端C-Telnet-交换机S3，如图7-8所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置终端C-Telnet-S3.png" alt="交换机VLAN远程配置终端C-Telnet-S3"></center>
@@ -1594,23 +1593,23 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
-   <span class="token number">ccc1</span>
+<pre><code class="sql">   en
+   ccc1
    conf t 
-   vlan <span class="token number">5</span>
-   remote<span class="token operator">-</span>span
+   vlan 5
+   remote-span
    name rspan
-   <span class="token keyword">exit</span>
-   <span class="token keyword">no</span> monitor <span class="token keyword">session</span> <span class="token keyword">all</span> 
-   monitor <span class="token keyword">session</span> <span class="token number">1</span> source interface <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span> rx
-   monitor <span class="token keyword">session</span> <span class="token number">1</span> destination remote vlan <span class="token number">5</span> reflector<span class="token operator">-</span>port <span class="token number">f0</span><span class="token operator">/</span><span class="token number">17</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">17</span>
-   <span class="token keyword">shutdown</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   exit
+   no monitor session all 
+   monitor session 1 source interface f0/1 rx
+   monitor session 1 destination remote vlan 5 reflector-port f0/17
+   int f0/17
+   shutdown
+   exit
+   int f0/4
    switchport mode trunk 
-   switchport trunk allowed vlan <span class="token number">1</span><span class="token operator">-</span><span class="token number">10</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport trunk allowed vlan 1-10
+   end</code></pre>
 <ol start="4">
 <li><p><strong>S2的RSPAN VLAN配置，如图8-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置S2RSPAN配置.png" alt="RSPAN配置S2RSPAN配置"></center>
@@ -1620,21 +1619,21 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
-   <span class="token number">ccc2</span>
+<pre><code class="sql">   en
+   ccc2
    conf t 
-   vlan <span class="token number">5</span>
-   remote<span class="token operator">-</span>span
+   vlan 5
+   remote-span
    name rspan
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   exit
+   int f0/1
    switchport mode trunk
-   switchport trunk allowed vlan <span class="token number">1</span><span class="token operator">-</span><span class="token number">10</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport trunk allowed vlan 1-10
+   exit
+   int f0/2
    switchport mode trunk 
-   switchport trunk allowed vlan <span class="token number">1</span><span class="token operator">-</span><span class="token number">10</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport trunk allowed vlan 1-10
+   end</code></pre>
 <ol start="5">
 <li><p><strong>S3的RSPAN VLAN配置，如图8-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置S3RSPAN配置.png" alt="RSPAN配置S3RSPAN配置"></center>
@@ -1644,24 +1643,24 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
-   <span class="token number">ccc3</span>
+<pre><code class="sql">   en
+   ccc3
    conf t 
-   vlan <span class="token number">5</span>
-   remote<span class="token operator">-</span>span
+   vlan 5
+   remote-span
    name rspan
-   <span class="token keyword">exit</span>
-   <span class="token keyword">no</span> monitor <span class="token keyword">session</span> <span class="token keyword">all</span>
-   monitor <span class="token keyword">session</span> <span class="token number">1</span> source remote vlan <span class="token number">5</span>
-   monitor <span class="token keyword">session</span> <span class="token number">1</span> destination <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span>
+   exit
+   no monitor session all
+   monitor session 1 source remote vlan 5
+   monitor session 1 destination int f0/5
+   int f0/5
    switchport mode access
-   switchport access vlan <span class="token number">5</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   switchport access vlan 5
+   exit
+   int f0/4
    switchport mode trunk
-   switchport trunk allowed vlan <span class="token number">1</span><span class="token operator">-</span><span class="token number">10</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport trunk allowed vlan 1-10
+   end</code></pre>
 <ol start="6">
 <li><p>进入模拟模式，启动终端A至终端B的ICMP报文传输过程，发现终端A发送的ICMP报文同时沿着两条传输路径传输：一是终端A至终端B传输路径；二是交换机S1连接终端A端口至交换机S3连接嗅探器（Sniffer）端口传输路径，如图8-8所示。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置终端A至终端B.png" alt="RSPAN配置终端A至终端B"></center>
@@ -1765,25 +1764,25 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S1
-   vtp version <span class="token number">2</span>
-   vtp domain <span class="token number">abc</span>
+   vtp version 2
+   vtp domain abc
    vtp mode client
-   vtp password <span class="token number">123456</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   vtp password 123456
+   int f0/3
    switchport mode trunk
-   <span class="token keyword">exit</span>
+   exit
 
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport access vlan 2
+   exit
+   int f0/2
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport access vlan 3
+   end</code></pre>
 <ol start="4">
 <li><p><strong>S2配置命令，如图9-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS2配置.png" alt="VTPS2配置"></center>
@@ -1793,26 +1792,26 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en 
+<pre><code class="sql">   en 
    conf t 
    hostname S2
-   vtp version <span class="token number">2</span>
+   vtp version 2
    vtp mode server
-   vtp domain <span class="token number">abc</span>
-   vtp password <span class="token number">123456</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">2</span>
+   vtp domain abc
+   vtp password 123456
+   int range f0/1-2
    switchport mode trunk
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   exit
+   int f0/3
    switchport mode trunk
    switchport nonegotiate
-   <span class="token keyword">exit</span>
-   vlan <span class="token number">2</span>
+   exit
+   vlan 2
    name vtpabc2
-   <span class="token keyword">exit</span>
-   vlan <span class="token number">3</span>
+   exit
+   vlan 3
    name vtpabc3
-   <span class="token keyword">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   exit</code></pre>
 <ol start="5">
 <li><p><strong>S3配置命令，如图9-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS3配置.png" alt="VTPS3配置"></center>
@@ -1822,25 +1821,25 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S3
-   vtp version <span class="token number">2</span>
-   vtp domain <span class="token number">abc</span>
+   vtp version 2
+   vtp domain abc
    vtp mode client
-   vtp password <span class="token number">123456</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   vtp password 123456
+   int f0/3
    switchport mode trunk
-   <span class="token keyword">exit</span>
+   exit
 
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport access vlan 2
+   exit
+   int f0/2
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport access vlan 3
+   end</code></pre>
 <ol start="6">
 <li><p><strong>S4配置命令，如图9-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS4配置.png" alt="VTPS4配置"></center>
@@ -1850,25 +1849,25 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S4
-   vtp version <span class="token number">2</span>
-   vtp domain <span class="token number">bcd</span>
+   vtp version 2
+   vtp domain bcd
    vtp mode client
-   vtp password <span class="token number">123456</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   vtp password 123456
+   int f0/3
    switchport mode trunk
-   <span class="token keyword">exit</span>
+   exit
 
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport access vlan 2
+   exit
+   int f0/2
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport access vlan 3
+   end</code></pre>
 <ol start="7">
 <li><p><strong>S5配置命令，如图9-8所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS5配置.png" alt="VTPS5配置"></center>
@@ -1878,25 +1877,25 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S5
-   vtp version <span class="token number">2</span>
+   vtp version 2
    vtp mode server
-   vtp domain <span class="token number">bcd</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">2</span>
+   vtp domain bcd
+   int range f0/1-2
    switchport mode trunk
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   exit
+   int f0/3
    switchport mode trunk
    switchport nonegotiate
-   <span class="token keyword">exit</span>
-   vlan <span class="token number">2</span>
+   exit
+   vlan 2
    name vtpbcd2
-   <span class="token keyword">exit</span>
-   vlan <span class="token number">3</span>
+   exit
+   vlan 3
    name vtpbcd3
-   <span class="token keyword">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   exit</code></pre>
 <ol start="8">
 <li><p><strong>S6配置命令，如图9-9所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS6配置.png" alt="VTPS6配置"></center>
@@ -1906,25 +1905,25 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S6
-   vtp version <span class="token number">2</span>
-   vtp domain <span class="token number">bcd</span>
+   vtp version 2
+   vtp domain bcd
    vtp mode client
-   vtp password <span class="token number">123456</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   vtp password 123456
+   int f0/3
    switchport mode trunk
-   <span class="token keyword">exit</span>
+   exit
 
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport access vlan 2
+   exit
+   int f0/2
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   switchport access vlan 3
+   end</code></pre>
 <ol start="9">
 <li><p><strong>终端A与终端G的连通性测试，如图9-10所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTP终端A与终端G的连通性测试.png" alt="VTP终端A与终端G的连通性测试"></center>
@@ -2023,11 +2022,11 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S1
-   spanning<span class="token operator">-</span>tree mode pvst
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   spanning-tree mode pvst
+   end</code></pre>
 <ol start="3">
 <li><p><strong>S2配置命令，如图10-4所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S2配置.png" alt="容错配置-S2配置"></center>
@@ -2037,12 +2036,12 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S2
-   spanning<span class="token operator">-</span>tree mode pvst
-   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">8192</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   spanning-tree mode pvst
+   spanning-tree vlan 1 priority 8192
+   end</code></pre>
 <ol start="4">
 <li><p><strong>S3配置命令，如图10-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S3配置.png" alt="容错配置-S3配置"></center>
@@ -2052,12 +2051,12 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S3
-   spanning<span class="token operator">-</span>tree mode pvst
-   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">12288</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   spanning-tree mode pvst
+   spanning-tree vlan 1 priority 12288
+   end</code></pre>
 <ol start="5">
 <li><p><strong>S4配置命令，如图10-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S4配置.png" alt="容错配置-S4配置"></center>
@@ -2067,13 +2066,13 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S4
-   spanning<span class="token operator">-</span>tree mode pvst
-   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">4096</span>
-   <span class="token keyword">end</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   spanning-tree mode pvst
+   spanning-tree vlan 1 priority 4096
+   end
+</code></pre>
 <ol start="6">
 <li><p><strong>S5配置命令，如图10-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S5.png" alt="容错配置-S5"></center>
@@ -2083,12 +2082,12 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S5
-   spanning<span class="token operator">-</span>tree mode pvst
-   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">16384</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   spanning-tree mode pvst
+   spanning-tree vlan 1 priority 16384
+   end</code></pre>
 <ol start="7">
 <li><p><strong>S6配置命令，如图10-8所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置S6配置.png" alt="容错配置S6配置"></center>
@@ -2098,12 +2097,12 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S6
-   spanning<span class="token operator">-</span>tree mode pvst
-   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">20480</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   spanning-tree mode pvst
+   spanning-tree vlan 1 priority 20480
+   end</code></pre>
 <ol start="8">
 <li><p><strong>S7配置命令，如图10-9所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S7配置.png" alt="容错配置-S7配置"></center>
@@ -2113,11 +2112,11 @@
 <p><strong>命令配置</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S7
-   spanning<span class="token operator">-</span>tree mode pvst
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   spanning-tree mode pvst
+   end</code></pre>
 <ol start="9">
 <li><p><strong>根据配置构建的生成树如图10-10所示</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(b) 生成树协议阻塞的端口.png" alt="生成树协议阻塞的端口"></center>
@@ -2286,21 +2285,21 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S1
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   vlan <span class="token number">3</span>
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">3</span>
+   exit
+   int range f0/1-3
    switchport mode trunk 
-   <span class="token keyword">exit</span>
-   spanning<span class="token operator">-</span>tree mode pvst
-   spanning<span class="token operator">-</span>tree vlan <span class="token number">2</span> priority <span class="token number">4096</span>
-   spanning<span class="token operator">-</span>tree vlan <span class="token number">3</span> priority <span class="token number">8192</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   exit
+   spanning-tree mode pvst
+   spanning-tree vlan 2 priority 4096
+   spanning-tree vlan 3 priority 8192
+   end</code></pre>
 <ol start="6">
 <li><p><strong>为S2配置有容错功能的负载均衡，如图11-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S2配置.png" alt="负载均衡-S2配置"></center>
@@ -2310,21 +2309,21 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S2
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   vlan <span class="token number">3</span>
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">3</span>
+   exit
+   int range f0/1-3
    switchport mode trunk 
-   <span class="token keyword">exit</span>
-   spanning<span class="token operator">-</span>tree mode pvst
-   spanning<span class="token operator">-</span>tree vlan <span class="token number">2</span> priority <span class="token number">4096</span>
-   spanning<span class="token operator">-</span>tree vlan <span class="token number">3</span> priority <span class="token number">8192</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   exit
+   spanning-tree mode pvst
+   spanning-tree vlan 2 priority 4096
+   spanning-tree vlan 3 priority 8192
+   end</code></pre>
 <ol start="7">
 <li><p><strong>为S3配置有容错功能的负载均衡，如图11-8所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S3配置.png" alt="负载均衡-S3配置"></center>
@@ -2334,25 +2333,25 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S3 
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   vlan <span class="token number">3</span>
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   exit
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport access vlan 2
+   int f0/2
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">4</span>
+   switchport access vlan 3
+   int range f0/3-4
    switchport mode trunk
-   <span class="token keyword">exit</span>
-   spanning<span class="token operator">-</span>tree mode pvst
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   exit
+   spanning-tree mode pvst
+   end</code></pre>
 <ol start="8">
 <li><p><strong>为S4配置有容错功能的负载均衡，如图11-9所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S4配置.png" alt="负载均衡-S4配置"></center>
@@ -2362,25 +2361,25 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S4
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   vlan <span class="token number">3</span>
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   exit
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport access vlan 2
+   int f0/2
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">4</span>
+   switchport access vlan 3
+   int range f0/3-4
    switchport mode trunk
-   <span class="token keyword">exit</span>
-   spanning<span class="token operator">-</span>tree mode pvst
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   exit
+   spanning-tree mode pvst
+   end</code></pre>
 <ol start="9">
 <li><p><strong>通过ping操作验证属于同一VLAN的终端之间的连通性，如图11-10所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-终端A至终端C3.png" alt="负载均衡-终端A至终端C3"></center>
@@ -2429,14 +2428,14 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S1
-   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span>
-   channel<span class="token operator">-</span>protocol lacp
-   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode active 
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   port-channel load-balance src-dst-mac
+   int range f0/3-5
+   channel-protocol lacp
+   channel-group 1 mode active 
+   end</code></pre>
 <ol start="4">
 <li><p><strong>交换机S2的配置，如图12-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-S2配置.png" alt="链路聚合-S2配置"></center>
@@ -2446,14 +2445,14 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S2
-   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span>
-   channel<span class="token operator">-</span>protocol lacp
-   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode active 
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   port-channel load-balance src-dst-mac
+   int range f0/3-5
+   channel-protocol lacp
+   channel-group 1 mode active 
+   end</code></pre>
 <ol start="5">
 <li><p><strong>终端A至终端C，如图12-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-终端A至终端C.png" alt="链路聚合-终端A至终端C"></center>
@@ -2671,29 +2670,29 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S1 
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   vlan <span class="token number">3</span>
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span>
-   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode <span class="token keyword">on</span>
-   <span class="token keyword">exit</span>
-   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   exit
+   int range f0/3-5
+   channel-group 1 mode on
+   exit
+   port-channel load-balance src-dst-mac
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport access vlan 2
+   exit
+   int f0/2
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">1</span>
+   switchport access vlan 3
+   int port-channel 1
    switchport mode trunk
-   <span class="token keyword">end</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   end
+</code></pre>
 <ol start="4">
 <li><p><strong>交换机S2配置，如图13-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLANS2配置.png" alt="链路聚合与VLANS2配置"></center>
@@ -2703,27 +2702,27 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S2
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   vlan <span class="token number">3</span>
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">3</span>
-   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode <span class="token keyword">on</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span><span class="token operator">-</span><span class="token number">6</span>
-   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">2</span> mode <span class="token keyword">on</span>
-   <span class="token keyword">exit</span>
-   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
-   <span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">1</span>
+   exit
+   int range f0/1-3
+   channel-group 1 mode on
+   exit
+   int range f0/4-6
+   channel-group 2 mode on
+   exit
+   port-channel load-balance src-dst-mac
+   int port-channel 1
    switchport mode trunk
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">2</span>
+   exit
+   int port-channel 2
    switchport mode trunk
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   end</code></pre>
 <ol start="5">
 <li><p><strong>交换机S3配置，如图13-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-S3配置.png" alt="链路聚合与VLAN-S3配置"></center>
@@ -2734,28 +2733,28 @@
 </li>
 </ol>
 <p>   <strong>命令脚本</strong>：</p>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S3 
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   vlan <span class="token number">3</span>
+   vlan 3
    name vlan3
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span>
-   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">2</span> mode <span class="token keyword">on</span>
-   <span class="token keyword">exit</span>
-   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   exit
+   int range f0/3-5
+   channel-group 2 mode on
+   exit
+   port-channel load-balance src-dst-mac
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport access vlan 2
+   exit
+   int f0/2
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">2</span>
+   switchport access vlan 3
+   int port-channel 2
    switchport mode trunk
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   end</code></pre>
 <ol start="6">
 <li><p><strong>终端A与终端C的连通性测试，如图13-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-终端A至终端B的连通性测试.png" alt="链路聚合与VLAN-终端A至终端B的连通性测试"></center>
@@ -3104,33 +3103,33 @@
 <p><strong>命令脚本</strong>：</p>
 </li>
 </ol>
-<pre class="line-numbers language-sql"><code class="language-sql">   en
+<pre><code class="sql">   en
    conf t 
    hostname S1
-   vlan <span class="token number">2</span>
+   vlan 2
    name vlan2
-   vlan <span class="token number">3</span>
+   vlan 3
    name vlan3
-   vlan <span class="token number">5</span>
+   vlan 5
    name vlan5
    name rspan
-   remote<span class="token operator">-</span>span
-   <span class="token keyword">exit</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   remote-span
+   exit
+   int f0/1
    switchport mode access
-   switchport access vlan <span class="token number">2</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport access vlan 2
+   int f0/2
    switchport mode access
-   switchport access vlan <span class="token number">3</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport access vlan 3
+   int f0/3
    switchport mode trunk 
-   <span class="token keyword">exit</span>
-   <span class="token keyword">no</span> monitor <span class="token keyword">session</span> <span class="token keyword">all</span>
-   monitor <span class="token keyword">session</span> <span class="token number">1</span> source <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span> rx
-   monitor <span class="token keyword">session</span> <span class="token number">1</span> destination remote vlan <span class="token number">5</span> reflector<span class="token operator">-</span>port <span class="token number">f0</span><span class="token operator">/</span><span class="token number">17</span>
-   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">17</span>
-   <span class="token keyword">shutdown</span>
-   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   exit
+   no monitor session all
+   monitor session 1 source int f0/1 rx
+   monitor session 1 destination remote vlan 5 reflector-port f0/17
+   int f0/17
+   shutdown
+   end</code></pre>
 <ol start="4">
 <li><p><strong>对交换机S2进行配置，如图15-5所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-S2配置.png" alt="链路聚合与RSPAN-S2配置"></center>
@@ -3138,38 +3137,38 @@
 <center>图15-5 S2配置</center>
 
 <p><strong>命令脚本</strong>：</p>
-<pre class="line-numbers language-sql"><code class="language-sql">en
+<pre><code class="sql">en
 conf t 
 hostname S2 
-vlan <span class="token number">2</span>
+vlan 2
 name vlan2 
-vlan <span class="token number">3</span>
+vlan 3
 name vlan3
-vlan <span class="token number">4</span>
+vlan 4
 name vlan4
-vlan <span class="token number">5</span>
+vlan 5
 name rspan
-remote<span class="token operator">-</span>span
-<span class="token keyword">exit</span>
-<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+remote-span
+exit
+int f0/1
 switchport mode access
-switchport acces vlan <span class="token number">2</span>
-<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+switchport acces vlan 2
+int f0/2
 switchport mode access
-switchport access vlan <span class="token number">3</span>
-<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+switchport access vlan 3
+int f0/3
 switchport mode access
-switchport access vlan <span class="token number">4</span>
-<span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span><span class="token operator">-</span><span class="token number">7</span>
-channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode <span class="token keyword">on</span>
-<span class="token keyword">exit</span>
-port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
-<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+switchport access vlan 4
+int range f0/5-7
+channel-group 1 mode on
+exit
+port-channel load-balance src-dst-mac
+int f0/4
 switchport mode trunk
-<span class="token keyword">exit</span>
-<span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">1</span>
+exit
+int port-channel 1
 switchport mode trunk
-<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+end</code></pre>
 </li>
 <li><p><strong>对交换机S3进行配置，如图15-6所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-S3配置.png" alt="链路聚合与RSPAN-S3配置"></center>
@@ -3177,29 +3176,29 @@ switchport mode trunk
 <center>图15-6 S3配置</center>
 
 <p><strong>命令脚本</strong>：</p>
-<pre class="line-numbers language-sql"><code class="language-sql">en 
+<pre><code class="sql">en 
 conf t 
 hostname S3 
-vlan <span class="token number">4</span>
+vlan 4
 name vlan4
-vlan <span class="token number">5</span>
+vlan 5
 name rspan
-remote<span class="token operator">-</span>span
-<span class="token keyword">exit</span>
-<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+remote-span
+exit
+int f0/1
 switchport mode access
-switchport access vlan <span class="token number">4</span>
-<span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span><span class="token operator">-</span><span class="token number">7</span>
-channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode <span class="token keyword">on</span>
-<span class="token keyword">exit</span>
-port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
-<span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">1</span>
+switchport access vlan 4
+int range f0/5-7
+channel-group 1 mode on
+exit
+port-channel load-balance src-dst-mac
+int port-channel 1
 switchport mode trunk
-<span class="token keyword">exit</span>
-<span class="token keyword">no</span> monitor <span class="token keyword">session</span> <span class="token keyword">all</span>
-monitor <span class="token keyword">session</span> <span class="token number">1</span> source remote vlan <span class="token number">5</span>
-monitor <span class="token keyword">session</span> <span class="token number">1</span> destination <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
-<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+exit
+no monitor session all
+monitor session 1 source remote vlan 5
+monitor session 1 destination int f0/2
+end</code></pre>
 </li>
 <li><p><strong>终端A至终端C的ping测试，如图15-7所示。</strong></p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-终端A至终端C的ping测试.png" alt="链路聚合与RSPAN-终端A至终端C的ping测试"></center>
@@ -3860,7 +3859,7 @@ monitor <span class="token keyword">session</span> <span class="token number">1<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

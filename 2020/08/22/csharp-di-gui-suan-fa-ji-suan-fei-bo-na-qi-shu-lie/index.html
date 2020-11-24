@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -503,7 +502,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    549
+                    709
                 </div>
                 
 
@@ -562,7 +561,7 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp递归算法计算斐波那契数列/界面设计.png" alt="界面设计"></center>
 
 <p><strong>代码设计</strong>：</p>
-<pre class="line-numbers language-C#"><code class="language-C#">using System;
+<pre><code class="C#">using System;
 using System.Windows.Forms;
 
 namespace Arithmetic
@@ -581,26 +580,26 @@ namespace Arithmetic
             int P_int_temp;                                         //定义一个用于存储的整型变量
             if (int.TryParse(txt_value.Text, out P_int_temp))       //为变量赋值
             {
-                lb_result.Text = "计算结果为：" + Get(P_int_temp).ToString();     //输出计算结果
+                lb_result.Text = &quot;计算结果为：&quot; + Get(P_int_temp).ToString();     //输出计算结果
             }
             else                                    //当数据转化失败时
             {
-                MessageBox.Show("请输入正确的数值！", "提示！");                      //提示输入正确数值
+                MessageBox.Show(&quot;请输入正确的数值！&quot;, &quot;提示！&quot;);                      //提示输入正确数值
             }
         }
         #endregion
 
         #region 斐波那契数列的计算
-        /// <summary>
+        /// &lt;summary&gt;
         /// 递归算法                //斐波那契数列的计算问题
-        /// </summary>
-        /// <param name="i">参与计算的数值</param>
-        /// <returns>计算结果</returns>
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;i&quot;&gt;参与计算的数值&lt;/param&gt;
+        /// &lt;returns&gt;计算结果&lt;/returns&gt;
         int Get(int i)
         {
-            if (i <= 0)                            //判断数值是否小于0
+            if (i &lt;= 0)                            //判断数值是否小于0
                 return 0;                        //返回数值0
-            else if (i >= 0 && i <= 2)            //判断数值是否大于等于0并且小于等于2
+            else if (i &gt;= 0 &amp;&amp; i &lt;= 2)            //判断数值是否大于等于0并且小于等于2
                 return 1;                        //返回数值1
             else                                //如果不满足上述条件执行下面语句
                 return Get(i - 1) + Get(i - 2);    //返回指定位数前两位数的和
@@ -608,7 +607,7 @@ namespace Arithmetic
         #endregion
 
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}</code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>程序以int类型存储结果，当计算的数值超出int时，程序将会报错。</li>
@@ -1263,7 +1262,7 @@ namespace Arithmetic
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

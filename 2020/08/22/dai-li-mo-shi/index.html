@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -503,7 +502,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    859
+                    875
                 </div>
                 
 
@@ -544,97 +543,97 @@
 </ol>
 <h1 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h1><p>使用代理追女孩：</p>
 <p><strong>被追求者</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//被追求者</span>
-    <span class="token keyword">class</span> <span class="token class-name">SchoolGirl</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">private</span> <span class="token keyword">string</span> name<span class="token punctuation">;</span>
-        <span class="token keyword">public</span> <span class="token keyword">string</span> Name
-        <span class="token punctuation">{</span>
-            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> name<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-            <span class="token keyword">set</span> <span class="token punctuation">{</span> name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="csharp">    //被追求者
+    class SchoolGirl
+    {
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+    }</code></pre>
 <p><strong>送礼物的接口</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//送礼物的接口</span>
-    <span class="token keyword">interface</span> <span class="token class-name">GiveGift</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">void</span> <span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">void</span> <span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">void</span> <span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="csharp">    //送礼物的接口
+    interface GiveGift
+    {
+        void GiveDolls();
+        void GiveFlowers();
+        void GiveChocolate();
+    }</code></pre>
 <p><strong>雇主</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//追求者---（雇主）</span>
-    <span class="token keyword">class</span> <span class="token class-name">Pursuit</span> <span class="token punctuation">:</span> GiveGift
-    <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//雇主心意的女孩对象</span>
-        SchoolGirl mm<span class="token punctuation">;</span>
-        <span class="token keyword">public</span> <span class="token function">Pursuit</span><span class="token punctuation">(</span>SchoolGirl mm<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//追求者与被追求者之间的联系</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>mm <span class="token operator">=</span> mm<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>mm<span class="token punctuation">.</span>Name <span class="token operator">+</span> <span class="token string">" 送你洋娃娃"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+<pre><code class="csharp">    //追求者---（雇主）
+    class Pursuit : GiveGift
+    {
+        //雇主心意的女孩对象
+        SchoolGirl mm;
+        public Pursuit(SchoolGirl mm)
+        {
+            //追求者与被追求者之间的联系
+            this.mm = mm;
+        }
+        public void GiveDolls()
+        {
+            Console.WriteLine(mm.Name + &quot; 送你洋娃娃&quot;);
+        }
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>mm<span class="token punctuation">.</span>Name <span class="token operator">+</span> <span class="token string">" 送你鲜花"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        public void GiveFlowers()
+        {
+            Console.WriteLine(mm.Name + &quot; 送你鲜花&quot;);
+        }
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>mm<span class="token punctuation">.</span>Name <span class="token operator">+</span> <span class="token string">" 送你巧克力"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        public void GiveChocolate()
+        {
+            Console.WriteLine(mm.Name + &quot; 送你巧克力&quot;);
+        }
+    }</code></pre>
 <p><strong>代理者</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token comment" spellcheck="true">//代理者实现接口</span>
-    <span class="token keyword">class</span> <span class="token class-name">Proxy</span> <span class="token punctuation">:</span> GiveGift
-    <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//声明一个雇主变量，用来存储聘用代理者的雇主对象</span>
-        Pursuit gg<span class="token punctuation">;</span>
-        <span class="token keyword">public</span> <span class="token function">Proxy</span><span class="token punctuation">(</span>SchoolGirl mm<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//建立追求者与本追求者之间的关系</span>
-            gg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Pursuit</span><span class="token punctuation">(</span>mm<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+<pre><code class="csharp">    //代理者实现接口
+    class Proxy : GiveGift
+    {
+        //声明一个雇主变量，用来存储聘用代理者的雇主对象
+        Pursuit gg;
+        public Proxy(SchoolGirl mm)
+        {
+            //建立追求者与本追求者之间的关系
+            gg = new Pursuit(mm);
+        }
 
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//调用雇主对象自身的方法</span>
-            gg<span class="token punctuation">.</span><span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        public void GiveDolls()
+        {
+            //调用雇主对象自身的方法
+            gg.GiveDolls();
+        }
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            gg<span class="token punctuation">.</span><span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        public void GiveFlowers()
+        {
+            gg.GiveFlowers();
+        }
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            gg<span class="token punctuation">.</span><span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        public void GiveChocolate()
+        {
+            gg.GiveChocolate();
+        }
+    }</code></pre>
 <p><strong>测试类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">    <span class="token keyword">class</span> <span class="token class-name">Program</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            SchoolGirl jiaojiao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SchoolGirl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            jiaojiao<span class="token punctuation">.</span>Name <span class="token operator">=</span> <span class="token string">"李娇娇"</span><span class="token punctuation">;</span>
+<pre><code class="csharp">    class Program
+    {
+        static void Main(string[] args)
+        {
+            SchoolGirl jiaojiao = new SchoolGirl();
+            jiaojiao.Name = &quot;李娇娇&quot;;
 
-            Proxy daili <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>jiaojiao<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Proxy daili = new Proxy(jiaojiao);
 
-            daili<span class="token punctuation">.</span><span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            daili<span class="token punctuation">.</span><span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            daili<span class="token punctuation">.</span><span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            daili.GiveDolls();
+            daili.GiveFlowers();
+            daili.GiveChocolate();
 
 
-            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            Console.Read();
+        }
+    }</code></pre>
 <p><strong>注</strong>：</p>
 <ul>
 <li>代理使用的方法实际是雇主实现的方法</li>
@@ -646,103 +645,103 @@
 <li>《大话设计模式》</li>
 <li>《设计模式精解及面试攻略》</li>
 </ul>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre><code class="csharp">using System;
 
-<span class="token keyword">namespace</span> 代理模式
-<span class="token punctuation">{</span>
-    <span class="token keyword">class</span> <span class="token class-name">Program</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            SchoolGirl jiaojiao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SchoolGirl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            jiaojiao<span class="token punctuation">.</span>Name <span class="token operator">=</span> <span class="token string">"李娇娇"</span><span class="token punctuation">;</span>
+namespace 代理模式
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SchoolGirl jiaojiao = new SchoolGirl();
+            jiaojiao.Name = &quot;李娇娇&quot;;
 
-            Proxy daili <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>jiaojiao<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Proxy daili = new Proxy(jiaojiao);
 
-            daili<span class="token punctuation">.</span><span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            daili<span class="token punctuation">.</span><span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            daili<span class="token punctuation">.</span><span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-            Console<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">//送礼物的接口</span>
-    <span class="token keyword">interface</span> <span class="token class-name">GiveGift</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">void</span> <span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">void</span> <span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">void</span> <span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">//代理者实现接口</span>
-    <span class="token keyword">class</span> <span class="token class-name">Proxy</span> <span class="token punctuation">:</span> GiveGift
-    <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//声明一个雇主变量，用来存储聘用代理者的雇主对象</span>
-        Pursuit gg<span class="token punctuation">;</span>
-        <span class="token keyword">public</span> <span class="token function">Proxy</span><span class="token punctuation">(</span>SchoolGirl mm<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//建立追求者与本追求者之间的关系</span>
-            gg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Pursuit</span><span class="token punctuation">(</span>mm<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+            daili.GiveDolls();
+            daili.GiveFlowers();
+            daili.GiveChocolate();
 
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//调用雇主对象自身的方法</span>
-            gg<span class="token punctuation">.</span><span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+            Console.Read();
+        }
+    }
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            gg<span class="token punctuation">.</span><span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+    //送礼物的接口
+    interface GiveGift
+    {
+        void GiveDolls();
+        void GiveFlowers();
+        void GiveChocolate();
+    }
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            gg<span class="token punctuation">.</span><span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+    //代理者实现接口
+    class Proxy : GiveGift
+    {
+        //声明一个雇主变量，用来存储聘用代理者的雇主对象
+        Pursuit gg;
+        public Proxy(SchoolGirl mm)
+        {
+            //建立追求者与本追求者之间的关系
+            gg = new Pursuit(mm);
+        }
 
-    <span class="token comment" spellcheck="true">//追求者---（雇主）</span>
-    <span class="token keyword">class</span> <span class="token class-name">Pursuit</span> <span class="token punctuation">:</span> GiveGift
-    <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//雇主心意的女孩对象</span>
-        SchoolGirl mm<span class="token punctuation">;</span>
-        <span class="token keyword">public</span> <span class="token function">Pursuit</span><span class="token punctuation">(</span>SchoolGirl mm<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//追求者与被追求者之间的联系</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>mm <span class="token operator">=</span> mm<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveDolls</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>mm<span class="token punctuation">.</span>Name <span class="token operator">+</span> <span class="token string">" 送你洋娃娃"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveFlowers</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>mm<span class="token punctuation">.</span>Name <span class="token operator">+</span> <span class="token string">" 送你鲜花"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        public void GiveDolls()
+        {
+            //调用雇主对象自身的方法
+            gg.GiveDolls();
+        }
 
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">GiveChocolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>mm<span class="token punctuation">.</span>Name <span class="token operator">+</span> <span class="token string">" 送你巧克力"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        public void GiveFlowers()
+        {
+            gg.GiveFlowers();
+        }
 
-    <span class="token comment" spellcheck="true">//被追求者</span>
-    <span class="token keyword">class</span> <span class="token class-name">SchoolGirl</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">private</span> <span class="token keyword">string</span> name<span class="token punctuation">;</span>
-        <span class="token keyword">public</span> <span class="token keyword">string</span> Name
-        <span class="token punctuation">{</span>
-            <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> name<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-            <span class="token keyword">set</span> <span class="token punctuation">{</span> name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        public void GiveChocolate()
+        {
+            gg.GiveChocolate();
+        }
+    }
 
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    //追求者---（雇主）
+    class Pursuit : GiveGift
+    {
+        //雇主心意的女孩对象
+        SchoolGirl mm;
+        public Pursuit(SchoolGirl mm)
+        {
+            //追求者与被追求者之间的联系
+            this.mm = mm;
+        }
+        public void GiveDolls()
+        {
+            Console.WriteLine(mm.Name + &quot; 送你洋娃娃&quot;);
+        }
+
+        public void GiveFlowers()
+        {
+            Console.WriteLine(mm.Name + &quot; 送你鲜花&quot;);
+        }
+
+        public void GiveChocolate()
+        {
+            Console.WriteLine(mm.Name + &quot; 送你巧克力&quot;);
+        }
+    }
+
+    //被追求者
+    class SchoolGirl
+    {
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+    }
+
+}</code></pre>
 
             </div>
             <hr/>
@@ -1385,7 +1384,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

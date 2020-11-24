@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -511,14 +510,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -602,207 +601,207 @@
 <li>操作结果后显示加密或解密的结果。</li>
 </ul>
 <h1 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h1><p><strong>Vigenere类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
-<span class="token keyword">using</span> System<span class="token punctuation">.</span>Text<span class="token punctuation">;</span>
+<pre><code class="csharp">using System;
+using System.Text;
 
-<span class="token keyword">namespace</span> Cryptology_Vigenere
-<span class="token punctuation">{</span>
-    <span class="token keyword">class</span> <span class="token class-name">Vigenere</span>
-    <span class="token punctuation">{</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 定义全局变量</span>
-        <span class="token keyword">private</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">]</span> codeMatrix<span class="token punctuation">;</span>
+namespace Cryptology_Vigenere
+{
+    class Vigenere
+    {
+        #region 定义全局变量
+        private char[,] codeMatrix;
 
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 构造函数</span>
-        <span class="token keyword">public</span> <span class="token function">Vigenere</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// 初始化对象时也初始化密码矩阵</span>
-            <span class="token function">Vigenere_InitCodeMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        #region 构造函数
+        public Vigenere()
+        {
+            // 初始化对象时也初始化密码矩阵
+            Vigenere_InitCodeMatrix();
 
-            <span class="token comment" spellcheck="true">// 展示密码表</span>
-            <span class="token function">DisplayCipherTable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+            // 展示密码表
+            DisplayCipherTable();
+        }
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 初始化Vigenere密码矩阵</span>
-        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Vigenere_InitCodeMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            codeMatrix <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">char</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//矩阵</span>
-            <span class="token keyword">char</span> temp<span class="token punctuation">;</span>
+        #region 初始化Vigenere密码矩阵
+        private void Vigenere_InitCodeMatrix()
+        {
+            codeMatrix = new char[26, 26];//矩阵
+            char temp;
 
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> <span class="token number">26</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                temp <span class="token operator">=</span> <span class="token string">'A'</span><span class="token punctuation">;</span>
-                temp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>temp <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>j <span class="token operator">&lt;</span> <span class="token number">26</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
-                <span class="token punctuation">{</span>
-                    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>temp <span class="token operator">+</span> j<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token string">'Z'</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">{</span>
-                        codeMatrix<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">(</span>temp <span class="token operator">+</span> j<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-                    <span class="token keyword">else</span>
-                    <span class="token punctuation">{</span>
-                        codeMatrix<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>temp <span class="token operator">+</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+            for(int i = 0;i &lt; 26;i++)
+            {
+                temp = &#39;A&#39;;
+                temp = (char)(temp + i);
+                for(int j = 0;j &lt; 26;j++)
+                {
+                    if((char)(temp + j) &gt; &#39;Z&#39;)
+                    {
+                        codeMatrix[i, j] = (char)((temp + j) - 26);
+                    }
+                    else
+                    {
+                        codeMatrix[i, j] = (char)(temp + j);
+                    }
 
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+                }
+            }
+        }
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 展示维吉尼亚密码表</span>
-        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">DisplayCipherTable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token string">"  "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> <span class="token number">26</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">'a'</span> <span class="token operator">+</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        #region 展示维吉尼亚密码表
+        private void DisplayCipherTable()
+        {
+            Console.Write(&quot;  &quot;);
+            for(int i = 0;i &lt; 26;i++)
+            {
+                Console.Write((char)(&#39;a&#39; + i) + &quot; &quot;);
+            }
+            Console.WriteLine();
 
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">26</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">26</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
-                <span class="token punctuation">{</span>
-                    <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">{</span>
-                        Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">'a'</span> <span class="token operator">+</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+            for (int i = 0; i &lt; 26; i++)
+            {
+                for (int j = 0; j &lt; 26; j++)
+                {
+                    if(j == 0)
+                    {
+                        Console.Write((char)(&#39;a&#39; + i) + &quot; &quot;);
+                    }
 
-                    Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span>codeMatrix<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+                    Console.Write(codeMatrix[i, j] + &quot; &quot;);
+                }
+                Console.WriteLine();
+            }
+        }
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> Vigenere加密</span>
-        <span class="token comment" spellcheck="true">/// &lt;summary></span>
-        <span class="token comment" spellcheck="true">/// Vigenere加密</span>
-        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
-        <span class="token comment" spellcheck="true">/// &lt;param name="plaintext">明文&lt;/param></span>
-        <span class="token comment" spellcheck="true">/// &lt;param name="key">密钥&lt;/param></span>
-        <span class="token comment" spellcheck="true">/// &lt;returns>密文&lt;/returns></span>
-        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">Encrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> plaintext<span class="token punctuation">,</span> <span class="token keyword">string</span> key<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">int</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//k:密钥计数器</span>
-            <span class="token keyword">string</span> str <span class="token operator">=</span> plaintext<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">int</span> min_mod <span class="token operator">=</span> str<span class="token punctuation">.</span>Length <span class="token operator">></span> key<span class="token punctuation">.</span>Length <span class="token operator">?</span> key<span class="token punctuation">.</span>Length <span class="token punctuation">:</span> str<span class="token punctuation">.</span>Length<span class="token punctuation">;</span>
-            StringBuilder strBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>Length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">>=</span> <span class="token string">'A'</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string">'Z'</span><span class="token punctuation">)</span>
-                <span class="token punctuation">{</span>
-                    x <span class="token operator">=</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">'A'</span><span class="token punctuation">;</span>
-                    y <span class="token operator">=</span> key<span class="token punctuation">[</span>k<span class="token operator">++</span> <span class="token operator">%</span> min_mod<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">'A'</span><span class="token punctuation">;</span>
-                    strBuilder<span class="token punctuation">.</span><span class="token function">Append</span><span class="token punctuation">(</span>codeMatrix<span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                <span class="token keyword">else</span>
-                <span class="token punctuation">{</span>
-                    strBuilder<span class="token punctuation">.</span><span class="token function">Append</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">return</span> strBuilder<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+        #region Vigenere加密
+        /// &lt;summary&gt;
+        /// Vigenere加密
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;plaintext&quot;&gt;明文&lt;/param&gt;
+        /// &lt;param name=&quot;key&quot;&gt;密钥&lt;/param&gt;
+        /// &lt;returns&gt;密文&lt;/returns&gt;
+        internal string Encrypt(string plaintext, string key)
+        {
+            int x, y,k=0;//k:密钥计数器
+            string str = plaintext.ToUpper();
+            int min_mod = str.Length &gt; key.Length ? key.Length : str.Length;
+            StringBuilder strBuilder = new StringBuilder();
+            for(int i = 0;i &lt; str.Length;i++)
+            {
+                if(str[i] &gt;= &#39;A&#39; &amp;&amp; str[i] &lt;= &#39;Z&#39;)
+                {
+                    x = str[i] - &#39;A&#39;;
+                    y = key[k++ % min_mod] - &#39;A&#39;;
+                    strBuilder.Append(codeMatrix[x, y]);
+                }
+                else
+                {
+                    strBuilder.Append(str[i]);
+                }
+            }
+            return strBuilder.ToString();
+        }
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> Vigenere解密</span>
-        <span class="token comment" spellcheck="true">/// &lt;summary></span>
-        <span class="token comment" spellcheck="true">/// Vigenere解密</span>
-        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
-        <span class="token comment" spellcheck="true">/// &lt;param name="ciphertext">密文&lt;/param></span>
-        <span class="token comment" spellcheck="true">/// &lt;param name="key">密钥&lt;/param></span>
-        <span class="token comment" spellcheck="true">/// &lt;returns>明文&lt;/returns></span>
-        <span class="token keyword">internal</span> <span class="token keyword">string</span> <span class="token function">Decrypt</span><span class="token punctuation">(</span><span class="token keyword">string</span> ciphertext<span class="token punctuation">,</span> <span class="token keyword">string</span> key<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">int</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span>temp<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//k:密钥计数器</span>
-            <span class="token keyword">string</span> str <span class="token operator">=</span> ciphertext<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">int</span> min_mod <span class="token operator">=</span> str<span class="token punctuation">.</span>Length <span class="token operator">></span> key<span class="token punctuation">.</span>Length <span class="token operator">?</span> key<span class="token punctuation">.</span>Length <span class="token punctuation">:</span> str<span class="token punctuation">.</span>Length<span class="token punctuation">;</span>
-            StringBuilder strBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>Length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">>=</span> <span class="token string">'A'</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string">'Z'</span><span class="token punctuation">)</span>
-                <span class="token punctuation">{</span>
-                    y <span class="token operator">=</span> key<span class="token punctuation">[</span>k<span class="token operator">++</span> <span class="token operator">%</span> min_mod<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">'A'</span><span class="token punctuation">;</span>
-                    temp <span class="token operator">=</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">'A'</span><span class="token punctuation">;</span>
-                    <span class="token keyword">if</span> <span class="token punctuation">(</span>temp <span class="token operator">&lt;</span> y<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//是否发生回环</span>
-                    <span class="token punctuation">{</span>
-                        x <span class="token operator">=</span> temp <span class="token operator">+</span> <span class="token number">26</span> <span class="token operator">-</span> y<span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-                    <span class="token keyword">else</span>
-                    <span class="token punctuation">{</span>
-                        x <span class="token operator">=</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">'A'</span> <span class="token operator">-</span> y<span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-                    strBuilder<span class="token punctuation">.</span><span class="token function">Append</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>x <span class="token operator">+</span> <span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                <span class="token keyword">else</span>
-                <span class="token punctuation">{</span>
-                    strBuilder<span class="token punctuation">.</span><span class="token function">Append</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">return</span> strBuilder<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+        #region Vigenere解密
+        /// &lt;summary&gt;
+        /// Vigenere解密
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;ciphertext&quot;&gt;密文&lt;/param&gt;
+        /// &lt;param name=&quot;key&quot;&gt;密钥&lt;/param&gt;
+        /// &lt;returns&gt;明文&lt;/returns&gt;
+        internal string Decrypt(string ciphertext, string key)
+        {
+            int x, y,temp,k=0;//k:密钥计数器
+            string str = ciphertext.ToUpper();
+            int min_mod = str.Length &gt; key.Length ? key.Length : str.Length;
+            StringBuilder strBuilder = new StringBuilder();
+            for(int i = 0;i &lt; str.Length;i++)
+            {
+                if(str[i] &gt;= &#39;A&#39; &amp;&amp; str[i] &lt;= &#39;Z&#39;)
+                {
+                    y = key[k++ % min_mod] - &#39;A&#39;;
+                    temp = str[i] - &#39;A&#39;;
+                    if (temp &lt; y)//是否发生回环
+                    {
+                        x = temp + 26 - y;
+                    }
+                    else
+                    {
+                        x = str[i] - &#39;A&#39; - y;
+                    }
+                    strBuilder.Append((char)(x + &#39;A&#39;));
+                }
+                else
+                {
+                    strBuilder.Append(str[i]);
+                }
+            }
+            return strBuilder.ToString();
+        }
+        #endregion
 
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    }
+}</code></pre>
 <p>注：</p>
 <ul>
 <li>先构造一张密码表，并显示加(解)密时使用的表</li>
 <li>加密时<strong>查表</strong>，解密时也<strong>查表</strong></li>
 </ul>
 <p><strong>Program测试类</strong>：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<pre><code class="csharp">using System;
 
-<span class="token keyword">namespace</span> Cryptology_Vigenere
-<span class="token punctuation">{</span>
-    <span class="token keyword">class</span> <span class="token class-name">Program</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span>Title <span class="token operator">=</span> <span class="token string">"Vigenere"</span><span class="token punctuation">;</span>
-            <span class="token keyword">int</span> op<span class="token punctuation">;</span>
-            <span class="token keyword">string</span> plaintext<span class="token punctuation">,</span> key<span class="token punctuation">,</span> ciphytext<span class="token punctuation">,</span>str<span class="token punctuation">;</span>
-            Vigenere vig <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vigenere</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+namespace Cryptology_Vigenere
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = &quot;Vigenere&quot;;
+            int op;
+            string plaintext, key, ciphytext,str;
+            Vigenere vig = new Vigenere();
 
-            Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token string">"请输入您想要进行的操作：(1:加密,0:解密) ->"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            str <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Console.Write(&quot;请输入您想要进行的操作：(1:加密,0:解密) -&gt;&quot;);
+            str = Console.ReadLine();
 
-            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">.</span><span class="token function">TryParse</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span><span class="token keyword">out</span> op<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
-                <span class="token punctuation">{</span>
-                    Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token string">"请输入明文："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    plaintext <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token string">"请输入密钥："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    key <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    ciphytext <span class="token operator">=</span> vig<span class="token punctuation">.</span><span class="token function">Encrypt</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>ciphytext<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
-                <span class="token punctuation">{</span>
-                    Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token string">"请输入密文"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    ciphytext <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token string">"请输入密钥："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    key <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    plaintext <span class="token operator">=</span> vig<span class="token punctuation">.</span><span class="token function">Decrypt</span><span class="token punctuation">(</span>ciphytext<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>plaintext<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                <span class="token keyword">else</span>
-                <span class="token punctuation">{</span>
-                    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"输入错误程序停止!!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">else</span>
-            <span class="token punctuation">{</span>
-                Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"输入错误程序停止!!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+            if(int.TryParse(str,out op))
+            {
+                if (op == 1)
+                {
+                    Console.Write(&quot;请输入明文：&quot;);
+                    plaintext = Console.ReadLine();
+                    Console.Write(&quot;请输入密钥：&quot;);
+                    key = Console.ReadLine();
+                    ciphytext = vig.Encrypt(plaintext, key);
+                    Console.WriteLine(ciphytext);
+                }
+                else if (op == 0)
+                {
+                    Console.Write(&quot;请输入密文&quot;);
+                    ciphytext = Console.ReadLine();
+                    Console.Write(&quot;请输入密钥：&quot;);
+                    key = Console.ReadLine();
+                    plaintext = vig.Decrypt(ciphytext, key);
+                    Console.WriteLine(plaintext);
+                }
+                else
+                {
+                    Console.WriteLine(&quot;输入错误程序停止!!!&quot;);
+                }
+            }
+            else
+            {
+                Console.WriteLine(&quot;输入错误程序停止!!!&quot;);
+            }
 
-            Console<span class="token punctuation">.</span><span class="token function">ReadKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            Console.ReadKey();
+        }
+    }
+}</code></pre>
 <h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p><strong>加密结果</strong>：</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/VigenereCipher/EnCrypt.png" alt="EnCrypt"></center>
 
@@ -1464,7 +1463,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

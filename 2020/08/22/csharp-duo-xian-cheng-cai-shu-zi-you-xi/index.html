@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -565,181 +564,181 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp多线程猜数字游戏/设计界面.png" alt="设计界面"></center>
 
 <p><strong>代码设计</strong>:</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
-<span class="token keyword">using</span> System<span class="token punctuation">.</span>Drawing<span class="token punctuation">;</span>
-<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
+<pre><code class="csharp">using System;
+using System.Drawing;
+using System.Windows.Forms;
 
-<span class="token keyword">namespace</span> NumGame
-<span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Frm_Main</span> <span class="token punctuation">:</span> Form
-    <span class="token punctuation">{</span>
-        <span class="token keyword">public</span> <span class="token function">Frm_Main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+namespace NumGame
+{
+    public partial class Frm_Main : Form
+    {
+        public Frm_Main()
+        {
+            InitializeComponent();
+        }
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 声明全局变量</span>
-        <span class="token comment" spellcheck="true">/// &lt;summary></span>
-        <span class="token comment" spellcheck="true">/// 定义一个计时器线程</span>
-        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
-        System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Thread G_th<span class="token punctuation">;</span>
+        #region 声明全局变量
+        /// &lt;summary&gt;
+        /// 定义一个计时器线程
+        /// &lt;/summary&gt;
+        System.Threading.Thread G_th;
 
-        <span class="token comment" spellcheck="true">/// &lt;summary></span>
-        <span class="token comment" spellcheck="true">/// 定义一个随机数对象</span>
-        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
-        Random G_random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        /// &lt;summary&gt;
+        /// 定义一个随机数对象
+        /// &lt;/summary&gt;
+        Random G_random = new Random();
 
-        <span class="token comment" spellcheck="true">/// &lt;summary></span>
-        <span class="token comment" spellcheck="true">/// 定义一个int型全局变量，用于存放产生的随机变量</span>
-        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
-        <span class="token keyword">int</span> G_int_num<span class="token punctuation">;</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+        /// &lt;summary&gt;
+        /// 定义一个int型全局变量，用于存放产生的随机变量
+        /// &lt;/summary&gt;
+        int G_int_num;
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 开始按钮的Click事件</span>
-        <span class="token comment" spellcheck="true">/// &lt;summary></span>
-        <span class="token comment" spellcheck="true">/// 开始按钮的Click事件</span>
-        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
-        <span class="token comment" spellcheck="true">/// &lt;param name="sender">&lt;/param></span>
-        <span class="token comment" spellcheck="true">/// &lt;param name="e">&lt;/param></span>
-        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btn_begin_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token function">RemoveControl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                        <span class="token comment" spellcheck="true">//调用自定义的RemoveControl()方法清空自定义的按钮</span>
-            <span class="token keyword">int</span> p_int_x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>                                       <span class="token comment" spellcheck="true">//X坐标初始值为10</span>
-            <span class="token keyword">int</span> p_int_y <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>                                       <span class="token comment" spellcheck="true">//Y坐标初始值为60</span>
+        #region 开始按钮的Click事件
+        /// &lt;summary&gt;
+        /// 开始按钮的Click事件
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;
+        /// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;
+        private void btn_begin_Click(object sender, EventArgs e)
+        {
+            RemoveControl();                                        //调用自定义的RemoveControl()方法清空自定义的按钮
+            int p_int_x = 10;                                       //X坐标初始值为10
+            int p_int_y = 60;                                       //Y坐标初始值为60
 
-            <span class="token comment" spellcheck="true">//向窗体添加按钮</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>                           <span class="token comment" spellcheck="true">//添加100个按钮</span>
-            <span class="token punctuation">{</span>
-                Button bt <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                           <span class="token comment" spellcheck="true">//创建button按钮</span>
-                bt<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       <span class="token comment" spellcheck="true">//设置button按钮的文本值</span>
-                bt<span class="token punctuation">.</span>Name <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       <span class="token comment" spellcheck="true">//设置button按钮的Name属性</span>
-                bt<span class="token punctuation">.</span>Width <span class="token operator">=</span> <span class="token number">35</span><span class="token punctuation">;</span>                                      <span class="token comment" spellcheck="true">//设置button按钮的宽</span>
-                bt<span class="token punctuation">.</span>Height <span class="token operator">=</span> <span class="token number">35</span><span class="token punctuation">;</span>                                     <span class="token comment" spellcheck="true">//设置button按钮的高</span>
-                bt<span class="token punctuation">.</span>Location <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span>p_int_x<span class="token punctuation">,</span> p_int_y<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//设置button按钮的位置</span>
-                bt<span class="token punctuation">.</span>Click <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventHandler</span><span class="token punctuation">(</span>bt_Click<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">//定义button按钮的Click事件</span>
+            //向窗体添加按钮
+            for (int i = 0; i &lt; 100; i++)                           //添加100个按钮
+            {
+                Button bt = new Button();                           //创建button按钮
+                bt.Text = (i + 1).ToString();                       //设置button按钮的文本值
+                bt.Name = (i + 1).ToString();                       //设置button按钮的Name属性
+                bt.Width = 35;                                      //设置button按钮的宽
+                bt.Height = 35;                                     //设置button按钮的高
+                bt.Location = new Point(p_int_x, p_int_y);          //设置button按钮的位置
+                bt.Click += new EventHandler(bt_Click);             //定义button按钮的Click事件
 
-                p_int_x <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">36</span><span class="token punctuation">;</span>                                      <span class="token comment" spellcheck="true">//设置下一个按钮的位置</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true">//设定每行有10个按钮</span>
-                <span class="token punctuation">{</span>
-                    p_int_x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>                                   <span class="token comment" spellcheck="true">//换行后重新设置X坐标  --X坐标不变</span>
-                    p_int_y <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">36</span><span class="token punctuation">;</span>                                  <span class="token comment" spellcheck="true">//换行后重新设置Y坐标  --Y坐标将变化为原来的+距离</span>
-                <span class="token punctuation">}</span>
+                p_int_x += 36;                                      //设置下一个按钮的位置
+                if ((i + 1) % 10 == 0)                            //设定每行有10个按钮
+                {
+                    p_int_x = 10;                                   //换行后重新设置X坐标  --X坐标不变
+                    p_int_y += 36;                                  //换行后重新设置Y坐标  --Y坐标将变化为原来的+距离
+                }
 
-                Controls<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>bt<span class="token punctuation">)</span><span class="token punctuation">;</span>                                   <span class="token comment" spellcheck="true">//使用Controls.Add()方法将button按钮放入窗体控件集合中</span>
-            <span class="token punctuation">}</span>
+                Controls.Add(bt);                                   //使用Controls.Add()方法将button按钮放入窗体控件集合中
+            }
 
-            <span class="token comment" spellcheck="true">//创建线程</span>
-            <span class="token comment" spellcheck="true">//跨线程调用控件</span>
-            G_th <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Thread</span><span class="token punctuation">(</span>                 <span class="token comment" spellcheck="true">//新建一条线程</span>
-                <span class="token keyword">delegate</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>                              <span class="token comment" spellcheck="true">//使用匿名方法创建一个委托</span>
-                <span class="token punctuation">{</span>
-                    <span class="token keyword">int</span> P_int_count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                            <span class="token comment" spellcheck="true">//初始化计数器</span>
-                    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span>                                <span class="token comment" spellcheck="true">//开始无限循环</span>
-                    <span class="token punctuation">{</span>
-                        P_int_count <span class="token operator">=</span> <span class="token operator">++</span>P_int_count <span class="token operator">></span> <span class="token number">100000000</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token punctuation">:</span> P_int_count<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//计数器累加</span>
+            //创建线程
+            //跨线程调用控件
+            G_th = new System.Threading.Thread(                 //新建一条线程
+                delegate ()                              //使用匿名方法创建一个委托
+                {
+                    int P_int_count = 0;                            //初始化计数器
+                    while (true)                                //开始无限循环
+                    {
+                        P_int_count = ++P_int_count &gt; 100000000 ? 0 : P_int_count;      //计数器累加
 
-                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">Invoke</span><span class="token punctuation">(</span>                            <span class="token comment" spellcheck="true">//将代码交给主线程执行</span>
-                            <span class="token punctuation">(</span>MethodInvoker<span class="token punctuation">)</span><span class="token keyword">delegate</span>         <span class="token comment" spellcheck="true">//使用匿名方法</span>
-                            <span class="token punctuation">{</span>
-                                lb_time<span class="token punctuation">.</span>Text <span class="token operator">=</span> P_int_count<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//窗体中显示计数</span>
-                            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token comment" spellcheck="true">//线程睡眠1秒</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        this.Invoke(                            //将代码交给主线程执行
+                            (MethodInvoker)delegate         //使用匿名方法
+                            {
+                                lb_time.Text = P_int_count.ToString();          //窗体中显示计数
+                            });
+                        System.Threading.Thread.Sleep(1000);                    //线程睡眠1秒
+                    }
+                });
 
-            G_th<span class="token punctuation">.</span>IsBackground <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>                                   <span class="token comment" spellcheck="true">//设置线程为后台线程</span>
-            G_th<span class="token punctuation">.</span><span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                           <span class="token comment" spellcheck="true">//开始执行线程</span>
+            G_th.IsBackground = true;                                   //设置线程为后台线程
+            G_th.Start();                                           //开始执行线程
 
-            <span class="token comment" spellcheck="true">//生成一个随机数</span>
-            G_int_num <span class="token operator">=</span> G_random<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                          <span class="token comment" spellcheck="true">//生成一个1-100之间的随机数</span>
-            btn_begin<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>                              <span class="token comment" spellcheck="true">//停用开始按钮</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+            //生成一个随机数
+            G_int_num = G_random.Next(1, 100);                          //生成一个1-100之间的随机数
+            btn_begin.Enabled = false;                              //停用开始按钮
+        }
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 注册生成按钮的Click事件的方法</span>
-        <span class="token comment" spellcheck="true">//注册按钮的Click事件的方法</span>
-        <span class="token keyword">void</span> <span class="token function">bt_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Control P_control <span class="token operator">=</span> sender <span class="token keyword">as</span> Control<span class="token punctuation">;</span>                          <span class="token comment" spellcheck="true">//将sender转换为control类型对象</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>P_control<span class="token punctuation">.</span>Name<span class="token punctuation">)</span> <span class="token operator">></span> G_int_num<span class="token punctuation">)</span>                  <span class="token comment" spellcheck="true">//强制转化并判断猜测数值与随机产生的数值之间的差距</span>
-            <span class="token punctuation">{</span>
-                P_control<span class="token punctuation">.</span>BackColor <span class="token operator">=</span> Color<span class="token punctuation">.</span>Red<span class="token punctuation">;</span>                        <span class="token comment" spellcheck="true">//设置按钮背景为红色</span>
-                P_control<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>                              <span class="token comment" spellcheck="true">//设置按钮停用</span>
-                P_control<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"大"</span><span class="token punctuation">;</span>                                   <span class="token comment" spellcheck="true">//更改按钮文本--猜测数值偏大</span>
-                <span class="token keyword">return</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>P_control<span class="token punctuation">.</span>Name<span class="token punctuation">)</span> <span class="token operator">&lt;</span> G_int_num<span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                P_control<span class="token punctuation">.</span>BackColor <span class="token operator">=</span> Color<span class="token punctuation">.</span>Red<span class="token punctuation">;</span>                        <span class="token comment" spellcheck="true">//设置按钮背景为红色</span>
-                P_control<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>                              <span class="token comment" spellcheck="true">//设置按钮停用</span>
-                P_control<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"小"</span><span class="token punctuation">;</span>                                       <span class="token comment" spellcheck="true">//更改按钮文本--猜测数偏小</span>
-                <span class="token keyword">return</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>P_control<span class="token punctuation">.</span>Name<span class="token punctuation">)</span> <span class="token operator">==</span> G_int_num<span class="token punctuation">)</span>                 <span class="token comment" spellcheck="true">//当猜测数值与随机产生的数值相等时</span>
-            <span class="token punctuation">{</span>
-                G_th<span class="token punctuation">.</span><span class="token function">Abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                                   <span class="token comment" spellcheck="true">//终止计数线程</span>
-                <span class="token comment" spellcheck="true">//显示游戏信息</span>
-                MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">Format</span><span class="token punctuation">(</span><span class="token string">"恭喜你猜对了！共猜了{0}次 用时{1}秒"</span><span class="token punctuation">,</span> <span class="token function">GetCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lb_time<span class="token punctuation">.</span>Text<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"恭喜！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                btn_begin<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>                           <span class="token comment" spellcheck="true">//启用开始按钮</span>
-                <span class="token keyword">return</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+        #region 注册生成按钮的Click事件的方法
+        //注册按钮的Click事件的方法
+        void bt_Click(object sender, EventArgs e)
+        {
+            Control P_control = sender as Control;                          //将sender转换为control类型对象
+            if (int.Parse(P_control.Name) &gt; G_int_num)                  //强制转化并判断猜测数值与随机产生的数值之间的差距
+            {
+                P_control.BackColor = Color.Red;                        //设置按钮背景为红色
+                P_control.Enabled = false;                              //设置按钮停用
+                P_control.Text = &quot;大&quot;;                                   //更改按钮文本--猜测数值偏大
+                return;
+            }
+            if (int.Parse(P_control.Name) &lt; G_int_num)
+            {
+                P_control.BackColor = Color.Red;                        //设置按钮背景为红色
+                P_control.Enabled = false;                              //设置按钮停用
+                P_control.Text = &quot;小&quot;;                                       //更改按钮文本--猜测数偏小
+                return;
+            }
+            if (int.Parse(P_control.Name) == G_int_num)                 //当猜测数值与随机产生的数值相等时
+            {
+                G_th.Abort();                                                   //终止计数线程
+                //显示游戏信息
+                MessageBox.Show(string.Format(&quot;恭喜你猜对了！共猜了{0}次 用时{1}秒&quot;, GetCount(), lb_time.Text), &quot;恭喜！&quot;);
+                btn_begin.Enabled = true;                           //启用开始按钮
+                return;
+            }
+        }
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 计数方法</span>
-        <span class="token comment" spellcheck="true">/// &lt;summary></span>
-        <span class="token comment" spellcheck="true">/// 用于查找窗体中Enable属性为False控件的数量    --遍历窗体中的控件</span>
-        <span class="token comment" spellcheck="true">/// 用于计算玩家有多少次没有猜中</span>
-        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
-        <span class="token comment" spellcheck="true">/// &lt;returns>返回没有猜中数量&lt;/returns></span>
-        <span class="token keyword">string</span> <span class="token function">GetCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">int</span> P_int_temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                                             <span class="token comment" spellcheck="true">//初始化计数器</span>
-            <span class="token keyword">foreach</span> <span class="token punctuation">(</span>Control c <span class="token keyword">in</span> Controls<span class="token punctuation">)</span>                                     <span class="token comment" spellcheck="true">//遍历控件集合</span>
-            <span class="token punctuation">{</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>c<span class="token punctuation">.</span>Enabled<span class="token punctuation">)</span> P_int_temp<span class="token operator">++</span><span class="token punctuation">;</span>                               <span class="token comment" spellcheck="true">//计数器累加</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">return</span> P_int_temp<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                               <span class="token comment" spellcheck="true">//返回计数器信息</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+        #region 计数方法
+        /// &lt;summary&gt;
+        /// 用于查找窗体中Enable属性为False控件的数量    --遍历窗体中的控件
+        /// 用于计算玩家有多少次没有猜中
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;返回没有猜中数量&lt;/returns&gt;
+        string GetCount()
+        {
+            int P_int_temp = 0;                                             //初始化计数器
+            foreach (Control c in Controls)                                     //遍历控件集合
+            {
+                if (!c.Enabled) P_int_temp++;                               //计数器累加
+            }
+            return P_int_temp.ToString();                               //返回计数器信息
+        }
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 清除控件方法</span>
-        <span class="token comment" spellcheck="true">/// &lt;summary></span>
-        <span class="token comment" spellcheck="true">/// 用于清空窗体中动态生成的按钮</span>
-        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
-        <span class="token keyword">void</span> <span class="token function">RemoveControl</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                                            <span class="token comment" spellcheck="true">//自定义的清除方法</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>                               <span class="token comment" spellcheck="true">//开始遍历100个按钮</span>
-            <span class="token punctuation">{</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>Controls<span class="token punctuation">.</span><span class="token function">ContainsKey</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true">//窗体中是否有此按钮</span>
-                <span class="token punctuation">{</span>
-                    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> Controls<span class="token punctuation">.</span>Count<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>                <span class="token comment" spellcheck="true">//遍历窗体控件集合</span>
-                    <span class="token punctuation">{</span>
-                        <span class="token keyword">if</span> <span class="token punctuation">(</span>Controls<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>Name <span class="token operator">==</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//是否查找到按钮</span>
-                        <span class="token punctuation">{</span>
-                            Controls<span class="token punctuation">.</span><span class="token function">RemoveAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>                           <span class="token comment" spellcheck="true">//删除指定按钮</span>
-                            <span class="token keyword">break</span><span class="token punctuation">;</span>
-                        <span class="token punctuation">}</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+        #region 清除控件方法
+        /// &lt;summary&gt;
+        /// 用于清空窗体中动态生成的按钮
+        /// &lt;/summary&gt;
+        void RemoveControl()                                            //自定义的清除方法
+        {
+            for (int i = 0; i &lt; 100; i++)                               //开始遍历100个按钮
+            {
+                if (Controls.ContainsKey((i + 1).ToString()))             //窗体中是否有此按钮
+                {
+                    for (int j = 0; j &lt; Controls.Count; j++)                //遍历窗体控件集合
+                    {
+                        if (Controls[j].Name == (i + 1).ToString())         //是否查找到按钮
+                        {
+                            Controls.RemoveAt(j);                           //删除指定按钮
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
 
-        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 窗体的FormClosing事件</span>
-        <span class="token comment" spellcheck="true">//窗体的FormClosing事件</span>
-        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Frm_Main_FormClosing</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> FormClosingEventArgs e<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>G_th <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                G_th<span class="token punctuation">.</span><span class="token function">Abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+        #region 窗体的FormClosing事件
+        //窗体的FormClosing事件
+        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (G_th != null)
+            {
+                G_th.Abort();
+            }
 
-            Environment<span class="token punctuation">.</span><span class="token function">Exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                <span class="token comment" spellcheck="true">//强行关闭窗体</span>
-        <span class="token punctuation">}</span>
-        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            Environment.Exit(0);                                //强行关闭窗体
+        }
+        #endregion
+    }
+}</code></pre>
 <h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp多线程猜数字游戏/测试结果.png" alt="测试结果"></center>
 
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>程序流程分析</strong>:</p>
@@ -1393,7 +1392,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

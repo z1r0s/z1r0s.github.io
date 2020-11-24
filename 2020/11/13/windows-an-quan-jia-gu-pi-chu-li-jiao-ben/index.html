@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -499,14 +498,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    17 分
                 </div>
                 
 
@@ -522,349 +521,349 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>​        此安全加固脚本以文件驱动，可在<code>win.ini</code>文件中设置部分参数，其他参数脚本中已默认设置，若想要修改则需要打开批处理中进行设置。</p>
-<h1 id="WinSecurityReinforcement-bat内容"><a href="#WinSecurityReinforcement-bat内容" class="headerlink" title="WinSecurityReinforcement.bat内容"></a>WinSecurityReinforcement.bat内容</h1><pre class="line-numbers language-powershell"><code class="language-powershell">@rem 适用操作系统：
+<h1 id="WinSecurityReinforcement-bat内容"><a href="#WinSecurityReinforcement-bat内容" class="headerlink" title="WinSecurityReinforcement.bat内容"></a>WinSecurityReinforcement.bat内容</h1><pre><code class="powershell">@rem 适用操作系统：
 @rem Windows Server 2008
 @rem Windows Server 2012
 
 
 @rem 脚本更新
-@rem 20180116 发现【启用并正确配置WSUS】部分配置不生效<span class="token punctuation">,</span>添加部分注册表配置<span class="token punctuation">,</span>配置完重启生效<span class="token punctuation">,</span>不过组策略里还是显示未配置<span class="token punctuation">,</span>暂未找到原因。
-@rem 20180122 在“正确配置WSUS”项中新增了一项配置：对于有已登录用户的计算机<span class="token punctuation">,</span>计划的自动更新安装不执行重新启动。
-@rem 20180208 更新关于组策略不显示自动更新相关配置的解释：组策略的修改结果会保存在两个地方：1<span class="token punctuation">.</span> 注册表  2<span class="token punctuation">.</span> 组策略历史文件（C:\WINDOWS\system32\GroupPolicy\Machine\Registry<span class="token punctuation">)</span>注册表里的结果是给应用对象读取来生效的；组策略历史文件是组策略读取的，只是组策略的状态记录，所以组策略里显示“未配置”。
-@rem 20180614 注释“禁用DHCP Client服务”<span class="token punctuation">,</span>Server 2012中Network Location Awareness服务和DHCP Client存在依存关系<span class="token punctuation">,</span>禁用DHCP服务会导致网络配置失效
-@rem 20190711 配置参数分离<span class="token punctuation">,</span>添加NTP配置
-@rem 20201113 禁用未登录前关机权限<span class="token punctuation">,</span>限制远程登录空闲断开时间（默认15分钟）
+@rem 20180116 发现【启用并正确配置WSUS】部分配置不生效,添加部分注册表配置,配置完重启生效,不过组策略里还是显示未配置,暂未找到原因。
+@rem 20180122 在“正确配置WSUS”项中新增了一项配置：对于有已登录用户的计算机,计划的自动更新安装不执行重新启动。
+@rem 20180208 更新关于组策略不显示自动更新相关配置的解释：组策略的修改结果会保存在两个地方：1. 注册表  2. 组策略历史文件（C:\WINDOWS\system32\GroupPolicy\Machine\Registry)注册表里的结果是给应用对象读取来生效的；组策略历史文件是组策略读取的，只是组策略的状态记录，所以组策略里显示“未配置”。
+@rem 20180614 注释“禁用DHCP Client服务”,Server 2012中Network Location Awareness服务和DHCP Client存在依存关系,禁用DHCP服务会导致网络配置失效
+@rem 20190711 配置参数分离,添加NTP配置
+@rem 20201113 禁用未登录前关机权限,限制远程登录空闲断开时间（默认15分钟）
 
 
-@<span class="token function">echo</span> off
+@echo off
 title Windows 安全加固脚本
 color 06
 
 
 :: 权限代码
-<span class="token operator">%</span>1 mshta vbscript:CreateObject<span class="token punctuation">(</span><span class="token string">"Shell.Application"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>ShellExecute<span class="token punctuation">(</span><span class="token string">"cmd.exe"</span><span class="token punctuation">,</span><span class="token string">"/c %~s0 ::"</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">,</span><span class="token string">"runas"</span><span class="token punctuation">,</span>1<span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>close<span class="token punctuation">)</span> &amp;&amp; <span class="token keyword">exit</span>
+%1 mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;cmd.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,1)(window.close) &amp;&amp; exit
 
 
-<span class="token function">echo</span> <span class="token namespace">[Unicode]</span>>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> Unicode=yes>>win<span class="token punctuation">.</span>inf
+echo [Unicode]&gt;win.inf
+echo Unicode=yes&gt;&gt;win.inf
 
 
-<span class="token function">echo</span> <span class="token namespace">[Version]</span>>>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> signature=<span class="token string">"<span class="token variable">$CHICAGO</span>$"</span>>>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> Revision=1 >>win<span class="token punctuation">.</span>inf
+echo [Version]&gt;&gt;win.inf
+echo signature=&quot;$CHICAGO$&quot;&gt;&gt;win.inf
+echo Revision=1 &gt;&gt;win.inf
 
 
-<span class="token function">echo</span> <span class="token namespace">[System Access]</span>>>win<span class="token punctuation">.</span>inf
+echo [System Access]&gt;&gt;win.inf
 
-<span class="token keyword">for</span> <span class="token operator">/</span>f <span class="token string">"delims="</span> <span class="token operator">%</span><span class="token operator">%</span>i in <span class="token punctuation">(</span><span class="token string">'type "win.ini"^| find /i "="'</span><span class="token punctuation">)</span> <span class="token keyword">do</span> <span class="token function">set</span> <span class="token operator">%</span><span class="token operator">%</span>i
+for /f &quot;delims=&quot; %%i in (&#39;type &quot;win.ini&quot;^| find /i &quot;=&quot;&#39;) do set %%i
 
 @rem 账户设置：
 @rem 更改管理员账户名称为admin
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 更改管理员帐户名称为<span class="token operator">%</span>admin_name<span class="token operator">%</span>
-<span class="token function">echo</span> NewAdministratorName = <span class="token string">"%admin_name%"</span> >>win<span class="token punctuation">.</span>inf
+echo **** 更改管理员帐户名称为%admin_name%
+echo NewAdministratorName = &quot;%admin_name%&quot; &gt;&gt;win.inf
 
 @rem 启用密码复杂度策略
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 启用密码复杂度策略
-<span class="token function">echo</span> PasswordComplexity = 1 >>win<span class="token punctuation">.</span>inf
+echo **** 启用密码复杂度策略
+echo PasswordComplexity = 1 &gt;&gt;win.inf
 
 @rem 配置密码长度最小值为minlen
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置密码长度最小值为<span class="token operator">%</span>minlen<span class="token operator">%</span>
-<span class="token function">echo</span> MinimumPasswordLength = <span class="token operator">%</span>minlen<span class="token operator">%</span> >>win<span class="token punctuation">.</span>inf
+echo **** 配置密码长度最小值为%minlen%
+echo MinimumPasswordLength = %minlen% &gt;&gt;win.inf
 
 @rem 配置“强制密码历史”
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 记住<span class="token operator">%</span>remember<span class="token operator">%</span>次已使用的密码
-<span class="token function">echo</span> PasswordHistorySize = <span class="token operator">%</span>remember<span class="token operator">%</span> >>win<span class="token punctuation">.</span>inf
+echo **** 记住%remember%次已使用的密码
+echo PasswordHistorySize = %remember% &gt;&gt;win.inf
 
-@rem 配置密码最长使用期限（可选<span class="token punctuation">,</span>缺省不配置）
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 设置180天更改密码（可选）
-<span class="token function">echo</span> MaximumPasswordAge = <span class="token operator">%</span>PASS_MAX_DAYS<span class="token operator">%</span> >>win<span class="token punctuation">.</span>inf
+@rem 配置密码最长使用期限（可选,缺省不配置）
+echo **** 设置180天更改密码（可选）
+echo MaximumPasswordAge = %PASS_MAX_DAYS% &gt;&gt;win.inf
 
 @rem 配置密码最短使用期限（可选
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 设置0天更改密码（可选）
-<span class="token function">echo</span> MinimumPasswordAge = <span class="token operator">%</span>PASS_MIN_DAYS<span class="token operator">%</span> >>win<span class="token punctuation">.</span>inf
+echo **** 设置0天更改密码（可选）
+echo MinimumPasswordAge = %PASS_MIN_DAYS% &gt;&gt;win.inf
 
 @rem 配置帐户锁定阈值为deny
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置帐户锁定阈值为deny
-<span class="token function">echo</span> LockoutBadCount = <span class="token operator">%</span>deny<span class="token operator">%</span>>>win<span class="token punctuation">.</span>inf
+echo **** 配置帐户锁定阈值为deny
+echo LockoutBadCount = %deny%&gt;&gt;win.inf
 
 @rem 配置帐户锁定时间
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 设置帐户锁定时间为5分钟
-<span class="token function">echo</span> LockoutDuration = 5 >>win<span class="token punctuation">.</span>inf
+echo **** 设置帐户锁定时间为5分钟
+echo LockoutDuration = 5 &gt;&gt;win.inf
 
 @rem 配置“复位帐户锁定计数器”时间
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 5分钟后重置帐户锁定计数器
-<span class="token function">echo</span> ResetLockoutCount = 5 >>win<span class="token punctuation">.</span>inf
+echo **** 5分钟后重置帐户锁定计数器
+echo ResetLockoutCount = 5 &gt;&gt;win.inf
 
 @rem 删除或禁用高危账户
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 禁用Guest用户
-<span class="token function">echo</span> EnableGuestAccount = 0 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span>=
+echo **** 禁用Guest用户
+echo EnableGuestAccount = 0 &gt;&gt;win.inf
+echo=
 
 
-<span class="token function">echo</span> <span class="token namespace">[Event Audit]</span>>>win<span class="token punctuation">.</span>inf
+echo [Event Audit]&gt;&gt;win.inf
 @rem 配置日志审核策略
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置日志审核策略
-<span class="token function">echo</span> AuditSystemEvents = 3 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> AuditLogonEvents = 3 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> AuditObjectAccess = 3 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> AuditPrivilegeUse = 3 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> AuditPolicyChange = 3 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> AuditAccountManage = 3 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> AuditProcessTracking = 3 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> AuditDSAccess = 3 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span> AuditAccountLogon = 3 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span>=
+echo **** 配置日志审核策略
+echo AuditSystemEvents = 3 &gt;&gt;win.inf
+echo AuditLogonEvents = 3 &gt;&gt;win.inf
+echo AuditObjectAccess = 3 &gt;&gt;win.inf
+echo AuditPrivilegeUse = 3 &gt;&gt;win.inf
+echo AuditPolicyChange = 3 &gt;&gt;win.inf
+echo AuditAccountManage = 3 &gt;&gt;win.inf
+echo AuditProcessTracking = 3 &gt;&gt;win.inf
+echo AuditDSAccess = 3 &gt;&gt;win.inf
+echo AuditAccountLogon = 3 &gt;&gt;win.inf
+echo=
 
 @rem 正确配置Windows日志
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 正确配置Windows日志（当日志文件大于128M时按需覆盖事件）
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\System"</span> <span class="token operator">/</span>v MaxSize <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x8000000 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\System"</span> <span class="token operator">/</span>v Retention <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000000 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application"</span> <span class="token operator">/</span>v MaxSize <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x8000000 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application"</span> <span class="token operator">/</span>v Retention <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000000 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Security"</span> <span class="token operator">/</span>v MaxSize <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x8000000 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Security"</span> <span class="token operator">/</span>v Retention <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000000 <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 正确配置Windows日志（当日志文件大于128M时按需覆盖事件）
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\System&quot; /v MaxSize /t REG_DWORD /d 0x8000000 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\System&quot; /v Retention /t REG_DWORD /d 0x00000000 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application&quot; /v MaxSize /t REG_DWORD /d 0x8000000 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application&quot; /v Retention /t REG_DWORD /d 0x00000000 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Security&quot; /v MaxSize /t REG_DWORD /d 0x8000000 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Security&quot; /v Retention /t REG_DWORD /d 0x00000000 /f
+echo=
 
 
-<span class="token function">echo</span> <span class="token namespace">[Privilege Rights]</span>>>win<span class="token punctuation">.</span>inf
+echo [Privilege Rights]&gt;&gt;win.inf
 @rem 限制可关闭系统的帐户和组
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置仅“Administrators”用户组可关闭系统
-<span class="token function">echo</span> SeShutdownPrivilege = <span class="token operator">*</span>S<span class="token operator">-</span>1<span class="token operator">-</span>5<span class="token operator">-</span>32<span class="token operator">-</span>544 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span>=
+echo **** 配置仅“Administrators”用户组可关闭系统
+echo SeShutdownPrivilege = *S-1-5-32-544 &gt;&gt;win.inf
+echo=
 
 @rem 限制可从远端关闭系统的帐户和组
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置仅“Administrators”用户组可从远端关闭系统
-<span class="token function">echo</span> SeRemoteShutdownPrivilege = <span class="token operator">*</span>S<span class="token operator">-</span>1<span class="token operator">-</span>5<span class="token operator">-</span>32<span class="token operator">-</span>544 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span>=
+echo **** 配置仅“Administrators”用户组可从远端关闭系统
+echo SeRemoteShutdownPrivilege = *S-1-5-32-544 &gt;&gt;win.inf
+echo=
 
 @rem 限制“取得文件或其它对象的所有权”的帐户和组
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置仅“Administrators”用户组可取得文件或其它对象的所有权
-<span class="token function">echo</span> SeTakeOwnershipPrivilege = <span class="token operator">*</span>S<span class="token operator">-</span>1<span class="token operator">-</span>5<span class="token operator">-</span>32<span class="token operator">-</span>544 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span>=
+echo **** 配置仅“Administrators”用户组可取得文件或其它对象的所有权
+echo SeTakeOwnershipPrivilege = *S-1-5-32-544 &gt;&gt;win.inf
+echo=
 
 @rem 配置“允许本地登录”策略
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置仅“Administrators”和“Users”用户组可本地登录
-<span class="token function">echo</span> SeInteractiveLogonRight = <span class="token operator">*</span>S<span class="token operator">-</span>1<span class="token operator">-</span>5<span class="token operator">-</span>32<span class="token operator">-</span>544<span class="token punctuation">,</span><span class="token operator">*</span>S<span class="token operator">-</span>1<span class="token operator">-</span>5<span class="token operator">-</span>32<span class="token operator">-</span>545 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span>=
+echo **** 配置仅“Administrators”和“Users”用户组可本地登录
+echo SeInteractiveLogonRight = *S-1-5-32-544,*S-1-5-32-545 &gt;&gt;win.inf
+echo=
 
 @rem 配置“从网络访问此计算机”策略
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置仅“Administrators”和“Users”用户组可从网络访问此计算机
-<span class="token function">echo</span> SeNetworkLogonRight = <span class="token operator">*</span>S<span class="token operator">-</span>1<span class="token operator">-</span>5<span class="token operator">-</span>32<span class="token operator">-</span>544<span class="token punctuation">,</span><span class="token operator">*</span>S<span class="token operator">-</span>1<span class="token operator">-</span>5<span class="token operator">-</span>32<span class="token operator">-</span>545 >>win<span class="token punctuation">.</span>inf
-<span class="token function">echo</span>=
+echo **** 配置仅“Administrators”和“Users”用户组可从网络访问此计算机
+echo SeNetworkLogonRight = *S-1-5-32-544,*S-1-5-32-545 &gt;&gt;win.inf
+echo=
 
 @rem 删除可匿名访问的共享和命名管道
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 将“网络访问: 可匿名访问的共享”、“网络访问: 可匿名访问的命名管道”<span class="token punctuation">,</span>配置为空
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanServer\Parameters"</span> <span class="token operator">/</span>v NullSessionShares <span class="token operator">/</span>t REG_MULTI_SZ <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanServer\Parameters"</span> <span class="token operator">/</span>v NullSessionPipes <span class="token operator">/</span>t REG_MULTI_SZ <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 将“网络访问: 可匿名访问的共享”、“网络访问: 可匿名访问的命名管道”,配置为空
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanServer\Parameters&quot; /v NullSessionShares /t REG_MULTI_SZ /f
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanServer\Parameters&quot; /v NullSessionPipes /t REG_MULTI_SZ /f
+echo=
 
 @rem 限制匿名用户连接
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 将“网络访问: 不允许 SAM 帐户和共享的匿名枚举”、“网络访问: 不允许 SAM 帐户的匿名枚举”<span class="token punctuation">,</span>配置为“启用”
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa"</span> <span class="token operator">/</span>v restrictanonymoussam <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000001 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa"</span> <span class="token operator">/</span>v restrictanonymous <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000001 <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 将“网络访问: 不允许 SAM 帐户和共享的匿名枚举”、“网络访问: 不允许 SAM 帐户的匿名枚举”,配置为“启用”
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa&quot; /v restrictanonymoussam /t REG_DWORD /d 0x00000001 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa&quot; /v restrictanonymous /t REG_DWORD /d 0x00000001 /f
+echo=
 
-@rem 更改SNMP服务的默认public团体（需先安装SNMP服务<span class="token punctuation">,</span>自定义password、IP）
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 修改SNMP团体字为：SNMP_password<span class="token punctuation">,</span>指定管理端SNMP_IP
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\ValidCommunities"</span> <span class="token operator">/</span>v <span class="token operator">%</span>SNMP_password<span class="token operator">%</span> <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000004 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\PermittedManagers"</span> <span class="token operator">/</span>v 1 <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d <span class="token operator">%</span>SNMP_ip<span class="token operator">%</span> <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+@rem 更改SNMP服务的默认public团体（需先安装SNMP服务,自定义password、IP）
+echo **** 修改SNMP团体字为：SNMP_password,指定管理端SNMP_IP
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\ValidCommunities&quot; /v %SNMP_password% /t REG_DWORD /d 0x00000004 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\PermittedManagers&quot; /v 1 /t REG_SZ /d %SNMP_ip% /f
+echo=
 
 @rem 关闭Windows自动播放
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 启用“关闭自动播放策略”且对所有驱动器生效
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"</span> <span class="token operator">/</span>v NoDriveTypeAutoRun <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x000000ff <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"</span> <span class="token operator">/</span>v NoDriveTypeAutoRun <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x000000ff <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 启用“关闭自动播放策略”且对所有驱动器生效
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer&quot; /v NoDriveTypeAutoRun /t REG_DWORD /d 0x000000ff /f
+reg add &quot;HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer&quot; /v NoDriveTypeAutoRun /t REG_DWORD /d 0x000000ff /f
+echo=
 
 @rem 禁止Windows自动登录
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 禁止Windows自动登录
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"</span> <span class="token operator">/</span>v AutoAdminLogon <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d 0 <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 禁止Windows自动登录
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v AutoAdminLogon /t REG_SZ /d 0 /f
+echo=
 
 @rem 正确配置“锁定会话时显示用户信息”策略
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置锁定会话时不显示用户信息
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"</span> <span class="token operator">/</span>v DontDisplayLockedUserId <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000003 <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 配置锁定会话时不显示用户信息
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v DontDisplayLockedUserId /t REG_DWORD /d 0x00000003 /f
+echo=
 
 @rem 正确配置“提示用户在密码过期之前进行更改”策略
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置在密码过期前14天提示更改密码
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon"</span> <span class="token operator">/</span>v PasswordExpiryWarning <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x0000000e <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 配置在密码过期前14天提示更改密码
+reg add &quot;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v PasswordExpiryWarning /t REG_DWORD /d 0x0000000e /f
+echo=
 
 @rem 禁用Windows磁盘默认共享
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 删除并禁用Windows磁盘默认共享
-<span class="token keyword">for</span> <span class="token operator">/</span>f <span class="token string">"tokens=1 delims= "</span> <span class="token operator">%</span><span class="token operator">%</span>i in <span class="token punctuation">(</span><span class="token string">'net share'</span><span class="token punctuation">)</span> <span class="token keyword">do</span> <span class="token punctuation">(</span>
-net share <span class="token operator">%</span><span class="token operator">%</span>i <span class="token operator">/</span><span class="token function">del</span> <span class="token punctuation">)</span> >nul 2>nul
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanServer\Parameters"</span> <span class="token operator">/</span>v AutoShareServer <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000000 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanServer\Parameters"</span> <span class="token operator">/</span>v AutoShareWks <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000000 <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 删除并禁用Windows磁盘默认共享
+for /f &quot;tokens=1 delims= &quot; %%i in (&#39;net share&#39;) do (
+net share %%i /del ) &gt;nul 2&gt;nul
+reg add &quot;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanServer\Parameters&quot; /v AutoShareServer /t REG_DWORD /d 0x00000000 /f
+reg add &quot;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanServer\Parameters&quot; /v AutoShareWks /t REG_DWORD /d 0x00000000 /f
+echo=
 
 @rem 共享文件夹的权限设置（供运维人员参考）
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 将共享文件夹中“Everyone<span class="token punctuation">(</span>任何人<span class="token punctuation">)</span>”权限删掉
-<span class="token keyword">for</span> <span class="token operator">/</span>f <span class="token string">"tokens=2"</span> <span class="token operator">%</span><span class="token operator">%</span>i in <span class="token punctuation">(</span><span class="token string">'net share'</span><span class="token punctuation">)</span> <span class="token keyword">do</span> <span class="token punctuation">(</span>
-cacls <span class="token operator">%</span><span class="token operator">%</span>i <span class="token operator">/</span>r <span class="token string">"everyone"</span> <span class="token operator">/</span>e <span class="token punctuation">)</span> >nul 2>nul
-<span class="token function">echo</span>=
+echo **** 将共享文件夹中“Everyone(任何人)”权限删掉
+for /f &quot;tokens=2&quot; %%i in (&#39;net share&#39;) do (
+cacls %%i /r &quot;everyone&quot; /e ) &gt;nul 2&gt;nul
+echo=
 
-@rem 启用Windows数据执行保护<span class="token punctuation">(</span>DEP<span class="token punctuation">)</span>
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 设置仅为基本Windows程序和服务启用DEP
+@rem 启用Windows数据执行保护(DEP)
+echo **** 设置仅为基本Windows程序和服务启用DEP
 @rem Server 2008:
-bcdedit <span class="token operator">/</span><span class="token function">set</span> nx OptIn
+bcdedit /set nx OptIn
 @rem Server 2003:
-@rem <span class="token operator">/</span>noexecute=optin
-<span class="token function">echo</span>=
+@rem /noexecute=optin
+echo=
 
 @rem 启用“不显示最后用户名”策略
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 配置登录屏幕上不要显示上次登录的用户名
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System"</span> <span class="token operator">/</span>v DontDisplayLastUserName <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000001 <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 配置登录屏幕上不要显示上次登录的用户名
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System&quot; /v DontDisplayLastUserName /t REG_DWORD /d 0x00000001 /f
+echo=
 
 @rem 启用并正确配置WSUS（自定义WSUS地址）
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 启用并正确配置WSUS（自动下载并通知安装）
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"</span> <span class="token operator">/</span>v AUOptions <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000003 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"</span> <span class="token operator">/</span>v NoAutoRebootWithLoggedOnUsers <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000001 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"</span> <span class="token operator">/</span>v NoAutoUpdate <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000000 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"</span> <span class="token operator">/</span>v ScheduledInstallDay <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000000 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"</span> <span class="token operator">/</span>v ScheduledInstallTime <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000003 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"</span> <span class="token operator">/</span>v UseWUServer <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000001 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"</span> <span class="token operator">/</span>v WUServer <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d <span class="token operator">%</span>WSUS_ip<span class="token operator">%</span> <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"</span> <span class="token operator">/</span>v WUStatusServer <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d <span class="token operator">%</span>WSUS_ip<span class="token operator">%</span> <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 启用并正确配置WSUS（自动下载并通知安装）
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU&quot; /v AUOptions /t REG_DWORD /d 0x00000003 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU&quot; /v NoAutoRebootWithLoggedOnUsers /t REG_DWORD /d 0x00000001 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU&quot; /v NoAutoUpdate /t REG_DWORD /d 0x00000000 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU&quot; /v ScheduledInstallDay /t REG_DWORD /d 0x00000000 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU&quot; /v ScheduledInstallTime /t REG_DWORD /d 0x00000003 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU&quot; /v UseWUServer /t REG_DWORD /d 0x00000001 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate&quot; /v WUServer /t REG_SZ /d %WSUS_ip% /f
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate&quot; /v WUStatusServer /t REG_SZ /d %WSUS_ip% /f
+echo=
 
 @rem 启用并正确配置NTP（自定义NTP地址）
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\W32Time\Parameters"</span> <span class="token operator">/</span>v NtpServer <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d <span class="token operator">%</span>NTP_ip<span class="token operator">%</span><span class="token punctuation">,</span>0x9 <span class="token operator">/</span>f
-w32tm <span class="token operator">/</span>config <span class="token operator">/</span>manualpeerlist:<span class="token string">"%NTP_ip%"</span> <span class="token operator">/</span>syncfromflags:manual <span class="token operator">/</span>update
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\W32Time\TimeProviders\NtpServer"</span> <span class="token operator">/</span>v Enabled <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000001 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\W32Time\Config"</span> <span class="token operator">/</span>v AnnounceFlags <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000005 <span class="token operator">/</span>f
-<span class="token function">sc</span> config <span class="token string">"W32Time"</span> <span class="token function">start</span>= delayed<span class="token operator">-</span>auto >nul 2>nul
-netsh firewall add portopening protocol = UDP port =123 name = NTPSERVER >nul 2>nul
-net <span class="token function">start</span> w32time >nul 2>nul <span class="token punctuation">|</span><span class="token punctuation">|</span> net stop w32time >nul 2>nul &amp;&amp; net <span class="token function">start</span> w32time >nul 2>nul &amp;&amp; w32tm <span class="token operator">/</span>resync >nul 2>nul
-w32tm <span class="token operator">/</span>resync >nul 2>nul
-<span class="token function">echo</span>=
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\W32Time\Parameters&quot; /v NtpServer /t REG_SZ /d %NTP_ip%,0x9 /f
+w32tm /config /manualpeerlist:&quot;%NTP_ip%&quot; /syncfromflags:manual /update
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\W32Time\TimeProviders\NtpServer&quot; /v Enabled /t REG_DWORD /d 0x00000001 /f
+reg add &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\W32Time\Config&quot; /v AnnounceFlags /t REG_DWORD /d 0x00000005 /f
+sc config &quot;W32Time&quot; start= delayed-auto &gt;nul 2&gt;nul
+netsh firewall add portopening protocol = UDP port =123 name = NTPSERVER &gt;nul 2&gt;nul
+net start w32time &gt;nul 2&gt;nul || net stop w32time &gt;nul 2&gt;nul &amp;&amp; net start w32time &gt;nul 2&gt;nul &amp;&amp; w32tm /resync &gt;nul 2&gt;nul
+w32tm /resync &gt;nul 2&gt;nul
+echo=
 
 @rem 启用并正确配置屏幕保护程序
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 启用屏幕保护程序<span class="token punctuation">,</span>等待时间为10分钟<span class="token punctuation">,</span>并设置在恢复时需要密码保护
-reg add <span class="token string">"HKEY_CURRENT_USER\Control Panel\Desktop"</span> <span class="token operator">/</span>v SCRNSAVE<span class="token punctuation">.</span>EXE <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d C:\Windows\system32\scrnsave<span class="token punctuation">.</span>scr <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_CURRENT_USER\Control Panel\Desktop"</span> <span class="token operator">/</span>v ScreenSaverIsSecure <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d 1 <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_CURRENT_USER\Control Panel\Desktop"</span> <span class="token operator">/</span>v ScreenSaveTimeOut <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d <span class="token operator">%</span>TMOUT<span class="token operator">%</span> <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+echo **** 启用屏幕保护程序,等待时间为10分钟,并设置在恢复时需要密码保护
+reg add &quot;HKEY_CURRENT_USER\Control Panel\Desktop&quot; /v SCRNSAVE.EXE /t REG_SZ /d C:\Windows\system32\scrnsave.scr /f
+reg add &quot;HKEY_CURRENT_USER\Control Panel\Desktop&quot; /v ScreenSaverIsSecure /t REG_SZ /d 1 /f
+reg add &quot;HKEY_CURRENT_USER\Control Panel\Desktop&quot; /v ScreenSaveTimeOut /t REG_SZ /d %TMOUT% /f
+echo=
 
-@rem 禁用“登录时无须按 Ctrl<span class="token operator">+</span>Alt<span class="token operator">+</span><span class="token function">Del</span>”策略
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> “交互式登录: 无须<span class="token punctuation">(</span>不需要<span class="token punctuation">)</span>按 Ctrl<span class="token operator">+</span>Alt<span class="token operator">+</span><span class="token function">Del</span>”<span class="token punctuation">,</span>配置为“已禁用<span class="token punctuation">(</span>停用<span class="token punctuation">)</span>”
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System"</span> <span class="token operator">/</span>v disablecad <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000000 <span class="token operator">/</span>f
-<span class="token function">echo</span>=
+@rem 禁用“登录时无须按 Ctrl+Alt+Del”策略
+echo **** “交互式登录: 无须(不需要)按 Ctrl+Alt+Del”,配置为“已禁用(停用)”
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System&quot; /v disablecad /t REG_DWORD /d 0x00000000 /f
+echo=
 
 @rem 禁用不必要的服务
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 禁用以下服务：Windows Internet Name Service <span class="token punctuation">(</span>WINS<span class="token punctuation">)</span>、Remote Access Connection Manager、Simple TCP<span class="token operator">/</span>IP Services、Simple Mail Transport Protocol <span class="token punctuation">(</span>SMTP<span class="token punctuation">)</span> 、DHCP Client、DHCP Server、Message Queuing
-wmic service where name=<span class="token string">"SimpTcp"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"SimpTcp"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"SMTPSVC"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"SMTPSVC"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"WINS"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"WINS"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"RasMan"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"RasMan"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"DHCPServer"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"DHCPServer"</span> <span class="token function">start</span>= disabled >nul 2>nul
+echo **** 禁用以下服务：Windows Internet Name Service (WINS)、Remote Access Connection Manager、Simple TCP/IP Services、Simple Mail Transport Protocol (SMTP) 、DHCP Client、DHCP Server、Message Queuing
+wmic service where name=&quot;SimpTcp&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;SimpTcp&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;SMTPSVC&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;SMTPSVC&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;WINS&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;WINS&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;RasMan&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;RasMan&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;DHCPServer&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;DHCPServer&quot; start= disabled &gt;nul 2&gt;nul
 @rem 禁用DHCP Client（取消注释即可生效）
-@rem wmic service where name=<span class="token string">"DHCP"</span> call stopservice >nul 2>nul
-@rem <span class="token function">sc</span> config <span class="token string">"DHCP"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"MSMQ"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"MSMQ"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"BITS"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"BITS"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"Browser"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"Browser"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"DPS"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"DPS"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"iphlpsvc"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"iphlpsvc"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"Spooler"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"Spooler"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"RemoteRegistry"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"RemoteRegistry"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"LanmanServer"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"LanmanServer"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"WinRM"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"WinRM"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"FontCache"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"FontCache"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"WinHttpAutoProxySvc"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"WinHttpAutoProxySvc"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"WerSvc"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"WerSvc"</span> <span class="token function">start</span>= disabled >nul 2>nul
-wmic service where name=<span class="token string">"lmhosts"</span> call stopservice >nul 2>nul
-<span class="token function">sc</span> config <span class="token string">"lmhosts"</span> <span class="token function">start</span>= disabled >nul 2>nul
-<span class="token function">echo</span>=
+@rem wmic service where name=&quot;DHCP&quot; call stopservice &gt;nul 2&gt;nul
+@rem sc config &quot;DHCP&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;MSMQ&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;MSMQ&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;BITS&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;BITS&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;Browser&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;Browser&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;DPS&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;DPS&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;iphlpsvc&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;iphlpsvc&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;Spooler&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;Spooler&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;RemoteRegistry&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;RemoteRegistry&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;LanmanServer&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;LanmanServer&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;WinRM&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;WinRM&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;FontCache&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;FontCache&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;WinHttpAutoProxySvc&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;WinHttpAutoProxySvc&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;WerSvc&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;WerSvc&quot; start= disabled &gt;nul 2&gt;nul
+wmic service where name=&quot;lmhosts&quot; call stopservice &gt;nul 2&gt;nul
+sc config &quot;lmhosts&quot; start= disabled &gt;nul 2&gt;nul
+echo=
 
 @rem 安装最新补丁包和补丁
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 检测是否安装补丁
-wmic qfe get hotfixid >nul 2>nul <span class="token punctuation">|</span><span class="token punctuation">|</span> <span class="token function">echo</span> 尚未安装补丁<span class="token punctuation">,</span>请安装！
-<span class="token function">echo</span>=
+echo **** 检测是否安装补丁
+wmic qfe get hotfixid &gt;nul 2&gt;nul || echo 尚未安装补丁,请安装！
+echo=
 
 @rem 配置“用户下次登录时需更改密码”
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 设置administrator（admin）用户下次登录必须更改密码
-net user Administrator <span class="token operator">/</span>logonpasswordchg:yes >nul 2>nul
-net user <span class="token operator">%</span>admin_name<span class="token operator">%</span> <span class="token operator">/</span>logonpasswordchg:yes >nul 2>nul
-<span class="token function">echo</span>=
+echo **** 设置administrator（admin）用户下次登录必须更改密码
+net user Administrator /logonpasswordchg:yes &gt;nul 2&gt;nul
+net user %admin_name% /logonpasswordchg:yes &gt;nul 2&gt;nul
+echo=
 
 
-<span class="token function">echo</span> <span class="token namespace">[Registry Values]</span>>>win<span class="token punctuation">.</span>inf
+echo [Registry Values]&gt;&gt;win.inf
 @rem 禁用未登录前关机权限
-<span class="token function">echo</span> <span class="token operator">*</span>*<span class="token operator">*</span><span class="token operator">*</span> 允许未登录前关机选项设置为禁用
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System"</span> <span class="token operator">/</span>v ShutdownWithoutLogon <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000000 <span class="token operator">/</span>f
+echo **** 允许未登录前关机选项设置为禁用
+reg add &quot;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v ShutdownWithoutLogon /t REG_DWORD /d 0x00000000 /f
 
 @rem 设置用户登录时显示的标题和信息
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System"</span> <span class="token operator">/</span>v LegalNoticeCaption  <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d <span class="token operator">%</span>Title<span class="token operator">%</span> <span class="token operator">/</span>f
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System"</span> <span class="token operator">/</span>v LegalNoticeText <span class="token operator">/</span>t REG_SZ <span class="token operator">/</span>d <span class="token operator">%</span>Content<span class="token operator">%</span> <span class="token operator">/</span>f
+reg add &quot;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v LegalNoticeCaption  /t REG_SZ /d %Title% /f
+reg add &quot;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v LegalNoticeText /t REG_SZ /d %Content% /f
 
 @rem 限制远程登录空闲断开时间（默认15分钟）
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters"</span> <span class="token operator">/</span>v AutoDisconnect <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x0000000f <span class="token operator">/</span>f
+reg add &quot;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters&quot; /v AutoDisconnect /t REG_DWORD /d 0x0000000f /f
 
 @rem 空密码的本地账户只允许进行控制台登录
-reg add <span class="token string">"HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa"</span> <span class="token operator">/</span>v LimitBlankPasswordUse <span class="token operator">/</span>t REG_DWORD <span class="token operator">/</span>d 0x00000001 <span class="token operator">/</span>f
+reg add &quot;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa&quot; /v LimitBlankPasswordUse /t REG_DWORD /d 0x00000001 /f
 
-secedit <span class="token operator">/</span>configure <span class="token operator">/</span>db win<span class="token punctuation">.</span>sdb <span class="token operator">/</span>cfg win<span class="token punctuation">.</span>inf
-<span class="token function">del</span> win<span class="token punctuation">.</span>inf <span class="token operator">/</span>q
-<span class="token function">del</span> win<span class="token punctuation">.</span>sdb <span class="token operator">/</span>q
+secedit /configure /db win.sdb /cfg win.inf
+del win.inf /q
+del win.sdb /q
 
-<span class="token function">echo</span>=
-<span class="token function">echo</span>=
-<span class="token function">echo</span>=
-<span class="token function">echo</span>=
-<span class="token function">echo</span> 【配置完成<span class="token punctuation">,</span>部分配置重启系统后生效】
-<span class="token function">echo</span>=
-<span class="token function">echo</span>=
-<span class="token function">echo</span>=
-<span class="token function">echo</span>=
-<span class="token function">echo</span> 按任意键退出
+echo=
+echo=
+echo=
+echo=
+echo 【配置完成,部分配置重启系统后生效】
+echo=
+echo=
+echo=
+echo=
+echo 按任意键退出
 pause
-shutdown <span class="token operator">-</span>r <span class="token operator">-</span>t 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="win-ini文件内容"><a href="#win-ini文件内容" class="headerlink" title="win.ini文件内容"></a>win.ini文件内容</h1><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true">#口令相关配置</span>
+shutdown -r -t 0</code></pre>
+<h1 id="win-ini文件内容"><a href="#win-ini文件内容" class="headerlink" title="win.ini文件内容"></a>win.ini文件内容</h1><pre><code class="powershell">#口令相关配置
 minlen=12
 PASS_MAX_DAYS=180
 PASS_MIN_DAYS=0
 remember=3
 deny=5
 
-<span class="token comment" spellcheck="true">#屏幕超时时间</span>
+#屏幕超时时间
 TMOUT=600
 
-<span class="token comment" spellcheck="true">#自定义管理员用户名</span>
+#自定义管理员用户名
 admin_name=admin
 
-<span class="token comment" spellcheck="true">#SNMP相关配置</span>
+#SNMP相关配置
 SNMP_password=dont_use_public
-SNMP_ip=127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1
+SNMP_ip=127.0.0.1
 
-<span class="token comment" spellcheck="true">#WSUS配置</span>
-WSUS_ip=http:<span class="token operator">/</span><span class="token operator">/</span>127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1
+#WSUS配置
+WSUS_ip=http://127.0.0.1
 
-<span class="token comment" spellcheck="true">#NTP配置</span>
-NTP_ip=210<span class="token punctuation">.</span>72<span class="token punctuation">.</span>145<span class="token punctuation">.</span>44
+#NTP配置
+NTP_ip=210.72.145.44
 
-<span class="token comment" spellcheck="true">#登录信息设置</span>
-Title=<span class="token string">"This is a normal server."</span>
-Content=<span class="token string">"You can't use the compter."</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+#登录信息设置
+Title=&quot;This is a normal server.&quot;
+Content=&quot;You can&#39;t use the compter.&quot;</code></pre>
 <p>​        批处理实现的原理使用<code>secedit</code>命令将自定义的安全模板（<code>win.ini</code>）应用于本地策略并将其转化为数据库（<code>win.sdb</code>）进行存储。其中安全模板有指定的格式可以通过在<code>mmc</code>中的【安全模板】和【安全配置和分析】查看其书写格式。</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="https://github.com/pssss/Security-Baseline" target="_blank" rel="noopener">Security-Baseline</a> </li>
@@ -1493,7 +1492,7 @@ Content=<span class="token string">"You can't use the compter."</span><span aria
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

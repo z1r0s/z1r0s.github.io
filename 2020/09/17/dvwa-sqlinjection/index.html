@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -503,14 +502,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    964
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -548,30 +547,30 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span> <span class="token string">'Submit'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Get input</span>
-    <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span> <span class="token string">'id'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+if( isset( $_REQUEST[ &#39;Submit&#39; ] ) ) {
+    // Get input
+    $id = $_REQUEST[ &#39;id&#39; ];
 
-    <span class="token comment" spellcheck="true">// Check database</span>
-    <span class="token variable">$query</span>  <span class="token operator">=</span> <span class="token string">"SELECT first_name, last_name FROM users WHERE user_id = '$id';"</span><span class="token punctuation">;</span>
-    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$query</span> <span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span> <span class="token string">'&lt;pre>'</span> <span class="token punctuation">.</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_connect_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$___mysqli_res</span> <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'&lt;/pre>'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Check database
+    $query  = &quot;SELECT first_name, last_name FROM users WHERE user_id = &#39;$id&#39;;&quot;;
+    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &#39;&lt;pre&gt;&#39; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &#39;&lt;/pre&gt;&#39; );
 
-    <span class="token comment" spellcheck="true">// Get results</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span> <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token function">mysqli_fetch_assoc</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Get values</span>
-        <span class="token variable">$first</span> <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"first_name"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$last</span>  <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"last_name"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    // Get results
+    while( $row = mysqli_fetch_assoc( $result ) ) {
+        // Get values
+        $first = $row[&quot;first_name&quot;];
+        $last  = $row[&quot;last_name&quot;];
 
-        <span class="token comment" spellcheck="true">// Feedback for end user</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;pre>ID: {$id}&lt;br />First name: {$first}&lt;br />Surname: {$last}&lt;/pre>"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        // Feedback for end user
+        echo &quot;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&quot;;
+    }
 
-    <span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]);
+}
 
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt; </code></pre>
 <ul>
 <li>查找过程直接将提交的 id 拼写到 sql 中进行执行，存在字符串类型注入。</li>
 </ul>
@@ -594,37 +593,37 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Medium.png" alt="SecurityLevel_Medium"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Submit'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Get input</span>
-    <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'id'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+if( isset( $_POST[ &#39;Submit&#39; ] ) ) {
+    // Get input
+    $id = $_POST[ &#39;id&#39; ];
 
-    <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token function">mysqli_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    $id = mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;], $id);
 
-    <span class="token variable">$query</span>  <span class="token operator">=</span> <span class="token string">"SELECT first_name, last_name FROM users WHERE user_id = $id;"</span><span class="token punctuation">;</span>
-    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$query</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span> <span class="token string">'&lt;pre>'</span> <span class="token punctuation">.</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'&lt;/pre>'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    $query  = &quot;SELECT first_name, last_name FROM users WHERE user_id = $id;&quot;;
+    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;], $query) or die( &#39;&lt;pre&gt;&#39; . mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) . &#39;&lt;/pre&gt;&#39; );
 
-    <span class="token comment" spellcheck="true">// Get results</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span> <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token function">mysqli_fetch_assoc</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Display values</span>
-        <span class="token variable">$first</span> <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"first_name"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$last</span>  <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"last_name"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    // Get results
+    while( $row = mysqli_fetch_assoc( $result ) ) {
+        // Display values
+        $first = $row[&quot;first_name&quot;];
+        $last  = $row[&quot;last_name&quot;];
 
-        <span class="token comment" spellcheck="true">// Feedback for end user</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;pre>ID: {$id}&lt;br />First name: {$first}&lt;br />Surname: {$last}&lt;/pre>"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        // Feedback for end user
+        echo &quot;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&quot;;
+    }
 
-<span class="token punctuation">}</span>
+}
 
-<span class="token comment" spellcheck="true">// This is used later on in the index.php page</span>
-<span class="token comment" spellcheck="true">// Setting it here so we can close the database connection in here like in the rest of the source scripts</span>
-<span class="token variable">$query</span>  <span class="token operator">=</span> <span class="token string">"SELECT COUNT(*) FROM users;"</span><span class="token punctuation">;</span>
-<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$query</span> <span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span> <span class="token string">'&lt;pre>'</span> <span class="token punctuation">.</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_connect_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$___mysqli_res</span> <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'&lt;/pre>'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$number_of_rows</span> <span class="token operator">=</span> <span class="token function">mysqli_fetch_row</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+// This is used later on in the index.php page
+// Setting it here so we can close the database connection in here like in the rest of the source scripts
+$query  = &quot;SELECT COUNT(*) FROM users;&quot;;
+$result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &#39;&lt;pre&gt;&#39; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &#39;&lt;/pre&gt;&#39; );
+$number_of_rows = mysqli_fetch_row( $result )[0];
 
-<span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]);
+?&gt; </code></pre>
 <ul>
 <li>针对提交的进行转义处理，但对于整数类型注入限制有限，可利用整数类型注入进行利用。</li>
 </ul>
@@ -672,30 +671,30 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_High.png" alt="SecurityLevel_High"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_SESSION</span> <span class="token punctuation">[</span> <span class="token string">'id'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Get input</span>
-    <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span> <span class="token string">'id'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+if( isset( $_SESSION [ &#39;id&#39; ] ) ) {
+    // Get input
+    $id = $_SESSION[ &#39;id&#39; ];
 
-    <span class="token comment" spellcheck="true">// Check database</span>
-    <span class="token variable">$query</span>  <span class="token operator">=</span> <span class="token string">"SELECT first_name, last_name FROM users WHERE user_id = '$id' LIMIT 1;"</span><span class="token punctuation">;</span>
-    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$query</span> <span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span> <span class="token string">'&lt;pre>Something went wrong.&lt;/pre>'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Check database
+    $query  = &quot;SELECT first_name, last_name FROM users WHERE user_id = &#39;$id&#39; LIMIT 1;&quot;;
+    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;], $query ) or die( &#39;&lt;pre&gt;Something went wrong.&lt;/pre&gt;&#39; );
 
-    <span class="token comment" spellcheck="true">// Get results</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span> <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token function">mysqli_fetch_assoc</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Get values</span>
-        <span class="token variable">$first</span> <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"first_name"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$last</span>  <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"last_name"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    // Get results
+    while( $row = mysqli_fetch_assoc( $result ) ) {
+        // Get values
+        $first = $row[&quot;first_name&quot;];
+        $last  = $row[&quot;last_name&quot;];
 
-        <span class="token comment" spellcheck="true">// Feedback for end user</span>
-        <span class="token keyword">echo</span> <span class="token string">"&lt;pre>ID: {$id}&lt;br />First name: {$first}&lt;br />Surname: {$last}&lt;/pre>"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        // Feedback for end user
+        echo &quot;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&quot;;
+    }
 
-    <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$___mysqli_res</span> <span class="token operator">=</span> <span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">false</span> <span class="token punctuation">:</span> <span class="token variable">$___mysqli_res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        
-<span class="token punctuation">}</span>
+    ((is_null($___mysqli_res = mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]))) ? false : $___mysqli_res);        
+}
 
-<span class="token delimiter">?></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt; </code></pre>
 <ul>
 <li>数据从<code>Session</code>中获取，但存放过程中未作任何转义和过滤，在 sql 中存在<code>limit 1</code> 但可以通过提交数据中带注释付进行忽略。</li>
 </ul>
@@ -716,39 +715,39 @@
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<pre><code class="php">&lt;?php
 
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'Submit'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Check Anti-CSRF token</span>
-    <span class="token function">checkToken</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span> <span class="token string">'user_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span> <span class="token string">'session_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'index.php'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+if( isset( $_GET[ &#39;Submit&#39; ] ) ) {
+    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ &#39;user_token&#39; ], $_SESSION[ &#39;session_token&#39; ], &#39;index.php&#39; );
 
-    <span class="token comment" spellcheck="true">// Get input</span>
-    <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'id'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    // Get input
+    $id = $_GET[ &#39;id&#39; ];
 
-    <span class="token comment" spellcheck="true">// Was a number entered?</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_numeric</span><span class="token punctuation">(</span> <span class="token variable">$id</span> <span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Check the database</span>
-        <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span> <span class="token string">'SELECT first_name, last_name FROM users WHERE user_id = (:id) LIMIT 1;'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span> <span class="token string">':id'</span><span class="token punctuation">,</span> <span class="token variable">$id</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">PARAM_INT</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // Was a number entered?
+    if(is_numeric( $id )) {
+        // Check the database
+        $data = $db-&gt;prepare( &#39;SELECT first_name, last_name FROM users WHERE user_id = (:id) LIMIT 1;&#39; );
+        $data-&gt;bindParam( &#39;:id&#39;, $id, PDO::PARAM_INT );
+        $data-&gt;execute();
+        $row = $data-&gt;fetch();
 
-        <span class="token comment" spellcheck="true">// Make sure only 1 result is returned</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">rowCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// Get values</span>
-            <span class="token variable">$first</span> <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span> <span class="token string">'first_name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token variable">$last</span>  <span class="token operator">=</span> <span class="token variable">$row</span><span class="token punctuation">[</span> <span class="token string">'last_name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+        // Make sure only 1 result is returned
+        if( $data-&gt;rowCount() == 1 ) {
+            // Get values
+            $first = $row[ &#39;first_name&#39; ];
+            $last  = $row[ &#39;last_name&#39; ];
 
-            <span class="token comment" spellcheck="true">// Feedback for end user</span>
-            <span class="token keyword">echo</span> <span class="token string">"&lt;pre>ID: {$id}&lt;br />First name: {$first}&lt;br />Surname: {$last}&lt;/pre>"</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+            // Feedback for end user
+            echo &quot;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&quot;;
+        }
+    }
+}
 
-<span class="token comment" spellcheck="true">// Generate Anti-CSRF token</span>
-<span class="token function">generateSessionToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+// Generate Anti-CSRF token
+generateSessionToken();
 
-<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+?&gt;</code></pre>
 <ul>
 <li>增加<code>token</code>验证机制，防止CSRF攻击</li>
 <li>使用PDO动态创建SQL语句</li>
@@ -1136,16 +1135,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/tools/">
-                        <span class="chip bg-color">tools</span>
-                    </a>
-                    
                     <a href="/tags/github/">
                         <span class="chip bg-color">github</span>
                     </a>
                     
                     <a href="/tags/渗透测试/">
                         <span class="chip bg-color">渗透测试</span>
+                    </a>
+                    
+                    <a href="/tags/tools/">
+                        <span class="chip bg-color">tools</span>
                     </a>
                     
                 </div>
@@ -1395,7 +1394,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             

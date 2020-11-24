@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 
@@ -650,7 +649,7 @@
 </li>
 <li><p>检查：</p>
 <ul>
-<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> Get<span class="token operator">-</span>ExecutionPolicy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><pre><code class="powershell">PS C:\&gt; Get-ExecutionPolicy</code></pre>
 </li>
 <li><p>如果返回的是 <code>Restricted</code>，那么需要更改为<code>Bypass</code>或<code>AllSigned</code></p>
 </li>
@@ -658,10 +657,10 @@
 </li>
 <li><p>更改：</p>
 <ul>
-<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">Set</span><span class="token operator">-</span>ExecutionPolicy AllSigned<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><pre><code class="powershell">PS C:\&gt; Set-ExecutionPolicy AllSigned</code></pre>
 <p>或</p>
 </li>
-<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">Set</span><span class="token operator">-</span>ExecutionPolicy Bypass <span class="token operator">-</span>Scope <span class="token keyword">Process</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><pre><code class="powershell">PS C:\&gt; Set-ExecutionPolicy Bypass -Scope Process</code></pre>
 </li>
 </ul>
 </li>
@@ -669,11 +668,11 @@
 <ul>
 <li><p>设置<code>执行策略</code>同时下载并执行安装脚本</p>
 </li>
-<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">Set</span><span class="token operator">-</span>ExecutionPolicy Bypass <span class="token operator">-</span>Scope <span class="token keyword">Process</span> <span class="token operator">-</span>Force<span class="token punctuation">;</span> <span class="token function">iex</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">New-Object</span> System<span class="token punctuation">.</span>Net<span class="token punctuation">.</span>WebClient<span class="token punctuation">)</span><span class="token punctuation">.</span>DownloadString<span class="token punctuation">(</span><span class="token string">'https://chocolatey.org/install.ps1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><pre><code class="powershell">PS C:\&gt; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))</code></pre>
 </li>
 <li><p>如果执行策略已经更改，直接下载并执行也可以</p>
 </li>
-<li><pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token function">PS</span> C:\> <span class="token function">iex</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">New-Object</span> System<span class="token punctuation">.</span>Net<span class="token punctuation">.</span>WebClient<span class="token punctuation">)</span><span class="token punctuation">.</span>DownloadString<span class="token punctuation">(</span><span class="token string">'https://chocolatey.org/install.ps1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><pre><code class="powershell">PS C:\&gt; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))</code></pre>
 </li>
 </ul>
 </li>
@@ -1408,7 +1407,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201k</span>&nbsp;字
+                class="white-color">207.6k</span>&nbsp;字
             
             
             
