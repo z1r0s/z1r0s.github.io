@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-28T00:39:33.892Z</updated>
+  <updated>2020-11-28T09:46:08.738Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>权限维持之影子账户</title>
+    <link href="https://z1r0s.github.io/2020/11/28/quan-xian-wei-chi-zhi-ying-zi-zhang-hu/"/>
+    <id>https://z1r0s.github.io/2020/11/28/quan-xian-wei-chi-zhi-ying-zi-zhang-hu/</id>
+    <published>2020-11-28T03:01:42.000Z</published>
+    <updated>2020-11-28T09:46:08.738Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;影子账户的定义&quot;&gt;&lt;a href=&quot;#影子账户的定义&quot; class=&quot;headerlink&quot; title=&quot;影子账户的定义&quot;&gt;&lt;/a&gt;影子账户的定义&lt;/h1&gt;&lt;p&gt;​        影子账户
+        
+      
+    
+    </summary>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="后渗透" scheme="https://z1r0s.github.io/tags/%E5%90%8E%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="权限维持" scheme="https://z1r0s.github.io/tags/%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/"/>
+    
+  </entry>
   
   <entry>
     <title>常见设备默认密码整理</title>
@@ -73,9 +101,9 @@
       <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="STP" scheme="https://z1r0s.github.io/tags/STP/"/>
-    
       <category term="HSRP" scheme="https://z1r0s.github.io/tags/HSRP/"/>
+    
+      <category term="STP" scheme="https://z1r0s.github.io/tags/STP/"/>
     
   </entry>
   
@@ -534,34 +562,6 @@
       <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
     
       <category term="磁盘管理" scheme="https://z1r0s.github.io/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows本地安全策略</title>
-    <link href="https://z1r0s.github.io/2020/11/06/windows-ben-di-an-quan-ce-lue/"/>
-    <id>https://z1r0s.github.io/2020/11/06/windows-ben-di-an-quan-ce-lue/</id>
-    <published>2020-11-06T11:09:47.000Z</published>
-    <updated>2020-11-08T00:52:05.080Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-本地安全策略概述&quot;&gt;&lt;a href=&quot;#0x01-本地安全策略概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 本地安全策略概述&quot;&gt;&lt;/a&gt;0x01 本地安全策略概述&lt;/h1&gt;&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
-    
-      <category term="安全策略" scheme="https://z1r0s.github.io/tags/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/"/>
     
   </entry>
   
