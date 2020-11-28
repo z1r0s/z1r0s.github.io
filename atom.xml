@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-26T02:32:25.439Z</updated>
+  <updated>2020-11-28T00:39:33.892Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://z1r0s.github.io/2020/11/26/chang-jian-she-bei-mo-ren-mi-ma-zheng-li/"/>
     <id>https://z1r0s.github.io/2020/11/26/chang-jian-she-bei-mo-ren-mi-ma-zheng-li/</id>
     <published>2020-11-26T01:21:16.000Z</published>
-    <updated>2020-11-26T02:32:25.439Z</updated>
+    <updated>2020-11-28T00:39:33.892Z</updated>
     
     <summary type="html">
     
@@ -44,6 +44,10 @@
     
     </summary>
     
+      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="密码" scheme="https://z1r0s.github.io/tags/%E5%AF%86%E7%A0%81/"/>
     
   </entry>
   
