@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-28T09:46:08.738Z</updated>
+  <updated>2020-11-29T07:47:18.120Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络配置之大型综合实验2</title>
+    <link href="https://z1r0s.github.io/2020/11/29/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-2/"/>
+    <id>https://z1r0s.github.io/2020/11/29/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-2/</id>
+    <published>2020-11-28T23:49:56.000Z</published>
+    <updated>2020-11-29T07:47:18.120Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;实验拓扑&quot;&gt;&lt;a href=&quot;#实验拓扑&quot; class=&quot;headerlink&quot; title=&quot;实验拓扑&quot;&gt;&lt;/a&gt;实验拓扑&lt;/h1&gt;&lt;center&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="网络实验" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>权限维持之影子账户</title>
@@ -80,11 +106,11 @@
   </entry>
   
   <entry>
-    <title>网络实验之STP+HSRP实验</title>
-    <link href="https://z1r0s.github.io/2020/11/25/wang-luo-shi-yan-zhi-stp-hsrp-shi-yan/"/>
-    <id>https://z1r0s.github.io/2020/11/25/wang-luo-shi-yan-zhi-stp-hsrp-shi-yan/</id>
+    <title>网络配置之STP+HSRP实验</title>
+    <link href="https://z1r0s.github.io/2020/11/25/wang-luo-pei-zhi-zhi-stp-hsrp-shi-yan/"/>
+    <id>https://z1r0s.github.io/2020/11/25/wang-luo-pei-zhi-zhi-stp-hsrp-shi-yan/</id>
     <published>2020-11-25T02:30:35.000Z</published>
-    <updated>2020-11-25T07:06:19.339Z</updated>
+    <updated>2020-11-28T23:50:41.934Z</updated>
     
     <summary type="html">
     
@@ -160,11 +186,11 @@
   </entry>
   
   <entry>
-    <title>网络综合实验2</title>
-    <link href="https://z1r0s.github.io/2020/11/23/wang-luo-zong-he-shi-yan-2/"/>
-    <id>https://z1r0s.github.io/2020/11/23/wang-luo-zong-he-shi-yan-2/</id>
+    <title>网络配置之大型综合实验1</title>
+    <link href="https://z1r0s.github.io/2020/11/23/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-1/"/>
+    <id>https://z1r0s.github.io/2020/11/23/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-1/</id>
     <published>2020-11-23T08:36:45.000Z</published>
-    <updated>2020-11-23T23:02:44.383Z</updated>
+    <updated>2020-11-29T00:32:46.535Z</updated>
     
     <summary type="html">
     
@@ -181,7 +207,7 @@
       <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="Cisco" scheme="https://z1r0s.github.io/tags/Cisco/"/>
+      <category term="网络实验" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/"/>
     
   </entry>
   
@@ -534,34 +560,6 @@
       <category term="DHCP" scheme="https://z1r0s.github.io/tags/DHCP/"/>
     
       <category term="WindowsServer" scheme="https://z1r0s.github.io/tags/WindowsServer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows磁盘管理</title>
-    <link href="https://z1r0s.github.io/2020/11/07/windows-ci-pan-guan-li/"/>
-    <id>https://z1r0s.github.io/2020/11/07/windows-ci-pan-guan-li/</id>
-    <published>2020-11-07T07:52:08.000Z</published>
-    <updated>2020-11-07T15:06:13.927Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-磁盘管理概述&quot;&gt;&lt;a href=&quot;#0x01-磁盘管理概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 磁盘管理概述&quot;&gt;&lt;/a&gt;0x01 磁盘管理概述&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
-    
-      <category term="磁盘管理" scheme="https://z1r0s.github.io/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
