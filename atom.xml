@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-29T07:47:18.120Z</updated>
+  <updated>2020-11-29T09:06:41.911Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>“常见网络协议整理</title>
+    <link href="https://z1r0s.github.io/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/"/>
+    <id>https://z1r0s.github.io/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/</id>
+    <published>2020-11-29T07:54:42.000Z</published>
+    <updated>2020-11-29T09:06:41.911Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;常见网络协议概述&quot;&gt;&lt;a href=&quot;#常见网络协议概述&quot; class=&quot;headerlink&quot; title=&quot;常见网络协议概述&quot;&gt;&lt;/a&gt;常见网络协议概述&lt;/h1&gt;&lt;h1 id=&quot;数据链路层&quot;&gt;&lt;a href=&quot;#数据链路层&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络运维" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="网络协议" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>网络配置之大型综合实验2</title>
@@ -532,34 +558,6 @@
     
     
       <category term="DHCP" scheme="https://z1r0s.github.io/tags/DHCP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用WindowsServer搭建DHCP服务器</title>
-    <link href="https://z1r0s.github.io/2020/11/09/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/"/>
-    <id>https://z1r0s.github.io/2020/11/09/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/</id>
-    <published>2020-11-09T08:43:31.000Z</published>
-    <updated>2020-11-09T12:30:53.670Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-实验描述&quot;&gt;&lt;a href=&quot;#0x01-实验描述&quot; class=&quot;headerlink&quot; title=&quot;0x01 实验描述&quot;&gt;&lt;/a&gt;0x01 实验描述&lt;/h1&gt;&lt;center&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="网络服务" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
-    
-    
-      <category term="DHCP" scheme="https://z1r0s.github.io/tags/DHCP/"/>
-    
-      <category term="WindowsServer" scheme="https://z1r0s.github.io/tags/WindowsServer/"/>
     
   </entry>
   
