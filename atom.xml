@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-11-29T09:06:41.911Z</updated>
+  <updated>2020-11-30T09:21:18.517Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>“常见网络协议整理</title>
+    <title>网络技术之NAT</title>
+    <link href="https://z1r0s.github.io/2020/11/30/wang-luo-ji-zhu-zhi-nat/"/>
+    <id>https://z1r0s.github.io/2020/11/30/wang-luo-ji-zhu-zhi-nat/</id>
+    <published>2020-11-30T05:27:54.000Z</published>
+    <updated>2020-11-30T09:21:18.517Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;NAT背景&quot;&gt;&lt;a href=&quot;#NAT背景&quot; class=&quot;headerlink&quot; title=&quot;NAT背景&quot;&gt;&lt;/a&gt;NAT背景&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;网络迅速发展，合法的IP地址资源日益短缺（2011年2月3日，
+        
+      
+    
+    </summary>
+    
+      <category term="网络技术" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="NAT" scheme="https://z1r0s.github.io/tags/NAT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见网络协议整理</title>
     <link href="https://z1r0s.github.io/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/"/>
     <id>https://z1r0s.github.io/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/</id>
     <published>2020-11-29T07:54:42.000Z</published>
-    <updated>2020-11-29T09:06:41.911Z</updated>
+    <updated>2020-11-30T05:25:46.243Z</updated>
     
     <summary type="html">
     
@@ -153,9 +180,9 @@
       <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="STP" scheme="https://z1r0s.github.io/tags/STP/"/>
-    
       <category term="HSRP" scheme="https://z1r0s.github.io/tags/HSRP/"/>
+    
+      <category term="STP" scheme="https://z1r0s.github.io/tags/STP/"/>
     
   </entry>
   
@@ -532,32 +559,6 @@
     
     
       <category term="文件共享" scheme="https://z1r0s.github.io/tags/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DHCP服务</title>
-    <link href="https://z1r0s.github.io/2020/11/09/dhcp-fu-wu/"/>
-    <id>https://z1r0s.github.io/2020/11/09/dhcp-fu-wu/</id>
-    <published>2020-11-09T12:16:38.000Z</published>
-    <updated>2020-11-09T12:31:45.848Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;DHCP的概述&quot;&gt;&lt;a href=&quot;#DHCP的概述&quot; class=&quot;headerlink&quot; title=&quot;DHCP的概述&quot;&gt;&lt;/a&gt;DHCP的概述&lt;/h1&gt;&lt;p&gt;​        DHCP（&lt;code&gt;Dynamic Host Configuration
-        
-      
-    
-    </summary>
-    
-      <category term="网络服务" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
-    
-    
-      <category term="DHCP" scheme="https://z1r0s.github.io/tags/DHCP/"/>
     
   </entry>
   

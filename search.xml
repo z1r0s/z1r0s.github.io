@@ -4,7 +4,32 @@
   
     
     <entry>
-      <title>“常见网络协议整理</title>
+      <title>网络技术之NAT</title>
+      <link href="/2020/11/30/wang-luo-ji-zhu-zhi-nat/"/>
+      <url>/2020/11/30/wang-luo-ji-zhu-zhi-nat/</url>
+      
+        <content type="html"><![CDATA[<h1 id="NAT背景"><a href="#NAT背景" class="headerlink" title="NAT背景"></a>NAT背景</h1><ul><li>网络迅速发展，合法的IP地址资源日益短缺（2011年2月3日， IANA对外宣布：IPv4地址空间最后5个地址块已经被分配给下属的5个地区委员会）</li><li>局域网内部的主机一般使用私有地址，私有地址在Internet上无法路由，如果采用私有地址的网络设备需要访问Internet必须将其IP转为公有IP地址</li></ul><h1 id="NAT工作原理"><a href="#NAT工作原理" class="headerlink" title="NAT工作原理"></a>NAT工作原理</h1><p>​        <strong>网络地址转换</strong>（<code>Network Address Translation</code>，<code>NAT</code>）提供私有地址到共有地址的转换。因为私有地址在Internet上无法路由，Internet有效的路由必须是共有地址，因此配置私有地址的网络设备想要访问必须将其数据包中的私有地址转换为共有地址才能正常访问Internet。一般在网络上会有一个设备提供NAT服务（NAT设备），局域网内部的主机访问Internet时，在NAT设备中将数据包中的源IP地址（私有）转换成共有IP地址后转发到Internet上。</p><h2 id="NAT包含地址"><a href="#NAT包含地址" class="headerlink" title="NAT包含地址"></a>NAT包含地址</h2><ul><li>内部局部地址：内网中主机使用的私有IP地址</li><li>内部全局地址：NAT设备转换后的共有IP地址</li><li>外部全局地址：相对于另一个内网来说，使用NAT设备转换后的共有IP地址</li><li>外部局部地址：指的是另一个内网中主机的私有IP地址，<font color="blue">但是在实际的网络中外部局部地址和外部全局地址是一样，原因是经过NAT转换后Internet上的其他设备不会知道外内部主机的IP地址</font>。</li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Technology/NAT/NAT包含地址类型.png" alt="NAT包含地址类型"></center><h2 id="NAT转换条目"><a href="#NAT转换条目" class="headerlink" title="NAT转换条目"></a>NAT转换条目</h2><ul><li>简单转换条目：只定义IP</li><li>扩展转换条目：定义协议、IP、端口</li></ul><h2 id="NAT关键流程"><a href="#NAT关键流程" class="headerlink" title="NAT关键流程"></a>NAT关键流程</h2><ul><li>网络被分为私网和公网两部分，NAT网关常设置在私网到公网的路由出口位置。</li><li><font color="blue">网络访问只能先由私网侧发起，公网无法主动访问私网主机</font>。</li><li>NAT网关在两个访问方向上完成两次地址的转换或翻译，出方向做源IP替换，入方向做目的IP替换。</li><li>NAT网关的存在对通信双方是保持透明的。</li><li>NAT网关为了实现双向翻译的功能，需要维护一张关联表，把会话的信息保存下来。</li></ul><h1 id="NAT的优缺点"><a href="#NAT的优缺点" class="headerlink" title="NAT的优缺点"></a>NAT的优缺点</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul><li>节省公有合法IP地址</li><li>处理地址重叠</li><li>增强灵活性：地址转换可以在局域网内部提供给外部FTP、WWW、Telnet服务</li><li>安全性：NAT可以有效地隐藏内部局域网中的主机，具有一定的网络安全保护作用</li></ul><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul><li>延迟增大</li><li>配置和维护的复杂性</li><li>无法进行端到端的IP跟踪（破坏了端对端通信的平等性）</li><li>不支持某些应用（FTP），可以通过静态NAT映射来避免</li></ul><h1 id="NAT分类"><a href="#NAT分类" class="headerlink" title="NAT分类"></a>NAT分类</h1><ul><li><strong>静态NAT</strong>：内部主机占用一个公网IP，这种方式被称为一对一模型。这种方式对解决IP地址短缺没有帮助，只在特定的组网环境中使用。<ul><li>隐藏内部主机的真实IP</li><li>实现两个IP地址重叠网络的通信</li></ul></li><li><strong>动态NAT</strong>：内部主机的私有地址在NAT网关中被转换为地址池中的一个共有地址。</li><li><strong>PAT</strong>：利用源端口将多个私有IP地址映射到一个共有IP地址，这种方式被称为多对一模型。其核心在于利用端口号实现公网和私网的转换，因此理论上最多可让65535台主机共用一个共有IP地址。</li></ul><h1 id="NAT配置"><a href="#NAT配置" class="headerlink" title="NAT配置"></a>NAT配置</h1><ol><li>接口IP地址配置</li><li>使用ACL定义哪些内部主机能做NAT</li><li>决定采用什么公有地址，静态或地址池</li><li>在内部和外部端口上启用NAT</li><li>指定地址转换映射</li></ol><h2 id="静态NAT配置"><a href="#静态NAT配置" class="headerlink" title="静态NAT配置"></a>静态NAT配置</h2><pre class=" language-shell"><code class="language-shell"># 在内部和外部端口上启动NATint f0/0ip nat insideint f0/1ip nat outside# 一对一地址映射-- 简单转换条目ip nat inside source static 192.168.1.100 200.200.200.200-- 扩展转换条目ip nat inside source static tcp 192.168.1.100 8888 200.200.200.200 80 extendable--extendable在PT中默认没有</code></pre><h2 id="动态NAT配置"><a href="#动态NAT配置" class="headerlink" title="动态NAT配置"></a>动态NAT配置</h2><pre class=" language-shell"><code class="language-shell"># 在内部和外部端口上启动NATint f0/0ip nat insideint f0/1ip nat outside# 通过ACL设置转换源（标准）access-list 1 permit 192.168.1.0 0.0.0.255# 设置内部全局地址池ip nat pool 名字 开始IP 结束IP netmask 子网掩码如果加overload代表是可以复用# 将转换源和地址池关联ip nat inside source list acl编号 pool 地址池名字 (overload)如果加overload代表是可以复用</code></pre><h2 id="PAT配置"><a href="#PAT配置" class="headerlink" title="PAT配置"></a>PAT配置</h2><pre class=" language-shell"><code class="language-shell"># 在内部和外部端口上启动NATint f0/0ip nat outsideint f0/1ip nat inside# 使用ACL定义转换源access-list 1 permit 192.168.1.0 0.0.0.255# 关联转换源和目标ip nat inside source list 1 interface f0/0 overload</code></pre><h1 id="查看NAT转换条目"><a href="#查看NAT转换条目" class="headerlink" title="查看NAT转换条目"></a>查看NAT转换条目</h1><pre class=" language-shell"><code class="language-shell">show ip nat translation [verbose]- verbose显示详细的NAT转换条目信息</code></pre><h1 id="清除NAT转换条目"><a href="#清除NAT转换条目" class="headerlink" title="清除NAT转换条目"></a>清除NAT转换条目</h1><pre class=" language-shell"><code class="language-shell"># 清除NAT转换表中的所有条目clear ip nat translation *# 清除包含内部转换的转换条目clear ip nat translation inside local-ip global-ip# 清除包含外部转换的转换条目clear ip nat translation outside local-ip global-ip-- 静态NAT条目不会被清除</code></pre><h1 id="NAT故障处理"><a href="#NAT故障处理" class="headerlink" title="NAT故障处理"></a>NAT故障处理</h1><ol><li>检查物理设备和NAT配置</li><li>通过show命令查看NAT的各种信息</li><li>通过<code>debug ip nat</code>命令跟踪NAT操作</li></ol><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://blog.csdn.net/gui951753/article/details/79593307" target="_blank" rel="noopener">NAT（地址转换技术）详解</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NAT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常见网络协议整理</title>
       <link href="/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/"/>
       <url>/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/</url>
       
@@ -122,9 +147,9 @@
       
         <tags>
             
-            <tag> STP </tag>
-            
             <tag> HSRP </tag>
+            
+            <tag> STP </tag>
             
         </tags>
       
@@ -1902,9 +1927,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> Web </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -1929,9 +1954,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -2041,9 +2066,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> rsa </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -2817,11 +2842,11 @@
       
         <tags>
             
-            <tag> 网络基础 </tag>
-            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
+            
+            <tag> 网络基础 </tag>
             
         </tags>
       
