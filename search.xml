@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>重置root管理员密码</title>
+      <link href="/2020/12/03/chong-zhi-root-guan-li-yuan-mi-ma/"/>
+      <url>/2020/12/03/chong-zhi-root-guan-li-yuan-mi-ma/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-重置RedHat的root密码"><a href="#0x01-重置RedHat的root密码" class="headerlink" title="0x01 重置RedHat的root密码"></a>0x01 重置RedHat的root密码</h1><ol><li><p>首先需要确定Linux系统的版本，在Linux中使用<code>cat /etc/redhat-release</code>命令查看Linux的系统版本，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/rootPwd/查看RedHat系统版本.png" alt="查看RedHat系统版本"></center><p>为什么要查看系统版本？不同版本的Linux重置root密码的操作步骤不一样，所以需要先确定Linux版本。</p></li><li><p>重启Linux系统主机并出现引导界面时，按下键盘上的<code>e</code>键进入内核编辑界面，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/rootPwd/进入Linux内核.gif" alt="进入Linux内核"></center></li><li><p>在<code>linux16</code>参数这行的最后追加<code>rd.break</code>参数，然后按下【Ctrl+X】组合键来运行修改过的内核程序，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/rootPwd/进入系统的紧急救援模式.gif" alt="进入系统的紧急救援模式"></center></li><li><p>在救援模式中输入以下命令，修改root密码，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell"># 重新将/sysroot挂在为可读写模式mount -o remount,rw /sysroot# chroot(change root directory)# 指定/sysroot为新的根目录chroot /sysroot# 设置新密码passwd# 让SElinux生效，如果不执行修改的密码是不会生效的，也无法登录touch /.autorelableexit# 重启reboot</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/rootPwd/修改密码.png" alt="修改密码"></center></li></ol><p>注：</p><ul><li>该方式使用与RedHat和CentOS中，作者的测试环境为CentOS7.5。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网络技术之NAT</title>
       <link href="/2020/11/30/wang-luo-ji-zhu-zhi-nat/"/>
       <url>/2020/11/30/wang-luo-ji-zhu-zhi-nat/</url>
@@ -1543,11 +1568,11 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
             
             <tag> load_file </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1572,9 +1597,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1599,9 +1624,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1626,9 +1651,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1653,9 +1678,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1680,9 +1705,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1707,9 +1732,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1786,9 +1811,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1927,9 +1952,9 @@
       
         <tags>
             
-            <tag> Web </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> Web </tag>
             
         </tags>
       
@@ -1954,9 +1979,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> MISC </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2842,11 +2867,11 @@
       
         <tags>
             
+            <tag> 网络基础 </tag>
+            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
-            
-            <tag> 网络基础 </tag>
             
         </tags>
       
