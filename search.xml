@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>网络配置之远程管理</title>
+      <link href="/2020/12/05/wang-luo-pei-zhi-zhi-yuan-cheng-guan-li/"/>
+      <url>/2020/12/05/wang-luo-pei-zhi-zhi-yuan-cheng-guan-li/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-远程管理"><a href="#0x01-远程管理" class="headerlink" title="0x01 远程管理"></a>0x01 远程管理</h1><ol><li><p>什么是远程管理？</p><p>远程管理即不在直接接触物理设备的情况下，实现对网络设备的管理。</p></li><li><p>为什么要配置远程管理？</p><p>在组网初期，交换机和路由器都没有进行配置所以只能使用<code>Console</code>线连接设备进行相关的配置，但是在完成组网之后还使用<code>Console</code>连接的方式来修改网络配置就很不方便，所以一般在将网络设备加入网络之前都会开启设备的远程管理。</p></li><li><p>常用的远程管理方式有哪些？</p><ul><li>Telnet</li><li>SSH</li></ul></li></ol><h1 id="0x02-网络配置"><a href="#0x02-网络配置" class="headerlink" title="0x02 网络配置"></a>0x02 网络配置</h1><h2 id="0x01-网络拓扑"><a href="#0x01-网络拓扑" class="headerlink" title="0x01 网络拓扑"></a>0x01 网络拓扑</h2><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/网络拓扑.png" alt="网络拓扑"></center><h2 id="0x02-网络要求"><a href="#0x02-网络要求" class="headerlink" title="0x02 网络要求"></a>0x02 网络要求</h2><ul><li>实现全网互通；</li><li>SW1交换机使用Telnet方式进行远程管理；</li><li>R1路由器使用SSH方式进行远程管理；</li><li>SW2交换机可以同时使用Telnet和SSH进行远程管理；</li></ul><h2 id="0x03-基础配置"><a href="#0x03-基础配置" class="headerlink" title="0x03 基础配置"></a>0x03 基础配置</h2><ol><li><p>配置PC机的IP地址、子网掩码等信息，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/配置PC.png" alt="配置PC"></center><p>PC2的配置步骤也如PC1所示。</p></li><li><p>为简化配置，该网络拓扑中没有划分VLAN，所以二层交换在此过程中不需要配置。</p></li><li><p>配置R1路由器的IP地址、子网掩码等信息，操作步骤如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/R1基础配置.png" alt="R1基础配置"></center></li><li><p>PC1去pingPC2，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/网络连通性测试.png" alt="网络连通性测试"></center></li></ol><h2 id="0x04-Telnet配置"><a href="#0x04-Telnet配置" class="headerlink" title="0x04 Telnet配置"></a>0x04 Telnet配置</h2><ol><li><p>打开SW1配置界面，使用如下命令来完成对Telnet的配置，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">enconf tint vlan 1ip add 192.168.1.2 255.255.255.0no shexitip default-gateway 192.168.1.1enable pass ciscoline vty 0 4transport input telnetpass ciscologin</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/SW1配置远程管理.png" alt="SW1配置远程管理"></center></li><li><p>配置结果验证，让PC1主机使用Telnet方式远程管理SW1交换机，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/远程管理SW1交换机.png" alt="远程管理SW1交换机"></center></li></ol><p>注：</p><ul><li><p>命令解释：</p><pre class=" language-shell"><code class="language-shell">enconf t# 进入vlan1接口，为交换机配置IP地址，没有IP地址就无法实现远程管理int vlan 1# 配置IP地址ip add 192.168.1.2 255.255.255.0# 开启接口no shexit# 设置交换机的默认网关ip default-gateway 192.168.1.1# 设置进入特权模式的密码(明文)enable pass cisco# 进入vty链路，开启5个接口line vty 0 4# 只允许telnet方式远程管理transport input telnet# 设置认证的密码pass cisco# 登录认证login</code></pre></li></ul><h2 id="0x05-SSH配置"><a href="#0x05-SSH配置" class="headerlink" title="0x05 SSH配置"></a>0x05 SSH配置</h2><ol><li><p>打开R1配置界面，使用如下命令完成SSH配置，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">enconf tenable secret ciscohostname R1ip domain-name baidu.comusername admin password 0 admincrypto key generate rsa general-keys modulus 1024ip ssh version 2ip ssh time-out 60ip ssh authentication-retries 2line vty 0 4transport input sshlogin local</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/配置SSH.png" alt="配置SSH"></center></li><li><p>配置结果验证，让PC1主机使用SSH方式远程管理R1路由器，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/SSH验证.png" alt="SSH验证"></center></li><li><p>让PC1主机使用Telnet方式远程管理SW1交换机，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/PC1TelnetR1失败.png" alt="PC1TelnetR1失败"></center></li></ol><p>注：</p><ul><li><p>命令解释：</p><pre class=" language-shell"><code class="language-shell">enconf t# 配置进入特权模式的密码enable secret cisco# 设置主机名hostname R1# 设置域名ip domain-name baidu.com# 添加用于认的登录用户名及口令username admin password 0 admin# 配置非对称密钥为1024位（缺省位512位）crypto key generate rsa general-keys modulus 1024# 配置SSH版本ip ssh version 2# 配置SSH会话最大空闲超时值为60sip ssh time-out 60# 配置SSH连接认证重试次数为2次ip ssh authentication-retries 2# 进入vty链路line vty 0 4# 只允许SSH连接transport input ssh# 要求本地认证login local</code></pre></li></ul><h2 id="0x06-Telnet和SSH并存"><a href="#0x06-Telnet和SSH并存" class="headerlink" title="0x06 Telnet和SSH并存"></a>0x06 Telnet和SSH并存</h2><ol><li><p>打开SW2配置界面，使用如下命令完成配置，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">enconf tint vlan 1ip add 192.168.2.2 255.255.255.0no shenable secret ciscoservice password-encryptionhostname SW2ip domain-name baidu.comusername admin password 0 admincrypto key generate rsa general-keys modulus 1024ip ssh version 2ip ssh time-out 60ip ssh authentication-retries 2line vty 0 4transport input alllogin local</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/配置SW2远程管理.png" alt="配置SW2远程管理"></center></li><li><p>配置结果验证，让PC2主机使用SSH方式远程管理SW2路由器，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/SSH方式远程管理PC2.png" alt="SSH方式远程管理SW2"></center></li><li><p>让PC2主机使用Telnet方式远程管理SW2交换机，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/RemoteManagement/Telnet方式远程管理SW2.png" alt="Telnet方式远程管理SW2"></center></li></ol><p>注：</p><ul><li><p>命令解释：</p><pre class=" language-shell"><code class="language-shell">enconf t# 进入vlan1接口配置IP地址int vlan 1ip add 192.168.2.2 255.255.255.0no sh# 配置进入特权模式的密码enable secret cisco# 将明文密码加密service password-encryption# 配置主机名hostname SW2# 配置域名ip domain-name baidu.com# 添加认证用户名及密码username admin password 0 admin# 配置非对称密钥为1024位（缺省位512位）crypto key generate rsa general-keys modulus 1024ip ssh version 2# 最大空闲超时60秒ip ssh time-out 60# 认证重试2次ip ssh authentication-retries 2line vty 0 4# 允许所有协议通过vty进入transport input all# 要求本地认证login local</code></pre></li></ul><h1 id="0x03-实验总结"><a href="#0x03-实验总结" class="headerlink" title="0x03 实验总结"></a>0x03 实验总结</h1><ul><li>远程管理主要分为Telnet和SSH两种方式，其中SSH较Telnet的安全性更高；</li><li>Telnet配置步骤：<ul><li>配置IP地址（如果是二层交换机还需要配置默认网关）</li><li>配置进入特权模式的密码</li><li>进入VTY链路，配置<strong>密码</strong>和允许的<strong>telnet协议</strong>通过</li><li>启动密码认证</li></ul></li><li>SSH配置：<ul><li>配置IP地址</li><li>配置进入特权模式的密码</li><li>配置主机名</li><li>配置域名</li><li>添加认证的登录用户名及密码</li><li>配置非对称密钥</li><li>配置最大空闲超时值</li><li>配置最大认证重试次数</li><li>进入VTY链路，配置允许<strong>SSH协议</strong>通过</li><li>启动本地认证</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 远程管理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>重置root管理员密码</title>
       <link href="/2020/12/03/chong-zhi-root-guan-li-yuan-mi-ma/"/>
       <url>/2020/12/03/chong-zhi-root-guan-li-yuan-mi-ma/</url>
@@ -1568,11 +1593,11 @@
       
         <tags>
             
+            <tag> SQLi </tag>
+            
             <tag> MySQL </tag>
             
             <tag> load_file </tag>
-            
-            <tag> SQLi </tag>
             
         </tags>
       
@@ -1597,9 +1622,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1624,9 +1649,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1651,9 +1676,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1678,9 +1703,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1705,9 +1730,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1732,9 +1757,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1811,9 +1836,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
