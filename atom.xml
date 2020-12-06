@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-05T08:55:14.835Z</updated>
+  <updated>2020-12-06T02:44:32.035Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络配置之配置路由</title>
+    <link href="https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/"/>
+    <id>https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/</id>
+    <published>2020-12-05T15:07:22.000Z</published>
+    <updated>2020-12-06T02:44:32.035Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-路由&quot;&gt;&lt;a href=&quot;#0x01-路由&quot; class=&quot;headerlink&quot; title=&quot;0x01 路由&quot;&gt;&lt;/a&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="网路配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E8%B7%AF%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="路由" scheme="https://z1r0s.github.io/tags/%E8%B7%AF%E7%94%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>网络配置之远程管理</title>
@@ -533,32 +559,6 @@
       <category term="域" scheme="https://z1r0s.github.io/tags/%E5%9F%9F/"/>
     
       <category term="活动目录" scheme="https://z1r0s.github.io/tags/%E6%B4%BB%E5%8A%A8%E7%9B%AE%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Web服务器运行多个网站</title>
-    <link href="https://z1r0s.github.io/2020/11/10/web-fu-wu-qi-yun-xing-duo-ge-wang-zhan/"/>
-    <id>https://z1r0s.github.io/2020/11/10/web-fu-wu-qi-yun-xing-duo-ge-wang-zhan/</id>
-    <published>2020-11-10T08:23:46.000Z</published>
-    <updated>2020-11-10T09:39:41.327Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-概述&quot;&gt;&lt;a href=&quot;#0x01-概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 概述&quot;&gt;&lt;/a&gt;0x01 概述&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="技巧" scheme="https://z1r0s.github.io/categories/%E6%8A%80%E5%B7%A7/"/>
-    
-    
-      <category term="Web服务" scheme="https://z1r0s.github.io/tags/Web%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   

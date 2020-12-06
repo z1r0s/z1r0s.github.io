@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>网络配置之配置路由</title>
+      <link href="/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/"/>
+      <url>/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-路由"><a href="#0x01-路由" class="headerlink" title="0x01 路由"></a>0x01 路由</h1><ol><li><p>什么是路由？</p><p>路由是指路由器或三层交换机从一个接口上收到数据包时，根据数据包的<strong>目的地址</strong>将数据包从指定的端口中转发出去的过程。</p></li><li><p>如何进行路由选择？</p><p>路由器内部维护者一张路由表，该表是进行路由选择的关键，其路由来源主要分为：直连路由、静态路由、RIP路由、OSPF路由、浮动路由、默认路由等。</p></li><li><p>路由表构成？</p><ul><li>目的网络地址（Destination）：用于标识IP包要到达的目的逻辑网络或子网地址。</li><li>掩码（Mask）:与目的地址一起来标识目的主机或路由器所在的网段的地址。将目的地址和网络掩码“逻辑与”后可得到目的主机或路由器所在网段的地址。</li><li>下一跳地址（Gateway）:与承载路由表的路由器相接的相邻的路由器的端口地址，有时我们也把下一跳地址称为路由器的网关地址。</li><li>发送的物理端口（Interface）:数据包离开本路由器去往目的地时将经过的接口。</li><li>路由信息的来源（Owner）:表示该路由信息是怎样学习到的。路由表可以由管理员手工建立(静态路由表);也可以由路由选择协议自动建立并维护。路由表不同的建立方式即为路由信息的不同学习方式。</li><li>路由优先级（Priority）:也叫管理距离，决定了来自不同路由来源的路由信息的优先权。</li></ul></li></ol><h1 id="0x02-路由分类"><a href="#0x02-路由分类" class="headerlink" title="0x02 路由分类"></a>0x02 路由分类</h1><p><strong>按照使用分类</strong>：</p><ul><li><strong>静态路由</strong>：手动配置，不会消耗带宽，当网络变更时，还需要手动修改路由。<ul><li>默认路由</li><li>浮动路由</li></ul></li><li><strong>动态路由</strong>：路由器宣告自己的网段，会消耗部分网络带宽，路由器之间通过相互学习得到路由表，当网络变更时，会自动生成新的路由表信息。</li></ul><p><strong>按照范围分类</strong>：</p><ul><li>IGP（内部网关协议）：RIP、OSPF、IS-IS</li><li>EGP（外部网关协议）：BGP、EIGRP</li></ul><p><strong>按照算法分类</strong>：</p><ul><li>距离矢量：RIP</li><li>链路状态：OSPF、IS-IS</li><li>混合型：BGP、EIGRP</li></ul><h1 id="0x03-配置静态路由"><a href="#0x03-配置静态路由" class="headerlink" title="0x03 配置静态路由"></a>0x03 配置静态路由</h1><ol><li><p>在三层交换机中配置静态路由：</p><pre class=" language-shell"><code class="language-shell">SW(config)# ip routing SW(config)# ip route 192.168.3.0 255.255.255.0 192.168.2.2</code></pre></li><li><p>在路由器中配置静态路由：</p><pre class=" language-shell"><code class="language-shell">R(config)# ip route 192.168.3.0 255.255.255.0 192.168.2.2</code></pre></li></ol><h1 id="0x04-配置默认路由"><a href="#0x04-配置默认路由" class="headerlink" title="0x04 配置默认路由"></a>0x04 配置默认路由</h1><ol><li><p>在三层交换机中配置默认路由：</p><pre class=" language-shell"><code class="language-shell">SW(config)# ip routingSW(config)# ip route 0.0.0.0 0.0.0.0 192.168.2.2</code></pre></li><li><p>在路由器中配置默认路由：</p><pre class=" language-shell"><code class="language-shell">R(config)# ip route 0.0.0.0 0.0.0.0 192.168.2.2</code></pre></li></ol><h1 id="0x05-配置RIP"><a href="#0x05-配置RIP" class="headerlink" title="0x05 配置RIP"></a>0x05 配置RIP</h1><ol><li><p>在三层交换机中配置默认路由：</p><pre class=" language-shell"><code class="language-shell">SW(config)#ip routingSW(config)#route ripSW(config-router)#version 2SW(config-router)#no auto-summarySW(config-router)#network 192.168.1.0SW(config-router)#network 192.168.2.0</code></pre></li><li><p>在路由器中配置默认路由：</p><pre class=" language-shell"><code class="language-shell">R(config)#route ripR(config-router)#version 2                    // RIPv2支持VLSMR(config-router)#no auto-summary             // 关闭路由聚合R(config-router)#network 192.168.1.0R(config-router)#network 192.168.2.0</code></pre></li></ol><h1 id="0x06-配置OSPF"><a href="#0x06-配置OSPF" class="headerlink" title="0x06 配置OSPF"></a>0x06 配置OSPF</h1><ol><li><p>单区域OSPF配置：</p><pre class=" language-shell"><code class="language-shell">R1(config)#router ospf 1        //启动OSPF进程R1(config-router)#router-id 1.1.1.1        //配置路由器IDR1(config-router)#network 172.16.1.0 0.0.0.255 area 0        //通告直连网络R1(config-router)#network 172.16.1.0 255.255.255.0 area 0        //通告直连网络</code></pre><p>注：</p><ul><li>网络地址的后面即可以跟通配符掩码，在高版本IOS中也可以跟网络掩码，IOS会自动转换成通配符掩码。</li></ul></li><li><p>OSPF区域认证;</p><ul><li><p>区域简单口令认证：</p><pre class=" language-shell"><code class="language-shell">R1(config)#router ospf 1R1(config-router)#area 0 authentication        //区域0启用简单口令认证R1(config)#int s0/0R1(config-if)#ip ospf authentication-key cisco        //配置认证密码R2(config)#router ospf 1R2(config-router)#area 0 authentication        //区域0启用简单口令认证R2(config)#int s0/0R2(config-if)#ip ospf authentication-key cisco        //配置认证密码</code></pre></li><li><p>区域MD5认证：</p><pre class=" language-shell"><code class="language-shell">R1(config)#router ospf 1R1(config-router)#area 0 authentication message-digest    //区域0启用MD5认证R1(config)#int s0/0R1(config-if)#ip ospf message-digest-key cisco        //配置认证密码R2(config)#router ospf 1R2(config-router)#area 0 authentication message-digest    //区域0启用MD5认证R2(config)#int s0/0R2(config-if)#ip ospf message-digest-key cisco        //配置认证密码</code></pre></li></ul></li><li><p>OSPF接口认证：</p><ul><li><p>简单接口认证：</p><pre class=" language-shell"><code class="language-shell">R1(config)#int s0/0R1(config-if)#ip ospf authentication                // 接口启用简单口令认证R1(config-if)#ip ospf authentication-key cisco        // 配置认证密码R2(config)#int s0/0R2(config-if)#ip ospf authentication                // 接口启用简单口令认证R2(config-if)#ip ospf authentication-key cisco        // 配置认证密码</code></pre></li><li><p>接口MD5认证：</p><pre class=" language-shell"><code class="language-shell">R1(config)#int s0/0R1(config-if)#ip ospf authentication message-digest        // 接口启用MD5认证R1(config-if)#ip ospf message-digest-key cisco            // 配置认证Key ID及密匙R2(config)#int s0/0R2(config-if)#ip ospf authentication message-digest        // 接口启用MD5认证R2(config-if)#ip ospf message-digest-key cisco            // 配置认证Key ID及密匙</code></pre></li></ul></li></ol><h1 id="0x07-配置浮动路由"><a href="#0x07-配置浮动路由" class="headerlink" title="0x07 配置浮动路由"></a>0x07 配置浮动路由</h1><ol><li><p>在三层交换机中配置默认路由：</p><pre class=" language-shell"><code class="language-shell">SW(config)#ip routingSW(config)#i route 192.168.3.0 255.255.255.0 192.168.2.2 SW(config)#ip route 192.168.3.0 255.255.255.0 192.168.2.2 SW(config)#ip route 192.168.3.0 255.255.255.0 192.168.4.2 100</code></pre></li><li><p>在路由器中配置默认路由：</p><pre class=" language-shell"><code class="language-shell">R(config)#ip route 192.168.3.0 255.255.255.0 192.168.2.2R(config)#ip route 192.168.3.0 255.255.255.0 192.168.4.2 100</code></pre></li></ol><p>注：</p><ul><li><p>在配置浮动路由时需要留意其他已经配置的路由的AD值。</p><p>常见路由默认AD值：（0-255，值越低优先级越高）</p></li></ul><table><thead><tr><th align="center">路由协议</th><th align="center">AD值</th></tr></thead><tbody><tr><td align="center">直连路由</td><td align="center">0</td></tr><tr><td align="center">静态路由</td><td align="center">1</td></tr><tr><td align="center">外部BGP</td><td align="center">20</td></tr><tr><td align="center">内部EIGRP</td><td align="center">90</td></tr><tr><td align="center">EIGRP</td><td align="center">100</td></tr><tr><td align="center">OSPF</td><td align="center">110</td></tr><tr><td align="center">RIP</td><td align="center">120</td></tr><tr><td align="center">外部EIGRP</td><td align="center">170</td></tr><tr><td align="center">内部BGP</td><td align="center">200</td></tr></tbody></table><h1 id="0x09-查看路由信息"><a href="#0x09-查看路由信息" class="headerlink" title="0x09 查看路由信息"></a>0x09 查看路由信息</h1><pre class=" language-shell"><code class="language-shell">R1#show ip route        //查看路由表信息R1#show ip protocols        //查看启用的路由协议R1#show ip rip database            // 查看路由器中rip的拓扑结构数据库R1#show ip ospf 1        //可查看OSPF进程ID、RID、OSPF区域信息以及上次计算SPF算法的时间R1#show ip ospf interface       //查看运行OSPF接口的信息R1#show ip ospf neighbor        //查看OSPF邻居表的基本信息R1#show ip ospf database        // 查看路由器中ospf的拓扑结构数据库</code></pre><h1 id="0x09-OSPF信息补充"><a href="#0x09-OSPF信息补充" class="headerlink" title="0x09 OSPF信息补充"></a>0x09 OSPF信息补充</h1><ol><li><p>OSPF路由进程ID的范围在<code>1-65535</code>之间，而且只有本地含义，不同路由器的路由进程ID可以不同。如果要想启 动OSPF路由进程，至少确保有一个接口是up的。同一台路由器上可以启动多个OSPF进程，但会消耗更多的CPU和内存等资源。</p></li><li><p>区域ID是<code>0-4294967295</code>的数，也可以是IP地址的格式<code>A.B.C.D</code>。当网络区域为0或<code>0.0.0.0</code>时称为主干区域。</p></li><li><p><code>Router ID</code>选择遵循如下顺序：</p><pre class=" language-shell"><code class="language-shell"> 1>最优先的是在OSPF进程中使用“router-id”指定了RID； 2>如果没有在OSPF进程中指定RID，则选择IP地址最大的环回接口的IP地址为RID； 3>如果没有环回接口，则选择活动的IP地址最大的物理接口的IP地址为RID。   ①如果使用“secondary”配置IP地址时，该地址不起作用，即不参与RID竞选；   ②使用“router-id”后，应使用命令“clear ip ospf process”重置ospf进程，新配置的RID才能生效；   ③2、3步只有在下次重启路由器时才会生效，即后来加入大的IP地址也不能选举为RID直到路由器重启。</code></pre></li><li><p>Router ID重新选举规则：</p><pre class=" language-shell"><code class="language-shell"> 1>使用“router-id”和“clear ip ospf process”命令； 2>重启路由器(不一定)。</code></pre></li></ol><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><ul><li><p><a href="https://www.cnblogs.com/deng511/p/10916514.html" target="_blank" rel="noopener">路由表的构成</a></p></li><li><p><a href="http://www.wallslab.net/wap/news_infr.php?cid=78&id=7421" target="_blank" rel="noopener">思科的浮动静态路由协议配置</a></p></li><li><p><a href="https://blog.csdn.net/zonghua521/article/details/78198026" target="_blank" rel="noopener">OSPF配置实验</a></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网路配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 路由 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网络配置之远程管理</title>
       <link href="/2020/12/05/wang-luo-pei-zhi-zhi-yuan-cheng-guan-li/"/>
       <url>/2020/12/05/wang-luo-pei-zhi-zhi-yuan-cheng-guan-li/</url>
@@ -1593,9 +1618,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
             <tag> load_file </tag>
             
@@ -1622,9 +1647,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1649,9 +1674,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1676,9 +1701,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1703,9 +1728,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1730,9 +1755,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1757,9 +1782,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1836,9 +1861,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1977,9 +2002,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> Web </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2004,9 +2029,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -2116,9 +2141,9 @@
       
         <tags>
             
-            <tag> rsa </tag>
-            
             <tag> python </tag>
+            
+            <tag> rsa </tag>
             
         </tags>
       
@@ -2892,11 +2917,11 @@
       
         <tags>
             
-            <tag> 网络基础 </tag>
-            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
+            
+            <tag> 网络基础 </tag>
             
         </tags>
       
