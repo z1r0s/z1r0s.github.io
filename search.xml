@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>网络配置之ACL实验</title>
+      <link href="/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/"/>
+      <url>/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="实验拓扑"><a href="#实验拓扑" class="headerlink" title="实验拓扑"></a>实验拓扑</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/实验拓扑.png" alt="实验拓扑"></center><h1 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h1><ul><li><p>拒绝<code>192.168.1.96/27</code>访问FTP</p></li><li><p>拒绝<code>192.168.161/27</code>访问FTP符</p></li><li><p>拒绝<code>192.168.1.128/27</code>访问Web服务</p></li><li><p>允许其他所有访问</p></li></ul><p>附加：</p><ul><li><p>拒绝<code>192.168.1.2/27</code>访问<code>192.168.1.32/27</code>网段</p></li><li><p>只允许<code>192.168.1.1/27</code>主机可以<code>telnet</code>三层交换机</p></li><li><p>只允许<code>192.168.1.2</code>使用<code>ssh</code>管理三层交换机</p></li></ul><h1 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h1><h2 id="0x01-基础配置"><a href="#0x01-基础配置" class="headerlink" title="0x01 基础配置"></a>0x01 基础配置</h2><ol><li><p>SW0交换机的基础配置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/SW0基础配置.png" alt="SW0基础配置"></center></li><li><p>multiSW0交换机的基础配置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/multiSW0基础配置.png" alt="multiSW0基础配置"></center></li><li><p>Router0路由器的基础配置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/R0基础配置.png" alt="R0基础配置"></center></li><li><p>SW1交换机的基础配置，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/SW1基础配置.png" alt="SW1基础配置"></center></li></ol><h2 id="0x02-应用于服务器的ACL"><a href="#0x02-应用于服务器的ACL" class="headerlink" title="0x02 应用于服务器的ACL"></a>0x02 应用于服务器的ACL</h2><ol><li><p>在Router0的<code>f0/0</code>接口配置ACL，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/对服务的ACL配置.png" alt="对服务的ACL配置"></center></li><li><p>验证ACL是应用成功，这里只验证第一条ACL，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/验证ACL1.png" alt="验证ACL"></center></li></ol><h2 id="0x03-远程管理的配置"><a href="#0x03-远程管理的配置" class="headerlink" title="0x03 远程管理的配置"></a>0x03 远程管理的配置</h2><ol><li><p>在三层交换机上配置Telnet，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/三层交换机配置Telnet.png" alt="三层交换机配置Telnet"></center></li><li><p>在三层交换机上配置SSH，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/三层交换机配置SSH.png" alt="三层交换机配置SSH"></center></li></ol><h2 id="0x04-应用于三层交换机的ACL"><a href="#0x04-应用于三层交换机的ACL" class="headerlink" title="0x04 应用于三层交换机的ACL"></a>0x04 应用于三层交换机的ACL</h2><ol><li><p>在三层交换机上配置ACL，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/应用于三层交换机的ACL.png" alt="应用于三层交换机的ACL"></center></li><li><p>验证ACL是否应用成功，这里值验证应用于SSH的ACL，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/ACL/验证ACL2.png" alt="验证ACL"></center></li></ol><h1 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h1><ul><li>ACL的创建步骤为：<ul><li>创建ACL</li><li>将ACL应用于接口（需要指定<code>in/out</code>）</li></ul></li><li>当一个ACL中有多条规则时，要的别关注应用的接口和方向</li></ul><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><pre class=" language-shell"><code class="language-shell">基础配置：SW0配置：enconf thostname SW0vlan 10vlan 100exint range f0/1-2switchport mode accessswitchport access vlan 10int f0/3switchport mode accessswitchport access vlan 100int f0/4switchport mode trunkmultiSW0配置:enconf thostname multiSW0int f0/1switchport trunk encapsulation dot1qswitchport mode trunkvlan 10vlan 100exint vlan 10ip add 192.168.1.30 255.255.255.224no shint vlan 100ip add 192.168.1.62 255.255.255.224no shint f0/2no switchportip add 192.168.1.65 255.255.255.224no shexip routingip route 0.0.0.0 0.0.0.0 192.168.1.66Router0配置：enconf thostname Router0int f0/0ip add 192.168.1.66 255.255.255.224no shint f1/0ip add 192.168.1.190 255.255.255.224no shint f0/1.1encapsulation dot1Q 20ip add 192.168.1.126 255.255.255.224no shint f0/1.2encapsulation dot1Q 200ip add 192.168.1.158 255.255.255.224no shint f0/1no shexip route 0.0.0.0 0.0.0.0 192.168.1.65SW1配置:enconf thostname SW1vlan 20vlan 200exint f0/1switchport mode accessswitchport access vlan 20int f0/2switchport mode accessswitchport access vlan 200int f0/3switchport mode trunkRouter0的f0/0接口配置ACL：1.拒绝192.168.1.96/27访问FTP2.拒绝192.168.161/27访问FTP符3.拒绝192.168.1.128/27访问Web服务4.允许其他所有访问access-list 101 deny tcp 192.168.1.96 0.0.0.31 host 192.168.1.33 eq 21access-list 101 deny tcp host 192.168.1.161 host 192.168.1.33 eq 21access-list 101 deny tcp 192.168.1.128 0.0.0.31 host 192.168.1.33 eq 80access-list 101 permit tcp any anyint f0/0ip access-group 101 outtelnet配置：enable pass ciscousername cisco password 0 ciscoline vty 0 4login localssh配置：hostname multiSW0ip domain-name cisco.comip ssh time-out 120ip ssh authentication-retries 3crypto key generate rsa general-keys modulus 1024username admin password 0 adminline vty 5 9transport input alllogin local1.拒绝192.168.1.2/27访问192.168.1.32/27网段（multiSW）2.只允许192.168.1.1/27主机可以telnet三层交换机3.只允许192.168.1.2使用ssh管理三层交换机access-list 102 deny ip host 192.168.1.2 192.168.1.32 0.0.0.31access-list 102 permit tcp host 192.168.1.1 host 192.168.1.1 eq telnetaccess-list 102 permit tcp host 192.168.1.2 host 192.168.1.1 eq 22access-list 102 permit ip any anyint vlan 10ip access-group 102 in</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>网络配置之ACL</title>
+      <link href="/2020/12/06/wang-luo-pei-zhi-zhi-acl/"/>
+      <url>/2020/12/06/wang-luo-pei-zhi-zhi-acl/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x01-ACL概述"><a href="#0x01-ACL概述" class="headerlink" title="0x01 ACL概述"></a>0x01 ACL概述</h1><ol><li><p>什么是ACL？</p><p>ACL，即访问控制列表，ACL可以读取第三层、第四层的包头信息，并根据预先定义好的规则对包进行过滤。</p></li><li><p>应用ACL时需要注意什么？</p><ul><li>ACL必须应用到接口上才能生效；</li><li>一个接口最多应用两个ACL，<strong>出方向</strong>和<strong>入方向</strong>。<ul><li>outside：已经过路由器的处理，当从此接口离开时才生效的ACL；</li><li>inside：到达路由器并从此接口进入路由器时才生效的ACL。</li></ul></li></ul></li><li><p>ACL的处理过程？</p><ul><li>首先会匹配第一条ACL，若匹配成功且为拒绝则直接丢弃该数据包；若匹配成功且为允许则将数据包转到目的接口；若匹配不成功，则继续匹配下一条ACL；后续的匹配过程亦是如此。</li><li>若所有规则都不匹配则丢弃该数据包，因为ACL规则默认为拒绝。</li></ul></li></ol><h1 id="0x02-ACL分类"><a href="#0x02-ACL分类" class="headerlink" title="0x02 ACL分类"></a>0x02 ACL分类</h1><ul><li>标准ACL<ul><li>基于源IP地址过滤数据包</li><li>标准ACL的访问控制列表号是1-99</li></ul></li><li>扩展ACL<ul><li>基于协议、源IP地址、目的IP地址、端口和标志来过滤数据包</li><li>扩展ACL的访问控制列表号是100-199</li></ul></li><li>命令ACL<ul><li>命名ACL允许在标准和扩展访问控制列表中使用名称代替表号</li></ul></li></ul><h1 id="0x03-ACL应用"><a href="#0x03-ACL应用" class="headerlink" title="0x03 ACL应用"></a>0x03 ACL应用</h1><ol><li><p>标准ACL</p><pre class=" language-shell"><code class="language-shell"># 拒绝主机192.168.1.1的流量通过R(config)#access-list 1 deny 192.168.1.1 0.0.0.0R(config)#access-list 1 deny host 192.168.1.1# 允许192.168.1.0/24的流量通过R(config)#access-list 1 permit 192.168.1.0 0.0.0.255# 隐含的拒绝语句（拒绝所有主机）R(config)#access-list 1 deny 0.0.0.0 255.255.255.255R(config)#access-list 1 deny anyR(config)#int f0/1# 将ACL应用到f0/1的入方向（出方向为out）R(config-if)#ip access-group 1 in</code></pre></li><li><p>扩展ACL</p><pre class=" language-shell"><code class="language-shell"># 允许192.168.1.0/24中的主机访问192.168.2.0/24中的主机R(config)#access-list 101 permit ip 192.168.1.0 0.0.0.255 12.168.2.0 0.0.0.255# 允许192.168.1.0/24中的主机访问192.168.2.0/24中主机的21号端口R(config)#access-list 101 permit tcp 192.168.1.0 0.0.0.255 12.168.2.0 0.0.0.255 eq 21R(config)#access-list 101 permit tcp 192.168.1.0 0.0.0.255 12.168.2.0 0.0.0.255 eq ftp# 允许所有访问R(config)#access-list 101 permit ip any any# 拒绝192.168.1.0/24中的主机ping192.168.2.2主机R(config)#access-list 101 deny icmp 192.168.1.0 0.0.0.255 host 192.168.2.2 echoR(config)#int f0/1# 将ACL应用到f0/1的出方向（入方向为in）R(config-if)#ip access-group 101 out</code></pre></li><li><p>命名ACL</p><pre class=" language-shell"><code class="language-shell"># 标准命名ACLR(config)#ip access-list standard Out-to-ISPR(config-std-nacl)#deny 192.168.1.0 0.0.0.255R(config-std-nacl)#permit any # 扩展命名ACLR(config)#ip access-list extended In-to-ISPR(config-ext-nacl)#deny ip host 192.168.2.2 192.168.1.0 0.0.0.255R(config-ext-nacl)#permit ip any anyR(config)#int f0/1R(config-if)#ip access-group Out-to-ISP in</code></pre></li></ol><h1 id="0x04ACL查看"><a href="#0x04ACL查看" class="headerlink" title="0x04ACL查看"></a>0x04ACL查看</h1><pre class=" language-shell"><code class="language-shell"># 查看所有ACLR#show access-lists# 查看编号为1的ACLR#show access-lists 1</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>21个写SQL的好习惯【转】</title>
       <link href="/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/"/>
       <url>/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/</url>
@@ -2942,11 +2992,11 @@
       
         <tags>
             
-            <tag> 网络基础 </tag>
-            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
+            
+            <tag> 网络基础 </tag>
             
         </tags>
       
@@ -3263,9 +3313,9 @@
             
             <tag> C# </tag>
             
-            <tag> 程序实现 </tag>
-            
             <tag> 编码 </tag>
+            
+            <tag> 程序实现 </tag>
             
         </tags>
       

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-06T02:57:27.089Z</updated>
+  <updated>2020-12-06T07:20:56.183Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络配置之ACL实验</title>
+    <link href="https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/"/>
+    <id>https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/</id>
+    <published>2020-12-06T06:43:40.000Z</published>
+    <updated>2020-12-06T07:20:56.183Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;实验拓扑&quot;&gt;&lt;a href=&quot;#实验拓扑&quot; class=&quot;headerlink&quot; title=&quot;实验拓扑&quot;&gt;&lt;/a&gt;实验拓扑&lt;/h1&gt;&lt;center&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="ACL" scheme="https://z1r0s.github.io/tags/ACL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络配置之ACL</title>
+    <link href="https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl/"/>
+    <id>https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl/</id>
+    <published>2020-12-06T03:33:13.000Z</published>
+    <updated>2020-12-06T06:40:55.896Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-ACL概述&quot;&gt;&lt;a href=&quot;#0x01-ACL概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 ACL概述&quot;&gt;&lt;/a&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="ACL" scheme="https://z1r0s.github.io/tags/ACL/"/>
+    
+  </entry>
   
   <entry>
     <title>21个写SQL的好习惯【转】</title>
@@ -502,61 +554,6 @@
       <category term="DNS" scheme="https://z1r0s.github.io/tags/DNS/"/>
     
       <category term="服务部署" scheme="https://z1r0s.github.io/tags/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DNS服务</title>
-    <link href="https://z1r0s.github.io/2020/11/14/dns-fu-wu/"/>
-    <id>https://z1r0s.github.io/2020/11/14/dns-fu-wu/</id>
-    <published>2020-11-13T23:24:39.000Z</published>
-    <updated>2020-11-14T00:34:25.387Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-DNS概述&quot;&gt;&lt;a href=&quot;#0x01-DNS概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 DNS概述&quot;&gt;&lt;/a&gt;0x01 DNS概述&lt;/h1&gt;&lt;h2 id=&quot;域名如何解析&quot;&gt;&lt;a href=&quot;#域名如何解析&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="网络服务" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
-    
-    
-      <category term="DNS" scheme="https://z1r0s.github.io/tags/DNS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows安全加固批处理脚本</title>
-    <link href="https://z1r0s.github.io/2020/11/13/windows-an-quan-jia-gu-pi-chu-li-jiao-ben/"/>
-    <id>https://z1r0s.github.io/2020/11/13/windows-an-quan-jia-gu-pi-chu-li-jiao-ben/</id>
-    <published>2020-11-13T13:38:18.000Z</published>
-    <updated>2020-11-13T14:05:38.528Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;​        此安全加固脚本以文件驱动，可在&lt;code&gt;win.ini&lt;/code&gt;文件中设置部分参数，其他参数脚本中已默认设置，若想要修改则需要打开批处理中进行设置。&lt;/p&gt;
-&lt;h1 id=&quot;WinSecurityReinforcement-bat内容&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="安全加固" scheme="https://z1r0s.github.io/categories/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"/>
-    
-    
-      <category term="批处理" scheme="https://z1r0s.github.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/"/>
-    
-      <category term="安全加固" scheme="https://z1r0s.github.io/tags/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"/>
     
   </entry>
   

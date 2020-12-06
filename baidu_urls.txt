@@ -1,3 +1,5 @@
+https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/
+https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl/
 https://z1r0s.github.io/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/
 https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/
 https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-yuan-cheng-guan-li/
@@ -96,5 +98,3 @@ https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/
 https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-iis/
 https://z1r0s.github.io/2020/09/07/sql-zhu-ru-bi-ji/
 https://z1r0s.github.io/2020/09/05/jie-jue-burpsuite-response-zhong-wen-luan-ma/
-https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong-dong-wu-ban/
-https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong/
