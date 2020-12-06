@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>21个写SQL的好习惯【转】</title>
+      <link href="/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/"/>
+      <url>/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/</url>
+      
+        <content type="html"><![CDATA[<p>​        每一个好习惯都是一笔财富，本文分SQL后悔药， SQL性能优化，SQL规范优雅三个方向，分享写SQL的21个好习惯，谢谢阅读，加油哈~</p><p>公众号：<strong>「捡田螺的小男孩」</strong></p><ol><li><p>写完SQL先<code>explain</code>查看执行计划（SQL性能优化）</p><p>日常开发写SQL的时候，尽量养成这个好习惯呀：写完SQL后，用<code>explain</code>分析一下，尤其注意走不走索引。</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">explain</span> <span class="token keyword">select</span> userid<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> userid <span class="token operator">=</span><span class="token number">10086</span> <span class="token operator">or</span> age <span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">;</span></code></pre></li><li><p>操作<code>delete</code>或者<code>update</code>语句，加个<code>limit</code>（SQL后悔药）</p><p>在执行删除或者更新语句，尽量加上limit，以下面的这条 SQL 为例吧：</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> euser <span class="token keyword">where</span> age <span class="token operator">></span> <span class="token number">30</span> <span class="token keyword">limit</span> <span class="token number">200</span><span class="token punctuation">;</span></code></pre><p>因为加了limit 主要有这些好处：<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9zTW1yNFhPQ0J6SFpLWmN0bEtQYlJQNDlaRExFTGw3Nm1mUXdFbkZIV2ljaWFjTDBvbEtMRmg4Z1F2azNNb1hvcURud25QNE44T05kRlZ2ekpzNWc5Z3pBLzY0MA?x-oss-process=image/format,png" alt="img"></p></li></ol><ul><li><strong>「降低写错SQL的代价」</strong>, 你在命令行执行这个SQL的时候，如果不加limit，执行的时候一个<strong>「不小心手抖」</strong>，可能数据全删掉了，如果<strong>「删错」</strong>了呢？加了limit 200，就不一样了。删错也只是丢失200条数据，可以通过binlog日志快速恢复的。</li><li><strong>「SQL效率很可能更高」</strong>，你在SQL行中，加了limit 1，如果第一条就命中目标return， 没有limit的话，还会继续执行扫描表。</li><li><strong>「避免了长事务」</strong>，delete执行时,如果age加了索引，MySQL会将所有相关的行加写锁和间隙锁，所有执行相关行会被锁住，如果删除数量大，会直接影响相关业务无法使用。</li><li><strong>「数据量大的话，容易把CPU打满」</strong> ,如果你删除数据量很大时，不加 limit限制一下记录数，容易把cpu打满，导致越删越慢的。</li></ul><ol start="3"><li><p>设计表的时候，所有表和字段都添加相应的注释（SQL规范优雅）</p><p>这个好习惯一定要养成啦，设计数据库表的时候，所有表和字段都添加相应的注释，后面更容易维护。</p><p><strong>「正例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>account<span class="token punctuation">`</span> <span class="token punctuation">(</span>  <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span> <span class="token keyword">COMMENT</span> <span class="token string">'主键Id'</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'账户名'</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>balance<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'余额'</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>create_time<span class="token punctuation">`</span> <span class="token keyword">datetime</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'创建时间'</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>update_time<span class="token punctuation">`</span> <span class="token keyword">datetime</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">CURRENT_TIMESTAMP</span> <span class="token keyword">COMMENT</span> <span class="token string">'更新时间'</span><span class="token punctuation">,</span>  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token keyword">KEY</span> <span class="token punctuation">`</span>idx_name<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">USING</span> <span class="token keyword">BTREE</span><span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token operator">=</span><span class="token number">1570068</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8 ROW_FORMAT<span class="token operator">=</span>REDUNDANT <span class="token keyword">COMMENT</span><span class="token operator">=</span><span class="token string">'账户表'</span><span class="token punctuation">;</span></code></pre><p><strong>「反例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>account<span class="token punctuation">`</span> <span class="token punctuation">(</span>  <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>balance<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>create_time<span class="token punctuation">`</span> <span class="token keyword">datetime</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token punctuation">,</span>  <span class="token punctuation">`</span>update_time<span class="token punctuation">`</span> <span class="token keyword">datetime</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">CURRENT_TIMESTAMP</span><span class="token punctuation">,</span>  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token keyword">KEY</span> <span class="token punctuation">`</span>idx_name<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">USING</span> <span class="token keyword">BTREE</span><span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token operator">=</span><span class="token number">1570068</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8<span class="token punctuation">;</span></code></pre></li><li><p>SQL书写格式，关键字大小保持一致，使用缩进。（SQL规范优雅）</p><p><strong>「正例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> stu<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span>score<span class="token punctuation">)</span><span class="token keyword">FROM</span> Student stu<span class="token keyword">WHERE</span> stu<span class="token punctuation">.</span>classNo <span class="token operator">=</span> <span class="token string">'1班'</span><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> stu<span class="token punctuation">.</span>name</code></pre><p><strong>「反例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> stu<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span>score<span class="token punctuation">)</span> <span class="token keyword">from</span> Student stu <span class="token keyword">WHERE</span> stu<span class="token punctuation">.</span>classNo <span class="token operator">=</span> <span class="token string">'1班'</span> <span class="token keyword">group</span> <span class="token keyword">by</span> stu<span class="token punctuation">.</span>name<span class="token punctuation">.</span></code></pre><p>显然，统一关键字大小写一致，使用缩进对齐，会使你的SQL看起来更优雅~</p></li><li><p><code>INSERT</code>语句标明对应的字段名称（SQL规范优雅）</p><p><strong>「反例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> Student <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'666'</span><span class="token punctuation">,</span><span class="token string">'捡田螺的小男孩'</span><span class="token punctuation">,</span><span class="token string">'100'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><strong>「正例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> Student<span class="token punctuation">(</span>student_id<span class="token punctuation">,</span>name<span class="token punctuation">,</span>score<span class="token punctuation">)</span> <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'666'</span><span class="token punctuation">,</span><span class="token string">'捡田螺的小男孩'</span><span class="token punctuation">,</span><span class="token string">'100'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li><li><p>变更SQL操作先在测试环境执行，写明详细的操作步骤以及回滚方案，并在上生产前<code>review</code>。（SQL后悔药）</p></li></ol><ul><li>变更SQL操作先在测试环境测试，避免有语法错误就放到生产上了。</li><li>变更Sql操作需要写明详细操作步骤，尤其有依赖关系的时候，如：先修改表结构再补充对应的数据。</li><li>变更Sql操作有回滚方案，并在上生产前，<code>review</code>对应变更SQL。</li></ul><ol start="7"><li><p>设计数据库表的时候，加上三个字段：主键，<code>create_time</code>,<code>update_time</code>。（SQL规范优雅）</p><p><strong>「反例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>account<span class="token punctuation">`</span> <span class="token punctuation">(</span>  <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'账户名'</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>balance<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'余额'</span><span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token operator">=</span><span class="token number">1570068</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8 ROW_FORMAT<span class="token operator">=</span>REDUNDANT <span class="token keyword">COMMENT</span><span class="token operator">=</span><span class="token string">'账户表'</span><span class="token punctuation">;</span></code></pre><p><strong>「正例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>account<span class="token punctuation">`</span> <span class="token punctuation">(</span>  <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span> <span class="token keyword">COMMENT</span> <span class="token string">'主键Id'</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'账户名'</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>balance<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'余额'</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>create_time<span class="token punctuation">`</span> <span class="token keyword">datetime</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'创建时间'</span><span class="token punctuation">,</span>  <span class="token punctuation">`</span>update_time<span class="token punctuation">`</span> <span class="token keyword">datetime</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">CURRENT_TIMESTAMP</span> <span class="token keyword">COMMENT</span> <span class="token string">'更新时间'</span><span class="token punctuation">,</span>  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token keyword">KEY</span> <span class="token punctuation">`</span>idx_name<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">USING</span> <span class="token keyword">BTREE</span><span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token operator">=</span><span class="token number">1570068</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8 ROW_FORMAT<span class="token operator">=</span>REDUNDANT <span class="token keyword">COMMENT</span><span class="token operator">=</span><span class="token string">'账户表'</span><span class="token punctuation">;</span></code></pre><p><strong>「理由：」</strong></p></li></ol><ul><li><p>主键一般都要加上的，没有主键的表是没有灵魂的</p></li><li><p>创建时间和更新时间的话，还是建议加上吧，详细审计、跟踪记录，都是有用的。</p><p>阿里开发手册也提到这个点，如图</p></li></ul><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9zTW1yNFhPQ0J6SFpLWmN0bEtQYlJQNDlaRExFTGw3NmYyaWNNZXE2NGRnclNXRWJpY0hmTGhjejdFSGppY2lieFIyTDhucEJ1NmljWFpTV1ZxYkIyNFJpYnBhQS82NDA?x-oss-process=image/format,png" alt="img"></p><ol start="8"><li><p>写完SQL语句，检查<code>where</code>,<code>order by</code>,<code>group by</code>后面的列，多表关联的列是否已加索引，优先考虑组合索引。（SQL性能优化）</p><p><strong>「反例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> address <span class="token operator">=</span><span class="token string">'深圳'</span> <span class="token keyword">order</span> <span class="token keyword">by</span> age<span class="token punctuation">;</span></code></pre><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9zTW1yNFhPQ0J6SFpLWmN0bEtQYlJQNDlaRExFTGw3NjJ1TlUxVTRSVTFwUjE0aWI0bWlhUkR5c1RleTBvSGZlcUtwS2wyY2tjcDZCZTQ5M0l3d2liNURZQS82NDA?x-oss-process=image/format,png" alt="img"></p><p><strong>「正例：」</strong></p><pre class=" language-sql"><code class="language-sql">添加索引<span class="token keyword">alter</span> <span class="token keyword">table</span> <span class="token keyword">user</span> <span class="token keyword">add</span> <span class="token keyword">index</span> idx_address_age <span class="token punctuation">(</span>address<span class="token punctuation">,</span>age<span class="token punctuation">)</span></code></pre><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9zTW1yNFhPQ0J6SFpLWmN0bEtQYlJQNDlaRExFTGw3NjZJcDBVT3dQWEQxWVVrb1NuS2ExaWFwZDZsRUtZNnlPN3ZpYWdTYWJhZnpDeGdVaENCOWw2dWlhQS82NDA?x-oss-process=image/format,png" alt="img"></p></li><li><p>修改或删除重要数据前，要先备份，先备份，先备份（SQL后悔药）</p><p>如果要修改或删除数据，在执行SQL前一定要先备份要修改的数据，万一误操作，还能吃口<strong>「后悔药」</strong>~</p></li><li><p>where后面的字段，留意其数据类型的隐式转换（SQL性能优化）</p><p><strong>「反例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">//userid 是varchar字符串类型</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> userid <span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span></code></pre><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9zTW1yNFhPQ0J6SFpLWmN0bEtQYlJQNDlaRExFTGw3NmFKQjh0aWNBaWFwWXNpYjMxN0xNQlRNZzhkdFdJck5kUkRCM2xaTWdlQWliaWJFNVAzZ3VGRjFtMTNBLzY0MA?x-oss-process=image/format,png" alt="img"></p><p><strong>「正例：」</strong></p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> userid <span class="token operator">=</span><span class="token string">'123'</span><span class="token punctuation">;</span></code></pre><p><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Program/SQL/Specification/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9zTW1yNFhPQ0J6SFpLWmN0bEtQYlJQNDlaRExFTGw3NjBzamJJR25SaWFUaFF0MW1qdlpzUmlhbjM2enVyM0hIOFc2bGhFUTRnNElhQjNXTWljNU1vaWFZbWcvNjQw" alt="img"></p><p><strong>「理由：」</strong></p></li></ol><ul><li>因为不加单引号时，是字符串跟数字的比较，它们类型不匹配，MySQL会做隐式的类型转换，把它们转换为浮点数再做比较，最后导致索引失效</li></ul><ol start="11"><li>尽量把所有列定义为<code>NOT NULL</code>（SQL规范优雅）</li></ol><ul><li><strong>「NOT NULL列更节省空间」</strong>，NULL列需要一个额外字节作为判断是否为 NULL 的标志位。</li><li><strong>「NULL列需要注意空指针问题」</strong>，NULL列在计算和比较的时候，需要注意空指针问题。</li></ul><ol start="12"><li><p>修改或者删除SQL，先写WHERE查一下，确认后再补充 <code>delete</code>或 <code>update</code>（SQL后悔药）</p><p>尤其在操作生产的数据时，遇到修改或者删除的SQL，先加个where查询一下，确认OK之后，再执行<code>update</code>或者<code>delete</code>操作</p></li><li><p>减少不必要的字段返回，如使用select &lt;具体字段&gt; 代替<code>select *</code>（SQL性能优化）</p><p><strong>「反例：」</strong></p></li></ol><pre class=" language-go"><code class="language-go"><span class="token keyword">select</span> <span class="token operator">*</span> from employee<span class="token punctuation">;</span></code></pre><p>​    <strong>「正例：」</strong></p><pre class=" language-go"><code class="language-go"><span class="token keyword">select</span> id，name from employee<span class="token punctuation">;</span></code></pre><p>​    理由：</p><ul><li>节省资源、减少网络开销。</li><li>可能用到覆盖索引，减少回表，提高查询效率。</li></ul><ol start="14"><li><p>所有表必须使用<code>Innodb</code>存储引擎（SQL规范优雅）</p><p><code>Innodb</code><strong>「支持事务，支持行级锁，更好的恢复性」</strong>，高并发下性能更好，所以呢，没有特殊要求（即Innodb无法满足的功能如：列存储，存储空间数据等）的情况下，所有表必须使用Innodb存储引擎</p></li><li><p>数据库和表的字符集尽量统一使用UTF8（SQL规范优雅）</p><p>尽量统一使用UTF8编码</p></li></ol><ul><li>可以避免乱码问题</li><li>可以避免，不同字符集比较转换，导致的索引失效问题</li></ul><p><strong>「如果需要存储表情，那么选择utf8mb4来进行存储，注意它与utf-8编码的区别。」</strong></p><ol start="16"><li><p>尽量使用varchar代替 char。（SQL性能优化）</p><p><strong>「反例：」</strong></p></li></ol><pre class=" language-go"><code class="language-go"><span class="token string">`deptName`</span> <span class="token function">char</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> DEFAULT NULL COMMENT <span class="token string">'部门名称'</span></code></pre><p>​    <strong>「正例：」</strong></p><pre class=" language-go"><code class="language-go"><span class="token string">`deptName`</span> <span class="token function">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> DEFAULT NULL COMMENT <span class="token string">'部门名称'</span></code></pre><p>​    理由：</p><ul><li>因为首先变长字段存储空间小，可以节省存储空间。</li></ul><ol start="17"><li>如果修改字段含义或对字段表示的状态追加时，需要及时更新字段注释。（SQL规范优雅）</li></ol><p>这个点，是阿里开发手册中，Mysql的规约。你的字段，尤其是表示枚举状态时，如果含义被修改了，或者状态追加时，为了后面更好维护，需要即时更新字段的注释。</p><ol start="18"><li><p>SQL命令行修改数据，养成<code>begin + commit</code> 事务的习惯(SQL后悔药)</p><p><strong>「正例：」</strong></p></li></ol><pre class=" language-go"><code class="language-go">begin<span class="token punctuation">;</span>update account set balance <span class="token operator">=</span><span class="token number">1000000</span>where name <span class="token operator">=</span><span class="token string">'捡田螺的小男孩'</span><span class="token punctuation">;</span>commit<span class="token punctuation">;</span></code></pre><p>​    <strong>「反例：」</strong></p><pre class=" language-go"><code class="language-go">update account set balance <span class="token operator">=</span><span class="token number">1000000</span>where name <span class="token operator">=</span><span class="token string">'捡田螺的小男孩'</span><span class="token punctuation">;</span></code></pre><ol start="19"><li>索引命名要规范，主键索引名为 pk_ 字段名；唯一索引名为 uk _字段名 ；普通索引名则为 idx _字段名。（SQL规范优雅）</li></ol><p>说明：<code>pk_</code>即<code>primary key</code>；<code>uk_</code>即<code>unique key</code>；<code>idx_</code>即<code>index</code>的简称。</p><ol start="20"><li>WHERE从句中不对列进行函数转换和表达式计算</li></ol><p>假设<code>loginTime</code>加了索引</p><p><strong>「反例：」</strong></p><pre class=" language-go"><code class="language-go"><span class="token keyword">select</span> userId<span class="token punctuation">,</span>loginTime from loginuserwhere <span class="token function">Date_ADD</span><span class="token punctuation">(</span>loginTime<span class="token punctuation">,</span>Interval <span class="token number">7</span> DAY<span class="token punctuation">)</span> <span class="token operator">>=</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><strong>「正例：」</strong></p><pre class=" language-go"><code class="language-go">explain  <span class="token keyword">select</span> userId<span class="token punctuation">,</span>loginTime from loginuser where  loginTime <span class="token operator">>=</span> <span class="token function">Date_ADD</span><span class="token punctuation">(</span><span class="token function">NOW</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>INTERVAL <span class="token operator">-</span> <span class="token number">7</span> DAY<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><strong>「理由：」</strong></p><ul><li>索引列上使用mysql的内置函数，索引失效</li></ul><p><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Program/SQL/Specification/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9zTW1yNFhPQ0J6SFpLWmN0bEtQYlJQNDlaRExFTGw3NmVlQ3oxdlM1a2ljdzJKMTdaUWpCVFZLdHg1TFQ2bmF4U0hwNnpNQTQ2NzJpYzRGQW0yaWIzenBRZy82NDA" alt="img"></p><p>21.如果修改/更新数据过多，考虑批量进行。</p><p>反例：</p><pre class=" language-go"><code class="language-go"><span class="token builtin">delete</span> from account  limit <span class="token number">100000</span><span class="token punctuation">;</span></code></pre><p>正例：</p><pre class=" language-go"><code class="language-go"><span class="token keyword">for</span> <span class="token function">each</span><span class="token punctuation">(</span><span class="token number">200</span>次<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token builtin">delete</span> from account  limit <span class="token number">500</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>理由：</p><ul><li>大批量操作会会造成主从延迟。</li><li>大批量操作会产生大事务，阻塞。</li><li>大批量操作，数据量过大，会把cpu打满。</li></ul><p>参考与感谢</p><ul><li><a href="https://blog.csdn.net/qq_39390545/article/details/107519747" target="_blank" rel="noopener">delete后加 limit是个好习惯么</a></li><li>《阿里开发手册》</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网络配置之配置路由</title>
       <link href="/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/"/>
       <url>/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/</url>
@@ -1618,9 +1643,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
             <tag> load_file </tag>
             
@@ -1647,9 +1672,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1674,9 +1699,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1701,9 +1726,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1728,9 +1753,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1755,9 +1780,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1782,9 +1807,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1861,9 +1886,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> SQLi </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -1975,9 +2000,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> CRYPTO </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2002,9 +2027,9 @@
       
         <tags>
             
-            <tag> Web </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> Web </tag>
             
         </tags>
       
@@ -2917,11 +2942,11 @@
       
         <tags>
             
+            <tag> 网络基础 </tag>
+            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
-            
-            <tag> 网络基础 </tag>
             
         </tags>
       

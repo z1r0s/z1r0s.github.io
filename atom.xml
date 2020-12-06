@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-06T02:44:32.035Z</updated>
+  <updated>2020-12-06T02:57:27.089Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>21个写SQL的好习惯【转】</title>
+    <link href="https://z1r0s.github.io/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/"/>
+    <id>https://z1r0s.github.io/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/</id>
+    <published>2020-12-06T02:55:30.000Z</published>
+    <updated>2020-12-06T02:57:27.089Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;​        每一个好习惯都是一笔财富，本文分SQL后悔药，
+        
+      
+    
+    </summary>
+    
+      <category term="技巧" scheme="https://z1r0s.github.io/categories/%E6%8A%80%E5%B7%A7/"/>
+    
+    
+      <category term="SQL" scheme="https://z1r0s.github.io/tags/SQL/"/>
+    
+  </entry>
   
   <entry>
     <title>网络配置之配置路由</title>
@@ -531,34 +557,6 @@
       <category term="批处理" scheme="https://z1r0s.github.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/"/>
     
       <category term="安全加固" scheme="https://z1r0s.github.io/tags/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>域控管理实验</title>
-    <link href="https://z1r0s.github.io/2020/11/12/yu-kong-guan-li-shi-yan/"/>
-    <id>https://z1r0s.github.io/2020/11/12/yu-kong-guan-li-shi-yan/</id>
-    <published>2020-11-12T07:32:51.000Z</published>
-    <updated>2020-11-16T10:45:33.426Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;创建主域控&quot;&gt;&lt;a href=&quot;#创建主域控&quot; class=&quot;headerlink&quot; title=&quot;创建主域控&quot;&gt;&lt;/a&gt;创建主域控&lt;/h1&gt;&lt;h2 id=&quot;主域控限制条件&quot;&gt;&lt;a href=&quot;#主域控限制条件&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="网络服务" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
-    
-    
-      <category term="域" scheme="https://z1r0s.github.io/tags/%E5%9F%9F/"/>
-    
-      <category term="活动目录" scheme="https://z1r0s.github.io/tags/%E6%B4%BB%E5%8A%A8%E7%9B%AE%E5%BD%95/"/>
     
   </entry>
   
