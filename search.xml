@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>在Linux中安装软件</title>
+      <link href="/2020/12/07/zai-linux-zhong-an-zhuang-ruan-jian/"/>
+      <url>/2020/12/07/zai-linux-zhong-an-zhuang-ruan-jian/</url>
+      
+        <content type="html"><![CDATA[<h1 id="常见的安装方式"><a href="#常见的安装方式" class="headerlink" title="常见的安装方式"></a>常见的安装方式</h1><ul><li><p><strong>RPM工具</strong>：RPM包是预先在Linux机器上编译好并打包好的文件，安装起来非常快捷。但是也有一些缺点，比如安装的环境必须与编译时的环境一致或者相当；包与包之间存在着相互依赖的情况。</p></li><li><p><strong>yum工具</strong>：yum最大的优势在于可以联网去下载所需要的rpm包，然后自动安装，在这个过程中如果要安装的rpm包有依赖关系，yum会帮你解决掉这些依赖关系依次安装所有rpm包。</p></li><li><p><strong>源码包</strong>：安装一个源码包，是需要我们自己把源代码编译成二进制的可执行文件。如果你读得懂这些源代码，那么你就可以去修改这些源代码自定义功能，然后再去编译成你想要的。使用源码包的好处除了可以自定义修改源代码外还可以定制相关的功能，因为源码包在编译的时候是可以附加额外的选项的。</p></li></ul><p>下面将使用不同的方式安装GCC编译器。</p><h1 id="使用rpm工具安装软件（CentOS7）"><a href="#使用rpm工具安装软件（CentOS7）" class="headerlink" title="使用rpm工具安装软件（CentOS7）"></a>使用rpm工具安装软件（CentOS7）</h1><h2 id="0x01-设置光驱并挂在"><a href="#0x01-设置光驱并挂在" class="headerlink" title="0x01 设置光驱并挂在"></a>0x01 设置光驱并挂在</h2><ol><li><p>将安装系统时使用的ISO文件放入光驱中，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/将ISO文件放入光驱.png" alt="将ISO文件放入光驱"></center></li><li><p>将光驱挂在到<code>/mnt</code>目录下，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/挂载镜像文件到mnt目录.png" alt="挂载镜像文件到mnt目录"></center></li><li><p>查看挂载的镜像内容，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/查看挂在镜像内容.png" alt="查看挂在镜像内容"></center><p><code>Packages</code>目录下为镜像中所有的RPM安装包。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/部分安装包先死.png" alt="部分安装包显示"></center></li></ol><h2 id="0x02-使用RPM工具安装GCC编译器"><a href="#0x02-使用RPM工具安装GCC编译器" class="headerlink" title="0x02 使用RPM工具安装GCC编译器"></a>0x02 使用RPM工具安装GCC编译器</h2><ol><li><p>使用如下命令安装GCC编译器，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">rpm -ivh mpfr-3.1.1-4.el7.x86_64.rpmrpm -ivh libmpc-1.0.1-3.el7.x86_64.rpmrpm -ivh kernel-headers-3.10.0-862.el7.x86_64.rpmrpm -ivh glibc-headers-2.17-222.el7.x86_64.rpmrpm -ivh glibc-devel-2.17-222.el7.x86_64.rpmrpm -ivh cpp-4.8.5-28.el7.x86_64.rpmrpm -ivh gcc-4.8.5-28.el7.x86_64.rpm</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用rpm安装软件过程显示.png" alt="使用rpm安装软件过程显示"></center></li><li><p>使用<code>gcc -v</code>命令验证GCC编译器是否安装成功，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/验证rpm安装软件结果.png" alt="验证rpm安装软件结果"></center></li></ol><h2 id="0x03-使用rpm工具卸载GCC编译器"><a href="#0x03-使用rpm工具卸载GCC编译器" class="headerlink" title="0x03 使用rpm工具卸载GCC编译器"></a>0x03 使用rpm工具卸载GCC编译器</h2><ol><li><p>使用<code>rpm -q gcc</code>检查已安装的GCC版本，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用rpm检查已安装gcc的版本.png" alt="使用rpm检查已安装gcc的版本"></center></li><li><p>使用使用如下命令卸载GCC及其依赖，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">rpm -e gccrpm -e cpprpm -e glibc-develrpm -e glibc-headersrpm -e kernel-headersrpm -e libmpcrpm -e mpfr</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用rpm卸载gcc.png" alt="使用rpm卸载gcc"></center></li></ol><h1 id="使用yum工具安装软件（CentOS7）"><a href="#使用yum工具安装软件（CentOS7）" class="headerlink" title="使用yum工具安装软件（CentOS7）"></a>使用yum工具安装软件（CentOS7）</h1><h2 id="0x01-使用yum工具安装GCC编译器"><a href="#0x01-使用yum工具安装GCC编译器" class="headerlink" title="0x01 使用yum工具安装GCC编译器"></a>0x01 使用yum工具安装GCC编译器</h2><ol><li><p>使用<code>yum install gcc</code>命令安装GCC编译器，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用yum安装gcc.png" alt="使用yum安装gcc"></center><p>在光标处输入<code>y</code>即可开始安装</p></li><li><p>使用<code>gcc -v</code>命令验证GCC编译器是否安装成功，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/yum安装gcc结果.png" alt="yum安装gcc结果"></center></li></ol><h2 id="0x02-使用yum工具卸载GCC编译器"><a href="#0x02-使用yum工具卸载GCC编译器" class="headerlink" title="0x02 使用yum工具卸载GCC编译器"></a>0x02 使用yum工具卸载GCC编译器</h2><ol><li><p>使用<code>yum remove gcc</code>命令卸载gcc编译器，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用yum卸载gcc编译器.png" alt="使用yum卸载gcc编译器"></center><p><font color="blue">仅仅会卸载gcc其安装时候的依赖项不会被卸载</font>。</p></li></ol><h1 id="使用源码包安装软件（CentOS7）"><a href="#使用源码包安装软件（CentOS7）" class="headerlink" title="使用源码包安装软件（CentOS7）"></a>使用源码包安装软件（CentOS7）</h1><ol><li><p>下载软件源码。使用Git将GitHub上的<code>foremost</code>源码下载至本地，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/下载源码.png" alt="下载源码"></center></li><li><p>编译。使用gcc编译器将源码编译成可执行的二进制文件，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/编译.png" alt="编译"></center></li><li><p>安装。使用<code>make install</code>复制二进制文件到系统，配置应用环境，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/安装.png" alt="安装"></center></li><li><p>验证。使用<code>foremost -h</code>命令验证软件是否安装成功，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/验证是否安装成功.png" alt="验证是否安装成功"></center></li></ol><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="rpm常用命令"><a href="#rpm常用命令" class="headerlink" title="rpm常用命令"></a>rpm常用命令</h2><pre class=" language-shell"><code class="language-shell">rpm -ivh gcc-4.8.5-28.el7.x86_64.rpm ##安装软件 -v显示过程 -h指定加密方式为hashrpm -e gcc ##卸载软件rpm -ql gcc ##查看软件生成的文件rpm -qlp gcc-4.8.5-28.el7.x86_64.rpm ##查询软件安装后会生成什么文件rpm -qa | grep wps //过滤掉wpsrpm -pq gcc-4.8.5-28.el7.x86_64.rpm ##查询软件包安装后的名字rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --force ##强制安装，但是不能忽略依赖性rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --nodeps ##忽略软件的依赖性并且强制安装rpm -qi gcc ##查看软件的信息rpm -qp rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --scripts ##检测软件在安装或卸载过程中执行的动作rpm -qf /usr/bin/vim ## 查看一个文件是由那个包安装的</code></pre><h2 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h2><pre class=" language-shell"><code class="language-shell">## 列出可用rpm包yum list ## 搜索指定包yum search gcc## 安装指定软件(静默)yun install -y gcc## 列出组的rpm包yum grouplist## 卸载指定安装包yun remove -y gcc## 升级指定安装包yum update -y gcc## 修改yum的配置文件vim /etc/yum.repos.d/CentOS-Base.repo</code></pre><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://www.cnblogs.com/xiyushimei/p/8550930.html" target="_blank" rel="noopener">Linux——CentOS7安装gcc编译器详解</a></li><li><a href="https://blog.csdn.net/weixin_43407305/article/details/83589136" target="_blank" rel="noopener">利用rpm命令安装软件</a></li><li><a href="https://blog.csdn.net/mojianbin/article/details/78523161?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control" target="_blank" rel="noopener">安装软件包的三种方法、rpm包介绍、rpm、yum工具用法与yum搭建本地仓库</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网络配置之ACL实验</title>
       <link href="/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/"/>
       <url>/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/</url>
@@ -1693,9 +1718,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
             <tag> load_file </tag>
             
@@ -1722,9 +1747,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1749,9 +1774,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1776,9 +1801,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1803,9 +1828,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1830,9 +1855,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1857,9 +1882,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -1936,9 +1961,9 @@
       
         <tags>
             
-            <tag> SQLi </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> SQLi </tag>
             
         </tags>
       
@@ -2050,9 +2075,9 @@
       
         <tags>
             
-            <tag> CRYPTO </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> CRYPTO </tag>
             
         </tags>
       
@@ -2104,9 +2129,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> MISC </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2992,11 +3017,11 @@
       
         <tags>
             
+            <tag> 网络基础 </tag>
+            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
-            
-            <tag> 网络基础 </tag>
             
         </tags>
       
@@ -3313,9 +3338,9 @@
             
             <tag> C# </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> 程序实现 </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
