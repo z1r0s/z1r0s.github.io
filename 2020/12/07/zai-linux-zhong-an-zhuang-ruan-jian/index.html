@@ -487,21 +487,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2020-12-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -594,7 +594,9 @@ rpm -e mpfr</code></pre>
 <p><font color="blue">仅仅会卸载gcc其安装时候的依赖项不会被卸载</font>。</p>
 </li>
 </ol>
-<h1 id="使用源码包安装软件（CentOS7）"><a href="#使用源码包安装软件（CentOS7）" class="headerlink" title="使用源码包安装软件（CentOS7）"></a>使用源码包安装软件（CentOS7）</h1><ol>
+<h1 id="使用源码包安装软件（CentOS7）"><a href="#使用源码包安装软件（CentOS7）" class="headerlink" title="使用源码包安装软件（CentOS7）"></a>使用源码包安装软件（CentOS7）</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/源代码编译过程.png" alt="源代码编译过程"></center>
+
+<ol>
 <li><p>下载软件源码。使用Git将GitHub上的<code>foremost</code>源码下载至本地，操作结果如下图所示。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/下载源码.png" alt="下载源码"></center>
 </li>
@@ -611,29 +613,53 @@ rpm -e mpfr</code></pre>
 
 </li>
 </ol>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="rpm常用命令"><a href="#rpm常用命令" class="headerlink" title="rpm常用命令"></a>rpm常用命令</h2><pre class=" language-shell"><code class="language-shell">rpm -ivh gcc-4.8.5-28.el7.x86_64.rpm ##安装软件 -v显示过程 -h指定加密方式为hash
-rpm -e gcc ##卸载软件
-rpm -ql gcc ##查看软件生成的文件
-rpm -qlp gcc-4.8.5-28.el7.x86_64.rpm ##查询软件安装后会生成什么文件
-rpm -qa | grep wps //过滤掉wps
-rpm -pq gcc-4.8.5-28.el7.x86_64.rpm ##查询软件包安装后的名字
-rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --force ##强制安装，但是不能忽略依赖性
-rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --nodeps ##忽略软件的依赖性并且强制安装
-rpm -qi gcc ##查看软件的信息
-rpm -qp rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --scripts ##检测软件在安装或卸载过程中执行的动作
-rpm -qf /usr/bin/vim ## 查看一个文件是由那个包安装的</code></pre>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="rpm常用命令"><a href="#rpm常用命令" class="headerlink" title="rpm常用命令"></a>rpm常用命令</h2><pre class=" language-shell"><code class="language-shell">##安装软件 -v显示过程 -h指定加密方式为hash
+rpm -ivh gcc-4.8.5-28.el7.x86_64.rpm 
+##卸载软件
+rpm -e gcc 
+
+##查询软件安装后会生成什么文件
+rpm -qlp gcc-4.8.5-28.el7.x86_64.rpm 
+## 查询所有安装的rpm软件包并且过滤处wps相关的安装包
+rpm -qa | grep wps 
+##查看查看已安装的某软件包的信息
+rpm -qi gcc 
+##查看软件生成的文件
+rpm -ql gcc 
+##查询软件包安装后的名字
+rpm -pq gcc-4.8.5-28.el7.x86_64.rpm 
+##检测软件在安装或卸载过程中执行的动作
+rpm -qp rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --scripts 
+## 查看一个文件是由那个包安装的
+rpm -qf /usr/bin/vim 
+##强制安装，但是不能忽略依赖性
+rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --force 
+##忽略软件的依赖性并且强制安装
+rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --nodeps 
+
+# 重建RPM数据库
+rpm --rebuilddb
+rpm --initdb
+# 导入验证公钥
+rpm --imort /media/cdrom/RPM-GPG-KEY-redhat-release</code></pre>
 <h2 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h2><pre class=" language-shell"><code class="language-shell">## 列出可用rpm包
 yum list 
+## 查看软件
 ## 搜索指定包
 yum search gcc
 ## 安装指定软件(静默)
 yun install -y gcc
 ## 列出组的rpm包
 yum grouplist
+## 安装软件
+yum install gcc
+yum groupinstall 组包名
 ## 卸载指定安装包
 yun remove -y gcc
 ## 升级指定安装包
 yum update -y gcc
+## 清除yum缓存目录
+yum clean all
 
 ## 修改yum的配置文件
 vim /etc/yum.repos.d/CentOS-Base.repo</code></pre>
