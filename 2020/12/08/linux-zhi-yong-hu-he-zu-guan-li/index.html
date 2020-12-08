@@ -494,7 +494,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    2.6k
                 </div>
                 
 
@@ -810,39 +810,36 @@ c：字符设备文件
 b:设备文件里面的可供存储的周边设备</code></pre>
 </li>
 </ol>
-<pre><code>
+<h2 id="0x02-文件属性解析"><a href="#0x02-文件属性解析" class="headerlink" title="0x02 文件属性解析"></a>0x02 文件属性解析</h2><ol>
+<li><p>查看文件属性命令:  <code>ls -lhi</code></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/UserAndGroup/文件属性.png" alt="文件属性"></center>
+</li>
+<li><p>文件属性解析:</p>
+<pre class=" language-shell"><code class="language-shell">（1）格式化：告诉磁盘（硬盘、U盘等）使用什么方式来存储数据。
+（2）存储数据的方式叫做“文件系统”。
+ Windows里常见的文件系统：fat16、fat32、ntfs
+ Linux里常见的文件系统：ext2/3/4、vfat
+（3）格式化了以后：分为inode和block。
+ inode：索引节点号，书的目录，存储的是文件的属性。唯独不包含文件名。
+ block：是文件内容的真实存储位置。文件名是存储在上一级目录的block中。
+（4）文件属性介绍：ls -lhi 
+ 282152 -rw-r--r-- 1 root root    0 Nov 27 19:31 bbbbbbbbbbb.txt
+ 282155 lrwxrwxrwx 1 root root   15 Nov 27 19:31 b.txt -> bbbbbbbbbbb.txt
+ 字段1：文件的inode节点号
+ 字段2：一共10位，第一位表示文件类型；后边9位，每3个为一组，分别表示属主/属组/其他人
+ 字段3：硬链接数
+ 字段4：属主
+ 字段5：属组
+ 字段6：文件大小
+ 字段7、8/9：文件的修改时间
+ 字段10：文件名
+（5）软硬连接
 
-## 0x02 文件属性解析
-
-1. 查看文件属性命令:  `ls -lhi  `
-
-   &lt;center&gt;&lt;img src=&quot;https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/UserAndGroup/文件属性.png&quot; alt=&quot;文件属性&quot;/&gt;&lt;/center&gt;
-
-2. 文件属性解析:
-
-   ~~~shell
-   （1）格式化：告诉磁盘（硬盘、U盘等）使用什么方式来存储数据。
-   （2）存储数据的方式叫做“文件系统”。
-    Windows里常见的文件系统：fat16、fat32、ntfs
-    Linux里常见的文件系统：ext2/3/4、vfat
-   （3）格式化了以后：分为inode和block。
-    inode：索引节点号，书的目录，存储的是文件的属性。唯独不包含文件名。
-    block：是文件内容的真实存储位置。文件名是存储在上一级目录的block中。
-   （4）文件属性介绍：ls -lhi 
-    282152 -rw-r--r-- 1 root root    0 Nov 27 19:31 bbbbbbbbbbb.txt
-    282155 lrwxrwxrwx 1 root root   15 Nov 27 19:31 b.txt -&gt; bbbbbbbbbbb.txt
-    字段1：文件的inode节点号
-    字段2：一共10位，第一位表示文件类型；后边9位，每3个为一组，分别表示属主/属组/其他人
-    字段3：硬链接数
-    字段4：属主
-    字段5：属组
-    字段6：文件大小
-    字段7、8/9：文件的修改时间
-    字段10：文件名
-   （5）软硬连接
-
-    创建软链接的方式:ln -s bbbbbbbbbbb.txt（源文件） b.txt
-    创建硬链接的方式:ln    bbbbbbbbbbb.txt（源文件） b.txt</code></pre><h2 id="0x03-权限划分"><a href="#0x03-权限划分" class="headerlink" title="0x03 权限划分"></a>0x03 权限划分</h2><ul>
+ 创建软链接的方式:ln -s bbbbbbbbbbb.txt（源文件） b.txt
+ 创建硬链接的方式:ln    bbbbbbbbbbb.txt（源文件） b.txt</code></pre>
+</li>
+</ol>
+<h2 id="0x03-权限划分"><a href="#0x03-权限划分" class="headerlink" title="0x03 权限划分"></a>0x03 权限划分</h2><ul>
 <li><p>r:读取权限（查看文件内容，4）</p>
 </li>
 <li><p>w:写入权限（修改权限，2）</p>
