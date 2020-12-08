@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-08T11:11:21.452Z</updated>
+  <updated>2020-12-08T12:52:41.707Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux目录介绍</title>
+    <link href="https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/"/>
+    <id>https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/</id>
+    <published>2020-12-08T12:00:10.000Z</published>
+    <updated>2020-12-08T12:52:41.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;目录&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;介绍&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;/bin&lt;/td&gt;
+&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux之用户和组管理</title>
     <link href="https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/"/>
     <id>https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/</id>
     <published>2020-12-08T10:21:51.000Z</published>
-    <updated>2020-12-08T11:11:21.452Z</updated>
+    <updated>2020-12-08T11:46:58.306Z</updated>
     
     <summary type="html">
     
@@ -525,32 +560,6 @@
       <category term="WiFi" scheme="https://z1r0s.github.io/tags/WiFi/"/>
     
       <category term="WPA" scheme="https://z1r0s.github.io/tags/WPA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>静态路由综合实验</title>
-    <link href="https://z1r0s.github.io/2020/11/18/jing-tai-lu-you-zong-he-shi-yan/"/>
-    <id>https://z1r0s.github.io/2020/11/18/jing-tai-lu-you-zong-he-shi-yan/</id>
-    <published>2020-11-18T01:52:20.000Z</published>
-    <updated>2020-11-19T09:58:59.063Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;实验要求&quot;&gt;&lt;a href=&quot;#实验要求&quot; class=&quot;headerlink&quot; title=&quot;实验要求&quot;&gt;&lt;/a&gt;实验要求&lt;/h1&gt;&lt;center&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="静态路由" scheme="https://z1r0s.github.io/tags/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1/"/>
     
   </entry>
   

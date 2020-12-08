@@ -1,3 +1,4 @@
+https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/
 https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/
 https://z1r0s.github.io/2020/12/07/zai-linux-zhong-an-zhuang-ruan-jian/
 https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/
@@ -97,4 +98,3 @@ https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/
 https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/
 https://z1r0s.github.io/2020/09/09/cisco-packet-tracer-shi-yan-ji-shi-xun/
 https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/
-https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-iis/

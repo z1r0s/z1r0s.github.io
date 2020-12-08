@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/</loc>
+    
+    <lastmod>2020-12-08T12:52:41.707Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/</loc>
     
-    <lastmod>2020-12-08T11:11:21.452Z</lastmod>
+    <lastmod>2020-12-08T11:46:58.306Z</lastmod>
     
   </url>
   
@@ -954,14 +961,14 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/tags/index.html</loc>
+    <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/categories/index.html</loc>
+    <loc>https://z1r0s.github.io/tags/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
