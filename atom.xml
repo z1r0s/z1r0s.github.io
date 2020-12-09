@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-08T12:52:41.707Z</updated>
+  <updated>2020-12-09T09:31:36.631Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux之磁盘管理</title>
+    <link href="https://z1r0s.github.io/2020/12/09/linux-zhi-ci-pan-guan-li/"/>
+    <id>https://z1r0s.github.io/2020/12/09/linux-zhi-ci-pan-guan-li/</id>
+    <published>2020-12-09T09:29:37.000Z</published>
+    <updated>2020-12-09T09:31:36.631Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;磁盘分区&quot;&gt;&lt;a href=&quot;#磁盘分区&quot; class=&quot;headerlink&quot; title=&quot;磁盘分区&quot;&gt;&lt;/a&gt;磁盘分区&lt;/h1&gt;&lt;h2 id=&quot;0x01-磁盘基础&quot;&gt;&lt;a href=&quot;#0x01-磁盘基础&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux目录介绍</title>
@@ -423,9 +449,9 @@
       <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="HSRP" scheme="https://z1r0s.github.io/tags/HSRP/"/>
-    
       <category term="STP" scheme="https://z1r0s.github.io/tags/STP/"/>
+    
+      <category term="HSRP" scheme="https://z1r0s.github.io/tags/HSRP/"/>
     
   </entry>
   
@@ -532,34 +558,6 @@
       <category term="Cisco" scheme="https://z1r0s.github.io/tags/Cisco/"/>
     
       <category term="VALN" scheme="https://z1r0s.github.io/tags/VALN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>无线安全之WPA密码破解</title>
-    <link href="https://z1r0s.github.io/2020/11/18/wu-xian-an-quan-zhi-wpa-mi-ma-po-jie/"/>
-    <id>https://z1r0s.github.io/2020/11/18/wu-xian-an-quan-zhi-wpa-mi-ma-po-jie/</id>
-    <published>2020-11-18T09:27:44.000Z</published>
-    <updated>2020-11-22T14:16:35.026Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;无线网络标准&quot;&gt;&lt;a href=&quot;#无线网络标准&quot; class=&quot;headerlink&quot; title=&quot;无线网络标准&quot;&gt;&lt;/a&gt;无线网络标准&lt;/h1&gt;&lt;p&gt;​       
-        
-      
-    
-    </summary>
-    
-      <category term="无线安全" scheme="https://z1r0s.github.io/categories/%E6%97%A0%E7%BA%BF%E5%AE%89%E5%85%A8/"/>
-    
-    
-      <category term="WiFi" scheme="https://z1r0s.github.io/tags/WiFi/"/>
-    
-      <category term="WPA" scheme="https://z1r0s.github.io/tags/WPA/"/>
     
   </entry>
   
