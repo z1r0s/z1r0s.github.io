@@ -487,7 +487,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-08
+                    2020-12-09
                 </div>
                 
 
@@ -615,11 +615,13 @@ rpm -e mpfr</code></pre>
 </ol>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="rpm常用命令"><a href="#rpm常用命令" class="headerlink" title="rpm常用命令"></a>rpm常用命令</h2><pre class=" language-shell"><code class="language-shell">##安装软件 -v显示过程 -h指定加密方式为hash
 rpm -ivh gcc-4.8.5-28.el7.x86_64.rpm 
+## 静默安装
+rpm install -y gcc-4.8.5-28.el7.x86_64.rpm 
 ##卸载软件
 rpm -e gcc 
 
-##查询软件安装后会生成什么文件
-rpm -qlp gcc-4.8.5-28.el7.x86_64.rpm 
+##查询包安装后会生成什么文件
+rpm -qpl gcc-4.8.5-28.el7.x86_64.rpm 
 ## 查询所有安装的rpm软件包并且过滤处wps相关的安装包
 rpm -qa | grep wps 
 ##查看查看已安装的某软件包的信息
@@ -627,9 +629,9 @@ rpm -qi gcc
 ##查看软件生成的文件
 rpm -ql gcc 
 ##查询软件包安装后的名字
-rpm -pq gcc-4.8.5-28.el7.x86_64.rpm 
-##检测软件在安装或卸载过程中执行的动作
-rpm -qp rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --scripts 
+rpm -qp gcc-4.8.5-28.el7.x86_64.rpm 
+##检测包在安装或卸载过程中执行的动作
+rpm -qp gcc-4.8.5-28.el7.x86_64.rpm --scripts 
 ## 查看一个文件是由那个包安装的
 rpm -qf /usr/bin/vim 
 ##强制安装，但是不能忽略依赖性
@@ -641,10 +643,9 @@ rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --nodeps
 rpm --rebuilddb
 rpm --initdb
 # 导入验证公钥
-rpm --imort /media/cdrom/RPM-GPG-KEY-redhat-release</code></pre>
+rpm --import /media/cdrom/RPM-GPG-KEY-redhat-release</code></pre>
 <h2 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h2><pre class=" language-shell"><code class="language-shell">## 列出可用rpm包
 yum list 
-## 查看软件
 ## 搜索指定包
 yum search gcc
 ## 安装指定软件(静默)
@@ -660,6 +661,8 @@ yun remove -y gcc
 yum update -y gcc
 ## 清除yum缓存目录
 yum clean all
+## 生成yum缓存
+yum makecache
 
 ## 修改yum的配置文件
 vim /etc/yum.repos.d/CentOS-Base.repo</code></pre>
