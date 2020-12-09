@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    11 分
                 </div>
                 
 
@@ -649,12 +649,16 @@ useradd -s /sbin/nologin -M www
 </tr>
 </thead>
 <tbody><tr>
+<td align="center"><code>-l</code></td>
+<td align="center">修改用户名</td>
+</tr>
+<tr>
 <td align="center"><code>-u</code></td>
-<td align="center">修改用户的uid</td>
+<td align="center">修改用户的<code>uid</code></td>
 </tr>
 <tr>
 <td align="center"><code>-g</code></td>
-<td align="center">修改用户的gid</td>
+<td align="center">修改用户的<code>gid</code></td>
 </tr>
 <tr>
 <td align="center"><code>-d</code></td>
@@ -725,6 +729,7 @@ usermod -g ccc（组名） ccc（用户名）   #-g修改ccc的基本组为ccc</
 <td align="center">取消交互式设置密码</td>
 </tr>
 </tbody></table>
+<p><strong>常用示例</strong>：</p>
 <pre class=" language-shell"><code class="language-shell"># 清除demo用户的密码
 passwd -d demo
 # 锁定demo用户
