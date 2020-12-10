@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-zhi-wen/</loc>
+    <lastmod>2020-12-10</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/</loc>
+    <lastmod>2020-12-10</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/</loc>
+    <lastmod>2020-12-10</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-lu-jing/</loc>
+    <lastmod>2020-12-10</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/</loc>
+    <lastmod>2020-12-10</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/</loc>
+    <lastmod>2020-12-10</lastmod>
+  </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/09/linux-zhi-ci-pan-guan-li/</loc>
     <lastmod>2020-12-09</lastmod>
   </url>  <url>
@@ -38,9 +56,6 @@
     <lastmod>2020-11-30</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/</loc>
-    <lastmod>2020-11-30</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/</loc>
     <lastmod>2020-11-30</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/11/29/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-2/</loc>
@@ -268,15 +283,6 @@
     <loc>https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/</loc>
     <lastmod>2020-10-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/</loc>
-    <lastmod>2020-10-21</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-lu-jing/</loc>
-    <lastmod>2020-10-21</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/</loc>
-    <lastmod>2020-10-21</lastmod>
-  </url>  <url>
     <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
     <lastmod>2020-10-19</lastmod>
   </url>  <url>
@@ -312,12 +318,6 @@
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/</loc>
     <lastmod>2020-10-04</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-zhi-wen/</loc>
-    <lastmod>2020-09-29</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/</loc>
-    <lastmod>2020-09-28</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/</loc>
     <lastmod>2020-09-28</lastmod>
