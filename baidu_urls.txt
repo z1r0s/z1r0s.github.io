@@ -1,3 +1,5 @@
+https://z1r0s.github.io/2020/12/11/linux-zhi-an-quan-jia-gu/
+https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/
 https://z1r0s.github.io/2020/12/09/linux-zhi-ci-pan-guan-li/
 https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/
 https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/
@@ -96,5 +98,3 @@ https://z1r0s.github.io/2020/09/14/dvwa-fileupload/
 https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/
 https://z1r0s.github.io/2020/09/13/dvwa-csrf/
 https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/
-https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/
-https://z1r0s.github.io/2020/09/09/cisco-packet-tracer-shi-yan-ji-shi-xun/

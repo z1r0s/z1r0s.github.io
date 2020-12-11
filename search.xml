@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Linux之安全加固</title>
+      <link href="/2020/12/11/linux-zhi-an-quan-jia-gu/"/>
+      <url>/2020/12/11/linux-zhi-an-quan-jia-gu/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux之故障排除</title>
+      <link href="/2020/12/11/linux-zhi-gu-zhang-pai-chu/"/>
+      <url>/2020/12/11/linux-zhi-gu-zhang-pai-chu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="系统启动类故障"><a href="#系统启动类故障" class="headerlink" title="系统启动类故障"></a>系统启动类故障</h1><p>Linux系统的启动过程主要有如下阶段：</p><ol><li>POST加电自检</li><li>加载BIOS程序</li><li>读取MBR分区信息</li><li>加载GRUB引导程序</li><li>GRUB引导程序读取<code>/boot/grub2/grub.cfg</code>引导文件</li><li>将系统引导权交给系统初始化程序</li><li>经过一系列初始化配置后显示登录界面</li></ol><h2 id="MBR扇区故障"><a href="#MBR扇区故障" class="headerlink" title="MBR扇区故障"></a>MBR扇区故障</h2><h3 id="0x00-基础信息"><a href="#0x00-基础信息" class="headerlink" title="0x00 基础信息"></a>0x00 基础信息</h3><p><strong>MBR的重要性</strong>：</p><ul><li>MBR位于物理硬盘的第一扇区（512字节），该扇区又称为<code>主引导扇区=446字节引导程序部分+64字节分区表记录+2字节标识</code>。</li><li>主引导扇区损坏导致无法进入引导菜单，找到正确的位置无法加载系统，进入黑屏。</li></ul><p><strong>排除MBR扇区故障的步骤</strong>：</p><ol><li>添加一块新的磁盘；</li><li>在磁盘中划分分区并格式化文件系统；</li><li>将磁盘挂载到<code>/mnt</code>挂载点；</li><li>将MBR扇区数据备份到<code>/mnt</code>中；</li><li>模拟MBR扇区损坏；</li><li>从备份文件中恢复MBR扇区的数据。</li></ol><h3 id="0x01-添加备份磁盘"><a href="#0x01-添加备份磁盘" class="headerlink" title="0x01 添加备份磁盘"></a>0x01 添加备份磁盘</h3><ol><li><p>在系统中添加一块5G的硬盘，一般情况下默认的磁盘名称为<code>/dev/sdb</code>，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/添加的磁盘为sdb.png" alt="添加的磁盘为sdb"></center></li><li><p>磁盘分区。使用如下命令将sdb磁盘做成一个分区，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">fdisk /dev/sdb    # 对sdb磁盘进行分区n                # 创建分区p                # 指定创建的分区为主分区                # 分区号（默认从1开始）                # 开始字节                # 结束字节p                # 显示分区信息w                # 分区信息写入</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/创建磁盘分区.png" alt="创建磁盘分区"></center></li><li><p>磁盘格式化。使用如下命令将sdb磁盘中新建的分区格式化XFS文件系统，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">mkfs.xfs /dev/sdb1    # 将sdb1分区格式化为xfs文件系统</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/分区格式化成XFS文件系统.png" alt="分区格式化成XFS文件系统"></center></li><li><p>磁盘挂载。使用如下所示命令将sdb1分区挂载到<code>/mnt</code>目录下，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">mount /dev/sdb1 /mnt    # 将sdb1分区挂载到mnt目录下</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/挂载分区.png" alt="挂载分区"></center></li></ol><h3 id="0x02-备份MBR扇区数据"><a href="#0x02-备份MBR扇区数据" class="headerlink" title="0x02 备份MBR扇区数据"></a>0x02 备份MBR扇区数据</h3><ol><li><p>备份扇区信息。使用如下所示命令将MBR扇区数据备份到sdb1分区中，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell"># 将sda分区中的数据写入MBR.bak文件中，写入一个字节数512dd if=/dev/sda of=/mnt/MBR.bak bs=512 count=1</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/备份MBR扇区数据.png" alt="备份MBR扇区数据"></center></li><li><p>查看备份文件。查看MBR的备份文件是否存在，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/查看备份文件.png" alt="查看备份文件"></center></li></ol><h3 id="0x03-模拟MBR扇区损坏"><a href="#0x03-模拟MBR扇区损坏" class="headerlink" title="0x03 模拟MBR扇区损坏"></a>0x03 模拟MBR扇区损坏</h3><ol><li><p>模拟MBR扇区损坏。使用如下所示命令将MBR扇区的数据进行覆盖，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell"># 将sda磁盘的第一扇区的512字节填充为全0dd if=/dev/zero of=/dev/sda bs=512 count=1</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/模拟MBR扇区损坏.png" alt="模拟MBR扇区损坏"></center><p>由于MBR扇区的数据只在系统启动的时候被读取而显示系统已经启动成功，MBR中的数据被修改不会导致系统崩溃。</p></li><li><p>重启系统失败。先将CD弹出，因为引导本系统的引导顺序为：硬盘→CD→网络，若不将CD弹出会默认进入系统安装界面，显示结果如下图所示；若将CD弹出会执行网络启动，而启动失败后显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/网络引导失败.png" alt="网络引导失败"></center></li></ol><h3 id="0x04-从备份文件中恢复MBR扇区的数据"><a href="#0x04-从备份文件中恢复MBR扇区的数据" class="headerlink" title="0x04 从备份文件中恢复MBR扇区的数据"></a>0x04 从备份文件中恢复MBR扇区的数据</h3><ol><li><p>将光盘载入系统重新启动系统后，显示如下图所示界面，这里选择第三项<code>Troubleshooting</code>进入故障排除界面。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/使用光盘启动系统.png" alt="使用光盘启动系统"></center></li><li><p>故障排除界面显示如下图所示，在<code>Troubleshooting</code>界面中选择<code>Rescue a CentOS system</code>选项进入救援模式。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/RescueCentOS.png" alt="RescueCentOS"></center></li><li><p>等待一两分钟之后系统将显示如下图所示的信息，在此界面将选择进入的救援模式。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/救援模式选择.png" alt="救援模式选择"></center></li><li><p>选择<code>Continue</code>选项后将得到一个sh的shell界面，显示结果如下图所示，我们将在此shell中还原MBR分区数据。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/得到救援模式的shell.png" alt="得到救援模式的shell"></center></li><li><p>尝试查看sda的分区表信息。因为MBR分区损坏，分区表信息也丢失了所以无法查看到sda硬盘的分区信息，查询结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/尝试查看磁盘分区表.png" alt="尝试查看磁盘分区表"></center></li><li><p>挂载磁盘。使用<code>mount /dev/sdb1 /mnt</code>命令将<code>/dev/sdb1</code>重新挂载到<code>/mnt</code>，并使用命令显示分区中的MBR备份数据，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/挂载磁盘1.png" alt="挂载磁盘1"></center></li><li><p>数据MBR分区数据。使用<code>dd if=/mnt/MBR.bak of=/dev/sda</code>命令将<code>MBR.bak</code>文件中的数据写入到MBR分区中，以此来恢复MBR扇区，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/MBR分区数据还原.png" alt="MBR分区数据还原"></center></li><li><p>重启系统。键入<code>exit</code>命令后系统会自动重新启动，稍等一分钟之后进入GRUB菜单界面，显示结果如下图所示，这说明已经将MBR分区修复完成。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/MBR修复重启后进入GRUB菜单界面.png" alt="MBR修复重启后进入GRUB菜单界面"></center></li></ol><h2 id="GURB引导故障"><a href="#GURB引导故障" class="headerlink" title="GURB引导故障"></a>GURB引导故障</h2><p>​        检查完MBR分区之后将由gurb继续引导系统启动，在GURB引导过程中主要存在两种故障：GURB引导程序损坏和引导文件丢失或损坏。</p><h3 id="引导文件丢失或损坏"><a href="#引导文件丢失或损坏" class="headerlink" title="引导文件丢失或损坏"></a>引导文件丢失或损坏</h3><ol><li><p>模拟引导文件丢失或损坏。将引导文件<code>/boot/grub2/grub.cfg</code>剪切到sdb1分区的挂载点下，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/模拟引导文件丢失.png" alt="模拟引导文件丢失"></center></li><li><p>重启系统选择CD引导进入急救模式，操作步骤和上一节的步骤一样，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/光盘引导进入急救模式.gif" alt="光盘引导进入急救模式"></center><p><font color="blue">重启系统后一定要手动指定由光盘来引导，否则系统将会停留在如下图所示的界面。</font></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/grub文件缺失显示界面.png" alt="grub文件缺失显示界面"></center></li><li><p>还原<code>grub.cfg</code>配置文件的备份。使用如下所示命令将还原<code>grub.cfg</code>文件，操作过程如下图所示。</p><pre class=" language-shell"><code class="language-shell">chroot /mnt/sysimage/lsmount /dev/sdb1 /mntcd mntlscp grub.cfg.bak /boot/grub2/grub.cfgls /boot/grub2/</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/还原grub配置文件.png" alt="还原grub配置文件"></center></li><li><p>使用<code>exit</code>命令退出当前环境后会自动重启系统，稍等几分钟后系统将进入到用户登录界面，显示结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/用户登录界面显示.png" alt="用户登录界面显示"></center></li></ol><h3 id="GURB引导程序损坏"><a href="#GURB引导程序损坏" class="headerlink" title="GURB引导程序损坏"></a>GURB引导程序损坏</h3><ol><li><h2 id="文件系统类故障"><a href="#文件系统类故障" class="headerlink" title="文件系统类故障"></a>文件系统类故障</h2></li></ol><h3 id="修复文件系统"><a href="#修复文件系统" class="headerlink" title="修复文件系统"></a>修复文件系统</h3><p>​        模拟文件系统故障（每个分区有个超级块，是文件系统的核心档案，记录文件系统的类型大小空间使用情况等）若超级块数据丢失则磁盘不能正常挂载。</p><h4 id="0x01-故障模拟"><a href="#0x01-故障模拟" class="headerlink" title="0x01 故障模拟"></a>0x01 故障模拟</h4><ol><li><p>使用<code>dd if=/dev/zero of=/dev/sdb1 bs=512 count=4</code>命令冲掉sdb1分区中的超级块数据信息，超级块数据被冲掉之后分区将无法正常挂载，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/冲掉超级块数据.png" alt="冲掉超级块数据"></center></li><li><p>使用<code>xfs_repair /dev/sdb1</code>命令修复sdb1分区中的超级快数据，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/超级块数据修复.png" alt="超级块数据修复"></center></li><li><p>使用<code>mount /dev/sdb1 /mnt</code>命令挂载刚刚修复的分区，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/troubleshooting/验证超级块数据是否修复成功.png" alt="验证超级块数据是否修复成功"></center></li></ol><h3 id="硬盘资源耗尽"><a href="#硬盘资源耗尽" class="headerlink" title="硬盘资源耗尽"></a>硬盘资源耗尽</h3><p>​        定期删除一些无用文件，如日志、邮件等。</p><h3 id="检测磁盘坏道"><a href="#检测磁盘坏道" class="headerlink" title="检测磁盘坏道"></a>检测磁盘坏道</h3><pre class=" language-shell"><code class="language-shell">badblocks -sv /dev/sdb</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux之磁盘管理</title>
       <link href="/2020/12/09/linux-zhi-ci-pan-guan-li/"/>
       <url>/2020/12/09/linux-zhi-ci-pan-guan-li/</url>
@@ -397,9 +435,9 @@
       
         <tags>
             
-            <tag> STP </tag>
-            
             <tag> HSRP </tag>
+            
+            <tag> STP </tag>
             
         </tags>
       
@@ -2169,9 +2207,9 @@
       
         <tags>
             
-            <tag> Web </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> Web </tag>
             
         </tags>
       
@@ -2196,9 +2234,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> MISC </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2304,9 +2342,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> rsa </tag>
+            
+            <tag> python </tag>
             
         </tags>
       

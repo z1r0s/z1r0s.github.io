@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-09T09:31:36.631Z</updated>
+  <updated>2020-12-11T08:05:02.295Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux之安全加固</title>
+    <link href="https://z1r0s.github.io/2020/12/11/linux-zhi-an-quan-jia-gu/"/>
+    <id>https://z1r0s.github.io/2020/12/11/linux-zhi-an-quan-jia-gu/</id>
+    <published>2020-12-11T08:05:02.000Z</published>
+    <updated>2020-12-11T08:05:02.295Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux之故障排除</title>
+    <link href="https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/"/>
+    <id>https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/</id>
+    <published>2020-12-11T08:04:05.000Z</published>
+    <updated>2020-12-11T14:11:43.613Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;系统启动类故障&quot;&gt;&lt;a href=&quot;#系统启动类故障&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux之磁盘管理</title>
@@ -449,9 +489,9 @@
       <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="STP" scheme="https://z1r0s.github.io/tags/STP/"/>
-    
       <category term="HSRP" scheme="https://z1r0s.github.io/tags/HSRP/"/>
+    
+      <category term="STP" scheme="https://z1r0s.github.io/tags/STP/"/>
     
   </entry>
   
@@ -504,60 +544,6 @@
     
     
       <category term="HSRP" scheme="https://z1r0s.github.io/tags/HSRP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络配置之大型综合实验1</title>
-    <link href="https://z1r0s.github.io/2020/11/23/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-1/"/>
-    <id>https://z1r0s.github.io/2020/11/23/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-1/</id>
-    <published>2020-11-23T08:36:45.000Z</published>
-    <updated>2020-11-29T00:32:46.535Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;实验拓扑&quot;&gt;&lt;a href=&quot;#实验拓扑&quot; class=&quot;headerlink&quot; title=&quot;实验拓扑&quot;&gt;&lt;/a&gt;实验拓扑&lt;/h1&gt;&lt;center&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="网络实验" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VLAN综合实验</title>
-    <link href="https://z1r0s.github.io/2020/11/22/vlan-zong-he-shi-yan/"/>
-    <id>https://z1r0s.github.io/2020/11/22/vlan-zong-he-shi-yan/</id>
-    <published>2020-11-22T06:23:56.000Z</published>
-    <updated>2020-11-22T07:30:47.783Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;实验要求&quot;&gt;&lt;a href=&quot;#实验要求&quot; class=&quot;headerlink&quot; title=&quot;实验要求&quot;&gt;&lt;/a&gt;实验要求&lt;/h1&gt;&lt;center&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="Cisco" scheme="https://z1r0s.github.io/tags/Cisco/"/>
-    
-      <category term="VALN" scheme="https://z1r0s.github.io/tags/VALN/"/>
     
   </entry>
   
