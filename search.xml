@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux之权限管理</title>
+      <link href="/2020/12/13/linux-zhi-quan-xian-guan-li/"/>
+      <url>/2020/12/13/linux-zhi-quan-xian-guan-li/</url>
+      
+        <content type="html"><![CDATA[<h1 id="权限基础"><a href="#权限基础" class="headerlink" title="权限基础"></a>权限基础</h1><h2 id="使用者与群组"><a href="#使用者与群组" class="headerlink" title="使用者与群组"></a>使用者与群组</h2><ul><li>文件拥有者：一般情况下为文件的创建者，当然<code>chown</code>命令可以修改文件或目录的所有者。</li><li>群组：是用户的容器，对组的权限设置将应用到该组中的所有成员。</li><li>其他人：这里的其他人指的是相对于属主、属组来说的，即未在组中的其他用户。</li></ul><h2 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h2><p>文件或目录权限查看及各字段意义</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/AccessControl/权限查看.png" alt="权限查看"></center><p>对权限中的各位值进行说明：</p><ul><li>第1位：指定目录或文件类型。<ul><li>当为【d】则是目录</li><li>当为【-】则是文件</li><li>当为【l】则表示为链接文件</li><li>当为【b】则表示为设备文件里面的可供存储的周边设备</li><li>当为【c】则表示为设备文件里面的序列块设备</li></ul></li><li>第2位：属主的读权限</li><li>第3位：属主的写权限</li><li>第4位：属主的执行权限</li><li>第5位：属组的读权限</li><li>第6位：属组的写权限</li><li>第7位：属组的执行权限</li><li>第8位：其他的写权限</li><li>第9位：其他的读权限</li><li>第10位：其他的执行权限</li></ul><h2 id="权限介绍"><a href="#权限介绍" class="headerlink" title="权限介绍"></a>权限介绍</h2><table><thead><tr><th align="center">权限标识</th><th align="center">数字标识</th><th align="center">文件</th><th align="center">目录</th></tr></thead><tbody><tr><td align="center">读取<code>r</code></td><td align="center">4</td><td align="center">查看文件内容复制</td><td align="center">查看目录下文件和目录名称<code>ls</code></td></tr><tr><td align="center">写入<code>w</code></td><td align="center">2</td><td align="center">修改文件内容</td><td align="center">在目录下增、删、改文件和子目录</td></tr><tr><td align="center">执行<code>x</code></td><td align="center">1</td><td align="center">可执行文件（程序或脚本）</td><td align="center">进入改目录<code>cd</code></td></tr></tbody></table><p>文件权限分为3组权限：user（属主）、group（属组）、other（其他）、all（所有人）</p><h2 id="权限的重要性"><a href="#权限的重要性" class="headerlink" title="权限的重要性"></a>权限的重要性</h2><ul><li>系统保护的功能</li><li>团队开发软件或数据共享的功能</li></ul><h1 id="特殊权限"><a href="#特殊权限" class="headerlink" title="特殊权限"></a>特殊权限</h1><ol><li><p>s和S的区别：如果文件本身有x权限，这个时候s；没有x权限，标识位就是S。</p></li><li><p>suid：普通用户在执行命令的一瞬间拥有了和二进制文件属主一样的权限。</p><p>权限数是：权限代码4000</p><pre class=" language-shell"><code class="language-shell">chmod  u+s   文件名   #一般用于特殊命令</code></pre></li><li><p>sgid：二进制命令——在执行命令的一瞬间拥有了和属组一样的权限。<br>目录——某个目录下的子文件会继承上级目录的属组的权限。</p><p> 权限数是：2000</p><pre class=" language-shell"><code class="language-shell">chmod  g+s   文件名   #设置sgid</code></pre></li><li><p>t粘滞位：针对共享目录，实现任何用户在该目录下可以创建和删除属于自己的文件。</p><p>权限代码是1000。 代表：/tmp</p><pre class=" language-shell"><code class="language-shell">chmod  -R  1777   /tmp  #-R表示递归修改权限，用数字设置粘滞位chmod  o+t  /tmp         #用字母方式设置粘滞位</code></pre></li></ol><h1 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h1><pre class=" language-shell"><code class="language-shell">格式1：chmod  655   1.txt    #属主rw，组rx，其他rx格式2：chmod  u=rwx  1.txt   #设置属主权限位rwx      chmod  g+x    1.txt   #给属组添加x权限       chmod  o-x    1.txt   #给其他人去掉x权限      chmod  a=rwx  1.txt   #给所有人rwx的权限说明：如果是目录，r需要x权限来配合；如果是w权限，需要r和x权限的配合。文件的修改和删除要看上层目录的写入权限。</code></pre><h1 id="修改所有者"><a href="#修改所有者" class="headerlink" title="修改所有者"></a>修改所有者</h1><ol><li><p>chown作用：修改文件的属主和属组</p></li><li><p>命令格式</p><pre class=" language-shell"><code class="language-shell">基本格式：chown   [-R] [属主：属组]  文件名chown test:test a.txt   #修改a.txt文件的属主是test，属组是testchown :root a.txt        #修改文件属组是rootchown root a.txt        #修改文件属主为root  </code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux之安全加固</title>
       <link href="/2020/12/11/linux-zhi-an-quan-jia-gu/"/>
       <url>/2020/12/11/linux-zhi-an-quan-jia-gu/</url>
@@ -117,9 +142,9 @@
     
     
     <entry>
-      <title>在Linux中安装软件</title>
-      <link href="/2020/12/07/zai-linux-zhong-an-zhuang-ruan-jian/"/>
-      <url>/2020/12/07/zai-linux-zhong-an-zhuang-ruan-jian/</url>
+      <title>Linux中安装软件</title>
+      <link href="/2020/12/07/linux-zhong-an-zhuang-ruan-jian/"/>
+      <url>/2020/12/07/linux-zhong-an-zhuang-ruan-jian/</url>
       
         <content type="html"><![CDATA[<h1 id="常见的安装方式"><a href="#常见的安装方式" class="headerlink" title="常见的安装方式"></a>常见的安装方式</h1><ul><li><p><strong>RPM工具</strong>：RPM包是预先在Linux机器上编译好并打包好的文件，安装起来非常快捷。但是也有一些缺点，比如安装的环境必须与编译时的环境一致或者相当；包与包之间存在着相互依赖的情况。</p></li><li><p><strong>yum工具</strong>：yum最大的优势在于可以联网去下载所需要的rpm包，然后自动安装，在这个过程中如果要安装的rpm包有依赖关系，yum会帮你解决掉这些依赖关系依次安装所有rpm包。</p></li><li><p><strong>源码包</strong>：安装一个源码包，是需要我们自己把源代码编译成二进制的可执行文件。如果你读得懂这些源代码，那么你就可以去修改这些源代码自定义功能，然后再去编译成你想要的。使用源码包的好处除了可以自定义修改源代码外还可以定制相关的功能，因为源码包在编译的时候是可以附加额外的选项的。</p></li></ul><p>下面将使用不同的方式安装GCC编译器。</p><h1 id="使用rpm工具安装软件（CentOS7）"><a href="#使用rpm工具安装软件（CentOS7）" class="headerlink" title="使用rpm工具安装软件（CentOS7）"></a>使用rpm工具安装软件（CentOS7）</h1><h2 id="0x01-设置光驱并挂在"><a href="#0x01-设置光驱并挂在" class="headerlink" title="0x01 设置光驱并挂在"></a>0x01 设置光驱并挂在</h2><ol><li><p>将安装系统时使用的ISO文件放入光驱中，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/将ISO文件放入光驱.png" alt="将ISO文件放入光驱"></center></li><li><p>将光驱挂在到<code>/mnt</code>目录下，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/挂载镜像文件到mnt目录.png" alt="挂载镜像文件到mnt目录"></center></li><li><p>查看挂载的镜像内容，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/查看挂在镜像内容.png" alt="查看挂在镜像内容"></center><p><code>Packages</code>目录下为镜像中所有的RPM安装包。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/部分安装包先死.png" alt="部分安装包显示"></center></li></ol><h2 id="0x02-使用RPM工具安装GCC编译器"><a href="#0x02-使用RPM工具安装GCC编译器" class="headerlink" title="0x02 使用RPM工具安装GCC编译器"></a>0x02 使用RPM工具安装GCC编译器</h2><ol><li><p>使用如下命令安装GCC编译器，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">rpm -ivh mpfr-3.1.1-4.el7.x86_64.rpmrpm -ivh libmpc-1.0.1-3.el7.x86_64.rpmrpm -ivh kernel-headers-3.10.0-862.el7.x86_64.rpmrpm -ivh glibc-headers-2.17-222.el7.x86_64.rpmrpm -ivh glibc-devel-2.17-222.el7.x86_64.rpmrpm -ivh cpp-4.8.5-28.el7.x86_64.rpmrpm -ivh gcc-4.8.5-28.el7.x86_64.rpm</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用rpm安装软件过程显示.png" alt="使用rpm安装软件过程显示"></center></li><li><p>使用<code>gcc -v</code>命令验证GCC编译器是否安装成功，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/验证rpm安装软件结果.png" alt="验证rpm安装软件结果"></center></li></ol><h2 id="0x03-使用rpm工具卸载GCC编译器"><a href="#0x03-使用rpm工具卸载GCC编译器" class="headerlink" title="0x03 使用rpm工具卸载GCC编译器"></a>0x03 使用rpm工具卸载GCC编译器</h2><ol><li><p>使用<code>rpm -q gcc</code>检查已安装的GCC版本，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用rpm检查已安装gcc的版本.png" alt="使用rpm检查已安装gcc的版本"></center></li><li><p>使用使用如下命令卸载GCC及其依赖，操作结果如下图所示。</p><pre class=" language-shell"><code class="language-shell">rpm -e gccrpm -e cpprpm -e glibc-develrpm -e glibc-headersrpm -e kernel-headersrpm -e libmpcrpm -e mpfr</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用rpm卸载gcc.png" alt="使用rpm卸载gcc"></center></li></ol><h1 id="使用yum工具安装软件（CentOS7）"><a href="#使用yum工具安装软件（CentOS7）" class="headerlink" title="使用yum工具安装软件（CentOS7）"></a>使用yum工具安装软件（CentOS7）</h1><h2 id="0x01-使用yum工具安装GCC编译器"><a href="#0x01-使用yum工具安装GCC编译器" class="headerlink" title="0x01 使用yum工具安装GCC编译器"></a>0x01 使用yum工具安装GCC编译器</h2><ol><li><p>使用<code>yum install gcc</code>命令安装GCC编译器，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用yum安装gcc.png" alt="使用yum安装gcc"></center><p>在光标处输入<code>y</code>即可开始安装</p></li><li><p>使用<code>gcc -v</code>命令验证GCC编译器是否安装成功，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/yum安装gcc结果.png" alt="yum安装gcc结果"></center></li></ol><h2 id="0x02-使用yum工具卸载GCC编译器"><a href="#0x02-使用yum工具卸载GCC编译器" class="headerlink" title="0x02 使用yum工具卸载GCC编译器"></a>0x02 使用yum工具卸载GCC编译器</h2><ol><li><p>使用<code>yum remove gcc</code>命令卸载gcc编译器，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用yum卸载gcc编译器.png" alt="使用yum卸载gcc编译器"></center><p><font color="blue">仅仅会卸载gcc其安装时候的依赖项不会被卸载</font>。</p></li></ol><h1 id="使用源码包安装软件（CentOS7）"><a href="#使用源码包安装软件（CentOS7）" class="headerlink" title="使用源码包安装软件（CentOS7）"></a>使用源码包安装软件（CentOS7）</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/源代码编译过程.png" alt="源代码编译过程"></center><ol><li><p>下载软件源码。使用Git将GitHub上的<code>foremost</code>源码下载至本地，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/下载源码.png" alt="下载源码"></center></li><li><p>编译。使用gcc编译器将源码编译成可执行的二进制文件，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/编译.png" alt="编译"></center></li><li><p>安装。使用<code>make install</code>复制二进制文件到系统，配置应用环境，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/安装.png" alt="安装"></center></li><li><p>验证。使用<code>foremost -h</code>命令验证软件是否安装成功，操作结果如下图所示。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/验证是否安装成功.png" alt="验证是否安装成功"></center></li></ol><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="rpm常用命令"><a href="#rpm常用命令" class="headerlink" title="rpm常用命令"></a>rpm常用命令</h2><pre class=" language-shell"><code class="language-shell">##安装软件 -v显示过程 -h指定加密方式为hashrpm -ivh gcc-4.8.5-28.el7.x86_64.rpm ## 静默安装rpm install -y gcc-4.8.5-28.el7.x86_64.rpm ##卸载软件rpm -e gcc ##查询包安装后会生成什么文件rpm -qpl gcc-4.8.5-28.el7.x86_64.rpm ## 查询所有安装的rpm软件包并且过滤处wps相关的安装包rpm -qa | grep wps ##查看查看已安装的某软件包的信息rpm -qi gcc ##查看软件生成的文件rpm -ql gcc ##查询软件包安装后的名字rpm -qp gcc-4.8.5-28.el7.x86_64.rpm ##检测包在安装或卸载过程中执行的动作rpm -qp gcc-4.8.5-28.el7.x86_64.rpm --scripts ## 查看一个文件是由那个包安装的rpm -qf /usr/bin/vim ##强制安装，但是不能忽略依赖性rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --force ##忽略软件的依赖性并且强制安装rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --nodeps # 重建RPM数据库rpm --rebuilddbrpm --initdb# 导入验证公钥rpm --import /media/cdrom/RPM-GPG-KEY-redhat-release</code></pre><h2 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h2><pre class=" language-shell"><code class="language-shell">## 列出可用rpm包yum list ## 搜索指定包yum search gcc## 安装指定软件(静默)yun install -y gcc## 列出组的rpm包yum grouplist## 安装软件yum install gccyum groupinstall 组包名## 卸载指定安装包yun remove -y gcc## 升级指定安装包yum update -y gcc## 清除yum缓存目录yum clean all## 生成yum缓存yum makecache## 修改yum的配置文件vim /etc/yum.repos.d/CentOS-Base.repo</code></pre><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://www.cnblogs.com/xiyushimei/p/8550930.html" target="_blank" rel="noopener">Linux——CentOS7安装gcc编译器详解</a></li><li><a href="https://blog.csdn.net/weixin_43407305/article/details/83589136" target="_blank" rel="noopener">利用rpm命令安装软件</a></li><li><a href="https://blog.csdn.net/mojianbin/article/details/78523161?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control" target="_blank" rel="noopener">安装软件包的三种方法、rpm包介绍、rpm、yum工具用法与yum搭建本地仓库</a></li></ul>]]></content>
       
@@ -2207,9 +2232,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> Web </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2234,9 +2259,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -2342,9 +2367,9 @@
       
         <tags>
             
-            <tag> rsa </tag>
-            
             <tag> python </tag>
+            
+            <tag> rsa </tag>
             
         </tags>
       
@@ -3118,11 +3143,11 @@
       
         <tags>
             
-            <tag> 网络基础 </tag>
-            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
+            
+            <tag> 网络基础 </tag>
             
         </tags>
       

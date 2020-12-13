@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/12/13/linux-zhi-quan-xian-guan-li/</loc>
+    
+    <lastmod>2020-12-13T11:41:48.193Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/12/07/linux-zhong-an-zhuang-ruan-jian/</loc>
+    
+    <lastmod>2020-12-13T05:22:42.914Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/</loc>
     
     <lastmod>2020-12-11T14:11:43.613Z</lastmod>
@@ -68,13 +82,6 @@
     <loc>https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/</loc>
     
     <lastmod>2020-12-09T02:01:29.237Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/12/07/zai-linux-zhong-an-zhuang-ruan-jian/</loc>
-    
-    <lastmod>2020-12-09T00:42:11.103Z</lastmod>
     
   </url>
   
@@ -975,13 +982,6 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/archives/index.html</loc>
-    
-    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
@@ -990,6 +990,13 @@
   
   <url>
     <loc>https://z1r0s.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/archives/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
