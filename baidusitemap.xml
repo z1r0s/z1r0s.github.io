@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://z1r0s.github.io/2020/12/11/linux-zhi-an-quan-jia-gu/</loc>
+    <lastmod>2020-12-15</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/</loc>
+    <lastmod>2020-12-14</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/12/14/vscode-zhi-kai-fa-huan-jing-da-jian/</loc>
+    <lastmod>2020-12-14</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/12/13/linux-zhi-wang-luo-guan-li/</loc>
+    <lastmod>2020-12-13</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/12/07/linux-zhi-ruan-jian-bao-guan-li/</loc>
+    <lastmod>2020-12-13</lastmod>
+  </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/13/linux-zhi-quan-xian-guan-li/</loc>
     <lastmod>2020-12-13</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/07/linux-zhong-an-zhuang-ruan-jian/</loc>
-    <lastmod>2020-12-13</lastmod>
-  </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/</loc>
-    <lastmod>2020-12-11</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/11/linux-zhi-an-quan-jia-gu/</loc>
     <lastmod>2020-12-11</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-zhi-wen/</loc>
@@ -275,9 +284,6 @@
     <lastmod>2020-10-21</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-iis/</loc>
-    <lastmod>2020-10-21</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/</loc>
     <lastmod>2020-10-21</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/17/windows-xia-python2-he-python3-gong-cun-huan-jing-da-jian/</loc>

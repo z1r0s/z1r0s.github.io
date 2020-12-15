@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2020/12/11/linux-zhi-an-quan-jia-gu/</loc>
+    
+    <lastmod>2020-12-15T07:03:28.559Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/</loc>
+    
+    <lastmod>2020-12-14T15:15:31.410Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/12/14/vscode-zhi-kai-fa-huan-jing-da-jian/</loc>
+    
+    <lastmod>2020-12-14T14:19:08.994Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/12/13/linux-zhi-wang-luo-guan-li/</loc>
+    
+    <lastmod>2020-12-13T11:53:33.948Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/12/07/linux-zhi-ruan-jian-bao-guan-li/</loc>
+    
+    <lastmod>2020-12-13T11:52:48.851Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2020/12/13/linux-zhi-quan-xian-guan-li/</loc>
     
     <lastmod>2020-12-13T11:41:48.193Z</lastmod>
@@ -9,23 +44,9 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/12/07/linux-zhong-an-zhuang-ruan-jian/</loc>
-    
-    <lastmod>2020-12-13T05:22:42.914Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/</loc>
     
     <lastmod>2020-12-11T14:11:43.613Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/12/11/linux-zhi-an-quan-jia-gu/</loc>
-    
-    <lastmod>2020-12-11T08:05:02.295Z</lastmod>
     
   </url>
   
@@ -646,13 +667,6 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-phpstudyftp/</loc>
-    
-    <lastmod>2020-10-21T11:56:57.631Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://z1r0s.github.io/2020/09/17/windows-xia-python2-he-python3-gong-cun-huan-jing-da-jian/</loc>
     
     <lastmod>2020-10-21T11:35:36.109Z</lastmod>
@@ -982,6 +996,13 @@
   </url>
   
   <url>
+    <loc>https://z1r0s.github.io/archives/index.html</loc>
+    
+    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
@@ -990,13 +1011,6 @@
   
   <url>
     <loc>https://z1r0s.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-08-21T11:34:26.223Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/archives/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
