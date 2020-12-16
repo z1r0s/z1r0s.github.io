@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>批处理之配置防火墙</title>
+      <link href="/2020/12/16/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/"/>
+      <url>/2020/12/16/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/</url>
+      
+        <content type="html"><![CDATA[<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>查看当前防火墙状态：<code>netsh advfirewall show allprofiles</code></p><p>关闭防火墙：<code>netsh advfirewall set allprofiles state off</code></p><p>开启防火墙：<code>netsh advfirewall set allprofiles state on</code></p><p>恢复初始防火墙设置：<code>netsh advfirewall reset</code></p><p>设置默认输入和输出策略：<code>netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound</code></p><p>以上是设置为允许，如果设置为拒绝使用<code>blockinbound,blockoutbound</code></p><h1 id="常用参数解释"><a href="#常用参数解释" class="headerlink" title="常用参数解释"></a>常用参数解释</h1><pre class=" language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 必备参数，指定进站方向还是出站方向</span><span class="token function">dir</span>=in<span class="token punctuation">|</span>out<span class="token comment" spellcheck="true"># 必备参数，设定这个规则是允许还是阻断或者是跳过</span>action=allow<span class="token punctuation">|</span>block<span class="token punctuation">|</span>bypass<span class="token comment" spellcheck="true"># 可选参数，为某应用程序设定规则</span><span class="token namespace">[program=&lt;program path>]</span><span class="token comment" spellcheck="true"># 可选参数，为某系统服务设定规则</span><span class="token namespace">[service=&lt;service short name>|any]</span><span class="token comment" spellcheck="true"># 可选参数，为这个规则加一个说明描述</span><span class="token namespace">[description=&lt;string>]</span><span class="token comment" spellcheck="true"># 可选参数，指定本端IP地址</span><span class="token namespace">[localip=any|&lt;IPv4 address>|&lt;IPv6 address>|&lt;subnet>|&lt;range>|&lt;list>]</span><span class="token comment" spellcheck="true"># 可选参数，指定远端IP地址</span><span class="token namespace">[remoteip=any|localsubnet|dns|dhcp|wins|defaultgateway|&lt;IPv4 address>|&lt;IPv6 address>|&lt;subnet>|&lt;range>|&lt;list>]</span><span class="token comment" spellcheck="true"># 可选参数，指定本端端口号，默认为所有端口</span><span class="token namespace">[localport=0-65535|&lt;port range>[,...]</span><span class="token punctuation">|</span>RPC<span class="token punctuation">|</span>RPC<span class="token operator">-</span>EPMap<span class="token punctuation">|</span>IPHTTPS<span class="token punctuation">|</span>any <span class="token punctuation">(</span>default=any<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true"># 可选参数，指定远端端口号，默认为所有端口</span><span class="token namespace">[remoteport=0-65535|&lt;port range>[,...]</span><span class="token punctuation">|</span>any <span class="token punctuation">(</span>default=any<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true"># 可选参数，指定协议类型，默认为所有协议</span><span class="token namespace">[protocol=0-255|icmpv4|icmpv6|icmpv4:type,code|icmpv6:type,code|tcp|udp|any (default=any)]</span><span class="token comment" spellcheck="true"># 可选参数，指定接口类型</span><span class="token namespace">[interfacetype=wireless|lan|ras|any]</span><span class="token comment" spellcheck="true"># 可选参数，指定加密访问方式</span><span class="token namespace">[security=authenticate|authenc|authdynenc|authnoencap|notrequired(default=notrequired)]</span><span class="token comment" spellcheck="true"># 显示命令列表</span>help </code></pre><h1 id="命令使用示例"><a href="#命令使用示例" class="headerlink" title="命令使用示例"></a>命令使用示例</h1><ul><li><p>添加一条规则：</p><p><code>netsh advfirewall firewall add rule name=RDP dir=in action=allow protocol=tcp localport=3389</code></p></li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/Batch/firewall/添加规则.png" alt="添加规则"></center><p>该命令的含义为防火墙入添加一条规则，规则名字：RDP，协议TCP，动作为允许，端口号3389；简而言之，就是允许其他机器远程桌面连接本机：  </p><ul><li><p>删除一条规则：</p><p><code>netsh advfirewall firewall delete rule name=RDP dir=in</code></p></li></ul><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/Batch/firewall/删除规则.png" alt="删除规则"></center><p>直接引用上面的添加策略的命令，把add改成delete就也行,如下 <code>netsh advfirewall firewall delete rule name=RDP dir=in action=allow protocol=tcp localport=3389</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 批处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 防火墙 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>VSCode之开发环境搭建</title>
       <link href="/2020/12/14/vscode-zhi-kai-fa-huan-jing-da-jian/"/>
       <url>/2020/12/14/vscode-zhi-kai-fa-huan-jing-da-jian/</url>
@@ -36,6 +61,18 @@
         <content type="html"><![CDATA[]]></content>
       
       
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
       
     </entry>
     
@@ -510,9 +547,9 @@
       
         <tags>
             
-            <tag> STP </tag>
-            
             <tag> HSRP </tag>
+            
+            <tag> STP </tag>
             
         </tags>
       
@@ -2255,9 +2292,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> CRYPTO </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2309,9 +2346,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -3512,9 +3549,9 @@
             
             <tag> C# </tag>
             
-            <tag> 程序实现 </tag>
-            
             <tag> 编码 </tag>
+            
+            <tag> 程序实现 </tag>
             
         </tags>
       
@@ -3630,13 +3667,13 @@
       
         <tags>
             
-            <tag> Vigenere </tag>
-            
-            <tag> 维吉尼亚密码 </tag>
-            
             <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
+            
+            <tag> Vigenere </tag>
+            
+            <tag> 维吉尼亚密码 </tag>
             
         </tags>
       
@@ -3663,11 +3700,11 @@
       
         <tags>
             
+            <tag> Ceasar </tag>
+            
             <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
-            
-            <tag> Ceasar </tag>
             
         </tags>
       
