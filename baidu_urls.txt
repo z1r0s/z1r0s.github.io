@@ -2,7 +2,6 @@ https://z1r0s.github.io/2020/12/16/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/
 https://z1r0s.github.io/2020/12/14/vscode-zhi-kai-fa-huan-jing-da-jian/
 https://z1r0s.github.io/2020/12/13/linux-zhi-wang-luo-guan-li/
 https://z1r0s.github.io/2020/12/13/linux-zhi-quan-xian-guan-li/
-https://z1r0s.github.io/2020/12/11/linux-zhi-an-quan-jia-gu/
 https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/
 https://z1r0s.github.io/2020/12/09/linux-zhi-ci-pan-guan-li/
 https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/
@@ -98,3 +97,4 @@ https://z1r0s.github.io/2020/09/17/windows-xia-python2-he-python3-gong-cun-huan-
 https://z1r0s.github.io/2020/09/17/dvwa-sqlinjection/
 https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/
 https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/
+https://z1r0s.github.io/2020/09/14/dvwa-fileupload/

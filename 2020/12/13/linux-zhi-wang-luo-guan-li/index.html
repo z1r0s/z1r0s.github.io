@@ -494,14 +494,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -516,7 +516,133 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="服务管理"><a href="#服务管理" class="headerlink" title="服务管理"></a>服务管理</h1><h2 id="systemctl服务管理命令"><a href="#systemctl服务管理命令" class="headerlink" title="systemctl服务管理命令"></a>systemctl服务管理命令</h2><p>systemctl命令格式：</p>
+<pre class=" language-shell"><code class="language-shell">#启动服务 :
+systemctl start 服务名.service
+#停止服务 :
+systemctl stop 服务名.service
+#重启服务 :
+systemctl restart 服务名.service
+#平滑重启服务 :
+systemctl reload 服务名.service
+#查看服务状态 :
+systemctl status 服务名.service
+#禁止服务 :
+systemctl mask 服务名.service
+#取消禁止 :
+systemctl unmask 服务名.serviceshell</code></pre>
+<p>命令示例：</p>
+<pre class=" language-shell"><code class="language-shell">#启动服务 :
+systemctl start firewalld.service
+#停止服务 :
+systemctl stop firewalld.service
+#重启服务 :
+systemctl restart firewalld.service
+#平滑重启服务 :
+systemctl reload firewalld.service
+#查看服务状态 :
+systemctl status firewalld.service
+#禁止服务 :
+systemctl mask firewalld.service
+#取消禁止 :
+systemctl unmask firewalld.serviceshell</code></pre>
+<h2 id="chkconfig命令"><a href="#chkconfig命令" class="headerlink" title="chkconfig命令"></a>chkconfig命令</h2><p>chkconfig常用命令</p>
+<pre class=" language-shell"><code class="language-shell">/etc/init.d/network {start|stop|status| restart|reload}    #使用服务的绝对路径执行
+service network restart/stop/start/reload
+
+#查看开机服务是否自动启动
+chkconfig --list
+#过滤某个服务
+chkconfig --list  |  grep  Network
+#在所有的运行级别都关闭某个服务
+chkconfig  NetworkManager off
+#--level指定在5这个运行级别关闭
+chkconfig  --level 5 NetworkManager off  
+#在级别3,4,5开机启动的时候就关闭服务
+chkconfig --level 345 NetworkManager off  </code></pre>
+<h1 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h1><h2 id="设置主机名"><a href="#设置主机名" class="headerlink" title="设置主机名"></a>设置主机名</h2><pre class=" language-shell"><code class="language-shell"># 将主机名设置为s1.test.com 
+hostnamectl set-hostname s1.test.com </code></pre>
+<h2 id="设置临时IP"><a href="#设置临时IP" class="headerlink" title="设置临时IP"></a>设置临时IP</h2><pre class=" language-shell"><code class="language-shell"># 显示网络接口信息
+ifconfig
+# 显示eth1网卡信息
+ifconfig eth1
+# 关闭eth0网卡
+ifconfig eth0 down
+# 开启eth0网卡
+ifconfig eth0 up
+# 设置eth1网卡的IP地址、子网掩码、广播地址
+ifconfig eth1 192.168.11.22 netmask 255.255.255.0 [broadcast 192.168.11.255]
+# 设置eth0网卡的IP地址、子网掩码、广播地址
+ifconfig eth0 192.168.11.10 netmask 255.255.255.0 [broadcast 192.168.11.255]
+# 设置eth0网卡的MAC地址为：00:11:22:22:11:00
+ifconfig eth0 hw ether 00:11:22:22:11:00
+# 设置eth0网卡子接口的IP地址
+ifconfig eth0:1 192.168.12.23 netmask 255.255.255.0
+
+# 关闭ARP协议
+ifconfig eth0 -arp
+# 启用ARP协议
+ifconfig eth0 arp</code></pre>
+<h2 id="配置DNS文件"><a href="#配置DNS文件" class="headerlink" title="配置DNS文件"></a>配置DNS文件</h2><pre class=" language-shell"><code class="language-shell"># 配置DNS文件
+vi /etc/resolv.conf
+nameserver 202.106.0.20
+nameserver 222.222.222.222</code></pre>
+<h2 id="编辑网卡配置文件"><a href="#编辑网卡配置文件" class="headerlink" title="编辑网卡配置文件"></a>编辑网卡配置文件</h2><pre class=" language-shell"><code class="language-shell">#4.编辑网卡配置文件
+#修改步骤:第一步修改配置文件;第二步重启服务才能生效.
+######################简要版解析###########################
+TYPE=Ethernet
+BOOTPROTO=static
+DEFROUTE=yes
+DEVICE=eth0
+ONBOOT=yes
+IPADDR=10.10.10.31
+NETMASK=255.255.255.0
+
+######################完整版解析###########################
+TYPE=Ethernet                               #网卡类型:以太网
+PROXY_METHOD=none                           #代理方式:关闭状态
+BROWSER_ONLY=no                             #只是浏览器(yes|no)
+BOOTPROTO=static                            #设置网卡获得ip地址的方式(static|dhcp|none|bootp)
+DEFROUTE=yes                                #设置为默认路由(yes|no)
+IPV4_FAILURE_FATAL=no                       #是否开启IPV4致命错误检测(yes|no)
+IPV6INIT=yes                                #IPV6是否自动初始化
+IPV6_AUTOCONF=yes                           #IPV6是否自动配置
+IPV6_DEFROUTE=yes                           #IPV6是否可以为默认路由
+IPV6_FAILURE_FATAL=no                       #是不开启IPV6致命错误检测
+IPV6_ADDR_GEN_MODE=stable-privacy           #IPV6地址生成模型
+NAME=eth0                                   #网卡物理设备名称
+UUID=6e89ea13-f919-4096-ad67-cfc24a79a7e7   #UUID识别码
+DEVICE=eth0                                 #网卡设备名称
+ONBOOT=no                                   #开机自启(yes|no)
+IPADDR=192.168.103.203                      #IP地址
+NETNASK=255.255.255.0                       #子网掩码,也可使用掩码长度表示(PREFIX=24)
+GATEWAY=192.168.103.1                       #网关
+DNS1=114.114.114.114                        #首选DNS
+DNS2=8.8.8.8                                #备用DNS     </code></pre>
+<h2 id="网络测试命令"><a href="#网络测试命令" class="headerlink" title="网络测试命令"></a>网络测试命令</h2><pre class=" language-shell"><code class="language-shell">#测试连通性  
+ping -c 次数 172.18.199.1  
+#检测路由经过跳数
+traceroute 目标     
+#DNS检测解析
+nslookup         
+#检测arp解析
+arp -n             </code></pre>
+<h2 id="路由配置命令"><a href="#路由配置命令" class="headerlink" title="路由配置命令"></a>路由配置命令</h2><pre class=" language-shell"><code class="language-shell">route -n  #显示路由
+#1.按照网段添加路由命令
+route add -net 目标网段 netmask x.x.x.x gw 下一跳路由地址
+route add -net 目标网段 netmask x.x.x.x dev eth1
+route add -net 目标网段 netmask x.x.x.x gw 下一跳路由地址 dev ens32
+route add -net 172.18.11.0 netmask 255.255.255.0 gw 192.168.11.23
+#2.添加到达某个主机的路由命令
+route add -host 172.18.11.67 gw 192.168.11.23 reject (拒绝路由的操作)
+route -host 目标主机 gw 下一跳路由地址
+route add -host 172.18.11.67 gw 192.168.11.23
+#3.添加默认网关
+route add default gw 网关地址
+route del default gw 192.168.11.23
+#4.删除路由
+route del -net 172.18.11.0 netmask 255.255.255.0 gw 192.168.11.23</code></pre>
+
             </div>
             <hr/>
 
@@ -1132,7 +1258,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">240.4k</span>&nbsp;字
+                class="white-color">241.4k</span>&nbsp;字
             
             
             
