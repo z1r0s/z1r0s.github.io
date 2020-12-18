@@ -313,7 +313,7 @@
       
       <categories>
           
-          <category> 网路配置 </category>
+          <category> 网络配置 </category>
           
       </categories>
       
@@ -1359,14 +1359,12 @@
       
       <categories>
           
-          <category> tools </category>
+          <category> Tools </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> tools </tag>
             
             <tag> nmap </tag>
             
@@ -1940,7 +1938,7 @@
       
       <categories>
           
-          <category> SQLi </category>
+          <category> Web安全 </category>
           
       </categories>
       
@@ -1948,8 +1946,6 @@
         <tags>
             
             <tag> SQLi </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -1967,7 +1963,7 @@
       
       <categories>
           
-          <category> SQLi </category>
+          <category> Web安全 </category>
           
       </categories>
       
@@ -1975,8 +1971,6 @@
         <tags>
             
             <tag> SQLi </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -1994,7 +1988,7 @@
       
       <categories>
           
-          <category> SQLi </category>
+          <category> Web安全 </category>
           
       </categories>
       
@@ -2002,8 +1996,6 @@
         <tags>
             
             <tag> SQLi </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -2021,7 +2013,7 @@
       
       <categories>
           
-          <category> SQLi </category>
+          <category> Web安全 </category>
           
       </categories>
       
@@ -2029,8 +2021,6 @@
         <tags>
             
             <tag> SQLi </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -2048,7 +2038,7 @@
       
       <categories>
           
-          <category> SQLi </category>
+          <category> Web安全 </category>
           
       </categories>
       
@@ -2056,8 +2046,6 @@
         <tags>
             
             <tag> SQLi </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -2075,7 +2063,7 @@
       
       <categories>
           
-          <category> SQLi </category>
+          <category> Web安全 </category>
           
       </categories>
       
@@ -2083,8 +2071,6 @@
         <tags>
             
             <tag> SQLi </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -2505,14 +2491,10 @@
           
           <category> Web安全 </category>
           
-          <category> 靶机 </category>
-          
       </categories>
       
       
         <tags>
-            
-            <tag> DVWA </tag>
             
             <tag> SQLi </tag>
             
@@ -2532,7 +2514,7 @@
       
       <categories>
           
-          <category> tools </category>
+          <category> Tools </category>
           
       </categories>
       
@@ -2540,10 +2522,6 @@
         <tags>
             
             <tag> github </tag>
-            
-            <tag> 渗透测试 </tag>
-            
-            <tag> tools </tag>
             
         </tags>
       
@@ -2588,14 +2566,10 @@
           
           <category> Web安全 </category>
           
-          <category> 靶机 </category>
-          
       </categories>
       
       
         <tags>
-            
-            <tag> DVWA </tag>
             
             <tag> 文件上传 </tag>
             
@@ -2617,14 +2591,10 @@
           
           <category> Web安全 </category>
           
-          <category> 靶机 </category>
-          
       </categories>
       
       
         <tags>
-            
-            <tag> DVWA </tag>
             
             <tag> 文件包含 </tag>
             
@@ -2646,14 +2616,10 @@
           
           <category> Web安全 </category>
           
-          <category> 靶机 </category>
-          
       </categories>
       
       
         <tags>
-            
-            <tag> DVWA </tag>
             
             <tag> SCRF </tag>
             
@@ -2675,14 +2641,10 @@
           
           <category> Web安全 </category>
           
-          <category> 靶机 </category>
-          
       </categories>
       
       
         <tags>
-            
-            <tag> DVWA </tag>
             
             <tag> 命令执行 </tag>
             
@@ -2704,14 +2666,10 @@
           
           <category> Web安全 </category>
           
-          <category> 靶机 </category>
-          
       </categories>
       
       
         <tags>
-            
-            <tag> DVWA </tag>
             
             <tag> BruteForce </tag>
             
@@ -3515,7 +3473,7 @@
       
       <categories>
           
-          <category> C# </category>
+          <category> 程序设计 </category>
           
       </categories>
       
@@ -3523,10 +3481,6 @@
         <tags>
             
             <tag> C# </tag>
-            
-            <tag> 编码 </tag>
-            
-            <tag> 程序实现 </tag>
             
         </tags>
       
@@ -3544,7 +3498,7 @@
       
       <categories>
           
-          <category> C# </category>
+          <category> 程序设计 </category>
           
       </categories>
       
@@ -3552,12 +3506,6 @@
         <tags>
             
             <tag> C# </tag>
-            
-            <tag> 程序实现 </tag>
-            
-            <tag> 小游戏 </tag>
-            
-            <tag> 多线程 </tag>
             
         </tags>
       
@@ -3635,20 +3583,12 @@
           
           <category> 密码学 </category>
           
-          <category> 古典密码 </category>
-          
       </categories>
       
       
         <tags>
             
-            <tag> 密码学 </tag>
-            
             <tag> 古典密码 </tag>
-            
-            <tag> Vigenere </tag>
-            
-            <tag> 维吉尼亚密码 </tag>
             
         </tags>
       
@@ -3668,16 +3608,10 @@
           
           <category> 密码学 </category>
           
-          <category> 古典密码 </category>
-          
       </categories>
       
       
         <tags>
-            
-            <tag> Ceasar </tag>
-            
-            <tag> 密码学 </tag>
             
             <tag> 古典密码 </tag>
             

@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/11/01/nmap-zhi-zhu-ji-fa-xian/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/10/19/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/17/dvwa-sqlinjection/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/14/dvwa-fileupload/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/13/dvwa-csrf/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/08/22/vigenerecipher/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/08/22/ceasarcipher/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/</loc>
+    <lastmod>2020-12-18</lastmod>
+  </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/13/linux-zhi-wang-luo-guan-li/</loc>
     <lastmod>2020-12-16</lastmod>
   </url>  <url>
@@ -56,9 +113,6 @@
     <lastmod>2020-12-06</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/</loc>
-    <lastmod>2020-12-06</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/</loc>
     <lastmod>2020-12-06</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-yuan-cheng-guan-li/</loc>
@@ -205,12 +259,6 @@
     <loc>https://z1r0s.github.io/2020/11/01/nei-wang-shen-tou-chang-yong-ming-ling/</loc>
     <lastmod>2020-11-02</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/01/nmap-zhi-zhu-ji-fa-xian/</loc>
-    <lastmod>2020-11-01</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/</loc>
-    <lastmod>2020-11-01</lastmod>
-  </url>  <url>
     <loc>https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level20/</loc>
     <lastmod>2020-10-31</lastmod>
   </url>  <url>
@@ -298,24 +346,6 @@
     <loc>https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/</loc>
     <lastmod>2020-10-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
-    <lastmod>2020-10-19</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/19/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</loc>
-    <lastmod>2020-10-19</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/</loc>
-    <lastmod>2020-10-18</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
-    <lastmod>2020-10-18</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/</loc>
-    <lastmod>2020-10-17</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</loc>
-    <lastmod>2020-10-17</lastmod>
-  </url>  <url>
     <loc>https://z1r0s.github.io/2020/10/06/ji-yi-ci-bei-da-jing-li/</loc>
     <lastmod>2020-10-17</lastmod>
   </url>  <url>
@@ -325,38 +355,17 @@
     <loc>https://z1r0s.github.io/2020/09/02/git-he-github/</loc>
     <lastmod>2020-10-17</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/ceasarcipher/</loc>
-    <lastmod>2020-10-17</lastmod>
-  </url>  <url>
     <loc>https://z1r0s.github.io/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/</loc>
-    <lastmod>2020-10-04</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/</loc>
     <lastmod>2020-10-04</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/</loc>
     <lastmod>2020-09-28</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/14/dvwa-fileupload/</loc>
-    <lastmod>2020-09-22</lastmod>
-  </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/17/jie-jue-python3-an-zhuang-gmpy2-bao-cuo/</loc>
-    <lastmod>2020-09-17</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/17/dvwa-sqlinjection/</loc>
     <lastmod>2020-09-17</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/</loc>
     <lastmod>2020-09-15</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/13/dvwa-csrf/</loc>
-    <lastmod>2020-09-14</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/12/dvwa-bruteforce/</loc>
-    <lastmod>2020-09-14</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/12/dvwa-commandinjection/</loc>
-    <lastmod>2020-09-13</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/02/ying-yu-ci-hui-fen-lei-hui-zong/</loc>
     <lastmod>2020-09-07</lastmod>
@@ -369,12 +378,6 @@
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/08/29/packet-tracer-wang-luo-mo-ni-shi-yan-shi-ji/</loc>
     <lastmod>2020-09-07</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</loc>
-    <lastmod>2020-09-05</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/</loc>
-    <lastmod>2020-09-05</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/02/shu-zi-bian-ma-xi-tong/</loc>
     <lastmod>2020-09-02</lastmod>
@@ -410,9 +413,6 @@
     <lastmod>2020-08-22</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/08/22/this-host-is-not-allowed-to-connect-to-mysql-server/</loc>
-    <lastmod>2020-08-22</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/vigenerecipher/</loc>
     <lastmod>2020-08-22</lastmod>
   </url>
 </urlset>
