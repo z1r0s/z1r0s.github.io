@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="在Linux中安装软件, z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="Google-Hacking, z1r0s 安全 Web安全 学习总结">
     <meta name="description" content="计算机 | 程序语言 | 网络安全 | 红蓝对抗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>在Linux中安装软件 | z1r0s&#39;blogs</title>
+    <title>Google-Hacking | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/89.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">在Linux中安装软件</h1>
+                    <h1 class="description center-align post-title">Google-Hacking</h1>
                 </div>
             </div>
         </div>
@@ -453,25 +453,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -480,28 +467,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2020-12-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-09
+                    2020-12-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    206
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    1 分
                 </div>
                 
 
@@ -516,161 +503,95 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="常见的安装方式"><a href="#常见的安装方式" class="headerlink" title="常见的安装方式"></a>常见的安装方式</h1><ul>
-<li><p><strong>RPM工具</strong>：RPM包是预先在Linux机器上编译好并打包好的文件，安装起来非常快捷。但是也有一些缺点，比如安装的环境必须与编译时的环境一致或者相当；包与包之间存在着相互依赖的情况。</p>
-</li>
-<li><p><strong>yum工具</strong>：yum最大的优势在于可以联网去下载所需要的rpm包，然后自动安装，在这个过程中如果要安装的rpm包有依赖关系，yum会帮你解决掉这些依赖关系依次安装所有rpm包。</p>
-</li>
-<li><p><strong>源码包</strong>：安装一个源码包，是需要我们自己把源代码编译成二进制的可执行文件。如果你读得懂这些源代码，那么你就可以去修改这些源代码自定义功能，然后再去编译成你想要的。使用源码包的好处除了可以自定义修改源代码外还可以定制相关的功能，因为源码包在编译的时候是可以附加额外的选项的。</p>
-</li>
-</ul>
-<p>下面将使用不同的方式安装GCC编译器。</p>
-<h1 id="使用rpm工具安装软件（CentOS7）"><a href="#使用rpm工具安装软件（CentOS7）" class="headerlink" title="使用rpm工具安装软件（CentOS7）"></a>使用rpm工具安装软件（CentOS7）</h1><h2 id="0x01-设置光驱并挂在"><a href="#0x01-设置光驱并挂在" class="headerlink" title="0x01 设置光驱并挂在"></a>0x01 设置光驱并挂在</h2><ol>
-<li><p>将安装系统时使用的ISO文件放入光驱中，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/将ISO文件放入光驱.png" alt="将ISO文件放入光驱"></center>
-</li>
-<li><p>将光驱挂在到<code>/mnt</code>目录下，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/挂载镜像文件到mnt目录.png" alt="挂载镜像文件到mnt目录"></center>
-</li>
-<li><p>查看挂载的镜像内容，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/查看挂在镜像内容.png" alt="查看挂在镜像内容"></center>
+                <h1 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h1><table>
+<thead>
+<tr>
+<th align="center">通配符</th>
+<th align="center">语义</th>
+<th align="center">说明</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>=</code></td>
+<td align="center">包含关键词</td>
+<td align="center">+前面必须要有一个空格</td>
+<td align="center"><code>admin +login</code></td>
+</tr>
+<tr>
+<td align="center"><code>-</code></td>
+<td align="center">排除关键词</td>
+<td align="center">-前面必须要有一个空格</td>
+<td align="center"><code>mysql -csdn</code></td>
+</tr>
+<tr>
+<td align="center"><code>~</code></td>
+<td align="center">同义词</td>
+<td align="center">~前面必须要有一个空格</td>
+<td align="center"><code>mysal ~csdn</code></td>
+</tr>
+<tr>
+<td align="center"><code>*</code></td>
+<td align="center">模糊查询</td>
+<td align="center">*代替任意字符</td>
+<td align="center"><code>mysql**</code></td>
+</tr>
+<tr>
+<td align="center"><code>&quot;&quot;</code></td>
+<td align="center">强调</td>
+<td align="center">-</td>
+<td align="center"><code>&quot;mysql&quot;</code></td>
+</tr>
+</tbody></table>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><table>
+<thead>
+<tr>
+<th align="center">语法</th>
+<th align="center">语义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>intitle</code></td>
+<td align="center">包含标题</td>
+</tr>
+<tr>
+<td align="center"><code>intext</code></td>
+<td align="center">包含内容</td>
+</tr>
+<tr>
+<td align="center"><code>filetype</code></td>
+<td align="center">文件类型</td>
+</tr>
+<tr>
+<td align="center"><code>info</code></td>
+<td align="center">基本信息</td>
+</tr>
+<tr>
+<td align="center"><code>site</code></td>
+<td align="center">指定网站</td>
+</tr>
+<tr>
+<td align="center"><code>inurl</code></td>
+<td align="center">包含某个<code>url</code></td>
+</tr>
+<tr>
+<td align="center"><code>link</code></td>
+<td align="center">包含指定链接的网页</td>
+</tr>
+<tr>
+<td align="center"><code>cache</code></td>
+<td align="center">显示页面的缓存版本</td>
+</tr>
+<tr>
+<td align="center"><code>numberrange</code></td>
+<td align="center">搜索一个数字</td>
+</tr>
+</tbody></table>
+<h1 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h1><pre class=" language-shell"><code class="language-shell"># 搜索目标包含后台的页面
+site:"some-keywords.com" intitle:login intext:管理|后台|登录|用户名|密码|验证码|系统|账号|manager|admin|login|system
 
-<p><code>Packages</code>目录下为镜像中所有的RPM安装包。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/部分安装包先死.png" alt="部分安装包显示"></center>
-
-
-
-</li>
-</ol>
-<h2 id="0x02-使用RPM工具安装GCC编译器"><a href="#0x02-使用RPM工具安装GCC编译器" class="headerlink" title="0x02 使用RPM工具安装GCC编译器"></a>0x02 使用RPM工具安装GCC编译器</h2><ol>
-<li><p>使用如下命令安装GCC编译器，操作结果如下图所示。</p>
-<pre class=" language-shell"><code class="language-shell">rpm -ivh mpfr-3.1.1-4.el7.x86_64.rpm
-rpm -ivh libmpc-1.0.1-3.el7.x86_64.rpm
-rpm -ivh kernel-headers-3.10.0-862.el7.x86_64.rpm
-rpm -ivh glibc-headers-2.17-222.el7.x86_64.rpm
-rpm -ivh glibc-devel-2.17-222.el7.x86_64.rpm
-rpm -ivh cpp-4.8.5-28.el7.x86_64.rpm
-rpm -ivh gcc-4.8.5-28.el7.x86_64.rpm</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用rpm安装软件过程显示.png" alt="使用rpm安装软件过程显示"></center>
-</li>
-<li><p>使用<code>gcc -v</code>命令验证GCC编译器是否安装成功，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/验证rpm安装软件结果.png" alt="验证rpm安装软件结果"></center>
-
-</li>
-</ol>
-<h2 id="0x03-使用rpm工具卸载GCC编译器"><a href="#0x03-使用rpm工具卸载GCC编译器" class="headerlink" title="0x03 使用rpm工具卸载GCC编译器"></a>0x03 使用rpm工具卸载GCC编译器</h2><ol>
-<li><p>使用<code>rpm -q gcc</code>检查已安装的GCC版本，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用rpm检查已安装gcc的版本.png" alt="使用rpm检查已安装gcc的版本"></center>
-</li>
-<li><p>使用使用如下命令卸载GCC及其依赖，操作结果如下图所示。</p>
-<pre class=" language-shell"><code class="language-shell">rpm -e gcc
-rpm -e cpp
-rpm -e glibc-devel
-rpm -e glibc-headers
-rpm -e kernel-headers
-rpm -e libmpc
-rpm -e mpfr</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用rpm卸载gcc.png" alt="使用rpm卸载gcc"></center>
-
-
-
-</li>
-</ol>
-<h1 id="使用yum工具安装软件（CentOS7）"><a href="#使用yum工具安装软件（CentOS7）" class="headerlink" title="使用yum工具安装软件（CentOS7）"></a>使用yum工具安装软件（CentOS7）</h1><h2 id="0x01-使用yum工具安装GCC编译器"><a href="#0x01-使用yum工具安装GCC编译器" class="headerlink" title="0x01 使用yum工具安装GCC编译器"></a>0x01 使用yum工具安装GCC编译器</h2><ol>
-<li><p>使用<code>yum install gcc</code>命令安装GCC编译器，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用yum安装gcc.png" alt="使用yum安装gcc"></center>
-
-<p>在光标处输入<code>y</code>即可开始安装</p>
-</li>
-<li><p>使用<code>gcc -v</code>命令验证GCC编译器是否安装成功，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/yum安装gcc结果.png" alt="yum安装gcc结果"></center>
-
-</li>
-</ol>
-<h2 id="0x02-使用yum工具卸载GCC编译器"><a href="#0x02-使用yum工具卸载GCC编译器" class="headerlink" title="0x02 使用yum工具卸载GCC编译器"></a>0x02 使用yum工具卸载GCC编译器</h2><ol>
-<li><p>使用<code>yum remove gcc</code>命令卸载gcc编译器，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/使用yum卸载gcc编译器.png" alt="使用yum卸载gcc编译器"></center>
-
-<p><font color="blue">仅仅会卸载gcc其安装时候的依赖项不会被卸载</font>。</p>
-</li>
-</ol>
-<h1 id="使用源码包安装软件（CentOS7）"><a href="#使用源码包安装软件（CentOS7）" class="headerlink" title="使用源码包安装软件（CentOS7）"></a>使用源码包安装软件（CentOS7）</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/源代码编译过程.png" alt="源代码编译过程"></center>
-
-<ol>
-<li><p>下载软件源码。使用Git将GitHub上的<code>foremost</code>源码下载至本地，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/下载源码.png" alt="下载源码"></center>
-</li>
-<li><p>编译。使用gcc编译器将源码编译成可执行的二进制文件，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/编译.png" alt="编译"></center>
-</li>
-<li><p>安装。使用<code>make install</code>复制二进制文件到系统，配置应用环境，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/安装.png" alt="安装"></center>
-</li>
-<li><p>验证。使用<code>foremost -h</code>命令验证软件是否安装成功，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/InstallSotfware/验证是否安装成功.png" alt="验证是否安装成功"></center>
-
-
-
-</li>
-</ol>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="rpm常用命令"><a href="#rpm常用命令" class="headerlink" title="rpm常用命令"></a>rpm常用命令</h2><pre class=" language-shell"><code class="language-shell">##安装软件 -v显示过程 -h指定加密方式为hash
-rpm -ivh gcc-4.8.5-28.el7.x86_64.rpm 
-## 静默安装
-rpm install -y gcc-4.8.5-28.el7.x86_64.rpm 
-##卸载软件
-rpm -e gcc 
-
-##查询包安装后会生成什么文件
-rpm -qpl gcc-4.8.5-28.el7.x86_64.rpm 
-## 查询所有安装的rpm软件包并且过滤处wps相关的安装包
-rpm -qa | grep wps 
-##查看查看已安装的某软件包的信息
-rpm -qi gcc 
-##查看软件生成的文件
-rpm -ql gcc 
-##查询软件包安装后的名字
-rpm -qp gcc-4.8.5-28.el7.x86_64.rpm 
-##检测包在安装或卸载过程中执行的动作
-rpm -qp gcc-4.8.5-28.el7.x86_64.rpm --scripts 
-## 查看一个文件是由那个包安装的
-rpm -qf /usr/bin/vim 
-##强制安装，但是不能忽略依赖性
-rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --force 
-##忽略软件的依赖性并且强制安装
-rpm -ivh rpm -pq gcc-4.8.5-28.el7.x86_64.rpm --nodeps 
-
-# 重建RPM数据库
-rpm --rebuilddb
-rpm --initdb
-# 导入验证公钥
-rpm --import /media/cdrom/RPM-GPG-KEY-redhat-release</code></pre>
-<h2 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h2><pre class=" language-shell"><code class="language-shell">## 列出可用rpm包
-yum list 
-## 搜索指定包
-yum search gcc
-## 安装指定软件(静默)
-yun install -y gcc
-## 列出组的rpm包
-yum grouplist
-## 安装软件
-yum install gcc
-yum groupinstall 组包名
-## 卸载指定安装包
-yun remove -y gcc
-## 升级指定安装包
-yum update -y gcc
-## 清除yum缓存目录
-yum clean all
-## 生成yum缓存
-yum makecache
-
-## 修改yum的配置文件
-vim /etc/yum.repos.d/CentOS-Base.repo</code></pre>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
-<li><a href="https://www.cnblogs.com/xiyushimei/p/8550930.html" target="_blank" rel="noopener">Linux——CentOS7安装gcc编译器详解</a></li>
-<li><a href="https://blog.csdn.net/weixin_43407305/article/details/83589136" target="_blank" rel="noopener">利用rpm命令安装软件</a></li>
-<li><a href="https://blog.csdn.net/mojianbin/article/details/78523161?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control" target="_blank" rel="noopener">安装软件包的三种方法、rpm包介绍、rpm、yum工具用法与yum搭建本地仓库</a></li>
-</ul>
+# 搜索目标是否有列目录
+site:"some-keywords.com" intext:index of/ | ../ | Parent Directory</code></pre>
 
             </div>
             <hr/>
@@ -696,7 +617,7 @@ vim /etc/yum.repos.d/CentOS-Base.repo</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z1r0s.github.io/2020/12/07/zai-linux-zhong-an-zhuang-ruan-jian/">https://z1r0s.github.io/2020/12/07/zai-linux-zhong-an-zhuang-ruan-jian/</a>
+                    <a href="https://z1r0s.github.io/2020/12/19/google-hacking/">https://z1r0s.github.io/2020/12/19/google-hacking/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -733,11 +654,7 @@ vim /etc/yum.repos.d/CentOS-Base.repo</code></pre>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -951,64 +868,17 @@ vim /etc/yum.repos.d/CentOS-Base.repo</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/63.jpg" class="responsive-img" alt="Linux之用户和组管理">
-                        
-                        <span class="card-title">Linux之用户和组管理</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-08
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/">
+                <a href="/2020/12/19/google-hacking/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="网络配置之ACL实验">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Google-Hacking">
                         
-                        <span class="card-title">网络配置之ACL实验</span>
+                        <span class="card-title">Google-Hacking</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1019,14 +889,51 @@ vim /etc/yum.repos.d/CentOS-Base.repo</code></pre>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            z1r0s
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/12/16/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="批处理之配置防火墙">
+                        
+                        <span class="card-title">批处理之配置防火墙</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/网络配置/" class="post-category">
-                                    网络配置
+                            <a href="/categories/批处理/" class="post-category">
+                                    批处理
                                 </a>
                             
                             
@@ -1036,8 +943,8 @@ vim /etc/yum.repos.d/CentOS-Base.repo</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ACL/">
-                        <span class="chip bg-color">ACL</span>
+                    <a href="/tags/防火墙/">
+                        <span class="chip bg-color">防火墙</span>
                     </a>
                     
                 </div>
@@ -1287,7 +1194,7 @@ vim /etc/yum.repos.d/CentOS-Base.repo</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">237.4k</span>&nbsp;字
+                class="white-color">241.7k</span>&nbsp;字
             
             
             
