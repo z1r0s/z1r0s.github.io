@@ -4,13 +4,50 @@
   
     
     <entry>
+      <title>GitHub-Hacking</title>
+      <link href="/2020/12/19/github-hacking/"/>
+      <url>/2020/12/19/github-hacking/</url>
+      
+        <content type="html"><![CDATA[<h1 id="GitHub-Hacking"><a href="#GitHub-Hacking" class="headerlink" title="GitHub-Hacking"></a>GitHub-Hacking</h1><p>​        GitHub-Hacking是指使用GitHub允许的搜索技巧快速、准确、高效地搜索到想要的信息。</p><h1 id="搜索类型"><a href="#搜索类型" class="headerlink" title="搜索类型"></a>搜索类型</h1><p>按GitHub自己的分类，用户可以在所有公共GitHub存储库，以及用户有权访问的所有私有存储库中搜索以下类型的信息：</p><ul><li><code>Repositories</code>：存储库名称、描述信息中。</li><li><code>Code</code>：代码文件中。</li><li><code>Commits</code>：提交信息中。</li><li><code>Issues</code>：提交Bug中。</li><li><code>Discussions</code>：讨论模块中，主要为Bug提交中的交流信息。</li><li><code>Packages</code>：程序包中。</li><li><code>Marketplace</code>：Marketplace中。</li><li><code>Topics</code>：标签中。</li><li><code>Wikis</code>：wiki中。</li><li><code>Users</code>：用户名称中。</li><li><code>Language</code>：语言类型。</li></ul><h1 id="搜索仓库"><a href="#搜索仓库" class="headerlink" title="搜索仓库"></a>搜索仓库</h1><table><thead><tr><th align="center">Query</th><th align="center">Description</th><th align="center">Example</th></tr></thead><tbody><tr><td align="center"><code>&gt;</code><em>n</em></td><td align="center">大于n</td><td align="center"><code>cat stars:&gt;1000</code>:匹配关键字<code>cat</code>且<code>star</code>大于1000的仓库</td></tr><tr><td align="center"><code>&gt;=</code><em>n</em></td><td align="center">大于等于n</td><td align="center"><code>cat stars:&gt;=1000</code>:匹配关键字<code>cat</code>且<code>star</code>大于等于1000的仓库</td></tr><tr><td align="center"><code>&lt;</code><em>n</em></td><td align="center">小于n</td><td align="center"><code>cat stars:&lt;10000</code>:匹配关键字<code>cat</code>且<code>star</code>小于10000的仓库</td></tr><tr><td align="center"><code>&lt;=</code><em>n</em></td><td align="center">小于等于n</td><td align="center"><code>cat stars:&lt;=1000</code>:匹配关键字<code>cat</code>且<code>star</code>小于等于10000的仓库</td></tr><tr><td align="center"><em>n</em><code>..*</code></td><td align="center">大于等于n</td><td align="center"><code>cat stars:10..*</code>:匹配关键字<code>cat</code>且<code>star</code>大于10的仓库</td></tr><tr><td align="center"><code>*..</code><em>n</em></td><td align="center">小于等于n</td><td align="center"><code>cat stars:&gt;*..10</code>:匹配关键字<code>cat</code>且<code>star</code>小于10的仓库</td></tr><tr><td align="center"><em>n</em>..<em>m</em></td><td align="center">大于n小于m</td><td align="center"><code>cat stars:10..50</code>:匹配关键字<code>cat</code>且<code>star</code>大于10且小于50的仓库</td></tr></tbody></table><h1 id="搜索代码"><a href="#搜索代码" class="headerlink" title="搜索代码"></a>搜索代码</h1><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul><li>只能搜索小于384KB的文件。</li><li>只能搜索少于500,000个文件的存储库。</li><li>登录的用户可以搜索所有公共的存储库。</li><li>除<code>filename</code>搜索外，搜索源代码时必须至少包含一个搜索词。例如：<code>cat language:javascript</code>。</li><li>搜索结果最多可以显示来自同一文件的两个片段，但文件中可能会有更多结果。</li><li>不能使用以下通配符作为搜索的一部分：<ul><li><code>. , : ; / \ &#39; &quot; = * ! ? # $ &amp; + ^ | ~ &lt; &gt; () [] {}</code>。</li></ul></li></ul><h1 id="日期条件"><a href="#日期条件" class="headerlink" title="日期条件"></a>日期条件</h1><pre class=" language-shell"><code class="language-shell"># 将cat作为关键字，搜索在2020-12-12前push的代码cat pushed:<2020-12-12# 将cat作为关键字，搜索在从2000-12-13到2020-12-11之间push的代码cat pushed:2000-12-12..2020-12-12# 将cat作为关键字，搜索在2000-12-12及其之后create的代码cat created:>=2000-12-12</code></pre><h1 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h1><ul><li>AND</li><li>OR</li><li>NOT</li></ul><h1 id="排除运算"><a href="#排除运算" class="headerlink" title="排除运算"></a>排除运算</h1><pre class=" language-shell"><code class="language-shell"># 将cat作为关键字，搜索在2020-12-12之前push的代码，排除java语言仓库cat pushed:<2020-12-12 -language:java</code></pre><h1 id="包含搜索"><a href="#包含搜索" class="headerlink" title="包含搜索"></a>包含搜索</h1><pre class=" language-shell"><code class="language-shell"># 搜索文件中包含cat的代码cat in:file# 搜索路径中包含cat的代码cat in:path# 搜索路径、文件中包含cat的代码cat in:path,file# 搜索关键字console，且语言为javascript，在app/javascript下的代码console path:app/public language:javascript</code></pre><h1 id="主体搜索"><a href="#主体搜索" class="headerlink" title="主体搜索"></a>主体搜索</h1><pre class=" language-shell"><code class="language-shell"># 用户名搜索user:admin# 组织搜索org:``baidu# 指定仓库搜索repo:sharkdp/bat</code></pre><h1 id="文件大小"><a href="#文件大小" class="headerlink" title="文件大小"></a>文件大小</h1><pre class=" language-shell"><code class="language-shell"># 搜索大小大于1KB的文件size:>1000</code></pre><h1 id="文件名称"><a href="#文件名称" class="headerlink" title="文件名称"></a>文件名称</h1><pre class=" language-shell"><code class="language-shell"># 搜索文件名为config.php 且语言为php的代码filename:config.php language:php# 搜索Java项目配置文件filename:.properties</code></pre><h1 id="扩展名"><a href="#扩展名" class="headerlink" title="扩展名"></a>扩展名</h1><pre><code>extension:``properties jdbc</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Google-Hacking</title>
       <link href="/2020/12/19/google-hacking/"/>
       <url>/2020/12/19/google-hacking/</url>
       
-        <content type="html"><![CDATA[<h1 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h1><table><thead><tr><th align="center">通配符</th><th align="center">语义</th><th align="center">说明</th><th align="center">示例</th></tr></thead><tbody><tr><td align="center"><code>=</code></td><td align="center">包含关键词</td><td align="center">+前面必须要有一个空格</td><td align="center"><code>admin +login</code></td></tr><tr><td align="center"><code>-</code></td><td align="center">排除关键词</td><td align="center">-前面必须要有一个空格</td><td align="center"><code>mysql -csdn</code></td></tr><tr><td align="center"><code>~</code></td><td align="center">同义词</td><td align="center">~前面必须要有一个空格</td><td align="center"><code>mysal ~csdn</code></td></tr><tr><td align="center"><code>*</code></td><td align="center">模糊查询</td><td align="center">*代替任意字符</td><td align="center"><code>mysql**</code></td></tr><tr><td align="center"><code>&quot;&quot;</code></td><td align="center">强调</td><td align="center">-</td><td align="center"><code>&quot;mysql&quot;</code></td></tr></tbody></table><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><table><thead><tr><th align="center">语法</th><th align="center">语义</th></tr></thead><tbody><tr><td align="center"><code>intitle</code></td><td align="center">包含标题</td></tr><tr><td align="center"><code>intext</code></td><td align="center">包含内容</td></tr><tr><td align="center"><code>filetype</code></td><td align="center">文件类型</td></tr><tr><td align="center"><code>info</code></td><td align="center">基本信息</td></tr><tr><td align="center"><code>site</code></td><td align="center">指定网站</td></tr><tr><td align="center"><code>inurl</code></td><td align="center">包含某个<code>url</code></td></tr><tr><td align="center"><code>link</code></td><td align="center">包含指定链接的网页</td></tr><tr><td align="center"><code>cache</code></td><td align="center">显示页面的缓存版本</td></tr><tr><td align="center"><code>numberrange</code></td><td align="center">搜索一个数字</td></tr></tbody></table><h1 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h1><pre class=" language-shell"><code class="language-shell"># 搜索目标包含后台的页面site:"some-keywords.com" intitle:login intext:管理|后台|登录|用户名|密码|验证码|系统|账号|manager|admin|login|system# 搜索目标是否有列目录site:"some-keywords.com" intext:index of/ | ../ | Parent Directory</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1 id="Google-Hacking"><a href="#Google-Hacking" class="headerlink" title="Google-Hacking"></a>Google-Hacking</h1><p>​        <code>Google Hacking</code>是利用谷歌搜索的强大，来在浩瀚的互联网中搜索到我们需要的信息。<strong>轻量级</strong>的搜索可以搜素出一些遗留后门，不想被发现的后台入口，<strong>中量级</strong>的搜索出一些用户信息泄露，源代码泄露，未授权访问等等，<strong>重量级</strong>的则可能是<code>mdb</code>文件下载，CMS 未被锁定<code>install</code>页面，网站配置密码，<code>php</code>远程文件包含漏洞等重要信息。</p><p>利用Google搜索我们想要的信息，需要配合谷歌搜索引擎的一些语法：</p><ol><li><p>查询是<strong>不区分</strong>大小写（OR在表示布尔含义时一定要大写）</p></li><li><p><code>*</code>在谷歌搜索的时候只能当做<strong>一个单词</strong>使用</p></li><li><p>谷歌有<code>32</code>词的搜索限制（当然可以通过*代替某些单词突破这种限制）</p></li><li><p>短语搜索要带上<strong>单引号</strong></p></li><li><p>AND对谷歌来说是多余的，谷歌会自动查询你输入的一切</p></li><li><p>谷歌会忽略特别常见的字符，但是前面加上”+”强制搜索（+后面<strong>不能</strong>有空格）</p></li><li><p>NOT可以使用”-“（减号代替）</p></li><li><p>布尔查询<code>OR/&quot;|&quot;</code></p></li></ol><h1 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h1><table><thead><tr><th align="center">通配符</th><th align="center">语义</th><th align="center">说明</th><th align="center">示例</th></tr></thead><tbody><tr><td align="center"><code>+</code></td><td align="center">包含关键词</td><td align="center">+前面必须要有一个空格</td><td align="center"><code>admin +login</code></td></tr><tr><td align="center"><code>-</code></td><td align="center">排除关键词</td><td align="center">-前面必须要有一个空格</td><td align="center"><code>mysql -csdn</code></td></tr><tr><td align="center"><code>~</code></td><td align="center">同义词</td><td align="center">~前面必须要有一个空格</td><td align="center"><code>mysal ~csdn</code></td></tr><tr><td align="center"><code>*</code></td><td align="center">模糊查询</td><td align="center">*代替任意字符</td><td align="center"><code>mysql**</code></td></tr><tr><td align="center"><code>&quot;&quot;</code></td><td align="center">完整匹配</td><td align="center">-</td><td align="center"><code>&quot;mysql&quot;</code></td></tr><tr><td align="center"><code>and</code></td><td align="center">逻辑与</td><td align="center"></td><td align="center"></td></tr><tr><td align="center"><code>OR</code></td><td align="center">逻辑或</td><td align="center"></td><td align="center"></td></tr><tr><td align="center"></td><td align="center"></td><td align="center"></td><td align="center"></td></tr></tbody></table><h1 id="高级搜索"><a href="#高级搜索" class="headerlink" title="高级搜索"></a>高级搜索</h1><table><thead><tr><th align="center">语法</th><th align="center">语义</th></tr></thead><tbody><tr><td align="center"><code>intitle</code></td><td align="center">包含标题</td></tr><tr><td align="center"><code>intext</code></td><td align="center">包含内容</td></tr><tr><td align="center"><code>inurl</code></td><td align="center">包含某个<code>url</code></td></tr><tr><td align="center"><code>site</code></td><td align="center">指定网站</td></tr><tr><td align="center"><code>filetype</code></td><td align="center">文件类型</td></tr><tr><td align="center"><code>info</code></td><td align="center">基本信息</td></tr><tr><td align="center"><code>link</code></td><td align="center">包含指定链接的网页</td></tr><tr><td align="center"><code>cache</code></td><td align="center">显示页面的缓存版本</td></tr><tr><td align="center"><code>numberrange</code></td><td align="center">搜索一个数字</td></tr></tbody></table><h1 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h1><h2 id="服务器使用的脚本"><a href="#服务器使用的脚本" class="headerlink" title="服务器使用的脚本"></a>服务器使用的脚本</h2><pre class=" language-shell"><code class="language-shell"># 查看服务器使用的程序site:xx.com filetype:aspsite:xx.com filetype:phpsite:xx.com filetype:jspsite:xx.com filetype:aspx</code></pre><h2 id="管理后台地址"><a href="#管理后台地址" class="headerlink" title="管理后台地址"></a>管理后台地址</h2><pre class=" language-shell"><code class="language-shell">site:"some-keywords.com" intitle:login intext:管理|后台|登录|用户名|密码|验证码|系统|账号|manager|admin|login|systemsite:target.com intext:管理 | 后台 | 后台管理 | 登陆 | 登录 | 用户名 | 密码 | 系统 | 账号 | login | systemsite:target.com inurl:login | inurl:admin | inurl:manage | inurl:manager | inurl:admin_login | inurl:system | inurl:backendsite:target.com intitle:管理 | 后台 | 后台管理 | 登陆 | 登录# 查找管理员登录界面inurl:admin/login.php</code></pre><h2 id="上传漏洞地址"><a href="#上传漏洞地址" class="headerlink" title="上传漏洞地址"></a>上传漏洞地址</h2><pre class=" language-shell"><code class="language-shell">site:target.com inurl:filesite:target.com inurl:upload</code></pre><h2 id="注入页面"><a href="#注入页面" class="headerlink" title="注入页面"></a>注入页面</h2><pre class=" language-shell"><code class="language-shell">site:target.com inurl:php?id=</code></pre><h2 id="编辑器页面"><a href="#编辑器页面" class="headerlink" title="编辑器页面"></a>编辑器页面</h2><pre class=" language-shell"><code class="language-shell">site:target.com inurl:ewebeditor</code></pre><h2 id="目录遍历漏洞"><a href="#目录遍历漏洞" class="headerlink" title="目录遍历漏洞"></a>目录遍历漏洞</h2><pre class=" language-shell"><code class="language-shell"># 搜索目标是否有列目录site:target.com intitle:index.ofsite:target.com intext:index of/ | ../ | Parent Directory# 目录遍历引发的敏感信息泄露intitle:"index of" etcintitle:"Index of" .sh_historyintitle:"Index of" .bash_historyintitle:"index of" passwdintitle:"index of" people.lstintitle:"index of" pwd.dbintitle:"index of" etc/shadowintitle:"index of" spwdintitle:"index of" master.passwdintitle:"index of" htpasswd"# -FrontPage-" inurl:service.pwdindex.of /adminindex.of /passwdindex.of /passwordindex.of /mail"index of /" +passwd"index of /" +password.txt"index of /" +.htaccess"index of /root""index of /cgi-bin""index of /logs""index of /config"intitle:index.of index.php.bakinurl:index.php.bak</code></pre><h2 id="SQL错误"><a href="#SQL错误" class="headerlink" title="SQL错误"></a>SQL错误</h2><pre class=" language-shell"><code class="language-shell">site:target.com intext:"sql syntax near" | intext:"syntax error has occurred" | intext:"incorrect syntax near" | intext:"unexpected end of SQL command" | intext:"Warning: mysql_connect()" | intext:”Warning: mysql_query()" | intext:”Warning: pg_connect()"</code></pre><h2 id="phpinfo"><a href="#phpinfo" class="headerlink" title="phpinfo"></a>phpinfo</h2><pre class=" language-shell"><code class="language-shell">site:target.com ext:php intitle:phpinfo "published by the PHP Group"</code></pre><h2 id="配置文件泄露"><a href="#配置文件泄露" class="headerlink" title="配置文件泄露"></a>配置文件泄露</h2><pre class=" language-shell"><code class="language-shell">site:target.com ext:.xml | .conf | .cnf | .reg | .inf | .rdp | .cfg | .txt | .ora | .inifiletype:conf inurl:firewallinurl:conf OR inurl:config OR inurl:cfg# php配置文件intitle:index.of config.phpinurl:config.php dbuname dbpass# MySQL配置文件filetype:conf my.cnf -cvs -example# Putty已保存的会话数据inurl:"putty.reg"</code></pre><h2 id="数据库文件泄露"><a href="#数据库文件泄露" class="headerlink" title="数据库文件泄露"></a>数据库文件泄露</h2><pre class=" language-shell"><code class="language-shell">site:target.com ext:.sql | .dbf | .mdb | .dbfiletype:mdb inurl:com# 管理数据库site:target.com allinurl:admin mdb# 备份数据库inurl:backup filetype:mdb# phpMyAdmininurl: "main.php" "phpMyAdmin" "running on"inurl:phpmyadmin/index.php</code></pre><h2 id="日志文件泄露"><a href="#日志文件泄露" class="headerlink" title="日志文件泄露"></a>日志文件泄露</h2><pre class=" language-shell"><code class="language-shell">site:target.com ext:.log</code></pre><h2 id="备份和历史文件泄露"><a href="#备份和历史文件泄露" class="headerlink" title="备份和历史文件泄露"></a>备份和历史文件泄露</h2><pre class=" language-shell"><code class="language-shell">site:target.com ext:.bkf | .bkp | .old | .backup | .bak | .swp | .rar | .txt | .zip | .7z | .sql | .tar.gz | .tgz | .tar# MS Install Shield日志filetype:log iserror.log# 管理员日志"admin account info" filetype:log# 聊天日志"Index of" "chat/logs"# 口令日志"your password is" filetype:log</code></pre><h2 id="公开文件泄露"><a href="#公开文件泄露" class="headerlink" title="公开文件泄露"></a>公开文件泄露</h2><pre class=" language-shell"><code class="language-shell">site:target.com filetype:.doc | .docx | .xls | .xlsx | .ppt | .pptx | .odt | .pdf | .rtf | .sxw | .psw | .csvfiletype:xls inurl:password.xlsfiletype:xls username password email</code></pre><h2 id="邮箱信息"><a href="#邮箱信息" class="headerlink" title="邮箱信息"></a>邮箱信息</h2><pre class=" language-shell"><code class="language-shell">site:target.com intext:@target.comsite:target.com 邮件site:target.com email</code></pre><h2 id="社工信息"><a href="#社工信息" class="headerlink" title="社工信息"></a>社工信息</h2><pre class=" language-shell"><code class="language-shell">site:target.com intitle:账号 | 密码 | 工号 | 学号 | 身份证 </code></pre><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://www.cnblogs.com/Yang34/p/12727501.html" target="_blank" rel="noopener">渗透测试信息收集之GoogleHacking</a></li><li><a href="https://www.freebuf.com/articles/network/169601.html" target="_blank" rel="noopener">Google Hacking信息刺探的攻与防</a></li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Google </tag>
+            
+        </tags>
       
     </entry>
     
@@ -535,9 +572,9 @@
       
         <tags>
             
-            <tag> HSRP </tag>
-            
             <tag> STP </tag>
+            
+            <tag> HSRP </tag>
             
         </tags>
       
@@ -2266,9 +2303,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> CRYPTO </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2320,9 +2357,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -3033,9 +3070,9 @@
       
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Git </tag>
             
             <tag> 代码托管 </tag>
             
@@ -3174,11 +3211,11 @@
       
         <tags>
             
+            <tag> 网络基础 </tag>
+            
             <tag> RSTP </tag>
             
             <tag> 网络协议 </tag>
-            
-            <tag> 网络基础 </tag>
             
         </tags>
       
