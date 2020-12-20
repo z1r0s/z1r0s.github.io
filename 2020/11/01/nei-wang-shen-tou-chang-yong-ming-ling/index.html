@@ -333,7 +333,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/28.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -491,21 +491,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-02
+                    2020-12-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    446
+                    776
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -588,8 +588,9 @@
 <h2 id="0x12-远程桌面连接历史"><a href="#0x12-远程桌面连接历史" class="headerlink" title="0x12 远程桌面连接历史"></a>0x12 远程桌面连接历史</h2><pre class=" language-powershell"><code class="language-powershell">cmdkey <span class="token operator">/</span>l</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/远程桌面连接历史.png" alt="远程桌面连接历史"></center>
 
-
-
+<ul>
+<li>把凭证取下来 → 本地解密</li>
+</ul>
 <h2 id="0x13-查看本机用户账户列表"><a href="#0x13-查看本机用户账户列表" class="headerlink" title="0x13 查看本机用户账户列表"></a>0x13 查看本机用户账户列表</h2><pre class=" language-powershell"><code class="language-powershell">net user</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/本机用户账户列表.png" alt="本机用户账户列表"></center>
 
@@ -606,7 +607,67 @@ net user <span class="token operator">/</span>domain
 net user 域用户 <span class="token operator">/</span>domain
 <span class="token comment" spellcheck="true"># 修改域用户密码（需要管理员权限）</span>
 net user <span class="token operator">/</span>domain xxx 123456</code></pre>
-<h1 id="Windows（域）"><a href="#Windows（域）" class="headerlink" title="Windows（域）"></a>Windows（域）</h1><h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="0x01-查看当前权限"><a href="#0x01-查看当前权限" class="headerlink" title="0x01 查看当前权限"></a>0x01 查看当前权限</h2><pre class=" language-shell"><code class="language-shell">whoami</code></pre>
+<h1 id="Windows（域）"><a href="#Windows（域）" class="headerlink" title="Windows（域）"></a>Windows（域）</h1><h2 id="0x01-nltest信任域"><a href="#0x01-nltest信任域" class="headerlink" title="0x01 nltest信任域"></a>0x01 nltest信任域</h2><p>​        nltest是2003之后的系统自带的工具，一般来说域控都搭建在主dns服务器上，因为他要进行域名解析。 我们可以nltest在工作组里进行查询，查询内网里是否存在域环境。</p>
+<ol>
+<li><p>查询域控</p>
+<pre class=" language-shell"><code class="language-shell">ipconfig /all</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/查找主DNS.png" alt="查找主DNS"></center>
+</li>
+<li><p>查找信任域</p>
+<pre class=" language-shell"><code class="language-shell">nltest /domain_trusts /all_trusts /v /server:10.10.10.128</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/查找信任域.png" alt="查找信任域"></center>
+</li>
+<li><p>查找信任域所对应的IP</p>
+<pre class=" language-shell"><code class="language-shell">nltest /dsgetdc:baidu /server:10.10.10.128</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/查找信任域所对应的IP.png" alt="查找信任域所对应的IP"></center>
+
+</li>
+</ol>
+<h2 id="0x02-获取域用户列表"><a href="#0x02-获取域用户列表" class="headerlink" title="0x02 获取域用户列表"></a>0x02 获取域用户列表</h2><pre class=" language-shell"><code class="language-shell">net user /do </code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/获取域用户列表.png" alt="获取域用户列表"></center>
+
+<h2 id="0x03-获取域管理员列表"><a href="#0x03-获取域管理员列表" class="headerlink" title="0x03 获取域管理员列表"></a>0x03 获取域管理员列表</h2><pre class=" language-shell"><code class="language-shell">net group "domain admins" /domain</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/获取域管理员列表.png" alt="获取域管理员列表"></center>
+
+<h2 id="0x04-查看域控制器"><a href="#0x04-查看域控制器" class="headerlink" title="0x04 查看域控制器"></a>0x04 查看域控制器</h2><pre class=" language-shell"><code class="language-shell">net group "domain controllers" /domain</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/查看域控制器.png" alt="查看域控制器"></center>
+
+<h2 id="0x05-查看域计算机"><a href="#0x05-查看域计算机" class="headerlink" title="0x05 查看域计算机"></a>0x05 查看域计算机</h2><pre class=" language-shell"><code class="language-shell">net group "domain computers" /domain</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/查看域计算机.png" alt="查看域计算机"></center>
+
+<h2 id="0x06-查询域里面的工作组"><a href="#0x06-查询域里面的工作组" class="headerlink" title="0x06 查询域里面的工作组"></a>0x06 查询域里面的工作组</h2><pre class=" language-shell"><code class="language-shell">net group /domain</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/查询域里面的工作组.png" alt="查询域里面的工作组"></center>
+
+<h2 id="0x07-查询本机中的域用户"><a href="#0x07-查询本机中的域用户" class="headerlink" title="0x07 查询本机中的域用户"></a>0x07 查询本机中的域用户</h2><pre class=" language-shell"><code class="language-shell"># 查询本机管理员（通常含有域用户）
+net localgroup administrators
+
+# 登录本机的域管理员
+net localgroup administrators /domain
+
+# 域用户添加到本机
+net localgroup administrators workgroup\user /add</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/查询登录本机的域管理员.png" alt="查询登录本机的域管理员"></center>
+
+<h2 id="0x07-net-view查询域信息"><a href="#0x07-net-view查询域信息" class="headerlink" title="0x07 net view查询域信息"></a>0x07 net view查询域信息</h2><pre class=" language-shell"><code class="language-shell"># 查看同一域内计算机列表
+net view
+
+# 查看某IP共享
+net view \\ip
+
+# 查看GHQ计算机的共享资源列表
+net view \\GHQ
+
+# 查看内网存在多少个域
+net view /domain
+
+# 查看XYZ域中的计算机列表
+net view /domain:XYZ</code></pre>
+<h2 id="0x08-查询域用户信息"><a href="#0x08-查询域用户信息" class="headerlink" title="0x08 查询域用户信息"></a>0x08 查询域用户信息</h2><pre class=" language-shell"><code class="language-shell">net accounts /domain</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Domain-Commands/查询域用户信息.png" alt="查询域用户信息"></center>
+
+
+
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="0x01-查看当前权限"><a href="#0x01-查看当前权限" class="headerlink" title="0x01 查看当前权限"></a>0x01 查看当前权限</h2><pre class=" language-shell"><code class="language-shell">whoami</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Commands/查看当前权限.png" alt="查看当前权限"></center>
 
 <ul>
@@ -638,6 +699,9 @@ net user <span class="token operator">/</span>domain xxx 123456</code></pre>
 
 <ul>
 <li>寻找配置文件</li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="https://blog.csdn.net/weixin_41082546/article/details/104926225" target="_blank" rel="noopener">内网渗透之域渗透</a></li>
 </ul>
 
             </div>
@@ -1263,7 +1327,7 @@ net user <span class="token operator">/</span>domain xxx 123456</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">243.1k</span>&nbsp;字
+                class="white-color">243.5k</span>&nbsp;字
             
             
             
