@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>常规信息收集之wmic命令</title>
+      <link href="/2020/12/21/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/"/>
+      <url>/2020/12/21/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h1><p>​        wmic和cmd一样在所有的Windows版本中都存在，同时wmic有很多cmd下不方便使用的部分，今天给大家介绍一些在后渗透测试过程中非常适用的使用wmic进行信息收集的命令。</p><h1 id="0x01-关于wmic"><a href="#0x01-关于wmic" class="headerlink" title="0x01 关于wmic"></a>0x01 关于wmic</h1><p>​        WMI可以描述为一组管理Windows系统的方法和功能。我们可以把它当作API来与Windows系统进行相互交流。WMI在渗透测试中的价值在于它不需要下载和安装， 因为WMI是Windows系统自带功能。而且整个运行过程都在计算机内存中发生，不会留下任何痕迹。这一点是其它渗透测试工具所不能相比的。</p><h1 id="0x02-wmic信息收集"><a href="#0x02-wmic信息收集" class="headerlink" title="0x02 wmic信息收集"></a>0x02 wmic信息收集</h1><ol><li><p>检索系统已安装的软件</p><pre class=" language-shell"><code class="language-shell">wmic product list brief | more</code></pre></li><li><p>检索系统运行服务</p><pre class=" language-shell"><code class="language-shell">wmic service list brief | more</code></pre></li><li><p>搜索运行中的程序</p><pre class=" language-shell"><code class="language-shell">wmic service where (state="running") get caption, name, startmode | more</code></pre></li><li><p>搜索启动程序</p><pre class=" language-shell"><code class="language-shell">wmic startup list brief | more</code></pre></li><li><p>搜索共享驱动盘</p><pre class=" language-shell"><code class="language-shell">wmic netuse list brief |more</code></pre></li><li><p>搜索时区</p><pre class=" language-shell"><code class="language-shell">wmic timezone list brief |more</code></pre></li><li><p>搜索用户账户</p><pre class=" language-shell"><code class="language-shell">wmic useraccount list brief |more</code></pre></li><li><p>搜索计算机域控制器</p><pre class=" language-shell"><code class="language-shell">wmic ntdomain list brief</code></pre></li><li><p>搜索登录用户</p><pre class=" language-shell"><code class="language-shell">wmic logon list brief |more</code></pre></li><li><p>搜索已安装的安全更新</p><pre class=" language-shell"><code class="language-shell">wmic qfe list brief |more</code></pre></li><li><p>获取系统角色、用户名和制造商</p><pre class=" language-shell"><code class="language-shell">wmic computersystem get Name, Domain, Manufacturer, Model, Username, Roles/format:list</code></pre></li><li><p>获取SID</p><pre class=" language-shell"><code class="language-shell">wmic group get Caption, InstallDate, LocalAccount, Domain, SID, Status</code></pre></li><li><p>获取可执行文件列表</p><pre class=" language-shell"><code class="language-shell"># 枚举出整个系统中所有可执行文件的路径地址wmic process where "NOT ExecutablePath LIKE '%Windows%'" GET ExecutablePath</code></pre></li><li><p>获取目录属性</p><pre class=" language-shell"><code class="language-shell">wmic fsdir where "drive='c:' and filename='Tools'" get /format:list</code></pre></li><li><p>获取文件属性</p><pre class=" language-shell"><code class="language-shell">wmic datafile where name='C:\\Windows\\System32\\drivers\\etc\\hosts' get /format:list</code></pre></li><li><p>定位系统文件</p><pre class=" language-shell"><code class="language-shell"># 提取出所有重要系统文件的路径，例如temp目录和win目录等等wmic environment get Description, VariableValue</code></pre></li><li><p>获取系统驱动详情</p><pre class=" language-shell"><code class="language-shell"># sysdrive选项可以枚举出驱动的名称、路径和服务类型等数据wmic sysdriver get Caption, Name, PathName, ServiceType, State, Status /format:list</code></pre></li><li><p>获取操作系统详情</p><pre class=" language-shell"><code class="language-shell">wmic os get CurrentTimeZone, FreePhysicalMemory, FreeVirtualMemory, LastBootUpdate,NumberofProcesses, NumberofUsers, Organization, RegisteredUsers, Status/format:list</code></pre></li><li><p>获取主板信息和BIOS序列号</p><pre class=" language-shell"><code class="language-shell"># 获取主板信息wmic baseboard get Manufacturer, Product, SerialNumber, Version# 获取BIOS序列号wmic bios get serialNumber</code></pre></li><li><p>获取内存缓存数据</p><pre class=" language-shell"><code class="language-shell"># memcache选项可以获取到内存缓存名和块大小等信息wmic memcache get Name, BlockSize, Purpose, MaxCacheSize, Status</code></pre></li><li><p>获取内存芯片信息</p><pre class=" language-shell"><code class="language-shell"># memorychip选项可以获取到RAM的相关信息，例如序列号等等wmic memorychip get PartNumber, SerialNumber</code></pre></li><li><p>判断目标系统是否为虚拟机</p><pre class=" language-shell"><code class="language-shell"># 根据onboarddevice选项返回的信息来判断目标系统到底是真实的主机操作系统，还是一台虚拟机（VMware或Virtual Box）wmic onboarddevice get Description, DeviceType, Enabled, Status /format:list</code></pre></li></ol><h1 id="0x03-WMIC执行任务"><a href="#0x03-WMIC执行任务" class="headerlink" title="0x03 WMIC执行任务"></a>0x03 WMIC执行任务</h1><ol><li><p>卸载和重新安装程序（杀软）</p><pre class=" language-shell"><code class="language-shell"># 查找飞塔杀软全称wmic product where "name like '%forit%' " get name# 卸载飞塔杀软wmic product where "FortiClient" call uninstall</code></pre></li><li><p>停止运行反病毒服务</p><pre class=" language-shell"><code class="language-shell"># 停止运行飞塔杀软wmic process where name=“FortiClient.exe” call terminate</code></pre></li><li><p>创建一个进程</p><pre class=" language-shell"><code class="language-shell"># 打开任务管理器wmic process call create "taskmgr.exe"</code></pre></li><li><p>修改进程优先级</p><pre class=" language-shell"><code class="language-shell"># 修改explorer进程的优先级wmic process where name=”explorer.exe” call set priority 64</code></pre></li><li><p>清理系统日志</p><pre class=" language-shell"><code class="language-shell"># nteventlog选项还可以清除系统的日志记录，当你入侵了某个系统之后，这个命令可以帮助你掩盖攻击痕迹wmic nteventlog where filename='system' cleareventlog</code></pre></li></ol><h1 id="0x04-用户账户管理"><a href="#0x04-用户账户管理" class="headerlink" title="0x04 用户账户管理"></a>0x04 用户账户管理</h1><ol><li><p>锁定用户账户</p><pre class=" language-shell"><code class="language-shell">wmic useraccount where name='demo' set disabled=false</code></pre></li><li><p>用户账户重命令</p><pre class=" language-shell"><code class="language-shell">wmic useraccount where name='demo' rename hacker</code></pre></li><li><p>限制用户修改密码</p><pre class=" language-shell"><code class="language-shell">wmic useraccount where name='hacker' set passwordchangeable=false</code></pre></li><li><p>获取发病毒产品详情</p><pre class=" language-shell"><code class="language-shell">wmic /namespace:\\root\securitycenter2 path antivirusproduct GET displayName,productState, pathToSignedProductExe</code></pre></li></ol><h1 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h1><ul><li><a href="https://blog.csdn.net/discover2210212455/article/details/82711930" target="_blank" rel="noopener">比CMD更强大的命令行：WMIC后渗透利用（系统命令）</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 渗透测试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 信息收集 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux之进程与计划</title>
       <link href="/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/"/>
       <url>/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/</url>
@@ -2274,8 +2299,6 @@
             
             <tag> 信息收集 </tag>
             
-            <tag> 路径 </tag>
-            
         </tags>
       
     </entry>
@@ -2300,8 +2323,6 @@
         <tags>
             
             <tag> 信息收集 </tag>
-            
-            <tag> 指纹 </tag>
             
         </tags>
       
@@ -2328,8 +2349,6 @@
             
             <tag> 信息收集 </tag>
             
-            <tag> 端口 </tag>
-            
         </tags>
       
     </entry>
@@ -2353,9 +2372,9 @@
       
         <tags>
             
-            <tag> CRYPTO </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> CRYPTO </tag>
             
         </tags>
       
@@ -2407,9 +2426,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> MISC </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2435,8 +2454,6 @@
         <tags>
             
             <tag> 信息收集 </tag>
-            
-            <tag> IP </tag>
             
         </tags>
       
@@ -2490,8 +2507,6 @@
             
             <tag> 信息收集 </tag>
             
-            <tag> 域名收集 </tag>
-            
         </tags>
       
     </entry>
@@ -2515,9 +2530,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> rsa </tag>
+            
+            <tag> python </tag>
             
         </tags>
       

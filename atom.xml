@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-21T06:31:35.677Z</updated>
+  <updated>2020-12-21T14:18:51.934Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常规信息收集之wmic命令</title>
+    <link href="https://z1r0s.github.io/2020/12/21/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/"/>
+    <id>https://z1r0s.github.io/2020/12/21/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/</id>
+    <published>2020-12-21T12:35:32.000Z</published>
+    <updated>2020-12-21T14:18:51.934Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="信息收集" scheme="https://z1r0s.github.io/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux之进程与计划</title>
@@ -516,33 +542,6 @@
     
     
       <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络技术之NAT</title>
-    <link href="https://z1r0s.github.io/2020/11/30/wang-luo-ji-zhu-zhi-nat/"/>
-    <id>https://z1r0s.github.io/2020/11/30/wang-luo-ji-zhu-zhi-nat/</id>
-    <published>2020-11-30T05:27:54.000Z</published>
-    <updated>2020-11-30T09:21:18.517Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;NAT背景&quot;&gt;&lt;a href=&quot;#NAT背景&quot; class=&quot;headerlink&quot; title=&quot;NAT背景&quot;&gt;&lt;/a&gt;NAT背景&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;网络迅速发展，合法的IP地址资源日益短缺（2011年2月3日，
-        
-      
-    
-    </summary>
-    
-      <category term="网络技术" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="NAT" scheme="https://z1r0s.github.io/tags/NAT/"/>
     
   </entry>
   
