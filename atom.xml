@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-21T05:18:10.232Z</updated>
+  <updated>2020-12-21T06:31:35.677Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux之进程与计划</title>
+    <link href="https://z1r0s.github.io/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/"/>
+    <id>https://z1r0s.github.io/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/</id>
+    <published>2020-12-21T06:30:49.000Z</published>
+    <updated>2020-12-21T06:31:35.677Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;进程管理&quot;&gt;&lt;a href=&quot;#进程管理&quot; class=&quot;headerlink&quot; title=&quot;进程管理&quot;&gt;&lt;/a&gt;进程管理&lt;/h1&gt;&lt;h2 id=&quot;相关概念&quot;&gt;&lt;a href=&quot;#相关概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>常见数据库的默认库和表</title>
@@ -517,32 +543,6 @@
     
     
       <category term="NAT" scheme="https://z1r0s.github.io/tags/NAT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常见网络协议整理</title>
-    <link href="https://z1r0s.github.io/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/"/>
-    <id>https://z1r0s.github.io/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/</id>
-    <published>2020-11-29T07:54:42.000Z</published>
-    <updated>2020-11-30T05:25:46.243Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;常见网络协议概述&quot;&gt;&lt;a href=&quot;#常见网络协议概述&quot; class=&quot;headerlink&quot; title=&quot;常见网络协议概述&quot;&gt;&lt;/a&gt;常见网络协议概述&lt;/h1&gt;&lt;h1 id=&quot;数据链路层&quot;&gt;&lt;a href=&quot;#数据链路层&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="网络运维" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/"/>
-    
-    
-      <category term="网络协议" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
     
   </entry>
   

@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="常见数据库的默认库和表, z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="Linux之进程与计划, z1r0s 安全 Web安全 学习总结">
     <meta name="description" content="计算机 | 程序语言 | 网络安全 | 红蓝对抗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>常见数据库的默认库和表 | z1r0s&#39;blogs</title>
+    <title>Linux之进程与计划 | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/95.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/68.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">常见数据库的默认库和表</h1>
+                    <h1 class="description center-align post-title">Linux之进程与计划</h1>
                 </div>
             </div>
         </div>
@@ -455,8 +455,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/数据库/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -467,8 +467,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Web安全/" class="post-category">
-                                Web安全
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -494,14 +494,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    10 分
                 </div>
                 
 
@@ -516,203 +516,271 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="默认数据库"><a href="#默认数据库" class="headerlink" title="默认数据库"></a>默认数据库</h2><ul>
-<li><code>information_schema</code><ul>
-<li>保存了MySQL服务所有数据库的信息。</li>
-<li>具体MySQL服务有多少个数据库，各个数据库有哪些表，各个表中的字段是什么数据类型，各个表中有哪些索引，各个数据库要什么权限才能访问。</li>
+                <h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><ul>
+<li>进程：动态的，被加载到内存里。</li>
+<li>程序：静态的，存在硬盘。</li>
+<li>PID：进程唯一标识，通常结束进程时使用</li>
+<li>父子进程：每个进程可以创建一个或多个进程</li>
 </ul>
-</li>
-<li><code>performance_schema</code><ul>
-<li>主要用于收集数据库服务器性能参数</li>
-<li>提供进程等待的详细信息，包括锁、互斥变量、文件信息；</li>
-<li>保存历史的事件汇总信息，为提供MySQL服务器性能做出详细的判断；</li>
-<li>对于新增和删除监控事件点都非常容易，并可以随意改变MySQL服务器的监控周期，例如（CYCLE、MICROSECOND）</li>
+<h2 id="进程查看"><a href="#进程查看" class="headerlink" title="进程查看"></a>进程查看</h2><h3 id="pstree"><a href="#pstree" class="headerlink" title="pstree"></a>pstree</h3><pre class=" language-shell"><code class="language-shell"># 以树形方式显示进程之间的父子关系
+pstree
+参数：
+ -a 显示完整信息
+ -u 显示用户名
+ -p 显示PID号
+
+# 显示更加详细，会吧每个进程都显示出来。
+pstree  -p
+
+[root@CentOS7 ~]# pstree -aup | grep httpd
+|-httpd,3102 -DFOREGROUND
+|   |-httpd,3103,apache -DFOREGROUND
+|   |-httpd,3104,apache -DFOREGROUND
+|   |-httpd,3105,apache -DFOREGROUND
+|   |-httpd,3106,apache -DFOREGROUND
+|   `-httpd,3107,apache -DFOREGROUND
+|           |-grep,3209 --color=auto httpd</code></pre>
+<h3 id="pgrep"><a href="#pgrep" class="headerlink" title="pgrep"></a>pgrep</h3><pre class=" language-shell"><code class="language-shell">pgrep
+参数：
+ -o:仅显示找到的最小(起始)进程号;
+ -n:仅显示找到的最大(结束)进程号;
+ -l:显示进程名称;
+ -P:指定父进程号;
+ -g:指定进程组;
+ -t:指定开启进程的终端;
+ -u:指定进程的有效用户ID。
+命令：
+# 找到服务名称为httpd的服务,并且运行用户是apache的进程ID
+psgrep  -l  httpd  -u  apache   </code></pre>
+<h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><pre class=" language-shell"><code class="language-shell"># 查看所有进程信息
+ps -aux
+结果描述：
+ USER(用户)        
+ PID(进程号) 
+ %CPU %MEM：CPU和内存的使用率
+ TTY ：连接终端（tty表示本地连接；pts表示远程登录）
+ STAT ：当前进程的状态；S（sleep）,s(有很多子进程)，z（zombie僵尸进程）
+ START：进程开始的时间
+ COMMAND：进程正在执行的命令
+
+# 查看父子进程之间的关系
+ps -elf
+说明：
+ 其中PPID代表父进程。如果为0，表示没有父进程。</code></pre>
+<h3 id="top"><a href="#top" class="headerlink" title="top"></a>top</h3><pre class=" language-shell"><code class="language-shell"># 动态显示进程的变化。退出q。
+top
+
+# 可适当介绍top工具的命令按键：P、M、N、h、q
+ P:根据CPU占用情况对进出列表进行排序
+ M:根据内存占用情况进行排序
+ N:根据启动时间进行排序
+ h:查看帮助信息
+ q:退出top程序
+ t:切换进程和CPU状态信息
+ i:忽略显示和僵尸进程,这时一个开关式命令
+ k:终止一个进程
+ 空格:强制更新进程状态并显示
+
+# 命令举例
+    top - 09:44:56 up 16 days, 21:23,  1 user,  load average: 9.59, 4.75, 1.92
+    Tasks: 145 total,   2 running, 143 sleeping,   0 stopped,   0 zombie
+    Cpu(s): 99.8%us,  0.1%sy,  0.0%ni,  0.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+    Mem:   4147888k total,  2493092k used,  1654796k free,   158188k buffers
+    Swap:  5144568k total,       56k used,  5144512k free,  2013180k cached
+
+    #第一行:系统当前时间;已经运行了16天21小时,1个用户登录;系统5/10/15分钟之内的平均负载
+    #第二行:Tasks(总进程数是145);2个正运行的进程;143个睡眠的进程;0个停止;0个僵尸进程
+    #第三行:CPU(用户控件占用CPU的百分比是99.8%),内核占用CPU0.1%;0.0%ni[用户进程空间内改变过优先级的进程占用CPU百分比];0.2%id[空闲CPU百分比], 0.0%wa[等待输入输出的CPU时间百分比];
+    #第四行:Mem(内存)总大小是4G;2.4G被使用;1.6G空闲;158M作为内核缓存(buffer:写入缓冲区);
+    #第五行:Swap(交换分区)总大小5G;用了56k;其余闲置;2G作为读取缓存(cached:CPU刚使用的数据);</code></pre>
+<h2 id="前台切换"><a href="#前台切换" class="headerlink" title="前台切换"></a>前台切换</h2><pre class=" language-shell"><code class="language-shell"># 前后台切换命令
+&:        加在一个命令最后,把进程放到后台执行
+ctrl+z:    挂起任务到后台,暂停执行.比如某进程执行需要很长时间有比较消耗资源;可以暂停.
+jobs:    查看后台运行的任务列表
+fg:        将后台中的命令调到前台执行;fg  num(jobs查看的任务编号)
+bg:        将暂停在后台的命令继续在后台执行</code></pre>
+<h2 id="终止进程"><a href="#终止进程" class="headerlink" title="终止进程"></a>终止进程</h2><pre class=" language-shell"><code class="language-shell"># 终止进程：
+
+#终止前台进程
+Ctrl+C
+
+# #终止后台进程;-u指定用户
+kill 进程号
+# 强制杀死
+kil -9 进程号   
+
+# 按照进程名杀死进程
+pkill 名字
+# 使用进程名杀死一组进程;-l不区分大小写;-u指定杀死用户的进程
+killall  httpd     </code></pre>
+<h2 id="查看端口"><a href="#查看端口" class="headerlink" title="查看端口"></a>查看端口</h2><pre class=" language-shell"><code class="language-shell"># 显示所有端口号
+netstat  -antpu
+参数：
+-a  显示所有  
+-n  以数字的方式显示
+-p  显示pid
+-tu 表示TCP和UDP协议（“语言”）
+
+# 查看22端口的连接（访问）情况
+lsof -i:22   </code></pre>
+<h1 id="计划任务"><a href="#计划任务" class="headerlink" title="计划任务"></a>计划任务</h1><h2 id="一次性任务"><a href="#一次性任务" class="headerlink" title="一次性任务"></a>一次性任务</h2><ul>
+<li>命令是at，支持的服务是atd</li>
 </ul>
-</li>
-<li><code>mysql</code>（核心数据库）<ul>
-<li>保存MySQL的权限、参数、对象和状态信息。</li>
-<li>如哪些user可以访问这个数据、DB参数、插件、主从。</li>
-</ul>
-</li>
-<li><code>sys</code><ul>
-<li>Sys库所有的数据源来自：<code>performance_schema</code>。目标是把<code>performance_schema</code>的把复杂度降低，让DBA能更好的阅读这个库里的内容。让DBA更快的了解DB的运行情况。</li>
-</ul>
-</li>
-<li><code>test</code><ul>
-<li>测试数据库，没有内容。</li>
-</ul>
-</li>
-</ul>
-<h2 id="默认数据表"><a href="#默认数据表" class="headerlink" title="默认数据表"></a>默认数据表</h2><p><strong>information_schema</strong>数据库中</p>
+<pre class=" language-shell"><code class="language-shell">#1.#确认atd服务是开启的(默认开启)
+service atd status
+/etc/init.d/atd status
+systemctl status atd
+
+#2.一次性任务举例：
+at 08:55
+at> echo "123456" >/test/123.txt
+at> echo aaaaaa >>/test/123.txt
+at> echo bbbb >> /test/123.txt
+at> （Ctrl+D退出编辑；Ctrl+C是终止编辑）
+
+at 10:00 2019-12-14   #明天要执行的任务
+>命令1
+>命令2 
+>(Ctrl+D退出编辑)
+
+#3.检查任务
+tail  -F   /test/123.txt  #-F可以动态追踪一个文件的变化
+
+#4.查看和删除任务
+atq   #查询未执行的任务
+at -c 12 | tail   #-c查看任务需要执行的脚本 
+atrm 12   #删除任务编号</code></pre>
+<h2 id="系统任务分类"><a href="#系统任务分类" class="headerlink" title="系统任务分类"></a>系统任务分类</h2><p>系统任务分为2大类：系统任务调度、用户任务调度。</p>
 <ul>
-<li>.<code>TABLES</code>：提供了关于数据库中的表的信息（包括视图），详细表述了某个表属于哪个schema，表类型，表引擎，创建时间等信息，<code>show tables from schemaname</code>的结果取之此表。 </li>
-<li>.<code>COLUMNS</code>：提供了表中的列信息，详细表述了某张表的所有列以及每个列的信息，<code>show columns from schemaname.tablename</code>的结果取之此表。 </li>
-<li>.<code>STATISTICS</code>：提供了关于表索引的信息，<code>show index from schemaname.tablename</code>的结果取之此表。 </li>
-<li><code>USER_PRIVILEGES</code>（用户权限）：给出了关于全程权限的信息，该信息源自<code>mysql.user</code>授权表(非标准表)。 </li>
-<li><code>SCHEMA_PRIVILEGES</code>（方案权限）：给出了关于方案（数据库）权限的信息，该信息来自<code>mysql.db</code>授权表(非标准表)。 </li>
-<li><code>TABLE_PRIVILEGES</code>（表权限）：给出了关于表权限的信息，该信息源自<code>mysql.tables_priv</code>授权表(非标准表)。 </li>
-<li><code>COLUMN_PRIVILEGES</code>（列权限）：给出了关于列权限的信息，该信息源自<code>mysql.columns_priv</code>授权表(非标准表)。 </li>
-<li><code>CHARACTER_SETS</code>（字符集）：提供了mysql实例可用字符集的信息，<code>show CHARACTER SET</code>结果集取之此表。 </li>
-<li><code>COLLATIONS</code>：提供了关于各字符集的对照信息。 </li>
-<li><code>COLLATION_CHARACTER_SET_APPLICABILITY</code>：指明了可用于校对的字符集，这些列等效于<code>SHOW COLLATION</code>的前两个显示字段。 </li>
-<li><code>TABLE_CONSTRAINTS</code>：描述了存在约束的表，以及表的约束类型。 </li>
-<li><code>KEY_COLUMN_USAGE</code>：描述了具有约束的键列。 </li>
-<li><code>ROUTINES</code>：提供了关于存储子程序（存储程序和函数）的信息，此时，ROUTINES表不包含自定义函数（UDF），名为“mysql.proc name”的列指明了对应于INFORMATION_SCHEMA.ROUTINES表的mysql.proc表列。 </li>
-<li><code>VIEWS</code>：给出了关于数据库中的视图的信息，需要有show views权限，否则无法查看视图信息。 </li>
-<li><code>TRIGGERS</code>：提供了关于触发程序的信息，必须有super权限才能查看该表。</li>
-</ul>
-<p><strong>mysql</strong>数据库</p>
-<ul>
-<li><code>user</code>：root用户的密码及其信息存储在表中。</li>
-</ul>
-<h1 id="SQL-Serveer"><a href="#SQL-Serveer" class="headerlink" title="SQL Serveer"></a>SQL Serveer</h1><h2 id="默认数据库-1"><a href="#默认数据库-1" class="headerlink" title="默认数据库"></a>默认数据库</h2><ul>
-<li><code>master</code>：<ul>
-<li>master数据库控制SQL Server的所有方面。</li>
-<li>这个数据库中包括所有的配置信息、用户登录信息、当前正在服务器中运行的过程的信息。</li>
-</ul>
-</li>
-<li><code>model</code>：<ul>
-<li>model数据库是建立所有用户数据库时的模板。</li>
-<li>当你建立一个新数据库时，SQL Server会把model数据库中的所有对象建立一份拷贝并移到新数据库中。在模板对象被拷贝到新的用户数据库中之后，该数据库的所有多余空间都将被空页填满。</li>
-</ul>
-</li>
-<li><code>tempdb</code>：<ul>
-<li>tempdb数据库是一个非常特殊的数据库，供所有来访问你的SQL Server的用户使用。</li>
-<li>这个库用来保存所有的临时表、存储过程和其他SQL Server建立的临时用的东西。例如，排序时要用到tempdb数据库。数据被放进tempdb数据库，排完序后再把结果返回给用户。</li>
-<li>每次SQL Server重新启动，它都会清空tempdb数据库并重建。</li>
-<li>永远不要在tempdb数据库建立需要永久保存的表</li>
-</ul>
-</li>
-<li><code>msdb</code>：<ul>
-<li>msdb数据库是SQL Server中的一个特例。</li>
-<li>如果你查看这个数据库的实际定义，会发现它其实是一个用户数据库。不同之处是SQL Server拿这个数据库来做什么。所有的任务调度、报警、操作员都存储在msdb数据库中。</li>
-<li>该库的另一个功能是用来存储所有备份历史。SQL Server Agent将会使用这个库。</li>
-</ul>
+<li><p>系统任务调度</p>
+<pre class=" language-shell"><code class="language-shell"># 系统任务调度:
+# 系统周期性所要执行的工作,比如写缓存数据到硬盘、日志清理等。
+# 在/etc目录下有一个crontab文件,这个就是系统任务调度的配置文件。
+cat  /etc/crontab 
+
+##定义crond的环境变量
+SHELL=/bin/bash    #指定shell解析器
+PATH=/sbin:/bin:/usr/sbin:/usr/bin  #指定命令执行路径
+MAILTO=root    #mailto发送邮件给root用户;如果mailto为空就不发送任务执行信息给用户;
+HOME=/         #第四行HOME指定了执行命令的主目录
+
+</code></pre>
 </li>
 </ul>
-<h2 id="默认数据表-1"><a href="#默认数据表-1" class="headerlink" title="默认数据表"></a>默认数据表</h2><table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">位置</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>sysaltfiles</code></td>
-<td align="center">主数据库</td>
-<td align="center">保存数据库的文件</td>
-</tr>
-<tr>
-<td align="center"><code>syscharsets</code></td>
-<td align="center">主数据库</td>
-<td align="center">字符集与排序顺序</td>
-</tr>
-<tr>
-<td align="center"><code>sysconfigures</code></td>
-<td align="center">主数据库</td>
-<td align="center">配置选项</td>
-</tr>
-<tr>
-<td align="center"><code>syscurconfigs</code></td>
-<td align="center">主数据库</td>
-<td align="center">当前配置选项</td>
-</tr>
-<tr>
-<td align="center"><code>sysdatabases</code></td>
-<td align="center">主数据库</td>
-<td align="center">服务器中的数据库</td>
-</tr>
-<tr>
-<td align="center"><code>syslanguages</code></td>
-<td align="center">主数据库</td>
-<td align="center">语言</td>
-</tr>
-<tr>
-<td align="center"><code>syslogins</code></td>
-<td align="center">主数据库</td>
-<td align="center">登陆帐号信息</td>
-</tr>
-<tr>
-<td align="center"><code>sysoledbusers</code></td>
-<td align="center">主数据库</td>
-<td align="center">链接服务器登陆信息</td>
-</tr>
-<tr>
-<td align="center"><code>sysprocesses</code></td>
-<td align="center">主数据库</td>
-<td align="center">进程</td>
-</tr>
-<tr>
-<td align="center"><code>sysremotelogins</code></td>
-<td align="center">主数据库</td>
-<td align="center">远程登录帐号</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><code>syscolumns</code></td>
-<td align="center">每个数据库</td>
-<td align="center">列</td>
-</tr>
-<tr>
-<td align="center"><code>sysconstrains</code></td>
-<td align="center">每个数据库</td>
-<td align="center">限制</td>
-</tr>
-<tr>
-<td align="center"><code>sysfilegroups</code></td>
-<td align="center">每个数据库</td>
-<td align="center">文件组</td>
-</tr>
-<tr>
-<td align="center"><code>sysfiles</code></td>
-<td align="center">每个数据库</td>
-<td align="center">文件</td>
-</tr>
-<tr>
-<td align="center"><code>sysforeignkeys</code></td>
-<td align="center">每个数据库</td>
-<td align="center">外部关键字</td>
-</tr>
-<tr>
-<td align="center"><code>sysindexes</code></td>
-<td align="center">每个数据库</td>
-<td align="center">索引</td>
-</tr>
-<tr>
-<td align="center"><code>sysmenbers</code></td>
-<td align="center">每个数据库</td>
-<td align="center">角色成员</td>
-</tr>
-<tr>
-<td align="center"><code>sysobjects</code></td>
-<td align="center">每个数据库</td>
-<td align="center">所有数据库对象</td>
-</tr>
-<tr>
-<td align="center"><code>syspermissions</code></td>
-<td align="center">每个数据库</td>
-<td align="center">权限</td>
-</tr>
-<tr>
-<td align="center"><code>systypes</code></td>
-<td align="center">每个数据库</td>
-<td align="center">用户定义数据类型</td>
-</tr>
-<tr>
-<td align="center"><code>sysusers</code></td>
-<td align="center">每个数据库</td>
-<td align="center">用户</td>
-</tr>
-</tbody></table>
-<h1 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h1><ul>
-<li><a href="https://www.cnblogs.com/bolang100/p/10755538.html" target="_blank" rel="noopener">MySQL 自带4个默认数据库</a></li>
-<li><a href="https://www.cnblogs.com/c123321/p/5528315.html" target="_blank" rel="noopener">﻿﻿﻿﻿SQL Server中默认数据库和默认表的作用</a></li>
-</ul>
+<h1 id="crontab执行轮询的脚本目录"><a href="#crontab执行轮询的脚本目录" class="headerlink" title="crontab执行轮询的脚本目录"></a>crontab执行轮询的脚本目录</h1><p>  [root@CentOS7 ~]# ll -d /etc/cron*ly<br>  drwxr-xr-x. 2 root root 57 Oct  9  2018 /etc/cron.daily<br>  drwxr-xr-x. 2 root root 22 Jun 10  2014 /etc/cron.hourly<br>  drwxr-xr-x. 2 root root  6 Jun 10  2014 /etc/cron.monthly<br>  drwxr-xr-x. 2 root root  6 Jun 10  2014 /etc/cron.weekly</p>
+<pre><code>
+- 用户任务调度
+
+  ```shell
+  # 用户任务调度文件
+  # 所有用户定义的crontab都会被保存在/var/spool/cron目录中,文件名会以用户名命名.
+  [root@CentOS7 ~]# ll /var/spool/cron/
+  total 4
+  -rw------- 1 root root 82 Jul  7  2019 root
+  [root@CentOS7 ~]# ll /etc/cron.deny    #禁止用户使用crontab任务
+  -rw-------. 1 root root 0 Apr 11  2018 /etc/cron.deny</code></pre><h2 id="周期性任务"><a href="#周期性任务" class="headerlink" title="周期性任务"></a>周期性任务</h2><p>周期性任务：<code>crond</code>用来周期性执行任务的服务。</p>
+<pre class=" language-shell"><code class="language-shell">#1.crond服务管理
+在Centos6之前：
+/etc/init.d/crond  status  
+或者
+service crond status
+在centos7中：
+systemctl status/enable/start crond.service  //其中enable是设置开机自启动
+
+
+#2.crond的配置文件
+#某个用户的任务计划
+/var/spool/cron/用户名
+#任务的日志文件(可以用来跟踪任务执行结果)
+/var/log/cron
+
+
+#3.crond常用命令
+crontab  -e   #编辑任务
+crontab  -l   #列出任务
+crontab  -r   #删除任务 
+crontab  -u   #指定任务用户
+
+#4.crontab命令的基本格式
+cat  /etc/crontab
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+#crontab中特殊时间的表示方法
+*   该范围内的任意时间
+-   连续的时间范围
+,   间隔的不连续时间
+/   时间间隔的频率
+举例:
+0  17  *  *  1-5        周一到周五每天17:00 
+30  8  *  *  1,3,5        每周一、三、五的8点30分
+0  8-18/2  *  *  *        8点到18点之间每2小时
+0  *  */3  *  *            每3天
+</code></pre>
+<p><strong>crontab任务举例</strong>：</p>
+<pre class=" language-shell"><code class="language-shell">#1.每分钟打印一次自己自己名字到
+*/1 * * * *    /bin/echo "Tom" >> /test/log/log.txt   2>&1
+*   * * * *    /bin/ echo "Tom" >> /test/log/log.txt  2>&1
+
+#2.上午07-11点每个小时运行一次
+*   07-11  *  *  *    /etc/init.d/httpd  reload  #上午07-11点每分钟运行一次
+00  07-11  *  *  *    /etc/init.d/httpd  reload  
+
+#3.每天的7点/11点/13点各运行一次
+00   07，11，13  *  *  *     
+00   23,00-07/1  *  *  *    #不规范，每天的23点，00-07之间每个小时重启一次httpd；1写不写都行
+
+#4.每天晚上23点和00-07之间每小时重启一次httpd服务
+*   23,00-07/1  *  *  *     #每天的23点，00-07之间每小时的每分钟重启一次httpd
+00   23,00-07  *  *  *      #正确：每天的23点，00-07之间每个小时重启一次httpd
+
+#5.每天晚上12点重启一次httpd
+00   00   *  *  *   /etc/init.d/httpd  reload    #每天的晚上12点重启一次httpd</code></pre>
+<p><strong>crontab编写的步骤</strong></p>
+<pre class=" language-shell"><code class="language-shell">#1.第一步:先在命令行测试命令是否可用
+[root@CentOS7 ~]# ntpdate ntp1.aliyun.com
+11 Feb 18:03:26 ntpdate[4752]: step time server 120.25.115.20 offset 1.005005 sec
+
+#2.第二步:编写任务
+[root@CentOS7 ~]# crontab   -e
+*/5  * * * *   /usr/sbin/ntpdate ntp1.aliyun.com
+
+#3.第三步:检查任务是否被执行
+[root@CentOS7 ~]# tail -f /var/log/cron
+Feb 11 18:00:01 CentOS7 CROND[4687]: (root) CMD (/usr/bin/echo `date +%T`>>/tmp/test.txt)
+Feb 11 18:00:01 CentOS7 CROND[4689]: (root) CMD (/usr/lib64/sa/sa1 1 1)
+Feb 11 18:10:01 CentOS7 CROND[4889]: (root) CMD (/usr/lib64/sa/sa1 1 1)
+Feb 11 18:10:01 CentOS7 CROND[4890]: (root) CMD (nptdate  ntp1.aliyun.com)
+#注意:所有的操作一定要去验证,因为有的命令虽然在命令行可用直接执行,但是在crontab中不一定能执行.
+[root@CentOS7 ~]# tail /var/spool/mail/root 
+X-Cron-Env: <SHELL=/bin/sh>
+X-Cron-Env: <HOME=/root>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=root>
+X-Cron-Env: <USER=root>
+Message-Id: <20180211102301.876AE1001008@CentOS7.5-1>
+Date: Tue, 11 Feb 2018 18:23:01 +0800 (CST)
+/bin/sh: ifconfig: command not found   
+/bin/sh: nptdate: command not found
+#思考,这个问题如何解决?
+
+
+# 周期性执行shell脚本怎么做?
+#第一步:命令行测试命令
+#第二步:把多个命令放到脚本中
+#第三步:赋予脚本可执行权限
+#第四步:编辑任务(可以用sh  脚本名称来执行脚本)
+#第五步:检查任务执行日志,是否被执行.
+
+#需求:每分钟打印自己的名字,时间,ip到/test/b.txt根据上述提示写出步骤.</code></pre>
 
             </div>
             <hr/>
@@ -738,7 +806,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z1r0s.github.io/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/">https://z1r0s.github.io/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/</a>
+                    <a href="https://z1r0s.github.io/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/">https://z1r0s.github.io/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -776,8 +844,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/数据库/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -993,9 +1061,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/">
                     <div class="card-image">
@@ -1012,9 +1081,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1027,6 +1096,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1045,12 +1115,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/19/github-hacking/">
+                <a href="/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/79.jpg" class="responsive-img" alt="GitHub-Hacking">
+                        <img src="/medias/featureimages/95.jpg" class="responsive-img" alt="常见数据库的默认库和表">
                         
-                        <span class="card-title">GitHub-Hacking</span>
+                        <span class="card-title">常见数据库的默认库和表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1061,14 +1131,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/技巧/" class="post-category">
-                                    技巧
+                            <a href="/categories/Web安全/" class="post-category">
+                                    Web安全
                                 </a>
                             
                             
@@ -1078,8 +1148,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/GitHub/">
-                        <span class="chip bg-color">GitHub</span>
+                    <a href="/tags/数据库/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>

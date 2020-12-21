@@ -1,3 +1,4 @@
+https://z1r0s.github.io/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/
 https://z1r0s.github.io/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/
 https://z1r0s.github.io/2020/12/19/github-hacking/
 https://z1r0s.github.io/2020/12/19/google-hacking/
@@ -97,4 +98,3 @@ https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/
 https://z1r0s.github.io/2020/09/17/jie-jue-rsatool-py-jiao-ben-bao-cuo/
 https://z1r0s.github.io/2020/09/17/jie-jue-python3-an-zhuang-gmpy2-bao-cuo/
 https://z1r0s.github.io/2020/09/17/windows-xia-python2-he-python3-gong-cun-huan-jing-da-jian/
-https://z1r0s.github.io/2020/09/17/dvwa-sqlinjection/
