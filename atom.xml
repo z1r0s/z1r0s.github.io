@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-19T10:05:09.908Z</updated>
+  <updated>2020-12-21T05:18:10.232Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常见数据库的默认库和表</title>
+    <link href="https://z1r0s.github.io/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/"/>
+    <id>https://z1r0s.github.io/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/</id>
+    <published>2020-12-21T04:49:01.000Z</published>
+    <updated>2020-12-21T05:18:10.232Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;MySQL&quot;&gt;&lt;a href=&quot;#MySQL&quot; class=&quot;headerlink&quot; title=&quot;MySQL&quot;&gt;&lt;/a&gt;MySQL&lt;/h1&gt;&lt;h2 id=&quot;默认数据库&quot;&gt;&lt;a href=&quot;#默认数据库&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="数据库" scheme="https://z1r0s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>GitHub-Hacking</title>
@@ -517,32 +543,6 @@
     
     
       <category term="网络协议" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络配置之大型综合实验2</title>
-    <link href="https://z1r0s.github.io/2020/11/29/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-2/"/>
-    <id>https://z1r0s.github.io/2020/11/29/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-2/</id>
-    <published>2020-11-28T23:49:56.000Z</published>
-    <updated>2020-11-29T07:47:18.120Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;实验拓扑&quot;&gt;&lt;a href=&quot;#实验拓扑&quot; class=&quot;headerlink&quot; title=&quot;实验拓扑&quot;&gt;&lt;/a&gt;实验拓扑&lt;/h1&gt;&lt;center&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="网络实验" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/"/>
     
   </entry>
   

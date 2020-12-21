@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>常见数据库的默认库和表</title>
+      <link href="/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/"/>
+      <url>/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="默认数据库"><a href="#默认数据库" class="headerlink" title="默认数据库"></a>默认数据库</h2><ul><li><code>information_schema</code><ul><li>保存了MySQL服务所有数据库的信息。</li><li>具体MySQL服务有多少个数据库，各个数据库有哪些表，各个表中的字段是什么数据类型，各个表中有哪些索引，各个数据库要什么权限才能访问。</li></ul></li><li><code>performance_schema</code><ul><li>主要用于收集数据库服务器性能参数</li><li>提供进程等待的详细信息，包括锁、互斥变量、文件信息；</li><li>保存历史的事件汇总信息，为提供MySQL服务器性能做出详细的判断；</li><li>对于新增和删除监控事件点都非常容易，并可以随意改变MySQL服务器的监控周期，例如（CYCLE、MICROSECOND）</li></ul></li><li><code>mysql</code>（核心数据库）<ul><li>保存MySQL的权限、参数、对象和状态信息。</li><li>如哪些user可以访问这个数据、DB参数、插件、主从。</li></ul></li><li><code>sys</code><ul><li>Sys库所有的数据源来自：<code>performance_schema</code>。目标是把<code>performance_schema</code>的把复杂度降低，让DBA能更好的阅读这个库里的内容。让DBA更快的了解DB的运行情况。</li></ul></li><li><code>test</code><ul><li>测试数据库，没有内容。</li></ul></li></ul><h2 id="默认数据表"><a href="#默认数据表" class="headerlink" title="默认数据表"></a>默认数据表</h2><p><strong>information_schema</strong>数据库中</p><ul><li>.<code>TABLES</code>：提供了关于数据库中的表的信息（包括视图），详细表述了某个表属于哪个schema，表类型，表引擎，创建时间等信息，<code>show tables from schemaname</code>的结果取之此表。 </li><li>.<code>COLUMNS</code>：提供了表中的列信息，详细表述了某张表的所有列以及每个列的信息，<code>show columns from schemaname.tablename</code>的结果取之此表。 </li><li>.<code>STATISTICS</code>：提供了关于表索引的信息，<code>show index from schemaname.tablename</code>的结果取之此表。 </li><li><code>USER_PRIVILEGES</code>（用户权限）：给出了关于全程权限的信息，该信息源自<code>mysql.user</code>授权表(非标准表)。 </li><li><code>SCHEMA_PRIVILEGES</code>（方案权限）：给出了关于方案（数据库）权限的信息，该信息来自<code>mysql.db</code>授权表(非标准表)。 </li><li><code>TABLE_PRIVILEGES</code>（表权限）：给出了关于表权限的信息，该信息源自<code>mysql.tables_priv</code>授权表(非标准表)。 </li><li><code>COLUMN_PRIVILEGES</code>（列权限）：给出了关于列权限的信息，该信息源自<code>mysql.columns_priv</code>授权表(非标准表)。 </li><li><code>CHARACTER_SETS</code>（字符集）：提供了mysql实例可用字符集的信息，<code>show CHARACTER SET</code>结果集取之此表。 </li><li><code>COLLATIONS</code>：提供了关于各字符集的对照信息。 </li><li><code>COLLATION_CHARACTER_SET_APPLICABILITY</code>：指明了可用于校对的字符集，这些列等效于<code>SHOW COLLATION</code>的前两个显示字段。 </li><li><code>TABLE_CONSTRAINTS</code>：描述了存在约束的表，以及表的约束类型。 </li><li><code>KEY_COLUMN_USAGE</code>：描述了具有约束的键列。 </li><li><code>ROUTINES</code>：提供了关于存储子程序（存储程序和函数）的信息，此时，ROUTINES表不包含自定义函数（UDF），名为“mysql.proc name”的列指明了对应于INFORMATION_SCHEMA.ROUTINES表的mysql.proc表列。 </li><li><code>VIEWS</code>：给出了关于数据库中的视图的信息，需要有show views权限，否则无法查看视图信息。 </li><li><code>TRIGGERS</code>：提供了关于触发程序的信息，必须有super权限才能查看该表。</li></ul><p><strong>mysql</strong>数据库</p><ul><li><code>user</code>：root用户的密码及其信息存储在表中。</li></ul><h1 id="SQL-Serveer"><a href="#SQL-Serveer" class="headerlink" title="SQL Serveer"></a>SQL Serveer</h1><h2 id="默认数据库-1"><a href="#默认数据库-1" class="headerlink" title="默认数据库"></a>默认数据库</h2><ul><li><code>master</code>：<ul><li>master数据库控制SQL Server的所有方面。</li><li>这个数据库中包括所有的配置信息、用户登录信息、当前正在服务器中运行的过程的信息。</li></ul></li><li><code>model</code>：<ul><li>model数据库是建立所有用户数据库时的模板。</li><li>当你建立一个新数据库时，SQL Server会把model数据库中的所有对象建立一份拷贝并移到新数据库中。在模板对象被拷贝到新的用户数据库中之后，该数据库的所有多余空间都将被空页填满。</li></ul></li><li><code>tempdb</code>：<ul><li>tempdb数据库是一个非常特殊的数据库，供所有来访问你的SQL Server的用户使用。</li><li>这个库用来保存所有的临时表、存储过程和其他SQL Server建立的临时用的东西。例如，排序时要用到tempdb数据库。数据被放进tempdb数据库，排完序后再把结果返回给用户。</li><li>每次SQL Server重新启动，它都会清空tempdb数据库并重建。</li><li>永远不要在tempdb数据库建立需要永久保存的表</li></ul></li><li><code>msdb</code>：<ul><li>msdb数据库是SQL Server中的一个特例。</li><li>如果你查看这个数据库的实际定义，会发现它其实是一个用户数据库。不同之处是SQL Server拿这个数据库来做什么。所有的任务调度、报警、操作员都存储在msdb数据库中。</li><li>该库的另一个功能是用来存储所有备份历史。SQL Server Agent将会使用这个库。</li></ul></li></ul><h2 id="默认数据表-1"><a href="#默认数据表-1" class="headerlink" title="默认数据表"></a>默认数据表</h2><table><thead><tr><th align="center">名称</th><th align="center">位置</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center"><code>sysaltfiles</code></td><td align="center">主数据库</td><td align="center">保存数据库的文件</td></tr><tr><td align="center"><code>syscharsets</code></td><td align="center">主数据库</td><td align="center">字符集与排序顺序</td></tr><tr><td align="center"><code>sysconfigures</code></td><td align="center">主数据库</td><td align="center">配置选项</td></tr><tr><td align="center"><code>syscurconfigs</code></td><td align="center">主数据库</td><td align="center">当前配置选项</td></tr><tr><td align="center"><code>sysdatabases</code></td><td align="center">主数据库</td><td align="center">服务器中的数据库</td></tr><tr><td align="center"><code>syslanguages</code></td><td align="center">主数据库</td><td align="center">语言</td></tr><tr><td align="center"><code>syslogins</code></td><td align="center">主数据库</td><td align="center">登陆帐号信息</td></tr><tr><td align="center"><code>sysoledbusers</code></td><td align="center">主数据库</td><td align="center">链接服务器登陆信息</td></tr><tr><td align="center"><code>sysprocesses</code></td><td align="center">主数据库</td><td align="center">进程</td></tr><tr><td align="center"><code>sysremotelogins</code></td><td align="center">主数据库</td><td align="center">远程登录帐号</td></tr><tr><td align="center"></td><td align="center"></td><td align="center"></td></tr><tr><td align="center"><code>syscolumns</code></td><td align="center">每个数据库</td><td align="center">列</td></tr><tr><td align="center"><code>sysconstrains</code></td><td align="center">每个数据库</td><td align="center">限制</td></tr><tr><td align="center"><code>sysfilegroups</code></td><td align="center">每个数据库</td><td align="center">文件组</td></tr><tr><td align="center"><code>sysfiles</code></td><td align="center">每个数据库</td><td align="center">文件</td></tr><tr><td align="center"><code>sysforeignkeys</code></td><td align="center">每个数据库</td><td align="center">外部关键字</td></tr><tr><td align="center"><code>sysindexes</code></td><td align="center">每个数据库</td><td align="center">索引</td></tr><tr><td align="center"><code>sysmenbers</code></td><td align="center">每个数据库</td><td align="center">角色成员</td></tr><tr><td align="center"><code>sysobjects</code></td><td align="center">每个数据库</td><td align="center">所有数据库对象</td></tr><tr><td align="center"><code>syspermissions</code></td><td align="center">每个数据库</td><td align="center">权限</td></tr><tr><td align="center"><code>systypes</code></td><td align="center">每个数据库</td><td align="center">用户定义数据类型</td></tr><tr><td align="center"><code>sysusers</code></td><td align="center">每个数据库</td><td align="center">用户</td></tr></tbody></table><h1 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h1><ul><li><a href="https://www.cnblogs.com/bolang100/p/10755538.html" target="_blank" rel="noopener">MySQL 自带4个默认数据库</a></li><li><a href="https://www.cnblogs.com/c123321/p/5528315.html" target="_blank" rel="noopener">﻿﻿﻿﻿SQL Server中默认数据库和默认表的作用</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>GitHub-Hacking</title>
       <link href="/2020/12/19/github-hacking/"/>
       <url>/2020/12/19/github-hacking/</url>
@@ -572,9 +597,9 @@
       
         <tags>
             
-            <tag> STP </tag>
-            
             <tag> HSRP </tag>
+            
+            <tag> STP </tag>
             
         </tags>
       
@@ -2465,9 +2490,9 @@
       
         <tags>
             
-            <tag> rsa </tag>
-            
             <tag> python </tag>
+            
+            <tag> rsa </tag>
             
         </tags>
       
