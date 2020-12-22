@@ -1,0 +1,2095 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="策略模式, z1r0s 安全 Web安全 学习总结">
+    <meta name="description" content="计算机 | 程序语言 | 网络安全 | 红蓝对抗">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>策略模式 | z1r0s&#39;blogs</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/bg.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">z1r0s&#39;blogs</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">z1r0s&#39;blogs</div>
+        <div class="logo-desc">
+            
+            计算机 | 程序语言 | 网络安全 | 红蓝对抗
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/z1r0s" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/z1r0s" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/149.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">策略模式</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C#</span>
+                            </a>
+                        
+                            <a href="/tags/设计模式/">
+                                <span class="chip bg-color">设计模式</span>
+                            </a>
+                        
+                            <a href="/tags/策略模式/">
+                                <span class="chip bg-color">策略模式</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/设计模式/" class="post-category">
+                                设计模式
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-08-22
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-08-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="定义理解"><a href="#定义理解" class="headerlink" title="定义理解"></a>定义理解</h1><p>​        策略模式时一种<strong>行为型模式</strong>，主要用于需要使用不同的算法来处理不同的数据（对象）时。策略模式是一种定义一系列算法的的方法，从概念上来看，所有这些算法完成的都是相同的工作，只是实现不同，它可以以相同的方式调用所有的算法，减少各种算法类与使用算法类之间的耦合，即<strong>在运行时选择算法</strong>。</p>
+<p>​        <font color="blue">定义算法家族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户 。</font></p>
+<h1 id="角色与职责"><a href="#角色与职责" class="headerlink" title="角色与职责"></a>角色与职责</h1><ul>
+<li><p><strong>抽象策略角色（Strategy）</strong>：策略类，通常由一个<strong>接口</strong>或者<strong>抽象类</strong>来实现</p>
+<p>​        定义一个公共接口，各种不同的算法以不同的方式实现这个接口，Context使用这个接口调用不同的算法，一般用接口或抽象类来实现。</p>
+</li>
+<li><p><strong>具体策略角色（ConcreteStrategy）</strong>：包装了相关的<strong>算法和行为</strong></p>
+<p>​        实现Strategy定义的接口，提供具体的算法实现。</p>
+</li>
+<li><p><strong>环境角色（Context）</strong>：持有一个<strong>策略类的引用</strong>最终给客户端调用</p>
+<ul>
+<li>需要使用ConcreteStrategy提供的算法</li>
+<li>内部维护一个Strategy的实例</li>
+<li>负责动态设置运行时Strategy具体的实现算法</li>
+<li>负责跟Strategy之间的交互和数据传递</li>
+</ul>
+</li>
+</ul>
+<h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><ol>
+<li>识别客户端可能需要的各种算法（即功能）（<strong>抽象策略角色</strong>）</li>
+<li>在接口中指定该算法的签名（原型）（<strong>具体策略角色</strong>）</li>
+<li>在派生类中提供可选择的实现细节（<strong>环境角色</strong>）</li>
+<li>将客户端的算法和接口耦合</li>
+</ol>
+<h1 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h1><p><strong>代码结构图</strong>：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/策略模式/策略模式结构图.jpg" alt="策略模式结构图"></center>
+
+<p><strong>抽象策略角色</strong>：</p>
+<p><strong>CashSuper类</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//算法的公共接口</span>
+    <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">CashSuper</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//抽象出来的接口方法</span>
+        <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>具体策略角色</strong>：</p>
+<p><strong>CashNormal类</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//不折扣算法</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashNormal</span> <span class="token punctuation">:</span> CashSuper
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> money<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashRebate类</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//折扣算法</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashRebate</span> <span class="token punctuation">:</span> CashSuper
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 几折（默认为1折）</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span> moneyRebate <span class="token operator">=</span> 1d<span class="token punctuation">;</span>
+
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 带参构造函数-设置打折力度</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 带参构造函数-设置打折力度</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="moneyRebate">几折&lt;/param></span>
+        <span class="token keyword">public</span> <span class="token function">CashRebate</span><span class="token punctuation">(</span><span class="token keyword">string</span> moneyRebate<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>moneyRebate <span class="token operator">=</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>moneyRebate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 重写acceptCash方法</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 重写acceptCash方法</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="money">原始钱数&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>返回折后钱数&lt;/returns></span>
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> money <span class="token operator">*</span> moneyRebate<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashReturn类</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//返利算法</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashReturn</span> <span class="token punctuation">:</span> CashSuper
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 金额限度</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span> moneyCondition <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 返还力度</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span> moneyReturn <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span>
+
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 构造函数-设置金额限度和返还力度</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 构造函数-设置金额限度和返还力度</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="moneyCondition">金额限度&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="moneyReturn">返还力度&lt;/param></span>
+        <span class="token keyword">public</span> <span class="token function">CashReturn</span><span class="token punctuation">(</span><span class="token keyword">string</span> moneyCondition<span class="token punctuation">,</span> <span class="token keyword">string</span> moneyReturn<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>moneyCondition <span class="token operator">=</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>moneyCondition<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>moneyReturn <span class="token operator">=</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>moneyReturn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+
+        <span class="token preprocessor property">#<span class="token directive keyword">region</span> 重构acceptCash方法</span>
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 重构acceptCash方法</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="money">原始金额&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;returns>返回实际应付金额&lt;/returns></span>
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">double</span> result <span class="token operator">=</span> money<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>money <span class="token operator">>=</span> moneyCondition<span class="token punctuation">)</span>
+                result <span class="token operator">=</span> money <span class="token operator">-</span> Math<span class="token punctuation">.</span><span class="token function">Floor</span><span class="token punctuation">(</span>money <span class="token operator">/</span> moneyCondition<span class="token punctuation">)</span> <span class="token operator">*</span> moneyReturn<span class="token punctuation">;</span>
+
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>环境角色</strong>：</p>
+<p><strong>CashContext类</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//收费策略Context</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//声明一个现金收费父类对象</span>
+        <span class="token keyword">private</span> CashSuper cs<span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//设置策略行为，参数为具体的现金收费子类（正常，打折或返利）</span>
+        <span class="token keyword">public</span> <span class="token function">CashContext</span><span class="token punctuation">(</span>CashSuper csuper<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>cs <span class="token operator">=</span> csuper<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//得到现金促销计算结果（利用了多态机制，不同的策略行为导致不同的结果）</span>
+        <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">GetResult</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>测试类</strong>：</p>
+<p><strong>测试界面</strong>：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/策略模式/策略模式测试界面.png" alt="策略模式测试界面"></center>
+
+<p><strong>测试类代码</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Form1</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token function">Form1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">double</span> total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//用于总计</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnOk_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            CashContext cc <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>cbxType<span class="token punctuation">.</span>SelectedItem<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//直接传策略对象参数进行上下文对象的创建</span>
+                <span class="token keyword">case</span> <span class="token string">"正常收费"</span><span class="token punctuation">:</span>
+                    cc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashContext</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CashNormal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">"满300返100"</span><span class="token punctuation">:</span>
+                    cc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashContext</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CashReturn</span><span class="token punctuation">(</span><span class="token string">"300"</span><span class="token punctuation">,</span> <span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">"打8折"</span><span class="token punctuation">:</span>
+                    cc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashContext</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CashRebate</span><span class="token punctuation">(</span><span class="token string">"0.8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">double</span> totalPrices <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//计算</span>
+            totalPrices <span class="token operator">=</span> cc<span class="token punctuation">.</span><span class="token function">GetResult</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtPrice<span class="token punctuation">.</span>Text<span class="token punctuation">)</span> <span class="token operator">*</span> Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtNum<span class="token punctuation">.</span>Text<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            total <span class="token operator">=</span> total <span class="token operator">+</span> totalPrices<span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//显示结果</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"单价："</span> <span class="token operator">+</span> txtPrice<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" 数量："</span> <span class="token operator">+</span> txtNum<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> cbxType<span class="token punctuation">.</span>SelectedItem <span class="token operator">+</span> <span class="token string">" 合计："</span> <span class="token operator">+</span> totalPrices<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> total<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnClear_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            total <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+            txtPrice<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+            txtNum<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>测试结果</strong>：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/策略模式/策略模式测试结果展示.png" alt="策略模式测试结果展示"></center>
+
+
+
+<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><p><strong>优点</strong>：</p>
+<ol>
+<li>策略模式提供了<strong>管理</strong>相关<strong>算法族</strong>的办法。</li>
+<li>策略模式提供了可以<strong>替换继承关系</strong>的办法。</li>
+<li>使用策略模式可以<strong>避免使用多重条件转移语句</strong>。</li>
+</ol>
+<p><strong>缺点</strong>：</p>
+<ol>
+<li><strong>客户端</strong>必须<strong>知道所有的策略类</strong>，并且<strong>自行决定</strong>使用哪一个策略类</li>
+<li>策略模式造成<strong>很多的策略类</strong>，每一个具体的策略类都会产生一个新类</li>
+</ol>
+<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><ol>
+<li>多个类<strong>只区别在表现行为不同</strong>，可以使用Strategy模式，在运行时动态选择具体要执行的行为；</li>
+<li>需要在不同情况下使用不同的策略(算法),或者策略还可能在未来用其他方式来实现；</li>
+<li>对客户隐藏具体的策略(算法)的实现细节，彼此完全独立。</li>
+</ol>
+<h1 id="算法改进"><a href="#算法改进" class="headerlink" title="算法改进"></a>算法改进</h1><h2 id="策略与简单工厂集合"><a href="#策略与简单工厂集合" class="headerlink" title="策略与简单工厂集合"></a>策略与简单工厂集合</h2><p>改造后的环境类：(CashContext.cs)</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//现金收取工厂</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
+    <span class="token punctuation">{</span>
+        CashSuper cs <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//根据条件返回相应的对象</span>
+        <span class="token keyword">public</span> <span class="token function">CashContext</span><span class="token punctuation">(</span><span class="token keyword">string</span> type<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string">"正常收费"</span><span class="token punctuation">:</span>
+                    CashNormal cs0 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashNormal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    cs <span class="token operator">=</span> cs0<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">"满300返100"</span><span class="token punctuation">:</span>
+                    CashReturn cr1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashReturn</span><span class="token punctuation">(</span><span class="token string">"300"</span><span class="token punctuation">,</span> <span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    cs <span class="token operator">=</span> cr1<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">"打8折"</span><span class="token punctuation">:</span>
+                    CashRebate cr2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashRebate</span><span class="token punctuation">(</span><span class="token string">"0.8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    cs <span class="token operator">=</span> cr2<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">GetResult</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>客户端测试代码</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">//策略对象的的创建在上下文类中完成，即策略对象的创建是对用户保密的</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Form1</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token function">Form1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//客户端窗体程序（主要部分）</span>
+        <span class="token keyword">double</span> total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnOk_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//利用简单工厂模式根据下拉选择框，生成相应的对象</span>
+            CashContext csuper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashContext</span><span class="token punctuation">(</span>cbxType<span class="token punctuation">.</span>SelectedItem<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">double</span> totalPrices <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//通过多态，可以得到收取费用的结果</span>
+            totalPrices <span class="token operator">=</span> csuper<span class="token punctuation">.</span><span class="token function">GetResult</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtPrice<span class="token punctuation">.</span>Text<span class="token punctuation">)</span> <span class="token operator">*</span> Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtNum<span class="token punctuation">.</span>Text<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            total <span class="token operator">=</span> total <span class="token operator">+</span> totalPrices<span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//展示计价结果</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"单价："</span> <span class="token operator">+</span> txtPrice<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" 数量："</span> <span class="token operator">+</span> txtNum<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" "</span>
+                <span class="token operator">+</span> cbxType<span class="token punctuation">.</span>SelectedItem <span class="token operator">+</span> <span class="token string">" 合计："</span> <span class="token operator">+</span> totalPrices<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> total<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnClear_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            total <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+            txtPrice<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+            txtNum<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0"</span><span class="token punctuation">;</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>注</strong>：</p>
+<ul>
+<li>策略模式客户端需要认识<strong>CashSuper类</strong>、<strong>CashNormal类</strong>、<strong>CashReturn类</strong>、<strong>CashRebate类</strong>、<strong>CashContext类</strong>；</li>
+<li>简单工厂模式客户端需要认识<strong>CashSuper类</strong>、<strong>工厂类</strong>；</li>
+<li>策略与简单工厂集合之后，客户端只需要认识一个<strong>CashContext类</strong>即可，耦合度更加低。</li>
+</ul>
+<h2 id="策略-反射"><a href="#策略-反射" class="headerlink" title="策略 + 反射"></a>策略 + 反射</h2><p>改造后的环境类：(CashContext.cs)</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> CashSuper cs<span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//设置上下文中的策略实例对象</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setBehavior</span><span class="token punctuation">(</span>CashSuper csuper<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>cs <span class="token operator">=</span> csuper<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">GetResult</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>客户端测试代码</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/**********************************
+ * 
+ * 程序说明：使用反射 + 策略模式  来实现
+ * 
+ *          反射：下拉列表中的文件数据直接从配置.xml文件中获取，即在程序运行时程序才知道下拉框中会有什么内容
+ *          策略：使用能统一调用所有策略对象的上下文对象
+ * 
+ * 
+ */</span> 
+
+<span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Reflection<span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Form1</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token function">Form1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        DataSet ds<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//用于存放配置文件信息</span>
+        <span class="token keyword">double</span> total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//用于总计</span>
+
+
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 在程序加载时，读取指定文件中的所有内容</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="sender">&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="e">&lt;/param></span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Form1_Load</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//读配置文件                     --在程序运行的路径下</span>
+            ds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ds<span class="token punctuation">.</span><span class="token function">ReadXml</span><span class="token punctuation">(</span>Application<span class="token punctuation">.</span>StartupPath <span class="token operator">+</span> <span class="token string">"\\CashAcceptType.xml"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+            <span class="token comment" spellcheck="true">//将读取到的记录绑定到下拉列表框中</span>
+            <span class="token keyword">foreach</span> <span class="token punctuation">(</span>DataRowView dr <span class="token keyword">in</span> ds<span class="token punctuation">.</span>Tables<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>DefaultView<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                cbxType<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>dr<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            cbxType<span class="token punctuation">.</span>SelectedIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnOk_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//实例化一个上下文对象</span>
+            CashContext cc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//根据用户的选项，查询用户选择项的相关行</span>
+            DataRow dr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>DataRow<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>ds<span class="token punctuation">.</span>Tables<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Select</span><span class="token punctuation">(</span><span class="token string">"name='"</span> <span class="token operator">+</span> cbxType<span class="token punctuation">.</span>SelectedItem<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"'"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//声明一个参数的对象数组</span>
+            <span class="token keyword">object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args <span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//若有参数，则将其分割成字符串数组，用于实例化时所用的参数</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>dr<span class="token punctuation">[</span><span class="token string">"para"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">""</span><span class="token punctuation">)</span>
+                args <span class="token operator">=</span> dr<span class="token punctuation">[</span><span class="token string">"para"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//通过反射实例化出相应的算法对象</span>
+            cc<span class="token punctuation">.</span><span class="token function">setBehavior</span><span class="token punctuation">(</span><span class="token punctuation">(</span>CashSuper<span class="token punctuation">)</span>Assembly<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span><span class="token string">"商场管理软件"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">CreateInstance</span><span class="token punctuation">(</span><span class="token string">"商场管理软件."</span> <span class="token operator">+</span> dr<span class="token punctuation">[</span><span class="token string">"class"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">false</span><span class="token punctuation">,</span> BindingFlags<span class="token punctuation">.</span>Default<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> args<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">double</span> totalPrices <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+            totalPrices <span class="token operator">=</span> cc<span class="token punctuation">.</span><span class="token function">GetResult</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtPrice<span class="token punctuation">.</span>Text<span class="token punctuation">)</span> <span class="token operator">*</span> Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtNum<span class="token punctuation">.</span>Text<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            total <span class="token operator">=</span> total <span class="token operator">+</span> totalPrices<span class="token punctuation">;</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"单价："</span> <span class="token operator">+</span> txtPrice<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" 数量："</span> <span class="token operator">+</span> txtNum<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" "</span><span class="token operator">+</span>cbxType<span class="token punctuation">.</span>SelectedItem<span class="token operator">+</span> <span class="token string">" 合计："</span> <span class="token operator">+</span> totalPrices<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> total<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnClear_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            total <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+            txtPrice<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+            txtNum<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashAcceptType.xml</strong>：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CashAcceptType</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>正常收费<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashNormal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>满300返100<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashReturn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>300,100<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>满200返50<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashReturn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>200,50<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>打8折<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashRebate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>0.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>打7折<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashRebate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>0.7<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CashAcceptType</span><span class="token punctuation">></span></span></code></pre>
+<p><strong>测试结果</strong>：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/GOFDesignPattern/策略模式/策略+反射测试结果展示.png" alt="策略+反射测试结果展示"></center>
+
+
+
+<h1 id="策略模式与简单工厂模式的区别"><a href="#策略模式与简单工厂模式的区别" class="headerlink" title="策略模式与简单工厂模式的区别"></a>策略模式与简单工厂模式的区别</h1><p><strong>从组成对象来说</strong>：</p>
+<ul>
+<li><p>简单工厂模式：抽象商品角色、具体商品角色、简单工厂角色</p>
+</li>
+<li><p>策略模式：抽象策略角色、具体策略角色、上下文角色(环境角色)</p>
+</li>
+</ul>
+<p><strong>从角色之间得关系来说</strong>：</p>
+<ul>
+<li>抽象策略角色与上下文角色的关系是<strong>聚合关系</strong></li>
+<li>抽象商品角色与简单工厂角色之间是<strong>依赖关系</strong></li>
+</ul>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>《大话设计模式》</li>
+<li>《设计模式精解及面试攻略》</li>
+</ul>
+<h2 id="策略与简单工厂集合完整源码"><a href="#策略与简单工厂集合完整源码" class="headerlink" title="策略与简单工厂集合完整源码"></a>策略与简单工厂集合完整源码</h2><p><strong>CashContext.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//现金收取工厂</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
+    <span class="token punctuation">{</span>
+        CashSuper cs <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//根据条件返回相应的对象</span>
+        <span class="token keyword">public</span> <span class="token function">CashContext</span><span class="token punctuation">(</span><span class="token keyword">string</span> type<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string">"正常收费"</span><span class="token punctuation">:</span>
+                    CashNormal cs0 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashNormal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    cs <span class="token operator">=</span> cs0<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">"满300返100"</span><span class="token punctuation">:</span>
+                    CashReturn cr1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashReturn</span><span class="token punctuation">(</span><span class="token string">"300"</span><span class="token punctuation">,</span> <span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    cs <span class="token operator">=</span> cr1<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">"打8折"</span><span class="token punctuation">:</span>
+                    CashRebate cr2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashRebate</span><span class="token punctuation">(</span><span class="token string">"0.8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    cs <span class="token operator">=</span> cr2<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">GetResult</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashNormal.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//正常收费，继承CashSuper</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashNormal</span> <span class="token punctuation">:</span> CashSuper
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> money<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashRebate.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//打折收费，继承CashSuper</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashRebate</span> <span class="token punctuation">:</span> CashSuper
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span> moneyRebate <span class="token operator">=</span> 1d<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//初始化时，必需要输入折扣率,如八折，就是0.8</span>
+        <span class="token keyword">public</span> <span class="token function">CashRebate</span><span class="token punctuation">(</span><span class="token keyword">string</span> moneyRebate<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>moneyRebate <span class="token operator">=</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>moneyRebate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> money <span class="token operator">*</span> moneyRebate<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashReturn.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//返利收费，继承CashSuper</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashReturn</span> <span class="token punctuation">:</span> CashSuper
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span> moneyCondition <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span> moneyReturn <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//初始化时必须要输入返利条件和返利值，比如满300返100，则moneyCondition为300，moneyReturn为100</span>
+        <span class="token keyword">public</span> <span class="token function">CashReturn</span><span class="token punctuation">(</span><span class="token keyword">string</span> moneyCondition<span class="token punctuation">,</span> <span class="token keyword">string</span> moneyReturn<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>moneyCondition <span class="token operator">=</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>moneyCondition<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>moneyReturn <span class="token operator">=</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>moneyReturn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">double</span> result <span class="token operator">=</span> money<span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//若大于返利条件，则需要减去返利值</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>money <span class="token operator">>=</span> moneyCondition<span class="token punctuation">)</span>
+                result <span class="token operator">=</span> money <span class="token operator">-</span> Math<span class="token punctuation">.</span><span class="token function">Floor</span><span class="token punctuation">(</span>money <span class="token operator">/</span> moneyCondition<span class="token punctuation">)</span> <span class="token operator">*</span> moneyReturn<span class="token punctuation">;</span>
+
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashSuper.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//现金收取父类</span>
+    <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">CashSuper</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//抽象方法：收取现金，参数为原价，返回为当前价</span>
+        <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>Form1.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//策略对象的的创建在上下文类中完成，即策略对象的创建是对用户保密的</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Form1</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token function">Form1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//客户端窗体程序（主要部分）</span>
+        <span class="token keyword">double</span> total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnOk_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//利用简单工厂模式根据下拉选择框，生成相应的对象</span>
+            CashContext csuper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashContext</span><span class="token punctuation">(</span>cbxType<span class="token punctuation">.</span>SelectedItem<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">double</span> totalPrices <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//通过多态，可以得到收取费用的结果</span>
+            totalPrices <span class="token operator">=</span> csuper<span class="token punctuation">.</span><span class="token function">GetResult</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtPrice<span class="token punctuation">.</span>Text<span class="token punctuation">)</span> <span class="token operator">*</span> Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtNum<span class="token punctuation">.</span>Text<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            total <span class="token operator">=</span> total <span class="token operator">+</span> totalPrices<span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//展示计价结果</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"单价："</span> <span class="token operator">+</span> txtPrice<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" 数量："</span> <span class="token operator">+</span> txtNum<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" "</span>
+                <span class="token operator">+</span> cbxType<span class="token punctuation">.</span>SelectedItem <span class="token operator">+</span> <span class="token string">" 合计："</span> <span class="token operator">+</span> totalPrices<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> total<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnClear_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            total <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+            txtPrice<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+            txtNum<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0"</span><span class="token punctuation">;</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashAcceptType.xml</strong>：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CashAcceptType</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>正常收费<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashNormal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>满300返100<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashReturn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>300,100<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>满200返50<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashReturn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>200,50<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>打8折<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashRebate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>0.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>打7折<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span><span class="token punctuation">></span></span>CashRebate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>para</span><span class="token punctuation">></span></span>0.7<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>para</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CashAcceptType</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="策略-反射完整源码"><a href="#策略-反射完整源码" class="headerlink" title="策略+反射完整源码"></a>策略+反射完整源码</h2><p><strong>CashSuper.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">CashSuper</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashNormal.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashNormal</span> <span class="token punctuation">:</span> CashSuper
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> money<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashRebate.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashRebate</span> <span class="token punctuation">:</span> CashSuper
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span> moneyRebate <span class="token operator">=</span> 1d<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token function">CashRebate</span><span class="token punctuation">(</span><span class="token keyword">string</span> moneyRebate<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>moneyRebate <span class="token operator">=</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>moneyRebate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> money <span class="token operator">*</span> moneyRebate<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashReturn.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashReturn</span> <span class="token punctuation">:</span> CashSuper
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span> moneyCondition <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span> moneyReturn <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token function">CashReturn</span><span class="token punctuation">(</span><span class="token keyword">string</span> moneyCondition<span class="token punctuation">,</span><span class="token keyword">string</span> moneyReturn<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>moneyCondition <span class="token operator">=</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>moneyCondition<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>moneyReturn <span class="token operator">=</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>moneyReturn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">double</span> <span class="token function">acceptCash</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">double</span> result <span class="token operator">=</span> money<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>money <span class="token operator">>=</span> moneyCondition<span class="token punctuation">)</span>
+                result<span class="token operator">=</span>money<span class="token operator">-</span> Math<span class="token punctuation">.</span><span class="token function">Floor</span><span class="token punctuation">(</span>money <span class="token operator">/</span> moneyCondition<span class="token punctuation">)</span> <span class="token operator">*</span> moneyReturn<span class="token punctuation">;</span>
+
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>CashContext.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">CashContext</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> CashSuper cs<span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//设置上下文中的策略实例对象</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setBehavior</span><span class="token punctuation">(</span>CashSuper csuper<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>cs <span class="token operator">=</span> csuper<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">GetResult</span><span class="token punctuation">(</span><span class="token keyword">double</span> money<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> cs<span class="token punctuation">.</span><span class="token function">acceptCash</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>Form1.cs</strong>：</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Reflection<span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> 商场管理软件
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Form1</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token function">Form1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        DataSet ds<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//用于存放配置文件信息</span>
+        <span class="token keyword">double</span> total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>0d<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//用于总计</span>
+
+
+        <span class="token comment" spellcheck="true">/// &lt;summary></span>
+        <span class="token comment" spellcheck="true">/// 在程序加载时，读取指定文件中的所有内容</span>
+        <span class="token comment" spellcheck="true">/// &lt;/summary></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="sender">&lt;/param></span>
+        <span class="token comment" spellcheck="true">/// &lt;param name="e">&lt;/param></span>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Form1_Load</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//读配置文件                     --在程序运行的路径下</span>
+            ds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ds<span class="token punctuation">.</span><span class="token function">ReadXml</span><span class="token punctuation">(</span>Application<span class="token punctuation">.</span>StartupPath <span class="token operator">+</span> <span class="token string">"\\CashAcceptType.xml"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+            <span class="token comment" spellcheck="true">//将读取到的记录绑定到下拉列表框中</span>
+            <span class="token keyword">foreach</span> <span class="token punctuation">(</span>DataRowView dr <span class="token keyword">in</span> ds<span class="token punctuation">.</span>Tables<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>DefaultView<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                cbxType<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>dr<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            cbxType<span class="token punctuation">.</span>SelectedIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnOk_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//实例化一个上下文对象</span>
+            CashContext cc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//根据用户的选项，查询用户选择项的相关行</span>
+            DataRow dr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>DataRow<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>ds<span class="token punctuation">.</span>Tables<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Select</span><span class="token punctuation">(</span><span class="token string">"name='"</span> <span class="token operator">+</span> cbxType<span class="token punctuation">.</span>SelectedItem<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"'"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//声明一个参数的对象数组</span>
+            <span class="token keyword">object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args <span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//若有参数，则将其分割成字符串数组，用于实例化时所用的参数</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>dr<span class="token punctuation">[</span><span class="token string">"para"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">""</span><span class="token punctuation">)</span>
+                args <span class="token operator">=</span> dr<span class="token punctuation">[</span><span class="token string">"para"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//通过反射实例化出相应的算法对象</span>
+            cc<span class="token punctuation">.</span><span class="token function">setBehavior</span><span class="token punctuation">(</span><span class="token punctuation">(</span>CashSuper<span class="token punctuation">)</span>Assembly<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span><span class="token string">"商场管理软件"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">CreateInstance</span><span class="token punctuation">(</span><span class="token string">"商场管理软件."</span> <span class="token operator">+</span> dr<span class="token punctuation">[</span><span class="token string">"class"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">false</span><span class="token punctuation">,</span> BindingFlags<span class="token punctuation">.</span>Default<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> args<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">double</span> totalPrices <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+            totalPrices <span class="token operator">=</span> cc<span class="token punctuation">.</span><span class="token function">GetResult</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtPrice<span class="token punctuation">.</span>Text<span class="token punctuation">)</span> <span class="token operator">*</span> Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>txtNum<span class="token punctuation">.</span>Text<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            total <span class="token operator">=</span> total <span class="token operator">+</span> totalPrices<span class="token punctuation">;</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"单价："</span> <span class="token operator">+</span> txtPrice<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" 数量："</span> <span class="token operator">+</span> txtNum<span class="token punctuation">.</span>Text <span class="token operator">+</span> <span class="token string">" "</span><span class="token operator">+</span>cbxType<span class="token punctuation">.</span>SelectedItem<span class="token operator">+</span> <span class="token string">" 合计："</span> <span class="token operator">+</span> totalPrices<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> total<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btnClear_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            total <span class="token operator">=</span> 0d<span class="token punctuation">;</span>
+            txtPrice<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+            txtNum<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+            lbxList<span class="token punctuation">.</span>Items<span class="token punctuation">.</span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lblResult<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">"0.00"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://z1r0s.github.io" rel="external nofollow noreferrer">z1r0s</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://z1r0s.github.io/2020/08/22/she-ji-mo-shi-zhi-ce-lue-mo-shi/">https://z1r0s.github.io/2020/08/22/she-ji-mo-shi-zhi-ce-lue-mo-shi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://z1r0s.github.io" target="_blank">z1r0s</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C#</span>
+                                </a>
+                            
+                                <a href="/tags/设计模式/">
+                                    <span class="chip bg-color">设计模式</span>
+                                </a>
+                            
+                                <a href="/tags/策略模式/">
+                                    <span class="chip bg-color">策略模式</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .mvaline-card {
+        margin: 1.5rem auto;
+    }
+
+    .mvaline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+</style>
+
+<div class="card mvaline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="mvcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/minivaline/MiniValine.js"></script>
+<script>
+    new MiniValine({
+        el: '#mvcomments',
+        appId: 'rr4jTLi2BJEgTziWjmGxpu1a-MdYXbMMI',
+        appKey: 'aFRDmu52XNOUP0PyGNjjzDCQ',
+        mode: 'DesertsP',
+        placeholder: 'Write a Comment',
+        pathname: window.location.pathname,
+        lang: '',
+        adminEmailMd5: 'de8a7aa53d07e6b6bceb45c64027763d',
+        tagMeta: ["管理员", "小伙伴", "访客"],
+        master: ["de8a7aa53d07e6b6bceb45c64027763d"],
+        friends: ["b5bd5d836c7a0091aa8473e79ed4c25e", "adb7d1cd192658a55c0ad22a3309cecf", "3ce1e6c77b4910f1871106cb30dc62b0", "cfce8dc43725cc14ffcd9fb4892d5bfc"],
+        math: true,
+        md: true,
+        enableQQ: false,
+        NoRecordIP: false,
+        visitor: true,
+        maxNest: 6,
+        pageSize: 6,
+        serverURLs: '',
+        emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest", "https://cdn.jsdelivr.net/gh/MiniValine/qq@latest", "https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest", "https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest", "https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest", "https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest"],
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/08/22/she-ji-mo-shi-zhi-zhuang-shi-mo-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/251.jpg" class="responsive-img" alt="装饰模式">
+                        
+                        <span class="card-title">装饰模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/设计模式/" class="post-category">
+                                    设计模式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
+                    </a>
+                    
+                    <a href="/tags/设计模式/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                    <a href="/tags/装饰模式/">
+                        <span class="chip bg-color">装饰模式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/22/she-ji-mo-shi-zhi-chou-xiang-gong-han-mo-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/237.jpg" class="responsive-img" alt="抽象工厂模式">
+                        
+                        <span class="card-title">抽象工厂模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/设计模式/" class="post-category">
+                                    设计模式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
+                    </a>
+                    
+                    <a href="/tags/设计模式/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                    <a href="/tags/抽象工厂模式/">
+                        <span class="chip bg-color">抽象工厂模式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('10')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: z1r0s&#39;blogs<br />'
+            + '文章作者: z1r0s<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7173532278"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">z1r0s</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">249.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/z1r0s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2603350388@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2603350388" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2603350388" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</body>
+
+</html>

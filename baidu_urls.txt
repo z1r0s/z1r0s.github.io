@@ -1,3 +1,4 @@
+https://z1r0s.github.io/2020/12/22/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/
 https://z1r0s.github.io/2020/12/21/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/
 https://z1r0s.github.io/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/
 https://z1r0s.github.io/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/
@@ -97,4 +98,3 @@ https://z1r0s.github.io/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/
 https://z1r0s.github.io/2020/09/28/cha-kan-yi-lian-jie-de-wifi-mi-ma/
 https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/
 https://z1r0s.github.io/2020/09/17/jie-jue-rsatool-py-jiao-ben-bao-cuo/
-https://z1r0s.github.io/2020/09/17/jie-jue-python3-an-zhuang-gmpy2-bao-cuo/

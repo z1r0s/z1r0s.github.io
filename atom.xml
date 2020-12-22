@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-21T15:01:48.785Z</updated>
+  <updated>2020-12-22T11:41:57.174Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>内网渗透之横向移动常见端口</title>
+    <link href="https://z1r0s.github.io/2020/12/22/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/"/>
+    <id>https://z1r0s.github.io/2020/12/22/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/</id>
+    <published>2020-12-22T11:04:44.000Z</published>
+    <updated>2020-12-22T11:41:57.174Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;​        拿到一个内网主机之后，可以会由于位置或权限不够不能拿到主域控的权限，因此有时需要做横向移动以拿到可以为跳板拿到主域控权限的其他计算机。&lt;/p&gt;
+&lt;h1 id=&quot;Port：53&quot;&gt;&lt;a href=&quot;#Port：53&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="内网渗透" scheme="https://z1r0s.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>常规信息收集之wmic命令</title>
@@ -47,7 +74,7 @@
     <link href="https://z1r0s.github.io/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/"/>
     <id>https://z1r0s.github.io/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/</id>
     <published>2020-12-21T06:30:49.000Z</published>
-    <updated>2020-12-21T06:31:35.677Z</updated>
+    <updated>2020-12-22T14:37:20.009Z</updated>
     
     <summary type="html">
     
@@ -61,7 +88,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
       <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
@@ -151,7 +178,7 @@
     <link href="https://z1r0s.github.io/2020/12/16/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/"/>
     <id>https://z1r0s.github.io/2020/12/16/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/</id>
     <published>2020-12-16T09:10:36.000Z</published>
-    <updated>2020-12-16T14:23:26.385Z</updated>
+    <updated>2020-12-22T14:42:38.749Z</updated>
     
     <summary type="html">
     
@@ -165,10 +192,10 @@
     
     </summary>
     
-      <category term="批处理" scheme="https://z1r0s.github.io/categories/%E6%89%B9%E5%A4%84%E7%90%86/"/>
+      <category term="安全加固" scheme="https://z1r0s.github.io/categories/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"/>
     
     
-      <category term="防火墙" scheme="https://z1r0s.github.io/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
+      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
     
   </entry>
   
@@ -177,7 +204,7 @@
     <link href="https://z1r0s.github.io/2020/12/14/vscode-zhi-kai-fa-huan-jing-da-jian/"/>
     <id>https://z1r0s.github.io/2020/12/14/vscode-zhi-kai-fa-huan-jing-da-jian/</id>
     <published>2020-12-14T12:28:10.000Z</published>
-    <updated>2020-12-16T02:48:00.166Z</updated>
+    <updated>2020-12-22T14:20:48.410Z</updated>
     
     <summary type="html">
     
@@ -191,10 +218,10 @@
     
     </summary>
     
-      <category term="软件" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
     
-      <category term="VSCode" scheme="https://z1r0s.github.io/tags/VSCode/"/>
+      <category term="编程工具" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -203,7 +230,7 @@
     <link href="https://z1r0s.github.io/2020/12/13/linux-zhi-wang-luo-guan-li/"/>
     <id>https://z1r0s.github.io/2020/12/13/linux-zhi-wang-luo-guan-li/</id>
     <published>2020-12-13T11:53:33.000Z</published>
-    <updated>2020-12-16T15:35:03.394Z</updated>
+    <updated>2020-12-22T14:37:42.283Z</updated>
     
     <summary type="html">
     
@@ -217,7 +244,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
       <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
@@ -229,7 +256,7 @@
     <link href="https://z1r0s.github.io/2020/12/13/linux-zhi-quan-xian-guan-li/"/>
     <id>https://z1r0s.github.io/2020/12/13/linux-zhi-quan-xian-guan-li/</id>
     <published>2020-12-13T06:29:48.000Z</published>
-    <updated>2020-12-13T11:41:48.193Z</updated>
+    <updated>2020-12-22T14:37:25.545Z</updated>
     
     <summary type="html">
     
@@ -243,7 +270,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
       <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
@@ -255,7 +282,7 @@
     <link href="https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/"/>
     <id>https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/</id>
     <published>2020-12-11T08:04:05.000Z</published>
-    <updated>2020-12-11T14:11:43.613Z</updated>
+    <updated>2020-12-22T14:37:13.468Z</updated>
     
     <summary type="html">
     
@@ -269,7 +296,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
       <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
@@ -281,7 +308,7 @@
     <link href="https://z1r0s.github.io/2020/12/09/linux-zhi-ci-pan-guan-li/"/>
     <id>https://z1r0s.github.io/2020/12/09/linux-zhi-ci-pan-guan-li/</id>
     <published>2020-12-09T09:29:37.000Z</published>
-    <updated>2020-12-09T09:31:36.631Z</updated>
+    <updated>2020-12-22T14:37:04.353Z</updated>
     
     <summary type="html">
     
@@ -295,7 +322,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
       <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
@@ -307,7 +334,7 @@
     <link href="https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/"/>
     <id>https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/</id>
     <published>2020-12-08T12:00:10.000Z</published>
-    <updated>2020-12-08T12:52:41.707Z</updated>
+    <updated>2020-12-22T14:36:57.276Z</updated>
     
     <summary type="html">
     
@@ -330,7 +357,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
       <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
@@ -342,7 +369,7 @@
     <link href="https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/"/>
     <id>https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/</id>
     <published>2020-12-08T10:21:51.000Z</published>
-    <updated>2020-12-09T02:01:29.237Z</updated>
+    <updated>2020-12-22T14:37:49.235Z</updated>
     
     <summary type="html">
     
@@ -356,7 +383,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
       <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
@@ -368,7 +395,7 @@
     <link href="https://z1r0s.github.io/2020/12/07/linux-zhi-ruan-jian-bao-guan-li/"/>
     <id>https://z1r0s.github.io/2020/12/07/linux-zhi-ruan-jian-bao-guan-li/</id>
     <published>2020-12-07T07:40:57.000Z</published>
-    <updated>2020-12-13T11:52:48.851Z</updated>
+    <updated>2020-12-22T14:37:31.187Z</updated>
     
     <summary type="html">
     
@@ -382,7 +409,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://z1r0s.github.io/categories/Linux/"/>
+      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
       <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
@@ -516,32 +543,6 @@
     
     
       <category term="远程管理" scheme="https://z1r0s.github.io/tags/%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重置root管理员密码</title>
-    <link href="https://z1r0s.github.io/2020/12/03/chong-zhi-root-guan-li-yuan-mi-ma/"/>
-    <id>https://z1r0s.github.io/2020/12/03/chong-zhi-root-guan-li-yuan-mi-ma/</id>
-    <published>2020-12-03T08:33:43.000Z</published>
-    <updated>2020-12-03T09:33:18.985Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-重置RedHat的root密码&quot;&gt;&lt;a href=&quot;#0x01-重置RedHat的root密码&quot; class=&quot;headerlink&quot; title=&quot;0x01 重置RedHat的root密码&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="技巧" scheme="https://z1r0s.github.io/categories/%E6%8A%80%E5%B7%A7/"/>
-    
-    
-      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
     
   </entry>
   
