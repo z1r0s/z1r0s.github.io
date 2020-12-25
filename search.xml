@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux之日志管理</title>
+      <link href="/2020/12/25/linux-zhi-ri-zhi-guan-li/"/>
+      <url>/2020/12/25/linux-zhi-ri-zhi-guan-li/</url>
+      
+        <content type="html"><![CDATA[<h1 id="rsyslogd服务介绍"><a href="#rsyslogd服务介绍" class="headerlink" title="rsyslogd服务介绍"></a>rsyslogd服务介绍</h1><h2 id="rsyslogd介绍"><a href="#rsyslogd介绍" class="headerlink" title="rsyslogd介绍"></a>rsyslogd介绍</h2><ul><li><code>rsyslogd</code>：系统的专职日志程序，绝大部分操作系统相关的日志记录。(安全、认证、计划任务等)</li><li>应用程序日志：各类应用程序以自己的方式记录的日志</li></ul><p>相关程序服务：</p><pre class=" language-shell"><code class="language-shell">yum install rsyslog logrotate  # 默认已安装# 启动日志服务systemctl start rsyslog.service</code></pre><p>相关文件：</p><pre class=" language-shell"><code class="language-shell"># 查找相关文件rpm -qc rsyslog# rsyslogd的主配置文件/etc/rsyslog.conf           #authpriv.*  /var/log/secure #服务名称[.连接符号][*表示记录所有日志等级;正常表示比当前等级高的日志进行记录;]# rsyslogd相关文件,定义级别/etc/sysconfig/rsyslog# 和日志办轮转(切割)相关/etc/logrotate.d/syslog</code></pre><h2 id="日志等级"><a href="#日志等级" class="headerlink" title="日志等级"></a>日志等级</h2><pre class=" language-shell"><code class="language-shell">#authpriv.*  /var/log/secure #1.各种连接符有:.只记录比后边等级高的日志.=只记录这个等级日志,其他不记录.!不等于这个等级的日志进行记录* 表示所有日志等级#2.日志等级划分debug      #日志调试信息info    #一般信息,基本的通知信息notice  #注意信息,具有一定重要性warning #警告信息,但是不会影响到服务或系统运行err        #错误信息,会影响到服务或系统运行crit    #严重等级,临界状态信息,比err严重alert    #警告信息,比crit严重,必须立即采取行动emerg    #紧急等级,系统无法正常使用</code></pre><h2 id="常见日志文件"><a href="#常见日志文件" class="headerlink" title="常见日志文件"></a>常见日志文件</h2><pre class=" language-shell"><code class="language-shell">tail /var/log/messages            #系统主日志文件;-f参数可以动态查看日志文件的尾部tail /var/log/maillog             #跟邮件postfix相关tail /var/log/cron                #crond、at进程产生的日志tail /var/log/dmesg               #和系统启动相关tail /var/log/audit/audit.log     #系统审计日志tail /var/log/yum.log             #yumtail /var/log/mysqld.log          #MySQLtail /var/log/xferlog             #和访问FTP服务器相关#主机安全分析日志tail -f /var/log/messages         #动态查看日志文件的尾部tailf /var/log/secure             #系统登录日志--认证、安全tail  /var/log/wtmp               #所有用户的登录和注销信息,同时记录系统的启动/重启和关机事件(命令:last),二进制命令,不能直接查看tail  /var/run/utmp               #当前已经登录的用户信息(命令w/who/users)tail  /var/log/btmp               #错误登录日志(命令last显示登录成功用户信息/错误登录lastb    )tail  /var/log/lastlog            #所有用户的最后一次登录情况(命令lastlog )#服务日志:如果是rpm安装会默认把日志放到/var/log/目录下;#而源码安装的软件包会放到指定路径中(这些是由自定义服务本身来管理的,只是遵守rsyslog的格式)./var/log/httpd/        #rpm包安装的apache服务默认日志目录/var/log/mail/        #邮件服务日志目录/var/log/samba/        #samba服务日志目录/var/log/sshd/        #sshd服务日志目录</code></pre><h2 id="日志格式"><a href="#日志格式" class="headerlink" title="日志格式"></a>日志格式</h2><p><code>时间+产生事件的主机+产生事件的服务+事件具体信息</code></p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/LogManagment/日志记录的一般格式.png" alt="日志记录的一般格式"></center><p>对于一些应用服务,会自己管理自己的日志信息，和rsyslog的日志格式可能不太一样。</p><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/LogManagment/开启httpd服务.png" alt="开启httpd服务"></center><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/LogManagment/Apache访问日志.png" alt="Apache访问日志"></center><h2 id="日志记录位置"><a href="#日志记录位置" class="headerlink" title="日志记录位置"></a>日志记录位置</h2><ul><li>记录在本地:<code>/var/log/secure</code></li><li>转发到远程”日志服务器”:<code>@192.168.1.200:514</code></li><li>发送给用户:root（需要用户在线才能接收）</li><li>忽略或丢弃日志:~</li></ul><h1 id="logrotate日志轮询"><a href="#logrotate日志轮询" class="headerlink" title="logrotate日志轮询"></a>logrotate日志轮询</h1><p>系统记录日志的意义：</p><p>​        通过日志可以分析用户行为记录运行轨迹，查找程序问题，但磁盘是有限的，因此需要记录最后一段时间发生的记录。</p><p><code>logrotate</code>的作用：</p><p>​            每天日志过多会导致单个文件过大，所以系统默认会用<code>logrotate</code>工具对日志进行切割。<code>Logrotate</code>是基于<code>cron</code>来运行的，其脚本是<code>/etc/cron.daily/logrotate</code>，日志轮转是系统自动完成的。 实际运行时，<code>Logrotate</code>会调用配置文件<code>/etc/logrotate.conf</code>。</p><p><code>logrotate</code>的原理：</p><pre class=" language-shell"><code class="language-shell">#工作原理:被crond调用#logrotate本身不是系统守护进程,他是通过计划任务crond每天执行cat /etc/cron.daily/logrotate #!/bin/sh /usr/sbin/logrotate /etc/logrotate.conf     #日志轮询,按/etc/logrotate.conf</code></pre><p><code>logrotate</code>的配置文件：</p><pre class=" language-shell"><code class="language-shell">#1.主文件:/etc/logrotate.conf (决定每个日志文件如何轮转)# vim /etc/logrotate.conf#全局设置weekly    轮转周期rotate    保留4份create    轮转后创建新文件dateext   使用日期作为后缀#compress 是否压缩include /etc/logrotate.d  包含该目录下的子配置文件对某日志文件设置轮转的方法/var/log/wtmp{ monthly      #一月轮转一次 minsize 1M   #最小达到1M才轮转,monthly and  minsizecreate 0664 root utmp   #最小达到1M才轮转,monthly and  minsizerotate 1   #保留一份    }/var/log/btmp {missingok       #丢失不提示monthly       #2.子文件夹:/etc/logrotate.d/*#说明:轮询后原日志文件被改名,新日志文件是创建的应用程序根据inode找到日志文件进行书写,如果不重启,找寻的依旧是老的日志文件。</code></pre><h1 id="搭建日志服务器"><a href="#搭建日志服务器" class="headerlink" title="搭建日志服务器"></a>搭建日志服务器</h1><ol><li><p>在日志服务器上安装<code>rsyslogd</code></p><pre class=" language-shell"><code class="language-shell">rpm -q rsyslogd #查询有没有安装日志服务系统(我的没装)yum -y install epel-release #安装epel扩展库,因为自带的yum源没有rsyslogdyum -y install rsyslogd #可以正确安装了 服务端和客户端都要安装systemctl start rsyslog.service #启动服务</code></pre></li><li><p>修改配置文件</p><pre class=" language-shell"><code class="language-shell">#第一步:开启监听端口514vim /etc/rsyslog.conf #编辑服务端配置文件;#第二步:允许接收外部日志修改/etc/sysconfig/rsyslog文件SYSLOGD_OPTIONS="-m240 -r"   #其中-r表示接受外部日志写入</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/LogManagment/修改配置文件.png" alt="修改配置文件"></center></li><li><p>Linux客户端配置 :  把日志发送到日志服务器上</p><pre class=" language-shell"><code class="language-shell">#方法1.编辑主配置文件添加一行: 声明日志服务器的ipvim  /etc/rsyslog.conf #方法2:只需要把尾部.@@remote-host:514注释取消,并把两个@符号改为一个@符号,remote-host替换为服务器IP即可。注:如使用TCP协议,使用@@则表示TCP协议。</code></pre><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/LogManagment/日志客户端配置.png" alt="日志客户端配置"></center></li><li><p>Linux客户端重启<code>rsyslog</code>服务</p><pre class=" language-shell"><code class="language-shell">systemctl restart rsyslog.service</code></pre></li><li><p>在日志服务器端查看日志</p><pre class=" language-shell"><code class="language-shell">/var/log/message</code></pre></li></ol><h1 id="日志安全"><a href="#日志安全" class="headerlink" title="日志安全"></a>日志安全</h1><ol><li><p>所有登录都会被记录在<code>/var/log/secure</code>中,攻击者被抓到怎么办?</p><pre class=" language-shell"><code class="language-shell">ssh root@192.168.1.100查看日志观察cat /var/log/secure  |  grepecho  "" > /var/log/secure</code></pre></li><li><p>清空了<code>/var/log/secure</code>后,还是有清空的记录怎么办?</p><pre class=" language-shell"><code class="language-shell">at HH:MM  yyyy-mm-dd>echo  ""  > /var/log/secure>history -c>ctrl+d结束编写任务</code></pre></li><li><p>日志备份</p><pre class=" language-shell"><code class="language-shell">#1.基本命令:#建议使用tar压缩归档: tar -zcf /bak/log/secure`date +\%H:\%M`.tar.gz  secure   //被压缩归档文件建议使用相对路径#2.周期备份任务vim /etc/crontab 周期性计划任务的配置文件(复习一下)分     时    日      月    周      用户名      执行命令0-59  0-23     1-31      1-12  1-7      root* 每1,3,5 一分钟3分钟和五分钟1-5  1到5*/5  间隔5#第一步:编写脚本vim  /test/backlog.shcd /var/log ; tar -zcf /tmp/secure`date +\%H:\%M-\%F`.tar.gz secure  #第二步:编辑定时任务crontab   -e00 00  * * * root   sh  /test/backlog.sh   2>&1    #每天晚上12点备份日志#第三步:重启任务服务/etc/init.d/crond restart #重启服务</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>内网渗透之横向移动常见端口</title>
       <link href="/2020/12/22/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/"/>
       <url>/2020/12/22/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/</url>
@@ -395,7 +420,7 @@
       
         <tags>
             
-            <tag> ACL </tag>
+            <tag> 网络实验 </tag>
             
         </tags>
       
@@ -420,7 +445,7 @@
       
         <tags>
             
-            <tag> ACL </tag>
+            <tag> 网络服务 </tag>
             
         </tags>
       
@@ -470,7 +495,7 @@
       
         <tags>
             
-            <tag> 路由 </tag>
+            <tag> 网络服务 </tag>
             
         </tags>
       
@@ -495,7 +520,7 @@
       
         <tags>
             
-            <tag> 远程管理 </tag>
+            <tag> 网络服务 </tag>
             
         </tags>
       
@@ -647,7 +672,7 @@
       
         <tags>
             
-            <tag> 密码 </tag>
+            <tag> 信息收集 </tag>
             
         </tags>
       
@@ -672,9 +697,7 @@
       
         <tags>
             
-            <tag> STP </tag>
-            
-            <tag> HSRP </tag>
+            <tag> 网络实验 </tag>
             
         </tags>
       
@@ -724,7 +747,7 @@
       
         <tags>
             
-            <tag> HSRP </tag>
+            <tag> 网络实验 </tag>
             
         </tags>
       
@@ -828,7 +851,7 @@
       
         <tags>
             
-            <tag> 静态路由 </tag>
+            <tag> 网络服务 </tag>
             
         </tags>
       
@@ -878,9 +901,9 @@
       
         <tags>
             
-            <tag> 网络服务 </tag>
-            
             <tag> DNS </tag>
+            
+            <tag> 网络服务 </tag>
             
         </tags>
       
@@ -2357,9 +2380,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> CRYPTO </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       
@@ -2411,9 +2434,9 @@
       
         <tags>
             
-            <tag> MISC </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> MISC </tag>
             
         </tags>
       
@@ -3067,10 +3090,6 @@
             
             <tag> Markdown </tag>
             
-            <tag> Typora </tag>
-            
-            <tag> 数学表达式 </tag>
-            
         </tags>
       
     </entry>
@@ -3095,10 +3114,6 @@
         <tags>
             
             <tag> GitHub </tag>
-            
-            <tag> Git </tag>
-            
-            <tag> 代码托管 </tag>
             
         </tags>
       
@@ -3285,10 +3300,6 @@
       
         <tags>
             
-            <tag> PicGo </tag>
-            
-            <tag> 软件使用 </tag>
-            
             <tag> 图床 </tag>
             
         </tags>
@@ -3315,10 +3326,6 @@
         <tags>
             
             <tag> Windows </tag>
-            
-            <tag> mstsc </tag>
-            
-            <tag> 远程桌面 </tag>
             
         </tags>
       
@@ -3368,11 +3375,7 @@
       
         <tags>
             
-            <tag> C# </tag>
-            
             <tag> 设计模式 </tag>
-            
-            <tag> 原型模式 </tag>
             
         </tags>
       
@@ -3397,11 +3400,7 @@
       
         <tags>
             
-            <tag> C# </tag>
-            
             <tag> 设计模式 </tag>
-            
-            <tag> 代理模式 </tag>
             
         </tags>
       
@@ -3426,11 +3425,7 @@
       
         <tags>
             
-            <tag> C# </tag>
-            
             <tag> 设计模式 </tag>
-            
-            <tag> 装饰模式 </tag>
             
         </tags>
       
@@ -3455,11 +3450,7 @@
       
         <tags>
             
-            <tag> C# </tag>
-            
             <tag> 设计模式 </tag>
-            
-            <tag> 策略模式 </tag>
             
         </tags>
       
@@ -3484,11 +3475,7 @@
       
         <tags>
             
-            <tag> C# </tag>
-            
             <tag> 设计模式 </tag>
-            
-            <tag> 抽象工厂模式 </tag>
             
         </tags>
       
@@ -3513,11 +3500,7 @@
       
         <tags>
             
-            <tag> C# </tag>
-            
             <tag> 设计模式 </tag>
-            
-            <tag> 工厂方法模式 </tag>
             
         </tags>
       
