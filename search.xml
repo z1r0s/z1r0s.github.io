@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MySQL之基础命令</title>
+      <link href="/2021/01/02/mysql-zhi-ji-chu-ming-ling/"/>
+      <url>/2021/01/02/mysql-zhi-ji-chu-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h1 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h1><pre class=" language-mysql"><code class="language-mysql"># 通过命令行方式连接MySQL数据库mysql -h localhost -P 3306 -u root -p# -h:指定要连接的数据库，通常为IP地址# -P:指定连接MySQL数据库的端口（默认为3306）# -u:指定连接数据库的用户# -p:指定连接数据库用户的密码</code></pre><h1 id="与数据库相关的操作"><a href="#与数据库相关的操作" class="headerlink" title="与数据库相关的操作"></a>与数据库相关的操作</h1><h2 id="0x01-选择数据库"><a href="#0x01-选择数据库" class="headerlink" title="0x01 选择数据库"></a>0x01 选择数据库</h2><p>​        在最初连接数据库时，若没有指定选择的数据库参数，就没有任何数据库打开供你使用。因此在你执行任意数据库操作之前需要选择一个数据库。</p><pre class=" language-mysql"><code class="language-mysql"># 选择要使用的demo数据库use demo;</code></pre><h2 id="0x02-显示所有数据库"><a href="#0x02-显示所有数据库" class="headerlink" title="0x02 显示所有数据库"></a>0x02 显示所有数据库</h2><pre class=" language-mysql"><code class="language-mysql"># 显示DBMS中所有的数据库show databases;</code></pre><h2 id="0x03-显示所有数据表"><a href="#0x03-显示所有数据表" class="headerlink" title="0x03 显示所有数据表"></a>0x03 显示所有数据表</h2><pre class=" language-mysql"><code class="language-mysql"># 显示当前数据库中所有数据表show tables;</code></pre><h2 id="0x04-显示服务器状态信息"><a href="#0x04-显示服务器状态信息" class="headerlink" title="0x04 显示服务器状态信息"></a>0x04 显示服务器状态信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器状态信息show status;</code></pre><h2 id="0x05-显示服务器错误信息"><a href="#0x05-显示服务器错误信息" class="headerlink" title="0x05 显示服务器错误信息"></a>0x05 显示服务器错误信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器错误信息show errors;</code></pre><h2 id="0x06-显示服务器警告信息"><a href="#0x06-显示服务器警告信息" class="headerlink" title="0x06 显示服务器警告信息"></a>0x06 显示服务器警告信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器警告信息show warnings;</code></pre><h2 id="0x07-显示权限信息"><a href="#0x07-显示权限信息" class="headerlink" title="0x07 显示权限信息"></a>0x07 显示权限信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器的权限show grants;</code></pre><h2 id="0x08-显示创建指定数据库的MySQL语句"><a href="#0x08-显示创建指定数据库的MySQL语句" class="headerlink" title="0x08 显示创建指定数据库的MySQL语句"></a>0x08 显示创建指定数据库的MySQL语句</h2><pre class=" language-mysql"><code class="language-mysql"># 显示创建dmeo数据库的MySQL语句show create database demo;</code></pre><h1 id="与数据表相关的操作"><a href="#与数据表相关的操作" class="headerlink" title="与数据表相关的操作"></a>与数据表相关的操作</h1><h2 id="0x01-显示数据表结构"><a href="#0x01-显示数据表结构" class="headerlink" title="0x01 显示数据表结构"></a>0x01 显示数据表结构</h2><pre class=" language-mysql"><code class="language-mysql"># 显示userinfo数据表结构desc userinfo;# 显示userinfo数据表所有列show columns from userinfo;# 输出# | Field | Type | Null | Key | Default | Extra |</code></pre><h2 id="0x02-显示创建指定数据表的MySQL语句"><a href="#0x02-显示创建指定数据表的MySQL语句" class="headerlink" title="0x02 显示创建指定数据表的MySQL语句"></a>0x02 显示创建指定数据表的MySQL语句</h2><pre class=" language-mysql"><code class="language-mysql"># 显示创建userinfo数据表的MySQL语句show create table userinfo;</code></pre><h2 id="0x03-基本查询"><a href="#0x03-基本查询" class="headerlink" title="0x03 基本查询"></a>0x03 基本查询</h2><pre class=" language-mysql"><code class="language-mysql"># 检索单个列# 显示userinfo表中username项的所有信息select username from userinfo;# 检索多列# 显示userinfo表中username和passwd项的所有信息select username,passwd from userinfo;# 检索所有列# 显示userinfo表中所有列的信息select * from userinfo;# 所有完全限定的表名select userinfo.username from userinfo;# 单表查询时可省略，多表查询时有奇效</code></pre><h2 id="0x04-检索数据唯一性"><a href="#0x04-检索数据唯一性" class="headerlink" title="0x04 检索数据唯一性"></a>0x04 检索数据唯一性</h2><pre class=" language-mysql"><code class="language-mysql"># 检索不同的行# 显示的结果中不存在重复行select distinct username,passwd from userinfo; # distinct应用于所有列</code></pre><h2 id="0x05-限制数据行数"><a href="#0x05-限制数据行数" class="headerlink" title="0x05 限制数据行数"></a>0x05 限制数据行数</h2><pre class=" language-mysql"><code class="language-mysql"># 显示结果显示的行数# 显示查询中0行开始的5行数据select username from userinfo limit 0,5;# limit m,n  =  limit n offset m(5.0开始)#  第一个参数为开始位置，（必须指定）#  第二个参数为要检索的行数（若不指定则表示开始位置之后的所有）</code></pre><h2 id="0x06-排序数据"><a href="#0x06-排序数据" class="headerlink" title="0x06 排序数据"></a>0x06 排序数据</h2><pre class=" language-mysql"><code class="language-mysql"># 单列排序检索数据# 显示username和passwd并按username中字母顺序排序数据select username,passwd from userinfo order by username;# 多列排序检索数据# 首先按id排序,然后再按username排序select id,username,passwd from userinfo order by id,username;# 指定排序方向# 按username降序排序select username,passwd from userinfo order by username desc;# 若降序则添加desc，若升序则添加asc或不指定# 混杂# 将最贵的显示在最上面且只显示前20条数据select prod_id,prod_price,prod_namefrom productsorder by prod_price desc,prod_namelimit 0,20;</code></pre><h2 id="0x07-过滤数据"><a href="#0x07-过滤数据" class="headerlink" title="0x07 过滤数据"></a>0x07 过滤数据</h2><pre class=" language-mysql"><code class="language-mysql"># 检查单个值select prod_name,prod_price from productswhere prod_name = 'fuses';select prod_name,prod_price from productswhere prod_price between 5 and 10;# 条件：# = :等于# <>:不等于# !=:不等于# > :大于# < :小于# >=:大于等于# <=:小于等于# between:在指定的两个值之间# in操作符select prod_name,prod_pricefrom productswhere prod_id in (1002,1003);# 检查多个值select prod_id,prod_name,prod_pricefrom productswhere prod_name = 'juese' and prod_price > '5';# 逻辑符号：# and:逻辑与# or :逻辑或# 空值检查select prod_namefrom productswhere prod_prices is Null# not操作符select prod_namefrom productswhere prod_id not in (1002,1003)order by prod_name;# 通配符#     百分号select prod_id,prod_name,prod_pricefrom productswhere prod_name like '%juese%';#    下划线select prod_id,prod_name,prod_pricefrom produceswhere prod_name like '_uese';# 正则select prod_id,prod_name,prod_pricefrom productswhere prod_name regexp 'juese';select prod_id,prod_name,prod_pricefrom productswhere prod_name regexp '.uese';select prod_id,prod_name,prod_pricefrom productswhere prod_name regexp '[jkl]uese';select prod_id,prod_name,prod_pricefrom productswhere prod_name regexp 'juese|apple';select prod_id,prod_name,prod_pricefrom productswhere prod_name regexp '[a-z]uese';</code></pre><p>字符类</p><table><thead><tr><th align="center">类</th><th align="left">说明</th></tr></thead><tbody><tr><td align="center"><code>[:alnum:]</code></td><td align="left">任意字母和数字（同<code>[a-zA-Z0-9]</code>）</td></tr><tr><td align="center"><code>[:alpha:]</code></td><td align="left">任意字母（同<code>[a-zA-Z]</code>）</td></tr><tr><td align="center"><code>[:lower:]</code></td><td align="left">任意小写字母（同<code>[a-z]</code>）</td></tr><tr><td align="center"><code>[:upper:]</code></td><td align="left">任意大写字母（同<code>[A-Z]</code>）</td></tr><tr><td align="center"><code>[:digit:]</code></td><td align="left">任意数字（同<code>[0-9]</code>）</td></tr><tr><td align="center"><code>[:xdigit:]</code></td><td align="left">任意十六进制数字（同<code>[a-fA-F0-9]</code>）</td></tr><tr><td align="center"><code>[:graph:]</code></td><td align="left">任意可打印字符，但不包含空格</td></tr><tr><td align="center"><code>[:print:]</code></td><td align="left">任意可打印字符</td></tr><tr><td align="center"><code>[:blank:]</code></td><td align="left">空格和制表（同<code>[\\t]</code>）</td></tr><tr><td align="center"><code>[:space:]</code></td><td align="left">包括空格在内的任意空白字符（同<code>[\\f\\n\\r\\t\\v]</code>）</td></tr><tr><td align="center"><code>[:cntrl:]</code></td><td align="left">ASCII控制字符（ASCII0到31和127）</td></tr><tr><td align="center"><code>[:punct:]</code></td><td align="left">既不在<code>[:alnum:]</code>又不在<code>[:cntrl:]</code>中的任意字符</td></tr></tbody></table><p>定位</p><table><thead><tr><th align="center">元字符</th><th>说明</th></tr></thead><tbody><tr><td align="center"><code>^</code></td><td>文本的开始</td></tr><tr><td align="center"><code>$</code></td><td>文本的结束</td></tr><tr><td align="center"><code>[[:&lt;:]]</code></td><td>词的开始</td></tr><tr><td align="center"><code>[[:&gt;:]]</code></td><td>词的结束</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux之日志管理</title>
       <link href="/2020/12/25/linux-zhi-ri-zhi-guan-li/"/>
       <url>/2020/12/25/linux-zhi-ri-zhi-guan-li/</url>
@@ -333,7 +358,7 @@
       <link href="/2020/12/08/linux-mu-lu-jie-shao/"/>
       <url>/2020/12/08/linux-mu-lu-jie-shao/</url>
       
-        <content type="html"><![CDATA[<table><thead><tr><th align="center">目录</th><th align="center">介绍</th></tr></thead><tbody><tr><td align="center">/bin</td><td align="center">一般用户可用，启动时会用到的命令，即在文件系统还未挂载时也能够使用的命令</td></tr><tr><td align="center">/boot</td><td align="center">主要放置开机会使用到的文件，包括Linux核心文件以及开机菜单与开机所需配置文件等等</td></tr><tr><td align="center">/dev</td><td align="center">任何设备与周边设备都是以文件的形态存在于这个目录</td></tr><tr><td align="center">/etc</td><td align="center">系统主要的配置文件几乎都放置在这个目录内</td></tr><tr><td align="center">/lib</td><td align="center">放置在开机时会用到的函数库，以及在/bin或/sbin下面的指令会调用的函数库</td></tr><tr><td align="center">/media</td><td align="center">放置可移除的设备，包括软盘、光盘、DVD等设备都暂时挂载于此</td></tr><tr><td align="center">/mnt</td><td align="center">暂时挂载某些额外的设备，与/media用途相同</td></tr><tr><td align="center">/opt</td><td align="center">放置第三方软件文件</td></tr><tr><td align="center">/run</td><td align="center">放置系统开机后所产生的各项信息</td></tr><tr><td align="center">/sbin</td><td align="center">放置开机过程中所需要的二进制文件，里面包括开机、修复、还原系统等用来设置系统环境的指令，这些指令只能root才能使用</td></tr><tr><td align="center">/srv</td><td align="center">存放服务进程所需的数据文件和一些服务的执行脚本</td></tr><tr><td align="center">/tmp</td><td align="center">让一般使用者或正在执行的成暂时放置文件的地方</td></tr><tr><td align="center">/usr</td><td align="center">用于存储只读用户数据的第二层次；包含绝大数的用户工具和应用程序</td></tr><tr><td align="center">/var</td><td align="center">变量文件，在正常运行的系统中其内容不断变化的文件，如日志、脱机文件和临时电子邮件文件等</td></tr><tr><td align="center">/home</td><td align="center">用户家目录</td></tr><tr><td align="center">/lib64</td><td align="center">支持64位的函数库</td></tr><tr><td align="center">/root</td><td align="center">root用户家目录</td></tr><tr><td align="center">/lost+found</td><td align="center">当文件系统发生错误时，将一些遗失的片段放置到这个目录下</td></tr><tr><td align="center">/proc</td><td align="center">该目录本身是一个虚拟文件系统，其中的数据都在内存中，例如：系统核心、进程信息、周边设备的状态即网络状态等等</td></tr><tr><td align="center">/sys</td><td align="center">该目录本身是一个虚拟文件系统，主要也是记录核心与系统硬件信息相关的信息。包括目前已载入的核心模块与核心侦测到的硬件设备信息等等</td></tr></tbody></table>]]></content>
+        <content type="html"><![CDATA[<table><thead><tr><th align="center">目录</th><th align="center">介绍</th></tr></thead><tbody><tr><td align="center">/</td><td align="center">虚拟目录的根目录。通常不会在这里存储文件</td></tr><tr><td align="center">/bin</td><td align="center">二进制目录，存放许多用户级的GNU工具</td></tr><tr><td align="center">/boot</td><td align="center">启动目录，存放启动文件</td></tr><tr><td align="center">/dev</td><td align="center">设备目录，Linux在这里创建设备节点</td></tr><tr><td align="center">/etc</td><td align="center">系统配置文件目录</td></tr><tr><td align="center">/home</td><td align="center">主目录，Linux在这里创建用户目录</td></tr><tr><td align="center">/lib</td><td align="center">库目录，存放系统和应用程序的库文件</td></tr><tr><td align="center">/lib64</td><td align="center">库目录，支持64位的函数库</td></tr><tr><td align="center">/media</td><td align="center">媒体目录，可移动媒体设备的常用挂载点</td></tr><tr><td align="center">/mnt</td><td align="center">挂载目录，另一个可移动设备的常用挂载点</td></tr><tr><td align="center">/opt</td><td align="center">可选目录，常用于存放第三方软件包和数据文件</td></tr><tr><td align="center">/proc</td><td align="center">进程目录，存放现有硬件及当前进程的相关信息</td></tr><tr><td align="center">/root</td><td align="center">root用户的主目录</td></tr><tr><td align="center">/sbin</td><td align="center">系统二进制目录，存放许多GUN管理员级工具</td></tr><tr><td align="center">/run</td><td align="center">运行目录，存放系统运作时运行时信息</td></tr><tr><td align="center">/srv</td><td align="center">服务目录，存放本地服务的相关文件</td></tr><tr><td align="center">/sys</td><td align="center">系统目录，存放系统硬件信息的相关文件</td></tr><tr><td align="center">/tmp</td><td align="center">临时目录，可以在该目录中创建和删除临时工作文件</td></tr><tr><td align="center">/usr</td><td align="center">用户二进制目录，大量用户级的GUN工具和数据文件都存储在这里</td></tr><tr><td align="center">/var</td><td align="center">可变目录，用以存放经常变化的文件，如日志、脱机文件和临时电子邮件文件等</td></tr><tr><td align="center">/lost+found</td><td align="center">备份目录，当文件系统发生错误时，将一些遗失的片段放置到这个目录下</td></tr></tbody></table>]]></content>
       
       
       <categories>
@@ -901,9 +926,9 @@
       
         <tags>
             
-            <tag> DNS </tag>
-            
             <tag> 网络服务 </tag>
+            
+            <tag> DNS </tag>
             
         </tags>
       
@@ -2380,9 +2405,9 @@
       
         <tags>
             
-            <tag> CRYPTO </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> CRYPTO </tag>
             
         </tags>
       
@@ -2407,9 +2432,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> Web </tag>
+            
+            <tag> writeup </tag>
             
         </tags>
       

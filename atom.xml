@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2020-12-25T13:09:04.084Z</updated>
+  <updated>2021-01-02T09:04:58.499Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL之基础命令</title>
+    <link href="https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/"/>
+    <id>https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/</id>
+    <published>2021-01-02T06:59:48.000Z</published>
+    <updated>2021-01-02T09:04:58.499Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;数据库连接&quot;&gt;&lt;a href=&quot;#数据库连接&quot; class=&quot;headerlink&quot; title=&quot;数据库连接&quot;&gt;&lt;/a&gt;数据库连接&lt;/h1&gt;&lt;pre class=&quot; language-mysql&quot;&gt;&lt;code class=&quot;language-mysql&quot;&gt;#
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://z1r0s.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux之日志管理</title>
@@ -360,7 +386,7 @@
     <link href="https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/"/>
     <id>https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/</id>
     <published>2020-12-08T12:00:10.000Z</published>
-    <updated>2020-12-22T14:36:57.276Z</updated>
+    <updated>2020-12-26T14:08:09.429Z</updated>
     
     <summary type="html">
     
@@ -376,7 +402,7 @@
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;/bin&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;/&lt;/td&gt;
 &lt;td
         
       
@@ -517,32 +543,6 @@
     
     
       <category term="SQL" scheme="https://z1r0s.github.io/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络配置之配置路由</title>
-    <link href="https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/"/>
-    <id>https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/</id>
-    <published>2020-12-05T15:07:22.000Z</published>
-    <updated>2020-12-25T13:37:24.268Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-路由&quot;&gt;&lt;a href=&quot;#0x01-路由&quot; class=&quot;headerlink&quot; title=&quot;0x01 路由&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="网络配置" scheme="https://z1r0s.github.io/categories/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="网络服务" scheme="https://z1r0s.github.io/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   

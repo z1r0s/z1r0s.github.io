@@ -1,3 +1,4 @@
+https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/
 https://z1r0s.github.io/2020/12/25/linux-zhi-ri-zhi-guan-li/
 https://z1r0s.github.io/2020/12/22/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/
 https://z1r0s.github.io/2020/12/21/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/
@@ -97,4 +98,3 @@ https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/
 https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/
 https://z1r0s.github.io/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/
 https://z1r0s.github.io/2020/09/28/cha-kan-yi-lian-jie-de-wifi-mi-ma/
-https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/

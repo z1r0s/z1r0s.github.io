@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/</loc>
+    <lastmod>2021-01-02</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/</loc>
+    <lastmod>2020-12-26</lastmod>
+  </url>  <url>
     <loc>https://z1r0s.github.io/2020/11/01/nmap-zhi-zhu-ji-fa-xian/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
@@ -104,9 +110,6 @@
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/09/linux-zhi-ci-pan-guan-li/</loc>
-    <lastmod>2020-12-22</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/11/06/windows-yong-hu-he-zu-guan-li/</loc>
