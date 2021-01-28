@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://z1r0s.github.io/2020/12/19/github-hacking/</loc>
+    <lastmod>2021-01-16</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/12/19/google-hacking/</loc>
+    <lastmod>2021-01-16</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/</loc>
+    <lastmod>2021-01-16</lastmod>
+  </url>  <url>
     <loc>https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/</loc>
-    <lastmod>2021-01-02</lastmod>
+    <lastmod>2021-01-04</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/</loc>
     <lastmod>2020-12-26</lastmod>
@@ -364,17 +373,8 @@
     <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-lu-jing/</loc>
     <lastmod>2020-12-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/</loc>
-    <lastmod>2020-12-21</lastmod>
-  </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/</loc>
     <lastmod>2020-12-21</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/19/google-hacking/</loc>
-    <lastmod>2020-12-19</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/19/github-hacking/</loc>
-    <lastmod>2020-12-19</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/</loc>
     <lastmod>2020-12-18</lastmod>
