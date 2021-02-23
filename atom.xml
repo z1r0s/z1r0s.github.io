@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://z1r0s.github.io/"/>
-  <updated>2021-01-04T06:31:04.501Z</updated>
+  <updated>2021-02-23T11:19:08.387Z</updated>
   <id>https://z1r0s.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/"/>
     <id>https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/</id>
     <published>2021-01-02T06:59:48.000Z</published>
-    <updated>2021-01-04T06:31:04.501Z</updated>
+    <updated>2021-02-23T11:19:08.387Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;数据库连接&quot;&gt;&lt;a href=&quot;#数据库连接&quot; class=&quot;headerlink&quot; title=&quot;数据库连接&quot;&gt;&lt;/a&gt;数据库连接&lt;/h1&gt;&lt;pre class=&quot; language-mysql&quot;&gt;&lt;code class=&quot;language-mysql&quot;&gt;#
+          &lt;h1 id=&quot;MySQL操作基础&quot;&gt;&lt;a href=&quot;#MySQL操作基础&quot; class=&quot;headerlink&quot; title=&quot;MySQL操作基础&quot;&gt;&lt;/a&gt;MySQL操作基础&lt;/h1&gt;&lt;h2 id=&quot;数据库连接&quot;&gt;&lt;a href=&quot;#数据库连接&quot;
         
       
     
@@ -522,8 +522,8 @@
   
   <entry>
     <title>21个写SQL的好习惯【转】</title>
-    <link href="https://z1r0s.github.io/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/"/>
-    <id>https://z1r0s.github.io/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/</id>
+    <link href="https://z1r0s.github.io/2020/12/06/test/21-ge-xie-sql-de-hao-xi-guan/"/>
+    <id>https://z1r0s.github.io/2020/12/06/test/21-ge-xie-sql-de-hao-xi-guan/</id>
     <published>2020-12-06T02:55:30.000Z</published>
     <updated>2020-12-06T02:57:27.089Z</updated>
     

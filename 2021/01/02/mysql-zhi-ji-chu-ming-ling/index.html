@@ -477,39 +477,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h1><pre class=" language-mysql"><code class="language-mysql"># 通过命令行方式连接MySQL数据库
+                <h1 id="MySQL操作基础"><a href="#MySQL操作基础" class="headerlink" title="MySQL操作基础"></a>MySQL操作基础</h1><h2 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h2><pre class=" language-mysql"><code class="language-mysql"># 通过命令行方式连接MySQL数据库
 mysql -h localhost -P 3306 -u root -p
 
 # -h:指定要连接的数据库，通常为IP地址
 # -P:指定连接MySQL数据库的端口（默认为3306）
 # -u:指定连接数据库的用户
 # -p:指定连接数据库用户的密码</code></pre>
-<h1 id="与数据库相关的操作"><a href="#与数据库相关的操作" class="headerlink" title="与数据库相关的操作"></a>与数据库相关的操作</h1><h2 id="0x01-选择数据库"><a href="#0x01-选择数据库" class="headerlink" title="0x01 选择数据库"></a>0x01 选择数据库</h2><p>​        在最初连接数据库时，若没有指定选择的数据库参数，就没有任何数据库打开供你使用。因此在你执行任意数据库操作之前需要选择一个数据库。</p>
+<h2 id="数据库备份"><a href="#数据库备份" class="headerlink" title="数据库备份"></a>数据库备份</h2><pre class=" language-mysql"><code class="language-mysql"># 备份数据库中所有表结构和数据
+mysqldump -u root -p test_db > test_db_backup.sql</code></pre>
+<h2 id="数据库还原"><a href="#数据库还原" class="headerlink" title="数据库还原"></a>数据库还原</h2><pre class=" language-mysql"><code class="language-mysql"># 还原数据库表到指定数据库
+mysql -u root -p test_new_db < test_bd_backup.sql</code></pre>
+<h1 id="与数据库相关的操作"><a href="#与数据库相关的操作" class="headerlink" title="与数据库相关的操作"></a>与数据库相关的操作</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><pre class=" language-mysql"><code class="language-mysql"># 最简单的创建MySQL数据库的语句(其他参数会使用默认参数)
+create database test_db;
+
+# 创建数据库（屏蔽报错）
+create database if not exists test_db;
+
+# 自定义数据库的参数
+create database if not exists test_db
+default character set utf8mb4
+default collate utf8mb4_general_ci;</code></pre>
+<h2 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h2><pre class=" language-mysql"><code class="language-mysql"># 修改指定数据库的字符集和校验集
+alter database [数据库名]{
+[default] character set <字符集名> | 
+[default] collate <校对规则名>
+}
+
+-- 修改数据库的字符集为utf8mb4和校对规则名为utf8mb4_general_ci
+alter database test_db
+default character set utf8mb4
+default collate utf8mb4_general_ci;</code></pre>
+<h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><pre class=" language-mysql"><code class="language-mysql"># 删除数据库（当指定数据库不存在时会报错）
+drop database test_db;
+
+# 删除数据库（先判断数据库是否存在）
+drop database if exists test_db;</code></pre>
+<h2 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h2><p>​        在最初连接数据库时，若没有指定选择的数据库参数，就没有任何数据库打开供你使用。因此在你执行任意数据库操作之前需要选择一个数据库。</p>
 <pre class=" language-mysql"><code class="language-mysql"># 选择要使用的demo数据库
-use demo;</code></pre>
-<h2 id="0x02-显示所有数据库"><a href="#0x02-显示所有数据库" class="headerlink" title="0x02 显示所有数据库"></a>0x02 显示所有数据库</h2><pre class=" language-mysql"><code class="language-mysql"># 显示DBMS中所有的数据库
-show databases;</code></pre>
-<h2 id="0x03-显示所有数据表"><a href="#0x03-显示所有数据表" class="headerlink" title="0x03 显示所有数据表"></a>0x03 显示所有数据表</h2><pre class=" language-mysql"><code class="language-mysql"># 显示当前数据库中所有数据表
+use test_db;</code></pre>
+<h2 id="查看数据库的字符集"><a href="#查看数据库的字符集" class="headerlink" title="查看数据库的字符集"></a>查看数据库的字符集</h2><pre class=" language-mysql"><code class="language-mysql"># 查看当前数据库使用的字符集
+show character set;</code></pre>
+<h2 id="查看数据库的排序和校对规则"><a href="#查看数据库的排序和校对规则" class="headerlink" title="查看数据库的排序和校对规则"></a>查看数据库的排序和校对规则</h2><pre class=" language-mysql"><code class="language-mysql"># 查看当前数据库的排序和校对规则
+show collation;</code></pre>
+<h2 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h2><pre class=" language-mysql"><code class="language-mysql"># 显示DBMS中所有的数据库
+show databases;
+
+# 显示与条件匹配的数据库
+show databases like '%_db'        -- 以_db结尾的数据库
+show databases like 'user%'        -- 以user开头的数据库
+show databases like ‘%user%'    -- 名称中包含user的数据库</code></pre>
+<h2 id="显示所有数据表"><a href="#显示所有数据表" class="headerlink" title="显示所有数据表"></a>显示所有数据表</h2><pre class=" language-mysql"><code class="language-mysql"># 显示当前数据库中所有数据表
 show tables;</code></pre>
-<h2 id="0x04-显示服务器状态信息"><a href="#0x04-显示服务器状态信息" class="headerlink" title="0x04 显示服务器状态信息"></a>0x04 显示服务器状态信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器状态信息
+<h2 id="显示服务器状态信息"><a href="#显示服务器状态信息" class="headerlink" title="显示服务器状态信息"></a>显示服务器状态信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器状态信息
 show status;</code></pre>
-<h2 id="0x05-显示服务器错误信息"><a href="#0x05-显示服务器错误信息" class="headerlink" title="0x05 显示服务器错误信息"></a>0x05 显示服务器错误信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器错误信息
+<h2 id="显示服务器错误信息"><a href="#显示服务器错误信息" class="headerlink" title="显示服务器错误信息"></a>显示服务器错误信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器错误信息
 show errors;</code></pre>
-<h2 id="0x06-显示服务器警告信息"><a href="#0x06-显示服务器警告信息" class="headerlink" title="0x06 显示服务器警告信息"></a>0x06 显示服务器警告信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器警告信息
+<h2 id="显示服务器警告信息"><a href="#显示服务器警告信息" class="headerlink" title="显示服务器警告信息"></a>显示服务器警告信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器警告信息
 show warnings;</code></pre>
-<h2 id="0x07-显示权限信息"><a href="#0x07-显示权限信息" class="headerlink" title="0x07 显示权限信息"></a>0x07 显示权限信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器的权限
+<h2 id="显示权限信息"><a href="#显示权限信息" class="headerlink" title="显示权限信息"></a>显示权限信息</h2><pre class=" language-mysql"><code class="language-mysql"># 显示服务器的权限
 show grants;</code></pre>
-<h2 id="0x08-显示创建指定数据库的MySQL语句"><a href="#0x08-显示创建指定数据库的MySQL语句" class="headerlink" title="0x08 显示创建指定数据库的MySQL语句"></a>0x08 显示创建指定数据库的MySQL语句</h2><pre class=" language-mysql"><code class="language-mysql"># 显示创建dmeo数据库的MySQL语句
-show create database demo;</code></pre>
-<h1 id="与数据表相关的操作"><a href="#与数据表相关的操作" class="headerlink" title="与数据表相关的操作"></a>与数据表相关的操作</h1><h2 id="0x01-显示数据表结构"><a href="#0x01-显示数据表结构" class="headerlink" title="0x01 显示数据表结构"></a>0x01 显示数据表结构</h2><pre class=" language-mysql"><code class="language-mysql"># 显示userinfo数据表结构
-desc userinfo;
-
-# 显示userinfo数据表所有列
-show columns from userinfo;
-
-# 输出
-# | Field | Type | Null | Key | Default | Extra |</code></pre>
-<h2 id="0x02-创建数据表"><a href="#0x02-创建数据表" class="headerlink" title="0x02 创建数据表"></a>0x02 创建数据表</h2><pre class=" language-mysql"><code class="language-mysql"># 创建功能较齐全的数据表
+<h2 id="显示创建指定数据库的MySQL语句"><a href="#显示创建指定数据库的MySQL语句" class="headerlink" title="显示创建指定数据库的MySQL语句"></a>显示创建指定数据库的MySQL语句</h2><pre class=" language-mysql"><code class="language-mysql"># 显示创建dmeo数据库的MySQL语句
+show create database test_db;</code></pre>
+<h1 id="与数据表相关的操作"><a href="#与数据表相关的操作" class="headerlink" title="与数据表相关的操作"></a>与数据表相关的操作</h1><h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><pre class=" language-mysql"><code class="language-mysql"># 创建功能较齐全的数据表
 create table userinfo(
 id int(5) zerofill unsigned not null primary key auto_increment,
 username varchar(8) not null unique,
@@ -521,10 +551,124 @@ gender enum('m','w') not null default 'w');
 # primary keyL主建
 # auto_increment:自增长
 # unique:唯一键
-# default:默认值</code></pre>
-<h2 id="0x02-显示创建指定数据表的MySQL语句"><a href="#0x02-显示创建指定数据表的MySQL语句" class="headerlink" title="0x02 显示创建指定数据表的MySQL语句"></a>0x02 显示创建指定数据表的MySQL语句</h2><pre class=" language-mysql"><code class="language-mysql"># 显示创建userinfo数据表的MySQL语句
+# default:默认值
+
+-- 不设置表的字符集时，创建的表默认继承数据库的字符集</code></pre>
+<h2 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h2><pre class=" language-mysql"><code class="language-mysql"># 修改表名
+ALTER TABLE userinfo RENAME TO user_info;
+-- 语法规则
+ALTER TABLE <旧表名> RENAME [TO] <新表名>;
+
+# 修改表字符集
+ALTER TABLE userinfo DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_general_ci;
+-- 语法规则
+ALTER TABLE 表名 [DEFAULT] CHARACTER SET <字符集名> [DEFAULT] COLLATE <校对规则名>;
+
+# 添加字段
+# 在末尾添加字段
+ALTER TABLE userinfo ADD age INT NULL;
+-- 语法规则
+ALTER TABLE <表名> ADD <新字段名><数据类型>[约束条件];
+
+# 在开头添加字段
+ALTER TABLE userinfo ADD age INT NULL FIRST;
+-- 语法规则
+ALTER TABLE <表名> ADD <新字段名> <数据类型> [约束条件] FIRST;
+
+# 在中间添加字段
+ALTER TABLE userinfo ADD age INT NULL AFTER username;
+-- 语法规则
+ALTER TABLE <表名> ADD <新字段名> <数据类型> [约束条件] AFTER <已经存在的字段名>;
+
+# 修改字段名称及数据类型
+ALTER TABLE userinfo CHANGE PASSWORD passwd VARCHAR ( 16 );
+-- 语法规则
+ALTER TABLE <表名> CHANGE <旧字段名> <新字段名> <新数据类型>；
+
+# 修改列数据
+ALTER TABLE userinfo MODIFY passwd VARCHAR ( 8 );
+-- 语法规则
+ALTER TABLE <表名> MODIFY <字段名> <数据类型>
+
+# 删除字段
+ALTER TABLE userinfo DROP ( passwd );
+-- 语法规则
+ALTER TABLE <表名> DROP <字段名>；
+
+
+</code></pre>
+<h2 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h2><pre class=" language-mysql"><code class="language-mysql"># 删除指定数据表
+drop table user_info;
+-- 语法规则
+DROP TABLE [IF EXISTS] 表名1 [ ,表名2, 表名3 ...]</code></pre>
+<h2 id="显示数据表结构"><a href="#显示数据表结构" class="headerlink" title="显示数据表结构"></a>显示数据表结构</h2><pre class=" language-mysql"><code class="language-mysql"># 显示userinfo数据表结构
+desc userinfo;
+
+# 显示userinfo数据表所有列
+show columns from userinfo;
+
+# 输出
+# | Field | Type | Null | Key | Default | Extra |</code></pre>
+<h2 id="显示创建指定数据表的MySQL语句"><a href="#显示创建指定数据表的MySQL语句" class="headerlink" title="显示创建指定数据表的MySQL语句"></a>显示创建指定数据表的MySQL语句</h2><pre class=" language-mysql"><code class="language-mysql"># 显示创建userinfo数据表的MySQL语句
 show create table userinfo;</code></pre>
-<h2 id="0x03-基本查询"><a href="#0x03-基本查询" class="headerlink" title="0x03 基本查询"></a>0x03 基本查询</h2><pre class=" language-mysql"><code class="language-mysql"># 检索单个列
+<h1 id="CURD"><a href="#CURD" class="headerlink" title="CURD"></a>CURD</h1><h2 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h2><p>向userinfo数据库中添加数据。</p>
+<pre class=" language-mysql"><code class="language-mysql"># 标准添加数据的方式
+INSERT INTO userinfo ( username, PASSWORD, gender )
+VALUES
+    ( 'admin', '123456', 'w' );
+-- 不需要指定主键，因为主建设置了自增长
+
+# 缺省值添加
+INSERT INTO userinfo
+VALUES
+    (2, 'user', '123456', 'w' );
+-- 使用缺省方式时即使主建设置了自增长，但在添加数据时也必须设置主键值
+
+# 一次性添加多行数据
+INSERT INTO userinfo ( username, PASSWORD, gender )
+VALUES
+    ( 'Alice', '123456', 'w' ),
+    ( 'Bob', '123456', 'm' ),
+    ( 'root', '123456', 'w' ),
+    ( 'usr', '123456', 'w' ),
+    ( 'client', '123456', 'w' );
+
+# 使用select into ... from一次性添加多行数据（复制查询结果到另一张表中）
+INSERT INTO user_info ( id, username, password, gender ) SELECT
+* 
+FROM
+    userinfo;</code></pre>
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><pre class=" language-mysql"><code class="language-mysql">-- 语法规则
+UPDATE <表名> SET 字段 1=值 1 [,字段 2=值 2… ] [WHERE 子句 ]
+[ORDER BY 子句] [LIMIT 子句]
+
+# 修改一个字段值
+UPDATE userinfo 
+SET username = 'test' 
+WHERE
+    username = 'root';
+
+# 修改多个字段值
+UPDATE userinfo 
+SET username = 'test',
+passwd = 'test';
+WHERE
+    username = 'root';
+
+# 综合条件限定修改的字段值
+UPDATE user_info 
+SET username = 'test',
+PASSWORD = 'test' 
+WHERE
+    gender = 'w' 
+ORDER BY
+    id 
+    LIMIT 2
+-- limit 用于限定被修改的行数
+
+-- 注意
+1. 更新表中的字段值时一定要加上限制条件(where limit)</code></pre>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h3><pre class=" language-mysql"><code class="language-mysql"># 检索单个列
 # 显示userinfo表中username项的所有信息
 select username from userinfo;
 
@@ -539,21 +683,61 @@ select * from userinfo;
 # 所有完全限定的表名
 select userinfo.username from userinfo;
 # 单表查询时可省略，多表查询时有奇效</code></pre>
-<h2 id="0x04-检索数据唯一性"><a href="#0x04-检索数据唯一性" class="headerlink" title="0x04 检索数据唯一性"></a>0x04 检索数据唯一性</h2><pre class=" language-mysql"><code class="language-mysql"># 检索不同的行
+<h3 id="条件查询数据"><a href="#条件查询数据" class="headerlink" title="条件查询数据"></a>条件查询数据</h3><pre class=" language-mysql"><code class="language-mysql"># 单一条件查询
+select * from userinfo where gender = 'w';
+
+# 多条件查询
+# 逻辑与(and &&)
+select * from userinfo where gender = 'w' and username = 'Bob';
+select * from userinfo where gender = 'w' && username = 'Bob';
+# 逻辑或(or ||)
+select * from userinfo where gender = 'w' or username = 'Bob';
+select * from userinfo where gender = 'w' || username = 'Bob';
+# 逻辑异或
+select * from userinfo where gender = 'w' xor username = 'Bob';</code></pre>
+<h3 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h3><pre class=" language-mysql"><code class="language-mysql"># 精确查询
+select * from userinfo where username like 'oo';
+
+# 多字符通配符
+# 前缀查询
+select * from userinfo where username like 'r%';
+
+# 后缀查询
+select * from userinfo where username like '%t';
+
+# 关键字查询
+select * from userinfo where username like '%oo%';
+
+# 单字符通配符
+# 以r开头共四个字符
+select * from userinfo where username like 'r___';
+
+# 以t结尾共四个字符
+select * from userinfo where username like '___t';
+
+# 中间为oo共四个字符
+select * from userinfo where username like '_oo_';
+
+# 区分大小写进行模糊查询
+select * from userinfo where username like binary 'r%';
+
+# 匹配以%号结尾的用户名
+select * from userinfo where username like '%\%';</code></pre>
+<h3 id="检索数据唯一性（去重）"><a href="#检索数据唯一性（去重）" class="headerlink" title="检索数据唯一性（去重）"></a>检索数据唯一性（去重）</h3><pre class=" language-mysql"><code class="language-mysql"># 检索不同的行
 # 显示的结果中不存在重复行
 select distinct username,passwd from userinfo; 
 # distinct应用于所有列</code></pre>
-<h2 id="0x05-限制数据行数"><a href="#0x05-限制数据行数" class="headerlink" title="0x05 限制数据行数"></a>0x05 限制数据行数</h2><pre class=" language-mysql"><code class="language-mysql"># 显示结果显示的行数
+<h3 id="限制数据行数"><a href="#限制数据行数" class="headerlink" title="限制数据行数"></a>限制数据行数</h3><pre class=" language-mysql"><code class="language-mysql"># 显示结果显示的行数
 # 显示查询中0行开始的5行数据
 select username from userinfo limit 0,5;
 # limit m,n  =  limit n offset m(5.0开始)
-#  第一个参数为开始位置，（必须指定）
-#  第二个参数为要检索的行数（若不指定则表示开始位置之后的所有）</code></pre>
-<h2 id="0x06-排序数据"><a href="#0x06-排序数据" class="headerlink" title="0x06 排序数据"></a>0x06 排序数据</h2><pre class=" language-mysql"><code class="language-mysql"># 单列排序检索数据
+#  第一个参数为开始位置（可以不指定，若不指定则从头开始）
+#  第二个参数为要检索的行数（必须指定）</code></pre>
+<h3 id="排序数据"><a href="#排序数据" class="headerlink" title="排序数据"></a>排序数据</h3><pre class=" language-mysql"><code class="language-mysql"># 单字段排序检索数据
 # 显示username和passwd并按username中字母顺序排序数据
 select username,passwd from userinfo order by username;
 
-# 多列排序检索数据
+# 多多字段排序检索数据
 # 首先按id排序,然后再按username排序
 select id,username,passwd from userinfo order by id,username;
 
@@ -568,10 +752,11 @@ select prod_id,prod_price,prod_name
 from products
 order by prod_price desc,prod_name
 limit 0,20;</code></pre>
-<h2 id="0x07-过滤数据"><a href="#0x07-过滤数据" class="headerlink" title="0x07 过滤数据"></a>0x07 过滤数据</h2><pre class=" language-mysql"><code class="language-mysql"># 检查单个值
+<h3 id="过滤数据"><a href="#过滤数据" class="headerlink" title="过滤数据"></a>过滤数据</h3><pre class=" language-mysql"><code class="language-mysql"># 检查单个值
 select prod_name,prod_price 
 from products
 where prod_name = 'fuses';
+
 select prod_name,prod_price 
 from products
 where prod_price between 5 and 10;
@@ -597,6 +782,7 @@ where prod_name = 'juese' and prod_price > '5';
 # 逻辑符号：
 # and:逻辑与
 # or :逻辑或
+# xor:逻辑异或
 
 # 空值检查
 select prod_name
@@ -717,6 +903,149 @@ where prod_name regexp '[a-z]uese';</code></pre>
 <td>词的结束</td>
 </tr>
 </tbody></table>
+<h3 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h3><pre class=" language-mysql"><code class="language-mysql"># 单个字段进行分组
+-- 男女各有多少人
+select gender,count(gender) 个数 from userinfo group by gender;
+-- 聚合函数
+- count()    :计次
+- sum()        :求和
+- avg()        :求平均值
+- max()        :求最大值
+- min()        :求最小值
+
+# 多个字段进行分组
+-- 各班级中男女各有多少人
+select classis,gender,count(gender) from userinfo group by classid,gender;
+
+# 男女生各有那些人
+select gender,group_concat(username) from userinfo group by gender; 
+
+# 统计记录数量
+select gender,group_concat(username) from userinfo group by gender with rollup;
+-- 输出
++--------+--------------------------------------+
+| gender | group_concat(username)               |
++--------+--------------------------------------+
+| m      | Bob                                  |
+| w      | admin,user,Alice,root,usr,client     |
+| NULL   | Bob,admin,user,Alice,root,usr,client |
++--------+--------------------------------------+</code></pre>
+<h3 id="分组过滤"><a href="#分组过滤" class="headerlink" title="分组过滤"></a>分组过滤</h3><pre class=" language-mysql"><code class="language-mysql"># 先分组再过滤
+select classid,group_concat(name) from userinfo group by classid having avg(height) > 160;</code></pre>
+<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><pre class=" language-mysql"><code class="language-mysql"># 笛卡尔积连接
+-- 语法规则
+SELECT <字段名> FROM <表1> CROSS JOIN <表2> [WHERE子句]
+SELECT <字段名> FROM <表1>, <表2> [WHERE子句] 
+
+-- 全部做笛卡尔积操作
+SELECT * FROM tb_course CROSS JOIN tb_students_info;
+-- 筛选满足条件的笛卡尔积（先做笛卡尔积再筛选）
+SELECT * FROM tb_course CROSS JOIN tb_students_info WHERE tb_students_info.course_id = tb_course.id;
+
+# 内敛查询
+-- 语法规则
+SELECT <字段名> FROM <表1> INNER JOIN <表2> [ON子句]
+- 字段名：需要查询的字段名称。
+- <表1><表2>：需要内连接的表名。
+- INNER JOIN ：内连接中可以省略 INNER 关键字，只用关键字 JOIN。
+- ON 子句：用来设置内连接的连接条件。
+
+-- 直接内联
+SELECT s.name,c.course_name FROM tb_students_info s INNER JOIN tb_course c ON s.course_id = c.id;
+-- 过滤内联
+SELECT
+    s.name,
+    c.course_name 
+FROM
+    tb_students_info s
+    INNER JOIN tb_course c ON s.course_id = c.id 
+    AND classid = 'php217';
+
+# 外联查询
+-- 左连接（左表全部显示
+SELECT <字段名> FROM <表1> LEFT OUTER JOIN <表2> <ON子句>
+- 字段名：需要查询的字段名称。
+- <表1><表2>：需要左连接的表名。
+- LEFT OUTER JOIN：左连接中可以省略 OUTER 关键字，只使用关键字 LEFT JOIN。
+- ON 子句：用来设置左连接的连接条件，不能省略。
+-- 右连接（右表全部显示
+SELECT <字段名> FROM <表1> RIGHT OUTER JOIN <表2> <ON子句>
+- 字段名：需要查询的字段名称。
+- <表1><表2>：需要右连接的表名。
+- RIGHT OUTER JOIN：右连接中可以省略 OUTER 关键字，只使用关键字 RIGHT JOIN。
+- ON 子句：用来设置右连接的连接条件，不能省略。</code></pre>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><pre class=" language-mysql"><code class="language-mysql"># 将查询结果作为另一个查询的条件
+SELECT name FROM tb_students_info WHERE course_id NOT IN (SELECT id FROM tb_course WHERE course_name = 'Java');
+
+# 子查询有多行结果
+select ename,sal,deptno from emp where sal > all (select sal from emp where deptno = 30);
+-- 输出
++-------+---------+--------+
+| ename | sal     | deptno |
++-------+---------+--------+
+| JONES | 2975.00 |     20 |
+| SCOTT | 3000.00 |     20 |
+| KING  | 5000.00 |     10 |
+| FORD  | 3000.00 |     20 |
++-------+---------+--------+
+
+select ename,sal,deptno from emp where sal > any (select sal from emp where deptno = 30);
+-- 输出
++--------+---------+--------+
+| ename  | sal     | deptno |
++--------+---------+--------+
+| ALLEN  | 1600.00 |     30 |
+| WARD   | 1250.00 |     30 |
+| JONES  | 2975.00 |     20 |
+| MARTIN | 1250.00 |     30 |
+| BLAKE  | 2850.00 |     30 |
+| CLARK  | 2450.00 |     10 |
+| SCOTT  | 3000.00 |     20 |
+| KING   | 5000.00 |     10 |
+| TURNER | 1500.00 |     30 |
+| FORD   | 3000.00 |     20 |
+| MILLER | 1300.00 |     10 |
++--------+---------+--------+</code></pre>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><pre class=" language-mysql"><code class="language-mysql"># 删除单个表中的数据
+DELETE 
+FROM
+    userinfo 
+WHERE
+    gender = 'w' 
+ORDER BY
+    id 
+    LIMIT 2
+-- 语法规则
+DELETE FROM <表名> [WHERE 子句] [ORDER BY 子句] [LIMIT 子句]
+
+# 删除表中的全部数据（多条日志，不会重置参数）
+delete from userinfo;
+
+# 清空数据表(一条日志，会重置默认参数)
+truncate userinfo;
+
+#  根据条件删除表中指定数据
+delete from userinfo where username = 'test';
+</code></pre>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="小数的精度问题"><a href="#小数的精度问题" class="headerlink" title="小数的精度问题"></a>小数的精度问题</h2><pre class=" language-mysql"><code class="language-mysql">-- 创建测试数据库
+create table demo (
+num1 float(20,18),    -- 7位
+num2 double(20,18),    -- 16位
+num3 decimal(20,18)    -- 30位
+);
+
+-- 添加测试数据
+insert into demo values(0.1234567890123456789,0.1234567890123456789,0.1234567890123456789);
+
+-- 查看测试结果
+select * from demo;
+
+-- 输出
++----------------------+----------------------+----------------------+
+| num1                 | num2                 | num3                 |
++----------------------+----------------------+----------------------+
+| 0.123456791043281560 | 0.123456789012345680 | 0.123456789012345679 |
++----------------------+----------------------+----------------------+</code></pre>
 
                 
             </div>

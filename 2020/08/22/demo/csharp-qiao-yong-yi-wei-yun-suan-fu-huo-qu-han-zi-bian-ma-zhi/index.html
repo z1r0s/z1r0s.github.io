@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="DHCP服务, z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="CSharp巧用移位运算符获取汉字编码值, z1r0s 安全 Web安全 学习总结">
     <meta name="description" content="计算机 | 程序语言 | 网络安全 | 红蓝对抗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DHCP服务 | z1r0s&#39;blogs</title>
+    <title>CSharp巧用移位运算符获取汉字编码值 | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/221.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DHCP服务</h1>
+                    <h1 class="description center-align post-title">CSharp巧用移位运算符获取汉字编码值</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/网络服务/">
-                                <span class="chip bg-color">网络服务</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C#</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/网络技术/" class="post-category">
-                                网络技术
+                            <a href="/categories/程序设计/" class="post-category">
+                                程序设计
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-09
+                    2020-08-22
                 </div>
                 
 
@@ -477,155 +477,124 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="DHCP的概述"><a href="#DHCP的概述" class="headerlink" title="DHCP的概述"></a>DHCP的概述</h1><p>​        DHCP（<code>Dynamic Host Configuration Protocol</code>，动态主机配置协议）是由IETF（Internet工作任务小组）设计开发的，专门用于为TCP/IP网络中的计算机自动分配TCP/IP参数的协议。为网络中计算机自动分配TCP/IP参数的协议。</p>
-<p>​        DHCP提供的TCP/IP配置：</p>
+                <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="移位运算符"><a href="#移位运算符" class="headerlink" title="移位运算符"></a>移位运算符</h2><ul>
+<li><p>移位运算符在程序设计中，是<strong>位操作运算符</strong>的一种</p>
+</li>
+<li><p>移位运算符分为<strong>左移位运算符</strong>“&lt;&lt;”和<strong>右移位运算符</strong>“&gt;&gt;”，形如：<strong>X &lt;&lt; N</strong> 或 <strong>X &gt;&gt; N</strong></p>
+</li>
+<li><p>在C#中<strong>X</strong>可以是：int、uint、long、ulong、byte、sbyte、short、ushort，其中<strong>byte、sbyte、short、ushort</strong>类型的值在进行移位操作后的类型将<strong>自动转换成int类型</strong></p>
+</li>
+<li><p>其他类型数据的移位运算其本质还是对<strong>二进制的移位运算</strong></p>
+</li>
+<li><p><span style="color:red">二进制每次向左移1位就相当于乘以2，每次向右移1位就相当于除以2</span></p>
+</li>
+<li><p>举例如下：</p>
+<blockquote>
+<p>问题：</p>
 <ul>
-<li>IP地址</li>
-<li>子网掩码</li>
-<li>网关</li>
-<li>DNS</li>
+<li>3(O) &lt;&lt; 2</li>
 </ul>
-<h1 id="DHCP的优点"><a href="#DHCP的优点" class="headerlink" title="DHCP的优点"></a>DHCP的优点</h1><ol>
-<li>减少管理员的工作量</li>
-<li>避免输入错误的可能</li>
-<li>避免IP冲突</li>
-<li>提高了IP地址的利用率</li>
-<li>方便客户端的配置</li>
-</ol>
-<h1 id="DHCP工作原理"><a href="#DHCP工作原理" class="headerlink" title="DHCP工作原理"></a>DHCP工作原理</h1><h2 id="DHCP的分配方式"><a href="#DHCP的分配方式" class="headerlink" title="DHCP的分配方式"></a>DHCP的分配方式</h2><ol>
-<li>自动分配<br>分配到一个IP地址后永久使用</li>
-<li>手动分配<br>由DHCP服务器管理员专门指定IP地址</li>
-<li>动态分配<br>使用完后释放该IP，供其它客户机使用</li>
-</ol>
-<h2 id="DHCP租约过程-四个阶段"><a href="#DHCP租约过程-四个阶段" class="headerlink" title="DHCP租约过程(四个阶段)"></a>DHCP租约过程(四个阶段)</h2><p>​        DHCP用的端号是<code>UDP67</code>和<code>UDP68</code>，这两个端口是正常的DHCP服务端口，你可以理解为一个发送，一个接收。客户端从68端口（bootps）广播请求配置，服务器从67端口（bootpc）广播回应请求。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/DHCP租约过程.png" alt="DHCP租约过程"></center>
-
+<p>计算过程：</p>
 <ol>
-<li><p>发现阶段，即DHCP客户端寻找DHCP服务器的阶段</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/发现阶段.png" alt="发现阶段"></center>
-
-<p>在发现阶段， DHCP 客户端通过发送 <code>DHCP DISCOVER</code> 报文来寻找 DHCP 服务器。由于 DHCP 服务器的 IP 地址对于客户端来说是未知的，所以 DHCP 客户端以<strong>广播方式</strong>发送<code>DHCP DISCOVER</code>报文。所有收到<code>DHCP DISCOVER</code>报文的 DHCP 服务器都会发送回应报文， DHCP 客户端据此可以知道网络中存在的 DHCP 服务器的位置。</p>
+<li>3(O)转换为二进制为:<strong>0011</strong></li>
+<li>二进制数值各个位整体左移两位（<span style="color:red">左端溢出丢弃，右端补”0”</span>）后得到：<strong>1100</strong></li>
+<li>再将移位后的二进制数值转换为十进制数值为：12(O)</li>
+<li>也即：<span style="color:red">3 &lt;&lt; 2 = 12</span></li>
+</ol>
+</blockquote>
 </li>
-<li><p>提供阶段，即 DHCP 服务器提供 IP 地址的阶段</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/提供阶段.png" alt="提供阶段"></center>
-
-<p>网络中接收到<code>DHCP DISCOVER</code>报文的 DHCP 服务器，会从地址池选择一个合适的<strong>IP 地址</strong>，连同 <strong>IP 地址租约期限和其他配置信息（如网关地址、域名服务器地址等）</strong>通过<code>DHCP OFFER</code>报文发送给 DHCP 客户端。</p>
-</li>
-<li><p>选择阶段，即 DHCP 客户端选择 IP 地址的阶段</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/选择阶段.png" alt="选择阶段"></center>
-
-<p>如果有多台 DHCP 服务器向 DHCP 客户端回应 DHCP OFFER 报文，则 DHCP 客户端只接受第一个收到的 DHCP OFFER 报文。然后以广播方式发送 DHCP REQUEST 请求报文，该报文中包含 Option54（服务器标识选项），即它选择的 DHCP 服务器的IP 地址信息。</p>
-<p>以广播方式发送 DHCP REQUEST 请求报文，是为了通知所有的 DHCP 服务器，它将选择 Option54 中标识的 DHCP 服务器提供的 IP 地址，其他 DHCP 服务器可以重新使用曾提供的 IP 地址</p>
-</li>
-<li><p>确认阶段，即 DHCP 服务器确认所提供 IP 地址的阶段。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/确认阶段.png" alt="确认阶段"></center>
-
+</ul>
+<h2 id="汉字编码"><a href="#汉字编码" class="headerlink" title="汉字编码"></a>汉字编码</h2><p>​        汉字编码(Chinese character encoding)是为汉字设计的一种便于输入计算机的代码。</p>
+<h3 id="编码分类"><a href="#编码分类" class="headerlink" title="编码分类"></a>编码分类</h3><p>​        计算机中汉字的表示也是用二进制，根据<strong>应用目的</strong>的不同，汉字编码分为<strong>外码</strong>、<strong>交换码</strong>、<strong>机内码</strong>和<strong>字形码</strong>。</p>
+<h4 id="外码-输入码"><a href="#外码-输入码" class="headerlink" title="外码(输入码)"></a>外码(输入码)</h4><p>​        外码也叫输入码，是用来将汉字输入到计算机中的一组键盘符号。常用的输入码有拼音码、五笔字型码、区位码、电报码等</p>
+<p><strong>特点</strong>：</p>
 <ul>
-<li><p>当 DHCP 服务器收到 DHCP 客户端回答的 DHCP REQUEST 报文后， DHCP 服务器会根据 DHCP REQUEST 报文中携带的 MAC 地址来查找有没有相应的租约记录。如果有，则向客户端发送包含它所提供的 IP 地址和其它设置的 DHCP ACK 确认报文。</p>
-</li>
-<li><p>DHCP 客户端收到该确认报文后，会以广播的方式发送免费 ARP 报文，探测是否有主机使用服务器分配的 IP 地址，如果在规定的时间内没有收到回应，客户端才使用此地址。</p>
-</li>
-<li><p>如果 DHCP 服务器收到 DHCP REQUEST 报文后，没有找到相应的租约记录，或者由于某些原因无法正常分配 IP 地址，则发送 DHCP NAK 报文作为应答，通知 DHCP客户端无法分配合适 IP 地址。DHCP 客户端需要重新发送 DHCP DISCOVER 报文来申请新的 IP 地址。</p>
-</li>
-<li><p>DHCP Client 获得 IP 地址后，上线之前会检测正在使用的网关的状态，如果网关地址错误或网关设备故障， DHCP 客户端将重新使用四步交互方式请求新的 IP 地址</p>
-</li>
+<li>编码规则简单</li>
+<li>易学好记</li>
+<li>操作方便</li>
+<li>重码率低</li>
+<li>输入速度快</li>
 </ul>
-</li>
-</ol>
-<h2 id="客户端重启"><a href="#客户端重启" class="headerlink" title="客户端重启"></a>客户端重启</h2><ol>
-<li>发送带有IP地址的DHCP Request请求包</li>
-<li>IP地址没有分配使用，发送DHCP ACK确认信息<ul>
-<li>客户端继续使用重启前的IP地址</li>
+<h4 id="交换码-国际码"><a href="#交换码-国际码" class="headerlink" title="交换码(国际码)"></a>交换码(国际码)</h4><p>​        计算机内部处理的信息都是<strong>二进制代码</strong>表示的，汉字也不例外。而二进制代码使用起来很不方便，于是需要采用<strong>信息交换码</strong>。GB2312即为国际码。</p>
+<ul>
+<li><strong>GB2312编码</strong>：1981年5月1日发布的简体中文汉字编码国家标准。GB2312对汉字采用双字节编码，收录7445个图形字符，其中包括6763个汉字。</li>
+<li><strong>BIG5编码</strong>：台湾地区繁体中文标准字符集，采用双字节编码，共收录13053个中文字，1984年实施。</li>
+<li><strong>GBK编码</strong>：1995年12月发布的汉字编码国家标准，是对GB2312编码的扩充，对汉字采用双字节编码。GBK字符集共收录21003个汉字，包含国家标准GB13000-1中的全部中日韩汉字，和BIG5编码中的所有汉字。</li>
+<li><strong>GB18030编码</strong>：2000年3月17日发布的汉字编码国家标准，是对GBK编码的扩充，覆盖中文、日文、朝鲜语和中国少数民族文字，其中收录27484个汉字。GB18030字符集采用单字节、双字节和四字节三种方式对字符编码。兼容GBK和GB2312字符集。</li>
+<li><strong>Unicode编码</strong>：国际标准字符集，它将世界各种语言的每个字符定义一个唯一的编码，以满足跨语言、跨平台的文本信息转换。</li>
 </ul>
-</li>
-<li>IP地址分配到其他客户机使用<ul>
-<li>发送DHCP Nak否认信息    </li>
-<li>客户机重新发送DHCP Discover</li>
+<h4 id="机内码"><a href="#机内码" class="headerlink" title="机内码"></a>机内码</h4><p>​        根据国际码的规定，每个汉字都有确定的<strong>二进制代码</strong>，在微机内部汉字代码都用机内码，在键盘上记录汉字代码也使用机内码。</p>
+<h4 id="字形码"><a href="#字形码" class="headerlink" title="字形码"></a>字形码</h4><p>​        字形码是汉字的<strong>输出码</strong>，输出汉字时都采用<strong>图形方式</strong>，无论汉字的笔画多少，每个汉字都可以卸载同样大小的<strong>方块</strong>中。通常用16×16点阵来显示汉字。</p>
+<h4 id="地址码"><a href="#地址码" class="headerlink" title="地址码"></a>地址码</h4><p>​        汉字地址码是指汉字库中存<strong>储汉字字形信息的逻辑地址码</strong>。它与汉字机内码有着简单的对应关系，以简单内码到地址码的转换。</p>
+<h3 id="汉字编码之间的关系"><a href="#汉字编码之间的关系" class="headerlink" title="汉字编码之间的关系"></a>汉字编码之间的关系</h3><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/汉字编码之间的关系.png" alt="汉字编码之间的关系"></center>
+
+<h1 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h1><p><strong>编程环境</strong>：</p>
+<ul>
+<li>VS2017</li>
+<li>.Net Framework 4.5</li>
 </ul>
-</li>
-</ol>
-<h2 id="更新租约"><a href="#更新租约" class="headerlink" title="更新租约"></a>更新租约</h2><table>
-<thead>
-<tr>
-<th>定时器</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>租期更新</td>
-<td>总租期的50%</td>
-</tr>
-<tr>
-<td>重绑定</td>
-<td>总租期的87.5%</td>
-</tr>
-<tr>
-<td>到达租期</td>
-<td>总租期</td>
-</tr>
-</tbody></table>
-<p>DHCP 客户端更新租约，主要通过以下几个步骤与 DHCP 服务器建立联系</p>
-<ol>
-<li>IP 租约期限达到 50%（T1）时， DHCP 客户端会自动以单播的方式，向 DHCP 服务器发送 DHCP REQUEST 报文，请求更新 IP 地址租约。如果收到 DHCP ACK 报文，则租约更新成功；如果收到 DHCP NAK 报文，则重新发起申请过程。</li>
-<li>IP 租约期限达到 87.5%（T2）时，如果仍未收到 DHCP 服务器的应答， DHCP 客户端会自动向 DHCP 服务器发送更新其 IP 租约的广播报文。如果收到 DHCP ACK 报文，则租约更新成功；如果收到 DHCP NAK 报文，则重新发起申请过程</li>
-<li>如果 IP 租约到期前都没有收到服务器响应，客户端停止使用此 IP 地址，重新发送DHCP DISCOVER 报文请求新的 IP 地址。</li>
-<li>如果服务器依然没有回应，计算机会自动配置169.254.x.x</li>
-</ol>
-<h1 id="配置DHCP服务器"><a href="#配置DHCP服务器" class="headerlink" title="配置DHCP服务器"></a>配置DHCP服务器</h1><h2 id="安装DHCP的规划"><a href="#安装DHCP的规划" class="headerlink" title="安装DHCP的规划"></a>安装DHCP的规划</h2><ol>
-<li>服务器规划一个静态IP地址</li>
-<li>确定DHCP服务器分发给客户机的IP地址范围</li>
-<li>为客户机确定正确的子网掩码</li>
-<li>确定DHCP服务器不向客户机分发的IP地址</li>
-<li>决定IP地址的租用期限（建议时间不要太长，因为通常不能获取ip，除了dhcp服务器出问题外，就是ip不够用了，也就是没有及时释放原来的ip地址。）</li>
-</ol>
-<p><font color="blue">更加详细的DHCP配置前参考<a href="https://z1r0s.github.io/2020/11/09/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/">使用WindowsServer搭建DHCP服务器</a></font></p>
-<h2 id="授权DHCP"><a href="#授权DHCP" class="headerlink" title="授权DHCP"></a>授权DHCP</h2><p>授权是一种安全预防措施</p>
-<ol>
-<li>安装过程为DHCP服务器授权</li>
-<li>使用DHCP控制台为服务器授权</li>
-<li>为DHCP服务器授权需要有<strong>企业管理员权限</strong></li>
-</ol>
-<h2 id="管理作用域"><a href="#管理作用域" class="headerlink" title="管理作用域"></a>管理作用域</h2><ol>
-<li>DHCP作用域是一段IP地址范围</li>
-<li>作用域属性:<ul>
-<li>IP地址范围</li>
-<li>子网掩码，用来确定给定IP地址的子网</li>
-<li>作用域名称，在创建作用域时指定该名称</li>
-<li>租用期限值</li>
-<li>保留IP地址，确保客户机始终获取相同IP地址</li>
+<p><strong>运行环境</strong>：</p>
+<ul>
+<li>Win10</li>
 </ul>
-</li>
-</ol>
-<h1 id="配置DHCP客户端"><a href="#配置DHCP客户端" class="headerlink" title="配置DHCP客户端"></a>配置DHCP客户端</h1><ol>
-<li>将客户端的网卡信息改为自动获取（虚拟机确保关闭虚拟网卡的DHCP）</li>
-<li>查看dhcp的信息（ipconfig 详细信息：<code>ipconfig /all</code>）</li>
-<li>释放IP<br><code>ipconfig /release  (windows系统)</code></li>
-<li>重新获取<br><code>ipconfig /renew (windows系统)</code></li>
-</ol>
-<h1 id="维护DHCP服务"><a href="#维护DHCP服务" class="headerlink" title="维护DHCP服务"></a>维护DHCP服务</h1><h2 id="备份DHCP数据库"><a href="#备份DHCP数据库" class="headerlink" title="备份DHCP数据库"></a>备份DHCP数据库</h2><ol>
-<li><p>服务器管理器 → 角色 → DHCP服务器 → win-h69v7ls7q7d → 右键选择【备份…】选项，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/备份DHCP服务配置.png" alt="备份DHCP服务配置"></center>
-</li>
-<li><p>备份位置如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/备份位置.png" alt="备份位置"></center>
+<h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><p><strong>界面设计</strong>:</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/界面.png" alt="界面"></center>
 
+<p><strong>代码设计</strong>:</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Text<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 
+<span class="token keyword">namespace</span> GetCode
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Form1</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token function">Form1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-</li>
-</ol>
-<h2 id="还原DHCP数据库"><a href="#还原DHCP数据库" class="headerlink" title="还原DHCP数据库"></a>还原DHCP数据库</h2><ol>
-<li><p>服务器管理器 → 角色 → DHCP服务器 → win-h69v7ls7q7d → 右键选择【还原…】选项，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/还原配置.png" alt="还原配置"></center>
-</li>
-<li><p>DHCP服务器配置还原结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/还原结果.png" alt="还原结果"></center>
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btn_Get_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">try</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//获得一个汉字字符</span>
+                <span class="token keyword">char</span> ch <span class="token operator">=</span> txt_ch<span class="token punctuation">.</span>Text<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//使用gb2312编码方式获得字节序列</span>
+                <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> gb2312_bt <span class="token operator">=</span> Encoding<span class="token punctuation">.</span><span class="token function">GetEncoding</span><span class="token punctuation">(</span><span class="token string">"gb2312"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">GetBytes</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span> ch <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//将字节序列的第一个字节向左移8位</span>
+                <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>gb2312_bt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">8</span><span class="token punctuation">;</span>
 
+                <span class="token comment" spellcheck="true">//第一个字节移8位后与第二个字节相加得到汉字编码</span>
+                n <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>gb2312_bt<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//显示汉字编码(十六进制)</span>
+                txt_Num<span class="token punctuation">.</span>Text <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//异常提示信息</span>
+                MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token string">"请输入汉字字符！"</span><span class="token punctuation">,</span> <span class="token string">"出现错误！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/结果.png" alt="结果"></center>
 
-
-
-
-</li>
-</ol>
+<h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><ul>
+<li>char ch = txt_ch.Text[0];<font color="blue">//ch变量存储“位”的Unicode编码</font>&gt;</li>
+<li>byte[] gb2312_bt = Encoding.GetEncoding(“gb2312”).GetBytes(new Char[] { ch });<font color="blue">//gb2312_bt变量数组中存储由ch编码得到的GB2312字节</font></li>
+<li>int n = (int)gb2312_bt[0] &lt;&lt; 8;<font color="blue"> //将字节左移八位(一个字节)</font></li>
+<li>n += (int)gb2312_bt[1];<font color="blue">//两个数值相加得到“位”的GB2312编码(十进制)</font></li>
+<li>txt_Num.Text = Convert.ToString(n, 16);<font color="blue">//编码转十六进制并显示</font></li>
+</ul>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>参考链接</strong>：</p>
+<ul>
+<li><a href="https://baike.baidu.com/item/汉字编码/7123465?fr=aladdin" target="_blank" rel="noopener">汉字编码(百度百科)</a></li>
+<li><a href="https://www.qqxiuzi.cn/bianma/zifuji.php" target="_blank" rel="noopener">千千秀字(汉字字符集编码查询)</a></li>
+</ul>
+<p><strong>有关字体编码/查询/加解密网站推荐</strong>：</p>
+<p><a href="https://www.qqxiuzi.cn/daohang.htm" target="_blank" rel="noopener">千千秀字</a></p>
 
                 
             </div>
@@ -652,7 +621,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z1r0s.github.io/2020/11/09/dhcp-fu-wu/">https://z1r0s.github.io/2020/11/09/dhcp-fu-wu/</a>
+                    <a href="https://z1r0s.github.io/2020/08/22/demo/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/">https://z1r0s.github.io/2020/08/22/demo/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -690,8 +659,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/网络服务/">
-                                    <span class="chip bg-color">网络服务</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C#</span>
                                 </a>
                             
                         </div>
@@ -867,12 +836,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/10/wen-jian-gong-xiang-fu-wu/">
+                <a href="/2020/08/22/she-ji-mo-shi-zhi-gong-han-fang-fa-mo-shi/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/234.jpg" class="responsive-img" alt="文件共享">
                         
-                        <span class="card-title">文件共享</span>
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="工厂方法模式">
+                        
+                        <span class="card-title">工厂方法模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -883,14 +853,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/网络技术/" class="post-category">
-                                    网络技术
+                            <a href="/categories/设计模式/" class="post-category">
+                                    设计模式
                                 </a>
                             
                             
@@ -900,8 +870,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/网络服务/">
-                        <span class="chip bg-color">网络服务</span>
+                    <a href="/tags/设计模式/">
+                        <span class="chip bg-color">设计模式</span>
                     </a>
                     
                 </div>
@@ -915,12 +885,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/09/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/">
+                <a href="/2020/08/22/demo/csharp-duo-xian-cheng-cai-shu-zi-you-xi/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/222.jpg" class="responsive-img" alt="使用WindowsServer搭建DHCP服务器">
                         
-                        <span class="card-title">使用WindowsServer搭建DHCP服务器</span>
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="CSharp多线程猜数字游戏">
+                        
+                        <span class="card-title">CSharp多线程猜数字游戏</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -931,14 +902,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/网络技术/" class="post-category">
-                                    网络技术
+                            <a href="/categories/程序设计/" class="post-category">
+                                    程序设计
                                 </a>
                             
                             
@@ -948,8 +919,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/网络服务/">
-                        <span class="chip bg-color">网络服务</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
                     </a>
                     
                 </div>

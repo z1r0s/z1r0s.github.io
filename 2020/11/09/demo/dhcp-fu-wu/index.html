@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="DNS服务部署, z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="DHCP服务, z1r0s 安全 Web安全 学习总结">
     <meta name="description" content="计算机 | 程序语言 | 网络安全 | 红蓝对抗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DNS服务部署 | z1r0s&#39;blogs</title>
+    <title>DHCP服务 | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/202.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/221.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DNS服务部署</h1>
+                    <h1 class="description center-align post-title">DHCP服务</h1>
                 </div>
             </div>
         </div>
@@ -435,10 +435,6 @@
                                 <span class="chip bg-color">网络服务</span>
                             </a>
                         
-                            <a href="/tags/DNS/">
-                                <span class="chip bg-color">DNS</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -460,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-16
+                    2020-11-09
                 </div>
                 
 
@@ -481,175 +477,153 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="安装DNS服务器角色"><a href="#安装DNS服务器角色" class="headerlink" title="安装DNS服务器角色"></a>安装DNS服务器角色</h1><p><strong>环境描述</strong>：</p>
-<p>​        “<code>sbwyl</code>”公司新组建了一个内部局域网，需要一台DNS服务器为内部用户提供域名解析服务，该如何搭建DNS服务器</p>
-<p><strong>具体步骤如下</strong>：</p>
+                <h1 id="DHCP的概述"><a href="#DHCP的概述" class="headerlink" title="DHCP的概述"></a>DHCP的概述</h1><p>​        DHCP（<code>Dynamic Host Configuration Protocol</code>，动态主机配置协议）是由IETF（Internet工作任务小组）设计开发的，专门用于为TCP/IP网络中的计算机自动分配TCP/IP参数的协议。为网络中计算机自动分配TCP/IP参数的协议。</p>
+<p>​        DHCP提供的TCP/IP配置：</p>
 <ul>
-<li>首先从虚拟机开启一台Server 2008 R2的服务器用于搭建DNS服务器；</li>
-<li>在开启一台Windows 7的计算机用于模拟客户端；</li>
-<li>分别给服务器和客户机配置IP地址，在客户机配置IP地址时DNS要指向服务器IP地址；</li>
-<li>关闭两个系统的防火墙，并且能够互相拼通。</li>
+<li>IP地址</li>
+<li>子网掩码</li>
+<li>网关</li>
+<li>DNS</li>
 </ul>
+<h1 id="DHCP的优点"><a href="#DHCP的优点" class="headerlink" title="DHCP的优点"></a>DHCP的优点</h1><ol>
+<li>减少管理员的工作量</li>
+<li>避免输入错误的可能</li>
+<li>避免IP冲突</li>
+<li>提高了IP地址的利用率</li>
+<li>方便客户端的配置</li>
+</ol>
+<h1 id="DHCP工作原理"><a href="#DHCP工作原理" class="headerlink" title="DHCP工作原理"></a>DHCP工作原理</h1><h2 id="DHCP的分配方式"><a href="#DHCP的分配方式" class="headerlink" title="DHCP的分配方式"></a>DHCP的分配方式</h2><ol>
+<li>自动分配<br>分配到一个IP地址后永久使用</li>
+<li>手动分配<br>由DHCP服务器管理员专门指定IP地址</li>
+<li>动态分配<br>使用完后释放该IP，供其它客户机使用</li>
+</ol>
+<h2 id="DHCP租约过程-四个阶段"><a href="#DHCP租约过程-四个阶段" class="headerlink" title="DHCP租约过程(四个阶段)"></a>DHCP租约过程(四个阶段)</h2><p>​        DHCP用的端号是<code>UDP67</code>和<code>UDP68</code>，这两个端口是正常的DHCP服务端口，你可以理解为一个发送，一个接收。客户端从68端口（bootps）广播请求配置，服务器从67端口（bootpc）广播回应请求。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/DHCP租约过程.png" alt="DHCP租约过程"></center>
+
 <ol>
-<li><p>打开【服务器管理器】管理界面 → 角色 → 添加角色 → 在弹出“开始之前对话框”中点击【下一步】 → 在“选择服务器角色”对话框中选择【DNS服务器】单击左边复选框，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/添加DNS角色.png" alt="添加DNS角色"></center>
-</li>
-<li><p>点击【下一步】按钮，显示DNS服务器简介界面，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/DNS服务器简介.png" alt="DNS服务器简介"></center>
-</li>
-<li><p>点击【下一步】按钮，进入安装确认界面，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/DNS安装确认.png" alt="DNS安装确认"></center>
-</li>
-<li><p>点击【下一步】按钮，显示DNS安装进度界面，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/DNS安装进度.png" alt="DNS安装进度"></center>
-</li>
-<li><p>显示如下图所示表示DNS服务安装成功。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/DNS安装成功.png" alt="DNS安装成功"></center>
+<li><p>发现阶段，即DHCP客户端寻找DHCP服务器的阶段</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/发现阶段.png" alt="发现阶段"></center>
 
+<p>在发现阶段， DHCP 客户端通过发送 <code>DHCP DISCOVER</code> 报文来寻找 DHCP 服务器。由于 DHCP 服务器的 IP 地址对于客户端来说是未知的，所以 DHCP 客户端以<strong>广播方式</strong>发送<code>DHCP DISCOVER</code>报文。所有收到<code>DHCP DISCOVER</code>报文的 DHCP 服务器都会发送回应报文， DHCP 客户端据此可以知道网络中存在的 DHCP 服务器的位置。</p>
+</li>
+<li><p>提供阶段，即 DHCP 服务器提供 IP 地址的阶段</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/提供阶段.png" alt="提供阶段"></center>
 
+<p>网络中接收到<code>DHCP DISCOVER</code>报文的 DHCP 服务器，会从地址池选择一个合适的<strong>IP 地址</strong>，连同 <strong>IP 地址租约期限和其他配置信息（如网关地址、域名服务器地址等）</strong>通过<code>DHCP OFFER</code>报文发送给 DHCP 客户端。</p>
+</li>
+<li><p>选择阶段，即 DHCP 客户端选择 IP 地址的阶段</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/选择阶段.png" alt="选择阶段"></center>
 
+<p>如果有多台 DHCP 服务器向 DHCP 客户端回应 DHCP OFFER 报文，则 DHCP 客户端只接受第一个收到的 DHCP OFFER 报文。然后以广播方式发送 DHCP REQUEST 请求报文，该报文中包含 Option54（服务器标识选项），即它选择的 DHCP 服务器的IP 地址信息。</p>
+<p>以广播方式发送 DHCP REQUEST 请求报文，是为了通知所有的 DHCP 服务器，它将选择 Option54 中标识的 DHCP 服务器提供的 IP 地址，其他 DHCP 服务器可以重新使用曾提供的 IP 地址</p>
+</li>
+<li><p>确认阶段，即 DHCP 服务器确认所提供 IP 地址的阶段。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/确认阶段.png" alt="确认阶段"></center>
+
+<ul>
+<li><p>当 DHCP 服务器收到 DHCP 客户端回答的 DHCP REQUEST 报文后， DHCP 服务器会根据 DHCP REQUEST 报文中携带的 MAC 地址来查找有没有相应的租约记录。如果有，则向客户端发送包含它所提供的 IP 地址和其它设置的 DHCP ACK 确认报文。</p>
+</li>
+<li><p>DHCP 客户端收到该确认报文后，会以广播的方式发送免费 ARP 报文，探测是否有主机使用服务器分配的 IP 地址，如果在规定的时间内没有收到回应，客户端才使用此地址。</p>
+</li>
+<li><p>如果 DHCP 服务器收到 DHCP REQUEST 报文后，没有找到相应的租约记录，或者由于某些原因无法正常分配 IP 地址，则发送 DHCP NAK 报文作为应答，通知 DHCP客户端无法分配合适 IP 地址。DHCP 客户端需要重新发送 DHCP DISCOVER 报文来申请新的 IP 地址。</p>
+</li>
+<li><p>DHCP Client 获得 IP 地址后，上线之前会检测正在使用的网关的状态，如果网关地址错误或网关设备故障， DHCP 客户端将重新使用四步交互方式请求新的 IP 地址</p>
+</li>
+</ul>
 </li>
 </ol>
-<h1 id="创建正向查询域"><a href="#创建正向查询域" class="headerlink" title="创建正向查询域"></a>创建正向查询域</h1><ol>
-<li><p>打开DNS管理器。开始 → 管理工具 → 选择【DNS】，DNS管理器界面如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/DNS管理器界面.png" alt="DNS管理器界面"></center>
+<h2 id="客户端重启"><a href="#客户端重启" class="headerlink" title="客户端重启"></a>客户端重启</h2><ol>
+<li>发送带有IP地址的DHCP Request请求包</li>
+<li>IP地址没有分配使用，发送DHCP ACK确认信息<ul>
+<li>客户端继续使用重启前的IP地址</li>
+</ul>
 </li>
-<li><p>右键【WIN-H69V7LS 7Q7D】选择【新建区域…】选项，显示新建区域向导如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新建区域向导.png" alt="新建区域向导"></center>
-</li>
-<li><p>点击【下一步】按钮进入区域类型选择界面，这里选择【主要区域】选项，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/区域类型设置.png" alt="区域类型设置"></center>
-</li>
-<li><p>点击【下一步】按钮进入正向或反向查询区域设置，这里选择【正向查找区域】选项，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/设置正向查询.png" alt="设置正向查询"></center>
-</li>
-<li><p>点击【下一步】按钮后进入区域名称设置界面，设置区域名称为<code>sbwyl.com</code>操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/区域名称设置.png" alt="区域名称设置"></center>
-</li>
-<li><p>点击【下一步】按钮进入区域文件设置界面，这里选择创建新文件选项操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/区域文件设置.png" alt="区域文件设置"></center>
-</li>
-<li><p>点击【下一步】按钮，进入动态更新设置界面，这里采用默认设置，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/动态更新设置.png" alt="动态更新设置"></center>
-</li>
-<li><p>点击【下一步】按钮进入设置信息核对界面，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/设置核对界面.png" alt="设置核对界面"></center>
-</li>
-<li><p>点击【完成】按钮后，操作结果显示如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/创建正向查询结果.png" alt="创建正向查询结果"></center>
-
-
-
+<li>IP地址分配到其他客户机使用<ul>
+<li>发送DHCP Nak否认信息    </li>
+<li>客户机重新发送DHCP Discover</li>
+</ul>
 </li>
 </ol>
-<h1 id="创建反向查询域"><a href="#创建反向查询域" class="headerlink" title="创建反向查询域"></a>创建反向查询域</h1><ol>
-<li><p>右键【反向查询区域】选择【新建区域…】选项，显示新建区域向导如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新建区域向导.png" alt="新建区域向导"></center>
-</li>
-<li><p>点击【下一步】按钮进入区域类型选择界面，这里选择【主要区域】选项，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/区域类型设置.png" alt="区域类型设置"></center>
-</li>
-<li><p>点击【下一步】按钮进入反向查询区域设置，这里选择【IPv4反向查找区域】选项，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/IPv4反向查询.png" alt="IPv4反向查询"></center>
-</li>
-<li><p>点击【下一步】按钮，在新页面中设置网络ID为<code>192.168.1</code>，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/反向查询网络ID设置.png" alt="反向查询网络ID设置"></center>
-</li>
-<li><p>点击【下一步】按钮，进入区域文件设置界面，采用默认设置，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/反向查询区域文件设置.png" alt="反向查询区域文件设置"></center>
-</li>
-<li><p>点击【下一步】按钮，进入动态更新设置界面，这里采用默认设置，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/动态更新设置.png" alt="动态更新设置"></center>
-</li>
-<li><p>点击【下一步】按钮进入设置信息核对界面，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/反向查询核对界面.png" alt="反向查询核对界面"></center>
-</li>
-<li><p>点击【完成】按钮后，操作结果显示如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/反向查询结果.png" alt="反向查询结果"></center>
-
-
-
-</li>
-</ol>
-<h1 id="创建主机记录"><a href="#创建主机记录" class="headerlink" title="创建主机记录"></a>创建主机记录</h1><p>​        假设sbwyl公司有一台计算机的FQDN（“FQDN”的意思是：正式域名）为：<code>www.sbwyl.com</code>，IP地址是<code>192.168.1.222</code>，如何在区域“sbwyl.com”下创建该主机记录</p>
+<h2 id="更新租约"><a href="#更新租约" class="headerlink" title="更新租约"></a>更新租约</h2><table>
+<thead>
+<tr>
+<th>定时器</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>租期更新</td>
+<td>总租期的50%</td>
+</tr>
+<tr>
+<td>重绑定</td>
+<td>总租期的87.5%</td>
+</tr>
+<tr>
+<td>到达租期</td>
+<td>总租期</td>
+</tr>
+</tbody></table>
+<p>DHCP 客户端更新租约，主要通过以下几个步骤与 DHCP 服务器建立联系</p>
 <ol>
-<li><p>新建主机。在DNS管理器的左边窗口中右键【正向查询区域】下面的【sbwyl.com】，选择【新建主机…】选项操作界面如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新建主机.png" alt="新建主机"></center>
+<li>IP 租约期限达到 50%（T1）时， DHCP 客户端会自动以单播的方式，向 DHCP 服务器发送 DHCP REQUEST 报文，请求更新 IP 地址租约。如果收到 DHCP ACK 报文，则租约更新成功；如果收到 DHCP NAK 报文，则重新发起申请过程。</li>
+<li>IP 租约期限达到 87.5%（T2）时，如果仍未收到 DHCP 服务器的应答， DHCP 客户端会自动向 DHCP 服务器发送更新其 IP 租约的广播报文。如果收到 DHCP ACK 报文，则租约更新成功；如果收到 DHCP NAK 报文，则重新发起申请过程</li>
+<li>如果 IP 租约到期前都没有收到服务器响应，客户端停止使用此 IP 地址，重新发送DHCP DISCOVER 报文请求新的 IP 地址。</li>
+<li>如果服务器依然没有回应，计算机会自动配置169.254.x.x</li>
+</ol>
+<h1 id="配置DHCP服务器"><a href="#配置DHCP服务器" class="headerlink" title="配置DHCP服务器"></a>配置DHCP服务器</h1><h2 id="安装DHCP的规划"><a href="#安装DHCP的规划" class="headerlink" title="安装DHCP的规划"></a>安装DHCP的规划</h2><ol>
+<li>服务器规划一个静态IP地址</li>
+<li>确定DHCP服务器分发给客户机的IP地址范围</li>
+<li>为客户机确定正确的子网掩码</li>
+<li>确定DHCP服务器不向客户机分发的IP地址</li>
+<li>决定IP地址的租用期限（建议时间不要太长，因为通常不能获取ip，除了dhcp服务器出问题外，就是ip不够用了，也就是没有及时释放原来的ip地址。）</li>
+</ol>
+<p><font color="blue">更加详细的DHCP配置前参考<a href="https://z1r0s.github.io/2020/11/09/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/">使用WindowsServer搭建DHCP服务器</a></font></p>
+<h2 id="授权DHCP"><a href="#授权DHCP" class="headerlink" title="授权DHCP"></a>授权DHCP</h2><p>授权是一种安全预防措施</p>
+<ol>
+<li>安装过程为DHCP服务器授权</li>
+<li>使用DHCP控制台为服务器授权</li>
+<li>为DHCP服务器授权需要有<strong>企业管理员权限</strong></li>
+</ol>
+<h2 id="管理作用域"><a href="#管理作用域" class="headerlink" title="管理作用域"></a>管理作用域</h2><ol>
+<li>DHCP作用域是一段IP地址范围</li>
+<li>作用域属性:<ul>
+<li>IP地址范围</li>
+<li>子网掩码，用来确定给定IP地址的子网</li>
+<li>作用域名称，在创建作用域时指定该名称</li>
+<li>租用期限值</li>
+<li>保留IP地址，确保客户机始终获取相同IP地址</li>
+</ul>
 </li>
-<li><p>新建别名。在DNS管理器的左侧窗口中右键【sbwyl.com】选择【新建别名…】选项，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新建别名.png" alt="新建别名"></center>
+</ol>
+<h1 id="配置DHCP客户端"><a href="#配置DHCP客户端" class="headerlink" title="配置DHCP客户端"></a>配置DHCP客户端</h1><ol>
+<li>将客户端的网卡信息改为自动获取（虚拟机确保关闭虚拟网卡的DHCP）</li>
+<li>查看dhcp的信息（ipconfig 详细信息：<code>ipconfig /all</code>）</li>
+<li>释放IP<br><code>ipconfig /release  (windows系统)</code></li>
+<li>重新获取<br><code>ipconfig /renew (windows系统)</code></li>
+</ol>
+<h1 id="维护DHCP服务"><a href="#维护DHCP服务" class="headerlink" title="维护DHCP服务"></a>维护DHCP服务</h1><h2 id="备份DHCP数据库"><a href="#备份DHCP数据库" class="headerlink" title="备份DHCP数据库"></a>备份DHCP数据库</h2><ol>
+<li><p>服务器管理器 → 角色 → DHCP服务器 → win-h69v7ls7q7d → 右键选择【备份…】选项，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/备份DHCP服务配置.png" alt="备份DHCP服务配置"></center>
 </li>
-<li><p>新建指针。右键【1.168.192.in-addr.arpa】选择【新建指针…】选项，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新建指针.png" alt="新建指针"></center>
+<li><p>备份位置如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/备份位置.png" alt="备份位置"></center>
 
 
 
 </li>
 </ol>
-<h1 id="新建辅助区域"><a href="#新建辅助区域" class="headerlink" title="新建辅助区域"></a>新建辅助区域</h1><p>​        “sbwyl”公司规模做大为了减轻单台DNS的负载，现在需要将本台DNS服务器的内容保存到另一台DNS服务器中。</p>
-<ol>
-<li><p>在Server2中配置IP地址，DNS地址要指向Server1服务器的IP地址。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/设置Server2的IP信息.png" alt="设置Server2的IP信息"></center>
+<h2 id="还原DHCP数据库"><a href="#还原DHCP数据库" class="headerlink" title="还原DHCP数据库"></a>还原DHCP数据库</h2><ol>
+<li><p>服务器管理器 → 角色 → DHCP服务器 → win-h69v7ls7q7d → 右键选择【还原…】选项，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/还原配置.png" alt="还原配置"></center>
 </li>
-<li><p>在Server2中上安装“DNS”服务器后右键【正向查找区域】后选择【新建区域】</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新建区域向导.png" alt="新建区域向导"></center>
-</li>
-<li><p>右键【下一步】按钮，进入区域设置界面，选择【辅助区域】，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/辅助区域选择.png" alt="辅助区域选择"></center>
-</li>
-<li><p>点击【下一步】按钮，显示区域名称设置界面，操作结果如下图所示。（注：此处输入的区域名称要和源区域完全相同）</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/辅助区域名称设置1.png" alt="辅助区域名称设置"></center>
-</li>
-<li><p>点击【下一步】按钮，进入主DNS设置界面，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/主DNS设置1.png" alt="主DNS设置"></center>
-</li>
-<li><p>点击【下一步】按钮，显示区域设置核对界面，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/辅助区域设置核对1.png" alt="辅助区域设置核对"></center>
-</li>
-<li><p>Server1区域传送设置。在Server1中打开“DNS管理器”，右键<code>sbwyl.com</code>选择【属性】选项，点击【区域传送】选项卡，设置服务器IP地址操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/设置区域传送.png" alt="设置区域传送"></center>
+<li><p>DHCP服务器配置还原结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DHCP/还原结果.png" alt="还原结果"></center>
 
 
 
 
 
-</li>
-</ol>
-<h1 id="新建子域"><a href="#新建子域" class="headerlink" title="新建子域"></a>新建子域</h1><p>​        “sbwyl”公司在北京成立了分公司，公司网络由总公司直接管理，管理员想通过部门进行管理DNS记录。</p>
-<ol>
-<li><p>打开DNS服务器右键“sbwyl.com”选择【新建域…】选项，在显示的界面中设置子域名称，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新建子域.png" alt="新建子域"></center>
-</li>
-<li><p>在新建的域中可以新建主机和别名。</p>
-</li>
-</ol>
-<h1 id="新建委派"><a href="#新建委派" class="headerlink" title="新建委派"></a>新建委派</h1><p>​        公司有一台DNS服务器，其内部局域网使用“sbwyl.com”作为域名，现在该公司在上海成立分公司，上海公司使用专线和总公司连接，上海分公司计划使用“sh.sbwyl.com”作为域名别切在本地解析。</p>
-<ol>
-<li><p>右键“sbwyl.com”选择【新建委派…】选项，显示新建委派向导如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新进委派向导.png" alt="新进委派向导"></center>
-</li>
-<li><p>点击【下一步】按钮，在受委派域名设置界面中设置委派的域，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/设置受委派域名.png" alt="设置受委派域名"></center>
-</li>
-<li><p>点击【下一步】按钮，进入名称服务器设置界面，设置名称服务器操作结果如下图所示。（Server2服务器主机地址，用来模拟分公司）</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/委派名称服务器设置.png" alt="委派名称服务器设置"></center>
-</li>
-<li><p>点击【下一步】按钮，显示新建委派完成界面，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新建委派完成.png" alt="新建委派完成"></center>
-</li>
-<li><p>新建委派结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/新建委派结果.png" alt="新建委派结果"></center>
-
-
-
-</li>
-</ol>
-<h1 id="转发器"><a href="#转发器" class="headerlink" title="转发器"></a>转发器</h1><p>​        公司有一台DNS服务器和一个外部DNS服务器，为了安全内网DNS服务器不能和外网通信，但是配置内网DNS服务器IP地址的员工经常需要访问外网网站。</p>
-<ol>
-<li><p>打开“DNS管理器”，右键：“CC”，选择【属性】选项，打开【转发器】转发器选项，添加转发IP地址操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DNSServerDemo1/转发器设置.png" alt="转发器设置"></center>
-</li>
-<li><p>点击【确定】后，缓存DNS设置成功。</p>
 </li>
 </ol>
 
@@ -678,7 +652,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z1r0s.github.io/2020/11/16/dns-fu-wu-bu-shu/">https://z1r0s.github.io/2020/11/16/dns-fu-wu-bu-shu/</a>
+                    <a href="https://z1r0s.github.io/2020/11/09/demo/dhcp-fu-wu/">https://z1r0s.github.io/2020/11/09/demo/dhcp-fu-wu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -718,10 +692,6 @@
                             
                                 <a href="/tags/网络服务/">
                                     <span class="chip bg-color">网络服务</span>
-                                </a>
-                            
-                                <a href="/tags/DNS/">
-                                    <span class="chip bg-color">DNS</span>
                                 </a>
                             
                         </div>
@@ -897,12 +867,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/16/yu-he-huo-dong-mu-lu/">
+                <a href="/2020/11/10/wen-jian-gong-xiang-fu-wu/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/135.jpg" class="responsive-img" alt="域和活动目录">
+                        <img src="/medias/featureimages/234.jpg" class="responsive-img" alt="文件共享">
                         
-                        <span class="card-title">域和活动目录</span>
+                        <span class="card-title">文件共享</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -913,7 +883,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
                         </span>
                         <span class="publish-author">
                             
@@ -945,12 +915,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/14/dns-fu-wu/">
+                <a href="/2020/11/09/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/118.jpg" class="responsive-img" alt="DNS服务">
+                        <img src="/medias/featureimages/222.jpg" class="responsive-img" alt="使用WindowsServer搭建DHCP服务器">
                         
-                        <span class="card-title">DNS服务</span>
+                        <span class="card-title">使用WindowsServer搭建DHCP服务器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -961,7 +931,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-09
                             </span>
                         <span class="publish-author">
                             

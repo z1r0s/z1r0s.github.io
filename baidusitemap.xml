@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/</loc>
+    <lastmod>2021-02-23</lastmod>
+  </url>  <url>
+    <loc>https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/</loc>
+    <lastmod>2021-02-23</lastmod>
+  </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/19/github-hacking/</loc>
     <lastmod>2021-01-16</lastmod>
   </url>  <url>
@@ -9,9 +15,6 @@
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/</loc>
     <lastmod>2021-01-16</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/</loc>
-    <lastmod>2021-01-04</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/</loc>
     <lastmod>2020-12-26</lastmod>
@@ -313,10 +316,10 @@
     <loc>https://z1r0s.github.io/2020/11/10/ftp-fu-wu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/16/dns-fu-wu-bu-shu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/16/demo/dns-fu-wu-bu-shu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/14/dns-fu-wu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/14/demo/dns-fu-wu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/28/cha-kan-yi-lian-jie-de-wifi-mi-ma/</loc>
@@ -331,7 +334,7 @@
     <loc>https://z1r0s.github.io/2020/12/03/chong-zhi-root-guan-li-yuan-mi-ma/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/26-ge-zi-mu-yin-biao-biao/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/test/26-ge-zi-mu-yin-biao-biao/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/09/02/shu-zi-bian-ma-xi-tong/</loc>
@@ -343,13 +346,13 @@
     <loc>https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/09/dhcp-fu-wu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/09/demo/dhcp-fu-wu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/test/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/09/cisco-packet-tracer-shi-yan-ji-shi-xun/</loc>
+    <loc>https://z1r0s.github.io/2020/09/09/test/cisco-packet-tracer-shi-yan-ji-shi-xun/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/12/22/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/</loc>
@@ -379,22 +382,19 @@
     <loc>https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/demo/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/demo/csharp-duo-xian-cheng-cai-shu-zi-you-xi/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/08/22/vigenerecipher/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/ceasarcipher/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/test/ceasarcipher/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/</loc>
-    <lastmod>2020-12-10</lastmod>
-  </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/</loc>
+    <loc>https://z1r0s.github.io/2020/12/06/test/21-ge-xie-sql-de-hao-xi-guan/</loc>
     <lastmod>2020-12-06</lastmod>
   </url>  <url>
     <loc>https://z1r0s.github.io/2020/11/29/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-2/</loc>
