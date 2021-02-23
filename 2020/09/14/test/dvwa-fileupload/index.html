@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="DVWA-FileInclusion, z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="DVWA-FileUpload, z1r0s 安全 Web安全 学习总结">
     <meta name="description" content="计算机 | 程序语言 | 网络安全 | 红蓝对抗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DVWA-FileInclusion | z1r0s&#39;blogs</title>
+    <title>DVWA-FileUpload | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/67.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DVWA-FileInclusion</h1>
+                    <h1 class="description center-align post-title">DVWA-FileUpload</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-13
+                    2020-09-14
                 </div>
                 
 
@@ -477,23 +477,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0x01-漏洞概述"><a href="#0x01-漏洞概述" class="headerlink" title="0x01 漏洞概述"></a>0x01 漏洞概述</h1><p>​        文件包含是指应用程序加载的文件（本地/远程）可以由用户提交的数据控制，从而导致攻击者控制恶意文件在服务器上执行。</p>
-<p><strong>File Inclusion模块分析</strong>：</p>
+                <h1 id="0x01-漏洞概述"><a href="#0x01-漏洞概述" class="headerlink" title="0x01 漏洞概述"></a>0x01 漏洞概述</h1><p>​        文件上传是指攻击者通过上传可执行脚本功能，从而获取服务器端可执行命令的权限。</p>
+<p><strong>File Upload模块解析</strong>：</p>
 <ul>
-<li>仿源码文件执行功能：</li>
+<li>文件上传界面</li>
 </ul>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/防执行源码文件.png" alt="防执行源码文件"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/文件上传界面.png" alt="文件上传界面"></center>
 
 <ul>
-<li><code>file1.php</code>文件执行结果：</li>
+<li>文件上传操作结果</li>
 </ul>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/file1执行结果.png" alt="file1执行结果"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/20200914114621.png" alt="文件上传操作结果"></center>
 
 
 
 <h1 id="0x02-测试工具"><a href="#0x02-测试工具" class="headerlink" title="0x02 测试工具"></a>0x02 测试工具</h1><ul>
 <li>FireFox</li>
-<li>HackBar</li>
+<li>BurpSuite</li>
+<li>菜刀</li>
 </ul>
 <h1 id="0x03-漏洞测试"><a href="#0x03-漏洞测试" class="headerlink" title="0x03 漏洞测试"></a>0x03 漏洞测试</h1><h2 id="Low级别"><a href="#Low级别" class="headerlink" title="Low级别"></a>Low级别</h2><p>设置 DVWA 安全级别为 LOW 。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Low.png" alt="SecurityLevel_Low"></center>
@@ -501,29 +502,39 @@
 <p><strong>服务器端核心代码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
-<span class="token comment" spellcheck="true">// The page we wish to display</span>
-<span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'page'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
+    <span class="token variable">$target_path</span>  <span class="token operator">=</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">"hackable/uploads/"</span><span class="token punctuation">;</span>
+    <span class="token variable">$target_path</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token function">basename</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Can we move the file to the upload folder?</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'tmp_name'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$target_path</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// No</span>
+        <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded.&lt;/pre>'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Yes!</span>
+        <span class="token keyword">echo</span> <span class="token string">"&lt;pre>{$target_path} succesfully uploaded!&lt;/pre>"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 <span class="token delimiter">?></span> </code></pre>
 <ul>
-<li>代码直接读取 page 参数同时使用 include 进行文件包含执行  </li>
+<li>上传文件过程无任何保护措施， 直接使用将上传文件移动到可访问的 <code>hackable/uploads</code>目录下  </li>
 </ul>
 <p><strong>漏洞利用</strong>：</p>
 <ul>
-<li>使用浏览器发起本地文件包含攻击，payload：</li>
+<li>使用FireFox浏览器上传恶意脚本进行攻击。</li>
 </ul>
-<pre class=" language-php"><code class="language-php"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>etc<span class="token operator">/</span>password
-c<span class="token punctuation">:</span>\<span class="token package"><span class="token punctuation">\</span>windows<span class="token punctuation">\</span>win</span><span class="token punctuation">.</span>ini</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/本地文件包含-low.png" alt="本地文件包含-low"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/创建恶意脚本.png" alt="创建恶意脚本"></center>
 
-<ul>
-<li>使用浏览器发起远程文件包含攻击</li>
-</ul>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/创建远程恶意脚本.png" alt="创建远程恶意脚本"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/上传恶意脚本-Low.png" alt="上传恶意脚本-Low"></center>
 
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/启动远程Web服务器.png" alt="启动远程Web服务器"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/获取上传文件路径.png" alt="获取上传文件路径"></center>
 
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/远程文件包含执行.png" alt="远程文件包含执行"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/访问上传的文件-Low.png" alt="访问上传的文件-Low"></center>
+
+
 
 
 
@@ -533,32 +544,77 @@ c<span class="token punctuation">:</span>\<span class="token package"><span clas
 <p><strong>服务器端核心代码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
-<span class="token comment" spellcheck="true">// The page we wish to display</span>
-<span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'page'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
+    <span class="token variable">$target_path</span>  <span class="token operator">=</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">"hackable/uploads/"</span><span class="token punctuation">;</span>
+    <span class="token variable">$target_path</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token function">basename</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// Input validation</span>
-<span class="token variable">$file</span> <span class="token operator">=</span> <span class="token function">str_replace</span><span class="token punctuation">(</span> <span class="token keyword">array</span><span class="token punctuation">(</span> "http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//", "https://" ), "", $file );</span>
-<span class="token variable">$file</span> <span class="token operator">=</span> <span class="token function">str_replace</span><span class="token punctuation">(</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string">"../"</span><span class="token punctuation">,</span> <span class="token string">"..\""</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token variable">$file</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// File information</span>
+    <span class="token variable">$uploaded_name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$uploaded_type</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'type'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$uploaded_size</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'size'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="token delimiter">?></span> </code></pre>
+    <span class="token comment" spellcheck="true">// Is it an image?</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">"image/jpeg"</span> <span class="token operator">||</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">"image/png"</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token punctuation">(</span> <span class="token variable">$uploaded_size</span> <span class="token operator">&lt;</span> <span class="token number">100000</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">// Can we move the file to the upload folder?</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'tmp_name'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$target_path</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// No</span>
+            <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded.&lt;/pre>'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// Yes!</span>
+            <span class="token keyword">echo</span> <span class="token string">"&lt;pre>{$target_path} succesfully uploaded!&lt;/pre>"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Invalid file</span>
+        <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre>'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token delimiter">?></span></code></pre>
 <ul>
-<li>清除 page 参数中的 <code>http://、 https://、 ../、 ..\</code>字符串, 可以使用 <code>php://input</code>， <code>php://filter</code>,<br><code>data url schema</code>等进行注入，也可使用替换逻辑漏洞(只替换一次)将被替换字符串迭代使用，例如 <code>hthttp://tp://</code>被替换后为<code>http://</code> </li>
+<li>在上传过程中对文件类型进行白名单限制（文件类型来源自数据提交的 content-type,可通过篡改绕过数据检查）</li>
 </ul>
 <p><strong>漏洞利用：</strong></p>
 <ul>
-<li>使用浏览器发起本地文件包含攻击，payload：</li>
+<li>启动BurpSuite并对Proxy-Options进行设置。</li>
 </ul>
-<pre class=" language-php"><code class="language-php">…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>…<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span>etc<span class="token operator">/</span>password
-…<span class="token punctuation">.</span><span class="token comment" spellcheck="true">//….//….//….//….//….//….//….//….//….//etc/password</span></code></pre>
-<ul>
-<li>使用浏览器发起远程文件包含攻击，payload：</li>
-</ul>
-<pre class=" language-php"><code class="language-php">hthttp<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//tp://localhost:9999/file_include_low.php</span>
-php<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//input &lt;?php phpinfo();</span>
-data<span class="token punctuation">:</span>text<span class="token operator">/</span>plain<span class="token punctuation">;</span>charset<span class="token operator">=</span>utf<span class="token number">-8</span><span class="token punctuation">,</span><span class="token delimiter">&lt;?php</span> <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/远程文件包含php.png" alt="远程文件包含php"></center>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/Proxy-Option设置.png" alt="Proxy-Option设置"></center>
 
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileInclusion/远程文件包含-文件头.png" alt="远程文件包含-文件头"></center>
+<ul>
+<li>启动FireFox浏览器并将其代理设置为<code>127.0.0.1:8080</code>。</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/FireFox代理设置.png" alt="FireFox代理设置"></center>
+
+<ul>
+<li>开启Burp Suite代理拦截功能。</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/开启BurpSuite代理拦截.png" alt="开启BurpSuite代理拦截"></center>
+
+<ul>
+<li>使用浏览器上传恶意脚本进行攻击。</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/创建恶意脚本-Medium.png" alt="创建恶意脚本-Medium"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/上传恶意脚本-Medium.png" alt="上传恶意脚本-Medium"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/修改content-type属性-Medium.png" alt="修改content-type属性-Medium"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/文件上传成功-Mesium.png" alt="文件上传成功-Mesium"></center>
+
+<ul>
+<li>关闭 burpsuite 拦截功能，使用浏览器请求上传文件。</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/访问上传文件-Medium.png" alt="访问上传文件-Medium"></center>
+
+
+
+
+
+
 
 
 
@@ -568,44 +624,148 @@ data<span class="token punctuation">:</span>text<span class="token operator">/</
 <p><strong>服务器端核心代码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
-<span class="token comment" spellcheck="true">// The page we wish to display</span>
-<span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'page'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
+    <span class="token variable">$target_path</span>  <span class="token operator">=</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">"hackable/uploads/"</span><span class="token punctuation">;</span>
+    <span class="token variable">$target_path</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token function">basename</span><span class="token punctuation">(</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// Input validation</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">fnmatch</span><span class="token punctuation">(</span> <span class="token string">"file*"</span><span class="token punctuation">,</span> <span class="token variable">$file</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$file</span> <span class="token operator">!=</span> <span class="token string">"include.php"</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// This isn't the page we want!</span>
-    <span class="token keyword">echo</span> <span class="token string">"ERROR: File not found!"</span><span class="token punctuation">;</span>
-    exit<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// File information</span>
+    <span class="token variable">$uploaded_name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$uploaded_ext</span>  <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_name</span><span class="token punctuation">,</span> <span class="token function">strrpos</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_name</span><span class="token punctuation">,</span> <span class="token string">'.'</span> <span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$uploaded_size</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'size'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$uploaded_tmp</span>  <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'tmp_name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Is it an image?</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"jpg"</span> <span class="token operator">||</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"jpeg"</span> <span class="token operator">||</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"png"</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token punctuation">(</span> <span class="token variable">$uploaded_size</span> <span class="token operator">&lt;</span> <span class="token number">100000</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token function">getimagesize</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">// Can we move the file to the upload folder?</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span><span class="token punctuation">,</span> <span class="token variable">$target_path</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// No</span>
+            <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded.&lt;/pre>'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// Yes!</span>
+            <span class="token keyword">echo</span> <span class="token string">"&lt;pre>{$target_path} succesfully uploaded!&lt;/pre>"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Invalid file</span>
+        <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre>'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token delimiter">?></span> </code></pre>
 <ul>
-<li>对提交参数进行检查，只允许<code>include.php</code>以及 <code>file</code>开头的文件被包含，只能包含本地<code>file</code>开头的文件或配合文件上传漏洞组合进行利用  </li>
+<li>在上传过程中对文件后缀类型进行白名单限制，同时对文件大小以及图片尺寸大小进行检查，需要制作图片木马并结合命令注入（重命名文件名）进行漏洞利用。</li>
 </ul>
+<p><strong>漏洞利用：</strong></p>
+<ul>
+<li>准备攻击文件（图片木马）。</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/创建攻击脚本-High.png" alt="创建攻击脚本"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/制作图片木马.png" alt="制作图片木马"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/上传图片木马.png" alt="上传图片木马"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/图片木马上传成功.png" alt="图片木马上传成功"></center>
+
+<ul>
+<li>借助命令注入实现文件包含漏洞利用。</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/图片木马还原.png" alt="图片木马还原"></center>
+
+<ul>
+<li>使用中国菜刀连接WebShell。</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/菜刀连接.png" alt="菜刀连接"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/菜刀连接成功.png" alt="菜刀连接成功"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/菜刀文件管理.png" alt="菜刀文件管理"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/FileUpload/image-20200914112222452.png" alt="菜刀虚拟终端"></center>
+
+
+
 <h2 id="Impossible级别"><a href="#Impossible级别" class="headerlink" title="Impossible级别"></a>Impossible级别</h2><p>​        设置 DVWA 安全级别为 Impossible。</p>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/TargetDrone/DVWA/LabManual/SecurityLevel_Impossible.png" alt="SecurityLevel_Impossible"></center>
 
 <p><strong>服务器端核心代码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 
-<span class="token comment" spellcheck="true">// The page we wish to display</span>
-<span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'page'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">isset</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string">'Upload'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Check Anti-CSRF token</span>
+    <span class="token function">checkToken</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span> <span class="token string">'user_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span> <span class="token string">'session_token'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'index.php'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// Only allow include.php or file{1..3}.php</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$file</span> <span class="token operator">!=</span> <span class="token string">"include.php"</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$file</span> <span class="token operator">!=</span> <span class="token string">"file1.php"</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$file</span> <span class="token operator">!=</span> <span class="token string">"file2.php"</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$file</span> <span class="token operator">!=</span> <span class="token string">"file3.php"</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// This isn't the page we want!</span>
-    <span class="token keyword">echo</span> <span class="token string">"ERROR: File not found!"</span><span class="token punctuation">;</span>
-    exit<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// File information</span>
+    <span class="token variable">$uploaded_name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$uploaded_ext</span>  <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_name</span><span class="token punctuation">,</span> <span class="token function">strrpos</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_name</span><span class="token punctuation">,</span> <span class="token string">'.'</span> <span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$uploaded_size</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'size'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$uploaded_type</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'type'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$uploaded_tmp</span>  <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span> <span class="token string">'uploaded'</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token string">'tmp_name'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Where are we going to be writing to?</span>
+    <span class="token variable">$target_path</span>   <span class="token operator">=</span> <span class="token constant">DVWA_WEB_PAGE_TO_ROOT</span> <span class="token punctuation">.</span> <span class="token string">'hackable/uploads/'</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//$target_file   = basename( $uploaded_name, '.' . $uploaded_ext ) . '-';</span>
+    <span class="token variable">$target_file</span>   <span class="token operator">=</span>  <span class="token function">md5</span><span class="token punctuation">(</span> <span class="token function">uniqid</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token variable">$uploaded_name</span> <span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'.'</span> <span class="token punctuation">.</span> <span class="token variable">$uploaded_ext</span><span class="token punctuation">;</span>
+    <span class="token variable">$temp_file</span>     <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token function">ini_get</span><span class="token punctuation">(</span> <span class="token string">'upload_tmp_dir'</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">''</span> <span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">(</span> <span class="token function">sys_get_temp_dir</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span> <span class="token function">ini_get</span><span class="token punctuation">(</span> <span class="token string">'upload_tmp_dir'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$temp_file</span>    <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token constant">DIRECTORY_SEPARATOR</span> <span class="token punctuation">.</span> <span class="token function">md5</span><span class="token punctuation">(</span> <span class="token function">uniqid</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token variable">$uploaded_name</span> <span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'.'</span> <span class="token punctuation">.</span> <span class="token variable">$uploaded_ext</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Is it an image?</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'jpg'</span> <span class="token operator">||</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'jpeg'</span> <span class="token operator">||</span> <span class="token function">strtolower</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_ext</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'png'</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token punctuation">(</span> <span class="token variable">$uploaded_size</span> <span class="token operator">&lt;</span> <span class="token number">100000</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token punctuation">(</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">'image/jpeg'</span> <span class="token operator">||</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">'image/png'</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token function">getimagesize</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">// Strip any metadata, by re-encoding image (Note, using php-Imagick is recommended over php-GD)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_type</span> <span class="token operator">==</span> <span class="token string">'image/jpeg'</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$img</span> <span class="token operator">=</span> <span class="token function">imagecreatefromjpeg</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">imagejpeg</span><span class="token punctuation">(</span> <span class="token variable">$img</span><span class="token punctuation">,</span> <span class="token variable">$temp_file</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token variable">$img</span> <span class="token operator">=</span> <span class="token function">imagecreatefrompng</span><span class="token punctuation">(</span> <span class="token variable">$uploaded_tmp</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">imagepng</span><span class="token punctuation">(</span> <span class="token variable">$img</span><span class="token punctuation">,</span> <span class="token variable">$temp_file</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">imagedestroy</span><span class="token punctuation">(</span> <span class="token variable">$img</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// Can we move the file to the web root from the temp folder?</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">rename</span><span class="token punctuation">(</span> <span class="token variable">$temp_file</span><span class="token punctuation">,</span> <span class="token punctuation">(</span> <span class="token function">getcwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token constant">DIRECTORY_SEPARATOR</span> <span class="token punctuation">.</span> <span class="token variable">$target_path</span> <span class="token punctuation">.</span> <span class="token variable">$target_file</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// Yes!</span>
+            <span class="token keyword">echo</span> <span class="token string">"&lt;pre>&lt;a href='${target_path}${target_file}'>${target_file}&lt;/a> succesfully uploaded!&lt;/pre>"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// No</span>
+            <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded.&lt;/pre>'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// Delete any temp files</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">file_exists</span><span class="token punctuation">(</span> <span class="token variable">$temp_file</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span>
+            <span class="token function">unlink</span><span class="token punctuation">(</span> <span class="token variable">$temp_file</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Invalid file</span>
+        <span class="token keyword">echo</span> <span class="token string">'&lt;pre>Your image was not uploaded. We can only accept JPEG or PNG images.&lt;/pre>'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Generate Anti-CSRF token</span>
+<span class="token function">generateSessionToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token delimiter">?></span> </code></pre>
 <ul>
-<li>使用白名单，防止文件包含执行除此以外的文件。</li>
+<li>对上传的文件类型、大小等进行限制，同时还对上传文件进行重命名。</li>
 </ul>
 <h1 id="0x04-修复建议"><a href="#0x04-修复建议" class="headerlink" title="0x04 修复建议"></a>0x04 修复建议</h1><ul>
-<li>使用白名单列表限制被包含文件</li>
-<li>关闭远程文件包含功能</li>
-<li>避免 web 服务器启动用户权限过高  </li>
+<li>设置项目目录权限：可写目录不执行，执行目录不可写</li>
+<li>使用白名单机制对文件类型(mine-type)和文件后缀进行限制</li>
+<li>对上传文件大小进行限制</li>
+<li>文件存储到服务器时文件名称随机化，禁止使用用户上传指定的文件名称</li>
+<li>针对图片文件使用压缩或重设图片像素大小</li>
+<li>上传文件存放在独立服务器使用  </li>
 </ul>
 <h1 id="0x05-参考资料"><a href="#0x05-参考资料" class="headerlink" title="0x05 参考资料"></a>0x05 参考资料</h1><ul>
 <li>《DVWA 漏洞测试平台分析》，红日安全工具研发组长-Silence</li>
@@ -636,7 +796,7 @@ data<span class="token punctuation">:</span>text<span class="token operator">/</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/">https://z1r0s.github.io/2020/09/13/dvwa-fileinclusion/</a>
+                    <a href="https://z1r0s.github.io/2020/09/14/test/dvwa-fileupload/">https://z1r0s.github.io/2020/09/14/test/dvwa-fileupload/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -851,12 +1011,12 @@ data<span class="token punctuation">:</span>text<span class="token operator">/</
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/14/dvwa-fileupload/">
+                <a href="/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/67.jpg" class="responsive-img" alt="DVWA-FileUpload">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="解决DVWA中reCAPTCHA API key missing from config file">
                         
-                        <span class="card-title">DVWA-FileUpload</span>
+                        <span class="card-title">解决DVWA中reCAPTCHA API key missing from config file</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -873,8 +1033,8 @@ data<span class="token punctuation">:</span>text<span class="token operator">/</
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Web安全/" class="post-category">
-                                    Web安全
+                            <a href="/categories/Debug/" class="post-category">
+                                    Debug
                                 </a>
                             
                             
@@ -899,12 +1059,12 @@ data<span class="token punctuation">:</span>text<span class="token operator">/</
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/13/dvwa-csrf/">
+                <a href="/2020/09/13/test/dvwa-fileinclusion/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="DVWA-CSRF">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="DVWA-FileInclusion">
                         
-                        <span class="card-title">DVWA-CSRF</span>
+                        <span class="card-title">DVWA-FileInclusion</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
