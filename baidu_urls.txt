@@ -17,7 +17,7 @@ https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/
 https://z1r0s.github.io/2020/12/07/linux-zhi-ruan-jian-bao-guan-li/
 https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/
 https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl/
-https://z1r0s.github.io/2020/12/06/test/21-ge-xie-sql-de-hao-xi-guan/
+https://z1r0s.github.io/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/
 https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/
 https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-yuan-cheng-guan-li/
 https://z1r0s.github.io/2020/12/03/chong-zhi-root-guan-li-yuan-mi-ma/
@@ -34,14 +34,14 @@ https://z1r0s.github.io/2020/11/22/vlan-zong-he-shi-yan/
 https://z1r0s.github.io/2020/11/18/wu-xian-an-quan-zhi-wpa-mi-ma-po-jie/
 https://z1r0s.github.io/2020/11/18/jing-tai-lu-you-zong-he-shi-yan/
 https://z1r0s.github.io/2020/11/16/yu-he-huo-dong-mu-lu/
-https://z1r0s.github.io/2020/11/16/demo/dns-fu-wu-bu-shu/
-https://z1r0s.github.io/2020/11/14/demo/dns-fu-wu/
+https://z1r0s.github.io/2020/11/16/dns-fu-wu-bu-shu/
+https://z1r0s.github.io/2020/11/14/dns-fu-wu/
 https://z1r0s.github.io/2020/11/13/windows-an-quan-jia-gu-pi-chu-li-jiao-ben/
 https://z1r0s.github.io/2020/11/12/yu-kong-guan-li-shi-yan/
 https://z1r0s.github.io/2020/11/10/web-fu-wu-qi-yun-xing-duo-ge-wang-zhan/
 https://z1r0s.github.io/2020/11/10/ftp-fu-wu/
 https://z1r0s.github.io/2020/11/10/wen-jian-gong-xiang-fu-wu/
-https://z1r0s.github.io/2020/11/09/demo/dhcp-fu-wu/
+https://z1r0s.github.io/2020/11/09/dhcp-fu-wu/
 https://z1r0s.github.io/2020/11/09/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/
 https://z1r0s.github.io/2020/11/07/windows-ci-pan-guan-li/
 https://z1r0s.github.io/2020/11/06/windows-ben-di-an-quan-ce-lue/

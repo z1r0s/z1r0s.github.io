@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="DNS服务, z1r0s 安全 Web安全 学习总结">
+    <meta name="keywords" content="CSharp巧用移位运算符获取汉字编码值, z1r0s 安全 Web安全 学习总结">
     <meta name="description" content="计算机 | 程序语言 | 网络安全 | 红蓝对抗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DNS服务 | z1r0s&#39;blogs</title>
+    <title>CSharp巧用移位运算符获取汉字编码值 | z1r0s&#39;blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/118.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DNS服务</h1>
+                    <h1 class="description center-align post-title">CSharp巧用移位运算符获取汉字编码值</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/网络服务/">
-                                <span class="chip bg-color">网络服务</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C#</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/网络技术/" class="post-category">
-                                网络技术
+                            <a href="/categories/程序设计/" class="post-category">
+                                程序设计
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-14
+                    2020-08-22
                 </div>
                 
 
@@ -477,238 +477,124 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0x01-DNS概述"><a href="#0x01-DNS概述" class="headerlink" title="0x01 DNS概述"></a>0x01 DNS概述</h1><h2 id="域名如何解析"><a href="#域名如何解析" class="headerlink" title="域名如何解析"></a>域名如何解析</h2><p>​        根据TCP/TP中对HTTP协议的规则，在进行数据传输过程中报文需要的包含：源IP地址和目的IP地址，域名不是IP地址因此在访问时需要解析除域名对用的IP地址。</p>
+                <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="移位运算符"><a href="#移位运算符" class="headerlink" title="移位运算符"></a>移位运算符</h2><ul>
+<li><p>移位运算符在程序设计中，是<strong>位操作运算符</strong>的一种</p>
+</li>
+<li><p>移位运算符分为<strong>左移位运算符</strong>“&lt;&lt;”和<strong>右移位运算符</strong>“&gt;&gt;”，形如：<strong>X &lt;&lt; N</strong> 或 <strong>X &gt;&gt; N</strong></p>
+</li>
+<li><p>在C#中<strong>X</strong>可以是：int、uint、long、ulong、byte、sbyte、short、ushort，其中<strong>byte、sbyte、short、ushort</strong>类型的值在进行移位操作后的类型将<strong>自动转换成int类型</strong></p>
+</li>
+<li><p>其他类型数据的移位运算其本质还是对<strong>二进制的移位运算</strong></p>
+</li>
+<li><p><span style="color:red">二进制每次向左移1位就相当于乘以2，每次向右移1位就相当于除以2</span></p>
+</li>
+<li><p>举例如下：</p>
+<blockquote>
+<p>问题：</p>
+<ul>
+<li>3(O) &lt;&lt; 2</li>
+</ul>
+<p>计算过程：</p>
 <ol>
-<li>早期使用<code>Hosts</code>文件解析域名<ul>
-<li>主机名称重复</li>
-<li>主机维护困难</li>
-</ul>
-</li>
-<li>DNS（Domain Name System域名系统）：专门对域名进行解析的协议，安装DNS Server的服务器被称为DNS服务器。<ul>
-<li>分布式</li>
-<li>层次性</li>
-</ul>
-</li>
+<li>3(O)转换为二进制为:<strong>0011</strong></li>
+<li>二进制数值各个位整体左移两位（<span style="color:red">左端溢出丢弃，右端补”0”</span>）后得到：<strong>1100</strong></li>
+<li>再将移位后的二进制数值转换为十进制数值为：12(O)</li>
+<li>也即：<span style="color:red">3 &lt;&lt; 2 = 12</span></li>
 </ol>
-<h2 id="域名结构"><a href="#域名结构" class="headerlink" title="域名结构"></a>域名结构</h2><p><code>FQDN（完全合格域名）= 主机名.DNS后缀</code></p>
-<pre class=" language-html"><code class="language-html">www.jishubu.baidu.com.
-www:主机名
-jishubu:三级域名
-baidu:二级域名
-com:一级域名(顶级域名)
-.:根</code></pre>
-<p><strong>顶级域名</strong>:</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="汉字编码"><a href="#汉字编码" class="headerlink" title="汉字编码"></a>汉字编码</h2><p>​        汉字编码(Chinese character encoding)是为汉字设计的一种便于输入计算机的代码。</p>
+<h3 id="编码分类"><a href="#编码分类" class="headerlink" title="编码分类"></a>编码分类</h3><p>​        计算机中汉字的表示也是用二进制，根据<strong>应用目的</strong>的不同，汉字编码分为<strong>外码</strong>、<strong>交换码</strong>、<strong>机内码</strong>和<strong>字形码</strong>。</p>
+<h4 id="外码-输入码"><a href="#外码-输入码" class="headerlink" title="外码(输入码)"></a>外码(输入码)</h4><p>​        外码也叫输入码，是用来将汉字输入到计算机中的一组键盘符号。常用的输入码有拼音码、五笔字型码、区位码、电报码等</p>
+<p><strong>特点</strong>：</p>
 <ul>
-<li>国家代码标识某个国家（如cn、uk等）</li>
-<li>国际性组织在int下</li>
-<li>国际通用<ul>
-<li>com：商业部门</li>
-<li>net：网络服务机构</li>
-<li>org：民间组织团体</li>
-<li>edu：教育部门</li>
-<li>gov：政府部门</li>
-<li>mil：军事部门</li>
+<li>编码规则简单</li>
+<li>易学好记</li>
+<li>操作方便</li>
+<li>重码率低</li>
+<li>输入速度快</li>
 </ul>
-</li>
-</ul>
-<p><strong>二级域名</strong>：由各个国家自行确定</p>
+<h4 id="交换码-国际码"><a href="#交换码-国际码" class="headerlink" title="交换码(国际码)"></a>交换码(国际码)</h4><p>​        计算机内部处理的信息都是<strong>二进制代码</strong>表示的，汉字也不例外。而二进制代码使用起来很不方便，于是需要采用<strong>信息交换码</strong>。GB2312即为国际码。</p>
 <ul>
-<li>类别域名（ac、com、edu、gov、net、org工6个）</li>
-<li>行政区域名（34个，如bj、js等）</li>
+<li><strong>GB2312编码</strong>：1981年5月1日发布的简体中文汉字编码国家标准。GB2312对汉字采用双字节编码，收录7445个图形字符，其中包括6763个汉字。</li>
+<li><strong>BIG5编码</strong>：台湾地区繁体中文标准字符集，采用双字节编码，共收录13053个中文字，1984年实施。</li>
+<li><strong>GBK编码</strong>：1995年12月发布的汉字编码国家标准，是对GB2312编码的扩充，对汉字采用双字节编码。GBK字符集共收录21003个汉字，包含国家标准GB13000-1中的全部中日韩汉字，和BIG5编码中的所有汉字。</li>
+<li><strong>GB18030编码</strong>：2000年3月17日发布的汉字编码国家标准，是对GBK编码的扩充，覆盖中文、日文、朝鲜语和中国少数民族文字，其中收录27484个汉字。GB18030字符集采用单字节、双字节和四字节三种方式对字符编码。兼容GBK和GB2312字符集。</li>
+<li><strong>Unicode编码</strong>：国际标准字符集，它将世界各种语言的每个字符定义一个唯一的编码，以满足跨语言、跨平台的文本信息转换。</li>
 </ul>
-<p><strong>三级域名</strong>：二级域名下注册的公司、单位等</p>
-<p><strong>主机名</strong>：服务所在服务器</p>
-<h2 id="DNS区域"><a href="#DNS区域" class="headerlink" title="DNS区域"></a>DNS区域</h2><p>​        ns区域是为了便于根据实际情况来分散DNS名称管理工作的负荷，将DNS名称空间划分为区域（zone）来进行管理</p>
+<h4 id="机内码"><a href="#机内码" class="headerlink" title="机内码"></a>机内码</h4><p>​        根据国际码的规定，每个汉字都有确定的<strong>二进制代码</strong>，在微机内部汉字代码都用机内码，在键盘上记录汉字代码也使用机内码。</p>
+<h4 id="字形码"><a href="#字形码" class="headerlink" title="字形码"></a>字形码</h4><p>​        字形码是汉字的<strong>输出码</strong>，输出汉字时都采用<strong>图形方式</strong>，无论汉字的笔画多少，每个汉字都可以卸载同样大小的<strong>方块</strong>中。通常用16×16点阵来显示汉字。</p>
+<h4 id="地址码"><a href="#地址码" class="headerlink" title="地址码"></a>地址码</h4><p>​        汉字地址码是指汉字库中存<strong>储汉字字形信息的逻辑地址码</strong>。它与汉字机内码有着简单的对应关系，以简单内码到地址码的转换。</p>
+<h3 id="汉字编码之间的关系"><a href="#汉字编码之间的关系" class="headerlink" title="汉字编码之间的关系"></a>汉字编码之间的关系</h3><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/汉字编码之间的关系.png" alt="汉字编码之间的关系"></center>
+
+<h1 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h1><p><strong>编程环境</strong>：</p>
 <ul>
-<li>域名空间树形结构的一部分</li>
-<li>将域名空间根据需要划分为较小区域</li>
-<li>一台DNS服务器内可存放多个区域文件</li>
-<li>一个区域所包含的范围在一个域名空间中是连续的</li>
+<li>VS2017</li>
+<li>.Net Framework 4.5</li>
 </ul>
-<h2 id="DNS服务器分类"><a href="#DNS服务器分类" class="headerlink" title="DNS服务器分类"></a>DNS服务器分类</h2><ol>
-<li>主要名称服务器（主DNS）<ul>
-<li>存放该区域中相关设置的DNS服务器（可修改）</li>
-<li>其存放的是区域文件的正本数据</li>
-<li>权威应答（查文件得到的结果)</li>
-</ul>
-</li>
-<li>辅助名称服务器（辅DNS）<ul>
-<li>从主DNS服务器中复制数据</li>
-<li>数据为副本无法修改</li>
-<li>权威应答（查文件得到的结果）</li>
-</ul>
-</li>
-<li>主控名称服务器<ul>
-<li>提供区域数据复制的DNS服务器（多个主DNS服务器谁提供辅助DNS的区域复制，谁就是主控名称服务器）</li>
-</ul>
-</li>
-<li>Cache-Only名称服务器（缓存DNS）<ul>
-<li>将查询到的数据保存在高速缓存中</li>
-<li>非权威应答（查缓存）</li>
-</ul>
-</li>
-</ol>
-<h2 id="DNS查询方式"><a href="#DNS查询方式" class="headerlink" title="DNS查询方式"></a>DNS查询方式</h2><ol>
-<li><p>从查询方式分类</p>
+<p><strong>运行环境</strong>：</p>
 <ul>
-<li><p>递归查询：客户端得到结果只能是成功或失败</p>
-</li>
-<li><p>迭代查询：</p>
+<li>Win10</li>
+</ul>
+<h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><p><strong>界面设计</strong>:</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/界面.png" alt="界面"></center>
+
+<p><strong>代码设计</strong>:</p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Text<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> GetCode
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Form1</span> <span class="token punctuation">:</span> Form
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token function">Form1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">btn_Get_Click</span><span class="token punctuation">(</span><span class="token keyword">object</span> sender<span class="token punctuation">,</span> EventArgs e<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">try</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//获得一个汉字字符</span>
+                <span class="token keyword">char</span> ch <span class="token operator">=</span> txt_ch<span class="token punctuation">.</span>Text<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//使用gb2312编码方式获得字节序列</span>
+                <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> gb2312_bt <span class="token operator">=</span> Encoding<span class="token punctuation">.</span><span class="token function">GetEncoding</span><span class="token punctuation">(</span><span class="token string">"gb2312"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">GetBytes</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span> ch <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//将字节序列的第一个字节向左移8位</span>
+                <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>gb2312_bt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">8</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">//第一个字节移8位后与第二个字节相加得到汉字编码</span>
+                n <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>gb2312_bt<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//显示汉字编码(十六进制)</span>
+                txt_Num<span class="token punctuation">.</span>Text <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//异常提示信息</span>
+                MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token string">"请输入汉字字符！"</span><span class="token punctuation">,</span> <span class="token string">"出现错误！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h1><center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/ProgrammingLanguages/CSharp/CSharp巧用移位运算符获取汉字编码值/结果.png" alt="结果"></center>
+
+<h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><ul>
+<li>char ch = txt_ch.Text[0];<font color="blue">//ch变量存储“位”的Unicode编码</font>&gt;</li>
+<li>byte[] gb2312_bt = Encoding.GetEncoding(“gb2312”).GetBytes(new Char[] { ch });<font color="blue">//gb2312_bt变量数组中存储由ch编码得到的GB2312字节</font></li>
+<li>int n = (int)gb2312_bt[0] &lt;&lt; 8;<font color="blue"> //将字节左移八位(一个字节)</font></li>
+<li>n += (int)gb2312_bt[1];<font color="blue">//两个数值相加得到“位”的GB2312编码(十进制)</font></li>
+<li>txt_Num.Text = Convert.ToString(n, 16);<font color="blue">//编码转十六进制并显示</font></li>
+</ul>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>参考链接</strong>：</p>
 <ul>
-<li><p>DNS服务器如有客户机请求数据则返回正确地址</p>
-</li>
-<li><p>DNS服务器没有请求数据则返回一个指针</p>
-</li>
+<li><a href="https://baike.baidu.com/item/汉字编码/7123465?fr=aladdin" target="_blank" rel="noopener">汉字编码(百度百科)</a></li>
+<li><a href="https://www.qqxiuzi.cn/bianma/zifuji.php" target="_blank" rel="noopener">千千秀字(汉字字符集编码查询)</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>从查询内容分类</p>
-<ul>
-<li><p>正向查询：由域名查找IP地址 </p>
-</li>
-<li><p>反向查询：由IP地址查找域名 </p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="DNS查询过程"><a href="#DNS查询过程" class="headerlink" title="DNS查询过程"></a>DNS查询过程</h2><ol>
-<li>输入一个HTTP网址 <code>www.taobao.com</code>【下单后收货时发现货物有瑕疵，计划换货】</li>
-<li>通过DNS解析出这个网址的IP【找出卖家地址】<ol>
-<li>此时操作系统会先检查本地<code>hosts</code>文件是否有这个网址的映射关系，如果有，就先调用这个IP地址映射，完成解析；如果没有执行2。</li>
-<li>若<code>hosts</code>里没有，则查找本地DNS解析器缓存，若有映射，直接返回，完成解析；若无映射执行3。</li>
-<li>若前两者没有，查找<code>TCP/IP</code>参数中设置的首选DNS服务器（此处称为本地DNS服务器）。若查询的域名包含在本地配置区域资源中，则返回解析结果给客户机，完成解析。（此解析具有权威性）若要查询的域名，不由本地DNS服务器区域解析，但该服务器缓存了网址的映射关系，则调用这个IP地址映射，完成解析。（此解析不具权威性）。若都没有则执行4。</li>
-<li>若前三者没有，则根据本地DNS服务器的设置（是否设置转发器）进行查询。最后都由本地DNS服务器返回IP地址给客户机。<ul>
-<li><strong>采用未转发模式</strong>：本地DNS将请求发至13台根DNS，根DNS收到后会判断这个域名.com是谁来授权管理，返回一个负责该顶级域名的服务器的IP。收到IP信息后，本地DNS联系负责.com的服务器，收到请求后进行解析，找到一个管理baidu.com的DNS服务器的IP，返回给本地DNS服务器。收到IP信息后，重复上述动作，直到找到<code>www.taobao.com</code>的IP地址。</li>
-<li><strong>采用转发模式</strong>：本地DNS服务器将请求发送至上一级DNS解析器，由上一级DNS解析器进行解析。上一级若不能解析，或找根DNS或把请求转至上上级，以此循环。</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>有了IP后，通过IP地址找到对应服务器，请求与对方建立TCP连接（先通过子网掩码判断下是否是同一个网络的。如果不在同一个网络，需要通过网关转发）【跟客服扯皮，达成换货共识】</li>
-<li>建立连接后，客户端向服务器发送HTTP Request（请求）包数据【寄快递】</li>
-<li>服务器收到请求后，进行处理，返回HTTP Response（响应）包数据【卖家收到快递，寄回换的货】</li>
-<li>客户端收到服务器的响应后，开始渲染这个Response包里的主体（body），收到全部的内容后断开与该服务器之间的TCP连接【收到货，点击确定收货，完成交易】</li>
-</ol>
-<p>总结：<br><font color="red"><code>www.taobao.com</code> → 本地HOSTS(无) → DNS本地缓存 → DNS服务器 → 根DNS–顶级域名DNS服务器 → 公司域名DNS服务器–找到主机对应IP → 本地DNS服务器 → 本地主机 → 完成解析得知ip</font></p>
-<h2 id="资源记录类型"><a href="#资源记录类型" class="headerlink" title="资源记录类型"></a>资源记录类型</h2><table>
-<thead>
-<tr>
-<th align="center">资源记录</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">SOA（起始授权机构）</td>
-<td align="left">定义了该域中的权威名称服务器</td>
-</tr>
-<tr>
-<td align="center">NS（名称服务器）</td>
-<td align="left">表示某区域的权威服务器和SQA中指定的该区域的主要服务器和辅助服务器</td>
-</tr>
-<tr>
-<td align="center">A（主机）</td>
-<td align="left">列出了区域中FQDN（完全合格的域名）到IP地址的映射</td>
-</tr>
-<tr>
-<td align="center">PTR（指针）</td>
-<td align="left">相对于A资源记录，PTR记录是把IP地址映射到FQDN</td>
-</tr>
-<tr>
-<td align="center">MX</td>
-<td align="left">邮件交换器记录，向指定的邮件交换主机提供消息路由</td>
-</tr>
-<tr>
-<td align="center">CNAME（别名）</td>
-<td align="left">将多个名字映射到同一台计算机上，便于用户访问</td>
-</tr>
-</tbody></table>
-<h1 id="0x02-配置DNS服务"><a href="#0x02-配置DNS服务" class="headerlink" title="0x02 配置DNS服务"></a>0x02 配置DNS服务</h1><h2 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h2><ul>
-<li>有固定的IP地址</li>
-<li>安装并启动DNS服务</li>
-<li>有区域文件，配置转发器，或者配置根提示</li>
-</ul>
-<h2 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h2><ol>
-<li>安装并启动DNS服务</li>
-<li>新建A记录</li>
-<li>配置转发器，或者配置跟提示</li>
-</ol>
-<h1 id="0x03-管理DNS服务"><a href="#0x03-管理DNS服务" class="headerlink" title="0x03 管理DNS服务"></a>0x03 管理DNS服务</h1><h2 id="子域"><a href="#子域" class="headerlink" title="子域"></a>子域</h2><p>​        可以将同一网络中的不同用户归于不同的子域，然后给不同资源创建不同的记录，实现不同的功能</p>
-<h2 id="委派"><a href="#委派" class="headerlink" title="委派"></a>委派</h2><p>区域中的子域过多时:</p>
-<ul>
-<li>维护起来不方便</li>
-<li>域名查询量的瓶颈</li>
-</ul>
-<p>新建委派可以将子域委派到其他服务器维护（）<br>子域与委派的对比</p>
-<ul>
-<li>子域的资源在父区域文件中，子域的权威服务器是父区域的权威服务器</li>
-<li>委派有独立的区域文件，给新域指定新的权威服务器</li>
-</ul>
-<h2 id="区域传送"><a href="#区域传送" class="headerlink" title="区域传送"></a>区域传送</h2><ol>
-<li>区域传送（减轻单台DNS服务器负载）<ul>
-<li>将一个区域文件复制到多个DNS服务器的过程</li>
-<li>从主服务器上将区域文件复制到辅助服务器</li>
-</ul>
-</li>
-</ol>
-<h2 id="转发器"><a href="#转发器" class="headerlink" title="转发器"></a>转发器</h2><p>​        具有特殊功能和应用的DNS服务器</p>
-<ol>
-<li>将本地DNS服务器无法解析的查询，转发到网络上其它DNS服务器 </li>
-<li>转发到转发器的查询一般为递归查询</li>
-<li>可以设置条件转发</li>
-</ol>
-<h2 id="根提示"><a href="#根提示" class="headerlink" title="根提示"></a>根提示</h2><ol>
-<li>使非根域的DNS服务器可查到根域DNS服务器</li>
-<li>根提示与转发器使用顺序<ul>
-<li>DNS优先使用转发器</li>
-</ul>
-</li>
-</ol>
-<h1 id="0x04-配置DNS客户端"><a href="#0x04-配置DNS客户端" class="headerlink" title="0x04 配置DNS客户端"></a>0x04 配置DNS客户端</h1><h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><pre class=" language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> static 8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8</code></pre>
-<h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><pre class=" language-powershell"><code class="language-powershell">netsh interface ip <span class="token function">set</span> dnsserver <span class="token string">"本地连接"</span> dhcp</code></pre>
-<h2 id="DNS相关命令"><a href="#DNS相关命令" class="headerlink" title="DNS相关命令"></a>DNS相关命令</h2><pre class=" language-powershell"><code class="language-powershell">1<span class="token punctuation">.</span>清空本地DNS缓存记录
-ipconfig <span class="token operator">/</span>flushdns
-
-2<span class="token punctuation">.</span>测试DNS服务器
-nslookup
-
-3<span class="token punctuation">.</span>查询域名相关信息（https:<span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>qq_15727809<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span>70052534）
-nslookup <span class="token operator">-</span>qt=<span class="token function">type</span> 域名 DNSip或是域名
-<span class="token function">type</span>=
-A 地址记录
-AAAA 地址记录
-CNAME 别名记录
-HINFO 硬件配置记录，包括CPU、操作系统信息
-MX 邮件服务器记录
-NS 名字服务器记录
-PTR 反向记录
-1<span class="token punctuation">.</span>例如： nslookup <span class="token operator">-</span>qt=mx baidu<span class="token punctuation">.</span>com 8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8
-
-2<span class="token punctuation">.</span>nslookup <span class="token operator">-</span>d www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
-可以看到本地ISP服务器上缓存的时间，就算刷新了本机操作系统缓存，ISP上仍然存<span class="token punctuation">.</span>
-
-3<span class="token punctuation">.</span>>nslookup <span class="token operator">-</span>qt=cname lanou<span class="token punctuation">.</span>com 202<span class="token punctuation">.</span>106<span class="token punctuation">.</span>0<span class="token punctuation">.</span>20
-primary name server = ns<span class="token punctuation">.</span>163<span class="token punctuation">.</span>com
-主要名字服务器（DNS记录文件所在的主机位置    ）
-
-responsible mail addr = admin<span class="token punctuation">.</span>NEASE<span class="token punctuation">.</span>NET
-记录主机管理员邮件地址admin@nease<span class="token punctuation">.</span>net
-
-serial = 20010348
-区域传递序号，又叫文件版本，当发生区域复制时，该域用来指示区域信息的更新情况。
-格式为：yyyymmddnn<span class="token punctuation">,</span>nn代表这一天是第几次修改，辅助DNS通过比较这个号来决定是否复制该信息。大表示新。
-
-refresh = 10800 <span class="token punctuation">(</span>3 hours<span class="token punctuation">)</span>
-重刷新时间，当区域复制发生时，指定区域复制的更新时间间隔（告诉该区域的辅助DNS间隔多久检查该区域的数据是否是最新的）
-
-retry = 3600 <span class="token punctuation">(</span>1 hour<span class="token punctuation">)</span>
-重试时间，区域复制失败时，重新尝试的时间（要比刷新时间短）
-
-expire = 360000 <span class="token punctuation">(</span>4 days 4 hours<span class="token punctuation">)</span>
-有效时间，区域复制在有效时间内不能完成，则终止更新（设置时间要比刷新和重试时间长）
-
-default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="token punctuation">)</span>
-表示DNS记录在DNS服务器上缓存时间，数值越小，修改记录各地生效时间越快。</code></pre>
+<p><strong>有关字体编码/查询/加解密网站推荐</strong>：</p>
+<p><a href="https://www.qqxiuzi.cn/daohang.htm" target="_blank" rel="noopener">千千秀字</a></p>
 
                 
             </div>
@@ -735,7 +621,7 @@ default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="to
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z1r0s.github.io/2020/11/14/demo/dns-fu-wu/">https://z1r0s.github.io/2020/11/14/demo/dns-fu-wu/</a>
+                    <a href="https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/">https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -773,8 +659,8 @@ default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="to
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/网络服务/">
-                                    <span class="chip bg-color">网络服务</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C#</span>
                                 </a>
                             
                         </div>
@@ -950,12 +836,13 @@ default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="to
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/16/demo/dns-fu-wu-bu-shu/">
+                <a href="/2020/08/22/she-ji-mo-shi-zhi-gong-han-fang-fa-mo-shi/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/202.jpg" class="responsive-img" alt="DNS服务部署">
                         
-                        <span class="card-title">DNS服务部署</span>
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="工厂方法模式">
+                        
+                        <span class="card-title">工厂方法模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -966,14 +853,14 @@ default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="to
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/网络技术/" class="post-category">
-                                    网络技术
+                            <a href="/categories/设计模式/" class="post-category">
+                                    设计模式
                                 </a>
                             
                             
@@ -983,12 +870,8 @@ default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="to
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/网络服务/">
-                        <span class="chip bg-color">网络服务</span>
-                    </a>
-                    
-                    <a href="/tags/DNS/">
-                        <span class="chip bg-color">DNS</span>
+                    <a href="/tags/设计模式/">
+                        <span class="chip bg-color">设计模式</span>
                     </a>
                     
                 </div>
@@ -1002,12 +885,13 @@ default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="to
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/13/windows-an-quan-jia-gu-pi-chu-li-jiao-ben/">
+                <a href="/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/49.jpg" class="responsive-img" alt="Windows安全加固批处理脚本">
                         
-                        <span class="card-title">Windows安全加固批处理脚本</span>
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="CSharp多线程猜数字游戏">
+                        
+                        <span class="card-title">CSharp多线程猜数字游戏</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1018,14 +902,14 @@ default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="to
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/安全加固/" class="post-category">
-                                    安全加固
+                            <a href="/categories/程序设计/" class="post-category">
+                                    程序设计
                                 </a>
                             
                             
@@ -1035,8 +919,8 @@ default TTL = 3600 <span class="token punctuation">(</span>1 hour<span class="to
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Windows/">
-                        <span class="chip bg-color">Windows</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
                     </a>
                     
                 </div>
