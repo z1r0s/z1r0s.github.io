@@ -196,6 +196,32 @@
   </entry>
   
   <entry>
+    <title>SQL注入之GET-DumpIntoOutfile-String</title>
+    <link href="https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/"/>
+    <id>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/</id>
+    <published>2021-02-24T07:10:26.000Z</published>
+    <updated>2021-02-24T13:23:56.949Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-SQL注入&quot;&gt;&lt;a href=&quot;#0x01-SQL注入&quot; class=&quot;headerlink&quot; title=&quot;0x01 SQL注入&quot;&gt;&lt;/a&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL之基础命令</title>
     <link href="https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/"/>
     <id>https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/</id>
@@ -496,32 +522,6 @@
         
         
           &lt;h1 id=&quot;权限基础&quot;&gt;&lt;a href=&quot;#权限基础&quot; class=&quot;headerlink&quot; title=&quot;权限基础&quot;&gt;&lt;/a&gt;权限基础&lt;/h1&gt;&lt;h2 id=&quot;使用者与群组&quot;&gt;&lt;a href=&quot;#使用者与群组&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux之故障排除</title>
-    <link href="https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/"/>
-    <id>https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/</id>
-    <published>2020-12-11T08:04:05.000Z</published>
-    <updated>2020-12-22T14:37:13.468Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;系统启动类故障&quot;&gt;&lt;a href=&quot;#系统启动类故障&quot; class=&quot;headerlink&quot;
         
       
     

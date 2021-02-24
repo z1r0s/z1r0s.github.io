@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>  <url>
     <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
