@@ -1,3 +1,9 @@
+https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/
+https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/
+https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/
+https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/
+https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/
+https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/
 https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/
 https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/
 https://z1r0s.github.io/2020/12/25/linux-zhi-ri-zhi-guan-li/
@@ -92,9 +98,3 @@ https://z1r0s.github.io/2020/10/06/ji-yi-ci-bei-da-jing-li/
 https://z1r0s.github.io/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/
 https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/
 https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-lu-jing/
-https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-zhi-wen/
-https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/
-https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-crypto-writeup/
-https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/
-https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/
-https://z1r0s.github.io/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/

@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/</loc>
+    
+    <lastmod>2021-02-24T13:21:25.901Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/</loc>
+    
+    <lastmod>2021-02-24T12:59:37.557Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/</loc>
+    
+    <lastmod>2021-02-24T12:32:38.691Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/</loc>
+    
+    <lastmod>2021-02-24T12:13:56.266Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/</loc>
+    
+    <lastmod>2021-02-24T11:37:22.255Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</loc>
+    
+    <lastmod>2021-02-24T09:56:39.096Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</loc>
     
     <lastmod>2021-02-24T08:46:19.324Z</lastmod>
