@@ -1,3 +1,4 @@
+https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/
 https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/
 https://z1r0s.github.io/2020/12/25/linux-zhi-ri-zhi-guan-li/
 https://z1r0s.github.io/2020/12/22/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/
@@ -81,12 +82,12 @@ https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level2/
 https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level1/
 https://z1r0s.github.io/2020/10/25/xss-kua-zhan-jiao-ben-gong-ji/
 https://z1r0s.github.io/2020/10/25/mysql-zhu-ru-load-file-han-shu-chang-yong-lu-jing/
-https://z1r0s.github.io/2020/10/19/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/
-https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/
-https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/
-https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/
-https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/
-https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/
+https://z1r0s.github.io/2020/10/19/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/
+https://z1r0s.github.io/2020/10/18/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/
+https://z1r0s.github.io/2020/10/18/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/
+https://z1r0s.github.io/2020/10/17/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequoteswithtwist-string/
+https://z1r0s.github.io/2020/10/17/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-intigerbased/
+https://z1r0s.github.io/2020/10/17/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/
 https://z1r0s.github.io/2020/10/06/ji-yi-ci-bei-da-jing-li/
 https://z1r0s.github.io/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/
 https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/
@@ -97,4 +98,3 @@ https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-crypto-writeup/
 https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/
 https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/
 https://z1r0s.github.io/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/
-https://z1r0s.github.io/2020/09/28/cha-kan-yi-lian-jie-de-wifi-mi-ma/

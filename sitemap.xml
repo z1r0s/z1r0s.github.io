@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</loc>
+    
+    <lastmod>2021-02-24T08:46:19.324Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/17/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequoteswithtwist-string/</loc>
+    
+    <lastmod>2021-02-24T07:07:51.788Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/17/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-intigerbased/</loc>
+    
+    <lastmod>2021-02-24T07:07:43.966Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://z1r0s.github.io/2020/10/17/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</loc>
+    
+    <lastmod>2021-02-24T07:03:42.848Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/</loc>
     
     <lastmod>2021-02-23T11:19:08.387Z</lastmod>
@@ -611,84 +639,63 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</loc>
-    
-    <lastmod>2020-12-22T14:12:30.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/18/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
     
     <lastmod>2020-12-22T14:12:21.777Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-singlequoteswithtwist-string/</loc>
-    
-    <lastmod>2020-12-22T14:12:12.844Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/10/17/sql-zhu-ru-zhi-get-errorbasd-intigerbased/</loc>
-    
-    <lastmod>2020-12-22T14:12:01.615Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2020/10/18/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/18/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
     
     <lastmod>2020-12-22T14:11:51.279Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/19/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/19/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</loc>
     
     <lastmod>2020-12-22T14:11:43.366Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/09/17/test/dvwa-sqlinjection/</loc>
+    <loc>https://z1r0s.github.io/2020/09/17/ba-chang/dvwa/dvwa-sqlinjection/</loc>
     
     <lastmod>2020-12-22T14:11:31.628Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/09/14/test/dvwa-fileupload/</loc>
+    <loc>https://z1r0s.github.io/2020/09/14/ba-chang/dvwa/dvwa-fileupload/</loc>
     
     <lastmod>2020-12-22T14:11:23.889Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/09/13/test/dvwa-fileinclusion/</loc>
+    <loc>https://z1r0s.github.io/2020/09/13/ba-chang/dvwa/dvwa-fileinclusion/</loc>
     
     <lastmod>2020-12-22T14:11:15.955Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/09/13/test/dvwa-csrf/</loc>
+    <loc>https://z1r0s.github.io/2020/09/13/ba-chang/dvwa/dvwa-csrf/</loc>
     
     <lastmod>2020-12-22T14:11:02.563Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/09/12/test/dvwa-commandinjection/</loc>
+    <loc>https://z1r0s.github.io/2020/09/12/ba-chang/dvwa/dvwa-commandinjection/</loc>
     
     <lastmod>2020-12-22T14:10:51.094Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/09/12/test/dvwa-bruteforce/</loc>
+    <loc>https://z1r0s.github.io/2020/09/12/ba-chang/dvwa/dvwa-bruteforce/</loc>
     
     <lastmod>2020-12-22T14:10:36.778Z</lastmod>
     
