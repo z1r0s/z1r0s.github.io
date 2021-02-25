@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</loc>
+    
+    <lastmod>2021-02-24T14:32:23.950Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/</loc>
     
     <lastmod>2021-02-24T13:23:56.949Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/</loc>
     
     <lastmod>2021-02-24T11:37:22.255Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</loc>
-    
-    <lastmod>2021-02-24T09:56:39.096Z</lastmod>
     
   </url>
   
@@ -548,140 +548,140 @@
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level20/</loc>
+    <loc>https://z1r0s.github.io/2020/10/31/ba-chang/xss-labs/xss-zhi-xss-labs-level20/</loc>
     
     <lastmod>2020-12-22T14:16:12.449Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level19/</loc>
+    <loc>https://z1r0s.github.io/2020/10/31/ba-chang/xss-labs/xss-zhi-xss-labs-level19/</loc>
     
     <lastmod>2020-12-22T14:16:02.309Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level18/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level18/</loc>
     
     <lastmod>2020-12-22T14:15:54.001Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level17/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level17/</loc>
     
     <lastmod>2020-12-22T14:15:45.514Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level16/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level16/</loc>
     
     <lastmod>2020-12-22T14:15:36.118Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level15/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level15/</loc>
     
     <lastmod>2020-12-22T14:15:28.702Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/31/xss-zhi-xss-labs-level14/</loc>
+    <loc>https://z1r0s.github.io/2020/10/31/ba-chang/xss-labs/xss-zhi-xss-labs-level14/</loc>
     
     <lastmod>2020-12-22T14:15:21.427Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level13/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level13/</loc>
     
     <lastmod>2020-12-22T14:15:12.378Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level12/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level12/</loc>
     
     <lastmod>2020-12-22T14:15:04.249Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level11/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level11/</loc>
     
     <lastmod>2020-12-22T14:14:26.043Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level10/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level10/</loc>
     
     <lastmod>2020-12-22T14:14:15.715Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/27/xss-zhi-xss-labs-level9/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level9/</loc>
     
     <lastmod>2020-12-22T14:14:06.910Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level8/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level8/</loc>
     
     <lastmod>2020-12-22T14:13:56.586Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level7/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level7/</loc>
     
     <lastmod>2020-12-22T14:13:49.009Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level6/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level6/</loc>
     
     <lastmod>2020-12-22T14:13:40.579Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level5/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level5/</loc>
     
     <lastmod>2020-12-22T14:13:29.012Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level4/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level4/</loc>
     
     <lastmod>2020-12-22T14:13:17.312Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/26/xss-zhi-xss-labs-level3/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level3/</loc>
     
     <lastmod>2020-12-22T14:13:08.106Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level2/</loc>
+    <loc>https://z1r0s.github.io/2020/10/25/ba-chang/xss-labs/xss-zhi-xss-labs-level2/</loc>
     
     <lastmod>2020-12-22T14:12:56.786Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://z1r0s.github.io/2020/10/25/xss-zhi-xss-labs-level1/</loc>
+    <loc>https://z1r0s.github.io/2020/10/25/ba-chang/xss-labs/xss-zhi-xss-labs-level1/</loc>
     
     <lastmod>2020-12-22T14:12:46.564Z</lastmod>
     

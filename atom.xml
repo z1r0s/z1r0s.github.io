@@ -121,29 +121,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/"/>
-    <id>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</id>
-    <published>2021-02-24T09:40:04.432Z</published>
-    <updated>2021-02-24T09:56:39.096Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;center&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>SQL注入之GET-Blind-TimeBased-SingleQuotes</title>
     <link href="https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/"/>
     <id>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/</id>
@@ -175,6 +152,32 @@
     <id>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</id>
     <published>2021-02-24T08:05:59.000Z</published>
     <updated>2021-02-24T08:46:19.324Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-SQL注入&quot;&gt;&lt;a href=&quot;#0x01-SQL注入&quot; class=&quot;headerlink&quot; title=&quot;0x01 SQL注入&quot;&gt;&lt;/a&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL注入之GET-Blind-TimeBased-DoubleQuotes</title>
+    <link href="https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/"/>
+    <id>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</id>
+    <published>2021-02-24T08:05:59.000Z</published>
+    <updated>2021-02-24T14:32:23.950Z</updated>
     
     <summary type="html">
     
