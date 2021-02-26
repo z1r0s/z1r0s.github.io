@@ -1,466 +1,466 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</loc>
+    <loc>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/</loc>
+    <loc>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/</loc>
+    <loc>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/</loc>
+    <loc>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/</loc>
+    <loc>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2021/02/24/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</loc>
+    <loc>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/17/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequoteswithtwist-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/17/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequoteswithtwist-string/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/17/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-intigerbased/</loc>
+    <loc>https://z1r0s.github.io/2020/10/17/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-intigerbased/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/17/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/17/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2021/01/02/mysql-zhi-ji-chu-ming-ling/</loc>
+    <loc>https://z1r0s.github.io/2021/01/02/database/mysql-zhi-ji-chu-ming-ling/</loc>
     <lastmod>2021-02-23</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/mysql-zhu-ru-chang-yong-han-shu/</loc>
+    <loc>https://z1r0s.github.io/2020/09/29/security/webvuln/sqli/mysql-zhu-ru-chang-yong-han-shu/</loc>
     <lastmod>2021-02-23</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/19/github-hacking/</loc>
+    <loc>https://z1r0s.github.io/2020/12/19/security/infogathering/github-hacking/</loc>
     <lastmod>2021-01-16</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/19/google-hacking/</loc>
+    <loc>https://z1r0s.github.io/2020/12/19/security/infogathering/google-hacking/</loc>
     <lastmod>2021-01-16</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-duan-kou/</loc>
+    <loc>https://z1r0s.github.io/2020/09/29/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-duan-kou/</loc>
     <lastmod>2021-01-16</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/08/linux-mu-lu-jie-shao/</loc>
+    <loc>https://z1r0s.github.io/2020/12/08/linux/based/linux-mu-lu-jie-shao/</loc>
     <lastmod>2020-12-26</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/01/nmap-zhi-zhu-ji-fa-xian/</loc>
+    <loc>https://z1r0s.github.io/2020/11/01/security/arsenal/nmap/nmap-zhi-zhu-ji-fa-xian/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/26/chang-jian-she-bei-mo-ren-mi-ma-zheng-li/</loc>
+    <loc>https://z1r0s.github.io/2020/11/26/security/intranet/chang-jian-she-bei-mo-ren-mi-ma-zheng-li/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/27/ji-picgo-tu-chuang-de-an-zhuang-yu-shi-yong/</loc>
+    <loc>https://z1r0s.github.io/2020/08/27/windows/software/ji-picgo-tu-chuang-de-an-zhuang-yu-shi-yong/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/git-he-github/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/windows/software/git-he-github/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl-shi-yan/</loc>
+    <loc>https://z1r0s.github.io/2020/12/06/network/configuration/wang-luo-pei-zhi-zhi-acl-shi-yan/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/24/wang-luo-pei-zhi-zhi-hsrp-shi-yan/</loc>
+    <loc>https://z1r0s.github.io/2020/11/24/network/configuration/wang-luo-pei-zhi-zhi-hsrp-shi-yan/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/25/wang-luo-pei-zhi-zhi-stp-hsrp-shi-yan/</loc>
+    <loc>https://z1r0s.github.io/2020/11/25/network/configuration/wang-luo-pei-zhi-zhi-stp-hsrp-shi-yan/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-yuan-cheng-guan-li/</loc>
+    <loc>https://z1r0s.github.io/2020/12/05/network/configuration/wang-luo-pei-zhi-zhi-yuan-cheng-guan-li/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/05/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/</loc>
+    <loc>https://z1r0s.github.io/2020/12/05/network/configuration/wang-luo-pei-zhi-zhi-pei-zhi-lu-you/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/18/jing-tai-lu-you-zong-he-shi-yan/</loc>
+    <loc>https://z1r0s.github.io/2020/11/18/network/configuration/jing-tai-lu-you-zong-he-shi-yan/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/she-ji-mo-shi-zhi-zhuang-shi-mo-shi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/coding/designpatterns/she-ji-mo-shi-zhi-zhuang-shi-mo-shi/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/she-ji-mo-shi-zhi-gong-han-fang-fa-mo-shi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/coding/designpatterns/she-ji-mo-shi-zhi-gong-han-fang-fa-mo-shi/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/she-ji-mo-shi-zhi-dai-li-mo-shi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/coding/designpatterns/she-ji-mo-shi-zhi-dai-li-mo-shi/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/she-ji-mo-shi-zhi-chou-xiang-gong-han-mo-shi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/coding/designpatterns/she-ji-mo-shi-zhi-chou-xiang-gong-han-mo-shi/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/she-ji-mo-shi-zhi-ce-lue-mo-shi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/coding/designpatterns/she-ji-mo-shi-zhi-ce-lue-mo-shi/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/she-ji-mo-shi-zhi-yuan-xing-mo-shi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/coding/designpatterns/she-ji-mo-shi-zhi-yuan-xing-mo-shi/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/26/win10-yuan-cheng-zhuo-mian-ji-fang-huo-qiang-pei-zhi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/26/windows/servers/win10-yuan-cheng-zhuo-mian-ji-fang-huo-qiang-pei-zhi/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/25/linux-zhi-ri-zhi-guan-li/</loc>
+    <loc>https://z1r0s.github.io/2020/12/25/linux/based/linux-zhi-ri-zhi-guan-li/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/06/wang-luo-pei-zhi-zhi-acl/</loc>
+    <loc>https://z1r0s.github.io/2020/12/06/network/configuration/wang-luo-pei-zhi-zhi-acl/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/zai-typora-bian-ji-shu-xue-biao-da-shi/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/windows/software/zai-typora-bian-ji-shu-xue-biao-da-shi/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/ying-yu-ci-hui-fen-lei-hui-zong/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/english/ying-yu-ci-hui-fen-lei-hui-zong/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/24/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/</loc>
+    <loc>https://z1r0s.github.io/2020/11/24/security/vulnexp/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/30/wang-luo-ji-zhu-zhi-nat/</loc>
+    <loc>https://z1r0s.github.io/2020/11/30/network/configuration/wang-luo-ji-zhu-zhi-nat/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/06/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/</loc>
+    <loc>https://z1r0s.github.io/2020/11/06/security/vulnexp/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/16/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/</loc>
+    <loc>https://z1r0s.github.io/2020/12/16/security/script/bat/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/pi-chu-li-bi-ji/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/security/script/bat/pi-chu-li-bi-ji/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/29/chang-jian-wang-luo-xie-yi-zheng-li/</loc>
+    <loc>https://z1r0s.github.io/2020/11/29/network/theory/chang-jian-wang-luo-xie-yi-zheng-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/06/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/</loc>
+    <loc>https://z1r0s.github.io/2020/11/06/windows/servers/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/08/linux-zhi-yong-hu-he-zu-guan-li/</loc>
+    <loc>https://z1r0s.github.io/2020/12/08/linux/based/linux-zhi-yong-hu-he-zu-guan-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/13/linux-zhi-wang-luo-guan-li/</loc>
+    <loc>https://z1r0s.github.io/2020/12/13/linux/based/linux-zhi-wang-luo-guan-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/07/linux-zhi-ruan-jian-bao-guan-li/</loc>
+    <loc>https://z1r0s.github.io/2020/12/07/linux/based/linux-zhi-ruan-jian-bao-guan-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/13/linux-zhi-quan-xian-guan-li/</loc>
+    <loc>https://z1r0s.github.io/2020/12/13/linux/based/linux-zhi-quan-xian-guan-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/21/linux-zhi-jin-cheng-yu-ji-hua/</loc>
+    <loc>https://z1r0s.github.io/2020/12/21/linux/based/linux-zhi-jin-cheng-yu-ji-hua/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/11/linux-zhi-gu-zhang-pai-chu/</loc>
+    <loc>https://z1r0s.github.io/2020/12/11/linux/based/linux-zhi-gu-zhang-pai-chu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/09/linux-zhi-ci-pan-guan-li/</loc>
+    <loc>https://z1r0s.github.io/2020/12/09/linux/based/linux-zhi-ci-pan-guan-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/06/windows-yong-hu-he-zu-guan-li/</loc>
+    <loc>https://z1r0s.github.io/2020/11/06/windows/servers/windows-yong-hu-he-zu-guan-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/06/windows-wen-jian-xi-tong/</loc>
+    <loc>https://z1r0s.github.io/2020/11/06/windows/servers/windows-wen-jian-xi-tong/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/05/windows-fang-wen-kong-zhi-lie-biao-pei-zhi-shi-yan/</loc>
+    <loc>https://z1r0s.github.io/2020/11/05/windows/servers/windows-fang-wen-kong-zhi-lie-biao-pei-zhi-shi-yan/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/07/windows-ci-pan-guan-li/</loc>
+    <loc>https://z1r0s.github.io/2020/11/07/windows/servers/windows-ci-pan-guan-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/04/windows-chang-yong-ming-ling-zheng-li/</loc>
+    <loc>https://z1r0s.github.io/2020/11/04/security/intranet/windows-chang-yong-ming-ling-zheng-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/06/windows-ben-di-an-quan-ce-lue/</loc>
+    <loc>https://z1r0s.github.io/2020/11/06/windows/servers/windows-ben-di-an-quan-ce-lue/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/13/windows-an-quan-jia-gu-pi-chu-li-jiao-ben/</loc>
+    <loc>https://z1r0s.github.io/2020/11/13/security/baseline/windows-an-quan-jia-gu-pi-chu-li-jiao-ben/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/17/windows-xia-python2-he-python3-gong-cun-huan-jing-da-jian/</loc>
+    <loc>https://z1r0s.github.io/2020/09/17/windows/software/windows-xia-python2-he-python3-gong-cun-huan-jing-da-jian/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/27/rstp-ying-yong-shi-li/</loc>
+    <loc>https://z1r0s.github.io/2020/08/27/network/theory/rstp-ying-yong-shi-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/16/yu-he-huo-dong-mu-lu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/16/windows/servers/yu-he-huo-dong-mu-lu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/05/ji-chu-wang-luo-ming-ling/</loc>
+    <loc>https://z1r0s.github.io/2020/11/05/security/intranet/ji-chu-wang-luo-ming-ling/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/05/lu-you-cha-xun-chang-yong-ming-ling/</loc>
+    <loc>https://z1r0s.github.io/2020/11/05/security/intranet/lu-you-cha-xun-chang-yong-ming-ling/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/05/powershell-chang-yong-ming-ling/</loc>
+    <loc>https://z1r0s.github.io/2020/11/05/security/script/ps1/powershell-chang-yong-ming-ling/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/05/yu-cao-zuo-ming-ling/</loc>
+    <loc>https://z1r0s.github.io/2020/11/05/windows/servers/yu-cao-zuo-ming-ling/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/05/wan-zhuan-vmware-zhi-zai-windows-xi-tong-zhong-an-zhuang-vmtools/</loc>
+    <loc>https://z1r0s.github.io/2020/11/05/windows/software/wan-zhuan-vmware-zhi-zai-windows-xi-tong-zhong-an-zhuang-vmtools/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/04/wan-zhuan-vmware-zhi-xin-jian-windows-xu-ni-ji/</loc>
+    <loc>https://z1r0s.github.io/2020/11/04/windows/software/wan-zhuan-vmware-zhi-xin-jian-windows-xu-ni-ji/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/this-host-is-not-allowed-to-connect-to-mysql-server/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/debug/this-host-is-not-allowed-to-connect-to-mysql-server/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/17/jie-jue-rsatool-py-jiao-ben-bao-cuo/</loc>
+    <loc>https://z1r0s.github.io/2020/09/17/debug/jie-jue-rsatool-py-jiao-ben-bao-cuo/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/17/jie-jue-python3-an-zhuang-gmpy2-bao-cuo/</loc>
+    <loc>https://z1r0s.github.io/2020/09/17/debug/jie-jue-python3-an-zhuang-gmpy2-bao-cuo/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/14/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/</loc>
+    <loc>https://z1r0s.github.io/2020/09/14/debug/jie-jue-dvwa-zhong-recaptcha-api-key-missing-from-config-file/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/05/jie-jue-burpsuite-response-zhong-wen-luan-ma/</loc>
+    <loc>https://z1r0s.github.io/2020/09/05/debug/jie-jue-burpsuite-response-zhong-wen-luan-ma/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/25/mysql-zhu-ru-load-file-han-shu-chang-yong-lu-jing/</loc>
+    <loc>https://z1r0s.github.io/2020/10/25/security/webvuln/sqli/mysql-zhu-ru-load-file-han-shu-chang-yong-lu-jing/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/27/lsb-suan-fa-fen-xi-yu-shi-xian/</loc>
+    <loc>https://z1r0s.github.io/2020/08/27/crypto/lsb-suan-fa-fen-xi-yu-shi-xian/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/14/vscode-zhi-kai-fa-huan-jing-da-jian/</loc>
+    <loc>https://z1r0s.github.io/2020/12/14/windows/software/vscode-zhi-kai-fa-huan-jing-da-jian/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-filezillaserver/</loc>
+    <loc>https://z1r0s.github.io/2020/09/07/windows/servers/ftp-fu-wu-qi-da-jian-filezillaserver/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/07/ftp-fu-wu-qi-da-jian-iis/</loc>
+    <loc>https://z1r0s.github.io/2020/09/07/windows/servers/ftp-fu-wu-qi-da-jian-iis/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/31/ba-chang/xss-labs/xss-zhi-xss-labs-level20/</loc>
+    <loc>https://z1r0s.github.io/2020/10/31/pentestenv/xss-labs/xss-zhi-xss-labs-level20/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/31/ba-chang/xss-labs/xss-zhi-xss-labs-level19/</loc>
+    <loc>https://z1r0s.github.io/2020/10/31/pentestenv/xss-labs/xss-zhi-xss-labs-level19/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level18/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level18/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level17/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level17/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level16/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level16/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level15/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level15/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/31/ba-chang/xss-labs/xss-zhi-xss-labs-level14/</loc>
+    <loc>https://z1r0s.github.io/2020/10/31/pentestenv/xss-labs/xss-zhi-xss-labs-level14/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level13/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level13/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level12/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level12/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level11/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level11/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level10/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level10/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/27/ba-chang/xss-labs/xss-zhi-xss-labs-level9/</loc>
+    <loc>https://z1r0s.github.io/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level9/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level8/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level8/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level7/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level7/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level6/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level6/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level5/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level5/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level4/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level4/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/26/ba-chang/xss-labs/xss-zhi-xss-labs-level3/</loc>
+    <loc>https://z1r0s.github.io/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level3/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/25/ba-chang/xss-labs/xss-zhi-xss-labs-level2/</loc>
+    <loc>https://z1r0s.github.io/2020/10/25/pentestenv/xss-labs/xss-zhi-xss-labs-level2/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/25/ba-chang/xss-labs/xss-zhi-xss-labs-level1/</loc>
+    <loc>https://z1r0s.github.io/2020/10/25/pentestenv/xss-labs/xss-zhi-xss-labs-level1/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/18/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/18/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/18/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/18/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/19/ba-chang/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</loc>
+    <loc>https://z1r0s.github.io/2020/10/19/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/17/ba-chang/dvwa/dvwa-sqlinjection/</loc>
+    <loc>https://z1r0s.github.io/2020/09/17/pentestenv/dvwa/dvwa-sqlinjection/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/14/ba-chang/dvwa/dvwa-fileupload/</loc>
+    <loc>https://z1r0s.github.io/2020/09/14/pentestenv/dvwa/dvwa-fileupload/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/13/ba-chang/dvwa/dvwa-fileinclusion/</loc>
+    <loc>https://z1r0s.github.io/2020/09/13/pentestenv/dvwa/dvwa-fileinclusion/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/13/ba-chang/dvwa/dvwa-csrf/</loc>
+    <loc>https://z1r0s.github.io/2020/09/13/pentestenv/dvwa/dvwa-csrf/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/12/ba-chang/dvwa/dvwa-commandinjection/</loc>
+    <loc>https://z1r0s.github.io/2020/09/12/pentestenv/dvwa/dvwa-commandinjection/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/12/ba-chang/dvwa/dvwa-bruteforce/</loc>
+    <loc>https://z1r0s.github.io/2020/09/12/pentestenv/dvwa/dvwa-bruteforce/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/25/xss-kua-zhan-jiao-ben-gong-ji/</loc>
+    <loc>https://z1r0s.github.io/2020/10/25/security/webvuln/xss/xss-kua-zhan-jiao-ben-gong-ji/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/07/sql-zhu-ru-bi-ji/</loc>
+    <loc>https://z1r0s.github.io/2020/09/07/security/webvuln/sqli/sql-zhu-ru-bi-ji/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/09/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/</loc>
+    <loc>https://z1r0s.github.io/2020/11/09/windows/servers/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/10/wen-jian-gong-xiang-fu-wu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/10/windows/servers/wen-jian-gong-xiang-fu-wu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/12/yu-kong-guan-li-shi-yan/</loc>
+    <loc>https://z1r0s.github.io/2020/11/12/windows/servers/yu-kong-guan-li-shi-yan/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/10/ftp-fu-wu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/10/windows/servers/ftp-fu-wu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/16/dns-fu-wu-bu-shu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/16/windows/servers/dns-fu-wu-bu-shu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/14/dns-fu-wu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/14/windows/servers/dns-fu-wu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/28/cha-kan-yi-lian-jie-de-wifi-mi-ma/</loc>
+    <loc>https://z1r0s.github.io/2020/09/28/security/wireless/cha-kan-yi-lian-jie-de-wifi-mi-ma/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/04/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/</loc>
+    <loc>https://z1r0s.github.io/2020/10/04/debug/pdf-wen-jian-zhong-shi-xiao-lian-jie-xiu-gai/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/10/web-fu-wu-qi-yun-xing-duo-ge-wang-zhan/</loc>
+    <loc>https://z1r0s.github.io/2020/11/10/windows/servers/web-fu-wu-qi-yun-xing-duo-ge-wang-zhan/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/03/chong-zhi-root-guan-li-yuan-mi-ma/</loc>
+    <loc>https://z1r0s.github.io/2020/12/03/linux/based/chong-zhi-root-guan-li-yuan-mi-ma/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/26-ge-zi-mu-yin-biao-biao/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/english/26-ge-zi-mu-yin-biao-biao/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/shu-zi-bian-ma-xi-tong/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/memorypalace/shu-zi-bian-ma-xi-tong/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong-dong-wu-ban/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/memorypalace/zi-mu-bian-ma-xi-tong-dong-wu-ban/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/zi-mu-bian-ma-xi-tong/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/memorypalace/zi-mu-bian-ma-xi-tong/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/09/dhcp-fu-wu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/09/windows/servers/dhcp-fu-wu/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/coding/csharp/csharp-di-gui-suan-fa-ji-suan-fei-bo-na-qi-shu-lie/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/09/cisco-packet-tracer-shi-yan-ji-shi-xun/</loc>
+    <loc>https://z1r0s.github.io/2020/09/09/network/configuration/cisco-packet-tracer-shi-yan-ji-shi-xun/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/22/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/</loc>
+    <loc>https://z1r0s.github.io/2020/12/22/security/intranet/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/01/nei-wang-shen-tou-chang-yong-ming-ling/</loc>
+    <loc>https://z1r0s.github.io/2020/11/01/security/intranet/nei-wang-shen-tou-chang-yong-ming-ling/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/21/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/</loc>
+    <loc>https://z1r0s.github.io/2020/12/21/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/</loc>
     <lastmod>2020-12-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-zhi-wen/</loc>
+    <loc>https://z1r0s.github.io/2020/09/29/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-zhi-wen/</loc>
     <lastmod>2020-12-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/28/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/</loc>
+    <loc>https://z1r0s.github.io/2020/09/28/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-zhen-shi-ip/</loc>
     <lastmod>2020-12-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/27/chang-gui-xin-xi-shou-ji-zhi-yu-ming/</loc>
+    <loc>https://z1r0s.github.io/2020/09/27/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-yu-ming/</loc>
     <lastmod>2020-12-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/chang-gui-xin-xi-shou-ji-zhi-lu-jing/</loc>
+    <loc>https://z1r0s.github.io/2020/09/29/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-lu-jing/</loc>
     <lastmod>2020-12-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/21/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/</loc>
+    <loc>https://z1r0s.github.io/2020/12/21/database/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/</loc>
     <lastmod>2020-12-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/16/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/</loc>
+    <loc>https://z1r0s.github.io/2020/09/16/security/arsenal/github-shen-tou-ce-shi-gong-ju-ku-2020-ban/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/coding/csharp/csharp-qiao-yong-yi-wei-yun-suan-fu-huo-qu-han-zi-bian-ma-zhi/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/csharp-duo-xian-cheng-cai-shu-zi-you-xi/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/coding/csharp/csharp-duo-xian-cheng-cai-shu-zi-you-xi/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/vigenerecipher/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/crypto/vigenerecipher/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/22/ceasarcipher/</loc>
+    <loc>https://z1r0s.github.io/2020/08/22/crypto/ceasarcipher/</loc>
     <lastmod>2020-12-18</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/12/06/21-ge-xie-sql-de-hao-xi-guan/</loc>
+    <loc>https://z1r0s.github.io/2020/12/06/coding/21-ge-xie-sql-de-hao-xi-guan/</loc>
     <lastmod>2020-12-06</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/29/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-2/</loc>
+    <loc>https://z1r0s.github.io/2020/11/29/network/configuration/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-2/</loc>
     <lastmod>2020-11-29</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/23/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-1/</loc>
+    <loc>https://z1r0s.github.io/2020/11/23/network/configuration/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-1/</loc>
     <lastmod>2020-11-29</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/28/quan-xian-wei-chi-zhi-ying-zi-zhang-hu/</loc>
+    <loc>https://z1r0s.github.io/2020/11/28/security/post/quan-xian-wei-chi-zhi-ying-zi-zhang-hu/</loc>
     <lastmod>2020-11-28</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/18/wu-xian-an-quan-zhi-wpa-mi-ma-po-jie/</loc>
+    <loc>https://z1r0s.github.io/2020/11/18/security/wireless/wu-xian-an-quan-zhi-wpa-mi-ma-po-jie/</loc>
     <lastmod>2020-11-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/11/22/vlan-zong-he-shi-yan/</loc>
+    <loc>https://z1r0s.github.io/2020/11/22/network/configuration/vlan-zong-he-shi-yan/</loc>
     <lastmod>2020-11-22</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/27/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/</loc>
+    <loc>https://z1r0s.github.io/2020/08/27/windows/servers/yun-xing-kuang-chang-yong-ming-ling-ji-gong-neng/</loc>
     <lastmod>2020-11-12</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-crypto-writeup/</loc>
+    <loc>https://z1r0s.github.io/2020/09/29/security/ctf/gong-fang-shi-jie-xin-shou-qu-crypto-writeup/</loc>
     <lastmod>2020-10-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/29/gong-fang-shi-jie-xin-shou-qu-web-writeup/</loc>
+    <loc>https://z1r0s.github.io/2020/09/29/security/ctf/gong-fang-shi-jie-xin-shou-qu-web-writeup/</loc>
     <lastmod>2020-10-21</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/10/06/ji-yi-ci-bei-da-jing-li/</loc>
+    <loc>https://z1r0s.github.io/2020/10/06/security/tracesource/ji-yi-ci-bei-da-jing-li/</loc>
     <lastmod>2020-10-17</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/chang-jian-mi-ma-jian-shu/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/crypto/chang-jian-mi-ma-jian-shu/</loc>
     <lastmod>2020-10-17</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/28/gong-fang-shi-jie-xin-shou-qu-misc-writeup/</loc>
+    <loc>https://z1r0s.github.io/2020/09/28/security/ctf/gong-fang-shi-jie-xin-shou-qu-misc-writeup/</loc>
     <lastmod>2020-09-28</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/29/packet-tracer-wang-luo-mo-ni-shi-yan-shi-ji/</loc>
+    <loc>https://z1r0s.github.io/2020/08/29/network/configuration/packet-tracer-wang-luo-mo-ni-shi-yan-shi-ji/</loc>
     <lastmod>2020-09-07</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/09/02/suan-fa-ji-chu/</loc>
+    <loc>https://z1r0s.github.io/2020/09/02/coding/suan-fa-ji-chu/</loc>
     <lastmod>2020-09-02</lastmod>
   </url>  <url>
-    <loc>https://z1r0s.github.io/2020/08/27/wepe-win10-an-zhuang/</loc>
+    <loc>https://z1r0s.github.io/2020/08/27/windows/servers/wepe-win10-an-zhuang/</loc>
     <lastmod>2020-08-27</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,1651 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="Windows磁盘管理, z1r0s 安全 Web安全 学习总结">
+    <meta name="description" content="计算机 | 程序语言 | 网络安全 | 红蓝对抗">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Windows磁盘管理 | z1r0s&#39;blogs</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/bg.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">z1r0s&#39;blogs</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">z1r0s&#39;blogs</div>
+        <div class="logo-desc">
+            
+            计算机 | 程序语言 | 网络安全 | 红蓝对抗
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/146.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Windows磁盘管理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Windows/">
+                                <span class="chip bg-color">Windows</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/操作系统/" class="post-category">
+                                操作系统
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-11-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-12-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="0x01-磁盘管理概述"><a href="#0x01-磁盘管理概述" class="headerlink" title="0x01 磁盘管理概述"></a>0x01 磁盘管理概述</h1><p>​        磁盘管理是一项计算机使用时的常规任务，它是以一组磁盘管理应用程序的形式提供给用户的，他们位于计算机管理控制台中，它包括<strong>查错程序</strong>和<strong>磁盘碎片整理程序</strong>以及<strong>磁盘整理程序</strong>。（来源<a href="https://baike.baidu.com/item/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/9140310?fr=aladdin#1" target="_blank" rel="noopener">百度百科</a>）本文主要介绍的内容为磁盘整理程序中的分区管理。</p>
+<h1 id="0x02-磁盘分区方式"><a href="#0x02-磁盘分区方式" class="headerlink" title="0x02 磁盘分区方式"></a>0x02 磁盘分区方式</h1><h2 id="MBR-分区方式（基本）"><a href="#MBR-分区方式（基本）" class="headerlink" title="MBR 分区方式（基本）"></a>MBR 分区方式（基本）</h2><p>​        MBR（<code>Master Boot Record</code>）主引导记录，是传统的分区机制，应用于绝大多数使用BIOS的PC设备。主启动记录存在第一扇区，共512字节，包含引导程序（446字节）和分区表（64字节）；每个分区信息会占16个字节；最多可划分4个主分区；标记（2字节）标记系统分区。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/MBR分区1.png" alt="MBR分区"></center>
+
+<p><strong>特点</strong>：</p>
+<ol>
+<li>只能管理连续的磁盘空间</li>
+<li>不能提高读写效率</li>
+<li>无可靠性</li>
+<li>MBR支持32位和64位系统</li>
+<li>MBR支持分区数量有限</li>
+<li>MBR只支持不超过2T的硬盘，超过2T的硬盘将只能用2T空间（有第三方解决方法）</li>
+</ol>
+<h2 id="GPT的分区方式（动态）"><a href="#GPT的分区方式（动态）" class="headerlink" title="GPT的分区方式（动态）"></a>GPT的分区方式（动态）</h2><p>​        GPT（<code>GUID Partition Table</code>）全局唯一标识分区表，是一个较新的分区机制，解决了MBR很多缺点，分区表突破64字节；Windows 2008上最多可划分128个主分区。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/GPT分区.png" alt="GPT分区"></center>
+
+<p><strong>特点</strong>：</p>
+<ol>
+<li>可扩展性    （随时扩展文件系统的管理空间，即分区的容量）</li>
+<li>高读写性    （动态磁盘中卷由多个硬盘组成，提高读写的速率）</li>
+<li>高可靠性     （防止某个硬盘损坏导致数据丢失）</li>
+<li>支持超过2T的磁盘（64位寻址空间）。<code>fdisk</code>最大只能建立2TB大小的分区，创建一个大于2TB的分区使用<code>parted</code></li>
+<li>向后兼容MBR</li>
+<li>必须在支持uEFI的硬件上才能使用（Intel提出，用于取代BIOS）</li>
+<li>必须使用64位系统</li>
+<li><code>Mac</code>、<code>Linux</code>系统都能支持GPT分区格式</li>
+<li><code>Windows 7/8 64bit</code>、<code>Windows Server 2008 64bit</code>支持GPT</li>
+</ol>
+<h1 id="0x03-Windows动态磁盘管理"><a href="#0x03-Windows动态磁盘管理" class="headerlink" title="0x03 Windows动态磁盘管理"></a>0x03 Windows动态磁盘管理</h1><h2 id="新加硬盘建卷过程"><a href="#新加硬盘建卷过程" class="headerlink" title="新加硬盘建卷过程"></a>新加硬盘建卷过程</h2><ol>
+<li><p><strong>联机</strong>。新加的硬盘在磁盘管理器中会以<strong>脱机</strong>状态显示，只有联机硬盘才能初始化使用。右键需要联机的磁盘 → 点击【联机】选项，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/联机磁盘.png" alt="联机磁盘"></center>
+</li>
+<li><p><strong>初始化</strong>。联机磁盘后还需要初始化磁盘，右键需要初始化的磁盘 → 点击【初始化】选项 → 在初始化界面中选择两种分区方式的一种，这里推荐使用GPT方式。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/初始化磁盘.png" alt="初始化磁盘"></center>
+</li>
+<li><p><strong>新建卷</strong>。新建卷的种类有很多这里仅演示简单卷的创建其他卷的创建将在后续章节中演示。右键已初始化的磁盘 → 选择【转换到动态磁盘】选项 → 选中待转化磁盘后点击【确定】按钮 → 右键磁盘选择【新建简单卷】选项 → 打开新建简单卷向导并按照提示操作。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建简单卷.gif" alt="新建简单卷"></center>
+
+
+
+</li>
+</ol>
+<h2 id="卷的分类"><a href="#卷的分类" class="headerlink" title="卷的分类"></a>卷的分类</h2><h3 id="简单卷"><a href="#简单卷" class="headerlink" title="简单卷"></a>简单卷</h3><p>​        构成单个物理磁盘空间的卷。它可以由磁盘上的单个区域或同一磁盘上连接在一起的多个区域组成，可以在同一个磁盘内扩展简单卷。</p>
+<h3 id="跨区卷"><a href="#跨区卷" class="headerlink" title="跨区卷"></a>跨区卷</h3><p>​        简单卷也可以扩展到其他的物理磁盘，这样由多个物理磁盘的空间组成的卷就称为跨区卷。简单卷和跨区卷都不属于RAID范畴。</p>
+<h3 id="带区卷"><a href="#带区卷" class="headerlink" title="带区卷"></a>带区卷</h3><p>​        以带区形式在两个或多个物理磁盘上存储数据的卷。带区卷上的数据被交替、平均（以带区形式）地分配给这些磁盘，带区卷是所有Windows 2000可用的卷中性能最佳的，但它不提供容错。如果带区卷上的任何一个磁盘数据损坏或磁盘故障，则整个卷上的数据都将丢失。带区卷可以看作硬件RAID中的RAID0。</p>
+<h3 id="镜像卷"><a href="#镜像卷" class="headerlink" title="镜像卷"></a>镜像卷</h3><p>​        在两个物理磁盘上复制数据的容错卷。它通过使用卷的副本（镜像））复制该卷中的信息来提供数据冗余，镜像总位于另一个磁盘上。如果其中一个物理磁盘出现故障，则该故障磁盘上的数据将不可用，但是系统可以使用未受影响的磁盘继续操作。镜像卷可以看作硬件RAID中的RAID1。</p>
+<h3 id="RAID-5"><a href="#RAID-5" class="headerlink" title="RAID-5"></a>RAID-5</h3><p>​        具有数据和奇偶检验的容错卷，有时分布于三个或更多的物理磁盘，奇偶检验用于在阵列失效后重建数据。如果物理磁盘的某一部分失效，可以用余下的数据和奇偶检验信息重新常见磁盘上失效的那一部分数据，类似硬件RAID中的RAID5，在硬件IDE RAID中，RAID5是很少键的，通常在SCSI RAID卡和高档的IDE RAID卡中才能提供，普通IDE RAID卡仅提供RAID0、RAID1和TAID0+1。</p>
+<p><strong>总结</strong>：</p>
+<center><b>各种卷特点对比</b></center>
+
+<table>
+<thead>
+<tr>
+<th align="center">卷类型</th>
+<th align="center">需要磁盘数量</th>
+<th align="center">空间是否一致</th>
+<th>可扩展性</th>
+<th>读写性能</th>
+<th>容错</th>
+<th align="center">空间利用率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">简单卷</td>
+<td align="center"><code>1</code></td>
+<td align="center">否</td>
+<td>可扩展</td>
+<td>正常读写</td>
+<td>无</td>
+<td align="center">100%</td>
+</tr>
+<tr>
+<td align="center">跨区卷</td>
+<td align="center"><code>2-32</code></td>
+<td align="center">否</td>
+<td>可扩展</td>
+<td>正常读写</td>
+<td>无</td>
+<td align="center">100%</td>
+</tr>
+<tr>
+<td align="center">带区卷</td>
+<td align="center"><code>2-32</code></td>
+<td align="center">是</td>
+<td>不可扩展</td>
+<td>多盘同读（最快）</td>
+<td>无</td>
+<td align="center">100%</td>
+</tr>
+<tr>
+<td align="center">镜像卷</td>
+<td align="center"><code>2</code></td>
+<td align="center">是</td>
+<td>不可扩展</td>
+<td>正常读写</td>
+<td>有</td>
+<td align="center">50%</td>
+</tr>
+<tr>
+<td align="center">RAID-5</td>
+<td align="center"><code>3-32</code></td>
+<td align="center">是</td>
+<td>不可扩展</td>
+<td>多盘同读（较快）</td>
+<td>有</td>
+<td align="center">n-1（n=磁盘数量）</td>
+</tr>
+</tbody></table>
+<h2 id="卷的管理"><a href="#卷的管理" class="headerlink" title="卷的管理"></a>卷的管理</h2><p>​        卷的管理主要包括新建卷、扩展卷、压缩卷、添加镜像、删除镜像、中断镜像等操作。</p>
+<h3 id="简单卷管理"><a href="#简单卷管理" class="headerlink" title="简单卷管理"></a>简单卷管理</h3><h4 id="新建简单卷"><a href="#新建简单卷" class="headerlink" title="新建简单卷"></a>新建简单卷</h4><ol>
+<li><p>在想要创建简单卷的磁盘上右键点击【新建简单卷】选项后打开新建简单卷向导，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建简单卷向导界面.png" alt="新建简单卷向导界面"></center>
+</li>
+<li><p>点击【下一步】按钮进入卷大小设置界面，此处将卷大小设置为100M，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/指定简单卷大小.png" alt="指定简单卷大小"></center>
+</li>
+<li><p>点击【下一步】按钮，进入盘符分配界面，此处采用默认设置即可，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/为新建简单卷设置盘符.png" alt="为新建简单卷设置盘符"></center>
+</li>
+<li><p>点击【下一步】按钮进入分区格式化设置界面，在此界面中需要设置文件系统格式、卷标名称、是否执行快速格式化操作等信息，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷格式化设置.png" alt="简单卷格式化设置"></center>
+</li>
+<li><p>点击【下一步】按钮后进入设置检查界面，在此界面中可以核对之前对分区的设置信息，界面显示如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷设置信息核对.png" alt="简单卷设置信息核对"></center>
+</li>
+<li><p>单击【完成】按钮后，磁盘1中出现刚刚设置的新加卷F，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新加卷成功.png" alt="新加卷成功"></center>
+
+</li>
+</ol>
+<h4 id="扩展简单卷"><a href="#扩展简单卷" class="headerlink" title="扩展简单卷"></a>扩展简单卷</h4><ol>
+<li><p>在想要扩展的简单卷上右键点击【扩展卷…】选项后打开扩展卷向导，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷扩展向导.png" alt="简单卷扩展向导"></center>
+</li>
+<li><p>单击【下一步】按钮后将磁盘2和磁盘3各划分出100M来扩展简单卷，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷扩展容量设置.png" alt="简单卷扩展容量设置"></center>
+</li>
+<li><p>单击【下一步】按钮后将显示设置核对界面，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷扩展核对.png" alt="简单卷扩展核对"></center>
+</li>
+<li><p>点击【完成】按钮后扩展后的简单卷如下图所示。（简单卷 → 跨区卷）</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷跨区扩展.png" alt="简单卷跨区扩展"></center>
+
+</li>
+</ol>
+<h4 id="压缩简单卷"><a href="#压缩简单卷" class="headerlink" title="压缩简单卷"></a>压缩简单卷</h4><ol>
+<li><p>在想要压缩的简单卷上右键选择【压缩卷…】选项后显示压缩设置界面，此处采用默认设置以压缩出足够大的空间使得操作前后的结果形成明显对比。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷压缩设置界面.png" alt="简单卷压缩设置界面"></center>
+</li>
+<li><p>单击【压缩】按钮后，新加卷F被压缩至84M，结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷压缩结果.png" alt="简单卷压缩结果"></center>
+
+</li>
+</ol>
+<h4 id="为简单卷添加镜像"><a href="#为简单卷添加镜像" class="headerlink" title="为简单卷添加镜像"></a>为简单卷添加镜像</h4><ol>
+<li><p>选中想要添加镜像的简单卷右键选择【添加镜像】选项，打开添加镜像设置界面，这里选择磁盘2作为简单卷的镜像，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷添加镜像设置界面.png" alt="简单卷添加镜像设置界面"></center>
+</li>
+<li><p>点击【添加镜像】按钮后，磁盘2中将划分出84M作为新加卷F的镜像，操作结果如下图所示。（简单卷 → 镜像卷）</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷添加镜像结果.png" alt="简单卷添加镜像结果"></center>
+
+</li>
+</ol>
+<h4 id="删除简单卷"><a href="#删除简单卷" class="headerlink" title="删除简单卷"></a>删除简单卷</h4><ol>
+<li><p>选项想要删除的简单卷右键选择【删除卷..】选项，在提示界面中单击【是】按钮后即可将简单卷删除。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷删除.png" alt="简单卷删除"></center>
+</li>
+<li><p>简单卷删除后会变成未分配分区，结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/简单卷删除结果.png" alt="简单卷删除结果"></center>
+
+</li>
+</ol>
+<h3 id="跨区卷管理"><a href="#跨区卷管理" class="headerlink" title="跨区卷管理"></a>跨区卷管理</h3><h4 id="新建跨区卷"><a href="#新建跨区卷" class="headerlink" title="新建跨区卷"></a>新建跨区卷</h4><ol>
+<li><p>选中磁盘右键选择【新建跨区卷..】选项，打开新建跨区卷向导如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建跨区卷向导.png" alt="新建跨区卷向导"></center>
+</li>
+<li><p>单击【下一步】按钮进入磁盘与容量设置界面，此处将从磁盘1、磁盘2、磁盘3中分别划分出100M、200M、300M用来组建跨区卷。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/设置跨区卷容量.png" alt="设置跨区卷容量"></center>
+</li>
+<li><p>单击【下一步】按钮进入驱动器号设置界面，此处采用默认设置，结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷驱动器号设置.png" alt="跨区卷驱动器号设置"></center>
+</li>
+<li><p>单击【下一步】按钮进入卷区格式化设置界面，此处采用默认的NTFS文件系统等，结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷格式化设置.png" alt="跨区卷格式化设置"></center>
+</li>
+<li><p>单击【下一步】将显示跨区卷设置核对信息，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建跨区卷信息核对.png" alt="新建跨区卷信息核对"></center>
+</li>
+<li><p>单击【完成】按钮后创建的新加卷E结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建跨区卷结果.png" alt="新建跨区卷结果"></center>
+
+</li>
+</ol>
+<h4 id="扩展跨区卷"><a href="#扩展跨区卷" class="headerlink" title="扩展跨区卷"></a>扩展跨区卷</h4><ol>
+<li><p>选中需要设置扩展的跨区卷右键选择【扩展卷…】选项进入跨区卷扩展向导界面如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷扩展向导.png" alt="跨区卷扩展向导"></center>
+</li>
+<li><p>单击【下一步】按钮进入设置磁盘和容量界面，这里将磁盘1中划分100M到跨站卷中，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷扩展容量设置.png" alt="跨区卷扩展容量设置"></center>
+</li>
+<li><p>单击【下一步】按钮显示扩展卷设置信息，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/扩展跨区卷信息核对.png" alt="扩展跨区卷信息核对"></center>
+</li>
+<li><p>单击【完成】按钮，跨区卷扩展结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷扩展结果.png" alt="跨区卷扩展结果"></center>
+
+</li>
+</ol>
+<h4 id="压缩跨区卷"><a href="#压缩跨区卷" class="headerlink" title="压缩跨区卷"></a>压缩跨区卷</h4><ol>
+<li><p>选中想要压缩的跨区卷右键选择【压缩卷…】选项，显示压缩设置界面，这里采用默认设置以最大容量压缩空间使操作前后结果形成鲜明对比。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷 压缩设置.png" alt="跨区卷 压缩设置"></center>
+</li>
+<li><p>单击【压缩】按钮后扩展卷压缩结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/跨区卷压缩结果.png" alt="跨区卷压缩结果"></center>
+
+</li>
+</ol>
+<h4 id="删除跨区卷"><a href="#删除跨区卷" class="headerlink" title="删除跨区卷"></a>删除跨区卷</h4><ol>
+<li><p>选中想要删除的跨区卷，右键选择【删除卷…】选项，在提示界面中单击【是】按钮即可删除跨区卷，操作结果如下图所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除跨区卷.png" alt="删除跨区卷"></center>
+</li>
+<li><p>删除跨区卷结果。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除跨区卷结果.png" alt="删除跨区卷结果"></center>
+
+</li>
+</ol>
+<h3 id="带区卷管理"><a href="#带区卷管理" class="headerlink" title="带区卷管理"></a>带区卷管理</h3><h4 id="创建带区卷"><a href="#创建带区卷" class="headerlink" title="创建带区卷"></a>创建带区卷</h4><ol>
+<li><p>选中磁盘右键选择【新建带区卷..】选项，显示新建带区卷向导如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建带区卷向导.png" alt="新建带区卷向导"></center>
+</li>
+<li><p>单击【下一步】进入磁盘与容量设置界面，这里设置磁盘1和磁盘2各100M，操作结果如下图所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷容量设置.png" alt="带区卷容量设置"></center>
+</li>
+<li><p>单击【下一步】进入驱动器号设置界面，采用默认设置即可，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷盘符设置.png" alt="带区卷盘符设置"></center>
+</li>
+<li><p>单击【下一步】按钮进入卷区格式化界面，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷格式化设置.png" alt="带区卷格式化设置"></center>
+</li>
+<li><p>单击【下一步】按钮显示新建带区卷设置核对信息，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷配置核对.png" alt="带区卷配置核对"></center>
+</li>
+<li><p>点击【完成】按钮，新建带区卷结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷新建结果.png" alt="带区卷新建结果"></center>
+
+</li>
+</ol>
+<h4 id="删除带区卷"><a href="#删除带区卷" class="headerlink" title="删除带区卷"></a>删除带区卷</h4><ol>
+<li><p>选项想要删除的带区卷右键选择【删除卷..]选项，在提示界面中单击【是】按钮，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除带区卷.png" alt="删除带区卷"></center>
+</li>
+<li><p>带区卷删除结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/带区卷删除结果.png" alt="带区卷删除结果"></center>
+
+</li>
+</ol>
+<h3 id="镜像卷管理"><a href="#镜像卷管理" class="headerlink" title="镜像卷管理"></a>镜像卷管理</h3><h4 id="新建镜像卷"><a href="#新建镜像卷" class="headerlink" title="新建镜像卷"></a>新建镜像卷</h4><ol>
+<li><p>选中磁盘右键选择【新建镜像卷…】选项，显示新建镜像卷向导如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建镜像卷向导.png" alt="新建镜像卷向导"></center>
+</li>
+<li><p>单击【下一步】按钮进入磁盘和容量设置界面，这里设置磁盘1和磁盘2各100M操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷容量设置.png" alt="镜像卷容量设置"></center>
+</li>
+<li><p>单击【下一步】按钮进入盘符设置界面，操作默认设置如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷盘符设置.png" alt="镜像卷盘符设置"></center>
+</li>
+<li><p>单击【下一步】按钮进入卷区格式化界面，操作默认设置界面如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷格式化设置.png" alt="镜像卷格式化设置"></center>
+</li>
+<li><p>单击【下一步】按钮显示镜像卷设置核对信息，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷设置核对.png" alt="镜像卷设置核对"></center>
+</li>
+<li><p>单击【完成】按钮，新建镜像卷操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建镜像卷结果.png" alt="新建镜像卷结果"></center>
+
+</li>
+</ol>
+<h4 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h4><ol>
+<li><p>选中想要删除镜像的镜像卷右键选择【删除镜像】选项，在删除镜像界面选中想要删除镜像的磁盘，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除镜像.png" alt="删除镜像"></center>
+</li>
+<li><p>点击【删除镜像】按钮并确定删除后，磁盘1中的镜像分区将被删除，操作结果如下图所示。（镜像卷 → 简单卷）</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷变简单卷.png" alt="镜像卷变简单卷"></center>
+
+</li>
+</ol>
+<h4 id="中断镜像"><a href="#中断镜像" class="headerlink" title="中断镜像"></a>中断镜像</h4><ol>
+<li><p>选中想要中断镜像的镜像卷右键选择【中断镜像卷】选项，在提示信息中单击【是】按钮，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷中断镜像.png" alt="镜像卷中断镜像"></center>
+</li>
+<li><p>中断镜像卷结果，镜像卷变成两个简单卷，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷中断操作结果.png" alt="镜像卷中断操作结果"></center>
+
+</li>
+</ol>
+<h4 id="删除镜像卷"><a href="#删除镜像卷" class="headerlink" title="删除镜像卷"></a>删除镜像卷</h4><ol>
+<li><p>选中想要删除卷的镜像卷右键选择【删除卷…】选项，在提示界面中单击【是】按钮操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷删除.png" alt="镜像卷删除"></center>
+</li>
+<li><p>镜像卷删除结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/镜像卷删除结果.png" alt="镜像卷删除结果"></center>
+
+</li>
+</ol>
+<h3 id="RAID-5管理"><a href="#RAID-5管理" class="headerlink" title="RAID-5管理"></a>RAID-5管理</h3><h4 id="新建RAID-5"><a href="#新建RAID-5" class="headerlink" title="新建RAID-5"></a>新建RAID-5</h4><ol>
+<li><p>选中磁盘右键选择【新建RAID-5卷…】选项，打开新建RAID-5卷向导界面，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/新建RAID-5卷向导.png" alt="新建RAID-5卷向导"></center>
+</li>
+<li><p>单击【下一步】按钮进入磁盘和容量设置界面，此处设置在磁盘1、磁盘2、磁盘3中各划分100M，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5设置磁盘容量.png" alt="RAID-5设置磁盘容量"></center>
+</li>
+<li><p>单击【下一步】按钮，设置盘符操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5盘符设置.png" alt="RAID-5盘符设置"></center>
+</li>
+<li><p>单击【下一步】按钮，设置格式化操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5格式化.png" alt="RAID-5格式化"></center>
+</li>
+<li><p>单击【下一步】按钮，显示RAID-5设置核对信息，显示界面如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5核对信息.png" alt="RAID-5核对信息"></center>
+</li>
+<li><p>单击【完成】设置的RAID-5卷如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5设置结果.png" alt="RAID-5设置结果"></center>
+
+</li>
+</ol>
+<h4 id="删除RAID-5卷"><a href="#删除RAID-5卷" class="headerlink" title="删除RAID-5卷"></a>删除RAID-5卷</h4><ol>
+<li><p>选中想要删除的RAID-5卷右键选择【删除卷…】选项，在提示界面单击【是】按钮，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除RAID-5.png" alt="删除RAID-5"></center>
+</li>
+<li><p>删除RAID-5卷结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/删除RAID-5卷结果.png" alt="删除RAID-5卷结果"></center>
+
+</li>
+</ol>
+<h4 id="修复RAID-5卷"><a href="#修复RAID-5卷" class="headerlink" title="修复RAID-5卷"></a>修复RAID-5卷</h4><p>​        三个盘模拟RAID-5卷，脱机其中一个磁盘，将数据修复到新磁盘中。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/DiskManagement/RAID-5修复卷.gif" alt="RAID-5修复卷"></center>
+
+<ul>
+<li>一块硬盘损坏后系统会虚拟出一块磁盘以保证RAID-5中数据可读。</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://z1r0s.github.io" rel="external nofollow noreferrer">z1r0s</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://z1r0s.github.io/2020/11/07/windows/servers/windows-ci-pan-guan-li/">https://z1r0s.github.io/2020/11/07/windows/servers/windows-ci-pan-guan-li/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://z1r0s.github.io" target="_blank">z1r0s</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Windows/">
+                                    <span class="chip bg-color">Windows</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .mvaline-card {
+        margin: 1.5rem auto;
+    }
+
+    .mvaline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+</style>
+
+<div class="card mvaline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="mvcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/minivaline/MiniValine.js"></script>
+<script>
+    new MiniValine(Object.assign({"enable":true,"appId":"rr4jTLi2BJEgTziWjmGxpu1a-MdYXbMMI","appKey":"aFRDmu52XNOUP0PyGNjjzDCQ","mode":"DesertsP","placeholder":"Write a Comment","math":true,"md":true,"enableQQ":false,"NoRecordIP":false,"visitor":true,"maxNest":6,"pageSize":6,"adminEmailMd5":"de8a7aa53d07e6b6bceb45c64027763d","tagMeta":["管理员","小伙伴","访客"],"master":["de8a7aa53d07e6b6bceb45c64027763d"],"friends":["b5bd5d836c7a0091aa8473e79ed4c25e","adb7d1cd192658a55c0ad22a3309cecf","3ce1e6c77b4910f1871106cb30dc62b0","cfce8dc43725cc14ffcd9fb4892d5bfc"],"lang":null,"emoticonUrl":["https://cdn.jsdelivr.net/npm/alus@latest","https://cdn.jsdelivr.net/gh/MiniValine/qq@latest","https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest","https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest","https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest","https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest"]}, {
+	  el: '#mvcomments',
+    }));
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/11/09/windows/servers/shi-yong-windowsserver-da-jian-dhcp-fu-wu-qi/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/222.jpg" class="responsive-img" alt="使用WindowsServer搭建DHCP服务器">
+                        
+                        <span class="card-title">使用WindowsServer搭建DHCP服务器</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络技术/" class="post-category">
+                                    网络技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/网络服务/">
+                        <span class="chip bg-color">网络服务</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/06/windows/servers/windows-ben-di-an-quan-ce-lue/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/199.jpg" class="responsive-img" alt="Windows本地安全策略">
+                        
+                        <span class="card-title">Windows本地安全策略</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/操作系统/" class="post-category">
+                                    操作系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Windows/">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7173532278"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">z1r0s</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">272.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/z1r0s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2603350388@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2603350388" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2603350388" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</body>
+
+</html>
