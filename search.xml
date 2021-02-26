@@ -1022,9 +1022,9 @@
       
         <tags>
             
-            <tag> Cisco </tag>
-            
             <tag> VALN </tag>
+            
+            <tag> Cisco </tag>
             
         </tags>
       
@@ -3388,11 +3388,11 @@
       
         <tags>
             
+            <tag> Cisco </tag>
+            
             <tag> 网络基础 </tag>
             
             <tag> 网络配置 </tag>
-            
-            <tag> Cisco </tag>
             
         </tags>
       
