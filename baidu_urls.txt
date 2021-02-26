@@ -3,8 +3,8 @@ https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doub
 https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/
 https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/
 https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/
-https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/
 https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/
+https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/
 https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/
 https://z1r0s.github.io/2021/01/02/database/mysql-zhi-ji-chu-ming-ling/
 https://z1r0s.github.io/2020/12/25/linux/based/linux-zhi-ri-zhi-guan-li/
