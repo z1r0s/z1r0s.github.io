@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>SQLMap使用手册</title>
+      <link href="/2021/03/01/security/webvuln/sqli/sqlmap-shi-yong-bi-ji/"/>
+      <url>/2021/03/01/security/webvuln/sqli/sqlmap-shi-yong-bi-ji/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Security </category>
+          
+          <category> Web </category>
+          
+          <category> SQLi </category>
+          
+          <category> Tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Sotfware </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入之POST-DoubleInjection-DoubleQuotes-String</title>
       <link href="/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/"/>
       <url>/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/</url>
@@ -1022,9 +1053,9 @@
       
         <tags>
             
-            <tag> Cisco </tag>
-            
             <tag> VALN </tag>
+            
+            <tag> Cisco </tag>
             
         </tags>
       
@@ -3388,11 +3419,11 @@
       
         <tags>
             
+            <tag> Cisco </tag>
+            
             <tag> 网络基础 </tag>
             
             <tag> 网络配置 </tag>
-            
-            <tag> Cisco </tag>
             
         </tags>
       
