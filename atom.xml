@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>z1r0s&#39;blogs</title>
+  <title>z1r0s</title>
   
-  <subtitle>z1r0s</subtitle>
+  <subtitle>blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://z1r0s.github.io/"/>
+  <link href="https://www.z1r0s.top/"/>
   <updated>2021-02-24T13:21:25.901Z</updated>
-  <id>https://z1r0s.github.io/</id>
+  <id>https://www.z1r0s.top/</id>
   
   <author>
     <name>z1r0s</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>SQL注入之POST-DoubleInjection-DoubleQuotes-String</title>
-    <link href="https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/"/>
-    <id>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/</id>
+    <link href="https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/"/>
+    <id>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/</id>
     <published>2021-02-24T13:03:24.000Z</published>
     <updated>2021-02-24T13:21:25.901Z</updated>
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+      <category term="靶场" scheme="https://www.z1r0s.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>SQL注入之POST-DoubleInjection-SingleQuotes-String-WithTwist</title>
-    <link href="https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/"/>
-    <id>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/</id>
+    <link href="https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/"/>
+    <id>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/</id>
     <published>2021-02-24T12:35:33.000Z</published>
     <updated>2021-02-24T12:59:37.557Z</updated>
     
@@ -61,17 +61,17 @@
     
     </summary>
     
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+      <category term="靶场" scheme="https://www.z1r0s.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>SQL注入之POST-ErrorBased-DoubleQuotes-String-WithTwist</title>
-    <link href="https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/"/>
-    <id>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/</id>
+    <link href="https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/"/>
+    <id>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/</id>
     <published>2021-02-24T12:14:50.000Z</published>
     <updated>2021-02-24T12:32:38.691Z</updated>
     
@@ -87,17 +87,17 @@
     
     </summary>
     
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+      <category term="靶场" scheme="https://www.z1r0s.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>SQL注入之POST-ErrorBased-SingleQuotes-String</title>
-    <link href="https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/"/>
-    <id>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/</id>
+    <link href="https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/"/>
+    <id>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/</id>
     <published>2021-02-24T11:35:19.000Z</published>
     <updated>2021-02-24T12:13:56.266Z</updated>
     
@@ -113,17 +113,17 @@
     
     </summary>
     
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+      <category term="靶场" scheme="https://www.z1r0s.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>SQL注入之GET-Blind-TimeBased-SingleQuotes</title>
-    <link href="https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/"/>
-    <id>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/</id>
+    <link href="https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/"/>
+    <id>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/</id>
     <published>2021-02-24T08:56:56.000Z</published>
     <updated>2021-02-24T11:37:22.255Z</updated>
     
@@ -139,17 +139,17 @@
     
     </summary>
     
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+      <category term="靶场" scheme="https://www.z1r0s.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>SQL注入之GET-Blind-TimeBased-DoubleQuotes</title>
-    <link href="https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/"/>
-    <id>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</id>
+    <link href="https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/"/>
+    <id>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</id>
     <published>2021-02-24T08:05:59.000Z</published>
     <updated>2021-02-24T14:32:23.950Z</updated>
     
@@ -165,17 +165,17 @@
     
     </summary>
     
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+      <category term="靶场" scheme="https://www.z1r0s.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>SQL注入之GET-Blind-BoolianBased-SingleQuotes</title>
-    <link href="https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/"/>
-    <id>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</id>
+    <link href="https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/"/>
+    <id>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</id>
     <published>2021-02-24T08:05:59.000Z</published>
     <updated>2021-02-24T08:46:19.324Z</updated>
     
@@ -191,17 +191,17 @@
     
     </summary>
     
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+      <category term="靶场" scheme="https://www.z1r0s.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>SQL注入之GET-DumpIntoOutfile-String</title>
-    <link href="https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/"/>
-    <id>https://z1r0s.github.io/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/</id>
+    <link href="https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/"/>
+    <id>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/</id>
     <published>2021-02-24T07:10:26.000Z</published>
     <updated>2021-02-24T13:23:56.949Z</updated>
     
@@ -217,17 +217,17 @@
     
     </summary>
     
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="靶场" scheme="https://z1r0s.github.io/tags/%E9%9D%B6%E5%9C%BA/"/>
+      <category term="靶场" scheme="https://www.z1r0s.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>MySQL之基础命令</title>
-    <link href="https://z1r0s.github.io/2021/01/02/database/mysql-zhi-ji-chu-ming-ling/"/>
-    <id>https://z1r0s.github.io/2021/01/02/database/mysql-zhi-ji-chu-ming-ling/</id>
+    <link href="https://www.z1r0s.top/2021/01/02/database/mysql-zhi-ji-chu-ming-ling/"/>
+    <id>https://www.z1r0s.top/2021/01/02/database/mysql-zhi-ji-chu-ming-ling/</id>
     <published>2021-01-02T06:59:48.000Z</published>
     <updated>2021-02-23T11:19:08.387Z</updated>
     
@@ -243,17 +243,17 @@
     
     </summary>
     
-      <category term="数据库" scheme="https://z1r0s.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://www.z1r0s.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="MySQL" scheme="https://z1r0s.github.io/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://www.z1r0s.top/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>Linux之日志管理</title>
-    <link href="https://z1r0s.github.io/2020/12/25/linux/based/linux-zhi-ri-zhi-guan-li/"/>
-    <id>https://z1r0s.github.io/2020/12/25/linux/based/linux-zhi-ri-zhi-guan-li/</id>
+    <link href="https://www.z1r0s.top/2020/12/25/linux/based/linux-zhi-ri-zhi-guan-li/"/>
+    <id>https://www.z1r0s.top/2020/12/25/linux/based/linux-zhi-ri-zhi-guan-li/</id>
     <published>2020-12-25T12:31:40.000Z</published>
     <updated>2020-12-25T13:09:04.084Z</updated>
     
@@ -269,17 +269,17 @@
     
     </summary>
     
-      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="https://www.z1r0s.top/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://www.z1r0s.top/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>内网渗透之横向移动常见端口</title>
-    <link href="https://z1r0s.github.io/2020/12/22/security/intranet/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/"/>
-    <id>https://z1r0s.github.io/2020/12/22/security/intranet/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/</id>
+    <link href="https://www.z1r0s.top/2020/12/22/security/intranet/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/"/>
+    <id>https://www.z1r0s.top/2020/12/22/security/intranet/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/</id>
     <published>2020-12-22T11:04:44.000Z</published>
     <updated>2020-12-22T11:41:57.174Z</updated>
     
@@ -296,17 +296,17 @@
     
     </summary>
     
-      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+      <category term="渗透测试" scheme="https://www.z1r0s.top/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="内网渗透" scheme="https://z1r0s.github.io/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
+      <category term="内网渗透" scheme="https://www.z1r0s.top/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
     
   </entry>
   
   <entry>
     <title>常规信息收集之wmic命令</title>
-    <link href="https://z1r0s.github.io/2020/12/21/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/"/>
-    <id>https://z1r0s.github.io/2020/12/21/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/</id>
+    <link href="https://www.z1r0s.top/2020/12/21/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/"/>
+    <id>https://www.z1r0s.top/2020/12/21/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/</id>
     <published>2020-12-21T12:35:32.000Z</published>
     <updated>2020-12-21T15:01:48.785Z</updated>
     
@@ -322,17 +322,17 @@
     
     </summary>
     
-      <category term="渗透测试" scheme="https://z1r0s.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+      <category term="渗透测试" scheme="https://www.z1r0s.top/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="信息收集" scheme="https://z1r0s.github.io/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+      <category term="信息收集" scheme="https://www.z1r0s.top/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
     
   </entry>
   
   <entry>
     <title>Linux之进程与计划</title>
-    <link href="https://z1r0s.github.io/2020/12/21/linux/based/linux-zhi-jin-cheng-yu-ji-hua/"/>
-    <id>https://z1r0s.github.io/2020/12/21/linux/based/linux-zhi-jin-cheng-yu-ji-hua/</id>
+    <link href="https://www.z1r0s.top/2020/12/21/linux/based/linux-zhi-jin-cheng-yu-ji-hua/"/>
+    <id>https://www.z1r0s.top/2020/12/21/linux/based/linux-zhi-jin-cheng-yu-ji-hua/</id>
     <published>2020-12-21T06:30:49.000Z</published>
     <updated>2020-12-22T14:37:20.009Z</updated>
     
@@ -348,17 +348,17 @@
     
     </summary>
     
-      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="https://www.z1r0s.top/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://www.z1r0s.top/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>常见数据库的默认库和表</title>
-    <link href="https://z1r0s.github.io/2020/12/21/database/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/"/>
-    <id>https://z1r0s.github.io/2020/12/21/database/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/</id>
+    <link href="https://www.z1r0s.top/2020/12/21/database/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/"/>
+    <id>https://www.z1r0s.top/2020/12/21/database/chang-jian-shu-ju-ku-de-mo-ren-ku-he-biao/</id>
     <published>2020-12-21T04:49:01.000Z</published>
     <updated>2020-12-21T05:18:10.232Z</updated>
     
@@ -374,17 +374,17 @@
     
     </summary>
     
-      <category term="Web安全" scheme="https://z1r0s.github.io/categories/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="数据库" scheme="https://z1r0s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://www.z1r0s.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>GitHub-Hacking</title>
-    <link href="https://z1r0s.github.io/2020/12/19/security/infogathering/github-hacking/"/>
-    <id>https://z1r0s.github.io/2020/12/19/security/infogathering/github-hacking/</id>
+    <link href="https://www.z1r0s.top/2020/12/19/security/infogathering/github-hacking/"/>
+    <id>https://www.z1r0s.top/2020/12/19/security/infogathering/github-hacking/</id>
     <published>2020-12-19T08:34:20.000Z</published>
     <updated>2021-01-16T08:15:32.859Z</updated>
     
@@ -400,17 +400,17 @@
     
     </summary>
     
-      <category term="技巧" scheme="https://z1r0s.github.io/categories/%E6%8A%80%E5%B7%A7/"/>
+      <category term="技巧" scheme="https://www.z1r0s.top/categories/%E6%8A%80%E5%B7%A7/"/>
     
     
-      <category term="GitHub" scheme="https://z1r0s.github.io/tags/GitHub/"/>
+      <category term="GitHub" scheme="https://www.z1r0s.top/tags/GitHub/"/>
     
   </entry>
   
   <entry>
     <title>Google-Hacking</title>
-    <link href="https://z1r0s.github.io/2020/12/19/security/infogathering/google-hacking/"/>
-    <id>https://z1r0s.github.io/2020/12/19/security/infogathering/google-hacking/</id>
+    <link href="https://www.z1r0s.top/2020/12/19/security/infogathering/google-hacking/"/>
+    <id>https://www.z1r0s.top/2020/12/19/security/infogathering/google-hacking/</id>
     <published>2020-12-18T16:09:05.000Z</published>
     <updated>2021-01-16T08:15:20.857Z</updated>
     
@@ -426,17 +426,17 @@
     
     </summary>
     
-      <category term="技巧" scheme="https://z1r0s.github.io/categories/%E6%8A%80%E5%B7%A7/"/>
+      <category term="技巧" scheme="https://www.z1r0s.top/categories/%E6%8A%80%E5%B7%A7/"/>
     
     
-      <category term="Google" scheme="https://z1r0s.github.io/tags/Google/"/>
+      <category term="Google" scheme="https://www.z1r0s.top/tags/Google/"/>
     
   </entry>
   
   <entry>
     <title>批处理之配置防火墙</title>
-    <link href="https://z1r0s.github.io/2020/12/16/security/script/bat/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/"/>
-    <id>https://z1r0s.github.io/2020/12/16/security/script/bat/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/</id>
+    <link href="https://www.z1r0s.top/2020/12/16/security/script/bat/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/"/>
+    <id>https://www.z1r0s.top/2020/12/16/security/script/bat/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/</id>
     <published>2020-12-16T09:10:36.000Z</published>
     <updated>2020-12-22T14:42:38.749Z</updated>
     
@@ -452,17 +452,17 @@
     
     </summary>
     
-      <category term="安全加固" scheme="https://z1r0s.github.io/categories/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"/>
+      <category term="安全加固" scheme="https://www.z1r0s.top/categories/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"/>
     
     
-      <category term="Windows" scheme="https://z1r0s.github.io/tags/Windows/"/>
+      <category term="Windows" scheme="https://www.z1r0s.top/tags/Windows/"/>
     
   </entry>
   
   <entry>
     <title>VSCode之开发环境搭建</title>
-    <link href="https://z1r0s.github.io/2020/12/14/windows/software/vscode-zhi-kai-fa-huan-jing-da-jian/"/>
-    <id>https://z1r0s.github.io/2020/12/14/windows/software/vscode-zhi-kai-fa-huan-jing-da-jian/</id>
+    <link href="https://www.z1r0s.top/2020/12/14/windows/software/vscode-zhi-kai-fa-huan-jing-da-jian/"/>
+    <id>https://www.z1r0s.top/2020/12/14/windows/software/vscode-zhi-kai-fa-huan-jing-da-jian/</id>
     <published>2020-12-14T12:28:10.000Z</published>
     <updated>2020-12-22T14:20:48.410Z</updated>
     
@@ -478,17 +478,17 @@
     
     </summary>
     
-      <category term="软件使用" scheme="https://z1r0s.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="软件使用" scheme="https://www.z1r0s.top/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
     
-      <category term="编程工具" scheme="https://z1r0s.github.io/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/"/>
+      <category term="编程工具" scheme="https://www.z1r0s.top/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>Linux之网络管理</title>
-    <link href="https://z1r0s.github.io/2020/12/13/linux/based/linux-zhi-wang-luo-guan-li/"/>
-    <id>https://z1r0s.github.io/2020/12/13/linux/based/linux-zhi-wang-luo-guan-li/</id>
+    <link href="https://www.z1r0s.top/2020/12/13/linux/based/linux-zhi-wang-luo-guan-li/"/>
+    <id>https://www.z1r0s.top/2020/12/13/linux/based/linux-zhi-wang-luo-guan-li/</id>
     <published>2020-12-13T11:53:33.000Z</published>
     <updated>2020-12-22T14:37:42.283Z</updated>
     
@@ -504,17 +504,17 @@
     
     </summary>
     
-      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="https://www.z1r0s.top/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://www.z1r0s.top/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>Linux之权限管理</title>
-    <link href="https://z1r0s.github.io/2020/12/13/linux/based/linux-zhi-quan-xian-guan-li/"/>
-    <id>https://z1r0s.github.io/2020/12/13/linux/based/linux-zhi-quan-xian-guan-li/</id>
+    <link href="https://www.z1r0s.top/2020/12/13/linux/based/linux-zhi-quan-xian-guan-li/"/>
+    <id>https://www.z1r0s.top/2020/12/13/linux/based/linux-zhi-quan-xian-guan-li/</id>
     <published>2020-12-13T06:29:48.000Z</published>
     <updated>2020-12-22T14:37:25.545Z</updated>
     
@@ -530,10 +530,10 @@
     
     </summary>
     
-      <category term="操作系统" scheme="https://z1r0s.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="https://www.z1r0s.top/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="Linux" scheme="https://z1r0s.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://www.z1r0s.top/tags/Linux/"/>
     
   </entry>
   
