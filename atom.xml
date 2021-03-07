@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.z1r0s.top/"/>
-  <updated>2021-03-07T09:38:38.047Z</updated>
+  <updated>2021-03-07T22:24:56.977Z</updated>
   <id>https://www.z1r0s.top/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SQL注入之DNSlog注入</title>
+    <title>SQL注入之DNSlog外带注入</title>
     <link href="https://www.z1r0s.top/2021/03/07/security/webvuln/sqli/sql-zhu-ru-zhi-dnslog-zhu-ru/"/>
     <id>https://www.z1r0s.top/2021/03/07/security/webvuln/sqli/sql-zhu-ru-zhi-dnslog-zhu-ru/</id>
     <published>2021-03-07T08:40:56.000Z</published>
-    <updated>2021-03-07T09:38:38.047Z</updated>
+    <updated>2021-03-07T22:24:56.977Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;布尔注入&quot;&gt;&lt;a href=&quot;#布尔注入&quot; class=&quot;headerlink&quot; title=&quot;布尔注入&quot;&gt;&lt;/a&gt;布尔注入&lt;/h1&gt;&lt;h1 id=&quot;注入原理&quot;&gt;&lt;a href=&quot;#注入原理&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;DNSlog外带注入&quot;&gt;&lt;a href=&quot;#DNSlog外带注入&quot; class=&quot;headerlink&quot; title=&quot;DNSlog外带注入&quot;&gt;&lt;/a&gt;DNSlog外带注入&lt;/h1&gt;&lt;p&gt;​       
         
       
     
@@ -171,7 +171,7 @@
     <link href="https://www.z1r0s.top/2021/03/07/security/webvuln/sqli/sql-zhu-ru-zhi-bao-cuo-zhu-ru/"/>
     <id>https://www.z1r0s.top/2021/03/07/security/webvuln/sqli/sql-zhu-ru-zhi-bao-cuo-zhu-ru/</id>
     <published>2021-03-07T06:16:07.000Z</published>
-    <updated>2021-03-07T09:38:32.440Z</updated>
+    <updated>2021-03-07T10:19:50.132Z</updated>
     
     <summary type="html">
     

