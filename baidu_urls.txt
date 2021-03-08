@@ -13,8 +13,8 @@ https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-double
 https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/
 https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/
 https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/
-https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/
 https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/
+https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/
 https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/
 https://www.z1r0s.top/2021/01/02/database/mysql-zhi-ji-chu-ming-ling/
 https://www.z1r0s.top/2020/12/25/linux/based/linux-zhi-ri-zhi-guan-li/
