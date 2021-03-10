@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.z1r0s.top/2021/03/08/security/webvuln/rce/dai-ma-zhi-xing-lou-dong-yuan-ma-fen-xi-yu-li-yong/</loc>
+    
+    <lastmod>2021-03-09T14:53:49.384Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.z1r0s.top/2021/03/07/security/webvuln/sqli/sql-zhu-ru-zhi-dnslog-zhu-ru/</loc>
     
     <lastmod>2021-03-08T06:01:54.106Z</lastmod>
@@ -51,7 +58,7 @@
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/17/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</loc>
+    <loc>https://www.z1r0s.top/2020/10/17/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</loc>
     
     <lastmod>2021-03-07T04:50:50.924Z</lastmod>
     
@@ -65,7 +72,14 @@
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2021/03/02/pentestenv/upload-labs/upload-labs-chuang-guan/</loc>
+    <loc>https://www.z1r0s.top/2021/03/09/security/webvuln/fileinclusion/wen-jian-bao-han/</loc>
+    
+    <lastmod>2021-03-04T03:53:42.025Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.z1r0s.top/2021/03/02/security/pentestenv/upload-labs/upload-labs-chuang-guan/</loc>
     
     <lastmod>2021-03-03T13:08:52.640Z</lastmod>
     
@@ -86,70 +100,70 @@
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</loc>
+    <loc>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</loc>
     
     <lastmod>2021-02-24T14:32:23.950Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/</loc>
+    <loc>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/</loc>
     
     <lastmod>2021-02-24T13:23:56.949Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/</loc>
+    <loc>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-doublequotes-string/</loc>
     
     <lastmod>2021-02-24T13:21:25.901Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/</loc>
+    <loc>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-doubleinjection-singlequotes-string-withtwist/</loc>
     
     <lastmod>2021-02-24T12:59:37.557Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/</loc>
+    <loc>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/</loc>
     
     <lastmod>2021-02-24T12:32:38.691Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/</loc>
+    <loc>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/</loc>
     
     <lastmod>2021-02-24T12:13:56.266Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/</loc>
+    <loc>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/</loc>
     
     <lastmod>2021-02-24T11:37:22.255Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2021/02/24/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</loc>
+    <loc>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</loc>
     
     <lastmod>2021-02-24T08:46:19.324Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/17/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequoteswithtwist-string/</loc>
+    <loc>https://www.z1r0s.top/2020/10/17/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequoteswithtwist-string/</loc>
     
     <lastmod>2021-02-24T07:07:51.788Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/17/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-intigerbased/</loc>
+    <loc>https://www.z1r0s.top/2020/10/17/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-intigerbased/</loc>
     
     <lastmod>2021-02-24T07:07:43.966Z</lastmod>
     
@@ -625,203 +639,203 @@
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/31/pentestenv/xss-labs/xss-zhi-xss-labs-level20/</loc>
+    <loc>https://www.z1r0s.top/2020/10/31/security/pentestenv/xss-labs/xss-zhi-xss-labs-level20/</loc>
     
     <lastmod>2020-12-22T14:16:12.449Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/31/pentestenv/xss-labs/xss-zhi-xss-labs-level19/</loc>
+    <loc>https://www.z1r0s.top/2020/10/31/security/pentestenv/xss-labs/xss-zhi-xss-labs-level19/</loc>
     
     <lastmod>2020-12-22T14:16:02.309Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level18/</loc>
+    <loc>https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level18/</loc>
     
     <lastmod>2020-12-22T14:15:54.001Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level17/</loc>
+    <loc>https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level17/</loc>
     
     <lastmod>2020-12-22T14:15:45.514Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level16/</loc>
+    <loc>https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level16/</loc>
     
     <lastmod>2020-12-22T14:15:36.118Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level15/</loc>
+    <loc>https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level15/</loc>
     
     <lastmod>2020-12-22T14:15:28.702Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/31/pentestenv/xss-labs/xss-zhi-xss-labs-level14/</loc>
+    <loc>https://www.z1r0s.top/2020/10/31/security/pentestenv/xss-labs/xss-zhi-xss-labs-level14/</loc>
     
     <lastmod>2020-12-22T14:15:21.427Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level13/</loc>
+    <loc>https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level13/</loc>
     
     <lastmod>2020-12-22T14:15:12.378Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level12/</loc>
+    <loc>https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level12/</loc>
     
     <lastmod>2020-12-22T14:15:04.249Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level11/</loc>
+    <loc>https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level11/</loc>
     
     <lastmod>2020-12-22T14:14:26.043Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level10/</loc>
+    <loc>https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level10/</loc>
     
     <lastmod>2020-12-22T14:14:15.715Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/27/pentestenv/xss-labs/xss-zhi-xss-labs-level9/</loc>
+    <loc>https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level9/</loc>
     
     <lastmod>2020-12-22T14:14:06.910Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level8/</loc>
+    <loc>https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level8/</loc>
     
     <lastmod>2020-12-22T14:13:56.586Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level7/</loc>
+    <loc>https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level7/</loc>
     
     <lastmod>2020-12-22T14:13:49.009Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level6/</loc>
+    <loc>https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level6/</loc>
     
     <lastmod>2020-12-22T14:13:40.579Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level5/</loc>
+    <loc>https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level5/</loc>
     
     <lastmod>2020-12-22T14:13:29.012Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level4/</loc>
+    <loc>https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level4/</loc>
     
     <lastmod>2020-12-22T14:13:17.312Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/26/pentestenv/xss-labs/xss-zhi-xss-labs-level3/</loc>
+    <loc>https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level3/</loc>
     
     <lastmod>2020-12-22T14:13:08.106Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/25/pentestenv/xss-labs/xss-zhi-xss-labs-level2/</loc>
+    <loc>https://www.z1r0s.top/2020/10/25/security/pentestenv/xss-labs/xss-zhi-xss-labs-level2/</loc>
     
     <lastmod>2020-12-22T14:12:56.786Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/25/pentestenv/xss-labs/xss-zhi-xss-labs-level1/</loc>
+    <loc>https://www.z1r0s.top/2020/10/25/security/pentestenv/xss-labs/xss-zhi-xss-labs-level1/</loc>
     
     <lastmod>2020-12-22T14:12:46.564Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/18/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
+    <loc>https://www.z1r0s.top/2020/10/18/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-doublequotes-string/</loc>
     
     <lastmod>2020-12-22T14:12:21.777Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/18/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
+    <loc>https://www.z1r0s.top/2020/10/18/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-singlequotes-string/</loc>
     
     <lastmod>2020-12-22T14:11:51.279Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/10/19/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</loc>
+    <loc>https://www.z1r0s.top/2020/10/19/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-doubleinjection-doublequotes-string/</loc>
     
     <lastmod>2020-12-22T14:11:43.366Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/09/17/pentestenv/dvwa/dvwa-sqlinjection/</loc>
+    <loc>https://www.z1r0s.top/2020/09/17/security/pentestenv/dvwa/dvwa-sqlinjection/</loc>
     
     <lastmod>2020-12-22T14:11:31.628Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/09/14/pentestenv/dvwa/dvwa-fileupload/</loc>
+    <loc>https://www.z1r0s.top/2020/09/14/security/pentestenv/dvwa/dvwa-fileupload/</loc>
     
     <lastmod>2020-12-22T14:11:23.889Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/09/13/pentestenv/dvwa/dvwa-fileinclusion/</loc>
+    <loc>https://www.z1r0s.top/2020/09/13/security/pentestenv/dvwa/dvwa-fileinclusion/</loc>
     
     <lastmod>2020-12-22T14:11:15.955Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/09/13/pentestenv/dvwa/dvwa-csrf/</loc>
+    <loc>https://www.z1r0s.top/2020/09/13/security/pentestenv/dvwa/dvwa-csrf/</loc>
     
     <lastmod>2020-12-22T14:11:02.563Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/09/12/pentestenv/dvwa/dvwa-commandinjection/</loc>
+    <loc>https://www.z1r0s.top/2020/09/12/security/pentestenv/dvwa/dvwa-commandinjection/</loc>
     
     <lastmod>2020-12-22T14:10:51.094Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/2020/09/12/pentestenv/dvwa/dvwa-bruteforce/</loc>
+    <loc>https://www.z1r0s.top/2020/09/12/security/pentestenv/dvwa/dvwa-bruteforce/</loc>
     
     <lastmod>2020-12-22T14:10:36.778Z</lastmod>
     
@@ -1185,14 +1199,14 @@
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/tags/index.html</loc>
+    <loc>https://www.z1r0s.top/categories/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.z1r0s.top/categories/index.html</loc>
+    <loc>https://www.z1r0s.top/tags/index.html</loc>
     
     <lastmod>2020-08-21T11:34:26.223Z</lastmod>
     
