@@ -1,0 +1,4040 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="Ciscp Packet Tracer实验及实训, z1r0s 安全 渗透 编程">
+    <meta name="description" content="z1r0s | 程序语言 | 网络安全 | 红蓝对抗">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Ciscp Packet Tracer实验及实训 | z1r0s</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/bg.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">z1r0s</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/nav" class="waves-effect waves-light">
+      
+      <i class="fas fa-rocket" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">z1r0s</div>
+        <div class="logo-desc">
+            
+            z1r0s | 程序语言 | 网络安全 | 红蓝对抗
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/nav" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-rocket"></i>
+			
+			Nav
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/71.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Ciscp Packet Tracer实验及实训</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Cisco/">
+                                <span class="chip bg-color">Cisco</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/网络配置/" class="post-category">
+                                网络配置
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-09-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-12-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    19.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    75 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="第1章-实验基础"><a href="#第1章-实验基础" class="headerlink" title="第1章 实验基础"></a>第1章 实验基础</h1><p>​        Ciscp Packet Tracer是一个非常理想的虚拟网络软件实验平台，可以完成各种规模校园网和企业网的设计、配置和调试过程，可以基于具体网络环境，分析各种网络协议运行过程中网络设备之间交换的报文类型、报文格式及报文处理流程，可以直接了解IP分组端到端传输过程中交换机、路由器等网络设备对IP分组的作用过程。除了不能实际物理接触外，Cisco Packet Tracer提供了和实际实验环境几乎一样的仿真环境。</p>
+<h2 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h2><p>​        用户界面及功能说明如图1-1所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/用户界面.png" alt="用户界面"></center>
+
+<center>图1-1 用户界面</center>
+
+<p><strong>菜单栏</strong>：显示或配置软件参数、     保存或打开工程文件等</p>
+<ul>
+<li>File（文件）菜单给出工作区新建、打开和存储文件命令</li>
+<li>Edit（编辑）菜单给出复制、粘贴和撤销输入命令</li>
+<li>Options（选项）菜单给出PT的一些配置选项</li>
+<li>View（视图）菜单给出放大、缩小工作区中某个设备的命令</li>
+<li>Tools（工具）菜单给出几个分组处理命令</li>
+<li>Extensions（扩展）菜单给出有关PT扩展功能的子菜单</li>
+<li>Help（帮助）参数给出PT详细的使用说明</li>
+</ul>
+<p><strong>主工具栏</strong>：给出PT常用命令，这些命令通常包含在各个菜单中</p>
+<p><strong>公共工具栏</strong>：给出对工作区中构件进行操作的工具</p>
+<ul>
+<li><strong>选择工具</strong>用于在工作区中移动某个指定区域。通过拖动鼠标指定工作区的某个区域，然后再工作区中移动该区域。当需要<strong>从其他工具中退出时</strong>，单击选择工具</li>
+<li><strong>注释工具</strong>：用于在工作区中任意位置添加注释</li>
+<li><strong>删除工具</strong>：用于在工作区中删除某个网络设备</li>
+<li><strong>查看工具</strong>：用于检查网络设备生成的控制信息，如路由器路由表、交换机转发表等</li>
+<li><strong>绘图工具</strong>：用于在工作区中绘制各种图形，如直线、正方形、长方形和椭圆等</li>
+<li><strong>调整图形大小工具</strong>：用于任意调整通过绘图工具绘制的图形的大小</li>
+<li><strong>简单报文工具</strong>：用于在选中的发送终端与接受终端之间启动一次ping操作</li>
+<li><strong>复杂报文工具</strong>：用于在选中的发送终端与接受终端之间启动一次报文传输过程，报文类型和格式可以由用户设定</li>
+</ul>
+<p><strong>工作区</strong>：软件进行网络模拟时主要使用的区域</p>
+<ul>
+<li>逻辑工作区：用于设计网络拓扑结构、配置网络设备、检测端到端连通性等。</li>
+<li>物理工作区：给出城市布局、城市内建筑物布局和建筑物内配线间布局等。</li>
+</ul>
+<p><strong>物理和逻辑工作区栏</strong>：可以通过工作区选择按钮选择物理工作区和逻辑工作区</p>
+<ul>
+<li>物理工作区栏工具：<ul>
+<li>NC（创建城市）</li>
+<li>NB（创建建筑物）</li>
+<li>NG（创建通用柜子）</li>
+<li>NW（创建配线间）</li>
+<li>Move（移动对象）</li>
+<li>Grid（配置栅格）</li>
+<li>Set Background（设置背景）</li>
+</ul>
+</li>
+<li>逻辑工作区栏工具：<ul>
+<li>New Cluster（创建新集群）</li>
+<li>Move Object（移动对象）</li>
+<li>Set Tiled Background（设置工作区背景）</li>
+<li>Viewport（视窗）</li>
+</ul>
+</li>
+</ul>
+<p><strong>模式选择栏</strong>：（实时操作模式和模拟操作模式）</p>
+<ul>
+<li><strong>实时操作模式</strong>可以验证网络任何两个终端之间的连通性</li>
+<li><strong>模拟操作模式</strong>可以给出分组端到端传输过程中得分每一个步骤，及每一个步骤涉及的报文类型、报文格式和报文处理流程</li>
+</ul>
+<p><strong>设备类型选择框</strong>：用于选择网络设备的类型</p>
+<ul>
+<li>Routers（路由器）</li>
+<li>Switches（交换机）</li>
+<li>Hubs（集线器）</li>
+<li>Wireless Devices（无线设备）</li>
+<li>Connections（连接线）</li>
+<li>End Devices（终端设备）</li>
+<li>Security（安全设备）</li>
+<li>Wan Emulation（广域网仿真设备）</li>
+<li>Custom Made Devices（定制设备）</li>
+</ul>
+<p><strong>设备选择框</strong>：用于选择指定类型的网络设备型号，可以通过设备选择框选择Cisco各种型号的路由器</p>
+<ul>
+<li><strong>设备类型</strong>：路由器、交换机、集线器、无线设备、连接线、终端设备、安全设备、广域网仿真设备等</li>
+<li><strong>配置方式</strong>：<ul>
+<li>物理配置：添加、去掉、修改网络设备插槽中的模块</li>
+<li>图形接口配置：可以对网络设备进行一些基本的配置</li>
+<li>命令行接口配置：功能最全的配置方式，也是最接近实际情况的配置方式</li>
+</ul>
+</li>
+</ul>
+<p><strong>其他命令按钮</strong>：</p>
+<ul>
+<li><strong>Power Cycle Devices</strong>：使所有设备重新加电</li>
+<li><strong>Fast Forward Time</strong>：加快设备的推进速度</li>
+</ul>
+<h2 id="操作模式"><a href="#操作模式" class="headerlink" title="操作模式"></a>操作模式</h2><p><strong>实时操作模式</strong><br>        实时操作模式为仿真网络实际运行过程，用户可以检查网络设备，转发表、路由表等控制信息，通过发送分组检测端到端连通性。实时操作模式下，完成网络配置过程后，网络设备自动完成相关协议执行过程。<br><strong>模拟操作模式</strong><br>        模拟操作模式是仿真网络软件提供的学习工具，用户可以了解网络中报文或分组的传输过程，同时可以查看以PDU形式传输的报文内容和格式。模拟操作模式下，完成网络配置过程后，可能需要用户完成多个推进步骤后，才能看到协议执行结果。<br>        （通常情况下，实验操作以实时操作模式为主，在理解报文传输过程、解析报文格式、排除链路故障时才会使用模拟操作模式）</p>
+<h2 id="IOS命令模式"><a href="#IOS命令模式" class="headerlink" title="IOS命令模式"></a>IOS命令模式</h2><p><strong>用户模式</strong><code>（User Mode）</code><br>        用户模式是权限最低的命令行模式，用户只能通过命令查看网络设备的一些状态，没有配置网络设备的权限，也不能修改网络设备状态和控制信息。用户登录网络设备之后，立即进入用户模式。<br><strong>特权模式</strong><code>（Privileged Mode）</code><br>        特权模式下不仅可以执行部分查询命令，还可以对网络设备中的文件进行操作。<font color="blue">（从用户模式进入特权模式需要使用enable命令）</font><br><strong>全局模式</strong><code>（Global Mode）</code></p>
+<p>​        全局模式下，用户可以完成对整个网络设备有效的配置。<font color="blue">（从特权模式进入全局模式需要输入configure terminal）</font></p>
+<p><strong>帮助工具</strong></p>
+<ul>
+<li>查找工具：可使用“？”查询可键入命令</li>
+<li>命令简写：允许键入命令不完整，但必须保证已键入命令在命令库中有唯一匹配</li>
+</ul>
+<p><strong>取消命令</strong></p>
+<p>​        使用”no”关键字可取消已经完成的配置</p>
+<p>​        eg:（取消设置的端口）</p>
+<p>​            <code>Router（config）# int f0/0</code></p>
+<p>​            <code>Router（config-if）# no ip add 192.168.1.1 255.255.255.0</code></p>
+<h2 id="网络设备连接选择"><a href="#网络设备连接选择" class="headerlink" title="网络设备连接选择"></a>网络设备连接选择</h2><ul>
+<li>不同类型的设备，用于发送、接受信号的两对引脚的编号有可能是不同的，对于用不同编号的两对引脚发送、接受信号的两端设备，需要通过<strong>直通线（<code>Copper Straight-Trough</code>）</strong>连接；</li>
+<li>同一类型的设备，用于发送、接受信号的两对引脚的编号是相同的，需要通过<strong>交叉线（<code>Copper Cross-Over</code>）</strong>连接；</li>
+<li>路由器与路由器之间可以使用交叉线（同级设备）也可以使用Serial模块和<strong>串行（<code>Serial）</code>线</strong>连接；<ul>
+<li>串口通常是路由器在连接ISP路由器时使用，在模拟环境中使用serial时必须要配置时钟频率</li>
+<li>使用交叉线和串口线的区别在于：交叉线两端的设备之间可以进行协商、使用serial接口的设备不接受协商</li>
+</ul>
+</li>
+<li>Console线用在PC端对交换机或路由器的直接配置时。</li>
+</ul>
+<h2 id="网络设备配置方式"><a href="#网络设备配置方式" class="headerlink" title="网络设备配置方式"></a>网络设备配置方式</h2><h3 id="控制台端口配置方式"><a href="#控制台端口配置方式" class="headerlink" title="控制台端口配置方式"></a>控制台端口配置方式</h3><p>​        交换机和路由器出厂时，只有默认配置，如果需要对交换机和路由器进行配置，最直接的配置方式是采用控制台端口配置方式，用串行口连接线互连<strong>PC的RS-232串行口</strong>和<strong>网络设备的Console端口</strong>，启动PC的<strong>超级终端程序</strong>，完成超级终端程序参数配置，按Enter键进入网络设备的命令行接口配置界面。</p>
+<p><strong>实现过程</strong>：</p>
+<ol>
+<li><p>互连网络设备和终端设备，如图1-2所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/互连网络设备和终端设备.png" alt="互连网络设备和终端设备"></center>
+
+<center>图1-2 互连网络设备和终端设备</center>
+</li>
+<li><p>配置超级终端连接参数，如图1-3所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置超级终端连接参数.png" alt="配置超级终端连接参数"></center>
+
+<center>图1-3 配置超级终端连接参数</center>
+</li>
+<li><p>进入命令行接口配置界面，如图1-4所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/进入命令行接口配置界面.png" alt="进入命令行接口配置界面"></center>
+
+</li>
+</ol>
+<center>图1-4 接口配置界面</center>
+
+<h3 id="Telnet配置方式"><a href="#Telnet配置方式" class="headerlink" title="Telnet配置方式"></a>Telnet配置方式</h3><p>​        Telnet配置是一种不受地理位置限制的配置方式，经常使用该方式进行网络的后期维护工作，但使用Telnet配置方式的前提条件是网络中的设备已经完成基本的配置（IP地址、子网掩码、网关、路由协议）。</p>
+<p><strong>实现过程</strong>：</p>
+<ol>
+<li><p><strong>网络设备互连基本配置<font color="blue">（IP地址、子网掩码、默认网关、RIP协议）</font>，如图1-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/网络设备互连基本配置.png" alt="网络设备互连基本配置"></center>
+
+<center>图1-5 网络设备互连基本配置</center>
+</li>
+<li><p><strong>Telnet配置，如图1-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/Telnet配置.png" alt="Telnet配置"></center>
+
+<center>图1-6 Telnet配置</center>
+</li>
+<li><p><strong>终端PC通过Telnet远程登录路由器，如图1-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端PC通过Telnet远程登录路由器.png" alt="终端PC通过Telnet远程登录路由器"></center>
+
+<center>图1-7 终端PC通过Telnet远程登录路由器</center>
+
+
+
+</li>
+</ol>
+<h1 id="第2章-交换式以太网实验"><a href="#第2章-交换式以太网实验" class="headerlink" title="第2章 交换式以太网实验"></a>第2章 交换式以太网实验</h1><h2 id="影响交换机实验的因素"><a href="#影响交换机实验的因素" class="headerlink" title="影响交换机实验的因素"></a>影响交换机实验的因素</h2><ol>
+<li><p><strong>CDP干扰</strong>[^1]</p>
+<p>Cisco交换机默认状态下，启动<strong>Cisco发现协议<code>（Cisco Discovery Protocol，CDP）</code></strong>，CDP能够检测到与交换机直接连接的设备，因此，即使终端不发送MAC帧，交换机也能检测到各个端口连接的终端，并<strong>在转发表中创建相应的转发项</strong>。为防止CDP干扰交换机实验，应该在交换机中停止运行CDP。</p>
+<p>eg:</p>
+<p><code>Switch（config）# no cdp run</code></p>
+</li>
+<li><p><strong>地址解析过程</strong>[^1]</p>
+<p>PT无法通过给出源和目的终端的MAC地址直接构建MAC帧，并启动MAC帧源终端至目的终端的传输过程，需要通过给出源和目的终端的IP地址构建IP分组，然后启动IP分组源终端至目的终端的传输过程。通过ARP协议解析报文，并在交换机的转发表中创建源和目的终端MAC地址对应的转发项。一旦终端完成某个IP地址的地址解析过程，该IP地址与对应的MAC地址之间的绑定项将在ARP缓冲区中保持一段时间，在该段时间内，终端无须再对该IP地址进行地址解析过程。</p>
+</li>
+</ol>
+<h2 id="集线器和交换机工作原理验证实验"><a href="#集线器和交换机工作原理验证实验" class="headerlink" title="集线器和交换机工作原理验证实验"></a>集线器和交换机工作原理验证实验</h2><h3 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        网络结构如图2-1所示，查看交换机连接集线器端口和连接终端端口的通信方式。在假定加环己初始MAC表为空的前提下，依次进行①~⑤MAC帧传输过程，并观察每一次MAC帧传输过程中，该MAC帧所达到的终端。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/集线器和交换机工作原理验证实验-网络结构.png" alt="集线器和交换机工作原理验证实验-网络结构"></center>
+
+<center>图2-1 网络结构</center>
+
+<p>① 终端A $\rightarrow$ 终端B</p>
+<p>② 终端B $\rightarrow$ 终端A</p>
+<p>③ 终端D $\rightarrow$ 终端E</p>
+<p>④ 终端E $\rightarrow$ 终端D</p>
+<p>⑤ 终端G $\rightarrow$ 终端A</p>
+<h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>验证交换机端口通信方式与所连接的网段之间的关系</li>
+<li>验证集线器广播MAC帧过程</li>
+<li>验证交换机地址学习过程</li>
+<li>验证交换机转发、广播和丢弃收到的MAC帧的条件</li>
+<li>验证交换机端口采用不同通信方式的条件</li>
+<li>验证以太网端到端数据传输过程</li>
+</ol>
+<h3 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        当交换机端口连接一个冲突域时（eg:交换机与Hub相连），该交换机端口采用<strong>半双工通信</strong>方式。当交换机端口只连接一个终端时，该交换机端口采用<strong>全双工通信</strong>方式，交换机端口与终端之间不再构成冲突域。</p>
+<p><strong>① 终端A $\rightarrow$ 终端B</strong>，<strong>如图2-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/集线器和交换机工作原理验证实验-终端A到终端B.png" alt="集线器和交换机工作原理验证实验-终端A到终端B"></center>
+
+<center>图2-2 终端A到终端B</center>
+
+<p><strong>② 终端B $\rightarrow$ 终端A</strong>，<strong>如图2-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/集线器和交换机工作原理验证实验-终端B到终端A.png" alt="集线器和交换机工作原理验证实验-终端B到终端A"></center>
+
+<center>图2-3 终端B到终端A</center>
+
+<p><strong>③ 终端D $\rightarrow$ 终端E</strong>，<strong>如图2-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/集线器和交换机工作原理验证实验-终端D到终端E.png" alt="集线器和交换机工作原理验证实验-终端D到终端E"></center>
+
+<center>图2-4 终端D到终端E</center>
+
+<p><strong>④ 终端E $\rightarrow$ 终端D</strong>，<strong>如图2-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/集线器和交换机工作原理验证实验-终端E到终端D.png" alt="集线器和交换机工作原理验证实验-终端E到终端D"></center>
+
+<center>图2-5 终端E到终端D</center>
+
+<p><strong>⑤ 终端G $\rightarrow$ 终端A</strong>，<strong>如图2-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/集线器和交换机工作原理验证实验-终端G到终端A.png" alt="集线器和交换机工作原理验证实验-终端G到终端A"></center>
+
+<center>图 2-6 终端G到终端A</center>
+
+<h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按实验要求构建网络拓扑</strong>，<strong>如图2-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/集线器和交换机工作原理验证实验-网络结构.png" alt="集线器和交换机工作原理验证实验-网络结构"></center>
+
+<center> 图2-7 构建网络拓扑</center>
+</li>
+<li><p><strong>网络设备基本配置</strong>（<strong>IP地址、子网掩码），如图2-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端A-IP配置.png" alt="终端A-IP配置"></center>
+
+<center>图2-8 终端A-IP配置</center>
+
+<p>（<font color="blue">上图为终端A的IP配置，其他终端IP配置与其类似</font>）</p>
+</li>
+<li><p><strong>查看ARP缓冲区</strong></p>
+<p>使用工具栏中的<strong>查看工具</strong>单击指定网络设备后选择菜单中的<strong>ARP Table选项</strong>，即可展示此设备的ARP缓冲区中的数据，如图2-9所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/ARP Table for 终端A.png" alt="ARP Table for 终端A"></center>
+
+<center>图2-9 ARP Table for 终端A</center>
+
+<p>使用同样的操作方式可查看交换机或路由器的<strong>MAC Table</strong>，如图2-10所示。</p>
+</li>
+</ol>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/MAC Table for Switch0.png" alt="MAC Table for Switch0"></center>
+
+<center>图2-10 MAC Table for Switch0</center>
+
+<ol start="4">
+<li><p><strong>停止运行CDP并清空MAC表</strong> </p>
+<p>为了消除实验过程中可能存在的干扰，通常使用<strong>no cdp run</strong>命令使交换机<strong>停止运行CDP</strong>，并且还需要使用<strong>clear mac-address-table</strong>命令<strong>清空交换机转发表</strong>，操作命令如图2-11所示：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/停止CDP和清空MAC表.png" alt="停止CDP和清空MAC表"></center>
+
+<center> 图2-11 停止CDP和清空MAC表</center>
+</li>
+<li><p><strong>设置通信方式</strong></p>
+<p>交换机与Hub相连的端口设置成半双工（如图2-12所示），交换机与终端相连的端口设置成全双工，设置操作（如图2-13所示）</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/Switch与Hub相连端口设置.png" alt="Switch与Hub相连端口设置"></center>
+
+<center>图2-12 Switch与Hub相连端口设置</center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/Switch与终端相连端口设置.png" alt="Switch与终端相连端口设置"></center>
+
+</li>
+</ol>
+<center>图2-13 Switch与终端相连端口设置</center>
+
+<ol start="6">
+<li><p><strong>设置过滤报文类型</strong></p>
+<p>进入模拟操作模式，单击Edit Filter按钮，在弹出的报文类型过滤框中选择ICMP报文类型，如图2-14所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/设置过滤报文类型.png" alt="设置过滤报文类型"></center>
+
+<center>图2-14 设置过滤报文类型</center>
+</li>
+<li><p><strong>终端Aping终端B</strong></p>
+<ul>
+<li><p>终端A将ICMP报文传送到Hub0，如图2-15所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端Aping终端B1.png" alt="终端Aping终端B1"></center>
+
+<center>图2-15 终端Aping终端B1</center>
+</li>
+<li><p>Hub0广播该ICMP报文，如图2-16所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端Aping终端B2.png" alt="终端Aping终端B2"></center>
+
+<center>图2-16 终端Aping终端B2</center>
+</li>
+<li><p>Switch收到报文后，先创建至MACA的转发表项，再广播该ICMP报文，如图2-17所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端Aping终端B3.png" alt="终端Aping终端B3"></center>
+
+<center>图2-17 终端Aping终端B3</center>
+</li>
+<li><p>Hub1接收到Switch广播的ICMP报文后，继续广播，如图2-18所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端Aping终端B4.png" alt="终端Aping终端B4"></center>
+
+<center>图2-18 终端Aping终端B4</center>
+</li>
+<li><p>终端B收到Hub0广播的ICMP报文后，发送回应ICMP报文至Hub0，如图2-19所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端Aping终端B5.png" alt="终端Aping终端B5"></center>
+
+<center>图2-19 终端Aping终端B5</center>
+</li>
+<li><p>Hub0接收接收到终端B发给终端A的报文后，继续广播发送。当Switch接收到Hub0广播的ICMP，先在转发表中创建至MACB对应的转发项，再丢弃该报文；当终端A接收到Hub0广播的ICMP包，一次ping测试完成，操作过程如图2-20所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端Aping终端B6.png" alt="终端Aping终端B6"></center>
+
+<center>图2-20 终端Aping终端B6</center>
+</li>
+<li><p>一次测试完毕之后Switch的转发表如图2-21所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/Switch转发表1.png" alt="Switch转发表1"></center>
+
+<center> 图2-21 Switch转发表1</center>
+</li>
+</ul>
+</li>
+<li><p><strong>终端Bping终端A</strong></p>
+<ul>
+<li><p>终端B将ICMP报文发送至Hub0，Hub0广播该报文，Switch和终端C接收到报文后进行丢弃，终端A接收到报文后发送回应报文，操作如图2-22所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端Bping终端A.png" alt="终端Bping终端A"></center>
+
+<center>图2-22 终端Bping终端A</center>
+</li>
+<li><p>测试完成之后Switch的转发表如图2-23所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/Switch转发表1.png" alt="Switch转发表1"></center>
+
+<center>图2-23 Switch转发表1</center>
+</li>
+</ul>
+</li>
+<li><p><strong>终端Dping终端E</strong></p>
+<ul>
+<li><p>终端D向Switch发送ICMP报文，Switch接收报文后，先创建一条至MACD的表项，再广播该报文；Hub接收到报文后继续广播，直至终端将报文丢弃；终端E接收到报文后，发送回应ICMP报文，Switch接收到报文后，先创建一条至MACE的变项，再将报文冲F0/1端口转发出去给终端D，操作过程如图2-24所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端Dping终端E.png" alt="终端Dping终端E"></center>
+
+<center>图2-24 终端Dping终端E</center>
+</li>
+<li><p>测试完成之后Switch的转发表如图2-25所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/Switch转发表2.png" alt="Switch转发表2"></center>
+
+<center>图2-25 Switch转发表2</center>
+</li>
+</ul>
+</li>
+<li><p><strong>终端Eping终端D</strong></p>
+<ul>
+<li><p>终端E向Switch发送ICMP报文，Switch将报文从f0/1端口转发给终端D，操作如图2-26所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端Eping终端D.png" alt="终端Eping终端D"></center>
+
+<center> 图2-26 终端Eping终端D</center>
+</li>
+<li><p>测试完成之后Switch的转发表如图2-27所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/Switch转发表2.png" alt="Switch转发表2"></center>
+
+<center> 图2-27 Switch转发表2</center>
+</li>
+</ul>
+</li>
+<li><p><strong>终端Gping终端A</strong></p>
+<ul>
+<li><p>终端G向Hub1发送ICMP报文，Hub1广播该报文；Switch接收到报文后，先创建一条至MACG的表项，再将该报文从f0/23端口转发给Hub0；Hub0接收到报文后广播给域内所有终端；终端A接收到报文后发送应答报文，其余终端作丢弃操作；报文按源路线回到终端G。</p>
+</li>
+<li><p>测试完成之后Switch的转发表如图2-28所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/Switch转发表3.png" alt="Switch转发表3"></center>
+
+<center>图2-28 Switch转发表3</center>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="交换式以太网实验"><a href="#交换式以太网实验" class="headerlink" title="交换式以太网实验"></a>交换式以太网实验</h2><h3 id="实验内容-1"><a href="#实验内容-1" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        构建如图3-1所示的交换式以太网结构，在三个交换机的初始转发表为空的情况下，分别完成终端A与终端B、终端C和终端D之间的MAC帧传输过程，查看三个交换机的MAC表。清空交换机S1的MAC表，查看终端A与终端B之间的MAC帧传输过程。将终端A转接到交换机S3，查看终端B至终端A，终端C至终端A的MAC帧传输过程。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-网络拓扑图.png" alt="交换式以太网实验-网络拓扑图"></center>
+
+<center>图3-1 网络拓扑图</center>
+
+<h3 id="实验目的-1"><a href="#实验目的-1" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>验证交换式以太网的连通性，证明连接在交换式以太网上的任何两个分配了相同网络号、不同主机号的IP地址的终端之间能够实现IP分组传输过程。</li>
+<li>验证转发表建立过程。</li>
+<li>验证交换机MAC帧转发过程，重点验证交换机过滤MAC帧的功能，即如果交换机接收MAC帧的端口与该MAC帧匹配的转发项中的转发端口相同，交换机丢弃该MAC帧。</li>
+<li>验证转发项与交换式以太网拓扑结构一致性的重要性。</li>
+</ol>
+<h3 id="实验原理-1"><a href="#实验原理-1" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        当三个交换机初始状态为空的情况下，终端A到终端B的MAC帧传输过程中，经过三个交换机的广播。所以三个交换机都存在MAC地址为MACA的转发项，而S1中还存在MAC地址为MACB的转发项，具体执行过程如图3-2所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-终端A至终端B.png" alt="交换式以太网实验-终端A至终端B"></center>
+
+<center>图3-2 终端A至终端B</center>
+
+<p>​        据此类推，再经过终端A到终端C、终端D的传递过程后，S1中存在到MACA、MACB、MACC、MACD的转发项；S2中存在到MACA、MACC、MACD的转发项；S3中存在到MACA、MACC、MACD的转发项。</p>
+<p>​        当清除交换机S1中的转发表后，终端B至终端A的MAC帧传输过程中，S1缺失到MACA的转发表项，因此S1广播接收到的MAC帧，此过程使S2和S3中也获得至MACB的转发表项，具体操作过程如图3-3所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-终端B至终端A.png" alt="交换式以太网实验-终端B至终端A"></center>
+
+<center>图3-3 终端B至终端A</center>
+
+<p>​    在三个交换机的转发表中均存在终端A对应的转发项的前提下，断开终端A与交换机S1之间的连接，并重新将终端A连接到交换机S3中，并启动终端B至终端A的MAC帧传输过程。（如图3-4所示）</p>
+<ul>
+<li>由于S1的f0/1端口关闭，则到MACA的转发项变成无效转发项，当S1收到终端B的MAC帧后，广播该帧；</li>
+<li>由于S2中仍存在原转发项并认为其有效，当S2收到S1广播的MAC帧时，识别后将其丢弃；</li>
+<li>由于S2中仍存在原转发项并认为其有效，当终端C发送至MACA的帧时，会将其转发给S2，S2再转发给S1，S1广播该帧。</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-终端A切换位置.png" alt="交换式以太网实验-终端A切换位置"></center>
+
+<center>图3-4 终端A切换位置</center>
+
+<p>​        <font color="blue">解决上述问题的方法有两个：</font></p>
+<ol>
+<li><font color="blue">终端A广播一MAC帧，即发送一帧以终端A的MAC地址为源地址，以广播地址为目的地址的MAC帧；</font></li>
+<li><font color="blue">等到所有交换机的转发表中与终端A的MAC地址匹配的转发项过时。</font></li>
+</ol>
+<h3 id="实验步骤-1"><a href="#实验步骤-1" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网络拓扑，如图3-5所示</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-构建网络拓扑图.png" alt="交换式以太网实验-构建网络拓扑图"></center>
+
+<center>图3-5 构建网络拓扑图</center>
+</li>
+<li><p><strong>网络设备基本配置</strong>（IP地址、子网掩码）</p>
+<p>终端A的基本配置，如图3-6所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-终端A基本配置.png" alt="交换式以太网实验-终端A基本配置"></center>
+
+<center>图3-6 终端A基本配置</center>
+
+<p><font color="blue">其他终端也依据终端A进行类似配置</font></p>
+</li>
+<li><p><strong>关闭CDP并清空MAC表</strong></p>
+<p>在三个交换机中执行关闭CDP命令和清空MAC表命令，如图3-7所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-停止CDP.png" alt="交换式以太网实验-停止CDP"></center>
+
+<center>图3-7 停止CDP</center>
+</li>
+<li><p><strong>终端A到终端B、终端C、终端D的MAC帧传输过程</strong></p>
+<p>终端A发送MAC帧到S1，如图3-8所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-终端A到S1.png" alt="交换式以太网实验-终端A到S1"></center>
+
+<center>图3-8 终端A到S1</center>
+
+<p>S1创建表项并广播MAC帧，如图3-9所示</p>
+</li>
+</ol>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S1广播MAC帧.png" alt="交换式以太网实验-S1广播MAC帧"></center>
+
+<center>图3-9 S1广播MAC帧</center>
+
+<p>   S2创建表型并广播MAC帧，当S3接收到MAC帧后，创建表项并广播MAC帧，如图3-10所示</p>
+   <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S3广播MAC帧.png" alt="交换式以太网实验-S3广播MAC帧"></center>
+
+   <center>图3-10 S3广播MAC帧</center>
+
+<p>操作完成之后交换机中的MAC表分别为，如图3-11、图3-12、图3-13所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S1MAC表1.png" alt="交换式以太网实验-S1MAC表1"></center>
+
+<center>图3-11 S1MAC表1</center>
+
+   <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S2MAC表1.png" alt="交换式以太网实验-S2MAC表1"></center>
+
+   <center>图3-12 S2MAC表1</center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S3MAC表1.png" alt="交换式以太网实验-S3MAC表1"></center>
+
+<center>图3-13 S3MAC表1</center>
+
+<ol start="5">
+<li><p><strong>清空S1的转发表</strong>，<strong>如图3-14所示</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-清空S1交换表.png" alt="交换式以太网实验-清空S1交换表"></center>
+
+<center>图3-14 清空S1交换表</center>
+</li>
+<li><p><strong>终端B向终端A发送MAC帧</strong></p>
+<p>S1接收到终端B发送的MAC帧后，先创建至MACB的表项再广播该MAC帧；S2和S3接收到MAC帧后，先创建至MACB的表项再广播该MAC帧（如下图所示）；终端A接收到该MAC帧后，应答该MAC帧，如图3-15所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-终端B向终端A发送MAC帧.png" alt="交换式以太网实验-终端B向终端A发送MAC帧"></center>
+
+<center>图3-15 终端B向终端A发送MAC帧</center>
+
+<p>完成上述过程后，各个交换机中的MAC表，如图3-16、图3-17、图3-18所示</p>
+</li>
+</ol>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S1MAC表2.png" alt="交换式以太网实验-S1MAC表2"></center>
+
+<center>图3-16 S1MAC表2</center>
+
+   <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S2MAC表2.png" alt="交换式以太网实验-S2MAC表2"></center>
+
+   <center>图3-17 S2MAC表2</center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S3MAC表2.png" alt="交换式以太网实验-S3MAC表2"></center>
+
+<center>图3-18 S3MAC表2</center>
+
+<ol start="7">
+<li><p><strong>将终端A重新连接至S3上</strong>，<strong>如图3-19所示</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-终端A重新连接.png" alt="交换式以太网实验-终端A重新连接"></center>
+
+<center>图3-19 终端A重新连接</center>
+</li>
+<li><p><strong>终端B向终端A发送MAC帧</strong></p>
+<p>S2接收到MAC帧后丢弃该帧，如图3-20所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S2丢弃MAC帧.png" alt="交换式以太网实验-S2丢弃MAC帧"></center>
+
+<center>图3-20 S2丢弃MAC帧</center>
+</li>
+<li><p><strong>终端C向终端A发送MAC帧</strong>，<strong>如图3-21所示</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换式以太网实验-S3转发MAC帧.png" alt="交换式以太网实验-S3转发MAC帧"></center>
+
+<center>图3-21 S3转发MAC帧</center>
+
+
+
+</li>
+</ol>
+<h2 id="交换机远程配置实验"><a href="#交换机远程配置实验" class="headerlink" title="交换机远程配置实验"></a>交换机远程配置实验</h2><h3 id="实验内容-2"><a href="#实验内容-2" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        构建如图4-1所示的网络结构，实现PC远程配置交换机S1和S2的功能。实际网络环境下，一般首先通过控制台端口完成网络设备基本信息配置过程，如交换机管理接收地址及建立PC与交换机管理接收之间传输通路相关的信息。然后，由PC统一对网络设备实施远程配置。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/网络拓扑.png" alt="网络拓扑"></center>
+
+<center>图4-1 网络拓扑</center>
+
+<h3 id="实验目的-2"><a href="#实验目的-2" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>验证建立PC与交换机S1和S2之间的Telnet报文传输通路的过程</li>
+<li>验证通过Telnet对交换机S1和S2实施远程配置的过程</li>
+</ol>
+<h3 id="实验原理-2"><a href="#实验原理-2" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        通常情况下，远程登录过程中，交换机需要鉴别远程登录用户的身份，因此需要在交换机中配置鉴别信息，交换机通过配置的鉴别信息对用户的身份和配置权限进行鉴别，只有具有配置权限的用户才能对交换机进行远程配置。配置的鉴别信息包括用户名、口令和enable口令。用户名和口令用于鉴别授权用户，enable空灵用于管制用户远程登录配置的权限，如是否允许使用全局模式下的所有配置命令。</p>
+<p><strong>注</strong>：</p>
+<ol>
+<li>需要为每一个交换机定义管理接口，并为管理接口分配IP地址；</li>
+<li>需要保证PC与每一个交换机的管理接口之间的连通性；</li>
+<li>需要启动交换机远程登录功能。</li>
+</ol>
+<h3 id="实验步骤-2"><a href="#实验步骤-2" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网络拓扑，如图4-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/网络拓扑.png" alt="网络拓扑"></center>
+
+<center>图4-2 构建网络拓扑</center>
+</li>
+<li><p><strong>对PC进行基本配置（IP地址、子网掩码、默认网关），如图4-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/对PC进行基本配置.png" alt="对PC进行基本配置"></center>
+
+<center>图4-3 对PC进行基本配置</center>
+</li>
+<li><p><strong>对S1交换机进行配置，如图4-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S1配置过程.png" alt="S1配置过程"></center>
+
+<center>图4-4 S1配置过程</center>
+
+<p>命令脚本：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t
+   hostname S1
+   username <span class="token number">aaa1</span> pass <span class="token number">bbb1</span>
+   <span class="token keyword">enable</span> pass <span class="token number">ccc1</span>
+   <span class="token keyword">int</span> vlan <span class="token number">1</span>
+   ip <span class="token keyword">add</span> <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">1.7</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+   <span class="token keyword">no</span> shut
+   <span class="token keyword">exit</span>
+   ip <span class="token keyword">default</span><span class="token operator">-</span>gateway <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">1.254</span>
+   line vty <span class="token number">0</span> <span class="token number">4</span>
+   login <span class="token keyword">local</span>
+   <span class="token keyword">exit</span></code></pre>
+<ol start="4">
+<li><p><strong>对R路由器进行配置，如图4-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/R配置过程.png" alt="R配置过程"></center>
+
+<center>图4-5 R配置过程</center>
+
+<p>命令脚本：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t
+   hostname R
+   nt g0<span class="token operator">/</span><span class="token number">0</span>
+   p <span class="token keyword">add</span> <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">1.254</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+   <span class="token keyword">no</span> shut
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> g0<span class="token operator">/</span><span class="token number">1</span>
+   ip <span class="token keyword">add</span> <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">2.254</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+   <span class="token keyword">no</span> shut
+   <span class="token keyword">exit</span></code></pre>
+<ol start="5">
+<li><p><strong>对S2交换机进行配置，如图4-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S2配置过程.png" alt="S2配置过程"></center>
+
+<center>图4-6 S2配置过程</center>
+
+<p>命令脚本：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t
+   hostname S2
+   username <span class="token number">aaa2</span> pass <span class="token number">bbb2</span>
+   <span class="token keyword">enable</span> pass <span class="token number">ccc2</span>
+   <span class="token keyword">int</span> vlan <span class="token number">1</span>
+   ip <span class="token keyword">add</span> <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">2.7</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+   <span class="token keyword">no</span> shut
+   <span class="token keyword">exit</span>
+   ip <span class="token keyword">default</span><span class="token operator">-</span>gateway <span class="token number">192.1</span><span class="token punctuation">.</span><span class="token number">2.254</span>
+   line vty <span class="token number">0</span> <span class="token number">4</span>
+   login <span class="token keyword">local</span>
+   <span class="token keyword">exit</span></code></pre>
+<ol start="6">
+<li><p><strong>PC远程登录S1，如图4-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/PC远程登录S1.png" alt="PC远程登录S1"></center>
+
+<center>图4-7 PC远程登录S1</center>
+</li>
+<li><p><strong>PC远程登录S2，如图4-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/PC远程登录S2.png" alt="PC远程登录S2"></center>
+
+<center>图4-8 PC远程登录S2</center>
+
+</li>
+</ol>
+<h3 id="关键命令说明"><a href="#关键命令说明" class="headerlink" title="关键命令说明"></a>关键命令说明</h3><ol>
+<li><p><strong>配置路由器接口命令，如图4-9所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置路由器接口命令.png" alt="配置路由器接口命令"></center>
+
+<center>图4-9 配置路由器接口命令</center>
+
+<p>路由器的接口默认时2关闭状态，所以当启动路由器的端口是需要使用<strong>no shutdown</strong>命令。</p>
+</li>
+<li><p><strong>配置交换机管理地址命令，如图4-10所示</strong>。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置管理地址命令.png" alt="配置管理地址命令"></center>
+
+<center>图4-10 配置管理地址命令</center>
+
+<p>二层交换机的接口不支持配置IP地址，而远程管理交换机就必须使用IP地址，VLAN支持定义IP地址，所以交换机的管理地址即为VLAN 1定义IP接口。</p>
+</li>
+<li><p><strong>配置默认网关地址命令，如图4-11所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置默认网关地址命令.png" alt="配置默认网关地址命令"></center>
+
+<center>图4-11 配置默认网关地址命令</center>
+
+<p>当PC与交换机的管理接口不属于同一个网络时，需要为交换机配置默认网关地址来指示报文传输方向。</p>
+</li>
+<li><p><strong>配置用户鉴别信息命令</strong></p>
+<ul>
+<li><p>配置用户名和口令，如图4-12所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置用户名和口令.png" alt="配置用户名和口令"></center>
+
+<center>图4-12 配置用户名和口令</center>
+
+<p>username aaa2 pass bbb2命令，在本地创建一个用户名为aaa2，密码为bbb2的用户</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>enable pass ccc2命令，设置进入特权模式的密码为：ccc2</p>
+<ul>
+<li><p>配置鉴别授权用户方式，如图4-13所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置鉴别授权用户方式.png" alt="配置鉴别授权用户方式"></center>
+
+   <center>图4-13 配置鉴别授权用户方式</center>
+
+<p>   允许同时建立5个会话；指定用本地创建的用户名和口令来鉴别登录用户身份。</p>
+</li>
+</ul>
+<h1 id="第3章-虚拟局域网实验"><a href="#第3章-虚拟局域网实验" class="headerlink" title="第3章 虚拟局域网实验"></a>第3章 虚拟局域网实验</h1><p>​        虚拟局域网即（VLAN），是一种在逻辑上划分广播域的技术。集线器和交换机通过中继器理论上可以实现无限远的通信连接，但随着网络的扩大广播域也将扩大（由集线器和中继器相连的区域属于同一个广播域），无限的广播使得大量的带宽资源被浪费，物理上划分的广播域不能满足网络拓扑结构的变化，因此具有很大的限制性。VLAN在逻辑上对广播域进行划分，得到了更优的解决方案。</p>
+<h2 id="单交换机VLAN配置实验"><a href="#单交换机VLAN配置实验" class="headerlink" title="单交换机VLAN配置实验"></a>单交换机VLAN配置实验</h2><h3 id="实验内容-3"><a href="#实验内容-3" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        交换机连接终端和集线器的方式及端口分配给各个VALN的情况如图5-1所示。初始状态下各个VLAN对应的转发表内容为空，依次进行一下①~⑥MAC帧传输过程，，针对每一次MAN帧传输过程，记录下转发表的变化过程及MAC帧达到的终端。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置鉴别授权用户方式.png" alt="配置鉴别授权用户方式"></center>
+
+<center>图5-1 网络拓扑</center>
+
+<p>① 终端A $\rightarrow$ 终端B</p>
+<p>② 终端B $\rightarrow$ 终端A</p>
+<p>③ 终端E $\rightarrow$ 终端B</p>
+<p>④ 终端B $\rightarrow$ 终端E</p>
+<p>⑤ 终端B发送广播帧</p>
+<p>⑥ 终端F $\rightarrow$ 终端E</p>
+<h3 id="实验目的-3"><a href="#实验目的-3" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>验证交换机VLAN配置过程</li>
+<li>验证属于同一个VLAN的终端之间的通信过程</li>
+<li>验证每一个VLAN为独立的广播域</li>
+<li>验证属于不同VLAN的两个终端之间不能相互通信</li>
+<li>验证转发项与VLAN之间的对应关系</li>
+</ol>
+<h3 id="实验原理-3"><a href="#实验原理-3" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        默认情况下，交换机所有端口属于默认VLAN—VLAN1，因此，交换机的所有端口属于同一个广播域，任何终端发送的以广播地址为目的的MAC地址的MAC帧到达连接在交换机上的所有终端。由于与计算机端口8连接的是集线器，因此，从端口8输出的MAC帧到达连接在集线器上的所有终端。下表为各MAC帧到达的终端：</p>
+<table>
+<thead>
+<tr>
+<th align="center">MAC帧传输过程</th>
+<th align="center">到达终端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">终端A $\rightarrow$ 终端B</td>
+<td align="center">终端B、D</td>
+</tr>
+<tr>
+<td align="center">终端B $\rightarrow$ 终端A</td>
+<td align="center">终端A</td>
+</tr>
+<tr>
+<td align="center">终端E $\rightarrow$ 终端B</td>
+<td align="center">终端F、C</td>
+</tr>
+<tr>
+<td align="center">终端B $\rightarrow$ 终端E</td>
+<td align="center">终端A、D</td>
+</tr>
+<tr>
+<td align="center">终端B发送广播帧</td>
+<td align="center">终端A、D</td>
+</tr>
+<tr>
+<td align="center">终端F $\rightarrow$ 终端E</td>
+<td align="center">终端E</td>
+</tr>
+</tbody></table>
+<h3 id="实验步骤-3"><a href="#实验步骤-3" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网络拓扑，如图5-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/构建网络拓扑.png" alt="构建网络拓扑"></center>
+
+<center>图5-2 构建网络拓扑</center>
+</li>
+<li><p><strong>对终端进行基本配置（IP地址、子网掩码），如图5-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端A基本配置.png" alt="终端A基本配置"></center>
+
+<center>图5-3 终端A基本配置</center>
+</li>
+<li><p><strong>整个网络在一个广播域中</strong></p>
+<ul>
+<li><p>在终端A上创建复杂报文，如图5-4所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/构造终端A发送的广播报文.png" alt="构造终端A发送的广播报文"></center>
+
+<center>图5-4 构造终端A发送的广播报文</center>
+</li>
+<li><p>报文广播域，如图5-5所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/报文广播域.png" alt="报文广播域"></center>
+
+<center>图5-5 报文广播域</center>
+</li>
+<li><p>广播报文的MAC帧，如图5-6所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/广播报文的MAC帧.png" alt="广播报文的MAC帧"></center>
+
+<center>图5-6 广播报文的MAC帧</center>
+</li>
+</ul>
+</li>
+<li><p><strong>创建并划分VLAN，如图5-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/创建并划分VLAN.png" alt="创建并划分VLAN"></center>
+
+<center>图5-7 创建并划分VLAN</center>
+
+<p><strong>命令脚本</strong>:</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t
+   vlan <span class="token number">2</span>
+   name vlan2
+   <span class="token keyword">exit</span>
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">f0</span><span class="token operator">/</span><span class="token number">8</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="5">
+<li><p><strong>终端A $\rightarrow$ 终端B</strong></p>
+<p>由于Switch转发表为空，当Switch接收到终端A发送的MAC帧时，将广播至该VLAN中的其他终端（终端B和终端D），如图5-8所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端A到终端B过程中的广播.png" alt="终端A到终端B过程中的广播"></center>
+
+<center>图5-8 终端A到终端B过程中的广播</center>
+</li>
+<li><p><strong>终端B $\rightarrow$ 终端A</strong></p>
+<p>由于Switch中存在至MACA的表项，所以当Switch接收到MAC帧时，将单播发送至终端A，如图5-9所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端B至终端A.png" alt="终端B至终端A"></center>
+
+<center>图5-9 终端B至终端A</center>
+</li>
+<li><p><strong>终端E $\rightarrow$ 终端B</strong></p>
+<p>MAC帧不能发送，如图5-10所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端E至终端B.png" alt="终端E至终端B"></center>
+
+<center>图5-10 终端E至终端B</center>
+</li>
+<li><p><strong>终端B $\rightarrow$ 终端E</strong></p>
+<p>MAC帧不能发送，如图5-11所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端B至终端E.png" alt="终端B至终端E"></center>
+
+<center>图5-11 终端B至终端E</center>
+</li>
+<li><p><strong>终端B发送广播帧</strong></p>
+<p>终端A和终端D接收到MAC帧，如图5-12所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端B广播.png" alt="终端B广播"></center>
+
+<center>图5-12 终端B广播</center>
+</li>
+<li><p><strong>终端F $\rightarrow$ 终端E</strong></p>
+<p>终端E和终端C接收到MAC帧，如图5-13所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端F至终端E.png" alt="终端F至终端E"></center>
+
+<center>图5-13 终端F至终端E</center>
+
+
+
+</li>
+</ol>
+<h2 id="跨交换机VLAN配置实验"><a href="#跨交换机VLAN配置实验" class="headerlink" title="跨交换机VLAN配置实验"></a>跨交换机VLAN配置实验</h2><h3 id="实验内容-4"><a href="#实验内容-4" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        构建如图6-1所示的物理以太网，将物理以太网划分为三个VLAN，分别是VLAN２、VLAN３和VLAN４，其中终端A、终端B和终端G属于VLAN２，终端E、终端F和终端H属于VLAN３，终端C和终端D属于VLAN４.为了保证属于同一VLAN的终端之间能够相互通信，要求做到以下两点：一是为属于同一VLAN的终端配置有着相同网络号的IP地址；二是建立属于同一VLAN的终端之间的交换路径。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端F至终端E.png" alt="终端F至终端E"></center>
+
+<center>图6-1 网络拓扑</center>
+
+<h3 id="实验目的-4"><a href="#实验目的-4" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>完成复杂交换式以太网设计过程</li>
+<li>实现跨交换机VLAN划分</li>
+<li>验证接入端口和标记端口之间的区别</li>
+<li>验证IEEE802.1q标准MAC帧格式</li>
+<li>验证属于同一VLAN的终端之间的通信过程</li>
+<li>验证属于不同VLAN的两个终端之间不能相互通信</li>
+</ol>
+<h3 id="实验原理-4"><a href="#实验原理-4" class="headerlink" title="实验原理"></a>实验原理</h3><ol>
+<li><p>创建VLAN和为VLAN分配交换机端口过程</p>
+<ul>
+<li><p><strong>端口分配原则</strong></p>
+<p>如果仅仅只有属于单个VLAN的交换路径经过某个交换机端口，将该交换机端口作为接入端口分配给该VLAN；</p>
+<p>如果有属于不同VLAN的多条交换路径经过某个交换机端口，将该交换机端口配置为被这些VLAN共享的共享端口。</p>
+</li>
+<li><p><strong>创建VLAN原则</strong></p>
+<p>如果某个交换机直接连接属于某个VLAN的终端，该交换机中需要创建该VLAN；</p>
+<p>如果某个交换机虽然没有直接连接属于某个VLAN的终端，但有属于该VLAN的交换路径经过该交换机中的端口，该交换机也需要创建该VLAN。</p>
+</li>
+</ul>
+</li>
+<li><p>端口模式与MAC帧格式之间的关系</p>
+<p>从接入端口输入输出的MAC帧不携带VLAN ID，是普通的MAC帧格式。从共享端口输入输出的MAC帧，携带该MAC帧所属VLAN的VLAN ID。MAC帧格式是802.1q标准MAC帧格式。</p>
+</li>
+</ol>
+<h3 id="实验步骤-4"><a href="#实验步骤-4" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网络拓扑，如图6-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端F至终端E.png" alt="终端F至终端E"></center>
+
+<center>图6-2 构建网络拓扑</center>
+</li>
+<li><p><strong>对终端设备进行基本配置（IP地址、子网掩码），如图6-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端A的基本配置.png" alt="终端A的基本配置"></center>
+
+<center>图6-3 终端A的基本配置</center>
+
+<p>对终端A的基本配置如上图所示，其他终端也进行类似配置。</p>
+</li>
+<li><p><strong>S1配置，如图6-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S1配置.png" alt="S1配置"></center>
+
+<center>图6-4 S1配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t
+   hostname S1
+   vlan <span class="token number">2</span>
+   name vlan2
+   <span class="token keyword">exit</span>
+   vlan <span class="token number">4</span>
+   name vlan4
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport mode access
+   switchport access vlan <span class="token number">4</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   switchport mode trunk
+   switchport trunk allowed vlan <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="4">
+<li><p><strong>S2配置，如图6-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S2配置.png" alt="S2配置"></center>
+
+<center>图6-5 S2配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t
+   hostname S2
+   vlan <span class="token number">2</span>
+   name vlan2
+   <span class="token keyword">exit</span>
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   vlan <span class="token number">4</span>
+   name vlan4
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode trunk
+   switchport trunk allowed vlan <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode trunk
+   switchport trunk allowed vlan <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="5">
+<li><p><strong>S3配置，如图6-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/S3配置.png" alt="S3配置"></center>
+
+<center>图6-6 S3配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t
+   hostname S3 
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   vlan <span class="token number">4</span>
+   name vlan4
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">4</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">3</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   switchport mode trunk
+   switchport trunk allowed vlan <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="6">
+<li><p><strong>终端C至终端D的传输</strong></p>
+<p>由于交换机S1的f0/4端口是被VLAN2和VLAN4共享的共享端口，因此，该帧经过交换机S1的f0/4端口输出时，携带VLAN4对应的VLAN ID（4），其数据帧格式如图6-7所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端C至终端D（VLAN ID）.png" alt="终端C至终端D（VLAN ID）"></center>
+
+<center>图6-7 终端C至终端D（VLAN ID）</center>
+
+
+
+</li>
+</ol>
+<h2 id="交换机VLAN远程配置实验"><a href="#交换机VLAN远程配置实验" class="headerlink" title="交换机VLAN远程配置实验"></a>交换机VLAN远程配置实验</h2><h3 id="实验内容-5"><a href="#实验内容-5" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        交换机可以定义任何VLAN对应的IP接口，并把该IP接口作为管理接口。为该IP接口配置的IP地址自然作为该交换机的管理地址。终端实现对该交换机远程配置的前提是，存在该终端与交换机管理接口之间的传输通路。如图7-1所示的网络结构，可以分别为交换机S1，S2和S3定义VLAN4对应的IP接口，并将该IP接口作为这三个交换机的管理接口。由于只有终端C和终端D属于VLAN4，因此，只有终端C和终端D能够实现对这三个交换机的远程配置过程。为三个交换机中VLAN4对应的IP接口分配与终端C和终端D有着相同网络号的IP地址。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置网络拓扑.png" alt="交换机VLAN远程配置网络拓扑"></center>
+
+<center>图7-1 网络拓扑</center>
+
+<h3 id="实验目的-5"><a href="#实验目的-5" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>验证交换机管理接口定义过程</li>
+<li>验证实施交换机远程配置的条件</li>
+<li>验证控制允许实施远程配置过程的终端范围的方法</li>
+</ol>
+<h3 id="实验原理-5"><a href="#实验原理-5" class="headerlink" title="实验原理"></a>实验原理</h3><ul>
+<li>需要为每一个交换机定义管理接口，并为管理接口分配IP地址；</li>
+<li>需要保证允许实施远程配置的终端与每一个交换机的管理接口之间的连通性；</li>
+<li>需要启动交换机远程登录功能。通常情况下，远程登录过程中，交换机需要鉴别远程登录用户的身份，因此，需要在交换机中配置鉴别信息，交换机通过配置的鉴别信息对用户的身份和配置权限进行鉴别；</li>
+<li>通过VLAN划分，限制允许建立与每一个交换机的管理接口之间的传输通路的终端范围。</li>
+</ul>
+<h3 id="实验步骤-5"><a href="#实验步骤-5" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网络拓扑，如图7-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置构建的网络拓扑.png" alt="交换机VLAN远程配置构建的网络拓扑"></center>
+
+<center>图7-2 构建的网络拓扑</center>
+</li>
+<li><p><strong>完成网络基本配置（IP地址、子网掩码、VLAN配置），如图7-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置终端A基本配置.png" alt="交换机VLAN远程配置终端A基本配置"></center>
+
+<center>图7-3 终端A基本配置</center>
+
+<p>其他终端与终端A做类似操作，如图7-4所示。</p>
+</li>
+</ol>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置S1基本配置.png" alt="交换机VLAN远程配置S1基本配置"></center>
+
+<center>图7-4 S1基本配置</center>
+
+<p>   其他交换机按要求进行类似配置</p>
+<ol start="3">
+<li><p><strong>S1远程管理配置，如图7-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置S1远程管理配置.png" alt="交换机VLAN远程配置S1远程管理配置"></center>
+
+<center>图7-5 S1远程管理配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   username <span class="token number">aaa1</span> password <span class="token number">bbb1</span>
+   line vty <span class="token number">0</span> <span class="token number">4</span>
+   login <span class="token keyword">local</span> 
+   <span class="token keyword">exit</span>
+   <span class="token keyword">enable</span> password <span class="token number">ccc1</span>
+   <span class="token keyword">int</span> vlan <span class="token number">4</span>
+   ip <span class="token keyword">add</span> <span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.17</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+   <span class="token keyword">exit</span></code></pre>
+<ol start="4">
+<li><p><strong>S2远程管理配置，如图7-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置S2远程管理配置.png" alt="交换机VLAN远程配置S2远程管理配置"></center>
+
+<center>图7-6 S2远程管理配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   username <span class="token number">aaa2</span> password <span class="token number">bbb2</span>
+   line vty <span class="token number">0</span> <span class="token number">4</span>
+   login <span class="token keyword">local</span> 
+   <span class="token keyword">exit</span>
+   <span class="token keyword">enable</span> password <span class="token number">ccc2</span>
+   <span class="token keyword">int</span> vlan <span class="token number">4</span>
+   ip <span class="token keyword">add</span> <span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.27</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+   <span class="token keyword">exit</span></code></pre>
+<ol start="5">
+<li><p><strong>S3远程管理配置，如图7-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置S3远程管理配置.png" alt="交换机VLAN远程配置S3远程管理配置"></center>
+
+<center>图7-7 S3远程管理配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   username <span class="token number">aaa3</span> password <span class="token number">bbb3</span>
+   line vty <span class="token number">0</span> <span class="token number">4</span>
+   login <span class="token keyword">local</span> 
+   <span class="token keyword">exit</span>
+   <span class="token keyword">enable</span> password <span class="token number">ccc3</span>
+   <span class="token keyword">int</span> vlan <span class="token number">4</span>
+   ip <span class="token keyword">add</span> <span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.37</span> <span class="token number">255.255</span><span class="token punctuation">.</span><span class="token number">255.0</span>
+   <span class="token keyword">exit</span></code></pre>
+<ol start="6">
+<li><p><strong>终端C-Telnet-交换机S3，如图7-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/交换机VLAN远程配置终端C-Telnet-S3.png" alt="交换机VLAN远程配置终端C-Telnet-S3"></center>
+
+<center>图7-8 终端C-Telnet-S3</center>
+
+
+
+</li>
+</ol>
+<h2 id="RSPAN配置实验"><a href="#RSPAN配置实验" class="headerlink" title="RSPAN配置实验"></a>RSPAN配置实验</h2><h3 id="实验内容-6"><a href="#实验内容-6" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        该实验在<strong>跨交换机VLAN配置实验</strong>的基础上进行，在交换机S3上连接一个嗅探器，要求该嗅探器可嗅探到终端A发送的ICMP报文，即嗅探器可以复制下所有由终端A发送的ICMP报文，网络拓扑如图8-1所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置网络拓扑.png" alt="RSPAN配置网络拓扑"></center>
+
+<center>图8-1 网络拓扑</center>
+
+<h3 id="实验目的-6"><a href="#实验目的-6" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>验证端口映射原理</li>
+<li>验证Cisco实现远程端口映射的过程</li>
+<li>验证RSPAN VLAN配置过程</li>
+<li>验证RSPAN VLAN的作用和工作过程</li>
+<li>验证嗅探器实现远程嗅探的过程</li>
+</ol>
+<h3 id="实验原理-6"><a href="#实验原理-6" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        交换机S1连接终端A的端口为源端口，交换机S3连接嗅探器的端口为目的端口，创建一个用于建立交换机S1至交换机S3传输通道的RSPAN VLAN。交换机S1接收到终端A发送的MAC帧后，将MAC帧映射到一个反射端口，由反射端口将该MAC帧发送带RSPAN VLAN，该MAC帧通过RSPAN VLAN到达交换机S3，由交换机S3将该MAC帧映射到目的端口。因此，实现远程端口映射后，端口A发送的MAC帧存在两种独立的传输路径：</p>
+<ul>
+<li>正常的传输路径，该传输路径由该MAC帧的目的MAC地址和该传输路径经过的交换机的转发表确定</li>
+<li>通过RSPAN VLAN实现的源端口至目的端口的传输路径</li>
+</ul>
+<h3 id="实验步骤-6"><a href="#实验步骤-6" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按要求构建网络拓扑，如图8-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置构建网络拓扑.png" alt="RSPAN配置构建网络拓扑"></center>
+
+<center>图8-2 构建网络拓扑</center>
+</li>
+<li><p><strong>对网络设备进行基本配置（IP配置，子网掩码，基本VLAN）</strong></p>
+<p>对终端A的基本配置（其他终端也进行类似配置），如图8-3所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置终端A基本配置.png" alt="RSPAN配置终端A基本配置"></center>
+
+<center>图8-3 终端A基本配置</center>
+
+<p>对交换机S1的基本配置（其他交换机也需要安装网络连接要求进行配置），如图8-4所示。</p>
+</li>
+</ol>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置S1基本配置.png" alt="RSPAN配置S1基本配置"></center>
+
+<center>图8-4 S1基本配置</center>
+
+<ol start="3">
+<li><p><strong>S1的RSPAN VLAN配置，如图8-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置S1RSPAN配置.png" alt="RSPAN配置S1RSPAN配置"></center>
+
+<center>图8-5 S1RSPAN配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   <span class="token number">ccc1</span>
+   conf t 
+   vlan <span class="token number">5</span>
+   remote<span class="token operator">-</span>span
+   name rspan
+   <span class="token keyword">exit</span>
+   <span class="token keyword">no</span> monitor <span class="token keyword">session</span> <span class="token keyword">all</span> 
+   monitor <span class="token keyword">session</span> <span class="token number">1</span> source interface <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span> rx
+   monitor <span class="token keyword">session</span> <span class="token number">1</span> destination remote vlan <span class="token number">5</span> reflector<span class="token operator">-</span>port <span class="token number">f0</span><span class="token operator">/</span><span class="token number">17</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">17</span>
+   <span class="token keyword">shutdown</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   switchport mode trunk 
+   switchport trunk allowed vlan <span class="token number">1</span><span class="token operator">-</span><span class="token number">10</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="4">
+<li><p><strong>S2的RSPAN VLAN配置，如图8-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置S2RSPAN配置.png" alt="RSPAN配置S2RSPAN配置"></center>
+
+<center>图8-6 S2RSPAN配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   <span class="token number">ccc2</span>
+   conf t 
+   vlan <span class="token number">5</span>
+   remote<span class="token operator">-</span>span
+   name rspan
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode trunk
+   switchport trunk allowed vlan <span class="token number">1</span><span class="token operator">-</span><span class="token number">10</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode trunk 
+   switchport trunk allowed vlan <span class="token number">1</span><span class="token operator">-</span><span class="token number">10</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="5">
+<li><p><strong>S3的RSPAN VLAN配置，如图8-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置S3RSPAN配置.png" alt="RSPAN配置S3RSPAN配置"></center>
+
+<center>图8-7 S3RSPAN配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   <span class="token number">ccc3</span>
+   conf t 
+   vlan <span class="token number">5</span>
+   remote<span class="token operator">-</span>span
+   name rspan
+   <span class="token keyword">exit</span>
+   <span class="token keyword">no</span> monitor <span class="token keyword">session</span> <span class="token keyword">all</span>
+   monitor <span class="token keyword">session</span> <span class="token number">1</span> source remote vlan <span class="token number">5</span>
+   monitor <span class="token keyword">session</span> <span class="token number">1</span> destination <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span>
+   switchport mode access
+   switchport access vlan <span class="token number">5</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+   switchport mode trunk
+   switchport trunk allowed vlan <span class="token number">1</span><span class="token operator">-</span><span class="token number">10</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="6">
+<li><p>进入模拟模式，启动终端A至终端B的ICMP报文传输过程，发现终端A发送的ICMP报文同时沿着两条传输路径传输：一是终端A至终端B传输路径；二是交换机S1连接终端A端口至交换机S3连接嗅探器（Sniffer）端口传输路径，如图8-8所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/RSPAN配置终端A至终端B.png" alt="RSPAN配置终端A至终端B"></center>
+
+<center>图8-8 终端A至终端B</center>
+
+</li>
+</ol>
+<h3 id="关键命令说明-1"><a href="#关键命令说明-1" class="headerlink" title="关键命令说明"></a>关键命令说明</h3><ol>
+<li><p><strong>创建RSPAN VLAN</strong></p>
+<p>RSPAN VLAN是一种特殊的VLAN，用于构建源端口所在交换机至目的端口所在交换机之间的交换路径，操作命令如图8-9所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/创建RSPAN VLAN.png" alt="创建RSPAN VLAN"></center>
+
+<center>图8-9 创建RSPAN VLAN</center>
+</li>
+<li><p><strong>源端口所在交换机配置过程</strong></p>
+<p>源端口所在交换机需要完成以下配置：一是指定源端口；二是通过源端口接收到的MAC帧映射到一个反射端口，并由发射端口将该MAC帧发送到RSPAN VLAN，操作命令如图8-10所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/源端口所在交换机配置.png" alt="源端口所在交换机配置"></center>
+
+<center>图8-10 源端口所在交换机配置</center>
+
+<p>注：</p>
+</li>
+</ol>
+<ul>
+<li>no monitor session all ：清除所有已经配置的映射<ul>
+<li>monitor session 1 source interface f0/1 rx：指定f0/1为源端口；指定需要嗅探的MAC帧，且只嗅探源端口得到的MAC帧</li>
+<li>monitor session 1 destination remote vlan 5 reflector-port f0/17：指定vlan 5为RSPAN VLAN；指定f0/17端口为反射端口</li>
+<li>相同的会话号1（session 1）将源端口和RSPAN VLAN绑定在一起，将通过f0/1接收到的MAC帧映射到发射端口f0/17，并通过发射端口f0/17将该MAC帧发送到VLAN 5。</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p><strong>目的端口所在交换机配置过程</strong></p>
+<p>操作命令如图8-11所示</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/目的端口所在交换机配置过程.png" alt="目的端口所在交换机配置过程"></center>
+
+<center>图8-11 目的端口所在交换机配置过程</center>
+
+</li>
+</ol>
+<h2 id="VTP配置实验"><a href="#VTP配置实验" class="headerlink" title="VTP配置实验"></a>VTP配置实验</h2><h3 id="实验内容-7"><a href="#实验内容-7" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        网络结构如图9-1所示，六个交换机构成的交换式以太网被分成两个VLAN主干协议（VLAN Trunking Protocol，VTP）域；</p>
+<ul>
+<li><p>其中域名为abc的VTP域包含交换机S1、S2和S3，域名为bcd的VTP域包含交换机S4、S5和S6；</p>
+</li>
+<li><p>域名为abc的VTP域中，将交换机S2的VTP模式设置成服务器模式，将其他两个交换机的VTP模式设置成客户端模式。</p>
+</li>
+<li><p>域名为bcd的VTP域中，将交换机S5的VTP模式设置成服务器模式，将其他两个交换机的VTP模式设置成客户端模式。</p>
+</li>
+</ul>
+<p>每一个VT篇域，只需要在VTP模式为服务器的交换机中配置VLAN其他交换机自动创建与该交换机一致的VLAN。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTP网络拓扑.png" alt="VTP网络拓扑"></center>
+
+<center>图9-1 网络拓扑</center>
+
+<h3 id="实验目的-7"><a href="#实验目的-7" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>验证交换式以太网VLAN VTP域划分过程</li>
+<li>验证交换机VTP配置过程</li>
+<li>验证交换机通过VTP自动创建VLAN的过程</li>
+<li>验证VTP域之间的连通性</li>
+</ol>
+<h3 id="实验原理-7"><a href="#实验原理-7" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        VTP自动创建VLAN的前提是，所有互连交换机的端口都是被所有VLAN共享的共享端口，因此，所有交换机中用于连接交换机的端口必须被配置成所属有VLAN共享的共享端口。</p>
+<p>​        必须通过手工配置将作为接入端口的交换机端口分配给各个VLAN，因此，必须根据下表中所示的终端和VLAN之间的关系，以手工配置的方式将所有交换机中连接终端的端口分配给对应的VLAN，如表9-1所示。</p>
+<center>表9-1 VALN对应的端口</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">终端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">终端A，终端C，终端E，终端G</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">终端B，终端D，终端F，终端H</td>
+</tr>
+</tbody></table>
+<p>​        VTP域的划分只和交换机自动创建VLAN过程有关，即一旦在某个VTP模式为服务器的交换机上创建编号为X、名为Y的VLAN，所有处于同一个VTP域中VTP模式为服务器或客户端的交换机自动创建编号为X、名为Y的VLAN。通过域名区分不同的VTP域，但VTP模式为服务器的交换机上配置的域名能够自动扩散到同一域中的其他交换机，因此，必须在处于不同域的两个域边界交换机上配置各自的域名。VTP域的划分与属于同一个VLAN的两个终端之间的通信过程无关，两个属于不同的VTP域但属于编号相同的VLAN的终端之间可以相互通信。</p>
+<h3 id="实验步骤-7"><a href="#实验步骤-7" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网络拓扑，如图9-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTP构建网络拓扑.png" alt="VTP构建网络拓扑"></center>
+
+<center>图9-2 构建网络拓扑</center>
+</li>
+<li><p><strong>终端基本配置（IP地址、子网掩码），如图9-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTP终端A的基本配置.png" alt="VTP终端A的基本配置"></center>
+
+<center>图9-3 终端A的基本配置</center>
+
+<p>其他终端也做类似操作</p>
+</li>
+<li><p><strong>S1配置命令，如图9-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS1配置.png" alt="VTPS1配置"></center>
+
+<center>图9-4 S1配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S1
+   vtp version <span class="token number">2</span>
+   vtp domain <span class="token number">abc</span>
+   vtp mode client
+   vtp password <span class="token number">123456</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport mode trunk
+   <span class="token keyword">exit</span>
+
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="4">
+<li><p><strong>S2配置命令，如图9-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS2配置.png" alt="VTPS2配置"></center>
+
+<center>如图9-5所示</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en 
+   conf t 
+   hostname S2
+   vtp version <span class="token number">2</span>
+   vtp mode server
+   vtp domain <span class="token number">abc</span>
+   vtp password <span class="token number">123456</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">2</span>
+   switchport mode trunk
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport mode trunk
+   switchport nonegotiate
+   <span class="token keyword">exit</span>
+   vlan <span class="token number">2</span>
+   name vtpabc2
+   <span class="token keyword">exit</span>
+   vlan <span class="token number">3</span>
+   name vtpabc3
+   <span class="token keyword">exit</span></code></pre>
+<ol start="5">
+<li><p><strong>S3配置命令，如图9-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS3配置.png" alt="VTPS3配置"></center>
+
+<center>图9-6 S3配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S3
+   vtp version <span class="token number">2</span>
+   vtp domain <span class="token number">abc</span>
+   vtp mode client
+   vtp password <span class="token number">123456</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport mode trunk
+   <span class="token keyword">exit</span>
+
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="6">
+<li><p><strong>S4配置命令，如图9-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS4配置.png" alt="VTPS4配置"></center>
+
+<center>图9-7 S4配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S4
+   vtp version <span class="token number">2</span>
+   vtp domain <span class="token number">bcd</span>
+   vtp mode client
+   vtp password <span class="token number">123456</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport mode trunk
+   <span class="token keyword">exit</span>
+
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="7">
+<li><p><strong>S5配置命令，如图9-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS5配置.png" alt="VTPS5配置"></center>
+
+<center>图9-8 S5配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S5
+   vtp version <span class="token number">2</span>
+   vtp mode server
+   vtp domain <span class="token number">bcd</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">2</span>
+   switchport mode trunk
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport mode trunk
+   switchport nonegotiate
+   <span class="token keyword">exit</span>
+   vlan <span class="token number">2</span>
+   name vtpbcd2
+   <span class="token keyword">exit</span>
+   vlan <span class="token number">3</span>
+   name vtpbcd3
+   <span class="token keyword">exit</span></code></pre>
+<ol start="8">
+<li><p><strong>S6配置命令，如图9-9所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTPS6配置.png" alt="VTPS6配置"></center>
+
+<center>图9-9 S6配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S6
+   vtp version <span class="token number">2</span>
+   vtp domain <span class="token number">bcd</span>
+   vtp mode client
+   vtp password <span class="token number">123456</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport mode trunk
+   <span class="token keyword">exit</span>
+
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="9">
+<li><p><strong>终端A与终端G的连通性测试，如图9-10所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/VTP终端A与终端G的连通性测试.png" alt="VTP终端A与终端G的连通性测试"></center>
+
+<center>图9-10 终端A与终端G的连通性测试</center>
+
+
+
+</li>
+</ol>
+<h3 id="关键命令说明-2"><a href="#关键命令说明-2" class="headerlink" title="关键命令说明"></a>关键命令说明</h3><ol>
+<li><p><strong>配置域名，如图9-11所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置域名.png" alt="配置域名"></center>
+
+<center>图9-11 配置域名</center>
+</li>
+</ol>
+<ul>
+<li>vtp domain abc：为交换机配置域名abc</li>
+</ul>
+<ol start="2">
+<li><p><strong>配置交换机VTP模式，如图9-12所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置交换机VTP模式.png" alt="配置交换机VTP模式"></center>
+
+<center>图9-12 配置交换机VTP模式</center>
+</li>
+</ol>
+<ul>
+<li>vtp mode server：为服务器或客户端交换机自动创建相同的VLAN；将域名扩散到没有配置域名的交换机中<ul>
+<li>vtp mode cilent：只能同步VTP模式为服务器的交换机上的VLAN</li>
+<li>vtp mode transparent：只能转发VTP报文；VTP模式的服务器对齐没有影响；它对其他交换机没有任何影响</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p><strong>配置VTP版本号，如图9-13所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置VTP版本号.png" alt="配置VTP版本号"></center>
+
+<center>图9-13 配置VTP版本号</center>
+</li>
+<li><p><strong>配置域管理密码，如图9-14所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置域管理密码.png" alt="配置域管理密码"></center>
+
+<center>图9-14 配置域管理密码</center>
+</li>
+</ol>
+<ul>
+<li>VTP密码用于验证发送VTP通告的交换机的身份</li>
+</ul>
+<ol start="5">
+<li><p><strong>禁止发送DTP协商报文，如图9-15所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/禁止发送DTP协商报文.png" alt="禁止发送DTP协商报文"></center>
+
+<center>图9-15 禁止发送DTP协商报文</center>
+
+<p>注：</p>
+<p>两个共享端口之间通过动态中继协议（Dynamic Trunking Protocol,DTP）协商端口属性。如果两个共享端口分别属于不同的VTP域，那么会使协商过程出错，因此，需要在域边界交换机中用于连接其他域边界交换机的共享端口上禁止DTP协商过程。</p>
+</li>
+</ol>
+<h1 id="第4章-生成树实验"><a href="#第4章-生成树实验" class="headerlink" title="第4章 生成树实验"></a>第4章 生成树实验</h1><p>​        生成树协议用于在一个存在冗余路径的以太网中为终端之间构建没有环路的交换路径，由于可以基于VLAN构建生成树，因此，可以通过网络设计和生成树协议同时实现容错和负载均衡功能。</p>
+<h2 id="容错实验"><a href="#容错实验" class="headerlink" title="容错实验"></a>容错实验</h2><h3 id="实验内容-8"><a href="#实验内容-8" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        构建如图10-1（a）所示的有着冗余路径的以太网结构，通过生成树协议生成如图10-1（b）所示的以交换机S4为根的生成树。为了验证生成树协议的容错性，删除交换机S4与交换机S5之间、交换机S5与交换机S7之间的物理链路，如图10-1（c）所示。生成树协议通过重新构建生成树保证网络的连通性，如图10-1（d）所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(a) 原始网络结构.png" alt="图4.1(a) 原始网络结构"></center>
+
+<center>图10-1(a) 原始网络结构</center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(b) 生成树协议阻塞的端口.png" alt="图4.1(b) 生成树协议阻塞的端口"></center>
+
+<center>图10-1(b) 生成树协议阻塞的端口</center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(c) 删除物理链路1.png" alt="图4.1(c) 删除物理链路1"></center>
+
+<center>图10-1(c) 删除物理链路</center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(d)生成树协议重新调整阻塞端口.png" alt="图4.1(d)生成树协议重新调整阻塞端口"></center>
+
+<center>图10-1(d) 生成树协议重新调整阻塞端口</center>
+
+<h3 id="实验目的-8"><a href="#实验目的-8" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>掌握交换机生成树协议配置过程</li>
+<li>验证生成树协议建立生成树过程</li>
+<li>验证BPDU报文内容和格式</li>
+<li>验证生成树协议实现容错的机制</li>
+</ol>
+<h3 id="实验原理-8"><a href="#实验原理-8" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        为了生成如图10-1（b）所示的以交换机S4为根网桥的生成树，需要将交换机S4的优先级设置为最高，同时保证其他交换机优先级满足：S2&gt;S3&gt;S5&gt;S6。因此，S2、S3、S4、S5、S6的优先级配置分别为：8192，12288，4096，16384，20480，其余交换机采用默认值。在图10-1（b）所示的生成树中，橘色指示灯所在的端口是被生成树协议阻塞的端口，通过阻塞这些端口，该生成树既保持了交换机之间的连通性，又消除了交换机之间的环路。一旦如图10-1（c）所示，删除交换机S4和S5之间、交换机S5和S7的物理链路，将导致交换机S5和S7与其他交换机之间的连通性遭到破坏。生成树协议能过自动检测到网络拓扑结构发生的变化，通过调整阻塞端口，重新构建的生成树既保证了交换机之间的连通性，又保证交换机之间不存在环路。</p>
+<h3 id="实验步骤-8"><a href="#实验步骤-8" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验构建网络拓扑，根据默认设置构建的生成树如图10-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(a) 原始网络结构.png" alt="构建网络拓扑"></center>
+
+<center>图10-2 构建网络结构</center>
+</li>
+<li><p><strong>S1配置命令，如图10-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错S1配置.png" alt="容错S1配置"></center>
+
+<center>图10-3 S1配置</center>
+
+<p><strong>命令配置</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S1
+   spanning<span class="token operator">-</span>tree mode pvst
+   <span class="token keyword">end</span></code></pre>
+<ol start="3">
+<li><p><strong>S2配置命令，如图10-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S2配置.png" alt="容错配置-S2配置"></center>
+
+<center>图10-4 S2配置</center>
+
+<p><strong>命令配置</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S2
+   spanning<span class="token operator">-</span>tree mode pvst
+   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">8192</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="4">
+<li><p><strong>S3配置命令，如图10-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S3配置.png" alt="容错配置-S3配置"></center>
+
+<center>图10-5 S3配置</center>
+
+<p><strong>命令配置</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S3
+   spanning<span class="token operator">-</span>tree mode pvst
+   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">12288</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="5">
+<li><p><strong>S4配置命令，如图10-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S4配置.png" alt="容错配置-S4配置"></center>
+
+<center>图10-6 S4配置</center>
+
+<p><strong>命令配置</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S4
+   spanning<span class="token operator">-</span>tree mode pvst
+   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">4096</span>
+   <span class="token keyword">end</span>
+</code></pre>
+<ol start="6">
+<li><p><strong>S5配置命令，如图10-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S5.png" alt="容错配置-S5"></center>
+
+<center>图10-7 S5</center>
+
+<p><strong>命令配置</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S5
+   spanning<span class="token operator">-</span>tree mode pvst
+   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">16384</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="7">
+<li><p><strong>S6配置命令，如图10-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置S6配置.png" alt="容错配置S6配置"></center>
+
+<center>图10-8 S6配置</center>
+
+<p><strong>命令配置</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S6
+   spanning<span class="token operator">-</span>tree mode pvst
+   spanning<span class="token operator">-</span>tree vlan <span class="token number">1</span> priority <span class="token number">20480</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="8">
+<li><p><strong>S7配置命令，如图10-9所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/容错配置-S7配置.png" alt="容错配置-S7配置"></center>
+
+<center>图10-9 S7配置</center>
+
+<p><strong>命令配置</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S7
+   spanning<span class="token operator">-</span>tree mode pvst
+   <span class="token keyword">end</span></code></pre>
+<ol start="9">
+<li><p><strong>根据配置构建的生成树如图10-10所示</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(b) 生成树协议阻塞的端口.png" alt="生成树协议阻塞的端口"></center>
+
+<center>图10-10 生成树协议阻塞的端口</center>
+</li>
+<li><p><strong>删除交换机S4和S5之间、交换机S5和S7的物理链路后，网络拓扑如图10-11所示</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(c) 删除物理链路1.png" alt="删除物理链路1"></center>
+
+<center>图10-11 删除物理链路1</center>
+</li>
+<li><p><strong>生成树重新调整阻塞端口后，构建的网络拓扑如图10-12所示</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/图4.1(d)生成树协议重新调整阻塞端口.png" alt="生成树协议重新调整阻塞端口"></center>
+
+<center>图10-12 生成树协议重新调整阻塞端口</center>
+
+</li>
+</ol>
+<h3 id="关键命令说明-3"><a href="#关键命令说明-3" class="headerlink" title="关键命令说明"></a>关键命令说明</h3><ol>
+<li><p><strong>选择生成树工作模式，如图10-13所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/选择生成树工作模式.png" alt="选择生成树工作模式"></center>
+
+<center>图10-13 选择生成树工作模式</center>
+</li>
+</ol>
+<ul>
+<li>spanning-tree mode pvst：将交换机生成树协议的工作模式指定为基于VLAN的生成树（Per-Vlan Spanning Tree，PVST）模式。<ul>
+<li>spanning-tree mode rapid-pvst：将交换机生成树协议的工作模式指定为快速收敛模式。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p><strong>配置交换机优先级，如图10-14所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/配置交换机优先级.png" alt="配置交换机优先级"></center>
+
+<center>图10-14 配置交换机优先级</center>
+</li>
+</ol>
+<ul>
+<li>spanning-tree vlan 1 priority 4096：将交换机在构建基于VLAN1的生成树中所有具有的优先级指定为4096。<ul>
+<li>spanning-tree vlan 1 root primary：将交换机设置成基于VLAN 1的生成树的根网桥。</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p><strong>设置快速转换端口，如图10-15所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/设置快速转换端口.png" alt="设置快速转换端口"></center>
+
+<center>图10-15 设置快速转换端口</center>
+
+<ul>
+<li>spanning-tree portfast default：一旦交换机执行该命令，交换机端口中不是阻塞端口，且是接入端口的那些端口的状态立即转换成转发状态，无须经过侦听和学习这两个中间状态。（该命令作用于交换机中所有接入端口）。</li>
+<li>spanning-tree portfast disable：用于取消spanning-tree portfast default命令对该交换机接入端口的作用。</li>
+<li>spanning-tree portfast trunk：该命令使得spanning-tree portfast default命令对该交换机共享端口也起作用。</li>
+</ul>
+</li>
+</ol>
+<h2 id="负载均衡实验"><a href="#负载均衡实验" class="headerlink" title="负载均衡实验"></a>负载均衡实验</h2><h3 id="实验内容-9"><a href="#实验内容-9" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        由于可以基于每一个VLAN单独构建生成树，且这些生成树可以有不同的的根交换机和起作用的物理链路。因此，可以通过配置，一是使得每一个VLAN存在冗余路径，且可以通过生成树协议实现容错功能；二是使得不同VLAN对应的生成树有着不同的根交换机和起作用的物理链路，从而使得以太网中不存在所有生成树中都不起作用的物理链路。</p>
+<p>​        以太网结构如图11-1（a）所示，在该以太网上分别生成基于VLAN 2和VLAN 3的生成树，且通过配置使得基于VLAN 2的生成树如图11-1（b）所示，基于VLAN 3的生成树如图11-1（c）所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-图4.2(a) 原始网络结构.png" alt="负载均衡-图4.2(a) 原始网络结构"></center>
+
+<center>图11-1(a) 原始网络结构</center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-图4.2(b) 基于VLAN2的生成树.png" alt="负载均衡-图4.2(b) 基于VLAN2的生成树"></center>
+
+<center>图11-1(b) 基于VLAN 2的生成树</center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-图4.2(c) 基于VLAN3的生成树.png" alt="负载均衡-图4.2(c) 基于VLAN3的生成树"></center>
+
+<center>图11-1(c) 基于VLAN 3的生成树</center>
+
+<h3 id="实验目的-9"><a href="#实验目的-9" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>掌握交换机生成树协议配置过程</li>
+<li>验证生成树协议建立生成树过程</li>
+<li>验证实现负载均衡的过程</li>
+<li>验证生成树协议实现容错的机制</li>
+</ol>
+<h3 id="实验原理-9"><a href="#实验原理-9" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        终端与VLAN之间的关系如表11-1所示。如果仅仅为了解决负载均衡问题，只需根据表11-2所示内容为每一个VLAN配置端口，就可保证每一个交换机端口至少在一颗生成树中不是阻塞端口，且该端口连接的物理链路至少在一颗生成树中起作用。但这种端口配置方式没有容错功能，除了互连交换机S1和S2的物理链路，其他任何物理链路发生故障都将影响属于同一个VLAN的终端之间的连通性。</p>
+<center>表11-1 终端与VLAN之间的关系</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">终端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">终端A、终端C</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">终端B、终端D</td>
+</tr>
+</tbody></table>
+<center>表11-2 VLAN与交换机端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">接入端口(Access)</th>
+<th align="center">共享端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">S1.1、S1.2、S3.1、S3.4、S4.1、S4.4</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">S2.1、S2.2、S3.2、S3.3、S4.2、S4.3</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>​        为了实现负载均衡，要求不同VLAN对应的生成树中的阻塞端口是不同的，即某个端口如果在基于VLAN 2的生成树中是阻塞端口，在基于VLAN 3的生成树中不再是阻塞端口。为了做到这一点，对图11-1（a）所示的网络结构，通过配置，使得交换机S1和S2分别成为基于VLAN 2和VLAN 3的生成树的根网桥。对于基于VLAN 2的生成树，通过配置使得交换机S2的优先级大于交换机S3和S4。对于基于VLAN 3的生成树，通过配置使得交换机S1的优先级大于交换机S3和S4。为了使网络的容错性达到最大化，将所有交换之间的链路配置成被VLAN 2和VLAN 3共享的共享链路，VLAN与交换机端口之间映射如表11-3所示。这种情况下，基于VLAN 2的生成树如图11-1（b）所示，交换机S3端口3和交换机S4端口3成为阻塞端口；基于VLAN3的生成树如图11-1（c）所示，交换机S3端口4和交换机S4端口4成为阻塞端口。对于这两颗分别基于VLAN 2和VLAN 3的生成树，一是由于不同生成树的阻塞端口是不同的，使得所有链路都有可能承载某个VLAN内的流量；二是对应每一个VLAN，属于同一VLAN的终端之间存在多条传输路径，在其中一条或多条物理链路发生故障的情况下，仍能保证属于同一VLAN的终端之间的连通性。</p>
+<center>表11-3 VLAN与交换机端口映射</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">接入端口</th>
+<th align="center">共享端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">S3.1、S4.1</td>
+<td align="center">S1.1、S1.2、S1.3、S2.1、S2.2、S2.3、S3.3、S3.4、S4.3、S4.4</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">S3.2、S4.2</td>
+<td align="center">S1.1、S1.2、S1.3、S2.1、S2.2、S2.3、S3.3、S3.4、S4.3、S4.4</td>
+</tr>
+</tbody></table>
+<h3 id="实验步骤-9"><a href="#实验步骤-9" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网络拓扑，如图11-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-图4.2(a) 原始网络结构.png" alt="构建网络结构"></center>
+
+<center>图11-2 构建网络结构</center>
+</li>
+<li><p><strong>按照表4.2所示内容在各个交换机中创建VLAN，并为VLAN分配交换机端口，完成生成树构建后，所有交换机端口都处于转发状态，网络实现了负载均衡，如图11-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/无容错负载均衡.png" alt="无容错负载均衡"></center>
+
+<center>图11-3 无容错负载均衡</center>
+</li>
+<li><p><strong>通过ping操作验证属于同一VLAN的终端之间的连通性，如图11-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-终端A至终端C1.png" alt="负载均衡-终端A至终端C1"></center>
+
+<center>图11-4 终端A至终端C1</center>
+</li>
+<li><p><strong>删除交换机S1与交换机S4之间链路后，通过ping操作验证终端A和终端C之间无法相互通信，如图11-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-终端A至终端C2.png" alt="负载均衡-终端A至终端C2"></center>
+
+<center>图11-5 终端A至终端C2</center>
+</li>
+<li><p><strong>为S1配置有容错功能的负载均衡，如图11-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S1配置.png" alt="负载均衡-S1配置"></center>
+
+<center>图11-6 S1配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S1
+   vlan <span class="token number">2</span>
+   name vlan2
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">3</span>
+   switchport mode trunk 
+   <span class="token keyword">exit</span>
+   spanning<span class="token operator">-</span>tree mode pvst
+   spanning<span class="token operator">-</span>tree vlan <span class="token number">2</span> priority <span class="token number">4096</span>
+   spanning<span class="token operator">-</span>tree vlan <span class="token number">3</span> priority <span class="token number">8192</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="6">
+<li><p><strong>为S2配置有容错功能的负载均衡，如图11-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S2配置.png" alt="负载均衡-S2配置"></center>
+
+<center>图11-7 S2配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S2
+   vlan <span class="token number">2</span>
+   name vlan2
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">3</span>
+   switchport mode trunk 
+   <span class="token keyword">exit</span>
+   spanning<span class="token operator">-</span>tree mode pvst
+   spanning<span class="token operator">-</span>tree vlan <span class="token number">2</span> priority <span class="token number">4096</span>
+   spanning<span class="token operator">-</span>tree vlan <span class="token number">3</span> priority <span class="token number">8192</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="7">
+<li><p><strong>为S3配置有容错功能的负载均衡，如图11-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S3配置.png" alt="负载均衡-S3配置"></center>
+
+<center>图11-9 S3配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S3 
+   vlan <span class="token number">2</span>
+   name vlan2
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">4</span>
+   switchport mode trunk
+   <span class="token keyword">exit</span>
+   spanning<span class="token operator">-</span>tree mode pvst
+   <span class="token keyword">end</span></code></pre>
+<ol start="8">
+<li><p><strong>为S4配置有容错功能的负载均衡，如图11-9所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-S4配置.png" alt="负载均衡-S4配置"></center>
+
+<center>图11-9 S4配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S4
+   vlan <span class="token number">2</span>
+   name vlan2
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">4</span>
+   switchport mode trunk
+   <span class="token keyword">exit</span>
+   spanning<span class="token operator">-</span>tree mode pvst
+   <span class="token keyword">end</span></code></pre>
+<ol start="9">
+<li><p><strong>通过ping操作验证属于同一VLAN的终端之间的连通性，如图11-10所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-终端A至终端C3.png" alt="负载均衡-终端A至终端C3"></center>
+
+<center>图11-10 终端A至终端C3</center>
+</li>
+<li><p><strong>删除交换机S1与交换机S4之间链路后，通过ping操作验证终端A和终端C之间的连通性。网络的容错功能得到验证，如图11-11所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/负载均衡-终端A至终端C4.png" alt="负载均衡-终端A至终端C4"></center>
+
+<center>图11-11 终端A至终端C4</center>
+
+
+
+</li>
+</ol>
+<h1 id="第5章-链路聚合实验"><a href="#第5章-链路聚合实验" class="headerlink" title="第5章 链路聚合实验"></a>第5章 链路聚合实验</h1><p>​        链路集合技术可以将多条物理链路聚合为单条逻辑链路，且使得该逻辑链路的带宽是这些物理链路的带宽之和，链路集合技术主要用于提高互连交换机的逻辑链路的带宽，因此，常常与VLAN、生成树和RSPAN一起使用。</p>
+<h2 id="链路聚合配置实验"><a href="#链路聚合配置实验" class="headerlink" title="链路聚合配置实验"></a>链路聚合配置实验</h2><h3 id="实验内容-10"><a href="#实验内容-10" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        如图12-1所示，交换机S1与S2之间用三条物理链路相连，这三条物理链路通过链路聚合技术为单条逻辑链路，这条逻辑链路的带宽是三条物理链路的带宽，对于交换机S1和S2，连接这三条物理链路的三个交换机端口聚合为三个逻辑端口。实现MAC帧转发时，逻辑端口的功能等同于物理端口。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-网络拓扑.png" alt="链路聚合-网络拓扑"></center>
+
+<center>图12-1 网络拓扑</center>
+
+<h3 id="实验目的-10"><a href="#实验目的-10" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>掌握链路聚合配置过程</li>
+<li>了解链路聚合控制协议（Link Aggregation Control Protocol，LACP）的协商过程</li>
+<li>了解MAC帧分发算法</li>
+</ol>
+<h3 id="实验原理-10"><a href="#实验原理-10" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        在PT中，连接聚合为逻辑链路的一组物理链路的一组端口称为<strong>端口通道</strong>。不同的聚合链路对应不同的端口通道，用端口通道号唯一标识每一个端口通道。对于交换机而言，端口通道等同于单个端口，对所有通过端口通道接收到的MAC帧，转发表中创建用于指明该MAC帧源MAC地址与该端口通道之间关联的转发项。</p>
+<h3 id="实验步骤-10"><a href="#实验步骤-10" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网络拓扑，如图12-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-网络拓扑.png" alt="构建网络拓扑"></center>
+
+<center>图12-2 构建网络拓扑</center>
+</li>
+<li><p><strong>对终端进行基本配置（IP地址、子网掩码），如图12-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-对终端A的基本配置.png" alt="链路聚合-对终端A的基本配置"></center>
+
+<center>图12-3 对终端A的基本配置</center>
+
+<p>其他终端按照终端A进行类似配置</p>
+</li>
+<li><p><strong>交换机S1的配置，如图12-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-S1配置.png" alt="链路聚合-S1配置"></center>
+
+<center>图12-4 S1配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S1
+   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span>
+   channel<span class="token operator">-</span>protocol lacp
+   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode active 
+   <span class="token keyword">end</span></code></pre>
+<ol start="4">
+<li><p><strong>交换机S2的配置，如图12-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-S2配置.png" alt="链路聚合-S2配置"></center>
+
+<center>图12-5 S2配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S2
+   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span>
+   channel<span class="token operator">-</span>protocol lacp
+   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode active 
+   <span class="token keyword">end</span></code></pre>
+<ol start="5">
+<li><p><strong>终端A至终端C，如图12-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-终端A至终端C.png" alt="链路聚合-终端A至终端C"></center>
+
+<center>图12-6 终端A至终端C</center>
+</li>
+<li><p><strong>交换机S1MAC表，如图12-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-S1的MAC表.png" alt="链路聚合-S1的MAC表"></center>
+
+<center>图12-7 S1的MAC表</center>
+</li>
+<li><p><strong>交换机S2MAC表，如图12-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-S2的MAC表.png" alt="链路聚合-S2的MAC表"></center>
+
+<center>图12-8 S2的MAC表</center>
+
+</li>
+</ol>
+<h3 id="关键命令说明-4"><a href="#关键命令说明-4" class="headerlink" title="关键命令说明"></a>关键命令说明</h3><ol>
+<li><p>创建并分配端口给端口通道，如图12-9所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合-创建并分配端口给端口通道.png" alt="链路聚合-创建并分配端口给端口通道"></center>
+
+<center>图12-9 创建并分配端口给端口通道</center>
+</li>
+</ol>
+<ul>
+<li><p>channel-group 1 mode active：创建编号为1的端口通道；将一组特定的交换机端口分配给端口通道；指定active为分配给该端口通道的交换机端口的激活模式。</p>
+</li>
+<li><p>激活模式与链路聚合协议之间的关系，如表12-1所示。</p>
+<center>表12-1 激活模式与链路聚合协议之间的关系</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">模式</th>
+<th align="center">链路聚合控制协议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">active</td>
+<td align="center">通过LACP协商过程激活端口，物理链路另一端模式或是active，或是passive</td>
+</tr>
+<tr>
+<td align="center">passive</td>
+<td align="center">通过LACP协商过程激活端口，物理链路另一端必须是active</td>
+</tr>
+<tr>
+<td align="center">auto</td>
+<td align="center">通过PAgP协商过程激活端口，物理链路另一端的模式必须是desirable</td>
+</tr>
+<tr>
+<td align="center">desirable</td>
+<td align="center">通过PAgP协商过程激活端口，物理链路另一端的模式或是desirable或是auto</td>
+</tr>
+<tr>
+<td align="center">on</td>
+<td align="center">手工激活，物理链路两端模式必须都是on</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ol start="2">
+<li><p><strong>指定使用的链路聚合控制协议，如图12-10所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/指定使用的链路聚合控制协议.png" alt="指定使用的链路聚合控制协议"></center>
+
+<center>图12-10 指定使用的链路聚合控制协议</center>
+</li>
+</ol>
+<ul>
+<li>channel-protocol lacp：指定LACP为这一组端口使用的链路聚合控制协议</li>
+</ul>
+<ol start="3">
+<li><p><strong>指定MAC帧分发策略，如图12-11所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/指定MAC帧分发策略.png" alt="指定MAC帧分发策略"></center>
+
+<center>图12-11 指定MAC帧分发策略</center>
+
+<ul>
+<li><p>port-channel load-balance src-dst-mac：指定根据MAC帧的源和目的MAC地址确定用于传输该MAC帧的物理链路的分发策略。</p>
+</li>
+<li><p>分发策略：</p>
+<ul>
+<li>dst-ip：根据MAC帧封装的IP分组的目的IP地址确定用于传输该NAC帧的物理链路</li>
+<li>dst-mac：根据MAC帧的目的MAC地址确定用于传输该MAC帧的物理链路</li>
+<li>src-dst-ip：根据MAC帧封装的IP分组的源和目的IP地址确定用于传输该MAC帧的物理路径</li>
+</ul>
+</li>
+<li><p>src-ip：根据MAC帧封装的IP分组的源IP地址确定用于传输该MAC帧的物理链路</p>
+<ul>
+<li>src-mac：根据MAC帧的源MAC地址确定用于传输该MAC帧的物理链路</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="链路聚合与VLAN配置实验"><a href="#链路聚合与VLAN配置实验" class="headerlink" title="链路聚合与VLAN配置实验"></a>链路聚合与VLAN配置实验</h2><h3 id="实验内容-11"><a href="#实验内容-11" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        网络结构及终端与VLAN之间关系如13-1图所示。互连交换机的多条物理链路聚合为单条逻辑链路，不同VLAN内的交换路径共享交换机之间的逻辑链路。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-网络拓扑.png" alt="链路聚合与VLAN-网络拓扑"></center>
+
+<center>图13-1 网络拓扑</center>
+
+<h3 id="实验目的-11"><a href="#实验目的-11" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>掌握链路聚合配置过程</li>
+<li>了解MAC帧发送算法</li>
+<li>掌握端口通道的配置过程</li>
+<li>掌握VLAN与链路聚合之间的相互作用过程</li>
+</ol>
+<h3 id="实验原理-11"><a href="#实验原理-11" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        分别在三个交换机创建VLAN 2和VLAN 3，对于交换机S1，VLAN与端口之间的映射如表13-1所示，将端口1作为接入端口分配给VLAN 2，将端口2作为作为接入端口分配给VLAN 3，将连接逻辑链路的一组端口定义为编号为1 的端口通道，并将端口通道prot-channel 1作为被VLAN 2和VLAN 3共享的共享端口通道。对于交换机S2和S3，VLAN与端口之间映射分别如表13-2和表13-3所示。交换机S2将连接与交换机S1之间逻辑链路的一组端口定义为编号为1的端口通道，将连接与交换机S3之间逻辑链路的一组端口定义为编号为2的端口通道。三个交换机中端口通道与端口之间的关系如表13-4所示。</p>
+<center>表13-1 交换机S1 VLAN与端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">接入端口</th>
+<th align="center">共享端口·</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">1</td>
+<td align="center">port-channel 1</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">2</td>
+<td align="center">port-channel 1</td>
+</tr>
+</tbody></table>
+<center>表13-2 交换机S2 VLAN与端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">接入端口</th>
+<th align="center">共享端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center"></td>
+<td align="center">port-channel 1</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center"></td>
+<td align="center">port-channel 2</td>
+</tr>
+</tbody></table>
+<center>表13-3 交换机S3 VLAN与端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">接入端口</th>
+<th align="center">共享端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">1</td>
+<td align="center">port-channel 1</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">2</td>
+<td align="center">port-channel 1</td>
+</tr>
+</tbody></table>
+<center>表13-4 端口通道配置表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">交换机</th>
+<th align="center">端口通道</th>
+<th align="center">物理端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">交换机S1</td>
+<td align="center">port-channel 1</td>
+<td align="center">f0/3,f0/4,f0/5</td>
+</tr>
+<tr>
+<td align="center">交换机S2</td>
+<td align="center">port-channel 1<br>port-channel 2</td>
+<td align="center">f0/1,f0/2,f0/3<br>f0/4,f0/5,f0/6</td>
+</tr>
+<tr>
+<td align="center">交换机S3</td>
+<td align="center">port-channel 1</td>
+<td align="center">f0/3,f0/4,f0/5</td>
+</tr>
+</tbody></table>
+<h3 id="实验步骤-11"><a href="#实验步骤-11" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网络拓扑，如图13-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-网络拓扑.png" alt="构建网络拓扑"></center>
+
+<center>图13-2 构建网络拓扑</center>
+</li>
+<li><p><strong>对终端的基本配置（IP地址、子网掩码），如图13-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-对终端A进行基本配置.png" alt="链路聚合与VLAN-对终端A进行基本配置"></center>
+
+<center>图13-3 对终端A进行基本配置对终端A进行基本配置</center>
+
+<p>其他终端进行类似配置</p>
+</li>
+<li><p><strong>交换机S1配置，如图13-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-S1配置.png" alt="链路聚合与VLAN-S1配置"></center>
+
+<center>图13-4 S1配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S1 
+   vlan <span class="token number">2</span>
+   name vlan2
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span>
+   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode <span class="token keyword">on</span>
+   <span class="token keyword">exit</span>
+   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">1</span>
+   switchport mode trunk
+   <span class="token keyword">end</span>
+</code></pre>
+<ol start="4">
+<li><p><strong>交换机S2配置，如图13-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLANS2配置.png" alt="链路聚合与VLANS2配置"></center>
+
+<center>图13-5 S2配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S2
+   vlan <span class="token number">2</span>
+   name vlan2
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span><span class="token operator">-</span><span class="token number">3</span>
+   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode <span class="token keyword">on</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span><span class="token operator">-</span><span class="token number">6</span>
+   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">2</span> mode <span class="token keyword">on</span>
+   <span class="token keyword">exit</span>
+   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
+   <span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">1</span>
+   switchport mode trunk
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">2</span>
+   switchport mode trunk
+   <span class="token keyword">end</span></code></pre>
+<ol start="5">
+<li><p><strong>交换机S3配置，如图13-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-S3配置.png" alt="链路聚合与VLAN-S3配置"></center>
+
+<center>图13-6 S3配置</center>
+
+
+</li>
+</ol>
+<p>   <strong>命令脚本</strong>：</p>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S3 
+   vlan <span class="token number">2</span>
+   name vlan2
+   vlan <span class="token number">3</span>
+   name vlan3
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span>
+   channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">2</span> mode <span class="token keyword">on</span>
+   <span class="token keyword">exit</span>
+   port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">2</span>
+   switchport mode trunk
+   <span class="token keyword">end</span></code></pre>
+<ol start="6">
+<li><p><strong>终端A与终端C的连通性测试，如图13-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-终端A至终端B的连通性测试.png" alt="链路聚合与VLAN-终端A至终端B的连通性测试"></center>
+
+<center>图13-7</center>
+</li>
+<li><p><strong>交换机S1的MAC表，如图13-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-S1的MAC表.png" alt="链路聚合与VLAN-S1的MAC表"></center>
+
+<center>图13-8 S1的MAC表</center>
+</li>
+<li><p><strong>交换机S2的MAC表，如图13-9所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-S2的MAC表.png" alt="链路聚合与VLAN-S2的MAC表"></center>
+
+<center>图13-9 S2的MAC表</center>
+</li>
+<li><p><strong>交换机S3的MAC表，如图13-10所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与VLAN-S3的MAC表.png" alt="链路聚合与VLAN-S3的MAC表"></center>
+
+<center>图13-10 S3的MAC表</center>
+
+
+
+</li>
+</ol>
+<h2 id="链路聚合与生成树配置实验"><a href="#链路聚合与生成树配置实验" class="headerlink" title="链路聚合与生成树配置实验"></a>链路聚合与生成树配置实验</h2><h3 id="实验内容-12"><a href="#实验内容-12" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        网络结构如图14-1所示。该网络结构具有以下两个特点：一是实现交换机之间互连的是由多条物理链路聚合而成的逻辑电路；二是交换机之间存在冗余链路，需要用生成树协议消除交换机之间的环路。</p>
+<p>​        图14-1中的终端分配到两个不同的VLAN，其中终端A和终端C分配给VLAN2，终端B和终端D分配给VLAN3，为了实现负载均衡，基于VLAN2的生成树以交换机S2为根交换机，基于VLAN3的生成树以交换机S3为根交换机。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-网络拓扑.png" alt="链路聚合与生成树-网络拓扑"></center>
+
+<center>图14-1 网络拓扑</center>
+
+<h3 id="实验目的-12"><a href="#实验目的-12" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>掌握VLAN划分过程</li>
+<li>运用生成树协议，完成具有容错和负载均衡功能的交换式以太网的设计和测试过程</li>
+<li>运用链路聚合技术，完成具有容错功能并满足交换机之间带宽要求的交换式以太网的设计和调试过程</li>
+</ol>
+<h3 id="实验原理-12"><a href="#实验原理-12" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        分别在四个交换机中创建VLAN 2和VLAN 3，对于交换机S1，VLAN与端口之间映射如表14-1所示，将端口1作为接入端口分配给VLAN 2，将端口2作为接入端口分配给VLAN 3.将端口通道port-channel1和port-channel2作为被VLAN 2和VLAN 3共享的共享端口通道。其他交换机VLAN与端口之间映射分别如表14-2~表14-4所示。四个交换机端口通道与端口之间的关系如表14-5所示。将交换机S2构建基于VLAN 2的生成树时的优先级设置为最高，将交换机S3构建基于VLAN 3的生成树的优先级是个设置为最高，从而使得交换机S2和S3分别成为基于VLAN 2和VLAN 3的生成树的根交换机。</p>
+<center>表14-1 交换机S1 VLAN与端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">接入端口(Access)</th>
+<th align="center">共享端口(Trunk)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">1</td>
+<td align="center">port-channel1、port-channel2</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">2</td>
+<td align="center">port-channel1、port-channel2</td>
+</tr>
+</tbody></table>
+<center>表14-2 交换机S2 VLAN与端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">接入端口(Access)</th>
+<th align="center">共享端口(Trunk)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center"></td>
+<td align="center">port-channel1、port-channel2、port-channel3</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center"></td>
+<td align="center">port-channel1、port-channel2、port-channel3</td>
+</tr>
+</tbody></table>
+<center>表14-3 交换机S3 VLAN与端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">接入端口(Access)</th>
+<th align="center">共享端口(Trunk)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center"></td>
+<td align="center">port-channel1、port-channel2、port-channel3</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center"></td>
+<td align="center">port-channel1、port-channel2、port-channel3</td>
+</tr>
+</tbody></table>
+<center>表14-4 交换机S4 VLAN与端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">接入端口(Access)</th>
+<th align="center">共享端口(Trunk)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">1</td>
+<td align="center">port-channel1、port-channel2</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">2</td>
+<td align="center">port-channel1、port-channel2</td>
+</tr>
+</tbody></table>
+<center>表14-5 端口通道配置表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">交换机</th>
+<th align="center">端口通道</th>
+<th align="center">物理端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">交换机S1</td>
+<td align="center">port-channel1<br>port-channel2</td>
+<td align="center">f0/3、f0/4、f0/5<br>f0/6、f0/7、f0/8</td>
+</tr>
+<tr>
+<td align="center">交换机S2</td>
+<td align="center">port-channel1<br>port-channel2<br>port-channel3</td>
+<td align="center">f0/1、f0/2、f0/3<br>f0/4、f0/5、f0/6<br>f0/7、f0/8、f0/9</td>
+</tr>
+<tr>
+<td align="center">交换机S3</td>
+<td align="center">port-channel1<br>port-channel2<br>port-channel3</td>
+<td align="center">f0/1、f0/2、f0/3<br>f0/4、f0/5、f0/6<br>f0/7、f0/8、f0/9</td>
+</tr>
+<tr>
+<td align="center">交换机S4</td>
+<td align="center">port-channel1<br>port-channel2</td>
+<td align="center">f0/3、f0/4、f0/5<br>f0/6、f0/7、f0/8</td>
+</tr>
+</tbody></table>
+<h3 id="实验步骤-12"><a href="#实验步骤-12" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按照实验要求构建网路拓扑，如图14-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-网络拓扑.png" alt="构建网络拓扑"></center>
+
+<center>图14-2 构建网络拓扑</center>
+</li>
+<li><p><strong>对终端进行基本配置（IP地址、子网掩码），如图14-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-对终端A的基本配置.png" alt="链路聚合与生成树-对终端A的基本配置"></center>
+
+<center>图14-3 对终端A的基本配置</center>
+</li>
+<li><p><strong>交换机S1配置，如图14-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-交换机S1配置.png" alt="链路聚合与生成树-交换机S1配置"></center>
+
+<center>图14-4 交换机S1配置</center>
+</li>
+<li><p><strong>交换机S2配置，如图14-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-交换机S2配置.png" alt="链路聚合与生成树-交换机S2配置"></center>
+
+<center>图14-5 交换机S2配置</center>
+</li>
+<li><p><strong>交换机S3配置，如图14-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-交换机S3配置.png" alt="链路聚合与生成树-交换机S3配置"></center>
+
+<center>图14-6 交换机S3配置</center>
+</li>
+<li><p><strong>交换机S4配置，如图14-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-交换机S4配置.png" alt="链路聚合与生成树-交换机S4配置"></center>
+
+<center>图14-7 交换机S4配置</center>
+</li>
+<li><p><strong>终端A至终端C的连通性测试，如图14-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-终端A至终端C连通性测试.png" alt="链路聚合与生成树-终端A至终端C连通性测试"></center>
+
+<center>图14-8 终端A至终端C连通性测试</center>
+</li>
+<li><p><strong>交换机S1的MAC表，如图14-9所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-交换机S1MAC表.png" alt="链路聚合与生成树-交换机S1MAC表"></center>
+
+<center>图14-9 交换机S1MAC表</center>
+</li>
+<li><p><strong>交换机S2的MAC表，如图14-10所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-交换机S2MAC表.png" alt="链路聚合与生成树-交换机S2MAC表"></center>
+
+<center>图14-10 交换机S2MAC表</center>
+</li>
+<li><p><strong>交换机S3的MAC表，如图14-11所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-交换机S3MAC表.png" alt="链路聚合与生成树-交换机S3MAC表"></center>
+
+<center>图14-11 交换机S3MAC表</center>
+</li>
+<li><p><strong>交换机S4的MAC表，如图14-12所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与生成树-交换机S4MAC表.png" alt="链路聚合与生成树-交换机S4MAC表"></center>
+
+<center>图14-12 交换机S4MAC表</center>
+
+
+
+</li>
+</ol>
+<h2 id="链路聚合与RSPAN配置实验"><a href="#链路聚合与RSPAN配置实验" class="headerlink" title="链路聚合与RSPAN配置实验"></a>链路聚合与RSPAN配置实验</h2><h3 id="实验内容-13"><a href="#实验内容-13" class="headerlink" title="实验内容"></a>实验内容</h3><p>​        网络结构如图15-1所示。终端A和终端C属于VLAN 2，终端B和终端D属于VLAN 3，终端E和终端F属于VLAN 4.交换机S2和S3之间通过由多条物理链路聚合而成的逻辑链路进行连接。嗅探器可以嗅探终端A发送的所有ICMP报文。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-网络拓扑.png" alt="链路聚合与RSPAN-网络拓扑"></center>
+
+<center>图15-1 网络拓扑</center>
+
+<h3 id="实验目的-13"><a href="#实验目的-13" class="headerlink" title="实验目的"></a>实验目的</h3><ul>
+<li>掌握链路聚合配置过程</li>
+<li>了解MAC帧分算法</li>
+<li>掌握端口通道的配置过程</li>
+<li>掌握VLAN与链路聚合之间的相互作用过程</li>
+<li>验证端口映射原理</li>
+<li>验证RSPAN VLAN配置过程</li>
+<li>验证嗅探器实现远程嗅探的过程</li>
+<li>掌握VLAN与链路聚合之间的相互作用过程</li>
+</ul>
+<h3 id="实验原理-13"><a href="#实验原理-13" class="headerlink" title="实验原理"></a>实验原理</h3><p>​        在交换机中创建VLAN，在为每一个VLAN分配端口时，不但需要建立VLAN内终端之间的传输路径，还需要建立RSPAN VLAN内终端A与嗅探器之间的传输路径，因此，三个交换机中创建的VLAN，及VLAN与端口之间映射分别入表15-1~表15-3所示。交换机端口通道与端口之间的关系入表14-4所示。</p>
+<center>表15-1 交换机S1 VLAN与端口映射</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">Access</th>
+<th align="center">Trunk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">1</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">2</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">VLAN 5</td>
+<td align="center"></td>
+<td align="center">3</td>
+</tr>
+</tbody></table>
+<center>表15-2 交换机S2 VLAN与端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">Access</th>
+<th align="center">Trunk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 2</td>
+<td align="center">1</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">VLAN 3</td>
+<td align="center">2</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">VLAN 4</td>
+<td align="center">3</td>
+<td align="center">port-channel 1</td>
+</tr>
+<tr>
+<td align="center">VLAN 5</td>
+<td align="center"></td>
+<td align="center">4,port-channel 1</td>
+</tr>
+</tbody></table>
+<center>表15-3 交换机S3 VLAN与端口映射表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">VLAN</th>
+<th align="center">Access</th>
+<th align="center">Trunk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VLAN 4</td>
+<td align="center">1</td>
+<td align="center">port-channel 1</td>
+</tr>
+<tr>
+<td align="center">VLAN 5</td>
+<td align="center"></td>
+<td align="center">port-channel 1</td>
+</tr>
+</tbody></table>
+<center>表15-4 端口通道配置表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">交换机</th>
+<th align="center">端口通道</th>
+<th align="center">物理端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">交换机S2</td>
+<td align="center">port-channel 1</td>
+<td align="center">f0/5,f0/6,f0/7</td>
+</tr>
+<tr>
+<td align="center">交换机S3</td>
+<td align="center">port-channel 1</td>
+<td align="center">f0/5,f0/6,f0/7</td>
+</tr>
+</tbody></table>
+<h3 id="实验步骤-13"><a href="#实验步骤-13" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li><p><strong>按实验要求构建网络拓扑，如图15-2所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-网络拓扑.png" alt="构建网络拓扑"></center>
+
+<center>图15-2 构建网络拓扑</center>
+</li>
+<li><p><strong>对终端设备进行基本配置（IP地址、子网掩码），如图15-3所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-对终端A进行基本配置.png" alt="链路聚合与RSPAN-对终端A进行基本配置"></center>
+
+<center>图15-3 对终端A进行基本配置</center>
+
+<p>其他终端也进行类似的配置</p>
+</li>
+<li><p><strong>对交换机S1进行配置，如图15-4所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-S1配置.png" alt="链路聚合与RSPAN-S1配置"></center>
+
+<center>图15-4 S1配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql">   en
+   conf t 
+   hostname S1
+   vlan <span class="token number">2</span>
+   name vlan2
+   vlan <span class="token number">3</span>
+   name vlan3
+   vlan <span class="token number">5</span>
+   name vlan5
+   name rspan
+   remote<span class="token operator">-</span>span
+   <span class="token keyword">exit</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+   switchport mode access
+   switchport access vlan <span class="token number">2</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+   switchport mode access
+   switchport access vlan <span class="token number">3</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+   switchport mode trunk 
+   <span class="token keyword">exit</span>
+   <span class="token keyword">no</span> monitor <span class="token keyword">session</span> <span class="token keyword">all</span>
+   monitor <span class="token keyword">session</span> <span class="token number">1</span> source <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span> rx
+   monitor <span class="token keyword">session</span> <span class="token number">1</span> destination remote vlan <span class="token number">5</span> reflector<span class="token operator">-</span>port <span class="token number">f0</span><span class="token operator">/</span><span class="token number">17</span>
+   <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">17</span>
+   <span class="token keyword">shutdown</span>
+   <span class="token keyword">end</span></code></pre>
+<ol start="4">
+<li><p><strong>对交换机S2进行配置，如图15-5所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-S2配置.png" alt="链路聚合与RSPAN-S2配置"></center>
+
+<center>图15-5 S2配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+<pre class=" language-sql"><code class="language-sql">en
+conf t 
+hostname S2 
+vlan <span class="token number">2</span>
+name vlan2 
+vlan <span class="token number">3</span>
+name vlan3
+vlan <span class="token number">4</span>
+name vlan4
+vlan <span class="token number">5</span>
+name rspan
+remote<span class="token operator">-</span>span
+<span class="token keyword">exit</span>
+<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+switchport mode access
+switchport acces vlan <span class="token number">2</span>
+<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+switchport mode access
+switchport access vlan <span class="token number">3</span>
+<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">3</span>
+switchport mode access
+switchport access vlan <span class="token number">4</span>
+<span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span><span class="token operator">-</span><span class="token number">7</span>
+channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode <span class="token keyword">on</span>
+<span class="token keyword">exit</span>
+port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
+<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">4</span>
+switchport mode trunk
+<span class="token keyword">exit</span>
+<span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">1</span>
+switchport mode trunk
+<span class="token keyword">end</span></code></pre>
+</li>
+<li><p><strong>对交换机S3进行配置，如图15-6所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-S3配置.png" alt="链路聚合与RSPAN-S3配置"></center>
+
+<center>图15-6 S3配置</center>
+
+<p><strong>命令脚本</strong>：</p>
+<pre class=" language-sql"><code class="language-sql">en 
+conf t 
+hostname S3 
+vlan <span class="token number">4</span>
+name vlan4
+vlan <span class="token number">5</span>
+name rspan
+remote<span class="token operator">-</span>span
+<span class="token keyword">exit</span>
+<span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">1</span>
+switchport mode access
+switchport access vlan <span class="token number">4</span>
+<span class="token keyword">int</span> range <span class="token number">f0</span><span class="token operator">/</span><span class="token number">5</span><span class="token operator">-</span><span class="token number">7</span>
+channel<span class="token operator">-</span><span class="token keyword">group</span> <span class="token number">1</span> mode <span class="token keyword">on</span>
+<span class="token keyword">exit</span>
+port<span class="token operator">-</span>channel <span class="token keyword">load</span><span class="token operator">-</span>balance src<span class="token operator">-</span>dst<span class="token operator">-</span>mac
+<span class="token keyword">int</span> port<span class="token operator">-</span>channel <span class="token number">1</span>
+switchport mode trunk
+<span class="token keyword">exit</span>
+<span class="token keyword">no</span> monitor <span class="token keyword">session</span> <span class="token keyword">all</span>
+monitor <span class="token keyword">session</span> <span class="token number">1</span> source remote vlan <span class="token number">5</span>
+monitor <span class="token keyword">session</span> <span class="token number">1</span> destination <span class="token keyword">int</span> <span class="token number">f0</span><span class="token operator">/</span><span class="token number">2</span>
+<span class="token keyword">end</span></code></pre>
+</li>
+<li><p><strong>终端A至终端C的ping测试，如图15-7所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/链路聚合与RSPAN-终端A至终端C的ping测试.png" alt="链路聚合与RSPAN-终端A至终端C的ping测试"></center>
+
+<center>图15-7 终端A至终端C的ping测试</center>
+</li>
+<li><p><strong>终端A发出的ICMP报文，如图15-8所示。</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Network/Configuration/Cisco-PT-shixun/终端A发送的ICMP报文.png" alt="终端A发送的ICMP报文"></center>
+
+<center>图15-8 终端A发送的ICMP报文</center>
+
+
+
+</li>
+</ol>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><strong>脚注</strong>：</p>
+<p>[^1]: 出自路由和交换技术实验及实训（第2版）——基于Cisco Packet Tracer</p>
+<p><strong>参考资料</strong>：</p>
+<ul>
+<li>路由和交换技术实验及实训（第二版）</li>
+<li>Packet Tracer软件使用教程深入浅出</li>
+<li>Cisco交换机配置命令</li>
+<li>Cisco路由器配置命令</li>
+</ul>
+<p><span name="Erratum"><strong>勘误</strong>：</span></p>
+<ol>
+<li>不同层设备之间常使用直通线连接；同层设备之间常使用交叉线连接。（交换机与交换机之间使用交叉线）</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.z1r0s.top" rel="external nofollow noreferrer">z1r0s</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.z1r0s.top/2020/09/09/network/configuration/cisco-packet-tracer-shi-yan-ji-shi-xun/">https://www.z1r0s.top/2020/09/09/network/configuration/cisco-packet-tracer-shi-yan-ji-shi-xun/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.z1r0s.top" target="_blank">z1r0s</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Cisco/">
+                                    <span class="chip bg-color">Cisco</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .mvaline-card {
+        margin: 1.5rem auto;
+    }
+
+    .mvaline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+</style>
+
+<div class="card mvaline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="mvcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/minivaline/MiniValine.js"></script>
+<script>
+    new MiniValine(Object.assign({"enable":true,"appId":"rr4jTLi2BJEgTziWjmGxpu1a-MdYXbMMI","appKey":"aFRDmu52XNOUP0PyGNjjzDCQ","mode":"DesertsP","placeholder":"Write a Comment","math":true,"md":true,"enableQQ":false,"NoRecordIP":false,"visitor":true,"maxNest":6,"pageSize":6,"adminEmailMd5":"de8a7aa53d07e6b6bceb45c64027763d","tagMeta":["管理员","小伙伴","访客"],"master":["de8a7aa53d07e6b6bceb45c64027763d"],"friends":["b5bd5d836c7a0091aa8473e79ed4c25e","adb7d1cd192658a55c0ad22a3309cecf","3ce1e6c77b4910f1871106cb30dc62b0","cfce8dc43725cc14ffcd9fb4892d5bfc"],"lang":null,"emoticonUrl":["https://cdn.jsdelivr.net/npm/alus@latest","https://cdn.jsdelivr.net/gh/MiniValine/qq@latest","https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest","https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest","https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest","https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest"]}, {
+	  el: '#mvcomments',
+    }));
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/09/12/security/pentestenv/dvwa/dvwa-bruteforce/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="DVWA-BruteForce">
+                        
+                        <span class="card-title">DVWA-BruteForce</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web安全/" class="post-category">
+                                    Web安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/靶场/">
+                        <span class="chip bg-color">靶场</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/09/07/windows/servers/ftp-fu-wu-qi-da-jian-filezillaserver/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="FTP服务器搭建（FileZilla Server）">
+                        
+                        <span class="card-title">FTP服务器搭建（FileZilla Server）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/软件使用/" class="post-category">
+                                    软件使用
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/网络服务/">
+                        <span class="chip bg-color">网络服务</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7173532278"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">z1r0s</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">299.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/z1r0s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2603350388@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2603350388" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2603350388" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+
+</html>
+<script type="text/javascript" src="/js/click_show_text.js"></script>

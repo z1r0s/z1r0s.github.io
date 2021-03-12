@@ -1,0 +1,3126 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="常见密码简述, z1r0s 安全 渗透 编程">
+    <meta name="description" content="z1r0s | 程序语言 | 网络安全 | 红蓝对抗">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>常见密码简述 | z1r0s</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/bg.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">z1r0s</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/nav" class="waves-effect waves-light">
+      
+      <i class="fas fa-rocket" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">z1r0s</div>
+        <div class="logo-desc">
+            
+            z1r0s | 程序语言 | 网络安全 | 红蓝对抗
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/nav" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-rocket"></i>
+			
+			Nav
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/30.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">常见密码简述</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/密码学/">
+                                <span class="chip bg-color">密码学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/密码学/" class="post-category">
+                                密码学
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-09-02
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-10-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="古典密码"><a href="#古典密码" class="headerlink" title="古典密码"></a>古典密码</h1><h2 id="弱密码"><a href="#弱密码" class="headerlink" title="弱密码"></a>弱密码</h2><p>​        所谓弱密码，一般对弱密码的界定，包括用户名和密码一致，密码<strong>小于6位</strong>，单纯用<strong>单词</strong>、<strong>字母</strong>或<strong>数字</strong>做密码，键盘上的<strong>连接字符</strong>如qwerty。另外，用<strong>姓名</strong>、<strong>生日</strong>、<strong>手机号码</strong>等做密码也很容易被破解。</p>
+<p>​        <strong>密码字典</strong>，是网络上用来破解密码的工具，它将数字、字母等随机生成各种组合，然后复制到WORD上，供破解者匹对。</p>
+<p><strong>弱密码举例</strong>：</p>
+<ul>
+<li>000000</li>
+<li>111111</li>
+<li>11111111</li>
+<li>654321</li>
+<li>666666</li>
+<li>888888</li>
+<li>abcdef</li>
+<li>abcabc</li>
+<li>abc123</li>
+<li>a1b2c3</li>
+<li>aaa111</li>
+<li>123qwe</li>
+<li>qwerty</li>
+<li>qweasd</li>
+<li>admin</li>
+<li>password</li>
+<li>p@ssword</li>
+<li>passwd</li>
+<li>iloveyou</li>
+<li>5201314</li>
+<li>…</li>
+</ul>
+<h2 id="摩斯密码"><a href="#摩斯密码" class="headerlink" title="摩斯密码"></a>摩斯密码</h2><p>​        摩斯密码（Morse Code），又称为莫尔斯电码，是一种<strong>时通时断的信号代码</strong>，通过不同的排列顺序来表达不同的<strong>英文字母</strong>、<strong>数字</strong>和<strong>标点符号</strong>。摩斯密码是一种早期的数字化通信形式，但它不同于现代只使用零和一两种状态的二进制代码，它的代码包括五种：<strong>点</strong>、<strong>划</strong>、<strong>点和划之间的停顿</strong>、<strong>每个字符之间短的停顿</strong>、<strong>每个词之间中等的停顿以及句子之间长的停顿</strong>。（<font color="blue">现代摩尔斯电码中只使用点和线</font>）</p>
+<p>​        摩斯密码由两种基本信号和不同的间隔时间组成：短促的点信号<strong>“$\cdot$”(Dit)</strong>；保持一定时间的长信号<strong>“-“(Dah)</strong>。间隔时间：<strong>滴：1t；嗒：3t；嘀嗒间：1t；字符间：3t；字间：7t</strong>。</p>
+<center>表1.1 摩斯密码-字母表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">字母</th>
+<th align="center">密码</th>
+<th align="center">字母</th>
+<th align="center">密码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center"><strong>· -</strong></td>
+<td align="center">N</td>
+<td align="center"><strong>- ·</strong></td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center"><strong>- · · ·</strong></td>
+<td align="center">O</td>
+<td align="center"><strong>- - -</strong></td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center"><strong>- · - ·</strong></td>
+<td align="center">P</td>
+<td align="center"><strong>· - - ·</strong></td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center"><strong>- · ·</strong></td>
+<td align="center">Q</td>
+<td align="center"><strong>- - · -</strong></td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center"><strong>·</strong></td>
+<td align="center">R</td>
+<td align="center"><strong>· - ·</strong></td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center"><strong>· · - ·</strong></td>
+<td align="center">S</td>
+<td align="center"><strong>· · ·</strong></td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center"><strong>- - ·</strong></td>
+<td align="center">T</td>
+<td align="center"><strong>-</strong></td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="center"><strong>· · · ·</strong></td>
+<td align="center">U</td>
+<td align="center"><strong>· · -</strong></td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center"><strong>· ·</strong></td>
+<td align="center">V</td>
+<td align="center"><strong>· · · -</strong></td>
+</tr>
+<tr>
+<td align="center">J</td>
+<td align="center"><strong>· - - -</strong></td>
+<td align="center">W</td>
+<td align="center"><strong>· - -</strong></td>
+</tr>
+<tr>
+<td align="center">K</td>
+<td align="center"><strong>- · -</strong></td>
+<td align="center">X</td>
+<td align="center"><strong>- · · -</strong></td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="center"><strong>· - · ·</strong></td>
+<td align="center">Y</td>
+<td align="center"><strong>- · - -</strong></td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center"><strong>- -</strong></td>
+<td align="center">Z</td>
+<td align="center"><strong>- - · ·</strong></td>
+</tr>
+</tbody></table>
+<center>表1.2 摩斯密码-数字</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">数字</th>
+<th align="center">密码</th>
+<th align="center">数字</th>
+<th align="center">密码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><strong>· - - - -</strong></td>
+<td align="center">6</td>
+<td align="center"><strong>- · · · ·</strong></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><strong>· · - - -</strong></td>
+<td align="center">7</td>
+<td align="center"><strong>- - · · ·</strong></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><strong>· · · - -</strong></td>
+<td align="center">8</td>
+<td align="center"><strong>- - - · ·</strong></td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><strong>· · · · -</strong></td>
+<td align="center">9</td>
+<td align="center"><strong>- - - - ·</strong></td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><strong>· · · · ·</strong></td>
+<td align="center">0</td>
+<td align="center"><strong>- - - - -</strong></td>
+</tr>
+</tbody></table>
+<center>表1.3 摩斯密码-标点符号</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">标点符号</th>
+<th align="center">密码</th>
+<th align="center">标点符号</th>
+<th align="center">密码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.(句号)</td>
+<td align="center"><strong>· - · - · -</strong></td>
+<td align="center">;(分号)</td>
+<td align="center"><strong>- · - · - ·</strong></td>
+</tr>
+<tr>
+<td align="center">,(逗号)</td>
+<td align="center"><strong>- - · · - -</strong></td>
+<td align="center">?(问号)</td>
+<td align="center"><strong>· · - - · ·</strong></td>
+</tr>
+<tr>
+<td align="center">‘(单引号)</td>
+<td align="center"><strong>· - - - - ·</strong></td>
+<td align="center">-(连字符)</td>
+<td align="center"><strong>- · · · · -</strong></td>
+</tr>
+<tr>
+<td align="center">:(冒号)</td>
+<td align="center"><strong>- - - · · ·</strong></td>
+<td align="center">=(等号)</td>
+<td align="center"><strong>- · · · -</strong></td>
+</tr>
+<tr>
+<td align="center">/(斜线)</td>
+<td align="center"><strong>- · · - ·</strong></td>
+<td align="center">!(感叹号)</td>
+<td align="center"><strong>- · - · - -</strong></td>
+</tr>
+<tr>
+<td align="center">_(下划线)</td>
+<td align="center"><strong>· · - - · -</strong></td>
+<td align="center">“(双引号)</td>
+<td align="center"><strong>· - · · - ·</strong></td>
+</tr>
+<tr>
+<td align="center">（</td>
+<td align="center"><strong>- · - - ·</strong></td>
+<td align="center">)</td>
+<td align="center"><strong>- · - - · -</strong></td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center"><strong>· · · - · · -</strong></td>
+<td align="center">&amp;</td>
+<td align="center"><strong>·  · · ·</strong></td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center"><strong>· - - · - ·</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<center>表1.4 摩斯密码-特殊符号</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">特殊符号</th>
+<th align="center">密码</th>
+<th align="center">特殊符号</th>
+<th align="center">密码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">AR(停止，消息结束)</td>
+<td align="center"><strong>· - · - ·</strong></td>
+<td align="center">BT(分隔符)</td>
+<td align="center"><strong>- · · · -</strong></td>
+</tr>
+<tr>
+<td align="center">AS(等待)</td>
+<td align="center"><strong>· - · · ·</strong></td>
+<td align="center">(我将重新发送最后一个单词)</td>
+<td align="center">· · · - ·</td>
+</tr>
+<tr>
+<td align="center">K(邀请发射信号)</td>
+<td align="center"><strong>- · -</strong></td>
+<td align="center">(同样)</td>
+<td align="center">· ·  · ·</td>
+</tr>
+<tr>
+<td align="center">SK(终止，联络结束)</td>
+<td align="center"><strong>· · · - · -</strong></td>
+<td align="center">(错误)</td>
+<td align="center">· · · · · · · ·</td>
+</tr>
+</tbody></table>
+<h2 id="猪圈密码"><a href="#猪圈密码" class="headerlink" title="猪圈密码"></a>猪圈密码</h2><p>​        猪圈密码(Pigpen Cipher)，亦称<strong>朱高密码</strong>、<strong>共济会暗号</strong>、<strong>共济会密码</strong>或<strong>共济会员密码</strong>，是一种以格子为基础的简单<strong>替代式密码</strong>。即使使用符号，也不会影响密码分析，亦可用在其它替代式的方法。</p>
+<p><strong>猪圈密码的替换规则如下所示</strong>：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CryptoDesc/猪圈密码(基础).png" alt="猪圈密码(基础)"></center>
+
+<center>图1 猪圈密码(基础)</center>
+
+<p><strong>猪圈密码变种1：</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CryptoDesc/猪圈密码(变种1).png" alt="猪圈密码(变种1)"></center>
+
+<center>图2 猪圈密码(变种1)</center>
+
+<p><strong>猪圈密码变种2：</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CryptoDesc/猪圈密码(变种2).png" alt="猪圈密码(变种2)"></center>
+
+<center>图3 猪圈密码(变种2)</center>
+
+<h2 id="数字密码"><a href="#数字密码" class="headerlink" title="数字密码"></a>数字密码</h2><p>​        俗话说得好：“凡事都要做到心中有数”。数字的每一次变化都在隐性或显性地改变着我们的社会，改变着我们的生活。通过对这些数字的再认识，可以进一步了解我们的历史、认识我们的社会、拓展我们的生活。在“数字化的时代”，我们应该养成关注数字的良好习惯，在数字上多下工夫，力求让非物质文化尽快转化为物质文化。 《数字密码》不是简单地列举数字，而是通过数说数字的影响力还原其本来面目。</p>
+<p><strong>0字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">019425</td>
+<td align="center">你依旧是爱我</td>
+</tr>
+<tr>
+<td align="center">02746</td>
+<td align="center">你恶心死了</td>
+</tr>
+<tr>
+<td align="center">02825</td>
+<td align="center">你爱不爱我</td>
+</tr>
+<tr>
+<td align="center">03456</td>
+<td align="center">你相思无用</td>
+</tr>
+<tr>
+<td align="center">0437</td>
+<td align="center">你是神经</td>
+</tr>
+<tr>
+<td align="center">04517</td>
+<td align="center">你是我氧气</td>
+</tr>
+<tr>
+<td align="center">04527</td>
+<td align="center">你是我爱妻</td>
+</tr>
+<tr>
+<td align="center">04535</td>
+<td align="center">你是否想我</td>
+</tr>
+<tr>
+<td align="center">04551</td>
+<td align="center">你是我唯一</td>
+</tr>
+<tr>
+<td align="center">0456</td>
+<td align="center">你是我的</td>
+</tr>
+<tr>
+<td align="center">04567</td>
+<td align="center">你是我老妻</td>
+</tr>
+<tr>
+<td align="center">0457</td>
+<td align="center">你是我妻</td>
+</tr>
+<tr>
+<td align="center">045692</td>
+<td align="center">你是我的最爱</td>
+</tr>
+<tr>
+<td align="center">0487</td>
+<td align="center">你是白痴</td>
+</tr>
+<tr>
+<td align="center">0487561</td>
+<td align="center">你是白痴无药医</td>
+</tr>
+<tr>
+<td align="center">0564335</td>
+<td align="center">你无聊时想想我</td>
+</tr>
+<tr>
+<td align="center">0594184</td>
+<td align="center">你我就是一辈子</td>
+</tr>
+<tr>
+<td align="center">065</td>
+<td align="center">原谅我</td>
+</tr>
+<tr>
+<td align="center">06537</td>
+<td align="center">你惹我生气</td>
+</tr>
+<tr>
+<td align="center">07382</td>
+<td align="center">你欺善怕恶</td>
+</tr>
+<tr>
+<td align="center">0748</td>
+<td align="center">你去死吧</td>
+</tr>
+<tr>
+<td align="center">07868</td>
+<td align="center">你吃饱了吧</td>
+</tr>
+<tr>
+<td align="center">08056</td>
+<td align="center">你不理我啦</td>
+</tr>
+<tr>
+<td align="center">0837</td>
+<td align="center">你别生气</td>
+</tr>
+<tr>
+<td align="center">08376</td>
+<td align="center">你别生气了</td>
+</tr>
+<tr>
+<td align="center">095</td>
+<td align="center">你找我</td>
+</tr>
+<tr>
+<td align="center">098</td>
+<td align="center">你走吧</td>
+</tr>
+</tbody></table>
+<p><strong>1字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1240</td>
+<td align="center">最爱是你</td>
+</tr>
+<tr>
+<td align="center">1314</td>
+<td align="center">一生一世</td>
+</tr>
+<tr>
+<td align="center">1314925</td>
+<td align="center">一生一世就爱我</td>
+</tr>
+<tr>
+<td align="center">1372</td>
+<td align="center">一厢情愿</td>
+</tr>
+<tr>
+<td align="center">1392010</td>
+<td align="center">一生就爱你一个</td>
+</tr>
+<tr>
+<td align="center">1414</td>
+<td align="center">意思意思</td>
+</tr>
+<tr>
+<td align="center">147</td>
+<td align="center">一世情</td>
+</tr>
+<tr>
+<td align="center">1573</td>
+<td align="center">一往情深</td>
+</tr>
+<tr>
+<td align="center">1711</td>
+<td align="center">一心一意</td>
+</tr>
+</tbody></table>
+<p><strong>2字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">200</td>
+<td align="center">爱你哦</td>
+</tr>
+<tr>
+<td align="center">20110</td>
+<td align="center">爱你 一亿年</td>
+</tr>
+<tr>
+<td align="center">20160</td>
+<td align="center">爱你一万年</td>
+</tr>
+<tr>
+<td align="center">20170</td>
+<td align="center">爱你一千年</td>
+</tr>
+<tr>
+<td align="center">20184</td>
+<td align="center">爱你一辈子</td>
+</tr>
+<tr>
+<td align="center">2030999</td>
+<td align="center">爱你想你久久久</td>
+</tr>
+<tr>
+<td align="center">2037</td>
+<td align="center">为你伤心</td>
+</tr>
+<tr>
+<td align="center">20475</td>
+<td align="center">爱你是幸福</td>
+</tr>
+<tr>
+<td align="center">20609</td>
+<td align="center">爱你到永久</td>
+</tr>
+<tr>
+<td align="center">207374</td>
+<td align="center">爱你七生七世</td>
+</tr>
+<tr>
+<td align="center">20863</td>
+<td align="center">爱你到来生</td>
+</tr>
+<tr>
+<td align="center">20999</td>
+<td align="center">爱你久久久</td>
+</tr>
+<tr>
+<td align="center">220225</td>
+<td align="center">爱爱你爱爱我</td>
+</tr>
+<tr>
+<td align="center">230</td>
+<td align="center">爱上你</td>
+</tr>
+<tr>
+<td align="center">234</td>
+<td align="center">爱相随</td>
+</tr>
+<tr>
+<td align="center">235</td>
+<td align="center">爱上我</td>
+</tr>
+<tr>
+<td align="center">240</td>
+<td align="center">爱死你</td>
+</tr>
+<tr>
+<td align="center">246</td>
+<td align="center">饿死了</td>
+</tr>
+<tr>
+<td align="center">246437</td>
+<td align="center">爱是如此神奇</td>
+</tr>
+<tr>
+<td align="center">25184</td>
+<td align="center">爱我一辈子</td>
+</tr>
+<tr>
+<td align="center">25873</td>
+<td align="center">爱我到今生</td>
+</tr>
+<tr>
+<td align="center">25910</td>
+<td align="center">爱我久一点</td>
+</tr>
+<tr>
+<td align="center">259695</td>
+<td align="center">爱我就了解我</td>
+</tr>
+<tr>
+<td align="center">259758</td>
+<td align="center">爱我就娶我吧</td>
+</tr>
+<tr>
+<td align="center">2627</td>
+<td align="center">爱来爱去</td>
+</tr>
+<tr>
+<td align="center">282</td>
+<td align="center">饿不饿</td>
+</tr>
+<tr>
+<td align="center">2925184</td>
+<td align="center">爱就爱我一辈子</td>
+</tr>
+<tr>
+<td align="center">296</td>
+<td align="center">爱走了</td>
+</tr>
+</tbody></table>
+<p><strong>3字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">300</td>
+<td align="center">想你哦</td>
+</tr>
+<tr>
+<td align="center">30920</td>
+<td align="center">想你就爱你</td>
+</tr>
+<tr>
+<td align="center">309420</td>
+<td align="center">想你就是爱你</td>
+</tr>
+<tr>
+<td align="center">3013</td>
+<td align="center">想你一生</td>
+</tr>
+<tr>
+<td align="center">32012</td>
+<td align="center">想念你的爱</td>
+</tr>
+<tr>
+<td align="center">32069</td>
+<td align="center">想爱你很久</td>
+</tr>
+<tr>
+<td align="center">3207778</td>
+<td align="center">想和你去吹吹风</td>
+</tr>
+<tr>
+<td align="center">330335</td>
+<td align="center">想想你想想我</td>
+</tr>
+<tr>
+<td align="center">3344</td>
+<td align="center">生生世世</td>
+</tr>
+<tr>
+<td align="center">3399</td>
+<td align="center">长长久久</td>
+</tr>
+<tr>
+<td align="center">356</td>
+<td align="center">上网了</td>
+</tr>
+<tr>
+<td align="center">35910</td>
+<td align="center">想我久一点</td>
+</tr>
+<tr>
+<td align="center">369958</td>
+<td align="center">神啊救救我吧</td>
+</tr>
+<tr>
+<td align="center">3731</td>
+<td align="center">真心真意</td>
+</tr>
+<tr>
+<td align="center">39</td>
+<td align="center">Thank you</td>
+</tr>
+</tbody></table>
+<p><strong>4字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">440295</td>
+<td align="center">谢谢你爱过我</td>
+</tr>
+<tr>
+<td align="center">4422335</td>
+<td align="center">时时刻刻想想我</td>
+</tr>
+<tr>
+<td align="center">4457</td>
+<td align="center">速速回机</td>
+</tr>
+<tr>
+<td align="center">456</td>
+<td align="center">是我啦</td>
+</tr>
+<tr>
+<td align="center">460</td>
+<td align="center">思念你</td>
+</tr>
+</tbody></table>
+<p><strong>5字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">505</td>
+<td align="center">SOS</td>
+</tr>
+<tr>
+<td align="center">507680</td>
+<td align="center">我一定要追你</td>
+</tr>
+<tr>
+<td align="center">510</td>
+<td align="center">我依你(我已来)</td>
+</tr>
+<tr>
+<td align="center">51020</td>
+<td align="center">我依然爱你</td>
+</tr>
+<tr>
+<td align="center">51095</td>
+<td align="center">我要你嫁我</td>
+</tr>
+<tr>
+<td align="center">51396</td>
+<td align="center">我要睡觉了</td>
+</tr>
+<tr>
+<td align="center">514</td>
+<td align="center">无意思</td>
+</tr>
+<tr>
+<td align="center">515206</td>
+<td align="center">我已不爱你了</td>
+</tr>
+<tr>
+<td align="center">51620</td>
+<td align="center">我依然爱你</td>
+</tr>
+<tr>
+<td align="center">51820</td>
+<td align="center">我已不爱你</td>
+</tr>
+<tr>
+<td align="center">518720</td>
+<td align="center">我一辈子爱你</td>
+</tr>
+<tr>
+<td align="center">51920</td>
+<td align="center">我依旧爱你</td>
+</tr>
+<tr>
+<td align="center">51930</td>
+<td align="center">我依旧想你</td>
+</tr>
+<tr>
+<td align="center">520</td>
+<td align="center">我爱你</td>
+</tr>
+<tr>
+<td align="center">5201314</td>
+<td align="center">我爱你一生一世</td>
+</tr>
+<tr>
+<td align="center">52010000</td>
+<td align="center">我爱你一万年</td>
+</tr>
+<tr>
+<td align="center">5203344</td>
+<td align="center">我爱你生生世世</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">我爱你生生世世不变心</td>
+</tr>
+<tr>
+<td align="center">52094</td>
+<td align="center">我爱你到死</td>
+</tr>
+<tr>
+<td align="center">521</td>
+<td align="center">我愿意</td>
+</tr>
+<tr>
+<td align="center">5230</td>
+<td align="center">我爱上你</td>
+</tr>
+<tr>
+<td align="center">5240</td>
+<td align="center">我爱是你</td>
+</tr>
+<tr>
+<td align="center">52406</td>
+<td align="center">我爱死你了</td>
+</tr>
+<tr>
+<td align="center">526</td>
+<td align="center">我饿了</td>
+</tr>
+<tr>
+<td align="center">5260</td>
+<td align="center">我暗恋你</td>
+</tr>
+<tr>
+<td align="center">530</td>
+<td align="center">我想你</td>
+</tr>
+<tr>
+<td align="center">530184</td>
+<td align="center">我想你一辈子</td>
+</tr>
+<tr>
+<td align="center">53207778</td>
+<td align="center">我想和你去吹吹风</td>
+</tr>
+<tr>
+<td align="center">53406</td>
+<td align="center">我想死你了</td>
+</tr>
+<tr>
+<td align="center">53517230</td>
+<td align="center">我想我已经爱上你</td>
+</tr>
+<tr>
+<td align="center">5366</td>
+<td align="center">我想聊聊</td>
+</tr>
+<tr>
+<td align="center">5376</td>
+<td align="center">我生气了</td>
+</tr>
+<tr>
+<td align="center">53719</td>
+<td align="center">我深情依旧</td>
+</tr>
+<tr>
+<td align="center">53770</td>
+<td align="center">我想亲亲你</td>
+</tr>
+<tr>
+<td align="center">53782</td>
+<td align="center">我心情不好</td>
+</tr>
+<tr>
+<td align="center">53880</td>
+<td align="center">我想抱抱你</td>
+</tr>
+<tr>
+<td align="center">540086</td>
+<td align="center">我是你女朋友</td>
+</tr>
+<tr>
+<td align="center">54033</td>
+<td align="center">我是你先生</td>
+</tr>
+<tr>
+<td align="center">5406</td>
+<td align="center">我是你的</td>
+</tr>
+<tr>
+<td align="center">5407</td>
+<td align="center">我是你妻</td>
+</tr>
+<tr>
+<td align="center">54064</td>
+<td align="center">我是你老师</td>
+</tr>
+<tr>
+<td align="center">54074</td>
+<td align="center">我是你妻子</td>
+</tr>
+<tr>
+<td align="center">54086</td>
+<td align="center">我是你爸啦</td>
+</tr>
+<tr>
+<td align="center">5420</td>
+<td align="center">我只爱你</td>
+</tr>
+<tr>
+<td align="center">54335</td>
+<td align="center">无事想想我</td>
+</tr>
+<tr>
+<td align="center">543720</td>
+<td align="center">我是真心爱你</td>
+</tr>
+<tr>
+<td align="center">54430</td>
+<td align="center">我时时想你</td>
+</tr>
+<tr>
+<td align="center">5452830</td>
+<td align="center">无时无刻不想你</td>
+</tr>
+<tr>
+<td align="center">546</td>
+<td align="center">我输了</td>
+</tr>
+<tr>
+<td align="center">5460</td>
+<td align="center">我思想你</td>
+</tr>
+<tr>
+<td align="center">5490</td>
+<td align="center">我去找你</td>
+</tr>
+<tr>
+<td align="center">84920</td>
+<td align="center">我始终爱你</td>
+</tr>
+<tr>
+<td align="center">554528096</td>
+<td align="center">我无时无刻伴你左右</td>
+</tr>
+<tr>
+<td align="center">555</td>
+<td align="center">呜呜呜</td>
+</tr>
+<tr>
+<td align="center">55646</td>
+<td align="center">我无聊死了</td>
+</tr>
+<tr>
+<td align="center">556520</td>
+<td align="center">我不能不爱你</td>
+</tr>
+<tr>
+<td align="center">558</td>
+<td align="center">午午安</td>
+</tr>
+<tr>
+<td align="center">55926</td>
+<td align="center">我有多无聊</td>
+</tr>
+<tr>
+<td align="center">5620</td>
+<td align="center">我很爱你</td>
+</tr>
+<tr>
+<td align="center">562059487</td>
+<td align="center">我若爱你我就是白痴</td>
+</tr>
+<tr>
+<td align="center">5630</td>
+<td align="center">我很想你</td>
+</tr>
+<tr>
+<td align="center">564335</td>
+<td align="center">无聊时想想我</td>
+</tr>
+<tr>
+<td align="center">5670</td>
+<td align="center">我要娶你</td>
+</tr>
+<tr>
+<td align="center">570</td>
+<td align="center">我气你</td>
+</tr>
+<tr>
+<td align="center">57350</td>
+<td align="center">我只在乎你</td>
+</tr>
+<tr>
+<td align="center">57386</td>
+<td align="center">我去上班了</td>
+</tr>
+<tr>
+<td align="center">57410</td>
+<td align="center">我心属于你</td>
+</tr>
+<tr>
+<td align="center">574839</td>
+<td align="center">我其实不想走</td>
+</tr>
+<tr>
+<td align="center">57520</td>
+<td align="center">吾妻我爱你</td>
+</tr>
+<tr>
+<td align="center">576</td>
+<td align="center">我去了</td>
+</tr>
+<tr>
+<td align="center">5776</td>
+<td align="center">我出去了</td>
+</tr>
+<tr>
+<td align="center">578</td>
+<td align="center">补习班</td>
+</tr>
+<tr>
+<td align="center">58</td>
+<td align="center">晚安</td>
+</tr>
+<tr>
+<td align="center">584520</td>
+<td align="center">我发誓我爱你</td>
+</tr>
+<tr>
+<td align="center">586</td>
+<td align="center">我不来</td>
+</tr>
+<tr>
+<td align="center">587</td>
+<td align="center">我抱歉</td>
+</tr>
+<tr>
+<td align="center">5871</td>
+<td align="center">我不介意</td>
+</tr>
+<tr>
+<td align="center">592</td>
+<td align="center">我好饿</td>
+</tr>
+<tr>
+<td align="center">59240</td>
+<td align="center">我最爱是你</td>
+</tr>
+<tr>
+<td align="center">59420</td>
+<td align="center">我就是爱你</td>
+</tr>
+<tr>
+<td align="center">59430</td>
+<td align="center">我就是想你</td>
+</tr>
+<tr>
+<td align="center">59520</td>
+<td align="center">我永远爱你</td>
+</tr>
+<tr>
+<td align="center">596</td>
+<td align="center">我走了</td>
+</tr>
+<tr>
+<td align="center">5976</td>
+<td align="center">我到家了</td>
+</tr>
+</tbody></table>
+<p><strong>6字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">609</td>
+<td align="center">到永久</td>
+</tr>
+<tr>
+<td align="center">6120</td>
+<td align="center">懒得理你</td>
+</tr>
+<tr>
+<td align="center">6785753</td>
+<td align="center">老地方不见不散</td>
+</tr>
+<tr>
+<td align="center">6868</td>
+<td align="center">溜吧！溜吧！</td>
+</tr>
+<tr>
+<td align="center">687</td>
+<td align="center">对不起</td>
+</tr>
+</tbody></table>
+<p><strong>7字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">70345</td>
+<td align="center">请你相信我</td>
+</tr>
+<tr>
+<td align="center">706</td>
+<td align="center">起来吧</td>
+</tr>
+<tr>
+<td align="center">70626</td>
+<td align="center">请你留下来</td>
+</tr>
+<tr>
+<td align="center">706519184</td>
+<td align="center">请你让我依靠一辈子</td>
+</tr>
+<tr>
+<td align="center">7086</td>
+<td align="center">七零八落</td>
+</tr>
+<tr>
+<td align="center">7087</td>
+<td align="center">请你别走</td>
+</tr>
+<tr>
+<td align="center">70885</td>
+<td align="center">请你帮帮我</td>
+</tr>
+<tr>
+<td align="center">721</td>
+<td align="center">亲爱的</td>
+</tr>
+<tr>
+<td align="center">729</td>
+<td align="center">去喝酒</td>
+</tr>
+<tr>
+<td align="center">7319</td>
+<td align="center">天长地久</td>
+</tr>
+<tr>
+<td align="center">737420</td>
+<td align="center">今生今世爱你</td>
+</tr>
+<tr>
+<td align="center">73748096</td>
+<td align="center">今生今世伴你左右</td>
+</tr>
+<tr>
+<td align="center">73807</td>
+<td align="center">情深怕缘浅</td>
+</tr>
+<tr>
+<td align="center">740</td>
+<td align="center">气死你</td>
+</tr>
+<tr>
+<td align="center">7408695</td>
+<td align="center">其实你不了解我</td>
+</tr>
+<tr>
+<td align="center">745</td>
+<td align="center">气死我</td>
+</tr>
+<tr>
+<td align="center">745420</td>
+<td align="center">其实我是爱你</td>
+</tr>
+<tr>
+<td align="center">7474074</td>
+<td align="center">去死去死你去死</td>
+</tr>
+<tr>
+<td align="center">74839</td>
+<td align="center">其实不想走</td>
+</tr>
+<tr>
+<td align="center">756</td>
+<td align="center">辛苦了</td>
+</tr>
+<tr>
+<td align="center">765</td>
+<td align="center">去跳舞</td>
+</tr>
+<tr>
+<td align="center">7678</td>
+<td align="center">吃饱了吗</td>
+</tr>
+<tr>
+<td align="center">770880520</td>
+<td align="center">亲亲你抱抱你我爱你</td>
+</tr>
+<tr>
+<td align="center">7731</td>
+<td align="center">心心相映</td>
+</tr>
+<tr>
+<td align="center">7758520</td>
+<td align="center">亲亲我吧我爱你</td>
+</tr>
+<tr>
+<td align="center">775885</td>
+<td align="center">亲亲我抱抱我</td>
+</tr>
+<tr>
+<td align="center">77543</td>
+<td align="center">猜猜我是谁</td>
+</tr>
+<tr>
+<td align="center">77895</td>
+<td align="center">紧紧抱着我</td>
+</tr>
+<tr>
+<td align="center">786</td>
+<td align="center">吃饱了</td>
+</tr>
+<tr>
+<td align="center">7998</td>
+<td align="center">去走走吧</td>
+</tr>
+</tbody></table>
+<p><strong>8字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">8006</td>
+<td align="center">不理你了</td>
+</tr>
+<tr>
+<td align="center">8013</td>
+<td align="center">伴你一生</td>
+</tr>
+<tr>
+<td align="center">8074</td>
+<td align="center">把你气死</td>
+</tr>
+<tr>
+<td align="center">8084</td>
+<td align="center">Baby</td>
+</tr>
+<tr>
+<td align="center">809</td>
+<td align="center">保龄球</td>
+</tr>
+<tr>
+<td align="center">811176</td>
+<td align="center">不要在一起了</td>
+</tr>
+<tr>
+<td align="center">82475</td>
+<td align="center">被爱是幸福</td>
+</tr>
+<tr>
+<td align="center">825</td>
+<td align="center">别爱我</td>
+</tr>
+<tr>
+<td align="center">837</td>
+<td align="center">别生气</td>
+</tr>
+<tr>
+<td align="center">8384</td>
+<td align="center">不三不四</td>
+</tr>
+<tr>
+<td align="center">85</td>
+<td align="center">帮我</td>
+</tr>
+<tr>
+<td align="center">85941</td>
+<td align="center">帮我告诉他</td>
+</tr>
+<tr>
+<td align="center">885</td>
+<td align="center">帮帮我</td>
+</tr>
+<tr>
+<td align="center">860</td>
+<td align="center">不留你</td>
+</tr>
+<tr>
+<td align="center">865</td>
+<td align="center">别惹我</td>
+</tr>
+<tr>
+<td align="center">8716</td>
+<td align="center">八嘎鸭路</td>
+</tr>
+<tr>
+<td align="center">881</td>
+<td align="center">拜拜哎</td>
+</tr>
+<tr>
+<td align="center">8834760</td>
+<td align="center">漫漫相思只为你</td>
+</tr>
+<tr>
+<td align="center">886</td>
+<td align="center">拜拜咯</td>
+</tr>
+<tr>
+<td align="center">898</td>
+<td align="center">分手吧</td>
+</tr>
+</tbody></table>
+<p><strong>9字部</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">密文</th>
+<th align="center">明文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">902535</td>
+<td align="center">求你爱我想我</td>
+</tr>
+<tr>
+<td align="center">907753</td>
+<td align="center">叫你去吃午餐</td>
+</tr>
+<tr>
+<td align="center">9089</td>
+<td align="center">求你别走</td>
+</tr>
+<tr>
+<td align="center">910</td>
+<td align="center">就依你</td>
+</tr>
+<tr>
+<td align="center">918</td>
+<td align="center">加油吧</td>
+</tr>
+<tr>
+<td align="center">920</td>
+<td align="center">好爱你</td>
+</tr>
+<tr>
+<td align="center">9213</td>
+<td align="center">钟爱一生</td>
+</tr>
+<tr>
+<td align="center">930</td>
+<td align="center">好想你</td>
+</tr>
+<tr>
+<td align="center">93110</td>
+<td align="center">好像见见你</td>
+</tr>
+<tr>
+<td align="center">940194</td>
+<td align="center">告诉你一件事</td>
+</tr>
+<tr>
+<td align="center">95</td>
+<td align="center">救我</td>
+</tr>
+<tr>
+<td align="center">98</td>
+<td align="center">久发</td>
+</tr>
+<tr>
+<td align="center">987</td>
+<td align="center">对不起</td>
+</tr>
+<tr>
+<td align="center">9908875</td>
+<td align="center">求求你别抛弃我</td>
+</tr>
+<tr>
+<td align="center">995</td>
+<td align="center">救救我</td>
+</tr>
+<tr>
+<td align="center">9958</td>
+<td align="center">救救我吧</td>
+</tr>
+</tbody></table>
+<h2 id="福尔摩斯密码"><a href="#福尔摩斯密码" class="headerlink" title="福尔摩斯密码"></a>福尔摩斯密码</h2><p>​        福尔摩斯密码跳舞的小人，讲的是一个黑帮发明的一种密码，其密码就是用一个一个的跳舞的小人组成的，一个小人是一个字母。有人用这种密码进行通信，来威胁某人，福尔摩斯后来破解了这个密码，抓住了坏人。</p>
+<p><strong>密码表</strong>：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CryptoDesc/福尔摩斯密码(跳舞的小人密码表).jpg" alt="福尔摩斯密码(跳舞的小人密码表)"></center>
+
+<center>图4.1 跳舞的小人</center>
+
+<h2 id="QWE格式密码"><a href="#QWE格式密码" class="headerlink" title="QWE格式密码"></a>QWE格式密码</h2><p>​        QWE格式密码指的是电脑键盘上26个字母的顺序，是一种简单的替换密码。</p>
+<p><strong>密码表</strong>：</p>
+<center>表 QWE格式密码表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">E</th>
+<th align="center">F</th>
+<th align="center">G</th>
+<th align="center">H</th>
+<th align="center">I</th>
+<th align="center">J</th>
+<th align="center">K</th>
+<th align="center">L</th>
+<th align="center">M</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Q</td>
+<td align="center">W</td>
+<td align="center">E</td>
+<td align="center">R</td>
+<td align="center">T</td>
+<td align="center">Y</td>
+<td align="center">U</td>
+<td align="center">I</td>
+<td align="center">O</td>
+<td align="center">P</td>
+<td align="center">A</td>
+<td align="center">S</td>
+<td align="center">D</td>
+</tr>
+<tr>
+<td align="center"><strong>N</strong></td>
+<td align="center"><strong>O</strong></td>
+<td align="center"><strong>P</strong></td>
+<td align="center"><strong>Q</strong></td>
+<td align="center"><strong>R</strong></td>
+<td align="center"><strong>S</strong></td>
+<td align="center"><strong>T</strong></td>
+<td align="center"><strong>U</strong></td>
+<td align="center"><strong>V</strong></td>
+<td align="center"><strong>W</strong></td>
+<td align="center"><strong>X</strong></td>
+<td align="center"><strong>Y</strong></td>
+<td align="center"><strong>Z</strong></td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">G</td>
+<td align="center">H</td>
+<td align="center">J</td>
+<td align="center">K</td>
+<td align="center">L</td>
+<td align="center">Z</td>
+<td align="center">X</td>
+<td align="center">C</td>
+<td align="center">V</td>
+<td align="center">B</td>
+<td align="center">N</td>
+<td align="center">M</td>
+</tr>
+</tbody></table>
+<h2 id="元音密码"><a href="#元音密码" class="headerlink" title="元音密码"></a>元音密码</h2><p>​        元音密码是一种以元音字母为界，使用替代方式来表示各个字母的密码。</p>
+<p><strong>元音密码表</strong>：</p>
+<center>表 元音密码表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">E</th>
+<th align="center">F</th>
+<th align="center">G</th>
+<th align="center">H</th>
+<th align="center">I</th>
+<th align="center">J</th>
+<th align="center">K</th>
+<th align="center">L</th>
+<th align="center">M</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">11</td>
+<td align="center">12</td>
+<td align="center">13</td>
+<td align="center">2</td>
+<td align="center">21</td>
+<td align="center">22</td>
+<td align="center">23</td>
+<td align="center">3</td>
+<td align="center">31</td>
+<td align="center">32</td>
+<td align="center">33</td>
+<td align="center">34</td>
+</tr>
+<tr>
+<td align="center"><strong>N</strong></td>
+<td align="center"><strong>O</strong></td>
+<td align="center"><strong>P</strong></td>
+<td align="center"><strong>Q</strong></td>
+<td align="center"><strong>R</strong></td>
+<td align="center"><strong>S</strong></td>
+<td align="center"><strong>T</strong></td>
+<td align="center"><strong>U</strong></td>
+<td align="center"><strong>V</strong></td>
+<td align="center"><strong>W</strong></td>
+<td align="center"><strong>X</strong></td>
+<td align="center"><strong>Y</strong></td>
+<td align="center"><strong>Z</strong></td>
+</tr>
+<tr>
+<td align="center">35</td>
+<td align="center">4</td>
+<td align="center">41</td>
+<td align="center">42</td>
+<td align="center">43</td>
+<td align="center">44</td>
+<td align="center">45</td>
+<td align="center">5</td>
+<td align="center">51</td>
+<td align="center">52</td>
+<td align="center">53</td>
+<td align="center">54</td>
+<td align="center">55</td>
+</tr>
+</tbody></table>
+<p><strong>eg：</strong></p>
+<p>明文：I LOVE YOU</p>
+<p>密文：3.33.4.51.2.54.4.5</p>
+<p><strong>注：</strong></p>
+<p>​        元音字母因为密文中只含有1，2，3，4，5五个数字而且时常出现个位数，因此很容易破解，有时候可以将1，2，3，4，5变为10，20，30，40，50等，也可变成如同棋盘密码密文的形式来对解密者进行干扰，如下表所示。</p>
+<center>表 元音密码扩展密码表</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">E</th>
+<th align="center">F</th>
+<th align="center">G</th>
+<th align="center">H</th>
+<th align="center">I</th>
+<th align="center">J</th>
+<th align="center">K</th>
+<th align="center">L</th>
+<th align="center">M</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">10</td>
+<td align="center">11</td>
+<td align="center">12</td>
+<td align="center">13</td>
+<td align="center">20</td>
+<td align="center">21</td>
+<td align="center">22</td>
+<td align="center">23</td>
+<td align="center">30</td>
+<td align="center">31</td>
+<td align="center">32</td>
+<td align="center">33</td>
+<td align="center">34</td>
+</tr>
+<tr>
+<td align="center"><strong>N</strong></td>
+<td align="center"><strong>O</strong></td>
+<td align="center"><strong>P</strong></td>
+<td align="center"><strong>Q</strong></td>
+<td align="center"><strong>R</strong></td>
+<td align="center"><strong>S</strong></td>
+<td align="center"><strong>T</strong></td>
+<td align="center"><strong>U</strong></td>
+<td align="center"><strong>V</strong></td>
+<td align="center"><strong>W</strong></td>
+<td align="center"><strong>X</strong></td>
+<td align="center"><strong>Y</strong></td>
+<td align="center"><strong>Z</strong></td>
+</tr>
+<tr>
+<td align="center">35</td>
+<td align="center">40</td>
+<td align="center">41</td>
+<td align="center">42</td>
+<td align="center">43</td>
+<td align="center">44</td>
+<td align="center">45</td>
+<td align="center">50</td>
+<td align="center">51</td>
+<td align="center">52</td>
+<td align="center">53</td>
+<td align="center">54</td>
+<td align="center">55</td>
+</tr>
+</tbody></table>
+<p>则：</p>
+<p>明文：I LOVE YOU</p>
+<p>密文：3033405120544050</p>
+<h2 id="费娜姆密码"><a href="#费娜姆密码" class="headerlink" title="费娜姆密码"></a>费娜姆密码</h2><p>​        费娜姆密码是一种二进制密码，使用七位二进制数代替字母，并使用异或操作对明文进行加密的方式。</p>
+<p><strong>密码基础表</strong>：</p>
+<center>表 字母对应的二进制表示</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">字母</th>
+<th align="center">二进制表示</th>
+<th align="center">字母</th>
+<th align="center">二进制表示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">1000001</td>
+<td align="center">N</td>
+<td align="center">1001110</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">1000010</td>
+<td align="center">O</td>
+<td align="center">1001111</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">1000011</td>
+<td align="center">P</td>
+<td align="center">1010000</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center">1000100</td>
+<td align="center">Q</td>
+<td align="center">1010001</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">1000101</td>
+<td align="center">R</td>
+<td align="center">1010010</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">1000110</td>
+<td align="center">S</td>
+<td align="center">1010011</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">1000111</td>
+<td align="center">T</td>
+<td align="center">1010100</td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="center">1001000</td>
+<td align="center">U</td>
+<td align="center">1010101</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center">1001001</td>
+<td align="center">V</td>
+<td align="center">1010110</td>
+</tr>
+<tr>
+<td align="center">J</td>
+<td align="center">1001010</td>
+<td align="center">W</td>
+<td align="center">1010111</td>
+</tr>
+<tr>
+<td align="center">K</td>
+<td align="center">1001011</td>
+<td align="center">X</td>
+<td align="center">1011000</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="center">1001100</td>
+<td align="center">Y</td>
+<td align="center">1011001</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center">1001101</td>
+<td align="center">Z</td>
+<td align="center">1011010</td>
+</tr>
+</tbody></table>
+<p><strong>eg:</strong></p>
+<p>明文：hello = H E L L O = 1001000 1000101 1001100 1001100 1001111</p>
+<p>密钥：study = S T U D Y = 1010011 1010100 1010101 1000100 1011001</p>
+<p>密文：10010001000101100110010011001001111 $$\oplus$$ 10100111010100101010110001001011001 </p>
+<p>​        = 00110110010001001100100010000010110</p>
+<p><strong>解密操作：</strong></p>
+<ol>
+<li>划分：即每七个数字为一组；</li>
+<li>对应：找出密钥每个字母对应的数字，再与上述数字对应；</li>
+<li>异或：将密文与密钥进行异或操作；</li>
+<li>替换：将新得到一组数字在密码基础表中找到对应的字母，得出明文。</li>
+</ol>
+<h2 id="培根密码"><a href="#培根密码" class="headerlink" title="培根密码"></a>培根密码</h2><p>​        弗朗西斯·培根，英国人，他是第一个意识到科学技术能够改变世界面貌的哲学家。他不仅意思到这一点，而且积极投入科学技术的探索中。他对密码学的兴趣很浓厚，设计出的密码也丰富了密码学的内容。</p>
+<p>​        他设计的密码非常独特，它可以不<strong>加过多的“雕饰”</strong>，几乎以<strong>本来的“素面”</strong>在你眼前晃过，而不会引起你的注意。</p>
+<p>​        培根所使用的密码是一种<strong>本质上用二进制数设计</strong>的。不过，他没有用通常的0和1来表示，而是采用a和b，下面是他设计的26个英文字母二进制表示法。</p>
+<center>表 培根密码表（5位）</center>
+
+<table>
+<thead>
+<tr>
+<th align="center">字母</th>
+<th align="center">二进制表示</th>
+<th align="center">字母</th>
+<th align="center">二进制表示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">1000001</td>
+<td align="center">N</td>
+<td align="center">abbab</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">aaaab</td>
+<td align="center">O</td>
+<td align="center">abbba</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">aaaba</td>
+<td align="center">P</td>
+<td align="center">abbbb</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center">aaabb</td>
+<td align="center">Q</td>
+<td align="center">baaaa</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">aabaa</td>
+<td align="center">R</td>
+<td align="center">baaab</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">aabab</td>
+<td align="center">S</td>
+<td align="center">baaba</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">aabba</td>
+<td align="center">T</td>
+<td align="center">baabb</td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="center">aabbb</td>
+<td align="center">U</td>
+<td align="center">babaa</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center">abaaa</td>
+<td align="center">V</td>
+<td align="center">babab</td>
+</tr>
+<tr>
+<td align="center">J</td>
+<td align="center">abaab</td>
+<td align="center">W</td>
+<td align="center">babba</td>
+</tr>
+<tr>
+<td align="center">K</td>
+<td align="center">ababa</td>
+<td align="center">X</td>
+<td align="center">babbb</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="center">ababb</td>
+<td align="center">Y</td>
+<td align="center">bbaaa</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center">abbaa</td>
+<td align="center">Z</td>
+<td align="center">bbaab</td>
+</tr>
+</tbody></table>
+<p><strong>eg：</strong></p>
+<p>明文：OK</p>
+<p>密文：abbbaababa</p>
+<p><strong>培根密码扩展：</strong></p>
+<p>​        任何只有两种状态的五位组合都可以看作是培根密码的衍生。如：</p>
+<ul>
+<li>正体字和斜体字</li>
+<li>宋体与仿宋</li>
+<li>黑体与微软雅黑</li>
+<li>…</li>
+</ul>
+<h2 id="栅栏密码"><a href="#栅栏密码" class="headerlink" title="栅栏密码"></a>栅栏密码</h2><p>​        栅栏密码，就是把要加密的明文分成N个一组，然后把每组的第1个字连起来，形成一段无规律的话。 不过栅栏密码本身有一个潜规则，就是组成栅栏的字母一般不会太多。（一般不超过30个，也就是一、两句话）</p>
+<p><strong>二栏栅栏密码</strong>：</p>
+<p><strong>加密</strong>：</p>
+<ul>
+<li>明文：THERE IS A CIPHER</li>
+</ul>
+<ol>
+<li>明文格式化：THEREISACIPHER；</li>
+<li>分组：TH ER EI SA CI PH ER；</li>
+<li>提取：首字母组合：TEESCPE，尾字母组合：HRIAIHR；</li>
+<li>拼接：TEESCPEHRIAIHR</li>
+</ol>
+<ul>
+<li>密文：TEESCPEHRIAIHR</li>
+</ul>
+<p><strong>解密</strong>：</p>
+<p>​        解密操作是加密的逆过程</p>
+<p><strong>多栏栅栏密码</strong>：</p>
+<p>​        多栏栅栏密码的解法与二栏栅栏密码相似，但有一个特点，<font color="red">栏数必须为总字符个数的公因子</font>。</p>
+<p><strong>栅栏密码变种1：</strong></p>
+<p>​        将所有汉字以其拼音表示，将各个拼音按<strong>声母</strong>和<strong>韵母</strong>进行分栏，按二栏栅栏密码进行加解密。</p>
+<h2 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h2><p>​        凯撒密码(Caesar Cipher)或称恺撒加密、恺撒变换、变换加密，是一种最简单且最广为人知的加密技术。它是一种替换密码，其作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过<strong>把字母移动一定的位数</strong>来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，<strong>位数</strong>就是凯撒密码加密和解密的密钥。</p>
+<h2 id="维吉尼亚密码"><a href="#维吉尼亚密码" class="headerlink" title="维吉尼亚密码"></a>维吉尼亚密码</h2><p>​        <strong>维吉尼亚密码</strong>(Vigenere Cipher)，又译 <strong>维热纳尔密码</strong>，是使用一系列<strong>凯撒密码</strong>组成密码字母表的加密算法，属于<strong>多表密码</strong>的一种简单形式。其密码表如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Cryptography/CryptoDesc/VigenereCipherTable.png" alt="VigenereCipherTable"></center>
+
+<p><strong>eg</strong>：</p>
+<ul>
+<li>明文(列)：TOBEO RNOTT OBETH ATIST HEQUE STION</li>
+<li>密钥(行)：RELAT IONSR ELATI ONSRE LATIO NSREL</li>
+<li>密文(点)：KSMEH ZBBLK SMEMP OGAJX SEJCS FLZSY</li>
+</ul>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.33iq.com/group/628/3.html" target="_blank" rel="noopener">密码小组</a></p>
+<p><a href="http://www.360doc.com/content/15/0222/14/21874787_450053353.shtml" target="_blank" rel="noopener">二进制密码(培根密码、费娜姆密码)</a></p>
+<p><a href="https://blog.csdn.net/qq_34206560/article/details/83242664" target="_blank" rel="noopener">古典密码集合</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.z1r0s.top" rel="external nofollow noreferrer">z1r0s</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.z1r0s.top/2020/09/02/crypto/chang-jian-mi-ma-jian-shu/">https://www.z1r0s.top/2020/09/02/crypto/chang-jian-mi-ma-jian-shu/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.z1r0s.top" target="_blank">z1r0s</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/密码学/">
+                                    <span class="chip bg-color">密码学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .mvaline-card {
+        margin: 1.5rem auto;
+    }
+
+    .mvaline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+</style>
+
+<div class="card mvaline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="mvcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/minivaline/MiniValine.js"></script>
+<script>
+    new MiniValine(Object.assign({"enable":true,"appId":"rr4jTLi2BJEgTziWjmGxpu1a-MdYXbMMI","appKey":"aFRDmu52XNOUP0PyGNjjzDCQ","mode":"DesertsP","placeholder":"Write a Comment","math":true,"md":true,"enableQQ":false,"NoRecordIP":false,"visitor":true,"maxNest":6,"pageSize":6,"adminEmailMd5":"de8a7aa53d07e6b6bceb45c64027763d","tagMeta":["管理员","小伙伴","访客"],"master":["de8a7aa53d07e6b6bceb45c64027763d"],"friends":["b5bd5d836c7a0091aa8473e79ed4c25e","adb7d1cd192658a55c0ad22a3309cecf","3ce1e6c77b4910f1871106cb30dc62b0","cfce8dc43725cc14ffcd9fb4892d5bfc"],"lang":null,"emoticonUrl":["https://cdn.jsdelivr.net/npm/alus@latest","https://cdn.jsdelivr.net/gh/MiniValine/qq@latest","https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest","https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest","https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest","https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest"]}, {
+	  el: '#mvcomments',
+    }));
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/09/02/windows/software/git-he-github/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/195.jpg" class="responsive-img" alt="Git和GitHub">
+                        
+                        <span class="card-title">Git和GitHub</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/软件使用/" class="post-category">
+                                    软件使用
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/GitHub/">
+                        <span class="chip bg-color">GitHub</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/29/network/configuration/packet-tracer-wang-luo-mo-ni-shi-yan-shi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/144.jpg" class="responsive-img" alt="Packet Tracer网络模拟实验实记">
+                        
+                        <span class="card-title">Packet Tracer网络模拟实验实记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络配置/" class="post-category">
+                                    网络配置
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/网络基础/">
+                        <span class="chip bg-color">网络基础</span>
+                    </a>
+                    
+                    <a href="/tags/网络配置/">
+                        <span class="chip bg-color">网络配置</span>
+                    </a>
+                    
+                    <a href="/tags/Cisco/">
+                        <span class="chip bg-color">Cisco</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7173532278"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">z1r0s</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">299.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/z1r0s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2603350388@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2603350388" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2603350388" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+
+</html>
+<script type="text/javascript" src="/js/click_show_text.js"></script>

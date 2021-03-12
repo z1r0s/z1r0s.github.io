@@ -1,0 +1,1731 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="Linux之磁盘管理, z1r0s 安全 渗透 编程">
+    <meta name="description" content="z1r0s | 程序语言 | 网络安全 | 红蓝对抗">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Linux之磁盘管理 | z1r0s</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/bg.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">z1r0s</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/nav" class="waves-effect waves-light">
+      
+      <i class="fas fa-rocket" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">z1r0s</div>
+        <div class="logo-desc">
+            
+            z1r0s | 程序语言 | 网络安全 | 红蓝对抗
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/nav" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-rocket"></i>
+			
+			Nav
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Linux之磁盘管理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/操作系统/" class="post-category">
+                                操作系统
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-12-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-12-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h1><h2 id="0x01-磁盘基础"><a href="#0x01-磁盘基础" class="headerlink" title="0x01 磁盘基础"></a>0x01 磁盘基础</h2><ol>
+<li><p><strong>磁盘</strong>：真实的存储介质，新加的磁盘需要进行分区、格式化、挂载后才能正常使用。</p>
+</li>
+<li><p>Linux里磁盘的命名规则：</p>
+<ul>
+<li>常见的硬盘接口是SATA和SCSI硬盘，以sd开头；</li>
+<li>用字母来表示第几个磁盘，a表示第一块；b是第二块……</li>
+<li>用数字来表示第几个分区，1表示第一个分区……<br><code>/dev/sda1</code>：第一块磁盘的第一分区<br><code>/dev/sdb4</code>：第二块磁盘的第四分区<br><code>/dev/sdd5</code>：第四块磁盘的第一逻辑分区</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/DiskManager/磁盘命名规则.png" alt="磁盘命名规则"></center>
+</li>
+<li><p><strong>文件系统</strong>：告诉硬盘用什么样的方式来存储数据。</p>
+<p>常用的文件系统：</p>
+<ul>
+<li>Windows：Fat16、Fat32、NTFS</li>
+<li>Linux：ext2、ext3、ext4（Centos6）、xfs（Centos7）</li>
+</ul>
+</li>
+</ol>
+<h2 id="0x02-分区规则"><a href="#0x02-分区规则" class="headerlink" title="0x02 分区规则"></a>0x02 分区规则</h2><ol>
+<li><p>磁盘分区规则</p>
+<ul>
+<li>一个磁盘不能超过4个主分区；</li>
+<li>一个磁盘的主分区+扩展分区不能超过4个；<ul>
+<li>主分区和扩展分区的编号是1-4</li>
+</ul>
+</li>
+<li>一个磁盘只能有1个扩展分区；</li>
+<li>扩展分区不能直接存储数据，必须在扩展分区的基础上划分逻辑分区。<ul>
+<li>逻辑分区的编号是从5开始。</li>
+</ul>
+</li>
+</ul>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/DiskManager/磁盘分区规则.png" alt="磁盘分区规则"></center>
+</li>
+<li><p>系统简单启动过程</p>
+<ol>
+<li>BIOS自检（CPU、内存、硬盘）</li>
+<li>MBR（主分区引导记录）：磁盘的分区表信息；操作系统的存储位置。大小是512Byte，给分区表的大小是64Byte，其中每个分区占用16Byte。  </li>
+<li>引导分区：/boot（系统启动需要的引导文件）  </li>
+<li>进入操作系统。</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li><p>MBR查看步骤</p>
+<pre class=" language-shell"><code class="language-shell">#1.MBR介绍:
+（1）    其中446字节（主引导程序，负责从活动分区中找到操作系统所在位置）；
+（2）    剩下的64字节（磁盘分区表信息；每16Byte表示一个主分区）用来存放分区信息，只能存放4个主分区；最大支持2T硬盘；
+（3）    其余2Byte表示MBR的结束符（以AA55结束分区标识）。
+
+#2.备份MBR内容
+dd  if=/dev/sda   of=/test/mbr.txt  bs=512  count=1 
+file    mbr.txt   #查看文件编码格式,MBR使用的是16进制方式
+hexdump mbr.txt   #hexdump是用16进制方式查看文件
+
+#3.破坏MBR内容
+dd if=/dev/zero   of=/dev/sda   bs=512  count=1   #把0全写入到分区表
+
+#4.还原MBR
+dd  if=/tmp/mbr.txt   of=/dev/sda     #把备份的MBR分区还原到磁盘</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/DiskManager/MBR主分区.png" alt="MBR主分区"></center>
+
+<ol start="4">
+<li><p>另外一种分区格式:GPT</p>
+<pre class=" language-shell"><code class="language-shell">#可以支持大于2T的硬盘，创建128个主分区（对应新的BIOS——UEFI），分区命令用parted</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="0x03-磁盘分区"><a href="#0x03-磁盘分区" class="headerlink" title="0x03 磁盘分区"></a>0x03 磁盘分区</h2><ol>
+<li><p>添加磁盘</p>
+<pre class=" language-shell"><code class="language-shell">#第一步：给虚拟机添加磁盘，把磁盘文件放到虚拟机的安装目录里。
+#第二步：重启虚拟机，来识别这个新的硬盘。
+# 查看新加的磁盘
+ls  /dev/sd*</code></pre>
+</li>
+<li><p>磁盘使用过程</p>
+<pre class=" language-shell"><code class="language-shell">##一般新的硬盘需要几步才能进行数据存储？
+#第一步：分区——规划格局
+fdisk  /dev/sdb
+p(打印分区表)
+m（查看帮助）
+n(创建分区)——>p(主分区)/e(扩展分区)——>1（编号）——>指定分区大小的时候用+100M
+d——>1  表示删除第一个分区  
+w——>    保存并退出
+q——>    不保存退出
+------------------------------------------------------------
+#第二步：格式化——装修
+文件系统：数据的存储方式。常见的文件系统格式（ext4、fat32、swap）
+第一个分区（100M）——fat32（t-1-b）
+第二个分区（200M）——ext4
+第三个分区（300M）——swap(t-3-82)
+mkfs.vfat -F 32 /dev/sdb1  #格式化为fat32
+mkfs.ext4 /dev/sdb2   #格式化为ext4
+mkswap /dev/sdb3    #格式化为swap
+# 将sdb1分区格式化为xfs文件系统
+mkfs -t xfs /dev/sdb1
+mkfs.xfs /dev/sdb1
+
+free  -h    #查看内存的命令
+swapon /dev/sdb3   #启用交换分区（1.5—1.8G）
+swapoff /dev/sdb3    #关闭swap分区
+---------------------------------------------------------------
+#第三步：挂载——安装门窗
+#挂载：给外部设备（分区）进入操作系统的一个入口。
+#这个入口就是一个“挂载点”（目录）。
+
+mkdir /test/fat32   #创建挂载点
+mkdir /test/ext4    #创建第二个分区的挂载点
+mount  /dev/sdb1  /test/fat32 
+mount  /dev/sdb2  /test/ext4/ 
+# 挂载IOS文件
+mount -o loop /dev/CentOS-7.5-x86_64-DVD-1804.iso /media
+# 永久挂载
+vim /etc/fstab
+/dev/sdb1    /media    Xfs    Defaults    0    0    
+# 设备名称
+# 挂载点
+# 文件系统类型
+# 挂载参数
+# 文件系统是否dump备份 
+ # 1表示需要 
+ # 0表示不需要
+# 系统启动时检查磁盘的顺序
+ # 0:不检查
+ # 1:检查(根分区)
+ # 2:其次检查(其他分区)
+
+# 卸载文件系统
+umount /dev/sr0
+=umount /dev/media
+=umount /dev/sr0 /media
+# 查看磁盘使用情况
+df -Th 
+# -T:显示文件系统类型
+# -h:以友好的单位来显示
+-------------------------------------------------------------
+#第四步:测试,在每个挂载点进行读写,看是否正常
+echo  '111111'  >> /test/fat32/1.txt
+echo  '222222'  >> /test/ext4/2.txt  </code></pre>
+</li>
+</ol>
+<h2 id="0x04-parted分区"><a href="#0x04-parted分区" class="headerlink" title="0x04 parted分区"></a>0x04 parted分区</h2><ol>
+<li><p>怎么恢复磁盘为初始状态?</p>
+<pre class=" language-shell"><code class="language-shell">#第一步：卸载；关闭swap里调用的分区。
+swapoff /dev/sdb3   #关闭swap新的空间
+umount   /dev/sdb1
+umount   /dev/sdb2
+
+#第二步：删除分区
+fdisk /dev/sdb
+d——>1；   #表示删除第一个分区
+d——>2；
+d——>3——>w；  #w保持
+sync   #同步磁盘信息
+</code></pre>
+</li>
+</ol>
+<ol start="2">
+<li><p>parted分区:针对2T以上的磁盘可以进行分区。</p>
+<pre class=" language-shell"><code class="language-shell">#第一步:添加一个1G硬盘：
+parted /dev/sdb print   //查看分区信息 
+#第二步：创建分区用Parted  mkpart
+parted /dev/sdb mkpart  primary  ext4  0  100    ignore   //创建主分区，文件系统是ext4；分区从0开始从100M结束；ignore表示忽略
+parted /dev/sdb mkpartfs primary fat32 101 300 ignore   //创建第二个主分区为fat32格式；
+parted  /dev/sdb    mkpart  primary  linux-swap  301  600  ignore
+
+#其他参考参数：
+parted  /dev/sdb    mkpart  logical  ext4  8193  100GB    ignore
+parted  /dev/sdb    mkpart  logical  ext4  101GB  3000GB  ignore    
+parted  /dev/sdb    quit
+#第三步：格式化mkfs -t ext4 /dev/sda3
+#第四步：挂载
+mount  /dev/sda3 /home
+#想删除分区：先卸载；
+#然后执行parted  /dev/sdc  rm  2  //删除sdc上的第2个分区</code></pre>
+</li>
+</ol>
+<h1 id="LVM逻辑卷管理"><a href="#LVM逻辑卷管理" class="headerlink" title="LVM逻辑卷管理"></a>LVM逻辑卷管理</h1><h2 id="0x01-LVM基础"><a href="#0x01-LVM基础" class="headerlink" title="0x01 LVM基础"></a>0x01 LVM基础</h2><p><strong>LVM的概念</strong>：</p>
+<p>​        LVM（逻辑卷管理），可以动态调整磁盘分区的大小，当某个分区的数据即将存满时，普通分区无法动态调整原分区大小，也不能实现跨磁盘存储，但是LVM可以。LVM与Window中的扩展卷很像。</p>
+<p><strong>LVM的基本术语</strong></p>
+<ul>
+<li><p>PV（physical volume物理卷）</p>
+<ul>
+<li><p>物理卷是LVM的基本存储设备.</p>
+</li>
+<li><p>创建物理卷时会在分区或是磁盘的头部创建一个保留区块,用于记录LVM的属性,    并把存储空间逻辑分割成默认4MB大小的基本单元（PE）从而构成物理卷</p>
+</li>
+<li><p>将普通分区<code>/dev/sdb1</code>转成物理卷是需要先将分区类型ID改为8e</p>
+</li>
+</ul>
+</li>
+<li><p>VG（volume group 卷组）</p>
+<ul>
+<li><p>卷组是一个或多个物理卷的集合</p>
+</li>
+<li><p>在卷组内可以动态添加或是删除物理卷</p>
+</li>
+<li><p>卷组的名字可以自定义</p>
+</li>
+</ul>
+</li>
+<li><p>LV（logical volume 逻辑卷）</p>
+<ul>
+<li><p>逻辑卷是在卷组上逻辑划分的卷,与物理卷没有关系</p>
+</li>
+<li><p>将逻辑卷的空间安装文件系统,挂载到挂载点就可以使用,相当于普通分区</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>LVM层级关系:</strong></p>
+<ul>
+<li><p>LV用多少取多少—————LVM（逻辑卷）</p>
+</li>
+<li><p>PE收集和管理物资————VG（卷组）</p>
+</li>
+<li><p>VG每个人能拿出来物资——PV（物理卷）</p>
+</li>
+<li><p>PV原始物资——物理磁盘</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/DiskManager/LVM示意图.png" alt="LVM示意图"></center>
+
+</li>
+</ul>
+<p><strong>普通分区和逻辑分区的创建使用过程对比:</strong></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/DiskManager/普通分区.png" alt="普通分区"></center>
+
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/System/Linux/DiskManager/LVM分区.png" alt="LVM分区"></center>
+
+
+
+<h2 id="0x02-LVM管理"><a href="#0x02-LVM管理" class="headerlink" title="0x02 LVM管理"></a>0x02 LVM管理</h2><p>LVM中常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>物理卷管理</th>
+<th>卷组管理</th>
+<th>逻辑卷管理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Scan 扫描</td>
+<td>pvscan</td>
+<td>vgscan</td>
+<td>lvscan</td>
+</tr>
+<tr>
+<td>Create 建立</td>
+<td>pvcreate</td>
+<td>vgcreate</td>
+<td>lvcreate</td>
+</tr>
+<tr>
+<td>Display 显示</td>
+<td>pvdisplay</td>
+<td>vgdisplay</td>
+<td>lvdisplay</td>
+</tr>
+<tr>
+<td>Remove 删除</td>
+<td>pvremove</td>
+<td>vgremove</td>
+<td>lvremove</td>
+</tr>
+<tr>
+<td>Extend 扩展</td>
+<td></td>
+<td>vgextend</td>
+<td>lvextend</td>
+</tr>
+<tr>
+<td>Reduce 减少</td>
+<td></td>
+<td>vgreduce</td>
+<td>lvreduce</td>
+</tr>
+</tbody></table>
+<p>LVM管理命令：</p>
+<pre class=" language-shell"><code class="language-shell">rpm -qa | grep lvm  #确认系统是否安装LVM包
+#第一步：添加3个1G的硬盘
+ls  /dev/sd*  #如果有/dev/sdb;/dev/sdc;/dev/sdd正确
+
+#第二步：创建PV
+pvcreate /dev/sd[bcd]   #创建pv
+pvs   #检查pv是否成功
+
+#第三步：创建VG
+vgcreate vg_test /dev/sd[bcd]  #vg名字叫vg_test，给sdb/sdc/sdd三个磁盘创建VG
+vgs  #检查vg
+
+#第四步：创建LVM
+#-L指定LVM大小；-n表示LVM的名称；后边vg_test是把LVM和VG做一个关联。
+lvcreate -L 2.98G -n lvm_test vg_test   
+lvs   #检查LVM
+
+#第五步：格式化
+mkfs.xfs  /dev/vg_test/lvm_test 
+
+#第六步：挂载
+mkdir /test/lvm_test   #创建lvm的挂载点
+mount /dev/vg_test/lvm_test   /test/lvm_test/
+
+# 查看挂载的LV
+df -h   #大小3G
+/dev/mapper/vg_test-lvm_test 2.9G  4.5M  2.8G   1% /test/lvm_test
+
+#第七步：如果之前的空间不够用——扩容。
+pvcreate /dev/sde  #添加一个1G的硬盘
+vgextend vg_test /dev/sde   #把第5个磁盘扩展VG
+lvextend -L  +0.98G /dev/vg_test/lvm_test    #扩展LVM，增加1G
+resize2fs /dev/vg_test/lvm_test    #给之前的LVM新增加的空间进行格式化 
+lvreduce -L 2G /dev/vg_test/lvm_test   #减少LVM的大小（减少2G）
+
+history   
+#检查之前的文件：
+cat  /test/lvm_test/6.txt 
+e2fsck -f /dev/vg_test/lvm_test   #查看LVM的详细信息
+
+# 第八步：先卸载
+umount /test/lvm_test/  
+
+lvremove /dev/vg_test/lvm_test  #移除LVM信息
+vgremove vg_test   #移除vg卷组
+pvremove /dev/sd[bcde]   #移除pv
+# 初始化磁盘
+fdisk /dev/sdb
+-d                        # 删除分区</code></pre>
+<h1 id="RAID卷管理"><a href="#RAID卷管理" class="headerlink" title="RAID卷管理"></a>RAID卷管理</h1><h2 id="0x01-RAID基础"><a href="#0x01-RAID基础" class="headerlink" title="0x01 RAID基础"></a>0x01 RAID基础</h2><p>磁盘阵列（<code>Redundant Arrays of Independent Disks</code>,<em><code>RAID</code></em>） :有多块磁盘组成的一个磁盘组，具有提升读写速度和数据冗余的能力。</p>
+<ul>
+<li>Raid分为硬Raid（基于硬件Raid卡）和软Raid（基于系统）<ul>
+<li>磁盘分为基本磁盘和动态磁盘，因为基本磁盘分区大小不能调整，一旦数据丢失，很难恢复。所以就有了动态磁盘</li>
+<li>卷是动态磁盘的最基本形式。简单卷，跨区卷，</li>
+<li>Raid0:又叫做带区卷，读写速度是原来的N倍，磁盘利用率是100%，但是不具备容错能力。</li>
+<li>Raid1：叫做镜像卷，读写速度是原来的一半，磁盘利用率为50%，具备容错能力。</li>
+<li>raid5卷：由3-32块大小相同的磁盘组成，读写速度是原来的N倍，磁盘利用率为（n-1）/n</li>
+</ul>
+</li>
+</ul>
+<h2 id="0x02-RAID管理"><a href="#0x02-RAID管理" class="headerlink" title="0x02 RAID管理"></a>0x02 RAID管理</h2><ol>
+<li><p>创建RAID。</p>
+<pre class=" language-shell"><code class="language-shell">#1.给虚拟机再添加4个硬盘（1G/个）
+#2.创建raid5
+ -C表示创建虚拟磁盘；-l创建的Raid级别；-n表示由几个硬盘组成；
+ mdadm -C /dev/raid5 -l 5 -n 3 /dev/sd[bcd] 
+ mdadm -D /dev/md5    #-D显示详细信息
+
+#3.格式化
+mkfs.ext4 /dev/md5
+
+#4.挂载，并进行读写测试
+mount /dev/md5 /mnt
+df  -h   #检查挂载是否成功
+echo  7777777777 >> /mnt/7.txt
+cat /mnt/7.txt 
+#5.模拟一个磁盘坏掉
+mdadm /dev/md5 -f /dev/sdb   #-f(fail)指定错误磁盘
+mdadm /dev/md5 -r /dev/sdb    #-r(remove)移除
+mdadm -D /dev/md5   
+
+#6.添加一个新的磁盘
+mdadm /dev/md5 -a  /dev/sdb  #-a(add)表示把新磁盘添加到Raid5里。说明:这里标记错误和添加的新硬盘编号最好一样,否则容易出错.
+cat /proc/mdstat   #查看Raid信息
+
+#7.Raid5 的信息默认重启会失效
+mdadm -Ds >> /etc/mdadm.conf   #把raid5的相关信息写入mdadm的配置文件里
+#内容：  ARRAY   /dev/md0  UUID=XXXXX
+
+#8.写入开机自动挂载的配置文件里
+vim  /etc/fstab  
+/dev/md5  /mnt   ext4    defaults    0 0 </code></pre>
+</li>
+<li><p>清空RAID。</p>
+<pre class=" language-shell"><code class="language-shell">#1.第一步:(如果有)编辑vim  /etc/fstab  去掉/dev/md5 这一行
+#2.第二步:卸载raid5
+umount  /dev/md5     #卸载
+rm -rf /etc/mdadm.conf    #删除mdadm的配置文件
+mdadm -D /dev/md5   #检查md5这个组里的磁盘编号（最后3行）
+#注意：删除的时候一定要注意磁盘编号；dd命令不要覆盖到错误的磁盘里。
+
+#3.第三步:标记要移出的磁盘为错误,并停止raid5
+mdadm  /dev/md5 -f /dev/sd[bcd]  #标记错误
+mdadm  /dev/md5 -r /dev/sd[bcd]  #移除
+cat /proc/mdstat      #检查系统里识别的Raid信息
+mdadm  -S /dev/md5    #-S表示停止raid5.
+
+#4.覆盖掉存储在磁盘里的Raid信息
+dd if=/dev/zero of=/dev/md5 bs=100M    count=1   #覆盖掉系统识别的raid信息
+
+#根据之前查看mdadm -D  /dev/md5里的磁盘编号进行覆盖（不要dd执行在错误的磁盘编号上）。
+dd if=/dev/zero of=/dev/sdb bs=100M    count=1  
+dd if=/dev/zero of=/dev/sdc bs=100M    count=1  
+dd if=/dev/zero of=/dev/sdd bs=100M    count=1  
+reboot    #重启生效 
+</code></pre>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.z1r0s.top" rel="external nofollow noreferrer">z1r0s</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.z1r0s.top/2020/12/09/linux/based/linux-zhi-ci-pan-guan-li/">https://www.z1r0s.top/2020/12/09/linux/based/linux-zhi-ci-pan-guan-li/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.z1r0s.top" target="_blank">z1r0s</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .mvaline-card {
+        margin: 1.5rem auto;
+    }
+
+    .mvaline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+</style>
+
+<div class="card mvaline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="mvcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/minivaline/MiniValine.js"></script>
+<script>
+    new MiniValine(Object.assign({"enable":true,"appId":"rr4jTLi2BJEgTziWjmGxpu1a-MdYXbMMI","appKey":"aFRDmu52XNOUP0PyGNjjzDCQ","mode":"DesertsP","placeholder":"Write a Comment","math":true,"md":true,"enableQQ":false,"NoRecordIP":false,"visitor":true,"maxNest":6,"pageSize":6,"adminEmailMd5":"de8a7aa53d07e6b6bceb45c64027763d","tagMeta":["管理员","小伙伴","访客"],"master":["de8a7aa53d07e6b6bceb45c64027763d"],"friends":["b5bd5d836c7a0091aa8473e79ed4c25e","adb7d1cd192658a55c0ad22a3309cecf","3ce1e6c77b4910f1871106cb30dc62b0","cfce8dc43725cc14ffcd9fb4892d5bfc"],"lang":null,"emoticonUrl":["https://cdn.jsdelivr.net/npm/alus@latest","https://cdn.jsdelivr.net/gh/MiniValine/qq@latest","https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest","https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest","https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest","https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest"]}, {
+	  el: '#mvcomments',
+    }));
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/12/11/linux/based/linux-zhi-gu-zhang-pai-chu/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/82.jpg" class="responsive-img" alt="Linux之故障排除">
+                        
+                        <span class="card-title">Linux之故障排除</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/操作系统/" class="post-category">
+                                    操作系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/12/08/linux/based/linux-mu-lu-jie-shao/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Linux目录介绍">
+                        
+                        <span class="card-title">Linux目录介绍</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/操作系统/" class="post-category">
+                                    操作系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7173532278"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">z1r0s</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">299.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/z1r0s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2603350388@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2603350388" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2603350388" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+
+</html>
+<script type="text/javascript" src="/js/click_show_text.js"></script>
