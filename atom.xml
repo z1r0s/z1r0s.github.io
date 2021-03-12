@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.z1r0s.top/"/>
-  <updated>2021-03-10T02:34:45.718Z</updated>
+  <updated>2021-03-12T01:56:31.661Z</updated>
   <id>https://www.z1r0s.top/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>变量覆盖漏洞</title>
+    <link href="https://www.z1r0s.top/2021/03/11/security/webvuln/varcovered/bian-liang-fu-gai-lou-dong/"/>
+    <id>https://www.z1r0s.top/2021/03/11/security/webvuln/varcovered/bian-liang-fu-gai-lou-dong/</id>
+    <published>2021-03-11T10:32:44.000Z</published>
+    <updated>2021-03-12T01:56:31.661Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;变量覆盖&quot;&gt;&lt;a href=&quot;#变量覆盖&quot; class=&quot;headerlink&quot; title=&quot;变量覆盖&quot;&gt;&lt;/a&gt;变量覆盖&lt;/h1&gt;&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+      <category term="Security" scheme="https://www.z1r0s.top/categories/Security/"/>
+    
+      <category term="Web" scheme="https://www.z1r0s.top/categories/Security/Web/"/>
+    
+      <category term="变量覆盖" scheme="https://www.z1r0s.top/categories/Security/Web/%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96/"/>
+    
+    
+      <category term="Web安全" scheme="https://www.z1r0s.top/tags/Web%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="PHP" scheme="https://www.z1r0s.top/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>命令执行漏洞</title>
@@ -542,32 +574,6 @@
     <id>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/</id>
     <published>2021-02-24T08:05:59.000Z</published>
     <updated>2021-02-24T08:46:19.324Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;0x01-SQL注入&quot;&gt;&lt;a href=&quot;#0x01-SQL注入&quot; class=&quot;headerlink&quot; title=&quot;0x01 SQL注入&quot;&gt;&lt;/a&gt;0x01
-        
-      
-    
-    </summary>
-    
-      <category term="Web安全" scheme="https://www.z1r0s.top/categories/Web%E5%AE%89%E5%85%A8/"/>
-    
-    
-      <category term="靶场" scheme="https://www.z1r0s.top/tags/%E9%9D%B6%E5%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL注入之GET-Blind-TimeBased-DoubleQuotes</title>
-    <link href="https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/"/>
-    <id>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</id>
-    <published>2021-02-24T08:05:59.000Z</published>
-    <updated>2021-02-24T14:32:23.950Z</updated>
     
     <summary type="html">
     
