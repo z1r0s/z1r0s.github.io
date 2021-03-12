@@ -1,1 +1,305 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=favicon.ico><title>geek-navigation</title><link href=css/app.5ca325cd.css rel=preload as=style><link href=css/chunk-vendors.af67b8ba.css rel=preload as=style><link href=js/app.e4909c9a.js rel=preload as=script><link href=js/chunk-vendors.ca9d6b6b.js rel=preload as=script><link href=css/chunk-vendors.af67b8ba.css rel=stylesheet><link href=css/app.5ca325cd.css rel=stylesheet></head><body><noscript><strong>We're sorry but geek-navigation doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=js/chunk-vendors.ca9d6b6b.js></script><script src=js/app.e4909c9a.js></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>导航</title>
+    <meta name="keywords" content="主页导航,简单网址导航">
+    <meta name="description" content="只言片语，可寻万物！"/>
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <!-- 百度统计代码 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?786a6208323fbecfb41d71bfda8daca6";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+</head>
+
+<body>
+<div class="inner-center main stuff">
+  <div class="content-inside">
+
+    <!-- slogan start -->
+    <div class="logo-box">
+      <div class="logo-left">
+        <img src="./static/img/logo.gif" alt="logo">
+      </div>
+      <div class="logo-right">
+        <span>只言片语，可寻万物</span>
+      </div>
+    </div>
+    <!-- slogan end -->
+    
+    <!-- 搜索框 start -->
+    <div id="search_form" class="search-section"target="_self">
+      <div class="search-left">
+        <div id="search_logo" data-type="google" class="search-logo"></div>
+        <div class="input-wrap">
+          <input id="search_keyword"
+                class="search-input"
+                name="keyword"
+                maxlength="100"
+                autocomplete="off"
+                type="text"
+                placeholder="不懂么？不懂就搜，给老子搜！">
+          <div class="clear-keyword" id="clear_keyword" title="清空">x</div>
+        </div>
+
+        <!--  搜索引擎 start  -->
+        <ul id="search_methods" class="search-methods">
+          <li data-type="google" class="search-item google">谷歌</li>
+          <li data-type="baidu" class="search-item baidu">百度</li>
+          <li data-type="bing" class="search-item bing">必应</li>
+          <li data-type="so" class="search-item so">360搜索</li>
+          <li data-type="sogou" class="search-item sogou">搜狗</li>
+          <li data-type="wangpan" class="search-item wangpan">网盘搜索</li>
+          <li data-type="slime" class="search-item slime">史莱姆搜索</li>
+          <li data-type="zoomeye" class="search-item zoomeye">钟馗之眼</li>
+          <li data-type="fofa" class="search-item fofa">FOFA</li>
+        </ul>
+        <!--  搜索引擎 end  -->
+
+        <!--  搜索结果 start -->
+        <ul id="search_result" class="search-result">
+          <!--<li class="result-item"></li>-->
+        </ul>
+        <!--  搜索结果 end -->
+
+      </div>
+      <input class="search-submit" value="寻一下" id="search_submit" type="submit">
+    </div>
+    <!-- 搜索框 end -->
+    
+    <!-- 导航地址 start -->
+    <div class="nav-content">
+      <div class="jj-list">
+        <div class="jj-list-tit">SoSo</div>
+        <ul class="jj-list-con">
+          <li title=""><a href="https://www.google.com/" class="jj-list-link" target="_self">Google</a></li>
+          <li><a href="https://www.baidu.com/" class="jj-list-link" target="_self">百度</a></li>
+          <li><a href="https://cn.bing.com/" class="jj-list-link" target="_self">Bing</a></li>
+          <li><a href="https://www.sogou.com/" class="jj-list-link" target="_self">搜狗搜索</a></li>
+          <li><a href="https://www.so.com/" class="jj-list-link" target="_self">360搜索</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">Recreat</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.bilibili.com/" class="jj-list-link" target="_self">B站</a></li>
+          <li><a href="https://v.qq.com/" class="jj-list-link" target="_self">腾讯视频</a></li>
+          <li><a href="https://youku.com/" class="jj-list-link" target="_self">优酷</a></li>
+          <li><a href="https://www.iqiyi.com/" class="jj-list-link" target="_self">爱奇艺</a></li>
+          <li><a href="https://www.acfun.cn/" class="jj-list-link" target="_self">A站</a></li>
+          <li><a href="http://www.zzzfun.com/" class="jj-list-link" target="_self">Z站</a></li>
+          <li><a href="https://www.youtube.com/" class="jj-list-link" target="_self">油管</a></li>
+          <li><a href="http://www.huihev.com/" class="jj-list-link" target="_self">绘盒</a></li>
+          <li><a href="https://www.kuhuiv.com/" class="jj-list-link" target="_self">酷绘</a></li>
+          <li><a href="https://www.manhuama.net/" class="jj-list-link" target="_self">漫画码</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">Shopping</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.jd.com/" class="jj-list-link" target="_self">京东</a></li>
+          <li><a href="https://www.taobao.com/" class="jj-list-link" target="_self">淘宝</a></li>
+          <li><a href="https://www.tmall.com/" class="jj-list-link" target="_self">天猫</a></li>
+          <li><a href="https://www.amazon.cn/" class="jj-list-link" target="_self">亚马逊中国</a></li>
+          <li><a href="https://www.smzdm.com/" class="jj-list-link" target="_self">什么值得买</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">Pic</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.pixiv.net/" class="jj-list-link" target="_self">P站</a></li>
+          <li><a href="https://www.52dmtp.com/" class="jj-list-link" target="_self">52动漫图片</a></li>
+          <li><a href="https://www.mangoxo.com/album" class="jj-list-link" target="_self">芒果xo</a></li>
+          <li><a href="https://www.duitang.com/" class="jj-list-link" target="_self">堆糖</a></li>
+          <li><a href="https://www.iconfont.cn/" class="jj-list-link" target="_self">Iconfont</a></li>
+          <li><a href="https://www.pexels.com/zh-cn/" class="jj-list-link" target="_self">Pexels</a></li>
+          <li><a href="https://wallhaven.cc/" class="jj-list-link" target="_self">wallhaven</a></li>
+          <li><a href="http://pic.netbian.com/" class="jj-list-link" target="_self">彼岸图网</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">CTF</div>
+        <ul class="jj-list-con">
+          <li><a href="https//ctf-wiki.github.io/ctf-wiki/?tdsourcetag=s_pctim_aiomsg" class="jj-list-link" target="_self">CTFWiki</a></li>
+          <li><a href="https://www.xctf.org.cn/index/" class="jj-list-link" target="_self">XCTF</a></li>
+          <li><a href="https://ctftime.org/" class="jj-list-link" target="_self">CTFtime</a></li>
+          <li><a href="https://www.ichunqiu.com/competition" class="jj-list-link" target="_self">i春秋</a></li>
+          <li><a href="http://www.huozhongctf.com/index.html" class="jj-list-link" target="_self">FCTF</a></li>
+          <li><a href="http://www.wechall.net/" class="jj-list-link" target="_self">WeChall</a></li>
+          <li><a href="https//ctf.bugku.com/" class="jj-list-link" target="_self">BugkuCTF</a></li>
+          <li><a href="https//buuoj.cn/" class="jj-list-link" target="_self">BUUCTF</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">SRC</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.butian.net/" class="jj-list-link" target="_self">补天</a></li>
+          <li><a href="https://www.bugbank.cn/" class="jj-list-link" target="_self">漏洞银行</a></li>
+          <li><a href="https://xianzhi.aliyun.com/productitem/index.htm#/home" class="jj-list-link" target="_self">先知</a></li>
+          <li><a href="https://www.t00ls.net/" class="jj-list-link" target="_self">T00ls</a></li>
+          <li><a href="https://www.vulbox.com/" class="jj-list-link" target="_self">漏洞盒子</a></li>
+          <li><a href="https://www.seebug.org/" class="jj-list-link" target="_self">SeeBug</a></li>
+          <li><a href="https://security.guazi.com/home" class="jj-list-link" target="_self">瓜子SRC</a></li>
+          <li><a href="http://sec.baidu.com/v2/#/rank/list" class="jj-list-link" target="_self">百度SRC</a></li>
+          <li><a href="https://security.tencent.com/" class="jj-list-link" target="_self">腾讯SRC</a></li>
+          <li><a href="https://aq.163.com/" class="jj-list-link" target="_self">网易SRC</a></li>
+          <li><a href="https://security.jd.com/#/" class="jj-list-link" target="_self">京东SRC</a></li>
+          <li><a href="https://src.sjtu.edu.cn/" class="jj-list-link" target="_self">教育SRC</a></li>
+          <li><a href="http://zc.cnvd.org.cn/" class="jj-list-link" target="_self">CNVD</a></li>
+          <li><a href="http://cve.mitre.org/" class="jj-list-link" target="_self">CVE</a></li>
+          <li><a href="https://www.hackerone.com/" class="jj-list-link" target="_self">hackerone</a></li>
+          <li><a href="http://www.bugx.org/#/" class="jj-list-link" target="_self">bugx</a></li>
+          <li><a href="https://dvpnet.io/" class="jj-list-link" target="_self">去中心化SRC</a></li>
+          <li><a href="http://ivd.winicssec.com/" class="jj-list-link" target="_self">工控SRC</a></li>
+          <li><a href="https://www.jianshu.com/p/f10e3127af03" class="jj-list-link" target="_self">SRC聚合</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">SoHack</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.google.com/" class="jj-list-link" target="_self">Google</a></li>
+          <li><a href="https://www.zoomeye.org/" class="jj-list-link" target="_self">zoomeye</a></li>
+          <li><a href="https://fofa.so/" class="jj-list-link" target="_self">sofa</a></li>
+          <li><a href="https://www.shodan.io/" class="jj-list-link" target="_self">shodan</a></li>
+          <li><a href="http://www.ditecting.com/" class="jj-list-link" target="_self">谛听</a></li>
+          <li><a href="https://yandex.com/" class="jj-list-link" target="_self">Yandex</a></li>
+          <li><a href="https://search.yahoo.com/" class="jj-list-link" target="_self">YaHoo</a></li>
+          <li><a href="http://www.exalead.com/search/web/" class="jj-list-link" target="_self">exalead</a></li>
+          <li><a href="https://censys.io/" class="jj-list-link" target="_self">censys</a></li>
+          <li><a href="https://duckduckgo.com/" class="jj-list-link" target="_self">Duck</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">学习平台</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.bilibili.com/" class="jj-list-link" target="_self">B站</a></li>
+          <li><a href="https://www.ichunqiu.com/" class="jj-list-link" target="_self">i春秋</a></li>
+          <li><a href="https://www.shentoushi.top/network" class="jj-list-link" target="_self">渗透师导航</a></li>
+          <li><a href="https://visualgo.net/zh" class="jj-list-link" target="_self">VisuAlgo</a></li>
+          <li><a href="https://www.edx.org/" class="jj-list-link" target="_self">EdX</a></li>
+          <li><a href="http://academicearth.org/" class="jj-list-link" target="_self">Academicearth</a></li>
+          <li><a href="http://www.codecademy.com/" class="jj-list-link" target="_self">CodeCademy</a></li>
+          <li><a href="http://www.uisheji.com/" class="jj-list-link" target="_self">UI设计</a></li>
+          <li><a href="http://www.yiihuu.com/" class="jj-list-link" target="_self">翼狐</a></li>
+          <li><a href="https://www.mruniversity.com/" class="jj-list-link" target="_self">MRU</a></li>
+          <li><a href="https://www.xcode.me/" class="jj-list-link" target="_self">零度</a></li>
+          <li><a href="https://www.php.cn/" class="jj-list-link" target="_self">PHP中文网</a></li>
+          <li><a href="https://refactoringguru.cn/" class="jj-list-link" target="_self">Refactoring</a></li>
+          <li><a href="https://hellogithub.com/" class="jj-list-link" target="_self">HelloGitHub</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">安全社区</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.freebuf.com/" class="jj-list-link" target="_self">FreeBuf</a></li>
+          <li><a href="https://www.52pojie.cn/" class="jj-list-link" target="_self">吾爱破解</a></li>
+          <li><a href="https://www.secpulse.com/" class="jj-list-link" target="_self">安全脉搏</a></li>
+          <li><a href="https://bbs.pediy.com/" class="jj-list-link" target="_self">看雪</a></li>
+          <li><a href="https://xz.aliyun.com/" class="jj-list-link" target="_self">先知社区</a></li>
+          <li><a href="http://www.1937cn.com/" class="jj-list-link" target="_self">黑客画像</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">在线工具</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.atool99.com/" class="jj-list-link" target="_self">atool</a></li>
+          <li><a href="https://www.aizhan.com/" class="jj-list-link" target="_self">爱站网</a></li>
+          <li><a href="http://seo.chinaz.com/" class="jj-list-link" target="_self">站长之家</a></li>
+          <li><a href="https://www.5118.com/" class="jj-list-link" target="_self">5118</a></li>
+          <li><a href="https://tool.lu/" class="jj-list-link" target="_self">程序员工具箱</a></li>
+          <li><a href="http://www.alloyteam.com/nav/" class="jj-list-link" target="_self">Web前端导航</a></li>
+          <li><a href="https://cli.im/" class="jj-list-link" target="_self">草料二维码</a></li>
+          <li><a href="http://www.qinms.com/" class="jj-list-link" target="_self">村美小站</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">软件安装</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.portablesoft.org/" class="jj-list-link" target="_self">绿色资源网</a></li>
+          <li><a href="https://www.appinn.com/" class="jj-list-link" target="_self">小众软件</a></li>
+          <li><a href="https://sonic.volf.club/" class="jj-list-link" target="_self">音速装机</a></li>
+          <li><a href="https://www.ghpym.com/" class="jj-list-link" target="_self">果核剥壳</a></li>
+          <li><a href="https://www.52pojie.cn/" class="jj-list-link" target="_self">52破解</a></li>
+          <li><a href="https://www.zdfans.com/" class="jj-list-link" target="_self">ZD423</a></li>
+          <li><a href="http://www.lrshare.com/" class="jj-list-link" target="_self">绿软分享吧</a></li>
+          <li><a href="https://www.appcgn.com/" class="jj-list-link" target="_self">软件缘</a></li>
+          <li><a href="http://wangchujiang.com/awesome-mac/index.zh.html" class="jj-list-link" target="_self">Awesome(Mac)</a></li>
+          <li><a href="http://www.dayanzai.me/" class="jj-list-link" target="_self">大眼仔</a></li>
+          <li><a href="http://www.42xz.com/" class="jj-list-link" target="_self">绿盒</a></li>
+          <li><a href="https://www.cesafe.com/soft/" class="jj-list-link" target="_self">cesafe</a></li>
+          <li><a href="https://github.com/Awesome-Windows/Awesome/blob/master/README-cn.md" class="jj-list-link" target="_self">Awesome(Win)</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">Blogs</div>
+        <ul class="jj-list-con">
+          <li><a href="https://paper.seebug.org/" class="jj-list-link" target="_self">洞悉漏洞</a></li>
+          <li><a href="https://www.ddosi.com/" class="jj-list-link" target="_self">ddosi</a></li>
+          <li><a href="https://www.cnblogs.com/" class="jj-list-link" target="_self">博客园</a></li>
+          <li><a href="https://www.csdn.net/" class="jj-list-link" target="_self">CSDN</a></li>
+          <li><a href="https://stackoverflow.com/" class="jj-list-link" target="_self">StackOverflow</a></li>
+          <li><a href="https://www.cnblogs.com/xiaofengfeng/category/312642.html" class="jj-list-link" target="_self">小锋神</a></li>
+          <li><a href="https://i.hacking8.com/?tdsourcetag=s_pctim_aiomsg" class="jj-list-link" target="_self">Hacking8</a></li>
+          <li><a href="https://www.cnblogs.com/ECJTUACM-873284962/" class="jj-list-link" target="_self">Angel_Kitty</a></li>
+          <li><a href="https://www.ms509.com/" class="jj-list-link" target="_self">MS509 Team</a></li>
+          <li><a href="http://cryptowikis.com/" class="jj-list-link" target="_self">CryptoWiki</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">Article</div>
+        <ul class="jj-list-con">
+          <li><a href="#" class="jj-list-link" target="_self">...</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">Official</div>
+        <ul class="jj-list-con">
+          <li><a href="https://docs.rapid7.com/metasploit/msf-overview/" class="jj-list-link" target="_self">MSF</a></li>
+          <li><a href="http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines" class="jj-list-link" target="_self">PTES</a></li>
+          <li><a href="https://docs.python.org/zh-cn/3/" class="jj-list-link" target="_self">Python</a></li>
+          <li><a href="http://www.cplusplus.com/reference/clibrary/" class="jj-list-link" target="_self">CLibrary</a></li>
+          <li><a href="https://www.tiobe.com/tiobe-index/" class="jj-list-link" target="_self">TIOBE</a></li>
+          <li><a href="http://keypirinha.com/index.html" class="jj-list-link" target="_self">键盘侠</a></li>
+          <li><a href="https://www.php.net/manual/zh/" class="jj-list-link" target="_self">PHP手册</a></li>
+          <li><a href="http://www.nmap.com.cn/doc/manual.shtm" class="jj-list-link" target="_self">Nmap手册</a></li>
+          <li><a href="https://nmap.org/man/zh/index.html" class="jj-list-link" target="_self">Nmap参考指南</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">军火库</div>
+        <ul class="jj-list-con">
+          <li><a href="https://github.com/Pleione-Plus/python-pentest-tools" class="jj-list-link" target="_self">python-pentest-tools</a></li>
+          <li><a href="http://www.8090-sec.com/tools/index.html" class="jj-list-link" target="_self">8090军火库</a></li>
+          <li><a href="https://www.ctftools.com/down/" class="jj-list-link" target="_self">CTFTools</a></li>
+        </ul>
+      </div>
+      <div class="jj-list">
+        <div class="jj-list-tit">友联</div>
+        <ul class="jj-list-con">
+          <li><a href="https://www.sldh123.com/" class="jj-list-link" target="_self">搜罗导航</a></li>
+          <li><a href="https://search.chongbuluo.com/" class="jj-list-link" target="_self">快搜</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- 导航地址 end -->
+
+  </div>
+</div>
+<footer class="inner-center footer">
+
+ 
+</footer>
+<script src="./static/js/jquery.min.js"></script>
+<script src="./static/js/keyword.js"></script>
+
+
+</body>
+</html>
