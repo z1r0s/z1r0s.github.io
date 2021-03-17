@@ -1,3 +1,5 @@
+https://www.z1r0s.top/2021/03/16/security/webvuln/unserialize/php-fan-xu-lie-hua/
+https://www.z1r0s.top/2021/03/15/security/webvuln/xxe/xxe/
 https://www.z1r0s.top/2021/03/11/security/webvuln/varcovered/bian-liang-fu-gai-lou-dong/
 https://www.z1r0s.top/2021/03/10/security/webvuln/rce/ming-ling-zhi-xing-lou-dong/
 https://www.z1r0s.top/2021/03/09/security/webvuln/fileinclusion/wen-jian-bao-han/
@@ -96,5 +98,3 @@ https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-l
 https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level8/
 https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level7/
 https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level6/
-https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level5/
-https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level4/

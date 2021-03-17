@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.z1r0s.top/2021/03/16/security/webvuln/unserialize/php-fan-xu-lie-hua/</loc>
+    <lastmod>2021-03-17</lastmod>
+  </url>  <url>
+    <loc>https://www.z1r0s.top/2021/03/15/security/webvuln/xxe/xxe/</loc>
+    <lastmod>2021-03-16</lastmod>
+  </url>  <url>
+    <loc>https://www.z1r0s.top/2021/03/07/security/webvuln/sqli/sql-zhu-ru-zhi-lian-he-zhu-ru/</loc>
+    <lastmod>2021-03-15</lastmod>
+  </url>  <url>
+    <loc>https://www.z1r0s.top/2021/03/01/security/webvuln/sqli/sqlmap-shi-yong-bi-ji/</loc>
+    <lastmod>2021-03-15</lastmod>
+  </url>  <url>
     <loc>https://www.z1r0s.top/2021/03/11/security/webvuln/varcovered/bian-liang-fu-gai-lou-dong/</loc>
     <lastmod>2021-03-12</lastmod>
   </url>  <url>
@@ -31,9 +43,6 @@
     <loc>https://www.z1r0s.top/2021/03/07/security/webvuln/sqli/sql-zhu-ru-zhi-er-ci-zhu-ru/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://www.z1r0s.top/2021/03/07/security/webvuln/sqli/sql-zhu-ru-zhi-lian-he-zhu-ru/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
     <loc>https://www.z1r0s.top/2020/10/17/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-errorbased-singlequotes-string/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
@@ -42,9 +51,6 @@
   </url>  <url>
     <loc>https://www.z1r0s.top/2021/03/02/security/pentestenv/upload-labs/upload-labs-chuang-guan/</loc>
     <lastmod>2021-03-03</lastmod>
-  </url>  <url>
-    <loc>https://www.z1r0s.top/2021/03/01/security/webvuln/sqli/sqlmap-shi-yong-bi-ji/</loc>
-    <lastmod>2021-03-01</lastmod>
   </url>  <url>
     <loc>https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/</loc>
     <lastmod>2021-02-24</lastmod>
