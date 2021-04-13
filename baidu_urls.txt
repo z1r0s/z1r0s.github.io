@@ -1,3 +1,4 @@
+https://www.z1r0s.top/2021/03/31/security/post/linux-ti-quan-zi-shi-zong-jie/
 https://www.z1r0s.top/2021/03/16/security/webvuln/unserialize/php-fan-xu-lie-hua/
 https://www.z1r0s.top/2021/03/15/security/webvuln/xxe/xxe/
 https://www.z1r0s.top/2021/03/11/security/webvuln/varcovered/bian-liang-fu-gai-lou-dong/
@@ -19,8 +20,8 @@ https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-po
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/
-https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/
+https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/
 https://www.z1r0s.top/2021/01/02/database/mysql-zhi-ji-chu-ming-ling/
 https://www.z1r0s.top/2020/12/25/linux/based/linux-zhi-ri-zhi-guan-li/
@@ -51,7 +52,7 @@ https://www.z1r0s.top/2020/11/29/network/configuration/wang-luo-pei-zhi-zhi-da-x
 https://www.z1r0s.top/2020/11/28/security/post/quan-xian-wei-chi-zhi-ying-zi-zhang-hu/
 https://www.z1r0s.top/2020/11/26/security/intranet/chang-jian-she-bei-mo-ren-mi-ma-zheng-li/
 https://www.z1r0s.top/2020/11/25/network/configuration/wang-luo-pei-zhi-zhi-stp-hsrp-shi-yan/
-https://www.z1r0s.top/2020/11/24/security/vulnexp/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/
+https://www.z1r0s.top/2020/11/24/security/vulnexp/windows/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/
 https://www.z1r0s.top/2020/11/24/network/configuration/wang-luo-pei-zhi-zhi-hsrp-shi-yan/
 https://www.z1r0s.top/2020/11/23/network/configuration/wang-luo-pei-zhi-zhi-da-xing-zong-he-shi-yan-1/
 https://www.z1r0s.top/2020/11/22/network/configuration/vlan-zong-he-shi-yan/
@@ -70,7 +71,7 @@ https://www.z1r0s.top/2020/11/09/windows/servers/shi-yong-windowsserver-da-jian-
 https://www.z1r0s.top/2020/11/07/windows/servers/windows-ci-pan-guan-li/
 https://www.z1r0s.top/2020/11/06/windows/servers/windows-ben-di-an-quan-ce-lue/
 https://www.z1r0s.top/2020/11/06/windows/servers/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/
-https://www.z1r0s.top/2020/11/06/security/vulnexp/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/
+https://www.z1r0s.top/2020/11/06/security/vulnexp/windows/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/
 https://www.z1r0s.top/2020/11/06/windows/servers/windows-wen-jian-xi-tong/
 https://www.z1r0s.top/2020/11/06/windows/servers/windows-yong-hu-he-zu-guan-li/
 https://www.z1r0s.top/2020/11/05/windows/servers/yu-cao-zuo-ming-ling/
@@ -97,4 +98,3 @@ https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-l
 https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level9/
 https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level8/
 https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level7/
-https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level6/

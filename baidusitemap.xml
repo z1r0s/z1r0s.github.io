@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.z1r0s.top/2020/11/04/security/intranet/windows-chang-yong-ming-ling-zheng-li/</loc>
+    <lastmod>2021-04-01</lastmod>
+  </url>  <url>
+    <loc>https://www.z1r0s.top/2020/11/01/security/intranet/nei-wang-shen-tou-chang-yong-ming-ling/</loc>
+    <lastmod>2021-04-01</lastmod>
+  </url>  <url>
+    <loc>https://www.z1r0s.top/2021/03/31/security/post/linux-ti-quan-zi-shi-zong-jie/</loc>
+    <lastmod>2021-04-01</lastmod>
+  </url>  <url>
+    <loc>https://www.z1r0s.top/2020/11/01/security/arsenal/nmap/nmap-zhi-zhu-ji-fa-xian/</loc>
+    <lastmod>2021-03-25</lastmod>
+  </url>  <url>
     <loc>https://www.z1r0s.top/2021/03/16/security/webvuln/unserialize/php-fan-xu-lie-hua/</loc>
     <lastmod>2021-03-19</lastmod>
   </url>  <url>
@@ -100,9 +112,6 @@
     <loc>https://www.z1r0s.top/2020/12/08/linux/based/linux-mu-lu-jie-shao/</loc>
     <lastmod>2020-12-26</lastmod>
   </url>  <url>
-    <loc>https://www.z1r0s.top/2020/11/01/security/arsenal/nmap/nmap-zhi-zhu-ji-fa-xian/</loc>
-    <lastmod>2020-12-25</lastmod>
-  </url>  <url>
     <loc>https://www.z1r0s.top/2020/11/26/security/intranet/chang-jian-she-bei-mo-ren-mi-ma-zheng-li/</loc>
     <lastmod>2020-12-25</lastmod>
   </url>  <url>
@@ -163,13 +172,13 @@
     <loc>https://www.z1r0s.top/2020/09/02/english/ying-yu-ci-hui-fen-lei-hui-zong/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://www.z1r0s.top/2020/11/24/security/vulnexp/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/</loc>
+    <loc>https://www.z1r0s.top/2020/11/24/security/vulnexp/windows/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://www.z1r0s.top/2020/11/30/network/configuration/wang-luo-ji-zhu-zhi-nat/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
-    <loc>https://www.z1r0s.top/2020/11/06/security/vulnexp/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/</loc>
+    <loc>https://www.z1r0s.top/2020/11/06/security/vulnexp/windows/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://www.z1r0s.top/2020/12/16/security/script/bat/pi-chu-li-zhi-pei-zhi-fang-huo-qiang/</loc>
@@ -215,9 +224,6 @@
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://www.z1r0s.top/2020/11/07/windows/servers/windows-ci-pan-guan-li/</loc>
-    <lastmod>2020-12-22</lastmod>
-  </url>  <url>
-    <loc>https://www.z1r0s.top/2020/11/04/security/intranet/windows-chang-yong-ming-ling-zheng-li/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://www.z1r0s.top/2020/11/06/windows/servers/windows-ben-di-an-quan-ce-lue/</loc>
@@ -428,9 +434,6 @@
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://www.z1r0s.top/2020/12/22/security/intranet/nei-wang-shen-tou-zhi-heng-xiang-yi-dong-chang-jian-duan-kou/</loc>
-    <lastmod>2020-12-22</lastmod>
-  </url>  <url>
-    <loc>https://www.z1r0s.top/2020/11/01/security/intranet/nei-wang-shen-tou-chang-yong-ming-ling/</loc>
     <lastmod>2020-12-22</lastmod>
   </url>  <url>
     <loc>https://www.z1r0s.top/2020/12/21/security/infogathering/chang-gui-xin-xi-shou-ji-zhi-wmic-ming-ling/</loc>

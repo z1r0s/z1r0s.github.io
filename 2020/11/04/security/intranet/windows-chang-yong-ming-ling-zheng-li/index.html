@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-22
+                    2021-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    524
+                    533
                 </div>
                 
 
@@ -563,7 +563,7 @@ Windows IP 配置
 
 Windows IP 配置
 
-   主机名  . . . . . . . . . . . . . : PARABOX
+   主机名  . . . . . . . . . . . . . : xxxxx
    主 DNS 后缀 . . . . . . . . . . . :
    节点类型  . . . . . . . . . . . . : 混合
    IP 路由已启用 . . . . . . . . . . : 否
@@ -573,7 +573,7 @@ Windows IP 配置
 
    连接特定的 DNS 后缀 . . . . . . . :
    描述. . . . . . . . . . . . . . . : Realtek PCIe GBE Family Controller
-   物理地址. . . . . . . . . . . . . : 80-FA-5B-45-7F-41
+   物理地址. . . . . . . . . . . . . : 00-00-00-00-00-00
    DHCP 已启用 . . . . . . . . . . . : 是
    自动配置已启用. . . . . . . . . . : 是
    本地链接 IPv6 地址. . . . . . . . : fe80::5838:9ef7:2e3a:9300%18(首选)
@@ -587,53 +587,57 @@ Windows IP 配置
    DHCPv6 客户端 DUID  . . . . . . . : 00-01-00-01-24-D6-F7-64-80-FA-5B-45-7F-41
    DNS 服务器  . . . . . . . . . . . : 192.168.0.1
    TCPIP 上的 NetBIOS  . . . . . . . : 已启用</code></pre>
-<h1 id="查看网卡名称"><a href="#查看网卡名称" class="headerlink" title="查看网卡名称"></a>查看网卡名称</h1><p><code>netsh interface show interface</code></p>
+<h1 id="查看网卡名称"><a href="#查看网卡名称" class="headerlink" title="查看网卡名称"></a>查看网卡名称</h1><pre class=" language-shell"><code class="language-shell">netsh interface show interface</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看网卡名称.png" alt="查看网卡名称"></center>
 
 
 
-<h1 id="配置IP信息"><a href="#配置IP信息" class="headerlink" title="配置IP信息"></a>配置IP信息</h1><h2 id="配置静态-IP"><a href="#配置静态-IP" class="headerlink" title="配置静态 IP"></a>配置静态 IP</h2><p><code>netsh interface ip set address ccc static 192.168.10.2 255.255.255.0 192.168.10.1</code></p>
+<h1 id="配置IP信息"><a href="#配置IP信息" class="headerlink" title="配置IP信息"></a>配置IP信息</h1><h2 id="配置静态-IP"><a href="#配置静态-IP" class="headerlink" title="配置静态 IP"></a>配置静态 IP</h2><pre class=" language-shell"><code class="language-shell">netsh interface ip set address ccc static 192.168.10.2 255.255.255.0 192.168.10.1</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/配置静态IP.png" alt="配置静态IP"></center>
 
-<h2 id="配置动态IP"><a href="#配置动态IP" class="headerlink" title="配置动态IP"></a>配置动态IP</h2><p><code>netsh interface ip set address ccc dhcp</code></p>
+<h2 id="配置动态IP"><a href="#配置动态IP" class="headerlink" title="配置动态IP"></a>配置动态IP</h2><pre class=" language-shell"><code class="language-shell">netsh interface ip set address ccc dhcp</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/配置动态IP.png" alt="配置动态IP"></center>
 
-<h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><p><code>netsh interface ip set dnsserver ccc static 10.10.10.2</code></p>
+<h2 id="配置静态DNS"><a href="#配置静态DNS" class="headerlink" title="配置静态DNS"></a>配置静态DNS</h2><pre class=" language-shell"><code class="language-shell">netsh interface ip set dnsserver ccc static 10.10.10.2</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/静态DNS配置.png" alt="静态DNS配置"></center>
 
-<h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><p><code>netsh interface ip set dnsserver ccc dhcp</code></p>
+<h2 id="配置动态DNS"><a href="#配置动态DNS" class="headerlink" title="配置动态DNS"></a>配置动态DNS</h2><pre class=" language-shell"><code class="language-shell">netsh interface ip set dnsserver ccc dhcp</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/动态DNS配置.png" alt="动态DNS配置"></center>
 
 <h1 id="查看主机名"><a href="#查看主机名" class="headerlink" title="查看主机名"></a>查看主机名</h1><pre class=" language-shell"><code class="language-shell">ping -a 127.0.0.1
-ipconfig</code></pre>
+ipconfig
+hostname</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看主机名称.png" alt="查看主机名"></center>
 
 
 
-<h1 id="配置主机名"><a href="#配置主机名" class="headerlink" title="配置主机名"></a>配置主机名</h1><p><code>netdom renamecomputer localhost /newname:cccc</code></p>
+<h1 id="配置主机名"><a href="#配置主机名" class="headerlink" title="配置主机名"></a>配置主机名</h1><pre class=" language-shell"><code class="language-shell">netdom renamecomputer localhost /newname:cccc</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/配置主机名.png" alt="配置主机名"></center>
 
 
 
-<h1 id="查看系统SID"><a href="#查看系统SID" class="headerlink" title="查看系统SID"></a>查看系统SID</h1><p><code>whoami /user</code></p>
+<h1 id="查看系统SID"><a href="#查看系统SID" class="headerlink" title="查看系统SID"></a>查看系统SID</h1><pre class=" language-shell"><code class="language-shell">whoami /user</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看系统SID .png" alt="查看系统SID "></center>
 
-<h1 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h1><h2 id="查看主机所有用户信息"><a href="#查看主机所有用户信息" class="headerlink" title="查看主机所有用户信息"></a>查看主机所有用户信息</h2><p><code>net user</code></p>
+
+
+<h1 id="设置或配置变量"><a href="#设置或配置变量" class="headerlink" title="设置或配置变量"></a>设置或配置变量</h1><pre class=" language-shell"><code class="language-shell">set </code></pre>
+<h1 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h1><h2 id="查看主机所有用户信息"><a href="#查看主机所有用户信息" class="headerlink" title="查看主机所有用户信息"></a>查看主机所有用户信息</h2><pre class=" language-shell"><code class="language-shell">net user</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看所有用户信息.png" alt="查看所有用户信息"></center>
 
 
 
-<h2 id="查看指定用户信息"><a href="#查看指定用户信息" class="headerlink" title="查看指定用户信息"></a>查看指定用户信息</h2><p><code>net user administrator</code></p>
+<h2 id="查看指定用户信息"><a href="#查看指定用户信息" class="headerlink" title="查看指定用户信息"></a>查看指定用户信息</h2><pre class=" language-shell"><code class="language-shell">net user administrator</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/查看指定用户信息.png" alt="查看指定用户信息"></center>
 
 
 
-<h2 id="添加新用户"><a href="#添加新用户" class="headerlink" title="添加新用户"></a>添加新用户</h2><p><code>net user admin cc.123 /add</code></p>
+<h2 id="添加新用户"><a href="#添加新用户" class="headerlink" title="添加新用户"></a>添加新用户</h2><pre class=" language-shell"><code class="language-shell">net user admin cc.123 /add</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/添加新用户.png" alt="添加新用户"></center>
 
 
 
-<h2 id="修改用户密码"><a href="#修改用户密码" class="headerlink" title="修改用户密码"></a>修改用户密码</h2><p><code>net user admin 123.com</code></p>
+<h2 id="修改用户密码"><a href="#修改用户密码" class="headerlink" title="修改用户密码"></a>修改用户密码</h2><pre class=" language-shell"><code class="language-shell">net user admin 123.com</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/修改用户密码.png" alt="修改用户密码"></center>
 
 
@@ -644,7 +648,7 @@ net user admin /active:no    # 禁用</code></pre>
 
 
 
-<h2 id="删除指定用户"><a href="#删除指定用户" class="headerlink" title="删除指定用户"></a>删除指定用户</h2><p><code>net user admin /del</code></p>
+<h2 id="删除指定用户"><a href="#删除指定用户" class="headerlink" title="删除指定用户"></a>删除指定用户</h2><pre class=" language-shell"><code class="language-shell">net user admin /del</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Software/Win/cmd/CommonCommand/删除指定用户.png" alt="删除指定用户"></center>
 
 <h1 id="组配置"><a href="#组配置" class="headerlink" title="组配置"></a>组配置</h1><h2 id="将用户添加到指定组中"><a href="#将用户添加到指定组中" class="headerlink" title="将用户添加到指定组中"></a>将用户添加到指定组中</h2><pre class=" language-shell"><code class="language-shell">net localgroup administrators admin /add</code></pre>
@@ -1228,7 +1232,7 @@ net user admin /active:no    # 禁用</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.2k</span>&nbsp;字
+                class="white-color">306.7k</span>&nbsp;字
             
             
             
@@ -1446,10 +1450,10 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 
 </html>
 <script type="text/javascript" src="/js/click_show_text.js"></script>

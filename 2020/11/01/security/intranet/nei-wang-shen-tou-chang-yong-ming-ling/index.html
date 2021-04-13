@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-22
+                    2021-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    776
+                    820
                 </div>
                 
 
@@ -589,7 +589,8 @@
 
 
 
-<h2 id="0x08-查看在线用户"><a href="#0x08-查看在线用户" class="headerlink" title="0x08 查看在线用户"></a>0x08 查看在线用户</h2><pre class=" language-powershell"><code class="language-powershell">quser</code></pre>
+<h2 id="0x08-查看在线用户"><a href="#0x08-查看在线用户" class="headerlink" title="0x08 查看在线用户"></a>0x08 查看在线用户</h2><pre class=" language-powershell"><code class="language-powershell">query user
+quser</code></pre>
 <center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Win-Commands/查看在线用户.png" alt="查看在线用户"></center>
 
 
@@ -633,6 +634,11 @@ net user <span class="token operator">/</span>domain
 net user 域用户 <span class="token operator">/</span>domain
 <span class="token comment" spellcheck="true"># 修改域用户密码（需要管理员权限）</span>
 net user <span class="token operator">/</span>domain xxx 123456</code></pre>
+<h2 id="0x16-命令过滤绕过技巧"><a href="#0x16-命令过滤绕过技巧" class="headerlink" title="0x16 命令过滤绕过技巧"></a>0x16 命令过滤绕过技巧</h2><pre class=" language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># net命令后加1个数字仍然可以正常解析</span>
+net1 user
+
+<span class="token comment" spellcheck="true"># 使用转义符绕过匹配</span>
+who^ami<span class="token punctuation">(</span>所有命令<span class="token punctuation">)</span></code></pre>
 <h1 id="Windows（域）"><a href="#Windows（域）" class="headerlink" title="Windows（域）"></a>Windows（域）</h1><h2 id="0x01-nltest信任域"><a href="#0x01-nltest信任域" class="headerlink" title="0x01 nltest信任域"></a>0x01 nltest信任域</h2><p>​        nltest是2003之后的系统自带的工具，一般来说域控都搭建在主dns服务器上，因为他要进行域名解析。 我们可以nltest在工作组里进行查询，查询内网里是否存在域环境。</p>
 <ol>
 <li><p>查询域控</p>
@@ -1289,7 +1295,7 @@ net view /domain:XYZ</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.2k</span>&nbsp;字
+                class="white-color">306.7k</span>&nbsp;字
             
             
             
@@ -1507,10 +1513,10 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 
 </html>
 <script type="text/javascript" src="/js/click_show_text.js"></script>

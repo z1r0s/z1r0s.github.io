@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-25
+                    2021-03-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    5.1k
                 </div>
                 
 
@@ -745,7 +745,8 @@ Nmap done: 1 IP address <span class="token punctuation">(</span>1 host up<span c
 <li>ICMP：对应协议编号为1.</li>
 <li>IGMP：对应协议编号为2.</li>
 </ul>
-<pre class=" language-powershell"><code class="language-powershell">nmap <span class="token operator">-</span>P0 6<span class="token punctuation">,</span>17<span class="token punctuation">,</span>2 10<span class="token punctuation">.</span>10<span class="token punctuation">.</span>10<span class="token punctuation">.</span>148</code></pre>
+<pre class=" language-powershell"><code class="language-powershell">nmap <span class="token operator">-</span>P0 6<span class="token punctuation">,</span>17<span class="token punctuation">,</span>2 <span class="token operator">--</span>packet<span class="token operator">-</span>trace 10<span class="token punctuation">.</span>10<span class="token punctuation">.</span>10<span class="token punctuation">.</span>148
+<span class="token comment" spellcheck="true"># 指定使用TCP、UDP、IGMP协议向目标主机发送包并判断主机是否在线</span></code></pre>
 </li>
 </ul>
 <h1 id="0x04-TCP-SYN-Ping扫描"><a href="#0x04-TCP-SYN-Ping扫描" class="headerlink" title="0x04 TCP SYN Ping扫描"></a>0x04 TCP SYN Ping扫描</h1><p>​        通常情况下，Nmap默认Ping扫描是使用<code>TCP SYN</code>和<code>ICMP ECHO</code>请求对目标进行是否存活的响应，当目标主机的防火墙阻止这些请求时，可以使用<code>TCP SYN Ping</code>扫描来进行对目标主机存活的判断。</p>
@@ -796,7 +797,7 @@ MAC Address: 00:0C:29:7C:0C:79 <span class="token punctuation">(</span>VMware<sp
 
 Nmap done: 1 IP address <span class="token punctuation">(</span>1 host up<span class="token punctuation">)</span> scanned in 2<span class="token punctuation">.</span>54 seconds</code></pre>
 <ul>
-<li><p><code>-PS</code>选项发送一个设置为SYN标志位的空TCP报文，默认目的端口为80，但不同的端口也可以作为选项指定，设置可以指定一个以逗号分隔的端口列表，每个端口会被并发地扫描。</p>
+<li><p><code>-PS</code>选项发送一个设置为SYN标志位的空TCP报文，默认目的端口为80（可以通过改变<code>nmap.h</code>文件中<code>DEFAULT-TCP-PROBE-PORT</code>的值进行配置），但不同的端口也可以作为选项指定，设置可以指定一个以<strong>逗号分隔</strong>的端口列表，每个端口会被并发地扫描。</p>
 <pre class=" language-powershell"><code class="language-powershell">nmap <span class="token operator">-</span>PS80<span class="token punctuation">,</span>100<span class="token operator">-</span>200 10<span class="token punctuation">.</span>10<span class="token punctuation">.</span>10<span class="token punctuation">.</span>148</code></pre>
 </li>
 </ul>
@@ -1763,7 +1764,7 @@ Nmap done: 1 IP address <span class="token punctuation">(</span>1 host up<span c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.2k</span>&nbsp;字
+                class="white-color">306.7k</span>&nbsp;字
             
             
             
@@ -1981,10 +1982,10 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 
 </html>
 <script type="text/javascript" src="/js/click_show_text.js"></script>

