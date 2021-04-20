@@ -1,3 +1,4 @@
+https://www.z1r0s.top/2021/04/20/security/vulnexp/chrome/chrome-yuan-cheng-dai-ma-zhi-xing-lou-dong-20210413/
 https://www.z1r0s.top/2021/03/31/security/post/linux-ti-quan-zi-shi-zong-jie/
 https://www.z1r0s.top/2021/03/16/security/webvuln/unserialize/php-fan-xu-lie-hua/
 https://www.z1r0s.top/2021/03/15/security/webvuln/xxe/xxe/
@@ -20,8 +21,8 @@ https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-po
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-doublequotes-string-withtwist/
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-post-errorbased-singlequotes-string/
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-singlequotes/
-https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-boolianbased-singlequotes/
+https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-blind-timebased-doublequotes/
 https://www.z1r0s.top/2021/02/24/security/pentestenv/sqli-labs/sql-zhu-ru-zhi-get-dumpintooutfile-string/
 https://www.z1r0s.top/2021/01/02/database/mysql-zhi-ji-chu-ming-ling/
 https://www.z1r0s.top/2020/12/25/linux/based/linux-zhi-ri-zhi-guan-li/
@@ -97,4 +98,3 @@ https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-l
 https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level10/
 https://www.z1r0s.top/2020/10/27/security/pentestenv/xss-labs/xss-zhi-xss-labs-level9/
 https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level8/
-https://www.z1r0s.top/2020/10/26/security/pentestenv/xss-labs/xss-zhi-xss-labs-level7/
